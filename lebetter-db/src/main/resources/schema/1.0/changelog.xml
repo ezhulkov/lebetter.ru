@@ -1,0 +1,740 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="ahomyakov" id="1.0.0-1">
+        <!--#########################CREATE SEQUENCES######################-->
+        <createSequence sequenceName="hibernate_sequence"
+                        schemaName="public"
+                        incrementBy="1"
+                        startValue="1"/>
+        <createSequence sequenceName="not_entity_associated_file_id"
+                        schemaName="public"
+                        incrementBy="1"
+                        startValue="1"/>
+        <createSequence sequenceName="sitemap_idx_generator"
+                        schemaName="public"
+                        startValue="1"
+                        incrementBy="1"/>
+    </changeSet>
+
+    <changeSet author="ahomyakov" id="1.0.0-2">
+        <!--#########################CREATE TABLES######################-->
+        <!--#########################app_action#########################-->
+        <createTable schemaName="public" tableName="app_action">
+            <column name="id" type="int8">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="app_action_pkey"/>
+            </column>
+            <column defaultValueBoolean="false" name="objectdeleted" type="bool"/>
+            <column defaultValueNumeric="0" name="objectstatus" type="int4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="actiongroup_id" type="int8"/>
+            <column name="rootid" type="int8"/>
+            <column name="rootobject" defaultValueBoolean="false" type="bool"/>
+            <column name="language_id" type="int8"/>
+            <column name="deletiondate" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="remover_id" type="int8"/>
+            <column defaultValueNumeric="0" name="searchstatus" type="int4"/>
+        </createTable>
+        <!--#########################app_actiongroup#########################-->
+        <createTable schemaName="public" tableName="app_actiongroup">
+            <column name="id" type="int8">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="app_actiongroup_pkey"/>
+            </column>
+            <column defaultValueBoolean="false" name="objectdeleted" type="bool"/>
+            <column defaultValueNumeric="0" name="objectstatus" type="int4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="rootid" type="int8"/>
+            <column name="rootobject" defaultValueBoolean="false" type="bool"/>
+            <column name="language_id" type="int8"/>
+            <column name="deletiondate" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="remover_id" type="int8"/>
+            <column defaultValueNumeric="0" name="searchstatus" type="int4"/>
+        </createTable>
+
+        <!--#########################app_role#########################-->
+        <createTable schemaName="public" tableName="app_role">
+            <column name="id" type="int8">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="app_role_pkey"/>
+            </column>
+            <column defaultValueBoolean="false" name="objectdeleted" type="bool"/>
+            <column defaultValueNumeric="0" name="objectstatus" type="int4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(128)"/>
+            <column defaultValueBoolean="false" name="virtual" type="bool"/>
+            <column name="rootid" type="int8"/>
+            <column name="rootobject" defaultValueBoolean="false" type="bool"/>
+            <column name="language_id" type="int8"/>
+            <column name="deletiondate" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="remover_id" type="int8"/>
+            <column defaultValueNumeric="0" name="searchstatus" type="int4"/>
+            <column name="parent_id" type="int8"/>
+        </createTable>
+
+        <!--#########################app_role_action#########################-->
+        <createTable schemaName="public" tableName="app_role_action">
+            <column name="id" type="int8">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="app_role_action_pkey"/>
+            </column>
+            <column defaultValueBoolean="false" name="objectdeleted" type="bool"/>
+            <column defaultValueNumeric="0" name="objectstatus" type="int4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(2)"/>
+            <column name="role_id" type="int8"/>
+            <column name="action_id" type="int8"/>
+            <column defaultValueNumeric="0" name="flag" type="int4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rootid" type="int8"/>
+            <column name="rootobject" defaultValueBoolean="false" type="bool"/>
+            <column name="language_id" type="int8"/>
+            <column name="deletiondate" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="remover_id" type="int8"/>
+            <column defaultValueNumeric="0" name="searchstatus" type="int4"/>
+        </createTable>
+
+        <!--#########################app_user#########################-->
+        <createTable schemaName="public" tableName="app_user">
+            <column name="id" type="int8">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="app_user_pkey"/>
+            </column>
+            <column defaultValueBoolean="false" name="objectdeleted" type="bool"/>
+            <column defaultValueNumeric="0" name="objectstatus" type="int4">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0.0" name="rating" type="FLOAT4(8,8)"/>
+            <column defaultValue="" name="about" type="VARCHAR(4000)"/>
+            <column defaultValue="" name="annotation" type="VARCHAR(255)"/>
+            <column defaultValue="" name="addinfo" type="VARCHAR(4000)"/>
+            <column defaultValue="" name="address" type="VARCHAR(128)"/>
+            <column defaultValue="" name="city" type="VARCHAR(64)"/>
+            <column defaultValue="" name="country" type="VARCHAR(64)"/>
+            <column defaultValue="" name="email" type="VARCHAR(64)"/>
+            <column defaultValueNumeric="0.0" name="latitude" type="FLOAT4(8,8)"/>
+            <column defaultValueNumeric="0.0" name="longitude" type="FLOAT4(8,8)"/>
+            <column defaultValue="" name="site" type="VARCHAR(64)"/>
+            <column defaultValue="" name="telfax" type="VARCHAR(32)"/>
+            <column defaultValue="" name="telfixed" type="VARCHAR(32)"/>
+            <column defaultValue="" name="telmobile" type="VARCHAR(32)"/>
+            <column defaultValue="" name="zipcode" type="VARCHAR(10)"/>
+            <column name="createdate" type="TIMESTAMP WITH TIME ZONE"/>
+            <column defaultValue="" name="first_name" type="VARCHAR(255)"/>
+            <column defaultValueNumeric="0" name="imagestatus" type="int4"/>
+            <column defaultValue="" name="ip" type="VARCHAR(255)"/>
+            <column name="lastlogondate" type="TIMESTAMP WITH TIME ZONE"/>
+            <column defaultValue="" name="last_name" type="VARCHAR(255)"/>
+            <column name="password" type="VARCHAR(255)"/>
+            <column defaultValueBoolean="false" name="account_expired" type="bool"/>
+            <column defaultValueBoolean="false" name="account_locked" type="bool"/>
+            <column defaultValueBoolean="false" name="credentials_expired" type="bool"/>
+            <column defaultValueBoolean="false" name="account_enabled" type="bool"/>
+            <column name="name" type="VARCHAR(128)"/>
+            <column name="version" type="int4"/>
+            <column name="creator_id" type="int8"/>
+            <column name="owner_id" type="int8"/>
+            <column name="referee_id" type="int8"/>
+            <column name="prefferedlanguage_id" type="int8"/>
+            <column name="rootid" type="int8"/>
+            <column name="rootobject" defaultValueBoolean="false" type="bool"/>
+            <column name="language_id" type="int8"/>
+            <column name="deletiondate" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="remover_id" type="int8"/>
+            <column defaultValueNumeric="0" name="searchstatus" type="int4"/>
+            <column name="activated" defaultValue="false" type="boolean"/>
+            <column name="activationcode" type="varchar(16)"/>
+            <column name="creatorrep_id" type="int8"/>
+            <column name="addressskype" type="varchar(128)"/>
+            <column name="addressicq" type="varchar(128)"/>
+            <column name="addresslivejournal" type="varchar(128)"/>
+            <column name="addressfacebook" type="varchar(128)"/>
+            <column name="addressvkontakte" type="varchar(128)"/>
+            <column name="addresscard" type="varchar(128)"/>
+            <column name="addresstwitter" type="varchar(128)"/>
+            <column name="dummy" type="bool" defaultValueBoolean="false">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <!--#########################app_user_role#########################-->
+        <createTable schemaName="public" tableName="app_user_role">
+            <column name="user_id" type="int8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role_id" type="int8">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+
+        <!--#########################app_language#########################-->
+        <createTable schemaName="public" tableName="app_language">
+            <column name="id" type="int8">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="app_language_pkey"/>
+            </column>
+            <column defaultValueBoolean="false" name="objectdeleted" type="bool"/>
+            <column defaultValueNumeric="0" name="objectstatus" type="int4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(128)"/>
+            <column defaultValue="" name="code" type="VARCHAR(3)"/>
+            <column defaultValueNumeric="0" name="imagestatus" type="int4"/>
+            <column name="creator_id" type="int8"/>
+            <column name="owner_id" type="int8"/>
+            <column name="rootid" type="int8"/>
+            <column name="rootobject" defaultValueBoolean="false" type="bool"/>
+            <column name="language_id" type="int8"/>
+            <column name="deletiondate" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="remover_id" type="int8"/>
+            <column defaultValueNumeric="0" name="searchstatus" type="int4"/>
+        </createTable>
+
+        <!--#########################app_sysparam#########################-->
+        <createTable schemaName="public" tableName="app_sysparam">
+            <column name="id" type="int8">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="app_sysparam_pkey"/>
+            </column>
+            <column defaultValueBoolean="false" name="objectdeleted" type="bool"/>
+            <column defaultValueNumeric="0" name="objectstatus" type="int4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(128)"/>
+            <column defaultValue="" name="code" type="VARCHAR(32)"/>
+            <column defaultValue="" name="value" type="VARCHAR(256)"/>
+            <column name="rootid" type="int8"/>
+            <column name="rootobject" defaultValueBoolean="false" type="bool"/>
+            <column name="language_id" type="int8"/>
+            <column name="deletiondate" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="remover_id" type="int8"/>
+            <column defaultValueNumeric="0" name="searchstatus" type="int4"/>
+        </createTable>
+
+        <!--#########################fh_upload_ticket#########################-->
+        <createTable schemaName="public" tableName="fh_upload_ticket">
+            <column name="ticket" type="VARCHAR(100)"/>
+            <column name="user_id" type="INT8"/>
+            <column name="date" type="TIMESTAMP"/>
+            <column name="entity_id" type="INT8"/>
+            <column name="entity_code" type="VARCHAR(50)"/>
+            <column name="type" type="VARCHAR(50)"/>
+        </createTable>
+
+        <!--#########################app_online_users#########################-->
+        <createTable schemaName="public" tableName="app_online_users">
+            <column name="sid" type="varchar(4096)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="app_online_users_pkey"/>
+            </column>
+            <column name="ip" type="VARCHAR(128)"/>
+            <column name="logondate" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="node" type="varchar(128)"/>
+            <column name="user_id" type="int8"/>
+        </createTable>
+
+        <!--#########################app_profile#########################-->
+        <createTable tableName="app_profile">
+            <column name="id" type="int8">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="app_profile_pkey"/>
+            </column>
+            <column defaultValueBoolean="false" name="objectdeleted" type="bool"/>
+            <column defaultValueNumeric="0" name="objectstatus" type="int4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(128)"/>
+            <column defaultValue="" name="code" type="VARCHAR(32)"/>
+            <column defaultValue="" name="value" type="VARCHAR(512)"/>
+            <column name="rootid" type="int8"/>
+            <column name="rootobject" defaultValueBoolean="false" type="bool"/>
+            <column name="language_id" type="int8"/>
+            <column name="deletiondate" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="remover_id" type="int8"/>
+            <column name="user_id" type="int8"/>
+            <column name="role_id" type="int8"/>
+            <column defaultValueNumeric="0" name="searchstatus" type="int4"/>
+        </createTable>
+
+    </changeSet>
+
+    <changeSet author="ahomyakov" id="1.0.0-4">
+        <!--#########################CREATE PRIMARY KEYS#########################-->
+        <addPrimaryKey tableName="app_user_role"
+                       columnNames="user_id, role_id"
+                       constraintName="app_user_role_pkey"/>
+    </changeSet>
+
+
+    <changeSet author="ahomyakov" id="1.0.0-5">
+        <!--#########################CREATE INDEXES#########################-->
+
+        <!--#########################app_action#########################-->
+        <createIndex tableName="app_action" unique="true" indexName="app_action_idx1" tablespace="ksdb_idx">
+            <column name="code"/>
+            <column name="objectdeleted"/>
+            <column name="language_id"/>
+        </createIndex>
+        <createIndex tableName="app_action" indexName="app_action_idx2" tablespace="ksdb_idx">
+            <column name="objectdeleted"/>
+            <column name="objectstatus"/>
+            <column name="deletiondate"/>
+        </createIndex>
+        <createIndex tableName="app_action" indexName="app_action_idx3" tablespace="ksdb_idx">
+            <column name="lower(name)"/>
+        </createIndex>
+        <createIndex tableName="app_action" indexName="app_action_idx4" unique="true" tablespace="ksdb_idx">
+            <column name="rootid"/>
+            <column name="rootobject"/>
+            <column name="language_id"/>
+        </createIndex>
+
+        <!--#########################app_actiongroup#########################-->
+        <createIndex tableName="app_actiongroup" unique="true" indexName="app_actiongroup_idx1" tablespace="ksdb_idx">
+            <column name="code"/>
+            <column name="objectdeleted"/>
+            <column name="language_id"/>
+        </createIndex>
+        <createIndex tableName="app_actiongroup" indexName="app_actiongroup_idx2" tablespace="ksdb_idx">
+            <column name="objectdeleted"/>
+            <column name="objectstatus"/>
+            <column name="deletiondate"/>
+        </createIndex>
+        <createIndex tableName="app_actiongroup" indexName="app_actiongroup_idx3" tablespace="ksdb_idx">
+            <column name="lower(name)"/>
+        </createIndex>
+        <createIndex tableName="app_actiongroup" indexName="app_actiongroup_idx4" unique="true" tablespace="ksdb_idx">
+            <column name="rootid"/>
+            <column name="rootobject"/>
+            <column name="language_id"/>
+        </createIndex>
+
+        <!--#########################app_role_action#########################-->
+        <createIndex tableName="app_role_action"
+                     indexName="app_role_action_idx1"
+                     unique="false"
+                     tablespace="ksdb_idx">
+            <column name="role_id"/>
+            <column name="action_id"/>
+        </createIndex>
+
+        <!--#########################app_user################################-->
+        <createIndex tableName="app_user" indexName="app_user_idx1" tablespace="ksdb_idx">
+            <column name="objectdeleted"/>
+            <column name="objectstatus"/>
+            <column name="deletiondate"/>
+        </createIndex>
+        <createIndex tableName="app_user" indexName="app_user_idx2" tablespace="ksdb_idx">
+            <column name="rating"/>
+        </createIndex>
+        <createIndex tableName="app_user" indexName="app_user_idx3" tablespace="ksdb_idx">
+            <column name="lower(country)"/>
+            <column name="lower(city)"/>
+        </createIndex>
+        <createIndex tableName="app_user" indexName="app_user_idx4" tablespace="ksdb_idx">
+            <column name="lower(last_name)"/>
+        </createIndex>
+        <createIndex tableName="app_user" indexName="app_user_idx5" unique="true" tablespace="ksdb_idx">
+            <column name="lower(name)"/>
+            <column name="objectdeleted"/>
+            <column name="language_id"/>
+        </createIndex>
+        <createIndex tableName="app_user" indexName="app_user_idx6" unique="true" tablespace="ksdb_idx">
+            <column name="rootid"/>
+            <column name="rootobject"/>
+            <column name="language_id"/>
+        </createIndex>
+        <createIndex tableName="app_user" indexName="app_user_idx7" tablespace="ksdb_idx">
+            <column name="searchstatus"/>
+        </createIndex>
+        <createIndex tableName="app_user" indexName="app_user_idx12" tablespace="ksdb_idx">
+            <column name="lower(first_name)"/>
+        </createIndex>
+        <createIndex tableName="app_user"  indexName="app_user_idx14" tablespace="ksdb_idx" unique="false">
+            <column name="dummy"/>
+        </createIndex>
+
+        <!--#########################app_language############################-->
+        <createIndex tableName="app_language" indexName="app_lang_idx1" tablespace="ksdb_idx">
+            <column name="objectdeleted"/>
+            <column name="objectstatus"/>
+            <column name="deletiondate"/>
+        </createIndex>
+        <createIndex tableName="app_language" indexName="app_lang_idx2" unique="true" tablespace="ksdb_idx">
+            <column name="code"/>
+            <column name="language_id"/>
+        </createIndex>
+        <createIndex tableName="app_language" indexName="app_lang_idx3" unique="true" tablespace="ksdb_idx">
+            <column name="rootid"/>
+            <column name="language_id"/>
+        </createIndex>
+        <createIndex tableName="app_language" indexName="app_lang_idx4" tablespace="ksdb_idx">
+            <column name="searchstatus"/>
+        </createIndex>
+
+        <!--#########################fh_upload_ticket############################-->
+        <createIndex tableName="fh_upload_ticket"
+                     indexName="fh_upload_ticket_idx1"
+                     unique="true">
+            <column name="ticket"/>
+        </createIndex>
+        <createIndex tableName="fh_upload_ticket"
+                     indexName="fh_upload_ticket_idx2"
+                     unique="false">
+            <column name="date"/>
+        </createIndex>
+
+        <!--#########################app_online_users############################-->
+        <createIndex tableName="app_online_users"
+                     unique="true"
+                     indexName="app_online_users_idx1"
+                     tablespace="ksdb_idx">
+            <column name="sid"/>
+            <column name="node"/>
+            <column name="user_id"/>
+        </createIndex>
+
+    </changeSet>
+
+    <changeSet author="ahomyakov" id="1.0.0-6">
+        <!--#########################CREATE FOREIGN KEYS######################-->
+
+        <!--#########################app_action#########################-->
+        <addForeignKeyConstraint baseColumnNames="actiongroup_id"
+                                 baseTableName="app_action"
+                                 baseTableSchemaName="public"
+                                 constraintName="fk_action_actiongroup"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_actiongroup"
+                                 referencedTableSchemaName="public"/>
+
+        <addForeignKeyConstraint baseColumnNames="language_id"
+                                 baseTableName="app_action"
+                                 baseTableSchemaName="public"
+                                 constraintName="fk_action_language"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_language"
+                                 referencedTableSchemaName="public"/>
+
+        <addForeignKeyConstraint baseColumnNames="remover_id"
+                                 baseTableName="app_action"
+                                 baseTableSchemaName="public"
+                                 constraintName="fk_action_remover"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_user"
+                                 referencedTableSchemaName="public"/>
+
+
+        <!--#########################app_role#########################-->
+        <addForeignKeyConstraint baseColumnNames="language_id"
+                                 baseTableName="app_role"
+                                 baseTableSchemaName="public"
+                                 constraintName="fk_role_language"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_language"
+                                 referencedTableSchemaName="public"/>
+        <addForeignKeyConstraint baseColumnNames="remover_id"
+                                 baseTableName="app_role"
+                                 baseTableSchemaName="public"
+                                 constraintName="fk_role_remover"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_user"
+                                 referencedTableSchemaName="public"/>
+        <addForeignKeyConstraint baseColumnNames="parent_id"
+                                 baseTableName="app_role"
+                                 baseTableSchemaName="public"
+                                 constraintName="fk_role_parent"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_role"
+                                 referencedTableSchemaName="public"/>
+
+        <!--#########################app_role_action#########################-->
+        <addForeignKeyConstraint baseColumnNames="action_id"
+                                 baseTableName="app_role_action"
+                                 baseTableSchemaName="public"
+                                 constraintName="fk_role_action_action"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_action"
+                                 referencedTableSchemaName="public"/>
+        <addForeignKeyConstraint baseColumnNames="role_id"
+                                 baseTableName="app_role_action"
+                                 baseTableSchemaName="public"
+                                 constraintName="fk_role_action_role"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_role"
+                                 referencedTableSchemaName="public"/>
+        <addForeignKeyConstraint baseColumnNames="language_id"
+                                 baseTableName="app_role_action"
+                                 baseTableSchemaName="public"
+                                 constraintName="fk_role_action_language"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_language"
+                                 referencedTableSchemaName="public"/>
+        <addForeignKeyConstraint baseColumnNames="remover_id"
+                                 baseTableName="app_role_action"
+                                 baseTableSchemaName="public"
+                                 constraintName="fk_role_action_remover"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_user"
+                                 referencedTableSchemaName="public"/>
+
+        <!--#########################app_user_role#########################-->
+        <addForeignKeyConstraint baseColumnNames="role_id"
+                                 baseTableName="app_user_role"
+                                 baseTableSchemaName="public"
+                                 constraintName="fk_user_role_role"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_role"
+                                 referencedTableSchemaName="public"/>
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="app_user_role"
+                                 baseTableSchemaName="public"
+                                 constraintName="fk_user_role_user"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_user"
+                                 referencedTableSchemaName="public"/>
+
+        <!--#########################app_user#########################-->
+        <addForeignKeyConstraint baseColumnNames="owner_id"
+                                 baseTableName="app_user"
+                                 baseTableSchemaName="public"
+                                 constraintName="fk_user_owner"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_user"
+                                 referencedTableSchemaName="public"/>
+        <addForeignKeyConstraint baseColumnNames="creator_id"
+                                 baseTableName="app_user"
+                                 baseTableSchemaName="public"
+                                 constraintName="fk_user_creator"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_user"
+                                 referencedTableSchemaName="public"/>
+        <addForeignKeyConstraint baseColumnNames="referee_id"
+                                 baseTableName="app_user"
+                                 baseTableSchemaName="public"
+                                 constraintName="fk_user_referee"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_user"
+                                 referencedTableSchemaName="public"/>
+        <addForeignKeyConstraint baseColumnNames="prefferedlanguage_id"
+                                 baseTableName="app_user"
+                                 baseTableSchemaName="public"
+                                 constraintName="fk_user_prefferedlanguage"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_language"
+                                 referencedTableSchemaName="public"/>
+        <addForeignKeyConstraint baseColumnNames="language_id"
+                                 baseTableName="app_user"
+                                 baseTableSchemaName="public"
+                                 constraintName="fk_user_language"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_language"
+                                 referencedTableSchemaName="public"/>
+        <addForeignKeyConstraint baseColumnNames="remover_id"
+                                 baseTableName="app_user"
+                                 baseTableSchemaName="public"
+                                 constraintName="fk_user_remover"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_user"
+                                 referencedTableSchemaName="public"/>
+        <addForeignKeyConstraint baseColumnNames="creatorrep_id"
+                                 baseTableName="app_user"
+                                 baseTableSchemaName="public"
+                                 constraintName="app_user_creatorrep_id"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_user"
+                                 referencedTableSchemaName="public"/>
+
+        <!--#########################app_actiongroup#########################-->
+        <addForeignKeyConstraint baseColumnNames="language_id"
+                                 baseTableName="app_actiongroup"
+                                 baseTableSchemaName="public"
+                                 constraintName="fk_actiongroup_language"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_language"
+                                 referencedTableSchemaName="public"/>
+        <addForeignKeyConstraint baseColumnNames="remover_id"
+                                 baseTableName="app_actiongroup"
+                                 baseTableSchemaName="public"
+                                 constraintName="fk_actiongroup_remover"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_user"
+                                 referencedTableSchemaName="public"/>
+
+        <!--#########################app_language#########################-->
+        <addForeignKeyConstraint baseColumnNames="language_id"
+                                 baseTableName="app_language"
+                                 baseTableSchemaName="public"
+                                 constraintName="fk_language_language"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_language"
+                                 referencedTableSchemaName="public"/>
+        <addForeignKeyConstraint baseColumnNames="remover_id"
+                                 baseTableName="app_language"
+                                 baseTableSchemaName="public"
+                                 constraintName="fk_language_remover"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_user"
+                                 referencedTableSchemaName="public"/>
+
+
+        <!--#########################app_sysparam#########################-->
+        <addForeignKeyConstraint baseColumnNames="remover_id"
+                                 baseTableName="app_sysparam"
+                                 baseTableSchemaName="public"
+                                 constraintName="fk_sysparam_remover"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_user"
+                                 referencedTableSchemaName="public"/>
+        <addForeignKeyConstraint baseColumnNames="language_id"
+                                 baseTableName="app_sysparam"
+                                 baseTableSchemaName="public"
+                                 constraintName="fk_sysparam_language"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_language"
+                                 referencedTableSchemaName="public"/>
+
+        <!--#########################app_online_users#########################-->
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="app_online_users"
+                                 baseTableSchemaName="public"
+                                 constraintName="fk_online_users_user"
+                                 deferrable="false" initiallyDeferred="false"
+                                 referencedColumnNames="id" referencedTableName="app_user"
+                                 referencedTableSchemaName="public"/>
+
+        <!--#########################app_profile#########################-->
+        <addForeignKeyConstraint baseColumnNames="language_id"
+                                 baseTableName="app_profile"
+                                 baseTableSchemaName="public"
+                                 constraintName="app_profile_language"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_language"
+                                 referencedTableSchemaName="public"/>
+        <addForeignKeyConstraint baseColumnNames="remover_id"
+                                 baseTableName="app_profile"
+                                 baseTableSchemaName="public"
+                                 constraintName="app_profile_remover"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_user"
+                                 referencedTableSchemaName="public"/>
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="app_profile"
+                                 baseTableSchemaName="public"
+                                 constraintName="app_profile_user"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_user"
+                                 referencedTableSchemaName="public"/>
+        <addForeignKeyConstraint baseColumnNames="role_id"
+                                 baseTableName="app_profile"
+                                 baseTableSchemaName="public"
+                                 constraintName="app_profile_role"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_role"
+                                 referencedTableSchemaName="public"/>
+
+    </changeSet>
+
+
+    <changeSet author="ahomyakov" id="1.0.0-7">
+        <createProcedure>
+            CREATE OR REPLACE FUNCTION "insert_into_app_role_action" () RETURNS trigger AS
+            $body$
+            DECLARE
+
+            BEGIN
+            IF new.id IS NULL
+            THEN
+            new.id=nextval('hibernate_sequence');
+            new.rootid=currval('hibernate_sequence');
+            END IF;
+            RETURN new;
+            END;
+            $body$
+            LANGUAGE 'plpgsql' VOLATILE CALLED ON NULL INPUT SECURITY INVOKER;
+
+            CREATE TRIGGER app_role_action_insert BEFORE INSERT
+            ON app_role_action FOR EACH ROW
+            EXECUTE PROCEDURE public.insert_into_app_role_action();
+        </createProcedure>
+
+    </changeSet>
+
+    <changeSet author="ezhulkov" id="1.0.0-8">
+        <addColumn tableName="app_online_users">
+            <column name="useragent" type="VARCHAR(128)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="ezhulkov" id="1.0.0-9">
+        <addColumn tableName="app_user">
+            <column name="dtype" type="VARCHAR(2)"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>
