@@ -1,0 +1,23 @@
+<span xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="categorylist">
+
+  <t:grid id="datagrid" rowsPerPage="15" pagerPosition="bottom"
+          source="allCategories" row="oneCategory"
+          include="name,objectStatus" add="creator" reorder="name,creator,objectStatus">
+      <t:parameter name="objectStatusHeader">
+          ${message:objectStatus-label}
+      </t:parameter>
+      <t:parameter name="nameHeader">
+          ${message:name-label}
+      </t:parameter>
+      <t:parameter name="nameCell">
+          <t:pageLink page="personaloffice/staff/category" context="oneCategory.rootid" class="underline">${oneCategory.name}</t:pageLink>
+      </t:parameter>
+      <t:parameter name="creatorCell">
+          <t:mallComponents.object.objectLink object="oneCategory.creator" page="user"/>
+      </t:parameter>
+      <t:parameter name="empty">
+          <p class="nomsg">${message:empty.list}</p>
+      </t:parameter>
+  </t:grid>
+
+</span>

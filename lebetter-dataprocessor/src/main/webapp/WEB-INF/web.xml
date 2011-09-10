@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
+
+    <display-name>Mall Data Processor</display-name>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            classpath:/config/spring/applicationContext-Resources.xml
+            classpath:/config/spring/applicationContext-DataProcessor.xml
+            classpath:/config/spring/applicationContext-dataSource.xml
+            classpath:config/spring/applicationContext-dataManager.xml
+        </param-value>
+    </context-param>
+    <context-param>
+        <param-name>log4j-init-file</param-name>
+        <param-value>log4j.xml</param-value>
+    </context-param>
+    <context-param>
+        <param-name>log4j-init-path</param-name>
+        <param-value>${mvn.lb.dp.config.path}/config/log</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>org.room13.mallcore.application.web.listener.Log4JInit</listener-class>
+    </listener>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+    </listener>
+
+    <context-param>
+        <param-name>org.apache.activemq.brokerURL</param-name>
+        <param-value>vm://localhost</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>org.apache.activemq.embeddedBroker</param-name>
+        <param-value>true</param-value>
+    </context-param>
+
+</web-app>

@@ -1,0 +1,14 @@
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="propertyselectlist">
+
+  <select class="ks_propertyselectlist_1" name="categories" size="10" multiple="multiple">
+    <t:loop source="allRootCategories" value="oneProperty">
+      <t:if test="propertySelected">
+        <option selected="selected" value="${oneProperty.id}">${oneProperty.name}</option>
+      </t:if>
+      <t:unless test="propertySelected">
+        <option value="${oneProperty.id}">${oneProperty.name}</option>
+      </t:unless>
+    </t:loop>
+  </select>
+
+</div>

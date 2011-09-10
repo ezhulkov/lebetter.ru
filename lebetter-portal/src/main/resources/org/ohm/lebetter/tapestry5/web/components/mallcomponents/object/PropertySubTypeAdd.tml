@@ -1,0 +1,27 @@
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="propertytype" class="ks_adm_new_popup">
+
+    <t:form t:id="propertyForm" t:context="parentProperty.rootid">
+              <div class="ks_orderadress_input">
+                <div class="ks_orderadress_legend"><t:label for="propertyName"/>:</div>
+                <input t:id="propertyName" class="validate_input"/>
+              </div>
+
+              <div class="ks_orderadress_input">
+                <div class="ks_orderadress_legend"><t:label for="propertyDescription"/>:</div>
+                   <div class="NFTextareaTop ks_propertysubtypeadd_1"><img src="/images/0.gif" class="NFTextareaTopLeft"/></div>
+                   <div class="NFTextareaRight ks_propertysubtypeadd_2">
+                     <div class="NFTextareaLeft ks_propertysubtypeadd_2"/>
+                     <input t:id="propertyDescription" class="text medium NFTextarea" style="width: 200px; height: 36px;"/>
+                   </div>
+                   <div class="NFTextareaBottom ks_propertysubtypeadd_1"><img src="/images/0.gif" class="NFTextareaBottomLeft"/></div>
+              </div>
+
+                    <t:mallComponents.control.menuLink action="ADD_PROPERTY" object="selectedProperty">
+                      <div class="ks_comm_button"><!-- Кнопки "отмена" и "создать" -->
+                        <img class="NFButtonResLeft" src="/images/0.gif"/><input id="catres" type="reset" class="microescape NFButtonRes" name="" value="${message:cancelbtn}"/><img src="/images/0.gif" class="NFButtonResRight"/> <img class="NFButtonLeft" src="/images/0.gif"/><input type="submit" id="submitAddButton" class="NFButton" value="${message:addbtn}"/><img src="/images/0.gif" class="NFButtonRight"/>
+                      </div>
+                    </t:mallComponents.control.menuLink>
+              <div class="break"></div>
+    </t:form>
+
+</div>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+              http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-2.0.1.xsd">
+
+    <http auto-config="true" access-decision-manager-ref="accessDecisionManager">
+
+        <intercept-url pattern="/po/admin/**" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/po/staff/**" access="ROLE_STAFF,ROLE_MANAGER"/>
+        <intercept-url pattern="/po/user/**" access="ROLE_HUMAN"/>
+        <intercept-url pattern="/po/**" access="ROLE_HUMAN"/>
+        <intercept-url pattern="/rest/**" filters="none"/>
+        <intercept-url pattern="/**" filters="none"/>
+
+        <form-login login-page="/auth/login"
+                    default-target-url="/personaloffice/mainproxy"
+                    always-use-default-target="true"
+                    authentication-failure-url="/auth/login/error"
+                    login-processing-url="/j_security_check"/>
+
+        <remember-me user-service-ref="userManager" key="f9dfb931-1596-485f-a65b-1ec6ab2441ab"/>
+
+    </http>
+
+    <beans:bean id="accessDecisionManager" class="org.springframework.security.vote.AffirmativeBased">
+        <beans:property name="allowIfAllAbstainDecisions" value="false"/>
+        <beans:property name="decisionVoters">
+            <beans:list>
+                <beans:bean class="org.springframework.security.vote.AuthenticatedVoter"/>
+                <beans:bean class="org.springframework.security.vote.RoleVoter"/>
+                <beans:bean class="org.springframework.security.vote.RoleHierarchyVoter">
+                    <beans:constructor-arg>
+                        <beans:bean class="org.room13.mallcore.spring.security.impl.RMRoleHierarchy"/>
+                    </beans:constructor-arg>
+                </beans:bean>
+            </beans:list>
+        </beans:property>
+    </beans:bean>
+
+    <authentication-provider user-service-ref="userManager">
+        <password-encoder ref="passwordEncoder"/>
+    </authentication-provider>
+
+</beans:beans>

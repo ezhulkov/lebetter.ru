@@ -1,0 +1,8 @@
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="ks_bottom_scripts">
+    <script type="text/javascript" language="JavaScript">
+        <t:loop t:formState="NONE" source="blocks" value="oneBlock">
+            /*${oneBlock.toString()}*/
+            <t:delegate to="oneBlock"/>
+        </t:loop>
+    </script>
+</div>

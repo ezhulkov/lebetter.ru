@@ -1,0 +1,34 @@
+<span xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+  <div class="${popupClass}">
+    <div class="no">
+      <div class="ne">
+        <div class="n">
+          <t:if test="popupTitle">
+            ${popupTitle}
+          </t:if>
+        </div>
+      </div>
+      <div class="o">
+        <div class="e">
+          <div class="c">
+            <div class="mbcontainercontent">
+
+              <t:body/>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="so">
+          <div class="se">
+            <div class="s">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</span>

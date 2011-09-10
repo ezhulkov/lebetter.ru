@@ -1,0 +1,21 @@
+<span xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="propertysubtypelist">
+
+  <t:loop source="subCategories" value="oneSubProperty">
+
+    <div class="untercat">
+
+      <t:pageLink t:page="personaloffice/staff/property" t:context="oneSubProperty.rootid">
+        <b>${oneSubProperty.name}</b>
+      </t:pageLink>
+
+      <span>${message:property.status}: </span>
+      <strong>${oneSubProperty.objectstatus}</strong>
+
+        <span>${message:property.type2}: </span>
+        <strong>${oneSubProperty.type}</strong>
+
+    </div>
+
+  </t:loop>
+
+</span>

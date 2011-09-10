@@ -1,0 +1,85 @@
+<t:mallcomponents.layout.layout title="message:role.page"
+                                bodyId="main"
+                                flash="flashMessage"
+                                xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+    <t:mallcomponents.layout.office>
+        <t:mallcomponents.control.selectedObject>
+
+            <h1>${message:role.page} &#0171;${selectedRoleL.name}&#0187;</h1>
+
+            <div class="ks_order_approve_descr"><p>${selectedRoleL.description}</p></div>
+
+            <div class="odjectdesc">
+
+                <ul class="a-tabs">
+
+                    <li id="roleacttab">
+                        <div>
+                            <t:mallComponents.control.ie9CompatibleActionLink t:id="roleActionsAjax" t:zone="roleZone" class="atabs-a">${message:role.actions}</t:mallComponents.control.ie9CompatibleActionLink>
+                        </div>
+                    </li>
+                    <li id="roleprftab">
+                        <div>
+                            <t:mallComponents.control.ie9CompatibleActionLink t:id="roleProfileAjax" t:zone="roleZone" class="atabs-a">${message:role.profile}</t:mallComponents.control.ie9CompatibleActionLink>
+                        </div>
+                    </li>
+
+                </ul>
+
+            </div>
+            <div class="ks_content_b2_brd1"><b></b></div>
+            <div class="ks_content_b2_brd2"><b><i></i></b></div>
+            <div class="ks_content_b2_brd0">
+              <div class="descr">
+                <div class="catcaption">
+
+                    <span class="zag">${selectedRoleL.name}</span>
+                    <t:if test="selectedRole.parent">
+                        ${message:parent-role-label}:
+                        <t:pageLink t:page="personaloffice/admin/role" t:context="${selectedRole.parent.rootId}" class="underline">${selectedRole.parent.name}</t:pageLink>
+                    </t:if>
+
+                </div>
+                <div id="itemdel"></div>
+
+                <t:zone id="roleZone">
+                    <t:if test="curBlock">
+                        <t:delegate to="curBlock"/>
+                        <t:parameter name="else">
+                            <t:delegate to="actsBlock"/>
+                        </t:parameter>
+                    </t:if>
+                </t:zone>
+
+                <t:block t:id="actsBlock">
+                    <t:mallComponents.object.ActionsEdit role="selectedRole"/>
+                </t:block>
+
+                <t:block t:id="profBlock">
+                    <t:mallComponents.object.ProfileParameterTabEdit profileAwareObject="selectedRole" ajaxBlock="profBlock"/>
+                </t:block>
+              </div>
+            </div>
+            <div class="ks_content_b2_brd2"><b><i></i></b></div>
+            <div class="ks_content_b2_brd1"><b></b></div>
+
+
+            <script language="JavaScript" type="text/javascript">
+                jQuery(".atabs-a").click(function() {
+                    jQuery("div.odjectdesc").find("li[class^='sel']").attr("class", "");
+                });
+                KS.color_cell('roles');
+                KS.bread_crumbs([
+                    ["Кабинет","/personaloffice/admin/main"],
+                    ["Роли","/personaloffice/admin/roles"],
+                    ["${selectedRole.name}"]
+                ]);
+            </script>
+
+
+        </t:mallcomponents.control.selectedObject>
+
+    </t:mallcomponents.layout.office>
+
+</t:mallcomponents.layout.layout>

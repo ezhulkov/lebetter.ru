@@ -1,0 +1,11 @@
+<t:mallcomponents.layout.layout title="literal:Ошибка сервера"
+                                bodyId="main"
+                                flash="flashMessage"
+                                xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+    <div class="ks_e500_1">
+        <h1>${message:err500.header}</h1>
+        ${message:err500.msg}
+    </div>
+
+</t:mallcomponents.layout.layout>

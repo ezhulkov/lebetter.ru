@@ -1,0 +1,27 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+    <t:loop t:formState="NONE" t:id="loop" t:index="index2">
+        <t:if test="curCount">
+            <t:body/>
+            <t:if test="drawDelimiter">
+                <t:delegate to="delimiter"/>
+            </t:if>
+            <t:parameter name="else">
+                <t:if test="drawMore">
+                    <t:delegate to="moreLink"/>
+                </t:if>
+            </t:parameter>
+        </t:if>
+    </t:loop>
+
+    <t:block id="empty">
+        <p class="nomsg">${message:empty.list}</p>
+    </t:block>
+    <t:block id="delimiter">
+        <span class="rm_ctrl_punkt">,</span>
+    </t:block>
+    <t:block id="morelink">
+        <span class="rm_ctrl_punkt">...</span>
+    </t:block>
+
+</t:container>

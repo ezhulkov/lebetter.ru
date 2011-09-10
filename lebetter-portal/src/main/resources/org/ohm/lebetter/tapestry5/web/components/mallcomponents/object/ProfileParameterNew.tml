@@ -1,0 +1,34 @@
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="catalog"  class="ks_adm_new_popup">
+    
+    <t:mallcomponents.control.menulink roles="ROLE_ADMIN">
+                                              
+        <t:mallComponents.control.editObject
+                targetZone="roleZone"
+                ajaxBlock="ajaxBlock"
+                roles="ROLE_ADMIN"
+                objectSavedLabel="profparam.saved"
+                objectRemovedLabel="profparam.removed"
+                objectExistsLabel="error.profparam.exists"
+                objectAddedLabel="profparam.added"
+                newObject="literal:true"
+                listPage="literal:${listPage}"
+                objectPage="literal:${listPage}"
+                objectManager="serviceFacade.profileParameterManager"
+                selectedObject="selectedObject"
+                drawLang="literal:false"
+                drawDelete="literal:false">
+
+                <div class="ks_orderadress_input">
+                  <div class="ks_orderadress_legend"><t:label for="name"/>:</div>
+                  <input t:id="name" class="validate_input"/>
+                </div>
+                <div class="ks_orderadress_input">
+                  <div class="ks_orderadress_legend"><t:label for="code"/>:</div>
+                  <input t:id="code" class="validate_input"/>
+                </div>
+           
+        </t:mallComponents.control.editObject>
+
+    </t:mallcomponents.control.menulink>
+
+</div>

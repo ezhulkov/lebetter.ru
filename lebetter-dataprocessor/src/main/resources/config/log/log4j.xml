@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <appender name="FILE" class="org.room13.mallcore.log.RMRollingFileAppender">
+        <param name="File" value="${mvn.log4j.file}-dp"/>
+        <param name="Append" value="true"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+        <param name="encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <!--<param name="ConversionPattern" value="%p [%t] %c{1}.%M(%L) | %m%n"/>-->
+            <param name="ConversionPattern" value="[%p][%d][%X{session_id}][%X{ip}][%X{user}][%X{obe}] :: %m (%F line %L) %n"/>
+        </layout>
+    </appender>
+
+
+	<appender name="EMAIL" class="org.room13.mallcore.log.RMSMTPAppender">
+        <param name="SMTPHost" value="${mvn.smtp.host}"/>
+        <param name="To" value="${mvn.rm.notification.email}"/>
+        <param name="From" value="${mvn.rm.notification.email}"/>
+        <param name="Subject" value="[kinder-dp] Log4j error log"/>
+
+        <layout class="org.apache.log4j.PatternLayout">
+            <!--<param name="ConversionPattern" value="%p [%t] %c{1}.%M(%L) | %m%n"/>-->
+            <param name="ConversionPattern" value="[%p][%d][%X{session_id}][%X{ip}][%X{user}][%X{obe}] :: %m (%F line %L) %n"/>
+        </layout>
+
+        <param name="evaluatorClass" value="org.room13.mallcore.log.ErrorEventEvaluator"/>
+    </appender>
+
+    <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <!--<param name="ConversionPattern" value="%p [%t] %c{1}.%M(%L) | %m%n"/>-->
+            <param name="ConversionPattern" value="[%p][%d][%X{session_id}][%X{ip}][%X{user}][%X{obe}] :: %m (%F line %L) %n"/>
+        </layout>
+    </appender>
+
+    <logger name="net.sf.ehcache">
+        <level value="ERROR"/>
+    </logger>
+
+    <logger name="org.springframework.security">
+        <level value="TRACE"/>
+    </logger>
+
+    <logger name="org.apache">
+        <level value="WARN"/>
+    </logger>
+
+    <logger name="org.apache.velocity">
+        <level value="FATAL"/>
+    </logger>
+
+    <logger name="org.hibernate">
+        <level value="WARN"/>
+    </logger>
+
+    <logger name="org.hibernate.SQL">
+        <level value="WARN"/>
+    </logger>
+
+    <logger name="org.springframework">
+        <level value="WARN"/>
+    </logger>
+
+    <logger name="org.room13">
+        <level value="DEBUG"/>
+    </logger>
+
+    <root>
+        <level value="WARN"/>
+        ${mvn.log4j.appender.xml}
+    </root>
+
+</log4j:configuration>

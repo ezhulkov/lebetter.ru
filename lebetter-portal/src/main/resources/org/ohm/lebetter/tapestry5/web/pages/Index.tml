@@ -1,0 +1,8 @@
+<t:mallcomponents.layout.layout title="literal:404 - Страница не найдена"
+                                bodyId="notfount"
+                                flash="flashMessage"
+                                xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+        index
+
+</t:mallcomponents.layout.layout>

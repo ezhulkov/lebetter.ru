@@ -1,0 +1,9 @@
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+  <t:body/>
+
+  <t:block id="notgranteddefault">
+    <div id="notgranted" class="syserror">${message:error.action.not.granted}</div>
+  </t:block>
+
+</div>

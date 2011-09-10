@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+
+        <mapping class="org.ohm.lebetter.model.impl.entities.UserEntity"/>
+        <mapping class="org.room13.mallcore.model.impl.entities.RoleEntity"/>
+        <mapping class="org.room13.mallcore.model.impl.entities.ActionEntity"/>
+        <mapping class="org.room13.mallcore.model.impl.entities.ActionGroupEntity"/>
+        <mapping class="org.room13.mallcore.model.impl.entities.LanguageEntity"/>
+        <mapping class="org.room13.mallcore.model.impl.entities.SystemParameterEntity"/>
+        <mapping class="org.room13.mallcore.model.impl.entities.OnlineUsersEntity"/>
+        <mapping class="org.room13.mallcore.model.impl.entities.RoleToActionEntity"/>
+        <mapping class="org.room13.mallcore.model.impl.entities.ProfileParameterEntity"/>
+        <mapping class="org.room13.mallcore.model.impl.entities.ImageStatusEntity"/>
+        <mapping class="org.room13.mallcore.model.impl.entities.ObjectOwnerEntity"/>
+        <mapping class="org.room13.mallcore.model.impl.entities.PopularityEntity"/>
+
+        <mapping class="org.room13.mallcore.model.impl.embedded.Address"/>
+        <mapping class="org.room13.mallcore.model.impl.embedded.AddressSocial"/>
+        <mapping class="org.room13.mallcore.model.impl.embedded.Popularity"/>
+        <mapping class="org.room13.mallcore.model.impl.embedded.UserStatus"/>
+        <mapping class="org.room13.mallcore.model.impl.embedded.AnyObjectPK"/>
+
+        <mapping class="org.ohm.lebetter.model.impl.entities.ProductEntity"/>
+        <mapping class="org.ohm.lebetter.model.impl.entities.ColorEntity"/>
+
+        <mapping class="org.ohm.lebetter.model.impl.entities.CategoryEntity"/>
+        <mapping class="org.ohm.lebetter.model.impl.entities.PropertyEntity"/>
+        <mapping class="org.ohm.lebetter.model.impl.entities.PropertyValueEntity"/>
+        <mapping class="org.ohm.lebetter.model.impl.entities.TagToValueEntity"/>
+        <mapping class="org.ohm.lebetter.model.impl.entities.PropertyToCategoryEntity"/>
+        <mapping class="org.room13.mallcore.model.impl.entities.AbstractCommentEntity"/>
+
+    </session-factory>
+
+</hibernate-configuration>

@@ -1,0 +1,50 @@
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="color" class="ks_adm_content_forbut">
+
+    <t:mallComponents.control.menuLink action="VIEW_COLOR" object="selectedObject">
+
+        <t:mallComponents.control.editObject
+                addAction="MANAGE_COLOR"
+                delAction="MANAGE_COLOR"
+                editAction="MANAGE_COLOR"
+                objectSavedLabel="color.saved"
+                objectRemovedLabel="color.removed"
+                objectExistsLabel="error.color.exists"
+                objectAddedLabel="color.added"
+                newObject="newObject"
+                listPage="literal:/personaloffice/staff/colors"
+                objectPage="literal:/personaloffice/staff/color"
+                objectManager="serviceFacade.colorManager"
+                selectedObject="selectedObject"
+                selectedSecurityObject="selectedObjectRoot">
+
+
+
+              <div class="ks_orderadress_input">
+                <div class="ks_orderadress_legend"><t:label for="name"/>:</div>
+                <input t:id="name" class="validate_input" tabindex="1"/>
+              </div>
+
+              <t:if test="selectedObject.rootObject">
+                <div class="ks_orderadress_input">
+                  <div class="ks_orderadress_legend"><t:label for="code"/>:</div>
+                  <input t:id="code" class="validate_input" tabindex="2"/>
+                </div>
+                <div class="ks_orderadress_input">
+                  <div class="ks_orderadress_legend"><t:label for="ccode"/>:</div>
+                  <input t:id="ccode" class="validate_input" tabindex="3"/>
+                </div>
+              </t:if>
+              
+              <div id="itembut"></div>
+
+
+        </t:mallComponents.control.editObject>
+
+        <script language="JavaScript" type="text/javascript">
+          // Расставляем tabindex
+          jQuery("#editObjectForm input.NFButton").attr("tabindex","4");
+        </script>
+
+    </t:mallComponents.control.menuLink>
+
+</div>

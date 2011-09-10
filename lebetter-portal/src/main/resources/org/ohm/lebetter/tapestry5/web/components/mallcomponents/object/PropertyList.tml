@@ -1,0 +1,21 @@
+<span xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="propertylist">
+
+    <t:grid id="datagrid" pagerPosition="bottom" source="allCategories" row="oneProperty" include="name,type,objectStatus">
+        <t:parameter name="objectStatusHeader">
+            ${message:objectStatus-label}
+        </t:parameter>
+        <t:parameter name="nameHeader">
+            ${message:name-label}
+        </t:parameter>
+        <t:parameter name="nameCell">
+            <t:pageLink page="personaloffice/staff/property" context="oneProperty.rootid" class="underline">${oneProperty.name}</t:pageLink>
+        </t:parameter>
+        <t:parameter name="typeCell">
+            ${onePropertyRoot.type}
+        </t:parameter>
+        <t:parameter name="empty">
+            <p class="nomsg">${message:empty.list}</p>
+        </t:parameter>
+    </t:grid>
+
+</span>

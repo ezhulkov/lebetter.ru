@@ -1,0 +1,24 @@
+<t:mallcomponents.layout.layout title="literal:404 - Страница не найдена"
+                                bodyId="notfount"
+                                flash="flashMessage"
+                                xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+        <t:mallComponents.control.javascript>
+            KS.color_cell('ks_info_page');
+            KS.bread_crumbs([
+                ["Главная страница","/"],
+                ["404 - Страница не найдена"]
+            ]);
+        </t:mallComponents.control.javascript>
+
+        <div class="ks_content_txt">
+
+            <div class="ks_page_big_title">404 - Страница не найдена</div>
+
+            <p>
+                Упс... <b>Киндершоппинг.ру</b> не может найти эту страницу.
+            </p>
+
+        </div>
+
+</t:mallcomponents.layout.layout>

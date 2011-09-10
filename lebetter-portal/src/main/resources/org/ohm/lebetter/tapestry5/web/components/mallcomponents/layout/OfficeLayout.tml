@@ -1,0 +1,96 @@
+<table xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="browse">
+
+    <tr>
+        <td>
+          <div class="ks_content_tdright">
+          <!--noindex-->
+            <div id="sort">
+                <div class="ks_content_b2_brd1"><b></b></div>
+                <div class="ks_content_b2_brd2"><b><i></i></b></div>
+
+                <div class="ks_content_b2_brd0 ks_sorter_b2_brd0 ks_officelayout_1">
+
+                    <div id="bread_crumbs_box" class="ks_status ks_officelayout_2"/>
+                    <div class="ks_adm_menu ks_officelayout_3" id="add_tools_box">
+                        <ul class="sf-menu">
+                            <t:mallcomponents.control.menulink roles="ROLE_ADMIN">
+                                <li>
+                                    <a href="#" onclick="return false;">Система</a>
+                                    <ul>
+                                        <li><a href="/personaloffice/admin/roles">Роли и права доступа</a>
+                                        </li>
+                                        <li><a href="/personaloffice/staff/users">Пользователи</a></li>
+                                        <li><a href="/personaloffice/staff/categories">Категории товара</a>
+                                        </li>
+                                        <li><a href="/personaloffice/staff/properties">Свойства</a></li>
+                                        <li><a href="/personaloffice/staff/colors">Цвета</a></li>
+                                    </ul>
+                                </li>
+                            </t:mallcomponents.control.menulink>
+
+                            <li>
+                                <a href="#" onclick="return false;">Каталог</a>
+                                <ul>
+                                    <t:mallcomponents.control.menulink action="LIST_SHOP">
+                                        <li><a href="/personaloffice/staff/shops">Магазины</a></li>
+                                    </t:mallcomponents.control.menulink>
+                                    <t:mallcomponents.control.menulink action="LIST_BRAND">
+                                        <li><a href="/personaloffice/staff/brands">Бренды</a></li>
+                                    </t:mallcomponents.control.menulink>
+                                    <t:mallcomponents.control.menulink roles="ROLE_STAFF">
+                                        <li><a href="/personaloffice/staff/products">Товары</a></li>
+                                    </t:mallcomponents.control.menulink>
+                                    <t:mallcomponents.control.menulink roles="ROLE_ADMIN,ROLE_EDITOR">
+                                        <li><a href="/personaloffice/staff/moderate">Модерация</a></li>
+                                    </t:mallcomponents.control.menulink>
+                                    <t:mallcomponents.control.menulink roles="ROLE_ADMIN">
+                                        <li><a href="/personaloffice/staff/prodexport">Экспорт</a></li>
+                                    </t:mallcomponents.control.menulink>
+                                </ul>
+                            </li>
+                            <t:mallcomponents.control.menulink action="LIST_ORDER">
+                                <li id="orders">
+                                    <a href="/personaloffice/staff/orders">Заказы</a>
+                                </li>
+                            </t:mallcomponents.control.menulink>
+                            <t:mallcomponents.control.menulink roles="ROLE_STAFF">
+                                <li>
+                                    <a href="#" onclick="return false;">Статистика</a>
+                                    <ul>
+                                        <li><a href="/personaloffice/staff/stat/global">Общая</a></li>
+                                    </ul>
+                                </li>
+                            </t:mallcomponents.control.menulink>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="ks_content_b2_brd2"><b><i></i></b></div>
+                <div class="ks_content_b2_brd1"><b></b></div>
+            </div>
+          <!--/noindex-->
+          </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" id="officebody" class="col-right">
+            <div class="ks_adm_content">
+                <t:body/>
+            </div>
+        </td>
+    </tr>
+
+    <script>
+
+        jQuery(document).ready(function()
+        {
+          jQuery('body').append('<span id="fancybox-overlay2" class="fancybox-overlay"></span>');
+          
+            jQuery('ul.sf-menu').superfish();
+            jQuery(".ks_orderadress_input_s select, .mbcontainercontent select, .ks_adm_ordersrch_form select").selectbox();
+        });
+
+    </script>
+
+</table>

@@ -1,0 +1,65 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    <t:zone id="pageZone">
+        <t:if test="empty">
+            <t:delegate to="empty"/>
+            <t:parameter name="else">
+                <t:delegate to="contents"/>
+            </t:parameter>
+        </t:if>
+    </t:zone>
+
+    <t:block id="contents">
+
+        <div>
+            <table class="t-data-grid" id="${id}">
+                <thead>
+                <t:delegate to="headerBlock"/>
+                </thead>
+                <tbody>
+                <t:loop t:formState="NONE"
+                        t:id="loop"
+                        source="src"
+                        value="value">
+                    <t:body/>
+                </t:loop>
+                </tbody>
+            </table>
+        </div>
+
+        <div class='break'></div><br/>
+
+        <!--Pager-->
+        <div class="slide_pager">
+            <t:loop t:formState="NONE" source="pages" value="onePage">
+                <t:if test="onePage.link">
+                    <t:if test="pageSelected">
+                        <span class="slide_bu_che">${onePage.hint}</span>
+                        <t:parameter name="else">
+                            <t:mallComponents.control.ie9CompatibleActionLink t:id="setPageAjax"
+                                          t:context="ctx"
+                                          t:zone="pageZone">
+                                ${onePage.hint}
+                            </t:mallComponents.control.ie9CompatibleActionLink>
+                        </t:parameter>
+                    </t:if>
+                </t:if>
+            </t:loop>
+        </div>
+        <t:if test="reloadCallback">
+            <script language="JavaScript" type="text/javascript">
+                ${reloadCallback};
+            </script>
+        </t:if>
+    </t:block>
+
+    <t:block id="empty">
+        <table class="t-data-grid">
+            <thead>
+            <t:delegate to="headerBlock"/>
+            </thead>
+        </table>
+        <p class="nomsg">${message:empty.list}</p>
+    </t:block>
+
+
+</t:container>

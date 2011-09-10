@@ -1,0 +1,33 @@
+<span xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+    <t:if test="showControls">
+        <t:if test="satisfied">
+            <t:mallComponents.control.menuLink action="${secAction}" object="secObject">
+                <a id="ks_edit_lnk" href="${objectProfilePage}">Редактировать</a>
+                <t:mallComponents.control.javascript>
+                    jQuery("#ks_edit_lnk").appendTo("#ks_edit_tab");
+                </t:mallComponents.control.javascript>
+            </t:mallComponents.control.menuLink>
+        </t:if>
+    </t:if>
+
+    <t:body/>
+
+    <t:zone id="blankZone"></t:zone>
+
+    <t:block id="notfounddefault">
+        <div id="notfound" class="syserror">Такой объект не найден в базе данных</div>
+    </t:block>
+
+    <t:block id="notgranteddefault">
+        <div id="notgranted" class="syserror">
+            К сожалению, у Вас нет прав для просмотра этого объекта.
+            Обратитесь к администратору <a href="mailto:admin@kindershopping.ru">admin@kindershopping.ru</a>
+        </div>
+    </t:block>
+
+    <t:block id="deleteddefault">
+        <div id="deleted" class="syserror">Объект удален из базы данных</div>
+    </t:block>
+
+</span>

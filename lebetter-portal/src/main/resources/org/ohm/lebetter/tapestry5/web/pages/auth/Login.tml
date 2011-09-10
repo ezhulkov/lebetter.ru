@@ -1,0 +1,165 @@
+<t:mallcomponents.layout.layout title="message:login.page"
+                                bodyId="auth"
+                                flash="flashMessage"
+                                xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd"
+                                xmlns:fb="http://www.facebook.com/2008/fbml">
+    <t:mallcomponents.layout.browse showTab="false">
+        <div class="ks_login_box ks_login_1">
+            <div class="ks_page_big_title">Вход</div>
+
+            <t:if test="error">
+
+                <div class="ks_login_2">
+                    <div class="ks_content_b5_brd1"><b></b></div>
+                    <div class="ks_content_b5_brd2"><b><i></i></b></div>
+                    <div class="ks_content_b5_brd3"><b><i></i></b></div>
+                    <div class="ks_content_b5_brd4"><b><i></i></b></div>
+                    <div class="ks_content_b5_brd0">
+                        <div class="ks_content_text">
+                            <b>Ошибка</b><br/>
+                            В системе не зарегистрирован такой <br/>адрес электронной почты <br/>или
+                            введен неправильный пароль.
+
+                        </div>
+                    </div>
+                    <div class="ks_content_b5_brd4"><b><i></i></b></div>
+                    <div class="ks_content_b5_brd3"><b><i></i></b></div>
+                    <div class="ks_content_b5_brd2"><b><i></i></b></div>
+                    <div class="ks_content_b5_brd1"><b></b></div>
+
+                </div>
+
+            </t:if>
+
+            <t:if test="dup">
+
+                <div class="ks_login_2">
+                    <div class="ks_content_b5_brd1"><b></b></div>
+                    <div class="ks_content_b5_brd2"><b><i></i></b></div>
+                    <div class="ks_content_b5_brd3"><b><i></i></b></div>
+                    <div class="ks_content_b5_brd4"><b><i></i></b></div>
+                    <div class="ks_content_b5_brd0">
+                        <div class="ks_content_text">
+                            <b>Внимание</b><br/>
+                            Вы пытались войти с помощью одной из социальных сетей. <br/>
+                            В нашей базе данных уже зарегистрирован пользователь с таким же адресом электронной почты.<br/>
+                            Пожалуйста, попробуйте войти через Киндершоппинг.ру, указав свой пароль.<br/>
+                        </div>
+                    </div>
+                    <div class="ks_content_b5_brd4"><b><i></i></b></div>
+                    <div class="ks_content_b5_brd3"><b><i></i></b></div>
+                    <div class="ks_content_b5_brd2"><b><i></i></b></div>
+                    <div class="ks_content_b5_brd1"><b></b></div>
+
+                </div>
+
+            </t:if>
+
+            <div class="ks_login_3">
+                <div class="ks_content_b1_brd1"><b></b></div>
+                <div class="ks_content_b1_brd2"><b><i></i></b></div>
+                <div class="ks_content_b1_brd3"><b><i></i></b></div>
+                <div class="ks_content_b1_brd4"><b><i></i></b></div>
+                <div class="ks_content_b1_brd0">
+                    <div class="ks_content_text">
+                        <br/>
+
+                        <div class="ks_login_4">
+                            <div class="ks_social_auth">
+                                <div class="ks_social_auth_option2 ks_social_auth_option_sel2" id="my2">
+                                    <img src="/images/0.gif" class="ks_social_ico ks_social_ico_my" alt=""/>Киндершоппинг.ру
+                                </div>
+                                <div class="ks_social_auth_option2" id="fb2">
+                                    <img src="/images/0.gif" class="ks_social_ico ks_social_ico_fb" alt=""/>Facebook
+                                </div>
+                                <div class="ks_social_auth_option2" id="vk2">
+                                    <img src="/images/0.gif" class="ks_social_ico ks_social_ico_vk" alt=""/>ВКонтакте
+                                </div>
+                                <!--<div class="ks_social_auth_option2" id="twi2"><img src="/images/0.gif" class="ks_social_ico ks_social_ico_twi" alt=""/>Twitter</div>-->
+                                <!--<div class="ks_social_auth_option2" id="mail2"><img src="/images/0.gif" class="ks_social_ico ks_social_ico_mail" alt=""/>Mail.ru</div>-->
+                                <!--<div class="ks_social_auth_option2" id="lj2"><img src="/images/0.gif" class="ks_social_ico ks_social_ico_lj" alt=""/>LiveJournal</div>-->
+                                <!--<div class="ks_social_auth_option2" id="ya2"><img src="/images/0.gif" class="ks_social_ico ks_social_ico_ya" alt=""/>Яндекс</div>-->
+                                <!--<div class="ks_social_auth_option2" id="li2"><img src="/images/0.gif" class="ks_social_ico ks_social_ico_li" alt=""/>LiveInternet</div>-->
+
+                            </div>
+                        </div>
+                        <div class="ks_login_5">
+                            <div class="social_auth_form2" id="social_auth_form_my2">
+                                <div class="social_auth_form_enter_with">Если у Вас уже есть учетная запись в Киндершоппинг.ру</div><br/>
+
+                                <form id="ks_login_form2" method="post" action="${auth.springSecurityUrl}">
+
+                                    <div class="ks_login_input">
+                                        <div class="ks_orderadress_legend">Адрес электронной почты:</div>
+                                        <input type="text" id="username" onkeyup="KS.processEnterOnInput(event,'#ks_login_form2')" name="j_username" class="validate_input orderbox_login" tabindex="15"/>
+                                    </div>
+
+                                    <div class="ks_login_input">
+                                        <div class="ks_orderadress_legend">Пароль:</div>
+                                        <input type="password" id="password" onkeyup="KS.processEnterOnInput(event,'#ks_login_form2')" name="j_password" class="validate_input orderbox_login" tabindex="16"/>
+                                    </div>
+
+
+                                    <div class="ks_login_left_extra">
+                                        <input type="checkbox" name="_spring_security_remember_me"
+                                               id="rememberMeu" tabindex="17"/> <label
+                                            for="rememberMeu">Запомнить меня</label>
+
+                                        <div class="ks_login_6">
+                                            <t:pagelink page="auth/passwordforgot" class="ks_auth_win_links_color2">Забыли пароль?</t:pagelink>
+                                               |  
+                                            <t:pagelink page="auth/signup" class="ks_auth_win_links_color1">Регистрация</t:pagelink>
+                                        </div>
+                                    </div>
+                                    <div class="ks_login_right_extra">
+                                        <img class="ks_Button3Left" src="/images/0.gif" alt=""/>
+                                            <input
+                                            onclick="document.forms['ks_login_form2'].submit();"
+                                            tabindex="18" type="button" name="login" class="ks_Button3 ks_login_7" title="${message:login.btn}"
+                                            value="${message:login.btn}"/>
+                                        <img src="/images/0.gif" class="ks_Button3Right" alt=""/>
+                                    </div>
+
+                                </form>
+
+                            </div>
+                            <div class="social_auth_form2 ks_common_display_none" id="social_auth_form_fb2">
+                                <div class="social_auth_form_enter_with">Вы можете воспользоваться учетной записью
+                                    <a href="http://www.facebook.com" target="_blank">Facebook</a></div><br/>
+                                <fb:login-button perms="email" onlogin="KS.soc_auth.fbLogin();">Войти через Facebook</fb:login-button>
+                            </div>
+                            <div class="social_auth_form2 ks_common_display_none" id="social_auth_form_vk2">
+                                <div class="social_auth_form_enter_with">Вы можете воспользоваться учетной записью
+                                    <a href="http://www.vkontakte.ru" target="_blank">ВКонтакте</a></div><br/>
+                                <div id="vk_login_button2" onclick="VK.Auth.login(KS.soc_auth.vkLogin);"></div>
+                                <script>
+                                    VK.UI.button('vk_login_button2');
+                                </script>
+                            </div>
+                        </div>
+                        <div class="break"></div>
+                        <br/>
+                    </div>
+                </div>
+                <div class="ks_content_b1_brd4"><b><i></i></b></div>
+                <div class="ks_content_b1_brd3"><b><i></i></b></div>
+                <div class="ks_content_b1_brd2"><b><i></i></b></div>
+                <div class="ks_content_b1_brd1"><b></b></div>
+            </div>
+
+
+            <t:mallComponents.control.javascript>
+                 jQuery(".ks_social_auth_option2").click(function(){
+                    jQuery('.ks_social_auth_option2').removeClass("ks_social_auth_option_sel2");
+                    jQuery(this).addClass("ks_social_auth_option_sel2");
+                    jQuery('.social_auth_form2').hide();
+                    var a = jQuery(this).attr('id');
+                    jQuery('#social_auth_form_' + a).fadeIn(500);
+                });
+            </t:mallComponents.control.javascript>
+
+
+        </div>
+
+    </t:mallcomponents.layout.browse>
+</t:mallcomponents.layout.layout>

@@ -1,0 +1,16 @@
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="rolelist">
+
+    <ul>
+        <t:loop source="selectedUserRoles" value="oneRole">
+            <li>
+                <t:if test="auth.adminrole">
+                    <t:pagelink context="oneRole.rootid" page="personaloffice/admin/role" class="underline">${oneRole.name}</t:pagelink>
+                </t:if>
+                <t:unless test="auth.adminrole">
+                    ${oneRole.name}
+                </t:unless>
+            </li>
+        </t:loop>
+    </ul>
+
+</div>

@@ -1,0 +1,42 @@
+<t:any xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" class="ks_adm_form_detail">
+
+    <t:zone id="editAreaZone">
+        <!-- Зона, куда записываем всю форму редактирования объекта -->
+        <t:delegate to="editAreaBlock"/>
+    </t:zone>
+
+    <t:block id="editAreaBlock">
+
+        <!-- Компонент со всеми элементами редактирования - форма, кнопки, кастомные данные -->
+        <t:mallcomponents.control.editObjectShow
+                submitCallback="submitCallback"
+                ajaxBlock="ajaxBlock"
+                targetZone="${targetZone}"
+                addAction="${addAction}"
+                delAction="${delAction}"
+                editAction="${editAction}"
+                roles="${roles}"
+                objectSavedLabel="${objectSavedLabel}"
+                objectRemovedLabel="${objectRemovedLabel}"
+                objectExistsLabel="${objectExistsLabel}"
+                objectAddedLabel="${objectAddedLabel}"
+                newObject="${newObject}"
+                listPage="${listPage}"
+                objectPage="${objectPage}"
+                objectPagePermanent="${objectPagePermanent}"
+                drawDelete="${drawDelete}"
+                drawLang="${drawLang}"
+                drawLock="${drawLock}"
+                key="${key}"
+                objectManager="objectManager"
+                selectedObject="selectedObject"
+                selectedSecurityObject="selectedSecurityObject"
+                editAreaBlock="editAreaBlock"
+                editObjectShow="editObjectShow"
+                parentObject="parentObject"
+                multiZoneUpdate="multiZoneUpdate">
+            <t:body/>
+        </t:mallcomponents.control.editObjectShow>
+    </t:block>
+    <div class="break"></div>
+</t:any>

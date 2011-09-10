@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util-2.5.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <aop:aspectj-autoproxy/>
+
+    <context:annotation-config/>
+
+    <context:component-scan base-package="org.room13"/>
+
+    <bean id="serviceManager" class="org.ohm.lebetter.spring.service.impl.ServiceManagerImpl">
+        <property name="actionManager" ref="actionManager"/>
+        <property name="actionGroupManager" ref="actionGroupManager"/>
+        <property name="userManager" ref="userManager"/>
+        <property name="roleManager" ref="roleManager"/>
+        <property name="mailEngine">
+            <null/>
+        </property>
+        <property name="blogService">
+            <null/>
+        </property>
+        <property name="dataManager" ref="dataManager"/>
+        <property name="genericManagerMap" ref="genericManagerMap"/>
+        <property name="languageManager" ref="languageManager"/>
+        <property name="systemParameterManager" ref="systemParameterManager"/>
+        <property name="newsService" ref="newsManager"/>
+        <property name="commentService" ref="newsCommentManager"/>
+        <property name="newsCategoryManager" ref="newsCategoryManager"/>
+        <property name="categoryService" ref="newsCategoryManager"/>
+        <property name="uploadTicketService" ref="uploadTicketService"/>
+        <property name="appCache" ref="appCache"/>
+        <property name="profileManager" ref="profileManager"/>
+        <property name="properties" ref="fhProperties"/>
+        <property name="shopManager" ref="shopManager"/>
+        <property name="branchStoreManager" ref="branchStoreManager"/>
+        <property name="brandManager" ref="brandManager"/>
+        <property name="productManager" ref="productManager"/>
+        <property name="productPhotoManager" ref="productPhotoManager"/>
+        <property name="syncDictProcessors">
+            <null/>
+        </property>
+        <property name="colorManager" ref="colorManager"/>
+        <property name="categoryManager" ref="categoryManager"/>
+        <property name="propertyValueManager" ref="propertyValueManager"/>
+        <property name="propertyManager" ref="propertyManager"/>
+        <property name="dictPropertyHolder">
+            <null/>
+        </property>
+        <property name="sitemapManager">
+            <null/>
+        </property>
+        <property name="adviceManager">
+            <null/>
+        </property>
+        <property name="commentManager">
+            <null/>
+        </property>
+        <property name="orderManager" ref="orderManager"/>
+        <property name="sphinxSearchFactory">
+            <null/>
+        </property>
+        <property name="deliveryManager" ref="deliveryManager"/>
+        <property name="statisticLogManager" ref="statisticLogManager"/>
+        <property name="productSetManager" ref="productSetManager"/>
+        <property name="passwordEncoder" ref="passwordEncoder"/>
+        <property name="historyManager">
+            <null/>
+        </property>
+        <property name="i18n">
+            <null/>
+        </property>
+    </bean>
+
+    <util:map id="genericManagerMap"
+              map-class="java.util.HashMap">
+        <entry key="User" value-ref="userManager"/>
+        <entry key="Role" value-ref="roleManager"/>
+        <entry key="Language" value-ref="languageManager"/>
+        <entry key="SystemParameter" value-ref="systemParameterManager"/>
+        <entry key="Shop" value-ref="shopManager"/>
+        <entry key="BranchStore" value-ref="branchStoreManager"/>
+        <entry key="Brand" value-ref="brandManager"/>
+        <entry key="Color" value-ref="colorManager"/>
+        <entry key="Category" value-ref="categoryManager"/>
+        <entry key="Property" value-ref="propertyManager"/>
+        <entry key="PropertyValue" value-ref="propertyValueManager"/>
+        <entry key="Product" value-ref="productManager"/>
+        <entry key="ProductPhoto" value-ref="productPhotoManager"/>
+        <entry key="News" value-ref="newsManager"/>
+        <entry key="Comment">
+            <null/>
+        </entry>
+        <entry key="NewsComment">
+            <null/>
+        </entry>
+    </util:map>
+
+    <bean id="userDao" parent="genericDao"
+          class="org.room13.mallcore.spring.dao.impl.UserCoreDaoHibernate"/>
+
+    <bean id="onlineUsersDao" class="org.room13.mallcore.spring.dao.impl.OnlineUsersDaoHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="roleDao" parent="genericDao" class="org.room13.mallcore.spring.dao.impl.RoleDaoHibernate"/>
+
+    <bean id="actionDao" parent="genericDao" class="org.room13.mallcore.spring.dao.impl.ActionDaoHibenate"/>
+
+    <bean id="actionGroupDao" parent="genericDao" class="org.room13.mallcore.spring.dao.impl.ActionGroupDaoHibenate"/>
+
+    <bean id="roleToActionDao" parent="genericDao"
+          class="org.room13.mallcore.spring.dao.impl.RoleToActionDaoHibernate"/>
+
+    <bean id="languageDao" parent="genericDao"
+          class="org.room13.mallcore.spring.dao.impl.LanguageDaoHibernate"/>
+
+    <bean id="profileDao" parent="genericDao"
+          class="org.room13.mallcore.spring.dao.impl.ProfileParameterDaoHibernate"/>
+
+    <bean id="systemParameterDao" parent="genericDao"
+          class="org.room13.mallcore.spring.dao.impl.SystemParameterDaoHibernate"/>
+
+
+    <bean id="propertyToCategoryDao" parent="genericDao"
+          class="org.ohm.lebetter.spring.dao.impl.PropertyToCategoryDaoHibernate"/>
+    <bean id="propertyValueDao" parent="genericDao"
+          class="org.ohm.lebetter.spring.dao.impl.PropertyValueDaoHibernate"/>
+    <bean id="propertyDao" parent="genericDao"
+          class="org.ohm.lebetter.spring.dao.impl.PropertyDaoHibernate"/>
+    <bean id="tagToValueDao" parent="genericDao"
+          class="org.ohm.lebetter.spring.dao.impl.TagDaoHibernate"/>
+    <bean id="categoryDao" parent="genericDao"
+          class="org.ohm.lebetter.spring.dao.impl.CategoryDaoHibernate"/>
+
+
+    <bean id="genericDao" abstract="true" class="org.room13.mallcore.spring.dao.impl.GenericDaoHibernate">
+        <property name="languageDao" ref="languageDao"/>
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="imageDao" class="org.room13.mallcore.spring.dao.impl.ImageDaoHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean abstract="true" id="genericManager"
+          class="org.ohm.lebetter.spring.service.impl.KinderGenericManagerImpl">
+        <property name="serviceManager" ref="serviceManager"/>
+        <property name="imageDao" ref="imageDao"/>
+        <property name="popularityDao">
+            <null/>
+        </property>
+    </bean>
+
+    <bean id="userManager" parent="genericManager" class="org.ohm.lebetter.spring.service.impl.UserKinderManagerImpl">
+        <property name="userDao" ref="userDao"/>
+        <property name="onlineUsersDao" ref="onlineUsersDao"/>
+        <property name="passwordEncoder" ref="passwordEncoder"/>
+        <property name="productSetDao" ref="productSetDao"/>
+        <property name="orderDao" ref="orderDao"/>
+        <property name="ownerDao">
+            <null/>
+        </property>
+    </bean>
+
+    <bean id="roleManager" parent="genericManager"
+          class="org.room13.mallcore.spring.service.impl.RoleManagerImpl">
+        <property name="roleDao" ref="roleDao"/>
+        <property name="roleToActionDao" ref="roleToActionDao"/>
+    </bean>
+
+    <bean id="actionManager" parent="genericManager"
+          class="org.room13.mallcore.spring.service.impl.ActionManagerImpl">
+        <property name="actionDao" ref="actionDao"/>
+    </bean>
+
+    <bean id="actionGroupManager" parent="genericManager"
+          class="org.room13.mallcore.spring.service.impl.ActionGroupManagerImpl">
+        <property name="actionGroupDao" ref="actionGroupDao"/>
+    </bean>
+
+    <bean id="languageManager" parent="genericManager"
+          class="org.room13.mallcore.spring.service.impl.LanguageManagerImpl">
+        <property name="languageDao" ref="languageDao"/>
+    </bean>
+
+    <bean id="systemParameterManager" parent="genericManager"
+          class="org.room13.mallcore.spring.service.impl.SystemParameterManagerImpl">
+        <property name="systemParameterDao" ref="systemParameterDao"/>
+    </bean>
+
+    <bean id="profileManager" parent="genericManager"
+          class="org.room13.mallcore.spring.service.impl.ProfileParameterManagerImpl">
+        <property name="profileDao" ref="profileDao"/>
+    </bean>
+
+    <bean name="uploadTicketService" class="org.room13.mallcore.spring.service.UploadTicketServiceImpl">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="encoder">
+            <bean class="org.springframework.security.providers.encoding.ShaPasswordEncoder"/>
+        </property>
+    </bean>
+
+    <util:map id="cacheWrappers"
+              map-class="java.util.HashMap"
+              key-type="org.room13.mallcore.annotations.CacheType"
+              value-type="org.room13.mallcore.annotations.advices.CacheWrapper">
+        <entry key="EHCACHE">
+            <bean class="org.room13.mallcore.annotations.advices.EhCacheWrapper"/>
+        </entry>
+    </util:map>
+
+    <bean id="shopManager" parent="genericManager"
+          class="org.room13.lebetter.spring.service.impl.ShopManagerImpl"
+          p:shopDao-ref="shopDao">
+        <property name="ratingDao">
+            <null/>
+        </property>
+        <property name="downloader">
+            <null/>
+        </property>
+        <property name="ymlFileName">
+            <null/>
+        </property>
+        <property name="nginxHome">
+            <null/>
+        </property>
+        <property name="i18n">
+            <null/>
+        </property>
+        <property name="ownerDao">
+            <null/>
+        </property>
+    </bean>
+
+    <bean name="shopDao" class="org.room13.lebetter.spring.dao.impl.ShopDaoHibernate"
+          parent="genericDao"/>
+
+    <bean id="branchStoreManager" parent="genericManager"
+          class="org.room13.lebetter.spring.service.impl.BranchStoreManagerImpl">
+        <property name="branchStoreDao">
+            <bean class="org.room13.lebetter.spring.dao.impl.BranchStoreDaoHibernate"
+                  parent="genericDao"/>
+        </property>
+    </bean>
+
+    <bean id="productPhotoManager" parent="genericManager"
+          class="org.room13.lebetter.spring.service.impl.ProductPhotoManagerImpl">
+        <property name="productPhotoDao">
+            <bean class="org.room13.lebetter.spring.dao.impl.ProductPhotoDaoHibernate"
+                  parent="genericDao"/>
+        </property>
+    </bean>
+
+    <bean id="productManager" parent="genericManager"
+          class="org.ohm.lebetter.spring.service.impl.ProductManagerImpl">
+        <property name="productDao" ref="productDao"/>
+        <property name="ratingDao">
+            <null/>
+        </property>
+        <property name="ownerDao">
+            <null/>
+        </property>
+    </bean>
+
+    <bean name="productDao" class="org.ohm.lebetter.spring.dao.impl.ProductDaoHibernate" parent="genericDao"/>
+
+    <bean id="brandManager" parent="genericManager"
+          class="org.room13.lebetter.spring.service.impl.BrandManagerImpl">
+        <property name="brandDao">
+            <bean class="org.room13.lebetter.spring.dao.impl.BrandDaoHibernate"
+                  parent="genericDao"/>
+        </property>
+        <property name="ratingDao">
+            <null/>
+        </property>
+    </bean>
+
+
+    <bean id="colorManager" parent="genericManager"
+          class="org.ohm.lebetter.spring.service.impl.ColorManagerImpl">
+        <property name="colorDao">
+            <bean class="org.ohm.lebetter.spring.dao.impl.ColorDaoHibernate"
+                  parent="genericDao"/>
+        </property>
+    </bean>
+
+    <bean id="categoryManager" parent="genericManager"
+          class="org.ohm.lebetter.spring.service.impl.CategoryManagerImpl">
+        <property name="categoryDao" ref="categoryDao"/>
+        <property name="propertyToCategoryDao" ref="propertyToCategoryDao"/>
+    </bean>
+
+    <bean id="propertyManager" parent="genericManager"
+          class="org.ohm.lebetter.spring.service.impl.PropertyManagerImpl">
+        <property name="propertyDao">
+            <bean class="org.ohm.lebetter.spring.dao.impl.PropertyDaoHibernate"
+                  parent="genericDao"/>
+        </property>
+        <property name="propertyValueDao" ref="propertyValueDao"/>
+        <property name="tagToValueDao" ref="tagToValueDao"/>
+        <property name="productDao" ref="productDao"/>
+    </bean>
+
+    <bean id="propertyValueManager" parent="genericManager"
+          class="org.ohm.lebetter.spring.service.impl.PropertyValueManagerImpl">
+        <property name="propertyValueDao" ref="propertyValueDao"/>
+        <property name="propertyDao" ref="propertyDao"/>
+    </bean>
+
+    <bean id="orderDao" class="org.room13.lebetter.spring.dao.impl.OrderDaoHibernate" parent="genericDao"/>
+
+    <bean id="productToOrderDao" class="org.room13.lebetter.spring.dao.impl.ProductToOrderDaoHibernate"
+          parent="genericDao"/>
+
+    <bean id="deliveryDao" class="org.room13.lebetter.spring.dao.impl.DeliveryDaoHibernate" parent="genericDao"/>
+
+    <bean id="deliveryManager" parent="genericManager"
+          class="org.room13.lebetter.spring.service.impl.DeliveryManagerImpl">
+        <property name="deliveryDao" ref="deliveryDao"/>
+    </bean>
+
+    <bean id="orderManager" parent="genericManager" class="org.room13.lebetter.spring.service.impl.OrderManagerImpl">
+        <property name="orderDao" ref="orderDao"/>
+        <property name="productToOrderDao" ref="productToOrderDao"/>
+        <property name="parentManagerName" value="${parent.manager.name}"/>
+    </bean>
+
+    <bean id="statisticLogDao" class="org.room13.lebetter.spring.dao.impl.StatisticLogDaoHibernate" parent="genericDao"/>
+
+    <bean id="statisticLogManager"
+          class="org.room13.lebetter.spring.service.impl.StatisticLogManagerImpl"
+          parent="genericManager"
+          p:statisticLogDao-ref="statisticLogDao"/>
+
+    <bean id="productSetDao" class="org.room13.lebetter.spring.dao.impl.ProductSetDaoHibernate" parent="genericDao"/>
+    <bean id="productSetEntryDao" class="org.room13.lebetter.spring.dao.impl.ProductSetEntryDaoHibernate"
+          parent="genericDao"/>
+    <bean id="productSetManager" parent="genericManager"
+          class="org.room13.lebetter.spring.service.impl.ProductSetManagerImpl">
+        <property name="productSetDao" ref="productSetDao"/>
+        <property name="ratingDao">
+            <null/>
+        </property>
+        <property name="productSetEntryDao" ref="productSetEntryDao"/>
+        <property name="ftpDir" value="${ftp.dir}"/>
+        <property name="ftpUrl" value="${img.static.addresses}"/>
+        <property name="serviceUrl" value=""/>
+    </bean>
+
+</beans>

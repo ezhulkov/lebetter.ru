@@ -1,0 +1,165 @@
+package org.ohm.lebetter.model.impl.entities;
+
+import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang.builder.ToStringStyle;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.ohm.lebetter.model.RelatedToAbstractObjectAware;
+import org.ohm.lebetter.model.embedded.RelatedToAbstractObject;
+import org.room13.mallcore.model.CreatorAware;
+import org.room13.mallcore.model.OwnerAware;
+import org.room13.mallcore.model.impl.BaseOwnerAwareEntity;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by IntelliJ IDEA.
+ * User: ezhulkov
+ * Date: 21.04.2009
+ * Time: 13:50:11
+ * To change this template use File | Settings | File Templates.
+ */
+@Entity
+@Table(name = "app_property_value")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+public class PropertyValueEntity
+        extends BaseOwnerAwareEntity
+        implements OwnerAware, CreatorAware, RelatedToAbstractObjectAware {
+
+    private static final long serialVersionUID = 2717136138544315411L;
+
+    @Embedded
+    private RelatedToAbstractObject relation = new RelatedToAbstractObject();
+
+    private String name;
+    private String code;
+    private String alias;
+    private String description;
+    private String additionalDictInfo;
+    private String additionalDictInfo2;
+    private PropertyEntity property;
+    private List<TagToValueEntity> tags = new ArrayList<TagToValueEntity>();
+    private boolean uiTagAttention;
+    private boolean uiTagMandatory;
+
+    public PropertyValueEntity() {
+        setEntityCode("PropertyValue");
+    }
+
+    @Column
+    public String getAlias() {
+        return alias;
+    }
+
+    public void setAlias(String alias) {
+        this.alias = alias;
+    }
+
+    @Column
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    public PropertyEntity getProperty() {
+        return property;
+    }
+
+    public void setProperty(PropertyEntity property) {
+        this.property = property;
+    }
+
+    @Column(length = 255)
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        ToStringBuilder sb = new ToStringBuilder(this, ToStringStyle.DEFAULT_STYLE)
+                .append("id", this.getId())
+                .append("name", this.getName());
+        return sb.toString();
+    }
+
+    @OneToMany(mappedBy = "propertyValue", fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
+    public List<TagToValueEntity> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<TagToValueEntity> tags) {
+        this.tags = tags;
+    }
+
+    @Column
+    public boolean isUiTagAttention() {
+        return uiTagAttention;
+    }
+
+    public void setUiTagAttention(boolean uiTagAttention) {
+        this.uiTagAttention = uiTagAttention;
+    }
+
+    @Column
+    public boolean isUiTagMandatory() {
+        return uiTagMandatory;
+    }
+
+    public void setUiTagMandatory(boolean uiTagMandatory) {
+        this.uiTagMandatory = uiTagMandatory;
+    }
+
+    @Column(length = 255)
+    public String getAdditionalDictInfo() {
+        return additionalDictInfo;
+    }
+
+    public void setAdditionalDictInfo(String additionalDictInfo) {
+        this.additionalDictInfo = additionalDictInfo;
+    }
+
+    @Column(length = 255)
+    public String getAdditionalDictInfo2() {
+        return additionalDictInfo2;
+    }
+
+    public void setAdditionalDictInfo2(String additionalDictInfo2) {
+        this.additionalDictInfo2 = additionalDictInfo2;
+    }
+
+    @Override
+    public RelatedToAbstractObject getRelation() {
+        return relation;
+    }
+
+    @Override
+    public void setRelation(RelatedToAbstractObject relation) {
+        this.relation = relation;
+    }
+
+    @Column
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+}

@@ -1,0 +1,22 @@
+Hello, Admin! Wake up! Knock-khock!
+
+Server is: ${server}
+
+#macro(exOut $ex)
+    ${ex.message}
+    #foreach($line in ${ex.stackTrace})
+        ${line}
+    #end
+    #if($ex.cause && $ex.cause!=$ex)
+        #exOut($ex.cause)
+    #end
+#end
+
+
+#if($pageErr)
+Exception is:  $pageErr.class.name
+#exOut($pageErr)                                              
+#end
+
+
+Good luck! Happy work-night!

@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util-2.5.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <aop:config>
+        <aop:advisor id="managerSaveAdvisor" advice-ref="managerSaveAdvice"
+                     pointcut="execution(* *..service.*Manager.save(..))" order="1"/>
+        <aop:advisor id="managerRemoveAdvisor" advice-ref="managerRemoveAdvice"
+                     pointcut="execution(* *..service.*Manager.remove(..))" order="2"/>
+        <aop:advisor id="managerCreateAdvisor" advice-ref="managerCreateAdvice"
+                     pointcut="execution(* *..service.*Manager.create(..))" order="3"/>
+    </aop:config>
+
+    <aop:aspectj-autoproxy/>
+
+    <context:annotation-config/>
+
+    <context:component-scan base-package="org.ohm"/>
+
+    <bean id="serviceManager" class="org.ohm.lebetter.spring.service.impl.ServiceManagerImpl"
+          p:actionManager-ref="actionManager"
+          p:actionGroupManager-ref="actionGroupManager"
+          p:userManager-ref="userManager"
+          p:roleManager-ref="roleManager"
+          p:dataManager-ref="dataManager"
+          p:genericManagerMap-ref="genericManagerMap"
+          p:languageManager-ref="languageManager"
+          p:mailEngine-ref="mailEngine"
+          p:systemParameterManager-ref="systemParameterManager"
+          p:uploadTicketService-ref="uploadTicketService"
+          p:appCache-ref="appCache"
+          p:profileManager-ref="profileManager"
+          p:properties-ref="properties"
+          p:productManager-ref="productManager"
+          p:colorManager-ref="colorManager"
+          p:categoryManager-ref="categoryManager"
+          p:dictPropertyHolder-ref="dictPropertyHolder"
+          p:propertyValueManager-ref="propertyValueManager"
+          p:propertyManager-ref="propertyManager"
+          p:passwordEncoder-ref="passwordEncoder"
+          p:i18n-ref="i18n">
+        <property name="blogService"><null/></property>
+        <property name="commentService"><null/></property>
+        <property name="categoryService"><null/></property>
+        <property name="syncDictProcessors">
+            <bean id="dictSyncProcessors" class="org.springframework.beans.factory.config.MapFactoryBean">
+                <property name="sourceMap">
+                    <map>
+                        <entry key="default" value-ref="genericSyncDictProcessor"/>
+                        <entry key="Color" value-ref="colorSyncDictProcessor"/>
+                    </map>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+    <util:map id="genericManagerMap"
+              map-class="java.util.HashMap">
+        <entry key="User" value-ref="userManager"/>
+        <entry key="Role" value-ref="roleManager"/>
+        <entry key="Language" value-ref="languageManager"/>
+        <entry key="SystemParameter" value-ref="systemParameterManager"/>
+        <entry key="Color" value-ref="colorManager"/>
+        <entry key="Category" value-ref="categoryManager"/>
+        <entry key="Property" value-ref="propertyManager"/>
+        <entry key="PropertyValue" value-ref="propertyValueManager"/>
+        <entry key="Product" value-ref="productManager"/>
+    </util:map>
+
+    <bean id="userDao" parent="genericDao" class="org.ohm.lebetter.spring.dao.impl.UserKinderDaoHibernate"/>
+
+    <bean id="onlineUsersDao" class="org.room13.mallcore.spring.dao.impl.OnlineUsersDaoHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="roleDao" parent="genericDao" class="org.room13.mallcore.spring.dao.impl.RoleDaoHibernate"/>
+
+    <bean id="actionDao" parent="genericDao" class="org.room13.mallcore.spring.dao.impl.ActionDaoHibenate"/>
+
+    <bean id="actionGroupDao" parent="genericDao"
+          class="org.room13.mallcore.spring.dao.impl.ActionGroupDaoHibenate"/>
+
+    <bean id="roleToActionDao" parent="genericDao"
+          class="org.room13.mallcore.spring.dao.impl.RoleToActionDaoHibernate"/>
+
+    <bean id="languageDao" parent="genericDao"
+          class="org.room13.mallcore.spring.dao.impl.LanguageDaoHibernate"/>
+
+    <bean id="profileDao" parent="genericDao"
+          class="org.room13.mallcore.spring.dao.impl.ProfileParameterDaoHibernate"/>
+
+    <bean id="systemParameterDao" parent="genericDao"
+          class="org.room13.mallcore.spring.dao.impl.SystemParameterDaoHibernate"/>
+
+    <bean id="propertyToCategoryDao" parent="genericDao"
+          class="org.ohm.lebetter.spring.dao.impl.PropertyToCategoryDaoHibernate"/>
+    <bean id="propertyValueDao" parent="genericDao"
+          class="org.ohm.lebetter.spring.dao.impl.PropertyValueDaoHibernate"/>
+    <bean id="propertyDao" parent="genericDao"
+          class="org.ohm.lebetter.spring.dao.impl.PropertyDaoHibernate"/>
+    <bean id="tagToValueDao" parent="genericDao"
+          class="org.ohm.lebetter.spring.dao.impl.TagDaoHibernate"/>
+    <bean id="categoryTypeDao" parent="genericDao"
+          class="org.ohm.lebetter.spring.dao.impl.CategoryDaoHibernate"/>
+
+    <bean id="imageDao" p:sessionFactory-ref="sessionFactory"
+          class="org.room13.mallcore.spring.dao.impl.ImageDaoHibernate"/>
+
+    <bean id="genericDao" abstract="true"
+          class="org.room13.mallcore.spring.dao.impl.GenericDaoHibernate"
+          p:localization="false" p:languageDao-ref="languageDao"
+          p:sessionFactory-ref="sessionFactory"/>
+
+    <bean id="popularityDao" class="org.room13.mallcore.spring.dao.impl.PopularityDaoHibernate"
+          p:sessionFactory-ref="sessionFactory"/>
+
+    <bean id="ownerDao" class="org.room13.mallcore.spring.dao.impl.OwnerDaoHibernate"
+          p:sessionFactory-ref="sessionFactory"/>
+
+    <bean abstract="true" id="genericManager"
+          class="org.ohm.lebetter.spring.service.impl.KinderGenericManagerImpl">
+        <property name="serviceManager" ref="serviceManager"/>
+        <property name="imageDao" ref="imageDao"/>
+        <property name="popularityDao" ref="popularityDao"/>
+    </bean>
+
+    <bean id="userManager" parent="genericManager"
+          class="org.ohm.lebetter.spring.service.impl.UserKinderManagerImpl"
+          init-method="afterPropertiesSet"
+          p:ownerDao-ref="ownerDao"
+          p:onlineUsersDao-ref="onlineUsersDao"
+          p:userDao-ref="userDao"
+          p:passwordEncoder-ref="passwordEncoder"/>
+
+    <bean id="roleManager" parent="genericManager"
+          class="org.room13.mallcore.spring.service.impl.RoleManagerImpl">
+        <property name="roleDao" ref="roleDao"/>
+        <property name="roleToActionDao" ref="roleToActionDao"/>
+    </bean>
+
+    <bean id="actionManager" parent="genericManager"
+          class="org.room13.mallcore.spring.service.impl.ActionManagerImpl">
+        <property name="actionDao" ref="actionDao"/>
+    </bean>
+
+    <bean id="actionGroupManager" parent="genericManager"
+          class="org.room13.mallcore.spring.service.impl.ActionGroupManagerImpl">
+        <property name="actionGroupDao" ref="actionGroupDao"/>
+    </bean>
+
+    <bean id="languageManager" parent="genericManager"
+          class="org.room13.mallcore.spring.service.impl.LanguageManagerImpl">
+        <property name="languageDao" ref="languageDao"/>
+        <property name="declensionManagers" ref="declinasionManagerMap"/>
+    </bean>
+
+    <bean id="systemParameterManager" parent="genericManager"
+          class="org.room13.mallcore.spring.service.impl.SystemParameterManagerImpl">
+        <property name="systemParameterDao" ref="systemParameterDao"/>
+    </bean>
+
+    <bean id="profileManager" parent="genericManager"
+          class="org.room13.mallcore.spring.service.impl.ProfileParameterManagerImpl">
+        <property name="profileDao" ref="profileDao"/>
+    </bean>
+
+    <bean name="uploadTicketService" class="org.room13.mallcore.spring.service.UploadTicketServiceImpl">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="encoder">
+            <bean class="org.springframework.security.providers.encoding.ShaPasswordEncoder"/>
+        </property>
+    </bean>
+
+    <util:map id="declinasionManagerMap">
+        <entry key="ru" value-ref="ruDeclinationManager"/>
+    </util:map>
+
+    <bean id="ruDeclinationManager" class="org.room13.mallcore.spring.service.impl.RuDeclinationManagerImpl">
+        <!--Gender | Declination | range | soft/hard | ending-->
+        <!---->
+        <!--range can be:-->
+        <!--s_1_11 - [1;11]-->
+        <!--r_2_6 - [2,6] && [12,16] && [22,26] && ... -->
+        <!---->
+        <!--soft/hard:-->
+        <!--soft - Пользователь, Олень-->
+        <!--hard - Стол, Диавн-->
+
+        <property name="ruleTableAsString" value="
+            MASCULINE|SECOND|r_0_0|soft|ей;
+            MASCULINE|SECOND|r_0_0|esoft|ев;
+            MASCULINE|SECOND|r_0_0|hard|ов;
+            MASCULINE|SECOND|r_5_9|soft|ей;
+            MASCULINE|SECOND|r_5_9|esoft|ев;
+            MASCULINE|SECOND|r_5_9|hard|ов;
+            MASCULINE|SECOND|r_11_14|soft|ей;
+            MASCULINE|SECOND|r_11_14|esoft|ев;
+            MASCULINE|SECOND|r_11_14|hard|ов;
+
+            MASCULINE|SECOND|r_1_1|soft|;
+            MASCULINE|SECOND|r_1_1|hard|;
+
+            MASCULINE|SECOND|r_2_4|soft|я;
+            MASCULINE|SECOND|r_2_4|esoft|я;
+            MASCULINE|SECOND|r_2_4|hard|а;
+        "/>
+    </bean>
+
+    <bean name="newsFeedService" class="org.room13.mallcore.news.service.NewsFeedManagerImpl">
+        <property name="serviceManager" ref="serviceManager"/>
+        <property name="i18nBean" ref="i18n"/>
+    </bean>
+
+    <bean id="i18n" class="org.room13.mallcore.spring.service.I18nBeanImpl">
+        <property name="serviceManager" ref="serviceManager"/>
+        <property name="localizationResourcePath" value="config/dictionaries/lang"/>
+        <property name="langs">
+            <set>
+                <value>ru</value>
+            </set>
+        </property>
+    </bean>
+
+    <util:map id="cacheWrappers"
+              map-class="java.util.HashMap"
+              key-type="org.room13.mallcore.annotations.CacheType"
+              value-type="org.room13.mallcore.annotations.advices.CacheWrapper">
+        <entry key="EHCACHE">
+            <bean class="org.room13.mallcore.annotations.advices.EhCacheWrapper"/>
+        </entry>
+    </util:map>
+
+    <bean id="productManager" parent="genericManager"
+          class="org.ohm.lebetter.spring.service.impl.ProductManagerImpl"
+          p:ownerDao-ref="ownerDao"
+          p:productDao-ref="productDao"/>
+
+    <bean name="productDao" class="org.ohm.lebetter.spring.dao.impl.ProductDaoHibernate" parent="genericDao"/>
+
+    <bean id="colorManager" parent="genericManager"
+          class="org.ohm.lebetter.spring.service.impl.ColorManagerImpl">
+        <property name="colorDao">
+            <bean class="org.ohm.lebetter.spring.dao.impl.ColorDaoHibernate"
+                  parent="genericDao"/>
+        </property>
+    </bean>
+
+    <bean id="categoryManager" parent="genericManager"
+          class="org.ohm.lebetter.spring.service.impl.CategoryManagerImpl">
+        <property name="categoryDao" ref="categoryTypeDao"/>
+        <property name="propertyToCategoryDao" ref="propertyToCategoryDao"/>
+    </bean>
+
+    <bean id="propertyManager" parent="genericManager"
+          class="org.ohm.lebetter.spring.service.impl.PropertyManagerImpl">
+        <property name="propertyDao">
+            <bean class="org.ohm.lebetter.spring.dao.impl.PropertyDaoHibernate"
+                  parent="genericDao"/>
+        </property>
+        <property name="propertyValueDao" ref="propertyValueDao"/>
+        <property name="tagToValueDao" ref="tagToValueDao"/>
+        <property name="productDao" ref="productDao"/>
+    </bean>
+
+    <bean id="propertyValueManager" parent="genericManager"
+          class="org.ohm.lebetter.spring.service.impl.PropertyValueManagerImpl">
+        <property name="propertyValueDao" ref="propertyValueDao"/>
+        <property name="propertyDao" ref="propertyDao"/>
+    </bean>
+
+    <bean id="dictPropertyHolder"
+          class="org.ohm.lebetter.spring.service.impl.DictPropertyHolderImpl"/>
+
+    <bean abstract="true" id="abstractManagerAdvice"
+          class="org.ohm.lebetter.spring.aop.AbstractManagerAdvice">
+        <property name="serviceManager" ref="serviceManager"/>
+    </bean>
+
+    <bean id="genericSyncDictProcessor"
+          class="org.ohm.lebetter.spring.sync.impl.GenericSyncDictProcessor"/>
+
+    <bean id="colorSyncDictProcessor"
+          class="org.ohm.lebetter.spring.sync.impl.ColorSyncDictProcessor"/>
+
+    <bean parent="abstractManagerAdvice" id="managerCreateAdvice"
+          class="org.ohm.lebetter.spring.aop.ManagerCreateAdvice"/>
+
+    <bean parent="abstractManagerAdvice" id="managerSaveAdvice"
+          class="org.ohm.lebetter.spring.aop.ManagerSaveAdvice"/>
+
+    <bean parent="abstractManagerAdvice" id="managerRemoveAdvice"
+          class="org.ohm.lebetter.spring.aop.ManagerRemoveAdvice"/>
+
+</beans>

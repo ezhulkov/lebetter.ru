@@ -1,0 +1,19 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+    <div t:id="pagerTop"/>
+
+    <div>
+        <t:loop t:formState="NONE" t:id="loop"><t:body/></t:loop>
+    </div>
+		<div class='break'></div>
+    <div t:id="pagerBottom"/>
+
+    <t:block>
+        <div t:id="internalPager"/>
+    </t:block>
+
+    <t:block id="empty">
+    <p class="nomsg">${message:empty.list}</p>
+    </t:block>
+
+</t:container>

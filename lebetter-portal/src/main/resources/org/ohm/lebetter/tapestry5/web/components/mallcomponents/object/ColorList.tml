@@ -1,0 +1,98 @@
+<span xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="colorlist">
+
+    <ul class="ks_adm_color_list">
+
+        <t:loop source="allColors" value="oneColor">
+            <li class="ks_adm_color_item">
+
+                <div class="ks_content_b1_brd1"><b></b></div>
+                <div class="ks_content_b1_brd2"><b><i></i></b></div>
+                <div class="ks_content_b1_brd3"><b><i></i></b></div>
+                <div class="ks_content_b1_brd4"><b><i></i></b></div>
+                <div class="ks_content_b1_brd0">
+                    <div class="ks_content_text ks_colorlist_1">
+
+                        <t:mallComponents.control.menuLink action="MANAGE_COLOR" object="oneColor">
+                            <a href="#ks_colordel_${oneColor.rootid}" class='ks_adm_color_del_a' title='${oneColor.name}'>
+                              <img src="/images/categories/del1.png"    label='${oneColor.rootid}' class="ctrl_hand ks_adm_color_del"/>
+                            </a>
+                        </t:mallComponents.control.menuLink>
+                        <h3 class="ks_adm_color_zag" title="${oneColor.name}">
+                            <t:pageLink page="personaloffice/staff/color" context="oneColor.rootid">
+                                <t:mallComponents.control.trimmedString length="16" value="${oneColor.name}"/>
+                            </t:pageLink>
+                        </h3>
+
+                        <div class="ks_colorlist_2">
+                            <t:pageLink page="personaloffice/staff/color" context="oneColor.rootid">
+                                <div class="color_o" style="background-color: ${oneColorRoot.colorCode};" title="${oneColor.name}"></div>
+                            </t:pageLink>
+                        </div>
+                        <div class="ks_colorlist_3">
+                            <dt><span class="ks_colorlist_4">${oneColorRoot.code}</span></dt>
+                            <dt><span class="ks_colorlist_4">${oneColorRoot.colorCode}</span></dt>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="ks_content_b1_brd4"><b><i></i></b></div>
+                <div class="ks_content_b1_brd3"><b><i></i></b></div>
+                <div class="ks_content_b1_brd2"><b><i></i></b></div>
+                <div class="ks_content_b1_brd1"><b></b></div>
+
+                <t:mallComponents.control.menuLink action="MANAGE_COLOR" object="oneColor">
+                  <div class='ks_common_display_none'>
+                    <div id="ks_colordel_${oneColor.rootid}">
+                      <t:form t:id="deleteColorForm">
+                        <div class="ks_colorlist_5">
+                          <div class="ks_colorlist_2">
+                              <t:pageLink page="personaloffice/staff/color" context="oneColor.rootid">
+                                  <div class="color_o" style="background-color: ${oneColorRoot.colorCode};" title="${oneColor.name}"></div>
+                              </t:pageLink>
+                          </div>
+
+                        ${message:delete.confirm}</div>
+
+                        <div class="ks_colorlist_6">
+                          <div class="ks_colorlist_7"><img class="NFButtonResLeft" src="/images/0.gif"/><input
+                                  type="reset" value="${message:cancelbtn}" onclick="jQuery.fancybox.close();" class="NFButtonRes del-btn2"/><img
+                                  src="/images/0.gif" class="NFButtonResRight"/></div>
+                          <img class="NFButton2Left" src="/images/0.gif"/>
+                          <div class="NFButton2">
+                            <t:mallComponents.control.ie9CompatibleActionLink t:id="buttonDelete" t:context="oneColor.rootid">${message:delbtn}</t:mallComponents.control.ie9CompatibleActionLink>
+                          </div>
+                          <img src="/images/0.gif" class="NFButton2Right"/>
+                        </div>
+                        <div class="break"></div>
+
+                      </t:form>
+                    </div>
+                  </div>
+
+                </t:mallComponents.control.menuLink>
+
+            </li>
+        </t:loop>
+
+    </ul>
+
+    <script type="text/javascript">
+      function formatTitle(title) {
+        return ' Удалить ' + title + ' цвет';
+      }
+      jQuery(document).ready(function() {
+        jQuery(".ks_adm_color_del_a").fancybox({
+          'autoDimensions': false,
+          'width': 260,
+          'height': 86,
+          'padding': 10,
+          'titlePosition' : 'outside',
+          'transitionIn' : 'none',
+          'transitionOut' : 'none',
+          'modal': true,
+          'titleFormat'    : formatTitle
+        });
+
+      });
+    </script>
+</span>

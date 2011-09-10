@@ -1,0 +1,59 @@
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" class="granttablediv ks_adm_content_tabscontent">
+
+    <t:mallcomponents.control.menulink roles="ROLE_ADMIN">
+
+        <t:form t:id="actionsForm" zone="actionsZone" context="${selectedRole.rootId}">
+            <t:zone id="actionsZone">
+                <t:delegate to="actionsBlock"/>
+            </t:zone>
+        </t:form>
+
+        <t:block id="actionsBlock">
+            <t:mallcomponents.object.flash object="base.flashMessage"/>
+
+            <h2>${message:grants.page}</h2>
+
+            <div class="ks_adm_content_buts">
+                <img class="NFButtonLeft" src="/images/0.gif"/>
+                <input id="buttonSave" type="submit" value="${message:savebtn}"
+                       class="NFButton"/>
+                <img class="NFButtonRight" src="/images/0.gif"/>
+            </div>
+
+            <div class="granttable">
+                <t:grid id="datagrid" source="actions" row="oneAction" include="code,name" add="chbox"
+                        rowsPerPage="200" rowClass="rowClass">
+                    <t:parameter name="nameHeader">${message:name-label}</t:parameter>
+                    <t:parameter name="codeHeader">${message:code-label}</t:parameter>
+                    <t:parameter name="nameCell">
+                        ${oneAction.name}
+                    </t:parameter>
+                    <t:parameter name="codeCell">
+                        <t:if test="oneAction.actionGroupName">
+                            ${oneAction.actionGroupName}
+                            <t:parameter name="else">
+                                ${oneAction.code}
+                            </t:parameter>
+                        </t:if>
+                    </t:parameter>
+                    <t:parameter name="chboxHeader"/>
+                    <t:parameter name="chboxCell">
+                        <t:unless test="oneAction.actionGroupName">
+                            <t:mallcomponents.control.grantCheckbox role="selectedRole" action="oneAction"/>
+                        </t:unless>
+                    </t:parameter>
+                    <t:parameter name="empty">
+                        <p class="nomsg">${message:empty.list}</p>
+                    </t:parameter>
+                </t:grid>
+            </div>
+
+        </t:block>
+
+        <script language="JavaScript" type="text/javascript">
+            KS.color_cell('roleacttab');
+        </script>
+
+    </t:mallcomponents.control.menulink>
+
+</div>

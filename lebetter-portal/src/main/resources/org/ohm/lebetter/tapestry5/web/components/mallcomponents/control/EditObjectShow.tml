@@ -1,0 +1,147 @@
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="${key}-edit">
+
+    <!-- Блок, содержащий форму, стандартные кнопки редактирования объекта и кастомный код редактирования объектов -->
+    <t:mallcomponents.object.flash object="base.flashMessage"/>
+
+    <t:unless test="newObject">
+        <t:form t:id="editObjectForm" t:autofocus="false" t:zone="editAreaZone" t:context="saveContext">
+
+            <!-- Кнопки для редактирования -->
+            <div>
+
+                <t:unless test="locked">
+                    <t:if test="editAllowed">
+                        <div style="display:none">
+                            <div id="delete_confirm">
+                                <t:if test="delAllowed">
+                                    <div class="ks_editobjectshow_5">${message:delete.confirm}</div>
+                                    <div class="ks_editobjectshow_6">
+                                        <div class="ks_editobjectshow_7">
+                                            <img class="NFButtonResLeft" src="/images/0.gif"/><input type="button" onclick="jQuery.fancybox.close();" value="${message:cancelbtn}" class="NFButtonRes del-btn2"/><img src="/images/0.gif" class="NFButtonResRight"/>
+                                        </div>
+                                        <img class="NFButton2Left" src="/images/0.gif"/>
+
+                                        <div class="NFButton2">
+                                            <t:mallComponents.control.ie9CompatibleActionLink t:id="delObject" t:context="delContext">${message:delbtn}</t:mallComponents.control.ie9CompatibleActionLink>
+                                        </div>
+                                        <img src="/images/0.gif" class="NFButton2Right"/>
+                                    </div>
+                                    <div class="break"></div>
+                                </t:if>
+                            </div>
+                        </div>
+                        <div class="rbut ks_editobjectshow_1">
+                            <img class="NFButtonResLeft" src="/images/0.gif"/>
+                            <input type="reset" name="" value="${message:cancelbtn}" class="NFButtonRes"/>
+                            <img src="/images/0.gif" class="NFButtonResRight"/>
+                            <img class="NFButtonLeft" src="/images/0.gif"/>
+                            <input id="buttonSave" type="submit" value="${message:savebtn}" class="NFButton"/>
+                            <img src="/images/0.gif" class="NFButtonRight"/>
+                            <t:if test="delAllowed">
+                                <t:if test="drawDelete">
+                                    <a href="#delete_confirm" class="del-btn" id='del-btn_confirm'><img src="/images/but/tb-del.png" alt="${message:delbtn}" title="${message:delbtn}"/></a>
+                                </t:if>
+                            </t:if>
+                        </div>
+                    </t:if>
+                    <t:parameter name="else">
+                        <div class="rbut ks_editobjectshow_8">
+                            <div class="ks_content_b3_brd1"><b></b></div>
+                            <div class="ks_content_b3_brd2"><b><i></i></b></div>
+                            <div class="ks_content_b3_brd3"><b><i></i></b></div>
+                            <div class="ks_content_b3_brd4"><b><i></i></b></div>
+                            <div class="ks_content_b3_brd0">
+
+                                Объект редактирует ${currentEditor.editor.fullName} до ${currentEditor.lockDate}
+
+                            </div>
+                            <div class="ks_content_b3_brd4"><b><i></i></b></div>
+                            <div class="ks_content_b3_brd3"><b><i></i></b></div>
+                            <div class="ks_content_b3_brd2"><b><i></i></b></div>
+                            <div class="ks_content_b3_brd1"><b></b></div>
+                        </div>
+                    </t:parameter>
+                </t:unless>
+
+            </div>
+
+            <!-- Кастомный код редактирования -->
+            <t:body/>
+
+        </t:form>
+    </t:unless>
+
+    <!-- Кнопки создания объекта -->
+    <t:if test="newObject">
+        <t:if test="addAllowed">
+            <t:if test="ajaxBlock">
+                <t:form t:id="addObjectFormAjax" autofocus="false" zone="${targetZone}">
+                    <!-- Кастомные элементы создания объекта -->
+                    <t:body/>
+                    <div class="ks_comm_button">
+                        <!-- Кнопки "отмена" и "создать" -->
+                        <img class="NFButtonLeft" src="/images/0.gif"/>
+                        <input type="reset" id="buttonEsc" name="" value="${message:cancelbtn}"
+                               class="NFButton"/>
+                        <img src="/images/0.gif" class="NFButtonResRight"/>
+                        <img class="NFButtonLeft" src="/images/0.gif"/>
+                        <input type="submit" id="buttonAdd" value="${message:addbtn}"
+                               class="NFButton ks_editobjectshow_9"/>
+                        <img src="/images/0.gif" class="NFButtonRight"/>
+                    </div>
+                    <div class="break"></div>
+                </t:form>
+            </t:if>
+            <t:unless test="ajaxBlock">
+                <t:form t:id="addObjectForm" autofocus="false">
+                    <!-- Кастомные элементы создания объекта -->
+                    <t:body/>
+                    <div class="ks_comm_button">
+                        <!-- Кнопки "отмена" и "создать" -->
+                        <img class="NFButtonLeft" src="/images/0.gif"/>
+                        <input type="reset" id="buttonEsc" name="" value="${message:cancelbtn}"
+                               class="NFButton"/>
+                        <img src="/images/0.gif" class="NFButtonResRight"/>
+                        <img class="NFButtonLeft" src="/images/0.gif"/>
+                        <input type="submit" id="buttonAdd" value="${message:addbtn}"
+                               class="NFButton ks_editobjectshow_9"/>
+                        <img src="/images/0.gif" class="NFButtonRight"/>
+                    </div>
+                    <div class="break"></div>
+                </t:form>
+            </t:unless>
+        </t:if>
+    </t:if>
+
+    <script language="JavaScript" type="text/javascript">
+        var key = "${key}" + "-edit";
+         //Рисуем селектбоксы
+        jQuery("div#" + key).find("select[id^='status']").css("display", "block");
+        jQuery("div#" + key).find("select[id^='status']").selectbox();
+        //Расставляем кнопки на свои места
+        jQuery("div#" + key).find("#itembut").empty();
+        jQuery("div#" + key).find("div.rbut").css("display", "block");
+        jQuery("div#" + key).find("div.rbut").appendTo("#itembut");
+        jQuery("div.additional_btns").css("display", "block");
+        jQuery("div.additional_btns").appendTo("#itembut");
+        if ("${drawDelete}" == "true") {
+            jQuery("#itemdel").empty();
+            jQuery("#" + key).find("a.del-btn").css("display", "block");
+            jQuery("#" + key).find("a.del-btn").appendTo("#itemdel");
+        }
+        //Окно подтверждения удаления объекта
+        jQuery("#del-btn_confirm").fancybox({
+            'autoDimensions': false,
+            'width': 260,
+            'height': 86,
+            'title': 'Удаление объекта',
+            'padding': 10,
+            'titlePosition' : 'outside',
+            'transitionIn' : 'none',
+            'transitionOut' : 'none',
+            'modal': true
+        });
+
+    </script>
+
+</div>

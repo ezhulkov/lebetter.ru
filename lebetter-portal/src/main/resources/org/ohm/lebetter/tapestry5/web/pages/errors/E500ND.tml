@@ -1,0 +1,8 @@
+<html>
+<body>
+<div class="ks_e500nd_1">
+    <h1>${message:err500.header}</h1>
+    ${message:err500.msg}
+</div>
+</body>
+</html>

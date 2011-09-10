@@ -1,0 +1,71 @@
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="license">
+
+    <t:mallComponents.control.editObject
+            addAction="EDIT_CATEGORY"
+            delAction="EDIT_CATEGORY"
+            editAction="EDIT_CATEGORY"
+            objectSavedLabel="value.saved"
+            objectRemovedLabel="value.removed"
+            objectExistsLabel="error.value.exists"
+            objectAddedLabel="value.added"
+            newObject="literal:false"
+            listPage="literal:/personaloffice/staff/categories"
+            objectPage="literal:/personaloffice/staff/value"
+            objectManager="serviceFacade.propertyValueManager"
+            selectedObject="selectedObject"
+            selectedSecurityObject="selectedObjectRoot.property"
+            drawDelete="showControls"
+            drawLang="showControls">
+
+                <div class="ks_orderadress_input">
+                  <div class="ks_orderadress_legend"><t:label for="name"/>:</div>
+                  <input t:id="name" class="validate_input orderbox_login" tabindex="1"/>
+                </div>
+
+
+                <div class="ks_orderadress_input">
+                  <div class="ks_orderadress_legend"><t:label for="code"/>:</div>
+                  <input t:id="code" class="validate_input orderbox_login" tabindex="2"/>
+                </div>
+
+
+                <div class="ks_orderadress_input">
+                  <div class="ks_orderadress_legend"><t:label for="alias"/>:</div>
+                  <input t:id="alias" class="validate_input orderbox_login" tabindex="3"/>
+                </div>
+              <div class="break"></div>
+              <div class="ks_orderadress_input" >
+                <div class="ks_orderadress_legend"><t:label for="description"/>:</div>
+                   <div class="NFTextareaTop" style="width: 442px;"><img src="/images/0.gif" class="NFTextareaTopLeft"/></div>
+                   <div class="NFTextareaRight" style="height: 36px;  width: 447px;">
+                     <div class="NFTextareaLeft" style="height: 36px;"/>
+                     <input t:id="description" class="text medium NFTextarea" style="width: 440px; height: 36px;" tabindex="4"/>
+                   </div>
+                   <div class="NFTextareaBottom" style="width: 442px;"><img src="/images/0.gif" class="NFTextareaBottomLeft"/></div>
+              </div>
+              <div class="break"></div>
+                <t:if test="selectedObject.rootObject">
+                  <div class="ks_orderadress_input" style="width: 480px;">
+                    <div class="ks_orderadress_legend">
+                      <div class="ks_legend_check_label">
+                        <t:checkBox t:id="attention" type="checkbox" style="height: 13px; width: 13px;" tabindex="5"/> 
+                        <t:label for="attention" style='font-weight: normal'/>
+                      </div>
+                      <div class="ks_legend_check_label">
+                        <t:checkbox t:id="mandatory" type="checkbox" style="height: 13px; width: 13px;" tabindex="6"/> 
+                        <t:label for="mandatory" style='font-weight: normal'/>
+                      </div>
+                    </div>
+                  </div>
+                </t:if>
+                <div id="itembut" style="width: 197px;"></div>
+
+
+    </t:mallComponents.control.editObject>
+
+        <script language="JavaScript" type="text/javascript">
+          // Расставляем tabindex
+          jQuery("#editObjectForm input.NFButton").attr("tabindex","7");
+        </script>
+
+</div>

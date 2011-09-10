@@ -1,0 +1,171 @@
+﻿<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+    <div class="ks_pagedloopslidingajax_1" id="backLinkPlace_${zoneId}">
+    </div>
+
+    <div id="pages_${zoneId}">
+    </div>
+
+    <t:zone id="${zoneId}">
+    </t:zone>
+
+    <div class="ks_pagedloopslidingajax_1" id="nextLinkPlace_${zoneId}"/>
+
+    <t:block id="contents">
+       <div id="backLink_${zoneId}">
+         <div class="slide_pager slide_pager_top">
+                       <t:loop source="pages" value="onePage" t:formState="NONE">
+                           <t:if test="onePage.link">
+                               <t:if test="pageSelected">
+                                   <span class="slide_bu_che">${onePage.hint}</span>
+                                   <t:parameter name="else">
+                                       <t:mallComponents.control.ie9CompatibleActionLink
+                                               t:id="selectPageAjaxTop"
+                                                     t:context="ctx"
+                                                     t:zone="${zoneId}">${onePage.hint}</t:mallComponents.control.ie9CompatibleActionLink>
+                                   </t:parameter>
+                               </t:if>
+                                    <t:parameter name="else">
+                                       <span>${onePage.hint}</span>
+                                    </t:parameter>
+                           </t:if>
+                       </t:loop>
+                   </div>
+
+            <t:if test="hasPrev">
+                <div class='slide_bu'>
+                    <t:mallComponents.control.ie9CompatibleActionLink t:id="backAjax"
+                                  t:context="backCtx"
+                                  t:zone="${zoneId}">
+                            « Предыдущая страница<!--${message:page.back}-->
+                    </t:mallComponents.control.ie9CompatibleActionLink>
+                </div>
+            </t:if>
+        </div>
+
+        <div id="pageZoneContainer_${zoneId}_${pagePosition}">
+            <t:loop t:id="loop"
+                    source="src"
+                    value="value"
+                    t:formState="NONE">
+                <t:body/>
+            </t:loop>
+            <div class='break'></div>
+        </div>
+        <div class='break'></div>
+        <t:if test="hasPager">
+        <div>
+            <t:if test="hasNext">
+                <div class='slide_bu'>
+                    <t:mallComponents.control.ie9CompatibleActionLink t:id="nextAjax"
+                                  t:context="nextCtx"
+                                  t:zone="${zoneId}">
+                        Следующая страница »<!--${message:page.next}-->
+                    </t:mallComponents.control.ie9CompatibleActionLink>
+                </div>
+                <t:parameter name="else">
+                <div class='slide_bu'>
+                    <span>Следующая страница »<!--${message:page.next}--></span>
+                </div>
+                </t:parameter>
+            </t:if>
+           <div class="slide_pager">
+              <t:loop source="pages" value="onePage" t:formState="NONE">
+                  <t:if test="onePage.link">
+                      <t:if test="pageSelected">
+                          <span class="slide_bu_che">${onePage.hint}</span>
+                          <t:parameter name="else">
+                              <t:mallComponents.control.ie9CompatibleActionLink t:id="selectPageAjaxBottom"
+                                            t:context="ctx"
+                                            t:zone="${zoneId}">${onePage.hint}</t:mallComponents.control.ie9CompatibleActionLink>
+                          </t:parameter>
+                      </t:if>
+                           <t:parameter name="else">
+                              <span>${onePage.hint}</span>
+                           </t:parameter>
+                  </t:if>
+              </t:loop>
+          </div>
+
+        </div>
+        </t:if>
+
+        <script type="text/javascript">
+            KS.pagedLoop.moveBackNextLinks('${zoneId}');
+        </script>
+
+        <t:if test="backPressed">
+            <script type="text/javascript">
+                KS.pagedLoop.backPressed('${zoneId}',${slidingFrameSize},${pagePosition});
+                jQuery.history.load('${pageFrom}|${page}');
+            </script>
+        </t:if>
+        <t:if test="nextPressed">
+            <script type="text/javascript">
+                KS.pagedLoop.nextPressed('${zoneId}',${slidingFrameSize},${pagePosition});
+                jQuery.history.load('${pageFrom}|${page}');
+            </script>
+        </t:if>
+        <t:if test="pagePressed">
+            <script type="text/javascript">
+                KS.pagedLoop.pagePressed('${zoneId}',${pagePosition});
+                jQuery.history.load('${page}|${page}');
+            </script>
+        </t:if>
+
+        <t:if test="pagePressedAuto">
+            <script type="text/javascript">
+                KS.pagedLoop.pagePressed('${zoneId}', ${pagePosition}, function() {
+                    console.info('Page load callback ${pageFrom}');
+                    KS.pagedLoop.loadPage(${pageFrom}, ${pageTo},${pagesOnDisplay}, '${pageKey}', '${loadLink}','loadPageLink_${zoneId}','next');
+            });
+            </script>
+        </t:if>
+        <t:if test="nextPressedAuto">
+            <script type="text/javascript">
+                    KS.pagedLoop.nextPressed('${zoneId}', ${slidingFrameSize}, ${pageFrom}-1, function() {
+                        console.info('Page next callback ${pageFrom}');
+                        KS.pagedLoop.loadPage(${pageFrom}, ${pageTo},${pagesOnDisplay}, '${pageKey}', '${loadLink}','loadPageLink_${zoneId}','next');
+                    });
+            </script>
+        </t:if>
+
+        <t:if test="reloadCallback">
+            <script language="JavaScript" type="text/javascript">
+                ${reloadCallback};
+								cur_get_height = KS.get_height();
+								console.log(cur_get_height);
+            </script>
+        </t:if>
+
+    </t:block>
+
+    <t:block id="empty">
+        <p class="nomsg">${message:empty.list}</p>
+    </t:block>
+
+
+  <div style="display:none">
+    <t:mallComponents.control.ie9CompatibleActionLink
+            t:id="loadInitialAjax"
+            t:zone="${zoneId}"
+            class="loadPageLink_${zoneId}"/>
+  </div>
+
+  <script language="JavaScript" type="text/javascript">
+    jQuery(document).ready(function(jq) {
+
+        var singleRunFlag=true;
+
+        jq.history.init(function(hash){
+            if(singleRunFlag){
+                KS.pagedLoop.restoreState(hash,'${pageKey}','${zoneId}',
+                                ${slidingFrameSize},${pagePosition},
+                                '${loadLink}','loadPageLink_${zoneId}');
+                singleRunFlag=false;
+            }
+        }, { unescape: ",/" });
+    });
+  </script>
+
+</t:container>

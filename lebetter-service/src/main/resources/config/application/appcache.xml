@@ -1,0 +1,16 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd"
+         updateCheck="true" monitoring="autodetect">
+
+    <diskStore path="java.io.tmpdir"/>
+
+    <defaultCache maxElementsInMemory="100000" eternal="false"
+                  overflowToDisk="false" diskPersistent="false"
+                  timeToIdleSeconds="7200" timeToLiveSeconds="7200"/>
+
+    <cache name="org.room13.mallcore.appcache"
+           maxElementsInMemory="100000" eternal="false"
+           overflowToDisk="false" diskPersistent="false"
+           timeToIdleSeconds="7200" timeToLiveSeconds="7200"/>
+
+</ehcache>

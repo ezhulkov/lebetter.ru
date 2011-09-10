@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
+
+    <display-name>Mall File Handler</display-name>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:/config/spring/applicationContext-Resources.xml
+            classpath:/config/spring/applicationContext-dataSource.xml
+            classpath:/config/spring/applicationContext-newsDataSource.xml
+            classpath:/config/spring/applicationContext-DAO.xml
+            classpath:/config/spring/applicationContext-Service.xml
+            classpath:/config/spring/applicationContext-FileUpload.xml
+            classpath:/config/spring/applicationContext-JMS.xml
+            classpath:/config/spring/applicationContext-dataManager.xml
+            classpath:/config/spring/applicationContext-newsDAO.xml
+            classpath:/config/spring/applicationContext-newsService.xml
+        </param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>log4j-init-file</param-name>
+        <param-value>log4j.xml</param-value>
+    </context-param>
+    <context-param>
+        <param-name>log4j-init-path</param-name>
+        <param-value>${mvn.lb.fh.config.path}/config/log</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>org.room13.mallcore.application.web.listener.Log4JInit</listener-class>
+    </listener>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+    </listener>
+
+    <filter>
+        <filter-name>openSessionInViewFilter</filter-name>
+        <filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>openSessionInViewFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>fileupload</servlet-name>
+        <servlet-class>org.room13.mallcore.web.servlet.TicketFileServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>fileget</servlet-name>
+        <servlet-class>org.room13.mallcore.web.servlet.TicketFileServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>fileget</servlet-name>
+        <url-pattern>/fileget/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>fileupload</servlet-name>
+        <url-pattern>/fileupload/*</url-pattern>
+    </servlet-mapping>
+
+    <!--REST-->
+    <servlet>
+        <servlet-name>Jersey Web Application</servlet-name>
+        <servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Jersey Web Application</servlet-name>
+        <url-pattern>/rest/*</url-pattern>
+    </servlet-mapping>
+
+</web-app>

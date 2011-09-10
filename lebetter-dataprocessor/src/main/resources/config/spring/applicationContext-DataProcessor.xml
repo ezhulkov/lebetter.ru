@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+
+
+    <bean id="dpJmsConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="${message.broker.url}"/>
+        <property name="userName" value="${message.broker.username}"/>
+        <property name="password" value="${message.broker.password}"/>
+    </bean>
+
+    <bean id="dpRegservice" class="org.room13.mallcore.dataprocessor.RegistrationService">
+        <property name="dpJmsTemplate" ref="dpJmsTemplate"/>
+        <property name="dpToFHQueue" ref="dpToFHQueue"/>
+        <property name="imageUtilLayer" ref="localImageUtilLayer"/>
+    </bean>
+
+    <bean id="dpListener" class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+        <property name="delegate" ref="dpRegservice"/>
+        <property name="defaultListenerMethod" value="onMessage"/>
+    </bean>
+
+    <bean id="dpContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+        <property name="connectionFactory" ref="dpJmsConnectionFactory"/>
+        <property name="messageListener" ref="dpListener"/>
+        <property name="destination" ref="dpFromFHQueue"/>
+        <property name="maxConcurrentConsumers" value="${message.max.consumers.num}"/>
+        <property name="concurrentConsumers" value="${message.consumers.num}"/>
+        <property name="sessionTransacted" value="true"/>
+        <property name="recoveryInterval" value="${message.recovery.time}"/>
+    </bean>
+
+    <bean id="dpToFHQueue" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg value="${message.fromdp.queue.name}"/>
+    </bean>
+
+    <bean id="dpFromFHQueue" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg value="${message.todp.queue.name}"/>
+    </bean>
+
+    <bean id="dpJmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <property name="connectionFactory">
+            <bean class="org.apache.activemq.pool.PooledConnectionFactory">
+                <property name="connectionFactory">
+                    <ref local="dpJmsConnectionFactory"/>
+                </property>
+                <property name="maxConnections" value="${message.max.consumers.num}"/>
+                <property name="maximumActive" value="${message.max.active}"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="localImageUtilLayer" class="org.room13.mallcore.spring.service.impl.LocalImageMagickProcessingLayer"
+          destroy-method="destroyBean">
+        <property name="markImageFile" value="${watermark.path}"/>
+        <property name="colorProfile" value="classpath:/sRGB.icm"/>
+        <property name="colorspace">
+            <util:constant static-field="magick.ColorspaceType.sRGBColorspace"/>
+        </property>
+        <property name="dataManager" ref="dataManager"/>
+        <property name="i18nBean">
+            <bean class="org.room13.mallcore.spring.service.I18nBeanImpl">
+                <property name="localizationResourcePath" value="config/dictionaries/lang"/>
+                <property name="langs">
+                    <set>
+                        <value>ru</value>
+                        <value>en</value>
+                        <value>it</value>
+                    </set>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+</beans>

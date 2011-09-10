@@ -1,0 +1,7 @@
+<t:mallcomponents.layout.layout title="message:logout.page"
+                                     bodyId="auth"
+                                     flash="flashMessage"
+                                     xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+  <t:mallcomponents.layout.browse showTab="false">   
+  </t:mallcomponents.layout.browse>
+</t:mallcomponents.layout.layout>

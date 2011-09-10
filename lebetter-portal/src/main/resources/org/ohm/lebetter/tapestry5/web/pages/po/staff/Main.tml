@@ -1,0 +1,17 @@
+<t:mallcomponents.layout.layout title="message:office.page"
+                                bodyId="main"
+                                flash="flashMessage"
+                                xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+    <t:mallcomponents.layout.office>
+
+        <script type="text/javascript">
+            KS.bread_crumbs([
+                ["Кабинет"]
+            ]);
+        </script>
+
+    </t:mallcomponents.layout.office>
+
+
+</t:mallcomponents.layout.layout>
