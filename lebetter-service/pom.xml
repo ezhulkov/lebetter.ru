@@ -51,6 +51,43 @@
                 </excludes>
             </resource>
         </resources>
+        <testResources>
+            <testResource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.*</include>
+                </includes>
+                <excludes>
+                    <exclude>**/applicationContext-Resources.xml</exclude>
+                </excludes>
+            </testResource>
+            <testResource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/applicationContext-Resources.xml</include>
+                </includes>
+            </testResource>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/lebetter.test.properties</include>
+                </includes>
+            </testResource>
+            <testResource>
+                <directory>../lebetter-portal/src/main/resources</directory>
+                <includes>
+                    <include>**/lang*.properties</include>
+                </includes>
+            </testResource>
+            <testResource>
+                <directory>../lebetter-db/src/main/resources</directory>
+                <includes>
+                    <include>schema/**/*.xml</include>
+                </includes>
+            </testResource>
+        </testResources>
     </build>
 
     <dependencies>

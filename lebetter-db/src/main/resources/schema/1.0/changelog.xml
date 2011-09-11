@@ -19,7 +19,9 @@
             <column defaultValueNumeric="0" name="objectstatus" type="int4">
                 <constraints nullable="false"/>
             </column>
+            <column defaultValue="Action" name="entitycode" type="VARCHAR(6)"/>
             <column name="code" type="VARCHAR(255)"/>
+            <column name="createddate" type="TIMESTAMP WITH TIME ZONE" defaultValueDate="now()"/>
             <column name="description" type="VARCHAR(255)"/>
             <column name="name" type="VARCHAR(255)"/>
             <column name="actiongroup_id" type="int8"/>
@@ -38,7 +40,9 @@
             <column defaultValueNumeric="0" name="objectstatus" type="int4">
                 <constraints nullable="false"/>
             </column>
+            <column defaultValue="ActionGroup" name="entitycode" type="VARCHAR(11)"/>
             <column name="code" type="VARCHAR(255)"/>
+            <column name="createddate" type="TIMESTAMP WITH TIME ZONE" defaultValueDate="now()"/>
             <column name="description" type="VARCHAR(255)"/>
             <column name="name" type="VARCHAR(255)"/>
             <column name="rootid" type="int8"/>
@@ -56,7 +60,9 @@
             <column defaultValueNumeric="0" name="objectstatus" type="int4">
                 <constraints nullable="false"/>
             </column>
+            <column defaultValue="Role" name="entitycode" type="VARCHAR(4)"/>
             <column name="code" type="VARCHAR(255)"/>
+            <column name="createddate" type="TIMESTAMP WITH TIME ZONE" defaultValueDate="now()"/>
             <column name="description" type="VARCHAR(255)"/>
             <column name="name" type="VARCHAR(128)"/>
             <column defaultValueBoolean="false" name="virtual" type="bool"/>
@@ -76,6 +82,7 @@
             <column defaultValueNumeric="0" name="objectstatus" type="int4">
                 <constraints nullable="false"/>
             </column>
+            <column defaultValue="RoleAction" name="entitycode" type="VARCHAR(10)"/>
             <column name="name" type="VARCHAR(2)"/>
             <column name="role_id" type="int8"/>
             <column name="action_id" type="int8"/>
@@ -83,6 +90,7 @@
                 <constraints nullable="false"/>
             </column>
             <column name="rootid" type="int8"/>
+            <column name="createddate" type="TIMESTAMP WITH TIME ZONE" defaultValueDate="now()"/>
             <column name="rootobject" defaultValueBoolean="false" type="bool"/>
             <column name="language_id" type="int8"/>
             <column name="deletiondate" type="TIMESTAMP WITH TIME ZONE"/>
@@ -98,6 +106,7 @@
                 <constraints nullable="false"/>
             </column>
             <column defaultValue="" name="about" type="VARCHAR(4000)"/>
+            <column defaultValue="User" name="entitycode" type="VARCHAR(4)"/>
             <column defaultValue="" name="dtype" type="VARCHAR(2)"/>
             <column defaultValue="" name="annotation" type="VARCHAR(255)"/>
             <column defaultValue="" name="addinfo" type="VARCHAR(4000)"/>
@@ -112,7 +121,7 @@
             <column defaultValue="" name="telfixed" type="VARCHAR(32)"/>
             <column defaultValue="" name="telmobile" type="VARCHAR(32)"/>
             <column defaultValue="" name="zipcode" type="VARCHAR(10)"/>
-            <column name="createdate" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="createddate" type="TIMESTAMP WITH TIME ZONE" defaultValueDate="now()"/>
             <column defaultValue="" name="first_name" type="VARCHAR(255)"/>
             <column defaultValueNumeric="0" name="imagestatus" type="int4"/>
             <column defaultValue="" name="ip" type="VARCHAR(255)"/>
@@ -144,6 +153,8 @@
             <column name="addressvkontakte" type="varchar(128)"/>
             <column name="addresscard" type="varchar(128)"/>
             <column name="addresstwitter" type="varchar(128)"/>
+            <column name="addressmoimir" type="varchar(128)"/>
+            <column name="addressodkl" type="varchar(128)"/>
             <column name="dummy" type="bool" defaultValueBoolean="false">
                 <constraints nullable="false"/>
             </column>
@@ -167,25 +178,31 @@
             <column defaultValueNumeric="0" name="objectstatus" type="int4">
                 <constraints nullable="false"/>
             </column>
+            <column defaultValue="Language" name="entitycode" type="VARCHAR(8)"/>
+            <column name="createddate" type="TIMESTAMP WITH TIME ZONE" defaultValueDate="now()"/>
             <column name="name" type="VARCHAR(128)"/>
             <column defaultValue="" name="code" type="VARCHAR(3)"/>
             <column defaultValueNumeric="0" name="imagestatus" type="int4"/>
             <column name="creator_id" type="int8"/>
+            <column name="default_language" type="boolean" defaultValueBoolean="false"/>
             <column name="rootid" type="int8"/>
             <column name="rootobject" defaultValueBoolean="false" type="bool"/>
             <column name="language_id" type="int8"/>
             <column name="deletiondate" type="TIMESTAMP WITH TIME ZONE"/>
             <column name="remover_id" type="int8"/>
+
             <column defaultValueNumeric="0" name="searchstatus" type="int4"/>
         </createTable>
         <createTable schemaName="public" tableName="app_sysparam">
             <column name="id" type="int8">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="app_sysparam_pkey"/>
             </column>
+            <column defaultValue="SystemParameter" name="entitycode" type="VARCHAR(15)"/>
             <column defaultValueBoolean="false" name="objectdeleted" type="bool"/>
             <column defaultValueNumeric="0" name="objectstatus" type="int4">
                 <constraints nullable="false"/>
             </column>
+            <column name="createddate" type="TIMESTAMP WITH TIME ZONE" defaultValueDate="now()"/>
             <column name="name" type="VARCHAR(128)"/>
             <column defaultValue="" name="code" type="VARCHAR(32)"/>
             <column defaultValue="" name="value" type="VARCHAR(256)"/>
@@ -208,10 +225,12 @@
             <column name="id" type="int8">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="app_profile_pkey"/>
             </column>
+            <column defaultValue="Profile" name="entitycode" type="VARCHAR(7)"/>
             <column defaultValueBoolean="false" name="objectdeleted" type="bool"/>
             <column defaultValueNumeric="0" name="objectstatus" type="int4">
                 <constraints nullable="false"/>
             </column>
+            <column name="createddate" type="TIMESTAMP WITH TIME ZONE" defaultValueDate="now()"/>
             <column name="name" type="VARCHAR(128)"/>
             <column defaultValue="" name="code" type="VARCHAR(32)"/>
             <column defaultValue="" name="value" type="VARCHAR(512)"/>
@@ -326,7 +345,7 @@
                                  initiallyDeferred="false"
                                  referencedColumnNames="id"
                                  referencedTableName="app_actiongroup"
-                                 referencedTableSchemaName="public"/>
+                                 referencedTableSchemaName="public" onDelete="CASCADE"/>
 
         <addForeignKeyConstraint baseColumnNames="language_id"
                                  baseTableName="app_action"
@@ -336,7 +355,7 @@
                                  initiallyDeferred="false"
                                  referencedColumnNames="id"
                                  referencedTableName="app_language"
-                                 referencedTableSchemaName="public"/>
+                                 referencedTableSchemaName="public" onDelete="CASCADE"/>
 
         <addForeignKeyConstraint baseColumnNames="remover_id"
                                  baseTableName="app_action"
@@ -346,7 +365,7 @@
                                  initiallyDeferred="false"
                                  referencedColumnNames="id"
                                  referencedTableName="app_user"
-                                 referencedTableSchemaName="public"/>
+                                 referencedTableSchemaName="public" onDelete="CASCADE"/>
         <addForeignKeyConstraint baseColumnNames="language_id"
                                  baseTableName="app_role"
                                  baseTableSchemaName="public"
@@ -355,7 +374,7 @@
                                  initiallyDeferred="false"
                                  referencedColumnNames="id"
                                  referencedTableName="app_language"
-                                 referencedTableSchemaName="public"/>
+                                 referencedTableSchemaName="public" onDelete="CASCADE"/>
         <addForeignKeyConstraint baseColumnNames="remover_id"
                                  baseTableName="app_role"
                                  baseTableSchemaName="public"
@@ -364,7 +383,7 @@
                                  initiallyDeferred="false"
                                  referencedColumnNames="id"
                                  referencedTableName="app_user"
-                                 referencedTableSchemaName="public"/>
+                                 referencedTableSchemaName="public" onDelete="CASCADE"/>
         <addForeignKeyConstraint baseColumnNames="parent_id"
                                  baseTableName="app_role"
                                  baseTableSchemaName="public"
@@ -373,7 +392,7 @@
                                  initiallyDeferred="false"
                                  referencedColumnNames="id"
                                  referencedTableName="app_role"
-                                 referencedTableSchemaName="public"/>
+                                 referencedTableSchemaName="public" onDelete="CASCADE"/>
         <addForeignKeyConstraint baseColumnNames="action_id"
                                  baseTableName="app_role_action"
                                  baseTableSchemaName="public"
@@ -382,7 +401,7 @@
                                  initiallyDeferred="false"
                                  referencedColumnNames="id"
                                  referencedTableName="app_action"
-                                 referencedTableSchemaName="public"/>
+                                 referencedTableSchemaName="public" onDelete="CASCADE"/>
         <addForeignKeyConstraint baseColumnNames="role_id"
                                  baseTableName="app_role_action"
                                  baseTableSchemaName="public"
@@ -391,7 +410,7 @@
                                  initiallyDeferred="false"
                                  referencedColumnNames="id"
                                  referencedTableName="app_role"
-                                 referencedTableSchemaName="public"/>
+                                 referencedTableSchemaName="public" onDelete="CASCADE"/>
         <addForeignKeyConstraint baseColumnNames="language_id"
                                  baseTableName="app_role_action"
                                  baseTableSchemaName="public"
@@ -400,7 +419,7 @@
                                  initiallyDeferred="false"
                                  referencedColumnNames="id"
                                  referencedTableName="app_language"
-                                 referencedTableSchemaName="public"/>
+                                 referencedTableSchemaName="public" onDelete="CASCADE"/>
         <addForeignKeyConstraint baseColumnNames="remover_id"
                                  baseTableName="app_role_action"
                                  baseTableSchemaName="public"
@@ -409,7 +428,7 @@
                                  initiallyDeferred="false"
                                  referencedColumnNames="id"
                                  referencedTableName="app_user"
-                                 referencedTableSchemaName="public"/>
+                                 referencedTableSchemaName="public" onDelete="CASCADE"/>
         <addForeignKeyConstraint baseColumnNames="role_id"
                                  baseTableName="app_user_role"
                                  baseTableSchemaName="public"
@@ -418,7 +437,7 @@
                                  initiallyDeferred="false"
                                  referencedColumnNames="id"
                                  referencedTableName="app_role"
-                                 referencedTableSchemaName="public"/>
+                                 referencedTableSchemaName="public" onDelete="CASCADE"/>
         <addForeignKeyConstraint baseColumnNames="user_id"
                                  baseTableName="app_user_role"
                                  baseTableSchemaName="public"
@@ -427,7 +446,7 @@
                                  initiallyDeferred="false"
                                  referencedColumnNames="id"
                                  referencedTableName="app_user"
-                                 referencedTableSchemaName="public"/>
+                                 referencedTableSchemaName="public" onDelete="CASCADE"/>
         <addForeignKeyConstraint baseColumnNames="creator_id"
                                  baseTableName="app_user"
                                  baseTableSchemaName="public"
@@ -436,7 +455,7 @@
                                  initiallyDeferred="false"
                                  referencedColumnNames="id"
                                  referencedTableName="app_user"
-                                 referencedTableSchemaName="public"/>
+                                 referencedTableSchemaName="public" onDelete="CASCADE"/>
         <addForeignKeyConstraint baseColumnNames="referee_id"
                                  baseTableName="app_user"
                                  baseTableSchemaName="public"
@@ -445,7 +464,7 @@
                                  initiallyDeferred="false"
                                  referencedColumnNames="id"
                                  referencedTableName="app_user"
-                                 referencedTableSchemaName="public"/>
+                                 referencedTableSchemaName="public" onDelete="CASCADE"/>
         <addForeignKeyConstraint baseColumnNames="prefferedlanguage_id"
                                  baseTableName="app_user"
                                  baseTableSchemaName="public"
@@ -454,7 +473,7 @@
                                  initiallyDeferred="false"
                                  referencedColumnNames="id"
                                  referencedTableName="app_language"
-                                 referencedTableSchemaName="public"/>
+                                 referencedTableSchemaName="public" onDelete="CASCADE"/>
         <addForeignKeyConstraint baseColumnNames="language_id"
                                  baseTableName="app_user"
                                  baseTableSchemaName="public"
@@ -463,7 +482,7 @@
                                  initiallyDeferred="false"
                                  referencedColumnNames="id"
                                  referencedTableName="app_language"
-                                 referencedTableSchemaName="public"/>
+                                 referencedTableSchemaName="public" onDelete="CASCADE"/>
         <addForeignKeyConstraint baseColumnNames="remover_id"
                                  baseTableName="app_user"
                                  baseTableSchemaName="public"
@@ -472,7 +491,7 @@
                                  initiallyDeferred="false"
                                  referencedColumnNames="id"
                                  referencedTableName="app_user"
-                                 referencedTableSchemaName="public"/>
+                                 referencedTableSchemaName="public" onDelete="CASCADE"/>
         <addForeignKeyConstraint baseColumnNames="creatorrep_id"
                                  baseTableName="app_user"
                                  baseTableSchemaName="public"
@@ -481,7 +500,7 @@
                                  initiallyDeferred="false"
                                  referencedColumnNames="id"
                                  referencedTableName="app_user"
-                                 referencedTableSchemaName="public"/>
+                                 referencedTableSchemaName="public" onDelete="CASCADE"/>
         <addForeignKeyConstraint baseColumnNames="language_id"
                                  baseTableName="app_actiongroup"
                                  baseTableSchemaName="public"
@@ -490,7 +509,7 @@
                                  initiallyDeferred="false"
                                  referencedColumnNames="id"
                                  referencedTableName="app_language"
-                                 referencedTableSchemaName="public"/>
+                                 referencedTableSchemaName="public" onDelete="CASCADE"/>
         <addForeignKeyConstraint baseColumnNames="remover_id"
                                  baseTableName="app_actiongroup"
                                  baseTableSchemaName="public"
@@ -499,7 +518,7 @@
                                  initiallyDeferred="false"
                                  referencedColumnNames="id"
                                  referencedTableName="app_user"
-                                 referencedTableSchemaName="public"/>
+                                 referencedTableSchemaName="public" onDelete="CASCADE"/>
         <addForeignKeyConstraint baseColumnNames="language_id"
                                  baseTableName="app_language"
                                  baseTableSchemaName="public"
@@ -508,7 +527,7 @@
                                  initiallyDeferred="false"
                                  referencedColumnNames="id"
                                  referencedTableName="app_language"
-                                 referencedTableSchemaName="public"/>
+                                 referencedTableSchemaName="public" onDelete="CASCADE"/>
         <addForeignKeyConstraint baseColumnNames="remover_id"
                                  baseTableName="app_language"
                                  baseTableSchemaName="public"
@@ -517,7 +536,7 @@
                                  initiallyDeferred="false"
                                  referencedColumnNames="id"
                                  referencedTableName="app_user"
-                                 referencedTableSchemaName="public"/>
+                                 referencedTableSchemaName="public" onDelete="CASCADE"/>
         <addForeignKeyConstraint baseColumnNames="remover_id"
                                  baseTableName="app_sysparam"
                                  baseTableSchemaName="public"
@@ -526,7 +545,7 @@
                                  initiallyDeferred="false"
                                  referencedColumnNames="id"
                                  referencedTableName="app_user"
-                                 referencedTableSchemaName="public"/>
+                                 referencedTableSchemaName="public" onDelete="CASCADE"/>
         <addForeignKeyConstraint baseColumnNames="language_id"
                                  baseTableName="app_sysparam"
                                  baseTableSchemaName="public"
@@ -535,7 +554,7 @@
                                  initiallyDeferred="false"
                                  referencedColumnNames="id"
                                  referencedTableName="app_language"
-                                 referencedTableSchemaName="public"/>
+                                 referencedTableSchemaName="public" onDelete="CASCADE"/>
         <addForeignKeyConstraint baseColumnNames="language_id"
                                  baseTableName="app_profile"
                                  baseTableSchemaName="public"
@@ -544,7 +563,7 @@
                                  initiallyDeferred="false"
                                  referencedColumnNames="id"
                                  referencedTableName="app_language"
-                                 referencedTableSchemaName="public"/>
+                                 referencedTableSchemaName="public" onDelete="CASCADE"/>
         <addForeignKeyConstraint baseColumnNames="remover_id"
                                  baseTableName="app_profile"
                                  baseTableSchemaName="public"
@@ -553,7 +572,7 @@
                                  initiallyDeferred="false"
                                  referencedColumnNames="id"
                                  referencedTableName="app_user"
-                                 referencedTableSchemaName="public"/>
+                                 referencedTableSchemaName="public" onDelete="CASCADE"/>
         <addForeignKeyConstraint baseColumnNames="user_id"
                                  baseTableName="app_profile"
                                  baseTableSchemaName="public"
@@ -562,7 +581,7 @@
                                  initiallyDeferred="false"
                                  referencedColumnNames="id"
                                  referencedTableName="app_user"
-                                 referencedTableSchemaName="public"/>
+                                 referencedTableSchemaName="public" onDelete="CASCADE"/>
         <addForeignKeyConstraint baseColumnNames="role_id"
                                  baseTableName="app_profile"
                                  baseTableSchemaName="public"
@@ -571,7 +590,7 @@
                                  initiallyDeferred="false"
                                  referencedColumnNames="id"
                                  referencedTableName="app_role"
-                                 referencedTableSchemaName="public"/>
+                                 referencedTableSchemaName="public" onDelete="CASCADE"/>
 
     </changeSet>
 
@@ -827,15 +846,61 @@
     <changeSet id="1.0.0-12" author="ezhulkov">
         <sql>
             create table public.app_prod_cat (
-              prod_id int8,
-              cat_id int8,
-              constraint app_prod_cat_cat_fk foreign key (cat_id) references app_category(id) on delete cascade,
-              constraint app_prod_cat_prod_fk foreign key (prod_id) references app_product(id) on delete cascade
+            prod_id int8,
+            cat_id int8,
+            constraint app_prod_cat_cat_fk foreign key (cat_id) references app_category(id) on delete cascade,
+            constraint app_prod_cat_prod_fk foreign key (prod_id) references app_product(id) on delete cascade
             );
             create unique index app_prod_cat_idx on public.app_prod_cat (prod_id, cat_id);
             create index app_prod_cat_cat_idx on public.app_prod_cat (cat_id);
             create index app_prod_cat_prod_idx on public.app_prod_cat (prod_id);
+        </sql>
+    </changeSet>
 
+    <changeSet id="1.0.0-13" author="ezhulkov">
+        <sql>
+            create table public.app_object_owner (
+            object_id int8 not null,
+            object_code varchar(16) not null,
+            owner_id int8 not null,
+            id int8 not null,
+            primary key (id),
+            constraint fk_app_object_owner_owner foreign key (owner_id) references app_user(id)
+            );
+            create index app_object_owner_idx1 on public.app_object_owner (object_id, object_code);
+            create index app_object_owner_idx2 on public.app_object_owner (owner_id);
+        </sql>
+    </changeSet>
+
+    <changeSet id="1.0.0-14" author="ezhulkov">
+        <sql>
+            create table public.app_image_status (
+            object_id int8 not null,
+            object_code varchar(31) not null,
+            image_status int4,
+            primary key (object_id, object_code)
+            );
+        </sql>
+    </changeSet>
+
+    <changeSet id="1.0.0-15" author="ezhulkov">
+        <sql>
+            CREATE RULE app_language_add_to_imagestatus AS ON INSERT TO app_language WHERE NEW.rootobject=true
+            DO ALSO
+            INSERT INTO app_image_status(object_id,object_code,image_status) values(NEW.id,'Language',0);
+
+            CREATE RULE app_language_remove_from_imagestatus AS ON DELETE TO app_language WHERE OLD.rootobject=true
+            DO ALSO
+            DELETE FROM app_image_status where object_id=OLD.rootid and object_code='Language';
+        </sql>
+        <sql>
+            CREATE RULE app_user_add_to_imagestatus AS ON INSERT TO app_user WHERE NEW.rootobject=true
+            DO ALSO
+            INSERT INTO app_image_status(object_id,object_code,image_status) values(NEW.id,'User',0);
+
+            CREATE RULE app_user_remove_from_imagestatus AS ON DELETE TO app_user WHERE OLD.rootobject=true
+            DO ALSO
+            DELETE FROM app_image_status where object_id=OLD.rootid and object_code='User';
         </sql>
     </changeSet>
 

@@ -4,7 +4,7 @@ import org.hibernate.annotations.AccessType;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.ohm.lebetter.model.DescriptionAware;
-import org.room13.mallcore.model.impl.BaseCreatorRepAwareEntity;
+import org.room13.mallcore.model.impl.BaseCreatorAwareEntity;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -23,7 +23,7 @@ import java.util.List;
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @AccessType("field")
 public class ProductEntity
-        extends BaseCreatorRepAwareEntity
+        extends BaseCreatorAwareEntity
         implements DescriptionAware {
 
     @Column

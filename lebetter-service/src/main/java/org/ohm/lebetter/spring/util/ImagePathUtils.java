@@ -12,7 +12,7 @@ public final class ImagePathUtils {
                 ftpUrl : ftpUrl + "/";
 
         if (!url.startsWith(ftpUrl)) {
-            log.debug("Image is not on kindershopping server. Download before processing. \n" +
+            log.debug("Image is not on lebetter server. Download before processing. \n" +
                     "Ftp url is " + ftpUrl + " and image url is " + url);
             // Если изображение лежит не у нас, пропускаем
             return null;

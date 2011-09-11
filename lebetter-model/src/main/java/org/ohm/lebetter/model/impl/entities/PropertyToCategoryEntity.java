@@ -1,5 +1,6 @@
 package org.ohm.lebetter.model.impl.entities;
 
+import org.hibernate.annotations.AccessType;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.room13.mallcore.model.impl.BaseEntity;
@@ -20,6 +21,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "app_property2category")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@AccessType("field")
 public class PropertyToCategoryEntity extends BaseEntity {
 
     private static final long serialVersionUID = 1121174133421179213L;

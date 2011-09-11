@@ -2,6 +2,7 @@ package org.ohm.lebetter.model.impl.entities;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
+import org.hibernate.annotations.AccessType;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.room13.mallcore.model.CreatorAware;
@@ -30,6 +31,7 @@ import java.util.List;
 @Entity
 @Table(name = "app_property")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@AccessType("field")
 public class PropertyEntity
         extends BaseOwnerAwareEntity
         implements CreatorAware, OwnerAware {

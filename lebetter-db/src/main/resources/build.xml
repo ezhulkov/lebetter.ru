@@ -32,4 +32,16 @@
                 classpathref="maven-ant-tasks.classpath"/>
     </target>
 
+    <target name="importLiquiBaseChangeSet.test" depends="copy-dependencies"
+            description="Inserts LiquiBase changelog to target database">
+        <updateDatabase
+                changeLogFile="schema/changelog-manual.xml"
+                driver="${database.driver}"
+                url="jdbc:postgresql://localhost:5432/lbdbtest"
+                username="lbdbtest"
+                password="lbdbtest"
+                dropFirst="false"
+                classpathref="maven-ant-tasks.classpath"/>
+    </target>
+
 </project>
