@@ -1,7 +1,6 @@
 package org.ohm.lebetter.spring.service.impl;
 
 import org.ohm.lebetter.spring.service.CategoryManager;
-import org.ohm.lebetter.spring.service.ColorManager;
 import org.ohm.lebetter.spring.service.DictPropertyHolder;
 import org.ohm.lebetter.spring.service.MailManager;
 import org.ohm.lebetter.spring.service.ProductManager;
@@ -20,7 +19,6 @@ public class ServiceManagerImpl
         extends org.room13.mallcore.spring.service.impl.ServiceManagerImpl
         implements ServiceManager {
 
-    private ColorManager colorManager;
     private CategoryManager categoryManager;
     private PropertyManager propertyManager;
     private PropertyValueManager propertyValueManager;
@@ -29,16 +27,6 @@ public class ServiceManagerImpl
     private Map<String, SyncDictProcessor> syncDictProcessors;
     private I18nBean i18n;
     private PasswordEncoder passwordEncoder;
-
-    @Override
-    public ColorManager getColorManager() {
-        return colorManager;
-    }
-
-    @Required
-    public void setColorManager(ColorManager colorManager) {
-        this.colorManager = colorManager;
-    }
 
     @Override
     public CategoryManager getCategoryManager() {

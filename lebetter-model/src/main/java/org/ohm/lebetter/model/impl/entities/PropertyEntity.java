@@ -11,6 +11,8 @@ import org.room13.mallcore.model.impl.BaseOwnerAwareEntity;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -38,25 +40,32 @@ public class PropertyEntity
         LIST, VALUE, DICTIONARY, GROUP
     }
 
-    private String name = "";
-    private String code = "";
-    private String alias = "";
-    private String description = "";
+    @Column
+    private String name;
+
+    @Column
+    @Enumerated(EnumType.STRING)
     private Type type = Type.LIST;
-    private boolean multiple = false;
-    private boolean mandatory = false;
-    private boolean specialFilter = false;
+
+    @Column
+    private boolean multiple;
+
+    @Column
+    private String dictionary;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = true)
     private PropertyEntity parent = null;
+
+    @OneToMany(mappedBy = "property", fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
     private List<PropertyValueEntity> values = new ArrayList<PropertyValueEntity>();
-    private List<PropertyToCategoryEntity> categories =
-            new ArrayList<PropertyToCategoryEntity>();
-    private String dictionary = "";
+
+    @OneToMany(mappedBy = "property", fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
+    private List<PropertyToCategoryEntity> categories = new ArrayList<PropertyToCategoryEntity>();
 
     public PropertyEntity() {
         setEntityCode("Property");
     }
 
-    @Column
     public String getName() {
         return name;
     }
@@ -65,52 +74,6 @@ public class PropertyEntity
         this.name = name;
     }
 
-    @Column
-    public String getAlias() {
-        return alias;
-    }
-
-    public void setAlias(String alias) {
-        this.alias = alias;
-    }
-
-    @Column(columnDefinition = "boolean default false")
-    public boolean isMultiple() {
-        return multiple;
-    }
-
-    public void setMultiple(boolean multiple) {
-        this.multiple = multiple;
-    }
-
-    @OneToMany(mappedBy = "property", fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
-    public List<PropertyValueEntity> getValues() {
-        return values;
-    }
-
-    public void setValues(List<PropertyValueEntity> values) {
-        this.values = values;
-    }
-
-    @Column(length = 255)
-    public String getDictionary() {
-        return dictionary;
-    }
-
-    public void setDictionary(String dictionary) {
-        this.dictionary = dictionary;
-    }
-
-    @Column(length = 255)
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    @Column
     public Type getType() {
         return type;
     }
@@ -119,7 +82,22 @@ public class PropertyEntity
         this.type = type;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    public boolean isMultiple() {
+        return multiple;
+    }
+
+    public void setMultiple(boolean multiple) {
+        this.multiple = multiple;
+    }
+
+    public String getDictionary() {
+        return dictionary;
+    }
+
+    public void setDictionary(String dictionary) {
+        this.dictionary = dictionary;
+    }
+
     public PropertyEntity getParent() {
         return parent;
     }
@@ -128,40 +106,20 @@ public class PropertyEntity
         this.parent = parent;
     }
 
-    @OneToMany(mappedBy = "property", fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
+    public List<PropertyValueEntity> getValues() {
+        return values;
+    }
+
+    public void setValues(List<PropertyValueEntity> values) {
+        this.values = values;
+    }
+
     public List<PropertyToCategoryEntity> getCategories() {
         return categories;
     }
 
-    public void setCategories(List<PropertyToCategoryEntity> productTypesByProperties) {
-        this.categories = productTypesByProperties;
-    }
-
-    @Column
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    @Column(name = "special_filter")
-    public boolean isSpecialFilter() {
-        return specialFilter;
-    }
-
-    public void setSpecialFilter(boolean specialFilter) {
-        this.specialFilter = specialFilter;
-    }
-
-    @Column
-    public boolean isMandatory() {
-        return mandatory;
-    }
-
-    public void setMandatory(boolean mandatory) {
-        this.mandatory = mandatory;
+    public void setCategories(List<PropertyToCategoryEntity> categories) {
+        this.categories = categories;
     }
 
     @Override

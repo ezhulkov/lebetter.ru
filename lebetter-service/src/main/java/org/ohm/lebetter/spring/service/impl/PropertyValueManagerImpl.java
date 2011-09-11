@@ -10,8 +10,6 @@ import org.ohm.lebetter.spring.dao.PropertyDao;
 import org.ohm.lebetter.spring.dao.PropertyValueDao;
 import org.ohm.lebetter.spring.service.PropertyValueManager;
 import org.ohm.lebetter.spring.service.ServiceManager;
-import org.room13.mallcore.annotations.AppCache;
-import org.room13.mallcore.annotations.AppCacheFlush;
 import org.room13.mallcore.model.ObjectBaseEntity;
 import org.room13.mallcore.spring.service.ObjectExistsException;
 import org.springframework.beans.BeanUtils;
@@ -50,8 +48,6 @@ public class PropertyValueManagerImpl
 
     @Override
     @Transactional
-    @AppCacheFlush(keys = {Constants.AppCacheKeys.OBJECT_SEARCH_COMPONENT_DATA,
-                           "propvalue.getValueByCode"})
     public void createValueForInsiders(PropertyValueEntity propertyValue,
                                        PropertyEntity property,
                                        UserEntity caller) {
@@ -85,8 +81,6 @@ public class PropertyValueManagerImpl
 
     @Override
     @Transactional
-    @AppCacheFlush(keys = {Constants.AppCacheKeys.OBJECT_SEARCH_COMPONENT_DATA,
-                           "propvalue.getValueByCode"})
     public void create(PropertyValueEntity propertyValue,
                        PropertyValueEntity parentCategoryValue,
                        UserEntity caller) {
@@ -109,17 +103,7 @@ public class PropertyValueManagerImpl
 
     @Override
     @Transactional
-    @AppCacheFlush(keys = {Constants.AppCacheKeys.OBJECT_SEARCH_COMPONENT_DATA,
-                           "propvalue.getValueByCode"})
     public void save(PropertyValueEntity propertyValue, UserEntity caller) throws ObjectExistsException {
-
-        //Check grants
-        if (!getServiceManagerExt().getRoleManager().isActionGranted(caller,
-                                                                     Constants.Actions.EDIT_PROPERTY,
-                                                                     propertyValue.getProperty())) {
-            getRMLogger().errorSecurityViolation("Tries to edit value.", propertyValue);
-            throw new AccessControlException("access denied");
-        }
 
         //Get persist object
         PropertyValueEntity propertyValuePersist = propertyValueDao.get(propertyValue.getId());
@@ -153,8 +137,6 @@ public class PropertyValueManagerImpl
 
     @Override
     @Transactional
-    @AppCacheFlush(keys = {Constants.AppCacheKeys.OBJECT_SEARCH_COMPONENT_DATA,
-                           "propvalue.getValueByCode"})
     public void saveValueForInsiders(PropertyValueEntity propertyValue,
                                      PropertyEntity property,
                                      UserEntity caller) {
@@ -171,7 +153,6 @@ public class PropertyValueManagerImpl
 
     @Override
     @Transactional
-    @AppCacheFlush(keys = {Constants.AppCacheKeys.OBJECT_SEARCH_COMPONENT_DATA})
     public void removeValueForInsiders(PropertyValueEntity propertyValue,
                                        PropertyEntity property,
                                        UserEntity caller) {
@@ -228,7 +209,6 @@ public class PropertyValueManagerImpl
     }
 
     @Override
-    @AppCache(key = "propvalue.getValueByCode", langAware = true)
     public PropertyValueEntity getValueByCode(ObjectBaseEntity object, String propertyCode) {
         PropertyEntity property = propertyDao.getTypeByCode(propertyCode);
         if (property == null) {
@@ -240,8 +220,6 @@ public class PropertyValueManagerImpl
 
     @Override
     @Transactional
-    @AppCacheFlush(keys = {Constants.AppCacheKeys.OBJECT_SEARCH_COMPONENT_DATA,
-                           "propvalue.getValueByCode"})
     public void remove(PropertyValueEntity propertyValue, UserEntity caller) {
         getRMLogger().debug("Remove value from insiders...");
 

@@ -1,7 +1,6 @@
 package org.ohm.lebetter.tapestry5.web.components.mallcomponents.object;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.tapestry5.annotations.Cached;
 import org.apache.tapestry5.annotations.OnEvent;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
@@ -37,7 +36,6 @@ import static java.lang.Long.parseLong;
 public class ObjectDescriptionTagPart extends AbstractBaseComponent {
 
     public static final String SELECT_INPUT = "SELECT";
-    public static final String COLOR_INPUT = "COLOR";
     public static final String VALUE_INPUT = "VALUE";
     public static final String GVALUE_INPUT = "GVALUE";
 
@@ -58,41 +56,13 @@ public class ObjectDescriptionTagPart extends AbstractBaseComponent {
         return selectedSecurityObject == null ? selectedObject : selectedSecurityObject;
     }
 
-    @Cached
-    public PropertyEntity getColorProperty() {
-        PropertyEntity colorProp =
-                getServiceFacade().getPropertyManager().getPropertyByCode(Constants.PropertyCodes.COLOR);
-        return colorProp;
-    }
-
-    public List<TagToValueEntity> getTagsColor() {
-        List<TagToValueEntity> result = new LinkedList<TagToValueEntity>();
-        List<TagToValueEntity> resultColor = new LinkedList<TagToValueEntity>();
-        result.addAll(getServiceFacade().getPropertyManager().getTagsForProductByMultiple(selectedObject,
-                true));
-        for (TagToValueEntity tagToValueEntity : result) {
-            if ("Color".equals(tagToValueEntity.getPropertyValue().getProperty().getDictionary())) {
-                resultColor.add(tagToValueEntity);
-            }
-        }
-
-        //Sort properties by name
-        Collections.sort(resultColor, CategoryManager.TAG_ENTITY_COMPARATOR);
-
-        return resultColor;
-    }
-
     public List<TagToValueEntity> getTagsMultiple() {
-
-        if ("Color".equals(oneProperty.getDictionary())) {
-            return null;
-        }
 
         //Get all multiple tags for property
         List<TagToValueEntity> result = new LinkedList<TagToValueEntity>();
         result.addAll(getServiceFacade().getPropertyManager().getTagsForProductByMultiple(selectedObject,
-                oneProperty,
-                true));
+                                                                                          oneProperty,
+                                                                                          true));
         //Add unassigned properties to result list
         if (result.size() == 0) {
             TagToValueEntity stabLink = new TagToValueEntity();
@@ -102,12 +72,7 @@ public class ObjectDescriptionTagPart extends AbstractBaseComponent {
             result.add(stabLink);
         }
 
-        //Sort properties by name
-        if ("C_SIZE".equals(oneProperty.getCode())) {
-            Collections.sort(result, CategoryManager.TAG_ENTITY_BY_INT_CODE_COMPARATOR);
-        } else {
-            Collections.sort(result, CategoryManager.TAG_ENTITY_COMPARATOR);
-        }
+        Collections.sort(result, CategoryManager.TAG_ENTITY_COMPARATOR);
 
         return result;
     }
@@ -241,34 +206,28 @@ public class ObjectDescriptionTagPart extends AbstractBaseComponent {
                     } catch (Exception ex) {
                         getRMLogger().error("Bad id " + param, selectedObject, null);
                         getBase().addFlashToSession(getBase().getText("error.generic"),
-                                FlashMessage.Type.FAILURE);
+                                                    FlashMessage.Type.FAILURE);
                         return getAjaxBlock();
                     }
 
                     if (GVALUE_INPUT.equals(propType)) {
                         if (getRMLogger().isDebugEnabled()) {
                             getRMLogger().debug("Processing gvalue tag. Property id: " +
-                                    propertyId + ", child Property id: " + gPropertyId +
-                                    ", value: " +
-                                    value, selectedObject);
+                                                propertyId + ", child Property id: " + gPropertyId +
+                                                ", value: " +
+                                                value, selectedObject);
                         }
                         setValueTag(gPropertyId, value, valueLinks);
                     } else if (VALUE_INPUT.equals(propType)) {
                         if (getRMLogger().isDebugEnabled()) {
                             getRMLogger().debug("Processing value tag. Property id: " +
-                                    propertyId + ", value: " + value, selectedObject);
+                                                propertyId + ", value: " + value, selectedObject);
                         }
                         setValueTag(propertyId, value, valueLinks);
                     } else if (SELECT_INPUT.equals(propType)) {
                         if (getRMLogger().isDebugEnabled()) {
                             getRMLogger().debug("Processing select tag. Property id: " +
-                                    propertyId + ", value: " + value, selectedObject);
-                        }
-                        setSelectTag(propertyId, value, valueLinks);
-                    } else if (COLOR_INPUT.equals(propType)) {
-                        if (getRMLogger().isDebugEnabled()) {
-                            getRMLogger().debug("Processing color tag. Property id: " +
-                                    propertyId + ", value: " + value, selectedObject);
+                                                propertyId + ", value: " + value, selectedObject);
                         }
                         setSelectTag(propertyId, value, valueLinks);
                     }
@@ -285,7 +244,7 @@ public class ObjectDescriptionTagPart extends AbstractBaseComponent {
                                                                              selectedObject,
                                                                              getAuth().getUser());
             getBase().addFlashToSession(getBase().getText("tags.set.done"),
-                    FlashMessage.Type.SUCCESS);
+                                        FlashMessage.Type.SUCCESS);
 
         } catch (AccessControlException acex) {
             getRMLogger().errorSecurityViolation("Access denied", selectedObject);
@@ -356,14 +315,6 @@ public class ObjectDescriptionTagPart extends AbstractBaseComponent {
                 getServiceFacade().getPropertyManager().getSetMandatoryFields(selectedObject);
         mf.removeAll(sf);
         return mf;
-    }
-
-    public boolean isOneTagLinkColor() {
-        return "Color".equals(oneTagLink.getPropertyValue().getProperty().getDictionary());
-    }
-
-    public boolean isOnePropertyColor() {
-        return "Color".equals(oneProperty.getDictionary());
     }
 
 }

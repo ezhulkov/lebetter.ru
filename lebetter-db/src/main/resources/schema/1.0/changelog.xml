@@ -2,25 +2,15 @@
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
 
-    <changeSet author="ahomyakov" id="1.0.0-1">
+    <changeSet id="1.0.0-1" author="ezhulkov">
         <!--#########################CREATE SEQUENCES######################-->
         <createSequence sequenceName="hibernate_sequence"
                         schemaName="public"
                         incrementBy="1"
                         startValue="1"/>
-        <createSequence sequenceName="not_entity_associated_file_id"
-                        schemaName="public"
-                        incrementBy="1"
-                        startValue="1"/>
-        <createSequence sequenceName="sitemap_idx_generator"
-                        schemaName="public"
-                        startValue="1"
-                        incrementBy="1"/>
     </changeSet>
 
-    <changeSet author="ahomyakov" id="1.0.0-2">
-        <!--#########################CREATE TABLES######################-->
-        <!--#########################app_action#########################-->
+    <changeSet id="1.0.0-2" author="ezhulkov">
         <createTable schemaName="public" tableName="app_action">
             <column name="id" type="int8">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="app_action_pkey"/>
@@ -40,7 +30,6 @@
             <column name="remover_id" type="int8"/>
             <column defaultValueNumeric="0" name="searchstatus" type="int4"/>
         </createTable>
-        <!--#########################app_actiongroup#########################-->
         <createTable schemaName="public" tableName="app_actiongroup">
             <column name="id" type="int8">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="app_actiongroup_pkey"/>
@@ -59,8 +48,6 @@
             <column name="remover_id" type="int8"/>
             <column defaultValueNumeric="0" name="searchstatus" type="int4"/>
         </createTable>
-
-        <!--#########################app_role#########################-->
         <createTable schemaName="public" tableName="app_role">
             <column name="id" type="int8">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="app_role_pkey"/>
@@ -81,8 +68,6 @@
             <column defaultValueNumeric="0" name="searchstatus" type="int4"/>
             <column name="parent_id" type="int8"/>
         </createTable>
-
-        <!--#########################app_role_action#########################-->
         <createTable schemaName="public" tableName="app_role_action">
             <column name="id" type="int8">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="app_role_action_pkey"/>
@@ -104,8 +89,6 @@
             <column name="remover_id" type="int8"/>
             <column defaultValueNumeric="0" name="searchstatus" type="int4"/>
         </createTable>
-
-        <!--#########################app_user#########################-->
         <createTable schemaName="public" tableName="app_user">
             <column name="id" type="int8">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="app_user_pkey"/>
@@ -114,8 +97,8 @@
             <column defaultValueNumeric="0" name="objectstatus" type="int4">
                 <constraints nullable="false"/>
             </column>
-            <column defaultValueNumeric="0.0" name="rating" type="FLOAT4(8,8)"/>
             <column defaultValue="" name="about" type="VARCHAR(4000)"/>
+            <column defaultValue="" name="dtype" type="VARCHAR(2)"/>
             <column defaultValue="" name="annotation" type="VARCHAR(255)"/>
             <column defaultValue="" name="addinfo" type="VARCHAR(4000)"/>
             <column defaultValue="" name="address" type="VARCHAR(128)"/>
@@ -143,7 +126,6 @@
             <column name="name" type="VARCHAR(128)"/>
             <column name="version" type="int4"/>
             <column name="creator_id" type="int8"/>
-            <column name="owner_id" type="int8"/>
             <column name="referee_id" type="int8"/>
             <column name="prefferedlanguage_id" type="int8"/>
             <column name="rootid" type="int8"/>
@@ -166,8 +148,6 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
-
-        <!--#########################app_user_role#########################-->
         <createTable schemaName="public" tableName="app_user_role">
             <column name="user_id" type="int8">
                 <constraints nullable="false"/>
@@ -176,9 +156,9 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
-
-
-        <!--#########################app_language#########################-->
+        <addPrimaryKey tableName="app_user_role"
+                       columnNames="user_id, role_id"
+                       constraintName="app_user_role_pkey"/>
         <createTable schemaName="public" tableName="app_language">
             <column name="id" type="int8">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="app_language_pkey"/>
@@ -191,7 +171,6 @@
             <column defaultValue="" name="code" type="VARCHAR(3)"/>
             <column defaultValueNumeric="0" name="imagestatus" type="int4"/>
             <column name="creator_id" type="int8"/>
-            <column name="owner_id" type="int8"/>
             <column name="rootid" type="int8"/>
             <column name="rootobject" defaultValueBoolean="false" type="bool"/>
             <column name="language_id" type="int8"/>
@@ -199,8 +178,6 @@
             <column name="remover_id" type="int8"/>
             <column defaultValueNumeric="0" name="searchstatus" type="int4"/>
         </createTable>
-
-        <!--#########################app_sysparam#########################-->
         <createTable schemaName="public" tableName="app_sysparam">
             <column name="id" type="int8">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="app_sysparam_pkey"/>
@@ -219,8 +196,6 @@
             <column name="remover_id" type="int8"/>
             <column defaultValueNumeric="0" name="searchstatus" type="int4"/>
         </createTable>
-
-        <!--#########################fh_upload_ticket#########################-->
         <createTable schemaName="public" tableName="fh_upload_ticket">
             <column name="ticket" type="VARCHAR(100)"/>
             <column name="user_id" type="INT8"/>
@@ -229,19 +204,6 @@
             <column name="entity_code" type="VARCHAR(50)"/>
             <column name="type" type="VARCHAR(50)"/>
         </createTable>
-
-        <!--#########################app_online_users#########################-->
-        <createTable schemaName="public" tableName="app_online_users">
-            <column name="sid" type="varchar(4096)">
-                <constraints nullable="false" primaryKey="true" primaryKeyName="app_online_users_pkey"/>
-            </column>
-            <column name="ip" type="VARCHAR(128)"/>
-            <column name="logondate" type="TIMESTAMP WITH TIME ZONE"/>
-            <column name="node" type="varchar(128)"/>
-            <column name="user_id" type="int8"/>
-        </createTable>
-
-        <!--#########################app_profile#########################-->
         <createTable tableName="app_profile">
             <column name="id" type="int8">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="app_profile_pkey"/>
@@ -262,124 +224,87 @@
             <column name="role_id" type="int8"/>
             <column defaultValueNumeric="0" name="searchstatus" type="int4"/>
         </createTable>
-
     </changeSet>
 
-    <changeSet author="ahomyakov" id="1.0.0-4">
-        <!--#########################CREATE PRIMARY KEYS#########################-->
-        <addPrimaryKey tableName="app_user_role"
-                       columnNames="user_id, role_id"
-                       constraintName="app_user_role_pkey"/>
-    </changeSet>
-
-
-    <changeSet author="ahomyakov" id="1.0.0-5">
-        <!--#########################CREATE INDEXES#########################-->
-
+    <changeSet id="1.0.0-3" author="ezhulkov">
         <!--#########################app_action#########################-->
-        <createIndex tableName="app_action" unique="true" indexName="app_action_idx1" tablespace="ksdb_idx">
+        <createIndex tableName="app_action" unique="true" indexName="app_action_idx1" tablespace="lbdb_idx">
             <column name="code"/>
             <column name="objectdeleted"/>
             <column name="language_id"/>
         </createIndex>
-        <createIndex tableName="app_action" indexName="app_action_idx2" tablespace="ksdb_idx">
+        <createIndex tableName="app_action" indexName="app_action_idx2" tablespace="lbdb_idx">
             <column name="objectdeleted"/>
             <column name="objectstatus"/>
             <column name="deletiondate"/>
         </createIndex>
-        <createIndex tableName="app_action" indexName="app_action_idx3" tablespace="ksdb_idx">
+        <createIndex tableName="app_action" indexName="app_action_idx3" tablespace="lbdb_idx">
             <column name="lower(name)"/>
         </createIndex>
-        <createIndex tableName="app_action" indexName="app_action_idx4" unique="true" tablespace="ksdb_idx">
+        <createIndex tableName="app_action" indexName="app_action_idx4" unique="true" tablespace="lbdb_idx">
             <column name="rootid"/>
             <column name="rootobject"/>
             <column name="language_id"/>
         </createIndex>
-
-        <!--#########################app_actiongroup#########################-->
-        <createIndex tableName="app_actiongroup" unique="true" indexName="app_actiongroup_idx1" tablespace="ksdb_idx">
+        <createIndex tableName="app_actiongroup" unique="true" indexName="app_actiongroup_idx1" tablespace="lbdb_idx">
             <column name="code"/>
             <column name="objectdeleted"/>
             <column name="language_id"/>
         </createIndex>
-        <createIndex tableName="app_actiongroup" indexName="app_actiongroup_idx2" tablespace="ksdb_idx">
+        <createIndex tableName="app_actiongroup" indexName="app_actiongroup_idx2" tablespace="lbdb_idx">
             <column name="objectdeleted"/>
             <column name="objectstatus"/>
             <column name="deletiondate"/>
         </createIndex>
-        <createIndex tableName="app_actiongroup" indexName="app_actiongroup_idx3" tablespace="ksdb_idx">
+        <createIndex tableName="app_actiongroup" indexName="app_actiongroup_idx3" tablespace="lbdb_idx">
             <column name="lower(name)"/>
         </createIndex>
-        <createIndex tableName="app_actiongroup" indexName="app_actiongroup_idx4" unique="true" tablespace="ksdb_idx">
+        <createIndex tableName="app_actiongroup" indexName="app_actiongroup_idx4" unique="true" tablespace="lbdb_idx">
             <column name="rootid"/>
             <column name="rootobject"/>
             <column name="language_id"/>
         </createIndex>
-
-        <!--#########################app_role_action#########################-->
         <createIndex tableName="app_role_action"
                      indexName="app_role_action_idx1"
                      unique="false"
-                     tablespace="ksdb_idx">
+                     tablespace="lbdb_idx">
             <column name="role_id"/>
             <column name="action_id"/>
         </createIndex>
-
-        <!--#########################app_user################################-->
-        <createIndex tableName="app_user" indexName="app_user_idx1" tablespace="ksdb_idx">
+        <createIndex tableName="app_user" indexName="app_user_idx1" tablespace="lbdb_idx">
             <column name="objectdeleted"/>
             <column name="objectstatus"/>
             <column name="deletiondate"/>
         </createIndex>
-        <createIndex tableName="app_user" indexName="app_user_idx2" tablespace="ksdb_idx">
-            <column name="rating"/>
-        </createIndex>
-        <createIndex tableName="app_user" indexName="app_user_idx3" tablespace="ksdb_idx">
-            <column name="lower(country)"/>
-            <column name="lower(city)"/>
-        </createIndex>
-        <createIndex tableName="app_user" indexName="app_user_idx4" tablespace="ksdb_idx">
+        <createIndex tableName="app_user" indexName="app_user_idx4" tablespace="lbdb_idx">
             <column name="lower(last_name)"/>
         </createIndex>
-        <createIndex tableName="app_user" indexName="app_user_idx5" unique="true" tablespace="ksdb_idx">
+        <createIndex tableName="app_user" indexName="app_user_idx5" unique="true" tablespace="lbdb_idx">
             <column name="lower(name)"/>
             <column name="objectdeleted"/>
             <column name="language_id"/>
         </createIndex>
-        <createIndex tableName="app_user" indexName="app_user_idx6" unique="true" tablespace="ksdb_idx">
+        <createIndex tableName="app_user" indexName="app_user_idx6" unique="true" tablespace="lbdb_idx">
             <column name="rootid"/>
             <column name="rootobject"/>
             <column name="language_id"/>
         </createIndex>
-        <createIndex tableName="app_user" indexName="app_user_idx7" tablespace="ksdb_idx">
-            <column name="searchstatus"/>
-        </createIndex>
-        <createIndex tableName="app_user" indexName="app_user_idx12" tablespace="ksdb_idx">
-            <column name="lower(first_name)"/>
-        </createIndex>
-        <createIndex tableName="app_user"  indexName="app_user_idx14" tablespace="ksdb_idx" unique="false">
-            <column name="dummy"/>
-        </createIndex>
-
-        <!--#########################app_language############################-->
-        <createIndex tableName="app_language" indexName="app_lang_idx1" tablespace="ksdb_idx">
+        <createIndex tableName="app_language" indexName="app_lang_idx1" tablespace="lbdb_idx">
             <column name="objectdeleted"/>
             <column name="objectstatus"/>
             <column name="deletiondate"/>
         </createIndex>
-        <createIndex tableName="app_language" indexName="app_lang_idx2" unique="true" tablespace="ksdb_idx">
+        <createIndex tableName="app_language" indexName="app_lang_idx2" unique="true" tablespace="lbdb_idx">
             <column name="code"/>
             <column name="language_id"/>
         </createIndex>
-        <createIndex tableName="app_language" indexName="app_lang_idx3" unique="true" tablespace="ksdb_idx">
+        <createIndex tableName="app_language" indexName="app_lang_idx3" unique="true" tablespace="lbdb_idx">
             <column name="rootid"/>
             <column name="language_id"/>
         </createIndex>
-        <createIndex tableName="app_language" indexName="app_lang_idx4" tablespace="ksdb_idx">
+        <createIndex tableName="app_language" indexName="app_lang_idx4" tablespace="lbdb_idx">
             <column name="searchstatus"/>
         </createIndex>
-
-        <!--#########################fh_upload_ticket############################-->
         <createIndex tableName="fh_upload_ticket"
                      indexName="fh_upload_ticket_idx1"
                      unique="true">
@@ -390,23 +315,9 @@
                      unique="false">
             <column name="date"/>
         </createIndex>
-
-        <!--#########################app_online_users############################-->
-        <createIndex tableName="app_online_users"
-                     unique="true"
-                     indexName="app_online_users_idx1"
-                     tablespace="ksdb_idx">
-            <column name="sid"/>
-            <column name="node"/>
-            <column name="user_id"/>
-        </createIndex>
-
     </changeSet>
 
-    <changeSet author="ahomyakov" id="1.0.0-6">
-        <!--#########################CREATE FOREIGN KEYS######################-->
-
-        <!--#########################app_action#########################-->
+    <changeSet id="1.0.0-4" author="ezhulkov">
         <addForeignKeyConstraint baseColumnNames="actiongroup_id"
                                  baseTableName="app_action"
                                  baseTableSchemaName="public"
@@ -436,9 +347,6 @@
                                  referencedColumnNames="id"
                                  referencedTableName="app_user"
                                  referencedTableSchemaName="public"/>
-
-
-        <!--#########################app_role#########################-->
         <addForeignKeyConstraint baseColumnNames="language_id"
                                  baseTableName="app_role"
                                  baseTableSchemaName="public"
@@ -466,8 +374,6 @@
                                  referencedColumnNames="id"
                                  referencedTableName="app_role"
                                  referencedTableSchemaName="public"/>
-
-        <!--#########################app_role_action#########################-->
         <addForeignKeyConstraint baseColumnNames="action_id"
                                  baseTableName="app_role_action"
                                  baseTableSchemaName="public"
@@ -504,8 +410,6 @@
                                  referencedColumnNames="id"
                                  referencedTableName="app_user"
                                  referencedTableSchemaName="public"/>
-
-        <!--#########################app_user_role#########################-->
         <addForeignKeyConstraint baseColumnNames="role_id"
                                  baseTableName="app_user_role"
                                  baseTableSchemaName="public"
@@ -519,17 +423,6 @@
                                  baseTableName="app_user_role"
                                  baseTableSchemaName="public"
                                  constraintName="fk_user_role_user"
-                                 deferrable="false"
-                                 initiallyDeferred="false"
-                                 referencedColumnNames="id"
-                                 referencedTableName="app_user"
-                                 referencedTableSchemaName="public"/>
-
-        <!--#########################app_user#########################-->
-        <addForeignKeyConstraint baseColumnNames="owner_id"
-                                 baseTableName="app_user"
-                                 baseTableSchemaName="public"
-                                 constraintName="fk_user_owner"
                                  deferrable="false"
                                  initiallyDeferred="false"
                                  referencedColumnNames="id"
@@ -589,8 +482,6 @@
                                  referencedColumnNames="id"
                                  referencedTableName="app_user"
                                  referencedTableSchemaName="public"/>
-
-        <!--#########################app_actiongroup#########################-->
         <addForeignKeyConstraint baseColumnNames="language_id"
                                  baseTableName="app_actiongroup"
                                  baseTableSchemaName="public"
@@ -609,8 +500,6 @@
                                  referencedColumnNames="id"
                                  referencedTableName="app_user"
                                  referencedTableSchemaName="public"/>
-
-        <!--#########################app_language#########################-->
         <addForeignKeyConstraint baseColumnNames="language_id"
                                  baseTableName="app_language"
                                  baseTableSchemaName="public"
@@ -629,9 +518,6 @@
                                  referencedColumnNames="id"
                                  referencedTableName="app_user"
                                  referencedTableSchemaName="public"/>
-
-
-        <!--#########################app_sysparam#########################-->
         <addForeignKeyConstraint baseColumnNames="remover_id"
                                  baseTableName="app_sysparam"
                                  baseTableSchemaName="public"
@@ -650,17 +536,6 @@
                                  referencedColumnNames="id"
                                  referencedTableName="app_language"
                                  referencedTableSchemaName="public"/>
-
-        <!--#########################app_online_users#########################-->
-        <addForeignKeyConstraint baseColumnNames="user_id"
-                                 baseTableName="app_online_users"
-                                 baseTableSchemaName="public"
-                                 constraintName="fk_online_users_user"
-                                 deferrable="false" initiallyDeferred="false"
-                                 referencedColumnNames="id" referencedTableName="app_user"
-                                 referencedTableSchemaName="public"/>
-
-        <!--#########################app_profile#########################-->
         <addForeignKeyConstraint baseColumnNames="language_id"
                                  baseTableName="app_profile"
                                  baseTableSchemaName="public"
@@ -700,8 +575,7 @@
 
     </changeSet>
 
-
-    <changeSet author="ahomyakov" id="1.0.0-7">
+    <changeSet id="1.0.0-5" author="ezhulkov">
         <createProcedure>
             CREATE OR REPLACE FUNCTION "insert_into_app_role_action" () RETURNS trigger AS
             $body$
@@ -722,19 +596,247 @@
             ON app_role_action FOR EACH ROW
             EXECUTE PROCEDURE public.insert_into_app_role_action();
         </createProcedure>
-
     </changeSet>
 
-    <changeSet author="ezhulkov" id="1.0.0-8">
-        <addColumn tableName="app_online_users">
-            <column name="useragent" type="VARCHAR(128)"/>
-        </addColumn>
+    <changeSet id="1.0.0-6" author="ezhulkov">
+        <sql>
+            create table public.app_category (
+            id int8 not null,
+            objectdeleted bool default false,
+            objectstatus int4 not null default 0,
+            rootid int8,
+            rootobject bool default false,
+            creator_id int8,
+            language_id int8,
+            remover_id int8,
+            deletiondate timestamptz,
+            name varchar(128),
+            parent_id int8,
+            searchstatus int4 default 0,
+            position int4 default 0,
+            entitycode varchar(16) default 'Category',
+            createddate timestamptz default now(),
+            primary key (id),
+            constraint app_category_cat_fk foreign key (parent_id) references app_category(id) on delete
+            cascade,
+            constraint app_category_crt_fk foreign key (creator_id) references app_user(id) on delete cascade
+            );
+            create unique index app_category_idx2 on public.app_category (lower(name), parent_id,
+            objectdeleted, language_id);
+            create unique index app_category_idx4 on public.app_category (rootid, rootobject, language_id);
+            create index app_category_creator_id_idx on public.app_category (creator_id);
+            create index app_category_ec_idx on public.app_category (entitycode);
+            create index app_category_idx1 on public.app_category (objectdeleted, objectstatus, deletiondate);
+            create index app_category_parent_id_idx on public.app_category (parent_id);
+            create index app_category_position_id on public.app_category (position);
+            create index app_category_rootid_idx on public.app_category (rootid);
+        </sql>
     </changeSet>
 
-    <changeSet author="ezhulkov" id="1.0.0-9">
-        <addColumn tableName="app_user">
-            <column name="dtype" type="VARCHAR(2)"/>
-        </addColumn>
+    <changeSet id="1.0.0-7" author="ezhulkov">
+        <sql>
+            create table public.app_property (
+            id int8 not null,
+            objectdeleted bool default false,
+            objectstatus int4 not null default 0,
+            creator_id int8,
+            rootid int8,
+            rootobject bool default false,
+            language_id int8,
+            deletiondate timestamptz,
+            remover_id int8,
+            dictionary varchar(255),
+            multiple bool default false,
+            name varchar(128),
+            type varchar(32),
+            searchstatus int4 default 0,
+            parent_id int8,
+            entitycode varchar(16) default 'Property',
+            mandatory bool not null default false,
+            createddate timestamptz default now(),
+            primary key (id),
+            constraint app_property_prt_fk foreign key (parent_id) references app_property(id) on delete
+            cascade,
+            constraint app_property_crt_fk foreign key (creator_id) references app_user(id) on delete cascade
+            );
+            create unique index app_property_idx1 on public.app_property (lower(name), type, parent_id,
+            objectdeleted, language_id);
+            create unique index app_property_idx5 on public.app_property (rootid, rootobject, language_id);
+            create index app_property_creator_id_idx on public.app_property (creator_id);
+            create index app_property_ec_idx on public.app_property (entitycode);
+            create index app_property_idx2 on public.app_property (objectdeleted, objectstatus, deletiondate);
+            create index app_property_idx3 on public.app_property (multiple);
+            create index app_property_idx4 on public.app_property (type);
+            create index app_property_language_id_idx on public.app_property (language_id);
+            create index app_property_parent_id_idx on public.app_property (parent_id);
+            create index app_property_rootid_idx on public.app_property (rootid);
+        </sql>
+    </changeSet>
+
+    <changeSet id="1.0.0-8" author="ezhulkov">
+        <sql>
+            create table public.app_property2category (
+            id int8 not null,
+            category_id int8 not null,
+            property_id int8 not null,
+            position int4 default 0,
+            objectdeleted bool default false,
+            objectstatus int4 not null default 0,
+            rootid int8,
+            rootobject bool default false,
+            language_id int8,
+            deletiondate timestamptz,
+            remover_id int8,
+            searchstatus int4 default 0,
+            entitycode varchar(18) default 'PropertyToCategory',
+            createddate timestamptz default now(),
+            primary key (id),
+            constraint app_property2category_cfk foreign key (category_id) references app_category(id) on
+            delete cascade,
+            constraint app_property2category_pfk foreign key (property_id) references app_property(id) on
+            delete cascade
+            );
+            create index app_property2category_category_id_idx on public.app_property2category (category_id);
+            create index app_property2category_ec_idx on public.app_property2category (entitycode);
+            create index app_property2category_position_id on public.app_property2category (position);
+            create index app_property2category_property_id_idx on public.app_property2category (property_id);
+            create index app_property2category_rootid_idx on public.app_property2category (rootid);
+
+        </sql>
+    </changeSet>
+
+    <changeSet id="1.0.0-9" author="ezhulkov">
+        <sql>
+            create table public.app_property_value (
+            id int8 not null,
+            objectdeleted bool default false,
+            objectstatus int4 not null default 0,
+            name varchar(128),
+            objectid int8,
+            objecttype varchar(255),
+            additionaldictinfo varchar(255),
+            additionaldictinfo2 varchar(255),
+            property_id int8,
+            creator_id int8,
+            rootid int8,
+            rootobject bool default false,
+            language_id int8,
+            deletiondate timestamptz,
+            remover_id int8,
+            searchstatus int4 default 0,
+            alias varchar(128),
+            entitycode varchar(16) default 'PropertyValue',
+            createddate timestamptz default now(),
+            primary key (id),
+            constraint app_property_value_pfk foreign key (property_id) references app_property(id) on delete
+            cascade,
+            constraint fk4012c8ceff8470b5 foreign key (creator_id) references app_user(id) on delete cascade
+            );
+            create unique index app_property_value_idx1 on public.app_property_value (lower(name),
+            property_id, objectdeleted, language_id);
+            create unique index app_property_value_idx3 on public.app_property_value (rootid, rootobject,
+            language_id);
+            create index app_property_value_addinfo2_idx1 on public.app_property_value (additionaldictinfo2);
+            create index app_property_value_creator_id_idx on public.app_property_value (creator_id);
+            create index app_property_value_ec_idx on public.app_property_value (entitycode);
+            create index app_property_value_idx2 on public.app_property_value (objectdeleted, objectstatus,
+            deletiondate);
+            create index app_property_value_idx6 on public.app_property_value (objecttype, objectid);
+            create index app_property_value_property_id_idx on public.app_property_value (property_id);
+            create index app_property_value_rootid_idx on public.app_property_value (rootid);
+
+        </sql>
+    </changeSet>
+
+    <changeSet id="1.0.0-10" author="ezhulkov">
+        <sql>
+            create table public.app_product (
+            id int8 not null,
+            objectdeleted bool default false,
+            objectstatus int4 not null default 0,
+            rootid int8,
+            rootobject bool default false,
+            deletiondate timestamptz,
+            searchstatus int4 default 0,
+            language_id int8,
+            remover_id int8,
+            creator_id int8,
+            name varchar(128),
+            price float4 default 0,
+            description varchar(4096),
+            creationdate timestamptz default now(),
+            entitycode varchar(16) default 'Product',
+            createddate timestamptz default now(),
+            altid varchar(150),
+            primary key (id),
+            constraint app_product_creator foreign key (creator_id) references app_user(id) on delete cascade
+            );
+            create unique index app_product_idx5 on public.app_product (rootid, rootobject, language_id);
+            create index app_product_altidx on public.app_product (altid);
+            create index app_product_creator_id_idx on public.app_product (creator_id);
+            create index app_product_ec_idx on public.app_product (entitycode);
+            create index app_product_idx1 on public.app_product (objectdeleted, objectstatus, deletiondate);
+            create index app_product_idx2 on public.app_product (lower(name));
+            create index app_product_language_id_idx on public.app_product (language_id);
+            create index app_product_rootid_idx on public.app_product (rootid);
+        </sql>
+    </changeSet>
+
+    <changeSet id="1.0.0-11" author="ezhulkov">
+        <sql>
+            create table public.app_tag (
+            id int8 not null,
+            objectdeleted bool default false,
+            objectstatus int4 not null default 0,
+            type varchar(32),
+            name varchar(128),
+            value varchar(256),
+            creator_id int8,
+            propertyvalue_id int8 not null,
+            rootid int8,
+            rootobject bool default false,
+            language_id int8,
+            deletiondate timestamptz,
+            remover_id int8,
+            searchstatus int4 default 0,
+            entitycode varchar(16) default 'Tag',
+            product_id int8,
+            createddate timestamptz default now(),
+            primary key (id),
+            constraint app_tag_product_fk foreign key (product_id) references app_product(id) on delete
+            cascade,
+            constraint app_tag_cfk foreign key (propertyvalue_id) references app_property_value(id) on delete
+            cascade,
+            constraint fkd0b2707cff8470b5 foreign key (creator_id) references app_user(id) on delete cascade
+            );
+            create unique index app_tag_idx3 on public.app_tag (rootid, language_id);
+            create unique index app_tag_unique_1 on public.app_tag (value, name, propertyvalue_id,
+            product_id);
+            create unique index app_tag_unique_2 on public.app_tag (name, propertyvalue_id, product_id);
+            create unique index app_tag_unique_3 on public.app_tag (value, propertyvalue_id, product_id);
+            create unique index app_tag_unique_4 on public.app_tag (propertyvalue_id, product_id);
+            create index app_tag_creator_id_idx on public.app_tag (creator_id);
+            create index app_tag_ec_idx on public.app_tag (entitycode);
+            create index app_tag_idx2 on public.app_tag (type);
+            create index app_tag_product_id_idx on public.app_tag (product_id);
+            create index app_tag_propertyvalue_id_idx on public.app_tag (propertyvalue_id);
+            create index app_tag_rootid_idx on public.app_tag (rootid);
+        </sql>
+    </changeSet>
+
+    <changeSet id="1.0.0-12" author="ezhulkov">
+        <sql>
+            create table public.app_prod_cat (
+              prod_id int8,
+              cat_id int8,
+              constraint app_prod_cat_cat_fk foreign key (cat_id) references app_category(id) on delete cascade,
+              constraint app_prod_cat_prod_fk foreign key (prod_id) references app_product(id) on delete cascade
+            );
+            create unique index app_prod_cat_idx on public.app_prod_cat (prod_id, cat_id);
+            create index app_prod_cat_cat_idx on public.app_prod_cat (cat_id);
+            create index app_prod_cat_prod_idx on public.app_prod_cat (prod_id);
+
+        </sql>
     </changeSet>
 
 </databaseChangeLog>

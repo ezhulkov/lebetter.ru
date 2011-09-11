@@ -5,16 +5,12 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projection;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
-import org.ohm.lebetter.Constants;
-import org.ohm.lebetter.Constants.AppCacheKeys;
 import org.ohm.lebetter.model.impl.entities.CategoryEntity;
 import org.ohm.lebetter.model.impl.entities.ProductEntity;
 import org.ohm.lebetter.model.impl.entities.PropertyValueEntity;
 import org.ohm.lebetter.model.impl.entities.UserEntity;
 import org.ohm.lebetter.spring.dao.ProductDao;
 import org.ohm.lebetter.spring.service.ProductManager;
-import org.room13.mallcore.annotations.AppCache;
-import org.room13.mallcore.annotations.AppCacheFlush;
 import org.room13.mallcore.log.RMLogger;
 import org.room13.mallcore.model.ObjectBaseEntity;
 import org.room13.mallcore.spring.dao.OwnerDao;
@@ -55,9 +51,6 @@ public class ProductManagerImpl
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED)
-    @AppCacheFlush(keys = {Constants.AppCacheKeys.PRODS_IN_CAT_COUNT,
-                           Constants.AppCacheKeys.TOP_PRODUCTS,
-                           Constants.AppCacheKeys.PROMO_PRODUCTS})
     public void save(ProductEntity object, UserEntity caller) throws ObjectExistsException {
 
         object.setAltId(StringUtil.translit(object.getName()) + "-" + object.getRootId());
@@ -118,7 +111,6 @@ public class ProductManagerImpl
     }
 
     @Override
-    @AppCache(key = AppCacheKeys.PRODUCTS)
     public List<Long> getSearchObjectsIds(CategoryEntity category,
                                           PropertyValueEntity[][] values,
                                           Order sort) {

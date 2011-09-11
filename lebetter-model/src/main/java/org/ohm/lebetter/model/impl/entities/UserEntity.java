@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 
 @Entity(name = "org.room13.kinder.model.impl.entities.UserEntity")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-@DiscriminatorValue("KS")
+@DiscriminatorValue("LB")
 @AccessType("field")
 public class UserEntity extends org.room13.mallcore.model.impl.entities.UserEntity {
 

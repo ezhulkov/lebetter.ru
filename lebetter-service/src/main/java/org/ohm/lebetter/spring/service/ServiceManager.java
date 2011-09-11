@@ -9,8 +9,6 @@ import java.util.Map;
 public interface ServiceManager
         extends org.room13.mallcore.spring.service.ServiceManager {
 
-    public ColorManager getColorManager();
-
     public CategoryManager getCategoryManager();
 
     public PropertyManager getPropertyManager();

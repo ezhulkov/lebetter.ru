@@ -1,10 +1,8 @@
 package org.ohm.lebetter.tapestry5.web.services.impl;
 
-import net.sf.ehcache.Cache;
 import org.apache.tapestry5.ioc.services.ThreadLocale;
 import org.apache.tapestry5.services.Context;
 import org.ohm.lebetter.spring.service.CategoryManager;
-import org.ohm.lebetter.spring.service.ColorManager;
 import org.ohm.lebetter.spring.service.MailManager;
 import org.ohm.lebetter.spring.service.ProductManager;
 import org.ohm.lebetter.spring.service.PropertyManager;
@@ -111,11 +109,6 @@ public class ServiceFacadeImpl implements ServiceFacade {
     }
 
     @Override
-    public Cache getAppCache() {
-        return getServiceManager().getAppCache();
-    }
-
-    @Override
     public ProfileParameterManager getProfileParameterManager() {
         return getServiceManager().getProfileManager();
     }
@@ -128,11 +121,6 @@ public class ServiceFacadeImpl implements ServiceFacade {
     @Override
     public ProductManager getProductManager() {
         return getServiceManager().getProductManager();
-    }
-
-    @Override
-    public ColorManager getColorManager() {
-        return serviceManager.getColorManager();
     }
 
     @Override

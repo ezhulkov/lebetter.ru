@@ -7,37 +7,5 @@
 
     <include file="schema/1.0/changelog.xml"/>
     <include file="schema/1.0/changelog-data.xml"/>
-    <include file="schema/1.1/changelog.xml"/>
-    <include file="schema/1.1/changelog-data.xml"/>
-    <include file="schema/1.2/changelog.xml"/>
-    <include file="schema/1.3/changelog.xml"/>
-    <include file="schema/1.4/changelog.xml"/>
-    <include file="schema/1.4/changelog-data.xml"/>
-    <include file="schema/1.5/changelog.xml"/>
-    <include file="schema/1.5/changelog-data.xml"/>
-    <include file="schema/1.6/changelog.xml"/>
-    <include file="schema/1.6/changelog-data.xml"/>
-    <include file="schema/1.7/changelog.xml"/>
-    <include file="schema/1.7/changelog-data.xml"/>
-    <include file="schema/1.8/changelog.xml"/>
-    <include file="schema/1.9/changelog.xml"/>
-    <include file="schema/1.10/changelog.xml"/>
-    <include file="schema/1.11/changelog.xml"/>
-    <include file="schema/1.12/changelog.xml"/>
-    <include file="schema/1.13/changelog.xml"/>
-    <include file="schema/1.13/changelog-data.xml"/>
-    <include file="schema/1.14/changelog.xml"/>
-    <include file="schema/1.14/changelog-data.xml"/>
-    <include file="schema/1.15/changelog.xml"/>
-    <include file="schema/1.15/changelog-data.xml"/>
-    <include file="schema/1.16/changelog.xml"/>
-    <include file="schema/1.17/changelog.xml"/>
-    <include file="schema/1.18/changelog.xml"/>
-    <include file="schema/1.18/changelog-data.xml"/>
-    <include file="schema/1.19/changelog.xml"/>
-    <include file="schema/1.20/changelog.xml"/>
-    <include file="schema/1.21/changelog.xml"/>
-    <include file="schema/1.28/changelog.xml"/>
-    <include file="schema/1.28/changelog-data.xml"/>
 
 </databaseChangeLog>

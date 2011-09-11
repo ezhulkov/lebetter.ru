@@ -44,22 +44,26 @@
           p:profileManager-ref="profileManager"
           p:properties-ref="properties"
           p:productManager-ref="productManager"
-          p:colorManager-ref="colorManager"
           p:categoryManager-ref="categoryManager"
           p:dictPropertyHolder-ref="dictPropertyHolder"
           p:propertyValueManager-ref="propertyValueManager"
           p:propertyManager-ref="propertyManager"
           p:passwordEncoder-ref="passwordEncoder"
           p:i18n-ref="i18n">
-        <property name="blogService"><null/></property>
-        <property name="commentService"><null/></property>
-        <property name="categoryService"><null/></property>
+        <property name="blogService">
+            <null/>
+        </property>
+        <property name="commentService">
+            <null/>
+        </property>
+        <property name="categoryService">
+            <null/>
+        </property>
         <property name="syncDictProcessors">
             <bean id="dictSyncProcessors" class="org.springframework.beans.factory.config.MapFactoryBean">
                 <property name="sourceMap">
                     <map>
                         <entry key="default" value-ref="genericSyncDictProcessor"/>
-                        <entry key="Color" value-ref="colorSyncDictProcessor"/>
                     </map>
                 </property>
             </bean>
@@ -72,7 +76,6 @@
         <entry key="Role" value-ref="roleManager"/>
         <entry key="Language" value-ref="languageManager"/>
         <entry key="SystemParameter" value-ref="systemParameterManager"/>
-        <entry key="Color" value-ref="colorManager"/>
         <entry key="Category" value-ref="categoryManager"/>
         <entry key="Property" value-ref="propertyManager"/>
         <entry key="PropertyValue" value-ref="propertyValueManager"/>
@@ -80,10 +83,6 @@
     </util:map>
 
     <bean id="userDao" parent="genericDao" class="org.ohm.lebetter.spring.dao.impl.UserKinderDaoHibernate"/>
-
-    <bean id="onlineUsersDao" class="org.room13.mallcore.spring.dao.impl.OnlineUsersDaoHibernate">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
 
     <bean id="roleDao" parent="genericDao" class="org.room13.mallcore.spring.dao.impl.RoleDaoHibernate"/>
 
@@ -140,9 +139,12 @@
           class="org.ohm.lebetter.spring.service.impl.UserKinderManagerImpl"
           init-method="afterPropertiesSet"
           p:ownerDao-ref="ownerDao"
-          p:onlineUsersDao-ref="onlineUsersDao"
           p:userDao-ref="userDao"
-          p:passwordEncoder-ref="passwordEncoder"/>
+          p:passwordEncoder-ref="passwordEncoder">
+        <property name="onlineUsersDao">
+            <null/>
+        </property>
+    </bean>
 
     <bean id="roleManager" parent="genericManager"
           class="org.room13.mallcore.spring.service.impl.RoleManagerImpl">
@@ -249,14 +251,6 @@
 
     <bean name="productDao" class="org.ohm.lebetter.spring.dao.impl.ProductDaoHibernate" parent="genericDao"/>
 
-    <bean id="colorManager" parent="genericManager"
-          class="org.ohm.lebetter.spring.service.impl.ColorManagerImpl">
-        <property name="colorDao">
-            <bean class="org.ohm.lebetter.spring.dao.impl.ColorDaoHibernate"
-                  parent="genericDao"/>
-        </property>
-    </bean>
-
     <bean id="categoryManager" parent="genericManager"
           class="org.ohm.lebetter.spring.service.impl.CategoryManagerImpl">
         <property name="categoryDao" ref="categoryTypeDao"/>
@@ -290,9 +284,6 @@
 
     <bean id="genericSyncDictProcessor"
           class="org.ohm.lebetter.spring.sync.impl.GenericSyncDictProcessor"/>
-
-    <bean id="colorSyncDictProcessor"
-          class="org.ohm.lebetter.spring.sync.impl.ColorSyncDictProcessor"/>
 
     <bean parent="abstractManagerAdvice" id="managerCreateAdvice"
           class="org.ohm.lebetter.spring.aop.ManagerCreateAdvice"/>

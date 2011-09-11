@@ -4,7 +4,7 @@ import org.apache.tapestry5.OptionModel;
 import org.apache.tapestry5.internal.OptionModelImpl;
 import org.apache.tapestry5.ioc.services.ClassPropertyAdapter;
 import org.apache.tapestry5.ioc.services.PropertyAccess;
-import org.ohm.lebetter.Constants;
+import org.ohm.lebetter.Constants.Roles;
 import org.ohm.lebetter.model.impl.entities.UserEntity;
 import org.room13.mallcore.model.ObjectBaseEntity;
 import org.room13.mallcore.model.ObjectBaseEntity.Status;
@@ -79,9 +79,8 @@ public class GenericStatusSelectModel extends GenericSelectModel<Status> {
     private static final Map<String, Map<Status, Set<Status>>> GRAPH =
             new HashMap<String, Map<Status, Set<Status>>>() {
                 {
-                    put(Constants.Roles.ROLE_ADMIN, ALL_WORKFLOW);
-                    put(Constants.Roles.ROLE_EDITOR, ALL_WORKFLOW);
-                    put(Constants.Roles.ROLE_SHOP_MANAGER, RESTRICTED_WORKFLOW);
+                    put(Roles.ROLE_ADMIN, ALL_WORKFLOW);
+                    put(Roles.ROLE_MANAGER, ALL_WORKFLOW);
                 }
             };
 

@@ -20,8 +20,6 @@ import org.ohm.lebetter.spring.dao.PropertyValueDao;
 import org.ohm.lebetter.spring.dao.TagDao;
 import org.ohm.lebetter.spring.service.PropertyManager;
 import org.ohm.lebetter.spring.sync.SyncDictProcessor;
-import org.room13.mallcore.annotations.AppCache;
-import org.room13.mallcore.annotations.AppCacheFlush;
 import org.room13.mallcore.model.ObjectBaseEntity;
 import org.room13.mallcore.spring.service.GenericManager;
 import org.room13.mallcore.spring.service.ObjectCreatorAwareManager;
@@ -101,7 +99,6 @@ public class PropertyManagerImpl
 
     @Override
     @Transactional
-    @AppCacheFlush(keys = {Constants.AppCacheKeys.OBJECT_SEARCH_COMPONENT_DATA})
     public void remove(PropertyEntity property, UserEntity caller) {
 
         getRMLogger().debug("Remove category...");
@@ -148,7 +145,6 @@ public class PropertyManagerImpl
 
     @Override
     @Transactional
-    @AppCacheFlush(keys = {Constants.AppCacheKeys.OBJECT_SEARCH_COMPONENT_DATA})
     public void create(PropertyEntity property,
                        PropertyEntity parentCategoryType,
                        UserEntity caller) {
@@ -298,21 +294,8 @@ public class PropertyManagerImpl
 
     @Override
     @Transactional
-    @AppCacheFlush(keys = {Constants.AppCacheKeys.OBJECT_SEARCH_COMPONENT_DATA})
     public void save(PropertyEntity property, UserEntity caller) throws ObjectExistsException {
-        getRMLogger().debug("Save category...");
-
-        //Check grants
-        if (!getServiceManager().getRoleManager().isActionGranted(caller,
-                                                                  Constants.Actions.EDIT_PROPERTY,
-                                                                  property)) {
-            getRMLogger().errorSecurityViolation("Tries to edit category.", property);
-            throw new AccessControlException("access denied");
-        }
-
         saveInternal(property, caller);
-
-        getRMLogger().debug("Save category completed.");
     }
 
     @Override
@@ -336,7 +319,6 @@ public class PropertyManagerImpl
     }
 
     @Override
-    @AppCache(key = Constants.AppCacheKeys.ALL_READY_VALS)
     public List<PropertyValueEntity> getAllReadyValues(PropertyEntity property) {
         return propertyDao.getAllReadyValues(property);
     }
@@ -346,7 +328,6 @@ public class PropertyManagerImpl
      * We need to get ALL values connected to products that have vals :)
      */
     @Override
-    @AppCache(key = Constants.AppCacheKeys.FILTER_SET_ALL_VALS)
     public List<Long> getAllProductValueIdsBySeveralValues(CategoryEntity category,
                                                            List<PropertyValueEntity> vals) {
         DetachedCriteria criteria = DetachedCriteria.forClass(PropertyValueEntity.class, "pv");
@@ -379,7 +360,6 @@ public class PropertyManagerImpl
 
     @Override
     @SuppressWarnings("unchecked")
-    @AppCache(key = Constants.AppCacheKeys.FILTER_SET_VALS)
     public List<PropertyValueEntity> getAllTaggedValuesForCategoryStrict(PropertyEntity property,
                                                                          CategoryEntity category,
                                                                          List<PropertyValueEntity> vals) {

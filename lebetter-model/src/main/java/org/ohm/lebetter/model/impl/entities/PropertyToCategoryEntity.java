@@ -24,15 +24,19 @@ public class PropertyToCategoryEntity extends BaseEntity {
 
     private static final long serialVersionUID = 1121174133421179213L;
 
+    @ManyToOne(fetch = FetchType.LAZY)
     private CategoryEntity category;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     private PropertyEntity property;
+
+    @Column
     private int position;
 
     public PropertyToCategoryEntity() {
         setEntityCode("PropertyToCategory");
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
     public CategoryEntity getCategory() {
         return category;
     }
@@ -41,7 +45,6 @@ public class PropertyToCategoryEntity extends BaseEntity {
         this.category = category;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
     public PropertyEntity getProperty() {
         return property;
     }
@@ -50,7 +53,6 @@ public class PropertyToCategoryEntity extends BaseEntity {
         this.property = property;
     }
 
-    @Column
     public int getPosition() {
         return position;
     }

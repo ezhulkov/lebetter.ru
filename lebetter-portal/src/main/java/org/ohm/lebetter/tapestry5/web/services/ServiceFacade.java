@@ -1,8 +1,6 @@
 package org.ohm.lebetter.tapestry5.web.services;
 
-import net.sf.ehcache.Cache;
 import org.ohm.lebetter.spring.service.CategoryManager;
-import org.ohm.lebetter.spring.service.ColorManager;
 import org.ohm.lebetter.spring.service.MailManager;
 import org.ohm.lebetter.spring.service.ProductManager;
 import org.ohm.lebetter.spring.service.PropertyManager;
@@ -57,15 +55,11 @@ public interface ServiceFacade {
 
     public BlogManager getBlogService();
 
-    public Cache getAppCache();
-
     public ProfileParameterManager getProfileParameterManager();
 
     public Properties getProperties();
 
     public ProductManager getProductManager();
-
-    public ColorManager getColorManager();
 
     public CategoryManager getCategoryManager();
 

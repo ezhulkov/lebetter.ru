@@ -5,11 +5,6 @@
     <tstamp/>
 
     <property file="build-local-app.properties"/>
-    <!--<property file="build-local-test.properties"/>-->
-    <!--<property file="build-trinidad-app.properties"/>-->
-    <!--<property file="build-hanoi-app.properties"/>-->
-    <!--<property file="build-saigon-app.properties"/>-->
-    <!--<property file="build-mexico-app.properties"/>-->
 
     <path id="maven-ant-tasks.classpath" path="${common.lib.path}"/>
     <typedef resource="org/apache/maven/artifact/ant/antlib.xml"
@@ -22,44 +17,17 @@
             <dependency groupId="postgresql" artifactId="postgresql" version="8.3-603.jdbc4"/>
             <dependency groupId="org.dbunit" artifactId="dbunit" version="2.4.6"/>
         </artifact:dependencies>
-
         <taskdef resource="liquibasetasks.properties" classpathref="maven-ant-tasks.classpath"/>
     </target>
 
     <target name="importLiquiBaseChangeSet" depends="copy-dependencies"
             description="Inserts LiquiBase changelog to target database">
-
         <updateDatabase
                 changeLogFile="schema/changelog-manual.xml"
                 driver="${database.driver}"
                 url="${database.url}"
                 username="${database.user}"
                 password="${database.password}"
-                dropFirst="false"
-                classpathref="maven-ant-tasks.classpath"/>
-
-        <updateDatabase
-                changeLogFile="schema/changelog-news-manual.xml"
-                driver="${database.driver}"
-                url="${database.news.url}"
-                username="${database.news.user}"
-                password="${database.news.password}"
-                dropFirst="false"
-                classpathref="maven-ant-tasks.classpath"/>
-
-    </target>
-
-
-
-    <target name="importLiquiBaseChangeSet.test" depends="copy-dependencies"
-            description="Inserts LiquiBase changelog to target database">
-
-        <updateDatabase
-                changeLogFile="schema/changelog-test.xml"
-                driver="${database.driver}"
-                url="jdbc:postgresql://localhost:5432/ksdbtest"
-                username="ksdbtest"
-                password="ksdbtest"
                 dropFirst="false"
                 classpathref="maven-ant-tasks.classpath"/>
     </target>

@@ -45,11 +45,7 @@ public class PropertyTemplate extends AbstractBaseComponent {
     public List<PropertyValueEntity> getListValues() {
         PropertyManager propertyManager = getServiceFacade().getPropertyManager();
         List<PropertyValueEntity> result = propertyManager.getAllValues(selectedProperty);
-        if ("C_SIZE".equals(selectedProperty.getCode())) {
-            Collections.sort(result, CategoryManager.VALUE_BY_INT_CODE_ENTITY_COMPARATOR);
-        } else {
-            Collections.sort(result, CategoryManager.VALUE_ENTITY_COMPARATOR);
-        }
+        Collections.sort(result, CategoryManager.VALUE_ENTITY_COMPARATOR);
         return result;
     }
 

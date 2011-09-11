@@ -7,6 +7,7 @@ import org.room13.mallcore.model.impl.BaseCreatorRepAwareEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
@@ -39,7 +40,7 @@ public class TagToValueEntity
     @Column
     private String value;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private Type type;
 
     @Transient

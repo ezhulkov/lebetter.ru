@@ -21,7 +21,7 @@
     </changeSet>
 
     <!--#########################ACTION_GROUP#########################-->
-    <changeSet id="data-1.0.0-6" author="ezhulkov">
+    <changeSet id="data-1.0.0-2" author="ezhulkov">
         <insert tableName="app_actiongroup">
             <column name="id" value="1"/>
             <column name="objectdeleted" value="false"/>
@@ -29,58 +29,27 @@
             <column name="rootobject" value="true"/>
             <column name="rootid" value="1"/>
             <column name="language_id" value="1"/>
-            <column name="code" value="RATING"/>
-            <column name="description" value="Оставлять оценки и мнения о различных участниках или объектах системы"/>
-            <column name="name" value="Оценка и комментарии"/>
-        </insert>
-    </changeSet>
-
-    <changeSet id="data-1.0.0-8" author="ezhulkov">
-        <insert tableName="app_actiongroup">
-            <column name="id" value="3"/>
-            <column name="objectdeleted" value="false"/>
-            <column name="objectstatus" value="0"/>
-            <column name="rootobject" value="true"/>
-            <column name="rootid" value="3"/>
-            <column name="language_id" value="1"/>
             <column name="code" value="USER"/>
             <column name="description" value="Добавлять, редактировать или удалять пользователей"/>
             <column name="name" value="Пользователи"/>
         </insert>
-    </changeSet>
-
-    <changeSet id="data-1.0.0-12" author="ezhulkov">
         <insert tableName="app_actiongroup">
-            <column name="id" value="8"/>
+            <column name="id" value="2"/>
             <column name="objectdeleted" value="false"/>
             <column name="objectstatus" value="0"/>
             <column name="rootobject" value="true"/>
-            <column name="rootid" value="8"/>
+            <column name="rootid" value="2"/>
             <column name="language_id" value="1"/>
-            <column name="code" value="SYSTEM"/>
-            <column name="description" value="Редактировать системные параметры"/>
-            <column name="name" value="Системные параметры"/>
+            <column name="code" value="CATALOG"/>
+            <column name="description" value="Редактировать каталог"/>
+            <column name="name" value="Каталог"/>
         </insert>
     </changeSet>
 
-    <changeSet id="data-1.0.0-13" author="ezhulkov">
-        <insert tableName="app_actiongroup">
-            <column name="id" value="9"/>
-            <column name="objectdeleted" value="false"/>
-            <column name="objectstatus" value="0"/>
-            <column name="rootobject" value="true"/>
-            <column name="rootid" value="9"/>
-            <column name="language_id" value="1"/>
-            <column name="code" value="NEWS"/>
-            <column name="description" value="Просматривать и комментировать новости"/>
-            <column name="name" value="Новости"/>
-        </insert>
-    </changeSet>
-
-    <changeSet id="data-1.0.0-24" author="ezhulkov">
+    <changeSet id="data-1.0.0-3" author="ezhulkov">
         <insert tableName="app_action">
-            <column name="id" value="10"/>
-            <column name="rootid" value="10"/>
+            <column name="id" value="1"/>
+            <column name="rootid" value="1"/>
             <column name="language_id" value="1"/>
             <column name="objectdeleted" value="false"/>
             <column name="objectstatus" value="0"/>
@@ -88,13 +57,11 @@
             <column name="code" value="ADD_USER"/>
             <column name="description" value="Добавить нового пользователя"/>
             <column name="name" value="Добавить пользователя"/>
-            <column name="actiongroup_id" value="3"/>
+            <column name="actiongroup_id" value="1"/>
         </insert>
-    </changeSet>
-    <changeSet id="data-1.0.0-25" author="ezhulkov">
         <insert tableName="app_action">
-            <column name="id" value="11"/>
-            <column name="rootid" value="11"/>
+            <column name="id" value="2"/>
+            <column name="rootid" value="2"/>
             <column name="language_id" value="1"/>
             <column name="objectdeleted" value="false"/>
             <column name="objectstatus" value="0"/>
@@ -102,13 +69,11 @@
             <column name="code" value="EDIT_USER"/>
             <column name="description" value="Редактировать существующего пользователя"/>
             <column name="name" value="Редактировать пользователя"/>
-            <column name="actiongroup_id" value="3"/>
+            <column name="actiongroup_id" value="1"/>
         </insert>
-    </changeSet>
-    <changeSet id="data-1.0.0-26" author="ezhulkov">
         <insert tableName="app_action">
-            <column name="id" value="12"/>
-            <column name="rootid" value="12"/>
+            <column name="id" value="3"/>
+            <column name="rootid" value="3"/>
             <column name="language_id" value="1"/>
             <column name="objectdeleted" value="false"/>
             <column name="objectstatus" value="0"/>
@@ -116,133 +81,57 @@
             <column name="code" value="DEL_USER"/>
             <column name="description" value="Удалить существующего пользователя"/>
             <column name="name" value="Удалить пользователя"/>
-            <column name="actiongroup_id" value="3"/>
+            <column name="actiongroup_id" value="1"/>
         </insert>
-    </changeSet>
-    <changeSet id="data-1.0.0-27" author="ezhulkov">
         <insert tableName="app_action">
-            <column name="id" value="13"/>
-            <column name="rootid" value="13"/>
+            <column name="id" value="4"/>
+            <column name="rootid" value="4"/>
             <column name="language_id" value="1"/>
             <column name="objectdeleted" value="false"/>
             <column name="objectstatus" value="0"/>
             <column name="rootobject" value="true"/>
-            <column name="code" value="LIST_USER"/>
-            <column name="description" value="Получить список пользователей в системе"/>
-            <column name="name" value="Просмотреть всех пользователей"/>
-            <column name="actiongroup_id" value="3"/>
+            <column name="code" value="ADD_PRODUCT"/>
+            <column name="description" value="Добавить новый товар"/>
+            <column name="name" value="Добавить товар"/>
+            <column name="actiongroup_id" value="2"/>
         </insert>
-    </changeSet>
-    <changeSet id="data-1.0.0-28" author="ezhulkov">
         <insert tableName="app_action">
-            <column name="id" value="14"/>
-            <column name="rootid" value="14"/>
+            <column name="id" value="5"/>
+            <column name="rootid" value="5"/>
             <column name="language_id" value="1"/>
             <column name="objectdeleted" value="false"/>
             <column name="objectstatus" value="0"/>
             <column name="rootobject" value="true"/>
-            <column name="code" value="VIEW_USER"/>
-            <column name="description" value="Просмотреть информацию о пользователе"/>
-            <column name="name" value="Просмотреть пользователя"/>
-            <column name="actiongroup_id" value="3"/>
+            <column name="code" value="EDIT_PRODUCT"/>
+            <column name="description" value="Редактировать существующий товар"/>
+            <column name="name" value="Редактировать товар"/>
+            <column name="actiongroup_id" value="2"/>
         </insert>
-    </changeSet>
-    <changeSet id="data-1.0.0-29" author="ezhulkov">
         <insert tableName="app_action">
-            <column name="id" value="15"/>
-            <column name="rootid" value="15"/>
+            <column name="id" value="6"/>
+            <column name="rootid" value="6"/>
             <column name="language_id" value="1"/>
             <column name="objectdeleted" value="false"/>
             <column name="objectstatus" value="0"/>
             <column name="rootobject" value="true"/>
-            <column name="code" value="BLOCK_USER"/>
-            <column name="description" value="Блокировать существующего пользователя"/>
-            <column name="name" value="Блокировать пользователя"/>
-            <column name="actiongroup_id" value="3"/>
-        </insert>
-    </changeSet>
-    <changeSet id="data-1.0.0-44" author="ezhulkov">
-        <insert tableName="app_action">
-            <column name="id" value="35"/>
-            <column name="rootid" value="35"/>
-            <column name="language_id" value="1"/>
-            <column name="objectdeleted" value="false"/>
-            <column name="objectstatus" value="0"/>
-            <column name="rootobject" value="true"/>
-            <column name="code" value="VIEW_LANGUAGE"/>
-            <column name="description" value="Просматривать язык"/>
-            <column name="name" value="Просмотреть язык"/>
-            <column name="actiongroup_id" value="8"/>
-        </insert>
-    </changeSet>
-    <changeSet id="data-1.0.0-45" author="ezhulkov">
-        <insert tableName="app_action">
-            <column name="id" value="36"/>
-            <column name="rootid" value="36"/>
-            <column name="language_id" value="1"/>
-            <column name="objectdeleted" value="false"/>
-            <column name="objectstatus" value="0"/>
-            <column name="rootobject" value="true"/>
-            <column name="code" value="EDIT_LANGUAGE"/>
-            <column name="description" value="Редактировать язык"/>
-            <column name="name" value="Редактировать язык"/>
-            <column name="actiongroup_id" value="8"/>
-        </insert>
-    </changeSet>
-    <changeSet id="data-1.0.0-46" author="ezhulkov">
-        <insert tableName="app_action">
-            <column name="id" value="37"/>
-            <column name="rootid" value="37"/>
-            <column name="language_id" value="1"/>
-            <column name="objectdeleted" value="false"/>
-            <column name="objectstatus" value="0"/>
-            <column name="rootobject" value="true"/>
-            <column name="code" value="DEL_LANGUAGE"/>
-            <column name="description" value="Удалять язык"/>
-            <column name="name" value="Удалить язык"/>
-            <column name="actiongroup_id" value="8"/>
-        </insert>
-    </changeSet>
-    <changeSet id="data-1.0.0-47" author="ezhulkov">
-        <insert tableName="app_action">
-            <column name="id" value="38"/>
-            <column name="rootid" value="38"/>
-            <column name="language_id" value="1"/>
-            <column name="objectdeleted" value="false"/>
-            <column name="objectstatus" value="0"/>
-            <column name="rootobject" value="true"/>
-            <column name="code" value="RATE_BLOGENTRY"/>
-            <column name="description" value="Оценить и прокомментировать новость"/>
-            <column name="name" value="Оценить новость"/>
-            <column name="actiongroup_id" value="9"/>
-        </insert>
-    </changeSet>
-    <changeSet id="data-1.0.0-48" author="ezhulkov">
-        <insert tableName="app_action">
-            <column name="id" value="39"/>
-            <column name="rootid" value="39"/>
-            <column name="language_id" value="1"/>
-            <column name="objectdeleted" value="false"/>
-            <column name="objectstatus" value="0"/>
-            <column name="rootobject" value="true"/>
-            <column name="code" value="EDIT_BLOGENTRY"/>
-            <column name="description" value="Редактировать новость, загружать изображения для неё"/>
-            <column name="name" value="Редактировать новость"/>
-            <column name="actiongroup_id" value="9"/>
+            <column name="code" value="DEL_PRODUCT"/>
+            <column name="description" value="Удалить существующий товар"/>
+            <column name="name" value="Удалить пользователя"/>
+            <column name="actiongroup_id" value="2"/>
         </insert>
     </changeSet>
 
     <!--#########################USER#########################-->
-    <changeSet id="data-1.0.0-61" author="ezhulkov">
+    <changeSet id="data-1.0.0-4" author="ezhulkov">
         <insert tableName="app_user">
             <column name="id" value="1"/>
-            <column name="dtype" value="KS"/>
+            <column name="dtype" value="LB"/>
             <column name="objectdeleted" value="false"/>
             <column name="rootobject" value="true"/>
             <column name="rootid" value="1"/>
             <column name="language_id" value="1"/>
             <column name="objectstatus" value="1"/>
-            <column name="email" value="ezhulkov@gmail.com"/>
+            <column name="email" value="master@lebetter.ru"/>
             <column name="first_name" value=""/>
             <column name="imagestatus" value="0"/>
             <column name="last_name" value="Администратор"/>
@@ -251,13 +140,13 @@
             <column name="account_locked" value="false"/>
             <column name="credentials_expired" value="false"/>
             <column name="account_enabled" value="true"/>
-            <column name="name" value="admin"/>
+            <column name="name" value="master@lebetter.ru"/>
             <column name="version" value="1"/>
         </insert>
     </changeSet>
 
     <!--#########################ROLE#########################-->
-    <changeSet id="data-1.0.0-62" author="ezhulkov">
+    <changeSet id="data-1.0.0-5" author="ezhulkov">
         <insert tableName="app_role">
             <column name="id" value="1"/>
             <column name="rootid" value="1"/>
@@ -270,11 +159,21 @@
             <column name="name" value="Владелец"/>
             <column name="virtual" value="true"/>
         </insert>
-    </changeSet>
-    <changeSet id="data-1.0.0-63" author="ezhulkov">
         <insert tableName="app_role">
             <column name="id" value="2"/>
             <column name="rootid" value="2"/>
+            <column name="language_id" value="1"/>
+            <column name="rootobject" value="true"/>
+            <column name="objectdeleted" value="false"/>
+            <column name="objectstatus" value="1"/>
+            <column name="code" value="ROLE_CREATOR"/>
+            <column name="description" value="Виртуальная роль создателя объекта системы"/>
+            <column name="name" value="Создатель"/>
+            <column name="virtual" value="true"/>
+        </insert>
+        <insert tableName="app_role">
+            <column name="id" value="3"/>
+            <column name="rootid" value="3"/>
             <column name="language_id" value="1"/>
             <column name="rootobject" value="true"/>
             <column name="objectdeleted" value="false"/>
@@ -284,11 +183,9 @@
             <column name="name" value="Аноним"/>
             <column name="virtual" value="true"/>
         </insert>
-    </changeSet>
-    <changeSet id="data-1.0.0-64" author="ezhulkov">
         <insert tableName="app_role">
-            <column name="id" value="3"/>
-            <column name="rootid" value="3"/>
+            <column name="id" value="4"/>
+            <column name="rootid" value="4"/>
             <column name="language_id" value="1"/>
             <column name="rootobject" value="true"/>
             <column name="objectdeleted" value="false"/>
@@ -298,11 +195,9 @@
             <column name="name" value="Человек"/>
             <column name="virtual" value="false"/>
         </insert>
-    </changeSet>
-    <changeSet id="data-1.0.0-65" author="ezhulkov">
         <insert tableName="app_role">
-            <column name="id" value="4"/>
-            <column name="rootid" value="4"/>
+            <column name="id" value="5"/>
+            <column name="rootid" value="5"/>
             <column name="language_id" value="1"/>
             <column name="rootobject" value="true"/>
             <column name="objectdeleted" value="false"/>
@@ -313,11 +208,9 @@
             <column name="virtual" value="false"/>
             <column name="parent_id" value="3"/>
         </insert>
-    </changeSet>
-    <changeSet id="data-1.0.0-66" author="ezhulkov">
         <insert tableName="app_role">
-            <column name="id" value="5"/>
-            <column name="rootid" value="5"/>
+            <column name="id" value="6"/>
+            <column name="rootid" value="6"/>
             <column name="language_id" value="1"/>
             <column name="rootobject" value="true"/>
             <column name="objectdeleted" value="false"/>
@@ -328,9 +221,19 @@
             <column name="virtual" value="false"/>
             <column name="parent_id" value="4"/>
         </insert>
-    </changeSet>
-
-    <changeSet id="data-1.0.0-69" author="ezhulkov">
+        <insert tableName="app_role">
+            <column name="id" value="7"/>
+            <column name="rootid" value="7"/>
+            <column name="language_id" value="1"/>
+            <column name="rootobject" value="true"/>
+            <column name="objectdeleted" value="false"/>
+            <column name="objectstatus" value="1"/>
+            <column name="code" value="ROLE_MANAGER"/>
+            <column name="description" value="Менеджер каталога"/>
+            <column name="name" value="Менеджер"/>
+            <column name="virtual" value="false"/>
+            <column name="parent_id" value="4"/>
+        </insert>
         <insert tableName="app_role">
             <column name="id" value="8"/>
             <column name="rootid" value="8"/>
@@ -338,221 +241,87 @@
             <column name="rootobject" value="true"/>
             <column name="objectdeleted" value="false"/>
             <column name="objectstatus" value="1"/>
-            <column name="code" value="ROLE_BLOG_OWNER"/>
-            <column name="description" value="Редактор новостей"/>
-            <column name="name" value="Редактор новостей"/>
-            <column name="virtual" value="false"/>
-            <column name="parent_id" value="4"/>
-        </insert>
-    </changeSet>
-    <changeSet id="data-1.0.0-70" author="ezhulkov">
-        <insert tableName="app_role">
-            <column name="id" value="9"/>
-            <column name="rootid" value="9"/>
-            <column name="language_id" value="1"/>
-            <column name="rootobject" value="true"/>
-            <column name="objectdeleted" value="false"/>
-            <column name="objectstatus" value="1"/>
-            <column name="code" value="ROLE_USER"/>
-            <column name="description" value="Клиента-пользовател системы"/>
-            <column name="name" value="Пользователь"/>
+            <column name="code" value="ROLE_DEALER"/>
+            <column name="description" value="Дилер"/>
+            <column name="name" value="Дилер"/>
             <column name="virtual" value="false"/>
             <column name="parent_id" value="3"/>
         </insert>
     </changeSet>
-    <changeSet id="data-1.0.0-71" author="ezhulkov">
-        <insert tableName="app_role">
-            <column name="id" value="10"/>
-            <column name="rootid" value="10"/>
-            <column name="language_id" value="1"/>
-            <column name="rootobject" value="true"/>
-            <column name="objectdeleted" value="false"/>
-            <column name="objectstatus" value="1"/>
-            <column name="code" value="ROLE_CREATOR"/>
-            <column name="description" value="Виртуальная роль создателя объекта системы"/>
-            <column name="name" value="Создатель"/>
-            <column name="virtual" value="true"/>
-        </insert>
-    </changeSet>
 
-
-    <!--#########################USER_ROLE#########################-->
-    <changeSet id="data-1.0.0-72" author="ezhulkov">
+    <changeSet id="data-1.0.0-6" author="ezhulkov">
         <insert tableName="app_user_role">
             <column name="user_id" value="1"/>
-            <column name="role_id" value="5"/>
+            <column name="role_id" value="6"/>
         </insert>
     </changeSet>
 
-
-    <!--#########################ROLE_ACTION#########################-->
-    <changeSet id="data-1.0.0-73" author="ezhulkov">
+    <changeSet id="data-1.0.0-7" author="ezhulkov">
         <insert tableName="app_role_action">
-            <column name="role_id" value="1"/>
-            <column name="action_id" value="10"/>
-            <column name="flag" value="0"/>
+            <column name="role_id" value="5"/>
+            <column name="action_id" value="4"/>
+            <column name="flag" value="2"/>
         </insert>
         <insert tableName="app_role_action">
-            <column name="role_id" value="1"/>
-            <column name="action_id" value="15"/>
-            <column name="flag" value="0"/>
+            <column name="role_id" value="5"/>
+            <column name="action_id" value="5"/>
+            <column name="flag" value="2"/>
         </insert>
         <insert tableName="app_role_action">
-            <column name="role_id" value="1"/>
-            <column name="action_id" value="11"/>
+            <column name="role_id" value="5"/>
+            <column name="action_id" value="6"/>
+            <column name="flag" value="2"/>
+        </insert>
+        <insert tableName="app_role_action">
+            <column name="role_id" value="6"/>
+            <column name="action_id" value="1"/>
+            <column name="flag" value="2"/>
+        </insert>
+        <insert tableName="app_role_action">
+            <column name="role_id" value="6"/>
+            <column name="action_id" value="1"/>
+            <column name="flag" value="2"/>
+        </insert>
+        <insert tableName="app_role_action">
+            <column name="role_id" value="6"/>
+            <column name="action_id" value="1"/>
             <column name="flag" value="2"/>
         </insert>
         <insert tableName="app_role_action">
             <column name="role_id" value="1"/>
-            <column name="action_id" value="12"/>
-            <column name="flag" value="0"/>
-        </insert>
-        <insert tableName="app_role_action">
-            <column name="role_id" value="1"/>
-            <column name="action_id" value="36"/>
-            <column name="flag" value="0"/>
-        </insert>
-        <insert tableName="app_role_action">
-            <column name="role_id" value="1"/>
-            <column name="action_id" value="37"/>
-            <column name="flag" value="0"/>
-        </insert>
-        <insert tableName="app_role_action">
-            <column name="role_id" value="3"/>
-            <column name="action_id" value="15"/>
-            <column name="flag" value="0"/>
-        </insert>
-        <insert tableName="app_role_action">
-            <column name="role_id" value="3"/>
-            <column name="action_id" value="10"/>
-            <column name="flag" value="0"/>
-        </insert>
-        <insert tableName="app_role_action">
-            <column name="role_id" value="3"/>
-            <column name="action_id" value="14"/>
-            <column name="flag" value="2"/>
-        </insert>
-        <insert tableName="app_role_action">
-            <column name="role_id" value="3"/>
-            <column name="action_id" value="11"/>
-            <column name="flag" value="0"/>
-        </insert>
-        <insert tableName="app_role_action">
-            <column name="role_id" value="3"/>
-            <column name="action_id" value="12"/>
-            <column name="flag" value="0"/>
-        </insert>
-        <insert tableName="app_role_action">
-            <column name="role_id" value="3"/>
-            <column name="action_id" value="35"/>
-            <column name="flag" value="0"/>
-        </insert>
-        <insert tableName="app_role_action">
-            <column name="role_id" value="3"/>
-            <column name="action_id" value="36"/>
-            <column name="flag" value="0"/>
-        </insert>
-        <insert tableName="app_role_action">
-            <column name="role_id" value="3"/>
-            <column name="action_id" value="37"/>
-            <column name="flag" value="0"/>
-        </insert>
-        <insert tableName="app_role_action">
-            <column name="role_id" value="3"/>
-            <column name="action_id" value="38"/>
-            <column name="flag" value="2"/>
-        </insert>
-        <insert tableName="app_role_action">
-            <column name="role_id" value="3"/>
-            <column name="action_id" value="39"/>
-            <column name="flag" value="0"/>
-        </insert>
-        <insert tableName="app_role_action">
-            <column name="role_id" value="4"/>
-            <column name="action_id" value="13"/>
+            <column name="action_id" value="2"/>
             <column name="flag" value="2"/>
         </insert>
         <insert tableName="app_role_action">
             <column name="role_id" value="4"/>
-            <column name="action_id" value="14"/>
-            <column name="flag" value="2"/>
-        </insert>
-        <insert tableName="app_role_action">
-            <column name="role_id" value="5"/>
-            <column name="action_id" value="15"/>
-            <column name="flag" value="2"/>
-        </insert>
-        <insert tableName="app_role_action">
-            <column name="role_id" value="5"/>
-            <column name="action_id" value="10"/>
-            <column name="flag" value="2"/>
-        </insert>
-        <insert tableName="app_role_action">
-            <column name="role_id" value="5"/>
-            <column name="action_id" value="11"/>
-            <column name="flag" value="2"/>
-        </insert>
-        <insert tableName="app_role_action">
-            <column name="role_id" value="5"/>
-            <column name="action_id" value="12"/>
-            <column name="flag" value="2"/>
-        </insert>
-        <insert tableName="app_role_action">
-            <column name="role_id" value="5"/>
-            <column name="action_id" value="35"/>
-            <column name="flag" value="2"/>
-        </insert>
-        <insert tableName="app_role_action">
-            <column name="role_id" value="5"/>
-            <column name="action_id" value="36"/>
-            <column name="flag" value="2"/>
-        </insert>
-        <insert tableName="app_role_action">
-            <column name="role_id" value="5"/>
-            <column name="action_id" value="37"/>
-            <column name="flag" value="2"/>
-        </insert>
-        <insert tableName="app_role_action">
-            <column name="role_id" value="5"/>
-            <column name="action_id" value="38"/>
-            <column name="flag" value="2"/>
-        </insert>
-        <insert tableName="app_role_action">
-            <column name="role_id" value="5"/>
-            <column name="action_id" value="39"/>
-            <column name="flag" value="2"/>
-        </insert>
-        <insert tableName="app_role_action">
-            <column name="role_id" value="10"/>
-            <column name="action_id" value="15"/>
-            <column name="flag" value="2"/>
-        </insert>
-        <insert tableName="app_role_action">
-            <column name="role_id" value="10"/>
-            <column name="action_id" value="11"/>
-            <column name="flag" value="2"/>
-        </insert>
-        <insert tableName="app_role_action">
-            <column name="role_id" value="10"/>
-            <column name="action_id" value="12"/>
-            <column name="flag" value="2"/>
-        </insert>
-        <insert tableName="app_role_action">
-            <column name="role_id" value="10"/>
-            <column name="action_id" value="35"/>
+            <column name="action_id" value="1"/>
             <column name="flag" value="0"/>
         </insert>
         <insert tableName="app_role_action">
-            <column name="role_id" value="10"/>
-            <column name="action_id" value="36"/>
+            <column name="role_id" value="4"/>
+            <column name="action_id" value="2"/>
             <column name="flag" value="0"/>
         </insert>
         <insert tableName="app_role_action">
-            <column name="role_id" value="10"/>
-            <column name="action_id" value="37"/>
+            <column name="role_id" value="4"/>
+            <column name="action_id" value="3"/>
             <column name="flag" value="0"/>
         </insert>
-
+        <insert tableName="app_role_action">
+            <column name="role_id" value="4"/>
+            <column name="action_id" value="4"/>
+            <column name="flag" value="0"/>
+        </insert>
+        <insert tableName="app_role_action">
+            <column name="role_id" value="4"/>
+            <column name="action_id" value="5"/>
+            <column name="flag" value="0"/>
+        </insert>
+        <insert tableName="app_role_action">
+            <column name="role_id" value="4"/>
+            <column name="action_id" value="6"/>
+            <column name="flag" value="0"/>
+        </insert>
     </changeSet>
 
 </databaseChangeLog>

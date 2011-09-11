@@ -40,31 +40,33 @@ public class PropertyValueEntity
     @Embedded
     private RelatedToAbstractObject relation = new RelatedToAbstractObject();
 
+    @Column
     private String name;
-    private String code;
-    private String alias;
-    private String description;
+
+    @Column
     private String additionalDictInfo;
+
+    @Column
     private String additionalDictInfo2;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     private PropertyEntity property;
+
+    @OneToMany(mappedBy = "propertyValue", fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
     private List<TagToValueEntity> tags = new ArrayList<TagToValueEntity>();
-    private boolean uiTagAttention;
-    private boolean uiTagMandatory;
 
     public PropertyValueEntity() {
         setEntityCode("PropertyValue");
     }
 
-    @Column
-    public String getAlias() {
-        return alias;
+    public RelatedToAbstractObject getRelation() {
+        return relation;
     }
 
-    public void setAlias(String alias) {
-        this.alias = alias;
+    public void setRelation(RelatedToAbstractObject relation) {
+        this.relation = relation;
     }
 
-    @Column
     public String getName() {
         return name;
     }
@@ -73,7 +75,22 @@ public class PropertyValueEntity
         this.name = name;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    public String getAdditionalDictInfo() {
+        return additionalDictInfo;
+    }
+
+    public void setAdditionalDictInfo(String additionalDictInfo) {
+        this.additionalDictInfo = additionalDictInfo;
+    }
+
+    public String getAdditionalDictInfo2() {
+        return additionalDictInfo2;
+    }
+
+    public void setAdditionalDictInfo2(String additionalDictInfo2) {
+        this.additionalDictInfo2 = additionalDictInfo2;
+    }
+
     public PropertyEntity getProperty() {
         return property;
     }
@@ -82,13 +99,12 @@ public class PropertyValueEntity
         this.property = property;
     }
 
-    @Column(length = 255)
-    public String getDescription() {
-        return description;
+    public List<TagToValueEntity> getTags() {
+        return tags;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setTags(List<TagToValueEntity> tags) {
+        this.tags = tags;
     }
 
     @Override
@@ -99,67 +115,4 @@ public class PropertyValueEntity
         return sb.toString();
     }
 
-    @OneToMany(mappedBy = "propertyValue", fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
-    public List<TagToValueEntity> getTags() {
-        return tags;
-    }
-
-    public void setTags(List<TagToValueEntity> tags) {
-        this.tags = tags;
-    }
-
-    @Column
-    public boolean isUiTagAttention() {
-        return uiTagAttention;
-    }
-
-    public void setUiTagAttention(boolean uiTagAttention) {
-        this.uiTagAttention = uiTagAttention;
-    }
-
-    @Column
-    public boolean isUiTagMandatory() {
-        return uiTagMandatory;
-    }
-
-    public void setUiTagMandatory(boolean uiTagMandatory) {
-        this.uiTagMandatory = uiTagMandatory;
-    }
-
-    @Column(length = 255)
-    public String getAdditionalDictInfo() {
-        return additionalDictInfo;
-    }
-
-    public void setAdditionalDictInfo(String additionalDictInfo) {
-        this.additionalDictInfo = additionalDictInfo;
-    }
-
-    @Column(length = 255)
-    public String getAdditionalDictInfo2() {
-        return additionalDictInfo2;
-    }
-
-    public void setAdditionalDictInfo2(String additionalDictInfo2) {
-        this.additionalDictInfo2 = additionalDictInfo2;
-    }
-
-    @Override
-    public RelatedToAbstractObject getRelation() {
-        return relation;
-    }
-
-    @Override
-    public void setRelation(RelatedToAbstractObject relation) {
-        this.relation = relation;
-    }
-
-    @Column
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
 }

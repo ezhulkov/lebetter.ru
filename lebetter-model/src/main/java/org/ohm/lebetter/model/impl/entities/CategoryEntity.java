@@ -42,25 +42,10 @@ public class CategoryEntity
     private String name = "";
 
     @Column
-    private String alias = "";
-
-    @Column
-    private String relCode = "";
-
-    @Column(length = 255)
-    private String comment = "";
+    private Integer position;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private CategoryEntity parent = null;
-
-    @Column
-    private Integer position;
-
-    @Column(name = "product_count")
-    private String productCount;
-
-    @Transient
-    private String productCount2;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH, mappedBy = "parent")
     private List<CategoryEntity> children = new ArrayList<CategoryEntity>();
@@ -78,44 +63,12 @@ public class CategoryEntity
         setEntityCode("Category");
     }
 
-    public String getProductCount2() {
-        return productCount2;
-    }
-
-    public void setProductCount2(String productCount2) {
-        this.productCount2 = productCount2;
-    }
-
-    public String getProductCount() {
-        return productCount;
-    }
-
-    public void setProductCount(String productCount) {
-        this.productCount = productCount;
-    }
-
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getAlias() {
-        return alias;
-    }
-
-    public void setAlias(String alias) {
-        this.alias = alias;
-    }
-
-    public String getComment() {
-        return comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
     }
 
     public CategoryEntity getParent() {
@@ -126,23 +79,6 @@ public class CategoryEntity
         this.parent = parent;
     }
 
-    public List<CategoryEntity> getChildren() {
-        return children;
-    }
-
-    public void setChildren(List<CategoryEntity> children) {
-        this.children = children;
-    }
-
-
-    public List<PropertyToCategoryEntity> getProperties() {
-        return properties;
-    }
-
-    public void setProperties(List<PropertyToCategoryEntity> properties) {
-        this.properties = properties;
-    }
-
     public Integer getPosition() {
         return position;
     }
@@ -151,12 +87,20 @@ public class CategoryEntity
         this.position = position;
     }
 
-    public String getRelCode() {
-        return relCode;
+    public List<CategoryEntity> getChildren() {
+        return children;
     }
 
-    public void setRelCode(String relCode) {
-        this.relCode = relCode;
+    public void setChildren(List<CategoryEntity> children) {
+        this.children = children;
+    }
+
+    public List<PropertyToCategoryEntity> getProperties() {
+        return properties;
+    }
+
+    public void setProperties(List<PropertyToCategoryEntity> properties) {
+        this.properties = properties;
     }
 
     public List<ProductEntity> getProducts() {
