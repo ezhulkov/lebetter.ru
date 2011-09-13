@@ -30,7 +30,7 @@ import java.text.Format;
  */
 @Import(
         stack = {"jquery"},
-        stylesheet = {"proxy:/scripts/style.css"},
+        stylesheet = {"proxy:/styles/style.css"},
         library = {"proxy:/scripts/jquery-ui-1.8.9.custom.min.js",
                    "proxy:/scripts/jquery.fancybox-1.3.3.js",
                    "proxy:/scripts/jquery.cookie.js",
