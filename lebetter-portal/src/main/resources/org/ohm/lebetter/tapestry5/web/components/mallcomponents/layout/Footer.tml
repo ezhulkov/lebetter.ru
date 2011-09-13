@@ -2,13 +2,25 @@
 
     <hr/>
 
-    <t:pageLink t:page="history">История фабрики</t:pageLink><br/>
-    <t:pageLink t:page="quality">Качество</t:pageLink><br/>
-    <t:pageLink t:page="about">О представительстве</t:pageLink><br/>
-    <t:pageLink t:page="contacts">Контакты</t:pageLink><br/>
-    <t:pageLink t:page="partners">Партнерам</t:pageLink><br/>
-    <t:pageLink t:page="auth/login">Вход</t:pageLink><br/>
-    <t:pageLink t:page="sitemap">Карта сайта</t:pageLink><br/>
-    <t:pageLink t:page="catalog">Каталог</t:pageLink><br/>
+    <t:pageLink t:page="history">История фабрики</t:pageLink>
+    <br/>
+    <t:pageLink t:page="quality">Качество</t:pageLink>
+    <br/>
+    <t:pageLink t:page="about">О представительстве</t:pageLink>
+    <br/>
+    <t:pageLink t:page="contacts">Контакты</t:pageLink>
+    <br/>
+    <t:pageLink t:page="partners">Партнерам</t:pageLink>
+    <br/>
+    <t:pageLink t:page="sitemap">Карта сайта</t:pageLink>
+    <br/>
+    <t:pageLink t:page="catalog">Каталог</t:pageLink>
+    <br/>
+    <t:if test="auth.authenticated">
+        <t:pageLink t:page="po">Личный Кабинет</t:pageLink>
+        <t:parameter name="else">
+            <t:pageLink t:page="auth/login">Вход</t:pageLink>
+        </t:parameter>
+    </t:if>
 
 </div>

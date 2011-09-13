@@ -34,7 +34,8 @@ import java.text.Format;
         library = {"proxy:/scripts/jquery-ui-1.8.9.custom.min.js",
                    "proxy:/scripts/jquery.fancybox-1.3.3.js",
                    "proxy:/scripts/jquery.cookie.js",
-                   "proxy:/scripts/jquery.metadata.js"}
+                   "proxy:/scripts/jquery.metadata.js",
+                   "proxy:/scripts/scripts.js"}
 )
 public abstract class AbstractBasePage implements WebAppFacade {
 

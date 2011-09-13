@@ -18,7 +18,7 @@ public class SetReferrerFilter extends KinderAbstractFilter {
         if ("GET".equals(request.getMethod()) && needToPassToTapestry(request)) {
             String path = new UrlPathHelper().getRequestUri(request);
             if (!path.startsWith("/auth") &&
-                !path.startsWith("/personaloffice/mainproxy")) {
+                !path.startsWith("/po/mainproxy")) {
                 request.getSession(false).setAttribute(Constants.PAGE_REFERER, path);
             }
         }

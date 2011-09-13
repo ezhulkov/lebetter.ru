@@ -1,7 +1,5 @@
-<t:mallcomponents.layout.layout bodyId="index"
-                                flash="flashMessage"
-                                xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<div>
 
         Сайт в разработке. Пожалуйста, зайдите позже
 
-</t:mallcomponents.layout.layout>
+</div>

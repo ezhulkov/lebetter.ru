@@ -37,7 +37,7 @@
                     <span class="zag">${selectedRoleL.name}</span>
                     <t:if test="selectedRole.parent">
                         ${message:parent-role-label}:
-                        <t:pageLink t:page="personaloffice/admin/role" t:context="${selectedRole.parent.rootId}" class="underline">${selectedRole.parent.name}</t:pageLink>
+                        <t:pageLink t:page="po/admin/role" t:context="${selectedRole.parent.rootId}" class="underline">${selectedRole.parent.name}</t:pageLink>
                     </t:if>
 
                 </div>
@@ -71,8 +71,8 @@
                 });
                 KS.color_cell('roles');
                 KS.bread_crumbs([
-                    ["Кабинет","/personaloffice/admin/main"],
-                    ["Роли","/personaloffice/admin/roles"],
+                    ["Кабинет","/po/admin/main"],
+                    ["Роли","/po/admin/roles"],
                     ["${selectedRole.name}"]
                 ]);
             </script>

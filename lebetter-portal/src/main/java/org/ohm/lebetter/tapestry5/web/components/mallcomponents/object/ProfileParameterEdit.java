@@ -36,7 +36,7 @@ public class ProfileParameterEdit extends AbstractEditComponent {
         if (getSelectedObject().getUser() != null) {
             return "/user/" + getSelectedObject().getUser().getRootId();
         } else {
-            return "/personaloffice/admin/role/" + getSelectedObject().getRole().getRootId();
+            return "/po/admin/role/" + getSelectedObject().getRole().getRootId();
         }
     }
 

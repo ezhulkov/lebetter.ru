@@ -46,7 +46,7 @@ public class ProfileParameterNew extends AbstractEditComponent {
         if (parent instanceof UserEntity) {
             return "/user/" + parent.getRootId();
         } else {
-            return "/personaloffice/admin/role/" + parent.getRootId();
+            return "/po/admin/role/" + parent.getRootId();
         }
     }
 

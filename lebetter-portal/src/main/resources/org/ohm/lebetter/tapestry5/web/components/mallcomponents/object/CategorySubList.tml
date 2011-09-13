@@ -10,7 +10,7 @@
           ${message:name-label}
       </t:parameter>
       <t:parameter name="nameCell">
-          <t:pageLink page="personaloffice/staff/category" context="oneCategory.rootid" class="underline">${oneCategory.name}</t:pageLink>
+          <t:pageLink page="po/staff/category" context="oneCategory.rootid" class="underline">${oneCategory.name}</t:pageLink>
       </t:parameter>
       <t:parameter name="creatorCell">
           <t:mallComponents.object.objectLink object="oneCategory.creator" page="user"/>

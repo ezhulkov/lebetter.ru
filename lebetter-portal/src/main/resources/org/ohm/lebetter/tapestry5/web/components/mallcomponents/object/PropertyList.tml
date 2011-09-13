@@ -8,7 +8,7 @@
             ${message:name-label}
         </t:parameter>
         <t:parameter name="nameCell">
-            <t:pageLink page="personaloffice/staff/property" context="oneProperty.rootid" class="underline">${oneProperty.name}</t:pageLink>
+            <t:pageLink page="po/staff/property" context="oneProperty.rootid" class="underline">${oneProperty.name}</t:pageLink>
         </t:parameter>
         <t:parameter name="typeCell">
             ${onePropertyRoot.type}

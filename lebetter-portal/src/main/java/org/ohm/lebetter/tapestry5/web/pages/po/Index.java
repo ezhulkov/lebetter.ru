@@ -9,6 +9,6 @@ import org.ohm.lebetter.tapestry5.web.pages.base.AdminBasePage;
  * Time: 12:29:35
  * To change this template use File | Settings | File Templates.
  */
-public class Main extends AdminBasePage {
+public class Index extends AdminBasePage {
 
 }

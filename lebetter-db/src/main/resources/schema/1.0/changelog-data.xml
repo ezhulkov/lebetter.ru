@@ -206,7 +206,7 @@
             <column name="description" value="Персонал портала"/>
             <column name="name" value="Персонал портала"/>
             <column name="virtual" value="false"/>
-            <column name="parent_id" value="3"/>
+            <column name="parent_id" value="4"/>
         </insert>
         <insert tableName="app_role">
             <column name="id" value="6"/>
@@ -219,7 +219,7 @@
             <column name="description" value="Администратор системы"/>
             <column name="name" value="Администратор"/>
             <column name="virtual" value="false"/>
-            <column name="parent_id" value="4"/>
+            <column name="parent_id" value="5"/>
         </insert>
         <insert tableName="app_role">
             <column name="id" value="7"/>
@@ -232,7 +232,7 @@
             <column name="description" value="Менеджер каталога"/>
             <column name="name" value="Менеджер"/>
             <column name="virtual" value="false"/>
-            <column name="parent_id" value="4"/>
+            <column name="parent_id" value="5"/>
         </insert>
         <insert tableName="app_role">
             <column name="id" value="8"/>
@@ -245,7 +245,7 @@
             <column name="description" value="Дилер"/>
             <column name="name" value="Дилер"/>
             <column name="virtual" value="false"/>
-            <column name="parent_id" value="3"/>
+            <column name="parent_id" value="4"/>
         </insert>
     </changeSet>
 

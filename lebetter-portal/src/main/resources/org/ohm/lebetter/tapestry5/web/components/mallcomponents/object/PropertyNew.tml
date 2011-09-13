@@ -11,8 +11,8 @@
                 objectExistsLabel="error.property.type.exists"
                 objectAddedLabel="property.type.added"
                 newObject="literal:true"
-                listPage="literal:/personaloffice/staff/categories"
-                objectPage="literal:/personaloffice/staff/property"
+                listPage="literal:/po/staff/categories"
+                objectPage="literal:/po/staff/property"
                 objectManager="serviceFacade.propertyManager"
                 selectedObject="selectedObject"
                 selectedSecurityObject="selectedObjectRoot">

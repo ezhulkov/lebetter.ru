@@ -7,7 +7,7 @@
         <SCRIPT language="JavaScript">
             KS.color_cell('roles');
             KS.bread_crumbs([
-                ["Кабинет","/personaloffice/admin/main"],
+                ["Кабинет","/po/admin/main"],
                 ["Роли"]
             ]);
         </SCRIPT>
@@ -17,7 +17,7 @@
             <t:parameter name="nameHeader">${message:name-label}</t:parameter>
             <t:parameter name="codeHeader">${message:code-label}</t:parameter>
             <t:parameter name="nameCell">
-                <t:pageLink t:page="personaloffice/admin/role" t:context="${oneRole.rootId}" class="underline" style="padding-left:${padding}">
+                <t:pageLink t:page="po/admin/role" t:context="${oneRole.rootId}" class="underline" style="padding-left:${padding}">
                     ${oneRole.name}
                 </t:pageLink>
             </t:parameter>

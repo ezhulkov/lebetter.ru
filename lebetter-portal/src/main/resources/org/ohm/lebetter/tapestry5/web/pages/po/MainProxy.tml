@@ -1,8 +1,0 @@
-<t:mallcomponents.layout.layout title="literal:"
-          bodyId="main"
-          flash="flashMessage"
-          xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
-    <SCRIPT language="JavaScript">
-        KS.color_cell('main');
-    </SCRIPT>
-</t:mallcomponents.layout.layout>

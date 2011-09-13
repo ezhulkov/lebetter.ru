@@ -4,7 +4,7 @@
         <t:loop source="selectedUserRoles" value="oneRole">
             <li>
                 <t:if test="auth.adminrole">
-                    <t:pagelink context="oneRole.rootid" page="personaloffice/admin/role" class="underline">${oneRole.name}</t:pagelink>
+                    <t:pagelink context="oneRole.rootid" page="po/admin/role" class="underline">${oneRole.name}</t:pagelink>
                 </t:if>
                 <t:unless test="auth.adminrole">
                     ${oneRole.name}

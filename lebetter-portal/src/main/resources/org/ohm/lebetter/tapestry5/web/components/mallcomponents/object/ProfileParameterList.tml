@@ -5,12 +5,12 @@
         <t:parameter name="codeHeader">${message:code-label}</t:parameter>
         <t:parameter name="valueHeader">${message:value-label}</t:parameter>
         <t:parameter name="nameCell">
-            <t:pageLink t:page="personaloffice/admin/profparam" t:context="oneParam.rootId">
+            <t:pageLink t:page="po/admin/profparam" t:context="oneParam.rootId">
                 ${oneParam.name}
             </t:pageLink>
         </t:parameter>
         <t:parameter name="codeCell">
-            <t:pageLink t:page="personaloffice/admin/profparam" t:context="oneParam.rootId">
+            <t:pageLink t:page="po/admin/profparam" t:context="oneParam.rootId">
                 ${oneParam.code}
             </t:pageLink>
         </t:parameter>

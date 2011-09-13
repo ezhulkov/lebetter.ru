@@ -4,7 +4,7 @@
 
     <div class="untercat">
 
-      <t:pageLink t:page="personaloffice/staff/property" t:context="oneSubProperty.rootid">
+      <t:pageLink t:page="po/staff/property" t:context="oneSubProperty.rootid">
         <b>${oneSubProperty.name}</b>
       </t:pageLink>
 

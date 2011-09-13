@@ -1,7 +1,7 @@
 ﻿<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="category" class="ks_adm_content_tabscontent ks_adm_order_detail ks_adm_content_forbut">
     <t:if test="selectedObject.parent">
         <span id="parent_type_label">${message:parent-type-label}:
-            <t:mallComponents.object.objectLink object="selectedObject.parent" page="personaloffice/staff/category"/>
+            <t:mallComponents.object.objectLink object="selectedObject.parent" page="po/staff/category"/>
         </span>
     </t:if>
     <t:mallComponents.control.menuLink action="VIEW_CATEGORY" object="selectedObject">
@@ -15,8 +15,8 @@
                 objectExistsLabel="error.category.exists"
                 objectAddedLabel="category.added"
                 newObject="literal:false"
-                listPage="literal:/personaloffice/staff/categories"
-                objectPage="literal:/personaloffice/staff/category"
+                listPage="literal:/po/staff/categories"
+                objectPage="literal:/po/staff/category"
                 objectManager="serviceFacade.categoryManager"
                 submitCallback="callback"
                 selectedObject="selectedObject"

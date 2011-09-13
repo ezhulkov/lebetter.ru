@@ -1,8 +1,7 @@
-<t:mallcomponents.layout.layout bodyId="index"
+<t:mallcomponents.layout.layout title="Lebetter.ru - Представительство в России"
+                                bodyId="index"
                                 flash="flashMessage"
                                 xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
-
-    главная страница<br/>
 
     <t:pageLink t:page="history">История фабрики</t:pageLink><br/>
     <t:pageLink t:page="quality">Качество</t:pageLink><br/>

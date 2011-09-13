@@ -7,15 +7,12 @@
 
     <http auto-config="true" access-decision-manager-ref="accessDecisionManager">
 
-        <intercept-url pattern="/po/admin/**" access="ROLE_ADMIN"/>
-        <intercept-url pattern="/po/staff/**" access="ROLE_STAFF,ROLE_MANAGER"/>
-        <intercept-url pattern="/po/user/**" access="ROLE_HUMAN"/>
-        <intercept-url pattern="/po/**" access="ROLE_HUMAN"/>
+        <intercept-url pattern="/po/**" access="ROLE_STAFF,ROLE_DEALER"/>
         <intercept-url pattern="/rest/**" filters="none"/>
         <intercept-url pattern="/**" filters="none"/>
 
         <form-login login-page="/auth/login"
-                    default-target-url="/personaloffice/mainproxy"
+                    default-target-url="/po"
                     always-use-default-target="true"
                     authentication-failure-url="/auth/login/error"
                     login-processing-url="/j_security_check"/>
