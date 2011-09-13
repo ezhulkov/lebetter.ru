@@ -57,11 +57,11 @@
             </plugin>
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>2.1-beta-1</version>
+                <groupId>org.apache.maven.plugins</groupId>
                 <configuration>
                     <filteringDeploymentDescriptors>true</filteringDeploymentDescriptors>
                     <archiveClasses>${mvn.archive.classes}</archiveClasses>
-                    <warName>lb-portal-${version}</warName>
+                    <warName>lb-portal-${project.version}</warName>
                     <webappDirectory>${mvn.webapp.dir}</webappDirectory>
                     <archive>
                         <addMavenDescriptor>true</addMavenDescriptor>
@@ -136,22 +136,6 @@
                             </includes>
                         </resource>
                     </webResources>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-pmd-plugin</artifactId>
-                <configuration>
-                    <linkXRef>true</linkXRef>
-                    <sourceEncoding>UTF-8</sourceEncoding>
-                    <minimumTokens>100</minimumTokens>
-                    <targetJdk>1.6</targetJdk>
-                    <verbose>true</verbose>
-                    <rulesets>
-                        <ruleset>/rulesets/imports.xml</ruleset>
-                        <ruleset>/rulesets/braces.xml</ruleset>
-                        <ruleset>/rulesets/basic.xml</ruleset>
-                    </rulesets>
                 </configuration>
             </plugin>
         </plugins>

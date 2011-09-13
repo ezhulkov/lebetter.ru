@@ -72,6 +72,7 @@
                 <directory>src/test/resources</directory>
                 <filtering>true</filtering>
                 <includes>
+                    <include>**/lebetter.context.test.xml</include>
                     <include>**/lebetter.test.properties</include>
                 </includes>
             </testResource>

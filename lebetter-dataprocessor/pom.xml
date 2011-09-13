@@ -60,7 +60,7 @@
                 <configuration>
                     <filteringDeploymentDescriptors>true</filteringDeploymentDescriptors>
                     <archiveClasses>${mvn.archive.classes}</archiveClasses>
-                    <warName>lebetter-dataprocessor-${version}</warName>
+                    <warName>lebetter-dataprocessor-${project.version}</warName>
                     <webappDirectory>${mvn.webapp.dir}</webappDirectory>
                     <archive>
                         <addMavenDescriptor>true</addMavenDescriptor>

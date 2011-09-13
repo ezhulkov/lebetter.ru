@@ -1,4 +1,4 @@
-<t:mallcomponents.layout.layout title="literal:404 - Страница не найдена"
+<t:mallcomponents.layout.layout title="literal:Lebetter.ru - представительство фабрики Lebetter в России"
                                 bodyId="notfount"
                                 flash="flashMessage"
                                 xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">

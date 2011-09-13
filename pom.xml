@@ -15,6 +15,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
+                <mvn.webapp.dir>${webapp.dir.ext}</mvn.webapp.dir>
                 <mvn.lb.portal.config.path>classpath:</mvn.lb.portal.config.path>
                 <mvn.lb.fh.config.path>classpath:</mvn.lb.fh.config.path>
                 <mvn.lb.dp.config.path>classpath:</mvn.lb.dp.config.path>
@@ -29,7 +30,6 @@
                 <mvn.jdbc.username.test>lbdbtest</mvn.jdbc.username.test>
                 <mvn.log4j.appender.xml>&lt;appender-ref ref="CONSOLE"/&gt;</mvn.log4j.appender.xml>
                 <mvn.log4j.file/>
-                <mvn.webapp.dir>target/kindershopping</mvn.webapp.dir>
                 <mvn.fileupload.url>http://localhost:8080/principalgetter</mvn.fileupload.url>
                 <mvn.lb.notification.email>noreply@lebetter.ru</mvn.lb.notification.email>
                 <mvn.smtp.host>localhost</mvn.smtp.host>
@@ -90,7 +90,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-war-plugin</artifactId>
-                    <version>2.1</version>
+                    <version>2.1.1</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -100,6 +100,11 @@
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>2.0.2</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>2.5</version>
                 </plugin>
             </plugins>
         </pluginManagement>

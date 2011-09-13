@@ -1,56 +1,7 @@
 User-Agent: Yandex
-Disallow:/obs/list*
-Disallow:/obs/allobsforbrand*
-Disallow:/obs/allobsforshop*
-Disallow:/obs/allbrandsforshop*
-Disallow:/obs/allshopsforbrand*
-Disallow:/obs/allotherobs*
-Disallow:/obs/hits*
-Disallow:/obs/cat*
-Disallow:/obs/tag*
-Disallow:/obs/partnersapplication*
-Disallow:/obs/obscompare*
-Disallow:/news/list*
-Disallow:/news/category*
-Disallow:/auth*
-Disallow:/search*
-Disallow:/Search*
-Disallow:/basket*
-Disallow:/sitemap*
-Disallow:/orderaddress*
-Disallow:/orderdelivery*
-Disallow:/orderapprove*
-Disallow:/orderstatus*
-Disallow:/po*
-Disallow:/errors*
-Disallow:/sets*
+Disallow:/*
 Clean-param: jsessionid /*
-Host: kindershopping.ru
+Host: lebetter.ru
 
 User-Agent: *
-Disallow:/obs/list
-Disallow:/obs/allobsforbrand
-Disallow:/obs/allobsforshop
-Disallow:/obs/allbrandsforshop
-Disallow:/obs/allshopsforbrand
-Disallow:/obs/allotherobs
-Disallow:/obs/hits
-Disallow:/obs/cat
-Disallow:/obs/tag
-Disallow:/obs/obscompare
-Disallow:/news/list
-Disallow:/news/category
-Disallow:/auth
-Disallow:/search
-Disallow:/basket
-Disallow:/sitemap
-Disallow:/orderaddress
-Disallow:/orderdelivery
-Disallow:/orderapprove
-Disallow:/orderstatus
-Disallow:/po
-Disallow:/errors
-Disallow:/sets
-Disallow:/obs/partnersapplication
-
-Sitemap: http://kindershopping.ru/sitemap.xml
+Disallow:/*

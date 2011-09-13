@@ -30,25 +30,11 @@ import java.text.Format;
  */
 @Import(
         stack = {"jquery"},
-        stylesheet = {"proxy:http://stg.odnoklassniki.ru/share/odkl_share.css"},
+        stylesheet = {"proxy:/scripts/style.css"},
         library = {"proxy:/scripts/jquery-ui-1.8.9.custom.min.js",
-                   "proxy:/scripts/jquery.ad-gallery.js",
                    "proxy:/scripts/jquery.fancybox-1.3.3.js",
-                   "proxy:/scripts/jquery.fixedtable.js",
-                   "proxy:/scripts/jquery.url.js",
-                   "proxy:/scripts/jquery.ssm.js",
-                   "proxy:/scripts/sh_main.min.js",
-                   "proxy:/scripts/lb-scripts.js",
                    "proxy:/scripts/jquery.cookie.js",
-                   "proxy:/scripts/fancylogin-1.0.js",
-                   "proxy:/scripts/jquery.metadata.js",
-                   "proxy:/scripts/jquery.selectbox-0.6.1.js",
-                   "proxy:/scripts/jquery.dropdownPlain.js",
-                   "proxy:/scripts/jquery.rating.js",
-                   "proxy:http://vkontakte.ru/js/api/openapi.js",
-                   "proxy:http://stg.odnoklassniki.ru/share/odkl_share.js",
-                   "proxy:http://connect.facebook.net/ru_RU/all.js",
-                   "proxy:/scripts/jquery.history.js"}
+                   "proxy:/scripts/jquery.metadata.js"}
 )
 public abstract class AbstractBasePage implements WebAppFacade {
 

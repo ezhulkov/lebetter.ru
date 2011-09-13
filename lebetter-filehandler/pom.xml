@@ -89,7 +89,7 @@
                 <configuration>
                     <filteringDeploymentDescriptors>true</filteringDeploymentDescriptors>
                     <archiveClasses>${mvn.archive.classes}</archiveClasses>
-                    <warName>lebetter-filehandler-${version}</warName>
+                    <warName>lebetter-filehandler-${project.version}</warName>
                     <webappDirectory>${mvn.webapp.dir}</webappDirectory>
                     <archive>
                         <addMavenDescriptor>true</addMavenDescriptor>

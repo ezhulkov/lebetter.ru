@@ -5,9 +5,6 @@ import org.ohm.lebetter.tapestry5.web.pages.base.AbstractBasePage;
 
 import javax.servlet.http.HttpServletResponse;
 
-@Import(
-        library = {"proxy:/scripts/jcarousellite_1.0.1.pack.js"}
-)
 public class Index extends AbstractBasePage {
 
     public void onActivate(Object... args) throws Exception {

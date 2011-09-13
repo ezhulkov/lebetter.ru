@@ -8,10 +8,16 @@ public class Constants extends org.room13.mallcore.Constants {
     public static class Roles extends org.room13.mallcore.Constants.Roles {
         public static final String ROLE_MANAGER = "ROLE_MANAGER";
         public static final String ROLE_DEALER = "ROLE_DEALER";
+        public static final String ROLE_HUMAN = "ROLE_HUMAN";
     }
 
     public static class Actions extends org.room13.mallcore.Constants.Actions {
-
+        public static final String ADD_USER = "ADD_USER";
+        public static final String EDIT_USER = "EDIT_USER";
+        public static final String DEL_USER = "DEL_USER";
+        public static final String ADD_PRODUCT = "ADD_PRODUCT";
+        public static final String EDIT_PRODUCT = "EDIT_PRODUCT";
+        public static final String DEL_PRODUCT = "DEL_PRODUCT";
     }
 
     public static class FileNames {
