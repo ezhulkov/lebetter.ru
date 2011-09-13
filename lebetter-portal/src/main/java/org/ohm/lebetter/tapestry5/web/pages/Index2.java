@@ -14,21 +14,4 @@ public class Index2 extends AbstractBasePage {
         }
     }
 
-    @Override
-    public String getTitle() {
-        return getIOC().getMessages().get("title.index.text1");
-    }
-
-    @Override
-    public String getKeywords() {
-        return getIOC().getMessages().get("title.index.text2");
-    }
-
-    @Override
-    public String getDescription() {
-        return getIOC().getMessages().get("title.index.text3");
-    }
-
-
-
 }

@@ -1,7 +1,8 @@
-<t:mallcomponents.layout.layout bodyId="index"
+<t:mallcomponents.layout.layout title="Lebetter.ru - Карта сайта"
+                                bodyId="sitemap"
                                 flash="flashMessage"
                                 xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
-        Сайт в разработке. Пожалуйста, зайдите позже
+       Карта сайта
 
 </t:mallcomponents.layout.layout>

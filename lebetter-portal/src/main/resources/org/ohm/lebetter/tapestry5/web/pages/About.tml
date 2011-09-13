@@ -1,0 +1,8 @@
+<t:mallcomponents.layout.layout title="Lebetter.ru - О представительстве"
+                                bodyId="quality"
+                                flash="flashMessage"
+                                xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+       О представительстве
+
+</t:mallcomponents.layout.layout>

@@ -1,0 +1,9 @@
+<t:mallcomponents.layout.layout title="Lebetter.ru - Каталог"
+                                bodyId="catalog"
+                                flash="flashMessage"
+                                xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+    Категории
+    <t:pageLink t:page="catalog/list/category">Грид</t:pageLink>
+
+</t:mallcomponents.layout.layout>

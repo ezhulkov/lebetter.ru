@@ -1,0 +1,9 @@
+<t:mallcomponents.layout.layout title="Lebetter.ru - Каталог"
+                                bodyId="catalog"
+                                flash="flashMessage"
+                                xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+    Товар
+    <t:pageLink t:page="catalog/list">Категории</t:pageLink>
+
+</t:mallcomponents.layout.layout>

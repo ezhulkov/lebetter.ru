@@ -1,8 +1,8 @@
-<t:mallcomponents.layout.layout bodyId="Lebetter.ru - История фабрики"
+<t:mallcomponents.layout.layout title="Lebetter.ru - История фабрики"
                                 bodyId="history"
                                 flash="flashMessage"
                                 xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
-       История
+       История фабрики
 
 </t:mallcomponents.layout.layout>

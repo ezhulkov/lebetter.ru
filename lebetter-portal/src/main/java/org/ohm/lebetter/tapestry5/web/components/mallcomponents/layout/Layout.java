@@ -20,7 +20,7 @@ import org.room13.mallcore.util.StringUtil;
 
 public class Layout extends AbstractBaseComponent {
 
-    @Parameter(required = true, defaultPrefix = BindingConstants.LITERAL)
+    @Parameter(required = false, defaultPrefix = BindingConstants.LITERAL)
     private String title;
 
     @Property
