@@ -1,8 +1,8 @@
-<t:mallcomponents.layout.layout title="literal:404 - Страница не найдена"
-                                bodyId="notfount"
+<t:mallcomponents.layout.layout bodyId="Lebetter.ru - История фабрики"
+                                bodyId="history"
                                 flash="flashMessage"
                                 xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
-    Страница не найдена
+       История
 
 </t:mallcomponents.layout.layout>

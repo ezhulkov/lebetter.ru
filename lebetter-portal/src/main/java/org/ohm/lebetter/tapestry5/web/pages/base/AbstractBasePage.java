@@ -106,11 +106,11 @@ public abstract class AbstractBasePage implements WebAppFacade {
     }
 
     public String getKeywords() {
-        return getIOC().getMessages().get("default.keywords");
+        return getIOC().getMessages().get("title.index.keywords");
     }
 
     public String getDescription() {
-        return getIOC().getMessages().get("default.keywords");
+        return getIOC().getMessages().get("title.index.description");
     }
 
     public String getTitle() {
