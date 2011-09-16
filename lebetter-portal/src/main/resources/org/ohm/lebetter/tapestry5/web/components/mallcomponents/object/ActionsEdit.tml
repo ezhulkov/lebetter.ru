@@ -50,10 +50,6 @@
 
         </t:block>
 
-        <script language="JavaScript" type="text/javascript">
-            KS.color_cell('roleacttab');
-        </script>
-
     </t:mallcomponents.control.menulink>
 
 </div>

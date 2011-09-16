@@ -610,6 +610,7 @@
         <fail unless="tomcat.home" message="define 'tomcat.home' (path) property"/>
         <exec executable="${maven.home}/bin/mvn" dir="lebetter-portal" resolveexecutable="true">
             <arg value="-P development"/>
+            <arg value="-o"/>
             <arg value="-D webapp.dir.ext=${tomcat.home}/webapps/ROOT"/>
             <arg value="war:exploded"/>
         </exec>

@@ -10,7 +10,7 @@
             objectAddedLabel="profparam.added"
             newObject="literal:false"
             listPage="${listPage}"
-            objectPage="literal:/po/admin/profparam"
+            objectPage="literal:/po/system/profparam"
             objectManager="serviceFacade.profileParameterManager"
             selectedObject="selectedObject"
             selectedSecurityObject="selectedObjectRoot"

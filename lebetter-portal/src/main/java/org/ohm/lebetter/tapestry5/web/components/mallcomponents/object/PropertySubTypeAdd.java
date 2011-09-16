@@ -10,7 +10,7 @@ import org.ohm.lebetter.model.impl.entities.PropertyEntity;
 import org.ohm.lebetter.spring.service.PropertyManager;
 import org.ohm.lebetter.tapestry5.web.components.base.AbstractBaseComponent;
 import org.ohm.lebetter.tapestry5.web.data.FlashMessage;
-import org.ohm.lebetter.tapestry5.web.pages.po.staff.Properties;
+import org.ohm.lebetter.tapestry5.web.pages.po.system.Properties;
 import org.room13.mallcore.spring.service.ObjectExistsException;
 
 import java.security.AccessControlException;

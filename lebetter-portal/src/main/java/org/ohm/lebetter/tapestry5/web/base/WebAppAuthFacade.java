@@ -21,4 +21,10 @@ public interface WebAppAuthFacade {
 
     public boolean isAnonymous();
 
+    public boolean isAdminRole();
+
+    public boolean isStaffRole();
+
+    public boolean isDealerRole();
+
 }

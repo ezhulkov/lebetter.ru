@@ -1,4 +1,4 @@
-package org.ohm.lebetter.tapestry5.web.pages.po.admin;
+package org.ohm.lebetter.tapestry5.web.pages.po.system;
 
 import org.apache.tapestry5.Block;
 import org.apache.tapestry5.annotations.Cached;
@@ -25,9 +25,6 @@ public class Role extends AdminBasePage {
     @Property
     private RoleEntity selectedRole;
 
-    @Property
-    private RoleEntity selectedRoleL;
-
     @Inject
     @Property
     private Block actsBlock;
@@ -44,10 +41,6 @@ public class Role extends AdminBasePage {
         selectedObject.setIdStr(idStr);
         selectedObject.setObjectManager(getServiceFacade().getRoleManager());
         selectedRole = (RoleEntity) selectedObject.findSelectedObject();
-
-        if (selectedRole != null) {
-            selectedRoleL = getServiceFacade().getRoleManager().getL(selectedRole.getId());
-        }
 
     }
 

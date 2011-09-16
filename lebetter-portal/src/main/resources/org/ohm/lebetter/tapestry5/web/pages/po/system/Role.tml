@@ -1,0 +1,42 @@
+<t:mallcomponents.layout.layout title="Lebetter.ru - Личный Кабинет"
+                                bodyId="main"
+                                flash="flashMessage"
+                                xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+    <t:mallcomponents.layout.office>
+
+        <t:mallcomponents.control.selectedObject>
+
+            <h1>Роль &#0171;${selectedRole.name}&#0187;</h1>
+
+            <div class="descr">
+                <div class="catcaption">
+
+                    <t:if test="selectedRole.parent">
+                        Родительская роль
+                        <t:pageLink t:page="po/system/role" t:context="${selectedRole.parent.rootId}" class="underline">${selectedRole.parent.name}</t:pageLink>
+                    </t:if>
+
+                </div>
+                <div id="itemdel"></div>
+
+                <t:zone id="roleZone">
+                    <t:if test="curBlock">
+                        <t:delegate to="curBlock"/>
+                        <t:parameter name="else">
+                            <t:delegate to="actsBlock"/>
+                        </t:parameter>
+                    </t:if>
+                </t:zone>
+
+                <t:block t:id="actsBlock">
+                    <t:mallComponents.object.ActionsEdit role="selectedRole"/>
+                </t:block>
+
+            </div>
+
+        </t:mallcomponents.control.selectedObject>
+
+    </t:mallcomponents.layout.office>
+
+</t:mallcomponents.layout.layout>

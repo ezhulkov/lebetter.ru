@@ -2,9 +2,7 @@
 
     <hr/>
 
-    <t:pageLink t:page="history">История фабрики</t:pageLink>
-    <br/>
-    <t:pageLink t:page="quality">Качество</t:pageLink>
+    <t:pageLink t:page="manufacture">Фабрика</t:pageLink>
     <br/>
     <t:pageLink t:page="about">О представительстве</t:pageLink>
     <br/>

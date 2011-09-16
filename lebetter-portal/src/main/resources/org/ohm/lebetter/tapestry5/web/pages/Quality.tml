@@ -1,8 +1,0 @@
-<t:mallcomponents.layout.layout title="Lebetter.ru - Качество продукции"
-                                bodyId="quality"
-                                flash="flashMessage"
-                                xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
-
-       Качество
-
-</t:mallcomponents.layout.layout>

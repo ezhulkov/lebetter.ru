@@ -13,6 +13,7 @@ import org.apache.tapestry5.services.Context;
 import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.RequestGlobals;
 import org.apache.tapestry5.services.Response;
+import org.ohm.lebetter.Constants;
 import org.ohm.lebetter.model.impl.entities.UserEntity;
 import org.ohm.lebetter.tapestry5.web.base.WebAppAuthFacade;
 import org.ohm.lebetter.tapestry5.web.base.WebAppBaseFacade;
@@ -20,7 +21,6 @@ import org.ohm.lebetter.tapestry5.web.base.WebAppIOCFacade;
 import org.ohm.lebetter.tapestry5.web.data.FlashMessage;
 import org.ohm.lebetter.tapestry5.web.data.FlashMessage.Type;
 import org.ohm.lebetter.tapestry5.web.services.ServiceFacade;
-import org.room13.mallcore.Constants;
 import org.room13.mallcore.log.RMLogger;
 import org.room13.mallcore.model.impl.embedded.AddressSocial;
 import org.room13.mallcore.model.impl.entities.RoleEntity;
@@ -187,6 +187,21 @@ public final class BaseComponent implements WebAppIOCFacade, WebAppAuthFacade, W
                 getUserManager().getAuthenticatedPrincipal();
         return user != null && !user.isDummy();
 
+    }
+
+    @Override
+    public boolean isAdminRole() {
+        return getServiceFacade().getRoleManager().isRoleAssigned(getUser(), Constants.Roles.ROLE_ADMIN);
+    }
+
+    @Override
+    public boolean isStaffRole() {
+        return getServiceFacade().getRoleManager().isRoleAssigned(getUser(), Constants.Roles.ROLE_STAFF);
+    }
+
+    @Override
+    public boolean isDealerRole() {
+        return getServiceFacade().getRoleManager().isRoleAssigned(getUser(), Constants.Roles.ROLE_DEALER);
     }
 
     @Override

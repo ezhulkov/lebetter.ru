@@ -3,6 +3,33 @@
                                 flash="flashMessage"
                                 xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
-    Личный Кабинет
+    <t:mallcomponents.layout.office>
+
+        <t:if test="auth.dealerRole">
+            Моя персональная скидка на все товары: 10%<br/>
+            <t:pageLink t:page="po/order/list">Заказы</t:pageLink>
+            <br/>
+        </t:if>
+
+        <t:pageLink t:page="po/catalog/list">Каталог</t:pageLink>
+        <br/>
+
+        <t:if test="auth.adminRole">
+            <t:pageLink t:page="po/user/list">Пользователи</t:pageLink>
+            <br/>
+            <t:pageLink t:page="po/dealer/list">Дилеры</t:pageLink>
+            <br/>
+            <t:pageLink t:page="po/order/list">Заказы</t:pageLink>
+            <br/>
+            <hr/>
+            <t:pageLink t:page="po/system/roles">Роли</t:pageLink>
+            <br/>
+            <t:pageLink t:page="po/system/categories">Категории</t:pageLink>
+            <br/>
+            <t:pageLink t:page="po/system/properties">Свойства</t:pageLink>
+            <br/>
+        </t:if>
+
+    </t:mallcomponents.layout.office>
 
 </t:mallcomponents.layout.layout>

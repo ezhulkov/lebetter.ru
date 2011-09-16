@@ -2,7 +2,7 @@ package org.ohm.lebetter.tapestry5.web.pages;
 
 import org.ohm.lebetter.tapestry5.web.pages.base.AbstractBasePage;
 
-public class Quality extends AbstractBasePage {
+public class Manufacture extends AbstractBasePage {
 
 
 }

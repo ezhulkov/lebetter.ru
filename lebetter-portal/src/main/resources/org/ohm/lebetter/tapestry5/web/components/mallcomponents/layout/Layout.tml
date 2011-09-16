@@ -22,7 +22,9 @@
         <t:mallcomponents.layout.header/>
         <!--/noindex-->
 
-        <t:body/>
+        <div style="height:60%">
+            <t:body/>
+        </div>
 
         <!--noindex-->
         <t:mallcomponents.layout.footer/>

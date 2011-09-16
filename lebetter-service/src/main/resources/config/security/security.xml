@@ -8,6 +8,9 @@
     <http auto-config="true" access-decision-manager-ref="accessDecisionManager">
 
         <intercept-url pattern="/po/**" access="ROLE_STAFF,ROLE_DEALER"/>
+        <intercept-url pattern="/po/system/**" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/po/user/list" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/po/dealer/**" access="ROLE_ADMIN"/>
         <intercept-url pattern="/rest/**" filters="none"/>
         <intercept-url pattern="/**" filters="none"/>
 

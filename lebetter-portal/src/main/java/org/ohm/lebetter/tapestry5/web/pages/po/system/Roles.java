@@ -1,4 +1,4 @@
-package org.ohm.lebetter.tapestry5.web.pages.po.admin;
+package org.ohm.lebetter.tapestry5.web.pages.po.system;
 
 import org.apache.tapestry5.annotations.Cached;
 import org.apache.tapestry5.annotations.Property;
