@@ -1,7 +1,6 @@
 package org.ohm.lebetter.tapestry5.web.components.mallcomponents.control;
 
 import org.apache.tapestry5.Block;
-import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
@@ -13,11 +12,6 @@ import org.apache.tapestry5.ioc.annotations.Inject;
  * Time: 12:19:49
  * To change this template use File | Settings | File Templates.
  */
-@Import(
-        library = {"proxy:/scripts/jquery.metadata.js",
-                   "proxy:/scripts/jquery.form.js",
-                   "proxy:/FCKeditor/ckeditor.js"}
-)
 public class EditObject extends AbstractEditObject {
 
     @Property

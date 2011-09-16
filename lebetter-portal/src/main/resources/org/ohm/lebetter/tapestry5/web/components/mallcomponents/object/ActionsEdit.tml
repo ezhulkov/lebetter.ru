@@ -9,13 +9,10 @@
         </t:form>
 
         <t:block id="actionsBlock">
-            <t:mallcomponents.object.flash object="base.flashMessage"/>
-
-            <h2>${message:grants.page}</h2>
 
             <div class="ks_adm_content_buts">
                 <img class="NFButtonLeft" src="/images/0.gif"/>
-                <input id="buttonSave" type="submit" value="${message:savebtn}"
+                <input id="buttonSave" type="submit" value="Сохранить"
                        class="NFButton"/>
                 <img class="NFButtonRight" src="/images/0.gif"/>
             </div>
@@ -23,8 +20,8 @@
             <div class="granttable">
                 <t:grid id="datagrid" source="actions" row="oneAction" include="code,name" add="chbox"
                         rowsPerPage="200" rowClass="rowClass">
-                    <t:parameter name="nameHeader">${message:name-label}</t:parameter>
-                    <t:parameter name="codeHeader">${message:code-label}</t:parameter>
+                    <t:parameter name="nameHeader">Действие</t:parameter>
+                    <t:parameter name="codeHeader">Код</t:parameter>
                     <t:parameter name="nameCell">
                         ${oneAction.name}
                     </t:parameter>

@@ -1,7 +1,7 @@
 <div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="${key}-edit">
 
     <!-- Блок, содержащий форму, стандартные кнопки редактирования объекта и кастомный код редактирования объектов -->
-    <t:mallcomponents.object.flash object="base.flashMessage"/>
+    !${base.flashMessage}!
 
     <t:unless test="newObject">
         <t:form t:id="editObjectForm" t:autofocus="false" t:zone="editAreaZone" t:context="saveContext">
