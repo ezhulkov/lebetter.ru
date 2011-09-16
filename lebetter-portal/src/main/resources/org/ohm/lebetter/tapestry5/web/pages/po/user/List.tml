@@ -7,6 +7,26 @@
 
         <p>Пользователи</p>
 
+        <t:pageLink t:page="po/user/create">Создать нового пользователя</t:pageLink>
+
+        <t:grid pagerPosition="bottom" rowsPerPage="50" id="datagrid" source="userlist" row="oneUser" include="username,fullname,rolesPrintable">
+            <t:parameter name="usernameHeader">
+                Логин
+            </t:parameter>
+            <t:parameter name="rolesPrintableHeader">
+                Роль в системе
+            </t:parameter>
+            <t:parameter name="fullnameHeader">
+                Полное имя
+            </t:parameter>
+            <t:parameter name="usernameCell">
+                <t:pageLink context="oneUser.rootid" page="po/user" class="underline">${oneUser.name}</t:pageLink>
+            </t:parameter>
+            <t:parameter name="empty">
+                <p class="nomsg">${message:empty.list}</p>
+            </t:parameter>
+        </t:grid>
+
     </t:mallcomponents.layout.office>
 
 </t:mallcomponents.layout.layout>
