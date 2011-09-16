@@ -19,14 +19,14 @@ public class GrantCheckbox extends AbstractBaseComponent {
     private RoleEntity role;
 
     @Property
-    private AccessFlag flag = AccessFlag.NOT_SET;
+    private int flag = AccessFlag.NOT_SET.ordinal();
 
     public void beginRender() {
         RoleToActionEntity link = getServiceFacade().getRoleManager().getActionForRole(role, action);
         if (link != null) {
-            flag = link.getFlag();
+            flag = link.getFlag().ordinal();
         } else {
-            flag = RoleToActionEntity.AccessFlag.NOT_SET;
+            flag = RoleToActionEntity.AccessFlag.NOT_SET.ordinal();
         }
     }
 

@@ -1,31 +1,4 @@
 <span xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" class="ks_grantcheckbox_1">
-    <div id="2RM-${role.rootId}-${action.rootId}" class="checkbox3"/>
-    <input type="hidden" name="2RM-${role.rootId}-${action.rootId}"/>
-    <script type="text/javascript">
-        var btnDiv = jQuery("div#2RM-" + ${role.rootId}+"-" +${action.rootId});
-        var flag = "${flag}";
-        jQuery(btnDiv).css("background-position", "0px 0px");
-        jQuery(btnDiv).attr("state", "0");
-        if ("NOT_SET" == flag) {
-            jQuery(btnDiv).css("background-position", "-21px 0px");
-            jQuery(btnDiv).attr("state", "1");
-        } else if ("ALLOW" == flag) {
-            jQuery(btnDiv).css("background-position", "-42px 0px");
-            jQuery(btnDiv).attr("state", "2");
-        }
-        jQuery(btnDiv).click(function() {
-            setGrantFlag(this, 1);
-        });
-
-        function setGrantFlag(flag, change) {
-            var offset = jQuery(flag).attr("state");
-            offset = parseInt(offset);
-            offset = (offset + change) % 3;
-            var id = jQuery(flag).attr("id");
-            var inp = jQuery("input[name=" + id + "]");
-            jQuery(flag).css("background-position", offset * (-21) + "px 0px");
-            jQuery(flag).attr("state", offset);
-            jQuery(inp).attr("value", Math.abs(offset));
-        }
-    </script>
+    <div id="2RM-${role.rootId}-${action.rootId}" class="checkbox3 f${flag}"/>
+    <input type="hidden" name="2RM-${role.rootId}-${action.rootId}" value="${flag}"/>
 </span>

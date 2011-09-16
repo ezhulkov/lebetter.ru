@@ -116,7 +116,7 @@
             <column name="rootobject" value="true"/>
             <column name="code" value="DEL_PRODUCT"/>
             <column name="description" value="Удалить существующий товар"/>
-            <column name="name" value="Удалить пользователя"/>
+            <column name="name" value="Удалить товар"/>
             <column name="actiongroup_id" value="2"/>
         </insert>
     </changeSet>

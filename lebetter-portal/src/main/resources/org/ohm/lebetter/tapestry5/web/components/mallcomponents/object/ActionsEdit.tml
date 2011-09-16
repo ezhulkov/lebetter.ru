@@ -45,6 +45,23 @@
                 </t:grid>
             </div>
 
+            <script type="text/javascript">
+                jQuery(".checkbox3").click(function() {
+                    var id = jQuery(this).attr("id");
+                    var inp = jQuery("input[name=" + id + "]");
+                    if (jQuery(this).hasClass('f0')) {
+                        jQuery(inp).attr("value", 1);
+                        jQuery(this).removeClass('f0').addClass('f1');
+                    } else if (jQuery(this).hasClass('f1')) {
+                        jQuery(inp).attr("value", 2);
+                        jQuery(this).removeClass('f1').addClass('f2');
+                    } else if (jQuery(this).hasClass('f2')) {
+                        jQuery(inp).attr("value", 0);
+                        jQuery(this).removeClass('f2').addClass('f0');
+                    }
+                });
+            </script>
+
         </t:block>
 
     </t:mallcomponents.control.menulink>
