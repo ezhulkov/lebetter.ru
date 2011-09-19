@@ -1,0 +1,67 @@
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="propertytype" class="ks_adm_new_popup">
+
+    <t:mallComponents.control.editObject
+            addAction="ADD_USER"
+            delAction="DEL_USER"
+            editAction="EDIT_USER"
+            objectSavedLabel="literal:user.saved"
+            objectRemovedLabel="literal:user.deleted"
+            objectAddedLabel="literal:user.added"
+            objectExistsLabel="literal:user.exists"
+            newObject="literal:true"
+            listPage="literal:/po/user/list"
+            objectPage="literal:/po/user"
+            objectManager="serviceFacade.userManager"
+            selectedObject="selectedObject">
+
+        <div class="ks_orderadress_input">
+            <div class="ks_orderadress_legend">
+                <t:label for="name"/>
+                :
+            </div>
+            <input t:id="name" class="validate_input"/>
+        </div>
+
+        <div class="ks_orderadress_input">
+            <div class="ks_orderadress_legend">
+                <t:label for="fname"/>
+                :
+            </div>
+            <input t:id="fname" class="validate_input"/>
+        </div>
+
+        <div class="ks_orderadress_input">
+            <div class="ks_orderadress_legend">
+                <t:label for="lname"/>
+                :
+            </div>
+            <t:input t:id="lname" class="validate_input"/>
+        </div>
+
+        <div class="ks_orderadress_input">
+            <div class="ks_orderadress_legend">
+                <t:label for="pwd1"/>
+                :
+            </div>
+            <t:input t:id="pwd1" class="validate_input"/>
+        </div>
+
+        <div class="ks_orderadress_input">
+            <div class="ks_orderadress_legend">
+                <t:label for="pwd2"/>
+                :
+            </div>
+            <t:input t:id="pwd2" class="validate_input"/>
+        </div>
+
+        <div class="ks_orderadress_input">
+            <div class="ks_orderadress_legend">
+                <t:label for="role"/>
+                :
+            </div>
+            <t:select t:id="role" class="validate_input"/>
+        </div>
+
+    </t:mallComponents.control.editObject>
+
+</div>

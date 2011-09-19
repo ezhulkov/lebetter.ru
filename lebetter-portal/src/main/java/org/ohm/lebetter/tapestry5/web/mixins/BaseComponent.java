@@ -235,8 +235,16 @@ public final class BaseComponent implements WebAppIOCFacade, WebAppAuthFacade, W
         getRequest().getSession(false).setAttribute(Constants.FLASH, new FlashMessage(msg, type));
     }
 
-    public FlashMessage getFlashMessage() {
+    @Override
+    public boolean getFlashMessage2() {
+        if (getRequest().getSession(false) != null &&
+            getRequest().getSession(false).getAttribute(Constants.FLASH) != null) {
+            return true;
+        }
+        return false;
+    }
 
+    public FlashMessage getFlashMessage() {
         FlashMessage res = null;
         if (getRequest().getSession(false) != null &&
             getRequest().getSession(false).getAttribute(Constants.FLASH) != null) {
@@ -246,7 +254,7 @@ public final class BaseComponent implements WebAppIOCFacade, WebAppAuthFacade, W
         return res;
     }
 
-    public boolean hasFlashMessage(FlashMessage.Type type) {
+    public boolean containsFlashMessage(FlashMessage.Type type) {
         if (getRequest().getSession(false).getAttribute(Constants.FLASH) != null) {
             FlashMessage res = (FlashMessage) getRequest().getSession(false).
                     getAttribute(Constants.FLASH);

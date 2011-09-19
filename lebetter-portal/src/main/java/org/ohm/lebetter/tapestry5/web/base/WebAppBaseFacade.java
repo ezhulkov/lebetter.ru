@@ -23,9 +23,11 @@ public interface WebAppBaseFacade {
 
     public void addFlashToSession(String msg, Type type);
 
+    public boolean getFlashMessage2();
+
     public FlashMessage getFlashMessage();
 
-    public boolean hasFlashMessage(FlashMessage.Type type);
+    public boolean containsFlashMessage(FlashMessage.Type type);
 
     public DateFormat getThreadSafeDateFormat();
 

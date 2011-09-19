@@ -1,7 +1,9 @@
 <div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="${key}-edit">
 
     <!-- Блок, содержащий форму, стандартные кнопки редактирования объекта и кастомный код редактирования объектов -->
-    !${base.flashMessage}!
+    <t:if test="base.flashMessage2">
+        <div class="flash_msg">${base.flashMessage.message}</div>
+    </t:if>
 
     <t:unless test="newObject">
         <t:form t:id="editObjectForm" t:autofocus="false" t:zone="editAreaZone" t:context="saveContext">
@@ -9,59 +11,40 @@
             <!-- Кнопки для редактирования -->
             <div>
 
-                <t:unless test="locked">
-                    <t:if test="editAllowed">
-                        <div style="display:none">
-                            <div id="delete_confirm">
-                                <t:if test="delAllowed">
-                                    <div class="ks_editobjectshow_5">${message:delete.confirm}</div>
-                                    <div class="ks_editobjectshow_6">
-                                        <div class="ks_editobjectshow_7">
-                                            <img class="NFButtonResLeft" src="/images/0.gif"/><input type="button" onclick="jQuery.fancybox.close();" value="${message:cancelbtn}" class="NFButtonRes del-btn2"/><img src="/images/0.gif" class="NFButtonResRight"/>
-                                        </div>
-                                        <img class="NFButton2Left" src="/images/0.gif"/>
-
-                                        <div class="NFButton2">
-                                            <t:mallComponents.control.ie9CompatibleActionLink t:id="delObject" t:context="delContext">${message:delbtn}</t:mallComponents.control.ie9CompatibleActionLink>
-                                        </div>
-                                        <img src="/images/0.gif" class="NFButton2Right"/>
-                                    </div>
-                                    <div class="break"></div>
-                                </t:if>
-                            </div>
-                        </div>
-                        <div class="rbut ks_editobjectshow_1">
-                            <img class="NFButtonResLeft" src="/images/0.gif"/>
-                            <input type="reset" name="" value="${message:cancelbtn}" class="NFButtonRes"/>
-                            <img src="/images/0.gif" class="NFButtonResRight"/>
-                            <img class="NFButtonLeft" src="/images/0.gif"/>
-                            <input id="buttonSave" type="submit" value="${message:savebtn}" class="NFButton"/>
-                            <img src="/images/0.gif" class="NFButtonRight"/>
+                <t:if test="editAllowed">
+                    <div style="display:none">
+                        <div id="delete_confirm">
                             <t:if test="delAllowed">
-                                <t:if test="drawDelete">
-                                    <a href="#delete_confirm" class="del-btn" id='del-btn_confirm'><img src="/images/but/tb-del.png" alt="${message:delbtn}" title="${message:delbtn}"/></a>
-                                </t:if>
+                                <div class="ks_editobjectshow_5">${message:delete.confirm}</div>
+                                <div class="ks_editobjectshow_6">
+                                    <div class="ks_editobjectshow_7">
+                                        <img class="NFButtonResLeft" src="/images/0.gif"/><input type="button" onclick="jQuery.fancybox.close();" value="${message:cancelbtn}" class="NFButtonRes del-btn2"/><img src="/images/0.gif" class="NFButtonResRight"/>
+                                    </div>
+                                    <img class="NFButton2Left" src="/images/0.gif"/>
+
+                                    <div class="NFButton2">
+                                        <t:mallComponents.control.ie9CompatibleActionLink t:id="delObject" t:context="delContext">${message:delbtn}</t:mallComponents.control.ie9CompatibleActionLink>
+                                    </div>
+                                    <img src="/images/0.gif" class="NFButton2Right"/>
+                                </div>
+                                <div class="break"></div>
                             </t:if>
                         </div>
-                    </t:if>
-                    <t:parameter name="else">
-                        <div class="rbut ks_editobjectshow_8">
-                            <div class="ks_content_b3_brd1"><b></b></div>
-                            <div class="ks_content_b3_brd2"><b><i></i></b></div>
-                            <div class="ks_content_b3_brd3"><b><i></i></b></div>
-                            <div class="ks_content_b3_brd4"><b><i></i></b></div>
-                            <div class="ks_content_b3_brd0">
-
-                                Объект редактирует ${currentEditor.editor.fullName} до ${currentEditor.lockDate}
-
-                            </div>
-                            <div class="ks_content_b3_brd4"><b><i></i></b></div>
-                            <div class="ks_content_b3_brd3"><b><i></i></b></div>
-                            <div class="ks_content_b3_brd2"><b><i></i></b></div>
-                            <div class="ks_content_b3_brd1"><b></b></div>
-                        </div>
-                    </t:parameter>
-                </t:unless>
+                    </div>
+                    <div class="rbut ks_editobjectshow_1">
+                        <img class="NFButtonResLeft" src="/images/0.gif"/>
+                        <input type="reset" name="" value="${message:cancelbtn}" class="NFButtonRes"/>
+                        <img src="/images/0.gif" class="NFButtonResRight"/>
+                        <img class="NFButtonLeft" src="/images/0.gif"/>
+                        <input id="buttonSave" type="submit" value="${message:savebtn}" class="NFButton"/>
+                        <img src="/images/0.gif" class="NFButtonRight"/>
+                        <t:if test="delAllowed">
+                            <t:if test="drawDelete">
+                                <a href="#delete_confirm" class="del-btn" id='del-btn_confirm'><img src="/images/but/tb-del.png" alt="${message:delbtn}" title="${message:delbtn}"/></a>
+                            </t:if>
+                        </t:if>
+                    </div>
+                </t:if>
 
             </div>
 
@@ -115,7 +98,7 @@
 
     <script language="JavaScript" type="text/javascript">
         var key = "${key}" + "-edit";
-         //Рисуем селектбоксы
+        //Рисуем селектбоксы
         jQuery("div#" + key).find("select[id^='status']").css("display", "block");
         jQuery("div#" + key).find("select[id^='status']").selectbox();
         //Расставляем кнопки на свои места
@@ -131,16 +114,16 @@
         }
         //Окно подтверждения удаления объекта
         jQuery("#del-btn_confirm").fancybox({
-            'autoDimensions': false,
-            'width': 260,
-            'height': 86,
-            'title': 'Удаление объекта',
-            'padding': 10,
-            'titlePosition' : 'outside',
-            'transitionIn' : 'none',
-            'transitionOut' : 'none',
-            'modal': true
-        });
+                                                'autoDimensions': false,
+                                                'width': 260,
+                                                'height': 86,
+                                                'title': 'Удаление объекта',
+                                                'padding': 10,
+                                                'titlePosition' : 'outside',
+                                                'transitionIn' : 'none',
+                                                'transitionOut' : 'none',
+                                                'modal': true
+                                            });
 
     </script>
 

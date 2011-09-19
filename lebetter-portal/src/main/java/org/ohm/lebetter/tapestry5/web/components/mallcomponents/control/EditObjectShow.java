@@ -112,7 +112,7 @@ public class EditObjectShow extends AbstractEditObject {
                 return getEditAreaBlock();
             }
 
-            if (getBase().hasFlashMessage(FlashMessage.Type.FAILURE)) {
+            if (getBase().containsFlashMessage(FlashMessage.Type.FAILURE)) {
                 return getEditAreaBlock();
             }
 

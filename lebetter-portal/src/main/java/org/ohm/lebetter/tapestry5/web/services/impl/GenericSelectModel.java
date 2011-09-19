@@ -96,7 +96,7 @@ public class GenericSelectModel<T> extends AbstractSelectModel implements ValueE
 
     // ValueEncoder functions
     public String toClient(T obj) {
-        if (list == null) {
+        if (list == null || obj == null) {
             return "";
         }
         if (idFieldAdapter == null) {
