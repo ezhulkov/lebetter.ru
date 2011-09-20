@@ -3,7 +3,6 @@ package org.ohm.lebetter.tapestry5.web.util;
 import org.apache.tapestry5.services.RequestExceptionHandler;
 import org.apache.tapestry5.services.RequestGlobals;
 import org.apache.tapestry5.services.ResponseRenderer;
-import org.jboss.cache.lock.TimeoutException;
 import org.room13.mallcore.log.RMLogger;
 import org.room13.mallcore.log.UIException;
 
@@ -29,8 +28,7 @@ public class KSRequestExceptionHandler implements RequestExceptionHandler {
     public void handleRequestException(Throwable exception) throws IOException {
 
         if (exception == null ||
-                exception instanceof IllegalStateException ||
-                exception instanceof TimeoutException) {
+                exception instanceof IllegalStateException) {
             return;
         }
 
