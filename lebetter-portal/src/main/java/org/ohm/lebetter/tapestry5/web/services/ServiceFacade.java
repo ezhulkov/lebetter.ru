@@ -7,7 +7,6 @@ import org.ohm.lebetter.spring.service.ProductManager;
 import org.ohm.lebetter.spring.service.PropertyManager;
 import org.ohm.lebetter.spring.service.PropertyValueManager;
 import org.ohm.lebetter.spring.service.UserKinderManager;
-import org.room13.mallcore.news.service.BlogManager;
 import org.room13.mallcore.spring.service.ActionGroupManager;
 import org.room13.mallcore.spring.service.ActionManager;
 import org.room13.mallcore.spring.service.DataManager;
@@ -53,8 +52,6 @@ public interface ServiceFacade {
     public SystemParameterManager getSystemParameterManager();
 
     public UploadTicketService getUploadTicketService();
-
-    public BlogManager getBlogService();
 
     public ProfileParameterManager getProfileParameterManager();
 

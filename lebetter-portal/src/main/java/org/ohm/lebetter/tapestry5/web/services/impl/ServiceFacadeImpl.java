@@ -11,7 +11,6 @@ import org.ohm.lebetter.spring.service.PropertyValueManager;
 import org.ohm.lebetter.spring.service.ServiceManager;
 import org.ohm.lebetter.spring.service.UserKinderManager;
 import org.ohm.lebetter.tapestry5.web.services.ServiceFacade;
-import org.room13.mallcore.news.service.BlogManager;
 import org.room13.mallcore.spring.service.ActionGroupManager;
 import org.room13.mallcore.spring.service.ActionManager;
 import org.room13.mallcore.spring.service.DataManager;
@@ -97,11 +96,6 @@ public class ServiceFacadeImpl implements ServiceFacade {
     @Override
     public UploadTicketService getUploadTicketService() {
         return getServiceManager().getUploadTicketService();
-    }
-
-    @Override
-    public BlogManager getBlogService() {
-        return serviceManager.getBlogService();
     }
 
     @Override
