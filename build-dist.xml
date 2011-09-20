@@ -11,7 +11,7 @@
     <property name="work.dir" value="target/dist"/>
     <property name="snapshots.dir" value="snapshots"/>
     <property name="package-portal.name" value="${snapshots.dir}/lb-portal-pack.zip"/>
-    <property name="package-fh.name" value="${snapshots.dir}/lb-fh-pack.zip"/>
+    <!--<property name="package-fh.name" value="${snapshots.dir}/lb-fh-pack.zip"/>-->
     <property name="package-nginx.name" value="${snapshots.dir}/lb-nginx-pack.zip"/>
 
     <property file="build-dist-localhost.properties"/>
@@ -19,8 +19,8 @@
     <target name="copy-dependencies">
         <artifact:dependencies filesetId="dependencies.fileset">
             <dependency groupId="org.room13.lebetter" artifactId="lebetter-portal" version="1.1.0-SNAPSHOT" type="war"/>
-            <dependency groupId="org.room13.lebetter" artifactId="lebetter-filehandler" version="1.1.0-SNAPSHOT" type="war"/>
-            <dependency groupId="org.room13.lebetter" artifactId="lebetter-dataprocessor" version="1.1.0-SNAPSHOT" type="war"/>
+            <!--<dependency groupId="org.room13.lebetter" artifactId="lebetter-filehandler" version="1.1.0-SNAPSHOT" type="war"/>-->
+            <!--<dependency groupId="org.room13.lebetter" artifactId="lebetter-dataprocessor" version="1.1.0-SNAPSHOT" type="war"/>-->
             <dependency groupId="org.room13.lebetter" artifactId="lebetter-static-content" version="1.1.0-SNAPSHOT" classifier="files" type="tar.gz"/>
             <dependency groupId="org.room13.lebetter" artifactId="lebetter-db" version="1.1.0-SNAPSHOT" type="tar.gz"/>
         </artifact:dependencies>
@@ -43,29 +43,11 @@
             </fileset>
             <mapper type="merge" to="ROOT.war"/>
         </move>
-        <move todir="${work.dir}/pkg" overwrite="true" verbose="true">
-            <fileset dir="${work.dir}/dependencies">
-                <include name="lebetter-filehandler-*.war"/>
-            </fileset>
-            <mapper type="merge" to="lb-fh.war"/>
-        </move>
-        <move todir="${work.dir}/pkg" overwrite="true" verbose="true">
-            <fileset dir="${work.dir}/dependencies">
-                <include name="lebetter-pebble-*.war"/>
-            </fileset>
-            <mapper type="merge" to="lb-pebble.war"/>
-        </move>
-        <move todir="${work.dir}/pkg" overwrite="true" verbose="true">
-            <fileset dir="${work.dir}/dependencies">
-                <include name="lebetter-stat-*.war"/>
-            </fileset>
-            <mapper type="merge" to="lb-stat.war"/>
-        </move>
         <!--<move todir="${work.dir}/pkg" overwrite="true" verbose="true">-->
             <!--<fileset dir="${work.dir}/dependencies">-->
-                <!--<include name="lebetter-dataprocessor-*.war"/>-->
+                <!--<include name="lebetter-filehandler-*.war"/>-->
             <!--</fileset>-->
-            <!--<mapper type="merge" to="lb-dp.war"/>-->
+            <!--<mapper type="merge" to="lb-fh.war"/>-->
         <!--</move>-->
         <move todir="${work.dir}/pkg" overwrite="true" verbose="true">
             <fileset dir="${work.dir}/dependencies">
@@ -91,23 +73,17 @@
             <!--</fileset>-->
             <!--<mapper type="merge" to="lb-dp-config.tar.gz"/>-->
         <!--</move>-->
-        <move todir="${work.dir}/pkg" overwrite="true" verbose="true">
-            <fileset dir="${work.dir}/dependencies">
-                <include name="lebetter-config-*-fh.tar.gz"/>
-            </fileset>
-            <mapper type="merge" to="lb-fh-config.tar.gz"/>
-        </move>
+        <!--<move todir="${work.dir}/pkg" overwrite="true" verbose="true">-->
+            <!--<fileset dir="${work.dir}/dependencies">-->
+                <!--<include name="lebetter-config-*-fh.tar.gz"/>-->
+            <!--</fileset>-->
+            <!--<mapper type="merge" to="lb-fh-config.tar.gz"/>-->
+        <!--</move>-->
         <move todir="${work.dir}/pkg" overwrite="true" verbose="true">
             <fileset dir="${work.dir}/dependencies">
                 <include name="lebetter-config-*-ot.tar.gz"/>
             </fileset>
             <mapper type="merge" to="lb-ot-config.tar.gz"/>
-        </move>
-        <move todir="${work.dir}/pkg" overwrite="true" verbose="true">
-            <fileset dir="${work.dir}/dependencies">
-                <include name="lebetter-config-*-pebble.tar.gz"/>
-            </fileset>
-            <mapper type="merge" to="lb-pebble-config.tar.gz"/>
         </move>
         <move todir="${work.dir}/pkg" overwrite="true" verbose="true">
             <fileset dir="${work.dir}/dependencies">
@@ -127,12 +103,6 @@
             </fileset>
             <mapper type="merge" to="lb-sphinx-config.tar.gz"/>
         </move>
-        <move todir="${work.dir}/pkg" overwrite="true" verbose="true">
-            <fileset dir="${work.dir}/dependencies">
-                <include name="lebetter-config-*-stat.tar.gz"/>
-            </fileset>
-            <mapper type="merge" to="lb-stat-config.tar.gz"/>
-        </move>
         <mkdir dir="${snapshots.dir}"/>
         <zip destfile="${package-portal.name}" compress="true" level="9">
             <fileset dir="${work.dir}/pkg">
@@ -141,34 +111,16 @@
                 <include name="lb-db.tar.gz"/>
             </fileset>
         </zip>
-        <zip destfile="${package-fh.name}" compress="true" level="9">
-            <fileset dir="${work.dir}/pkg">
-                <include name="lb-fh.war"/>
-                <include name="lb-fh-config.tar.gz"/>
-            </fileset>
-        </zip>
-        <zip destfile="${package-stat.name}" compress="true" level="9">
-            <fileset dir="${work.dir}/pkg">
-                <include name="lb-stat.war"/>
-                <include name="lb-stat-config.tar.gz"/>
-            </fileset>
-        </zip>
+        <!--<zip destfile="${package-fh.name}" compress="true" level="9">-->
+            <!--<fileset dir="${work.dir}/pkg">-->
+                <!--<include name="lb-fh.war"/>-->
+                <!--<include name="lb-fh-config.tar.gz"/>-->
+            <!--</fileset>-->
+        <!--</zip>-->
         <zip destfile="${package-ot.name}" compress="true" level="9">
             <fileset dir="${work.dir}/pkg">
                 <include name="lb-ot.tar.gz"/>
                 <include name="lb-ot-config.tar.gz"/>
-            </fileset>
-        </zip>
-        <zip destfile="${package-pebble.name}" compress="true" level="9">
-            <fileset dir="${work.dir}/pkg">
-                <include name="lb-pebble.war"/>
-                <include name="lb-pebble-config.tar.gz"/>
-            </fileset>
-        </zip>
-        <zip destfile="${package-dp.name}" compress="true" level="9">
-            <fileset dir="${work.dir}/pkg">
-                <include name="lb-dp.war"/>
-                <include name="lb-dp-config.tar.gz"/>
             </fileset>
         </zip>
         <zip destfile="${package-nginx.name}" compress="true" level="9">
@@ -177,40 +129,22 @@
                 <include name="lb-static-content.tar.gz"/>
             </fileset>
         </zip>
-        <zip destfile="${package-sphinx.name}" compress="true" level="9">
-            <fileset dir="${work.dir}/pkg">
-                <include name="lb-sphinx-config.tar.gz"/>
-            </fileset>
-        </zip>
-        <zip destfile="${package-stat.name}" compress="true" level="9">
-            <fileset dir="${work.dir}/pkg">
-                <include name="lb-stat-config.tar.gz"/>
-            </fileset>
-        </zip>
     </target>
 
     <target name="deliver" description="deliver distribution package to deployment host(s)">
 
         <available file="${package-portal.name}" property="package-portal.name.check"/>
         <!--<available file="${package-dp.name}" property="package-dp.name.check"/>-->
-        <available file="${package-fh.name}" property="package-fh.name.check"/>
-        <available file="${package-pebble.name}" property="package-pebble.name.check"/>
+        <!--<available file="${package-fh.name}" property="package-fh.name.check"/>-->
         <available file="${package-nginx.name}" property="package-nginx.name.check"/>
-        <available file="${package-sphinx.name}" property="package-sphinx.name.check"/>
-        <available file="${package-ot.name}" property="package-ot.name.check"/>
-        <available file="${package-stat.name}" property="package-stat.name.check"/>
+        <!--<available file="${package-ot.name}" property="package-ot.name.check"/>-->
         <fail unless="package-portal.name.check" message="define 'package-portal.name' (path) property"/>
-        <fail unless="package-ot.name.check" message="define 'package-ot.name' (path) property"/>
+        <!--<fail unless="package-ot.name.check" message="define 'package-ot.name' (path) property"/>-->
         <!--<fail unless="package-dp.name.check" message="define 'package-dp.name' (path) property"/>-->
-        <fail unless="package-fh.name.check" message="define 'package-fh.name' (path) property"/>
-        <fail unless="package-pebble.name.check" message="define 'package-pebble.name' (path) property"/>
+        <!--<fail unless="package-fh.name.check" message="define 'package-fh.name' (path) property"/>-->
         <fail unless="package-nginx.name.check" message="define 'package-nginx.name' (path) property"/>
-        <fail unless="package-sphinx.name.check" message="define 'package-sphinx.name' (path) property"/>
         <fail unless="portal.host" message="define 'portal.host' (hostname) property"/>
-        <fail unless="fh.host" message="define 'fh.host' (hostname) property"/>
-        <fail unless="pebble.host" message="define 'pebble.host' (hostname) property"/>
-        <fail unless="stat.host" message="define 'stat.host' (hostname) property"/>
-        <fail unless="dp.host" message="define 'dp.host' (hostname) property"/>
+        <!--<fail unless="fh.host" message="define 'fh.host' (hostname) property"/>-->
         <fail unless="user" message="define 'user' (login) property"/>
         <basename property="ant.file.basename" file="${ant.file}"/>
 
@@ -225,11 +159,8 @@
         <!--<scp verbose="true" file="${package-dp.name}" todir="${user}@${dp.host}:${package-dp.name}"-->
              <!--keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>-->
         <!--<echo message="Delivering '${package-fh.name}' package"/>-->
-        <scp verbose="true" file="${package-fh.name}" todir="${user}@${fh.host}:${package-fh.name}"
-             keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>
-        <echo message="Delivering '${package-pebble.name}' package"/>
-        <scp verbose="true" file="${package-pebble.name}" todir="${user}@${pebble.host}:${package-pebble.name}"
-             keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>
+        <!--<scp verbose="true" file="${package-fh.name}" todir="${user}@${fh.host}:${package-fh.name}"-->
+             <!--keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>-->
         <echo message="Delivering '${package-nginx.name}' package"/>
         <scp verbose="true" file="${package-nginx.name}" todir="${user}@${nginx.host}:${package-nginx.name}"
              keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>
@@ -239,20 +170,14 @@
         <echo message="Delivering '${package-ot.name}' package"/>
         <scp verbose="true" file="${package-ot.name}" todir="${user}@${ot.host}:${package-ot.name}"
              keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>
-        <echo message="Delivering '${package-stat.name}' package"/>
-        <scp verbose="true" file="${package-stat.name}" todir="${user}@${stat.host}:${package-stat.name}"
-             keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>
 
         <echo message="Delivering build files"/>
         <scp verbose="true" file="${tools.path}/deploy-current-snapshot.sh"
              todir="${user}@${portal.host}:deploy-current-snapshot.sh" keyfile="${user.home}/.ssh/id_rsa"
              passphrase="" trust="true"/>
-        <scp verbose="true" file="${tools.path}/deploy-current-snapshot.sh"
-             todir="${user}@${fh.host}:deploy-current-snapshot.sh" keyfile="${user.home}/.ssh/id_rsa"
-             passphrase="" trust="true"/>
-        <scp verbose="true" file="${tools.path}/deploy-current-snapshot.sh"
-             todir="${user}@${pebble.host}:deploy-current-snapshot.sh" keyfile="${user.home}/.ssh/id_rsa"
-             passphrase="" trust="true"/>
+        <!--<scp verbose="true" file="${tools.path}/deploy-current-snapshot.sh"-->
+             <!--todir="${user}@${fh.host}:deploy-current-snapshot.sh" keyfile="${user.home}/.ssh/id_rsa"-->
+             <!--passphrase="" trust="true"/>-->
         <scp verbose="true" file="${tools.path}/deploy-current-snapshot.sh"
              todir="${user}@${dp.host}:deploy-current-snapshot.sh" keyfile="${user.home}/.ssh/id_rsa"
              passphrase="" trust="true"/>
@@ -265,22 +190,15 @@
         <scp verbose="true" file="${tools.path}/deploy-current-snapshot.sh"
              todir="${user}@${ot.host}:deploy-current-snapshot.sh" keyfile="${user.home}/.ssh/id_rsa"
              passphrase="" trust="true"/>
-        <scp verbose="true" file="${tools.path}/deploy-current-snapshot.sh"
-             todir="${user}@${stat.host}:deploy-current-snapshot.sh" keyfile="${user.home}/.ssh/id_rsa"
-             passphrase="" trust="true"/>
 
         <scp verbose="true" file="${tools.path}/online-stop.sh" todir="${user}@${portal.host}:online-stop.sh"
              keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>
         <scp verbose="true" file="${tools.path}/online-start.sh" todir="${user}@${portal.host}:online-start.sh"
              keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>
-        <scp verbose="true" file="${tools.path}/online-stop.sh" todir="${user}@${fh.host}:online-stop.sh"
-             keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>
-        <scp verbose="true" file="${tools.path}/online-start.sh" todir="${user}@${fh.host}:online-start.sh"
-             keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>
-        <scp verbose="true" file="${tools.path}/online-stop.sh" todir="${user}@${pebble.host}:online-stop.sh"
-             keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>
-        <scp verbose="true" file="${tools.path}/online-start.sh" todir="${user}@${pebble.host}:online-start.sh"
-             keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>
+        <!--<scp verbose="true" file="${tools.path}/online-stop.sh" todir="${user}@${fh.host}:online-stop.sh"-->
+             <!--keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>-->
+        <!--<scp verbose="true" file="${tools.path}/online-start.sh" todir="${user}@${fh.host}:online-start.sh"-->
+             <!--keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>-->
         <scp verbose="true" file="${tools.path}/online-stop.sh" todir="${user}@${dp.host}:online-stop.sh"
              keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>
         <scp verbose="true" file="${tools.path}/online-start.sh" todir="${user}@${dp.host}:online-start.sh"
@@ -289,17 +207,11 @@
              keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>
         <scp verbose="true" file="${tools.path}/online-start.sh" todir="${user}@${nginx.host}:online-start.sh"
              keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>
-        <scp verbose="true" file="${tools.path}/online-stop.sh" todir="${user}@${stat.host}:online-stop.sh"
-             keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>
-        <scp verbose="true" file="${tools.path}/online-start.sh" todir="${user}@${stat.host}:online-start.sh"
-             keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>
 
         <scp verbose="true" file="${ant.file}" todir="${user}@${portal.host}:${ant.file.basename}"
              keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>
-        <scp verbose="true" file="${ant.file}" todir="${user}@${fh.host}:${ant.file.basename}"
-             keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>
-        <scp verbose="true" file="${ant.file}" todir="${user}@${pebble.host}:${ant.file.basename}"
-             keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>
+        <!--<scp verbose="true" file="${ant.file}" todir="${user}@${fh.host}:${ant.file.basename}"-->
+             <!--keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>-->
         <scp verbose="true" file="${ant.file}" todir="${user}@${dp.host}:${ant.file.basename}"
              keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>
         <scp verbose="true" file="${ant.file}" todir="${user}@${nginx.host}:${ant.file.basename}"
@@ -307,8 +219,6 @@
         <scp verbose="true" file="${ant.file}" todir="${user}@${sphinx.host}:${ant.file.basename}"
              keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>
         <scp verbose="true" file="${ant.file}" todir="${user}@${ot.host}:${ant.file.basename}"
-             keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>
-        <scp verbose="true" file="${ant.file}" todir="${user}@${stat.host}:${ant.file.basename}"
              keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>
 
     </target>
@@ -331,9 +241,7 @@
 
     <target name="deploy-remote" description="trigger deploy script on remote server">
         <fail unless="portal.host" message="define 'portal.host' (hostname) property"/>
-        <fail unless="fh.host" message="define 'fh.host' (hostname) property"/>
-        <fail unless="pebble.host" message="define 'pebble.host' (hostname) property"/>
-        <fail unless="dp.host" message="define 'dp.host' (hostname) property"/>
+        <!--<fail unless="fh.host" message="define 'fh.host' (hostname) property"/>-->
         <fail unless="user" message="define 'user' (login) property"/>
         <sshexec
                 host="${portal.host}" username="${user}" command="chmod a+x *.sh"
@@ -345,12 +253,9 @@
                 host="${portal.host}" username="${user}"
                 command="./deploy-current-snapshot.sh db ${db.properties.file}"
                 keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>
-        <sshexec
-                host="${fh.host}" username="${user}" command="./deploy-current-snapshot.sh fh"
-                keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>
-        <sshexec
-                host="${pebble.host}" username="${user}" command="./deploy-current-snapshot.sh pebble"
-                keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>
+        <!--<sshexec-->
+                <!--host="${fh.host}" username="${user}" command="./deploy-current-snapshot.sh fh"-->
+                <!--keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>-->
         <sshexec
                 host="${dp.host}" username="${user}" command="./deploy-current-snapshot.sh dp"
                 keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>
@@ -363,9 +268,6 @@
         <sshexec
                 host="${ot.host}" username="${user}" command="./deploy-current-snapshot.sh ot"
                 keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>
-        <sshexec
-                host="${ot.host}" username="${user}" command="./deploy-current-snapshot.sh stat"
-                keyfile="${user.home}/.ssh/id_rsa" passphrase="" trust="true"/>
 
     </target>
 
@@ -375,11 +277,8 @@
         <fail unless="tomcat.home" message="define 'tomcat.home' (path) property"/>
 
         <available file="${package-portal.name}" property="onportal.present"/>
-        <!--<available file="${package-dp.name}" property="ondp.present"/>-->
-        <available file="${package-fh.name}" property="onfh.present"/>
-        <available file="${package-pebble.name}" property="onpebble.present"/>
-        <available file="${package-ot.name}" property="onot.present"/>
-        <available file="${package-stat.name}" property="onstat.present"/>
+        <!--<available file="${package-fh.name}" property="onfh.present"/>-->
+        <!--<available file="${package-ot.name}" property="onot.present"/>-->
 
     </target>
 
@@ -396,11 +295,8 @@
         </zip>
 
         <antcall target="deploy-portalbin"/>
-        <antcall target="deploy-fhbin"/>
-        <antcall target="deploy-pebblebin"/>
-        <!--<antcall target="deploy-dpbin"/>-->
-        <antcall target="deploy-otbin"/>
-        <antcall target="deploy-statbin"/>
+        <!--<antcall target="deploy-fhbin"/>-->
+        <!--<antcall target="deploy-otbin"/>-->
 
     </target>
 
@@ -410,12 +306,9 @@
 
         <available file="${package-portal.name}" property="onportal.present"/>
         <!--<available file="${package-dp.name}" property="ondp.present"/>-->
-        <available file="${package-fh.name}" property="onfh.present"/>
-        <available file="${package-pebble.name}" property="onpebble.present"/>
+        <!--<available file="${package-fh.name}" property="onfh.present"/>-->
         <available file="${package-nginx.name}" property="onnginx.present"/>
-        <available file="${package-sphinx.name}" property="onsphinx.present"/>
-        <available file="${package-ot.name}" property="onot.present"/>
-        <available file="${package-stat.name}" property="onstat.present"/>
+        <!--<available file="${package-ot.name}" property="onot.present"/>-->
 
         <condition property="onportalconfig.present">
             <and>
@@ -431,19 +324,12 @@
             </and>
         </condition>
 
-        <condition property="onfhconfig.present">
-            <and>
-                <istrue value="${external.config}"/>
-                <istrue value="${onfh.present}"/>
-            </and>
-        </condition>
-
-        <condition property="onpebbleconfig.present">
-            <and>
-                <istrue value="${external.config}"/>
-                <istrue value="${onpebble.present}"/>
-            </and>
-        </condition>
+        <!--<condition property="onfhconfig.present">-->
+            <!--<and>-->
+                <!--<istrue value="${external.config}"/>-->
+                <!--<istrue value="${onfh.present}"/>-->
+            <!--</and>-->
+        <!--</condition>-->
 
         <condition property="onnginxconfig.present">
             <and>
@@ -451,23 +337,11 @@
             </and>
         </condition>
 
-        <condition property="onsphinxconfig.present">
-            <and>
-                <istrue value="${onsphinx.present}"/>
-            </and>
-        </condition>
-
-        <condition property="onotconfig.present">
-            <and>
-                <istrue value="${onot.present}"/>
-            </and>
-        </condition>
-
-        <condition property="onstatconfig.present">
-            <and>
-                <istrue value="${onstat.present}"/>
-            </and>
-        </condition>
+        <!--<condition property="onotconfig.present">-->
+            <!--<and>-->
+                <!--<istrue value="${onot.present}"/>-->
+            <!--</and>-->
+        <!--</condition>-->
 
     </target>
 
@@ -476,13 +350,9 @@
         <echo message="Deploing config packages"/>
 
         <antcall target="deploy-portalconfig"/>
-        <antcall target="deploy-fhconfig"/>
-        <antcall target="deploy-otconfig"/>
-        <antcall target="deploy-pebbleconfig"/>
-        <!--<antcall target="deploy-dpconfig"/>-->
+        <!--<antcall target="deploy-fhconfig"/>-->
+        <!--<antcall target="deploy-otconfig"/>-->
         <antcall target="deploy-nginxconfig"/>
-        <antcall target="deploy-sphinxconfig"/>
-        <antcall target="deploy-statconfig"/>
 
     </target>
 
@@ -491,25 +361,6 @@
         <unzip src="${package-portal.name}" dest="${work.dir}/deploy"/>
         <unjar src="${work.dir}/deploy/ROOT.war" dest="${tomcat.home}/webapps/ROOT"/>
     </target>
-
-     <target name="deploy-statbin" depends="prepare-deploy-bin" if="onstat.present">
-        <echo message="Deploing stat files"/>
-        <unzip src="${package-stat.name}" dest="${work.dir}/deploy"/>
-        <unjar src="${work.dir}/deploy/lb-stat.war" dest="${tomcat.home}/webapps/lb-stat"/>
-    </target>
-
-    <target name="deploy-fhbin" depends="prepare-deploy-bin" if="onfh.present">
-        <echo message="Deploing fh files"/>
-        <unzip src="${package-fh.name}" dest="${work.dir}/deploy"/>
-        <unjar src="${work.dir}/deploy/lb-fh.war" dest="${tomcat.home}/webapps/lb-fh"/>
-    </target>
-
-    <target name="deploy-pebblebin" depends="prepare-deploy-bin" if="onpebble.present">
-        <echo message="Deploing pebble files"/>
-        <unzip src="${package-pebble.name}" dest="${work.dir}/deploy"/>
-        <unjar src="${work.dir}/deploy/lb-pebble.war" dest="${tomcat.home}/webapps/lb-pebble"/>
-    </target>
-
 
     <target name="deploy-otbin" depends="prepare-deploy-bin" if="onot.present">
         <echo message="Deploing offline tool files"/>
@@ -533,20 +384,6 @@
         <!--<unzip src="${package-dp.name}" dest="${work.dir}/deploy"/>-->
         <!--<unjar src="${work.dir}/deploy/lb-dp.war" dest="${tomcat.home}/webapps/lb-dp"/>-->
     <!--</target>-->
-
-    <target name="deploy-fhconfig" depends="prepare-deploy-config" if="onfhconfig.present">
-        <echo message="Deploing fh config files"/>
-        <gunzip src="${work.dir}/deploy/lb-fh-config.tar.gz" dest="${work.dir}/deploy/lb-fh-config.tar"/>
-        <untar src="${work.dir}/deploy/lb-fh-config.tar" dest="/"/>
-        <delete file="${work.dir}/deploy/lb-fh-config.tar"/>
-    </target>
-
-    <target name="deploy-pebbleconfig" depends="prepare-deploy-config" if="onpebbleconfig.present">
-        <echo message="Deploing pebble config files"/>
-        <gunzip src="${work.dir}/deploy/lb-pebble-config.tar.gz" dest="${work.dir}/deploy/lb-pebble-config.tar"/>
-        <untar src="${work.dir}/deploy/lb-pebble-config.tar" dest="/"/>
-        <delete file="${work.dir}/deploy/lb-pebble-config.tar"/>
-    </target>
 
     <!--<target name="deploy-dpconfig" depends="prepare-deploy-config" if="ondpconfig.present">-->
         <!--<echo message="Deploing dp config files"/>-->
@@ -584,15 +421,6 @@
                 dest="${work.dir}/deploy/lb-portal-config.tar"/>
         <untar src="${work.dir}/deploy/lb-portal-config.tar" dest="/"/>
         <delete file="${work.dir}/deploy/lb-portal-config.tar"/>
-    </target>
-
-    <target name="deploy-statconfig" depends="prepare-deploy-config" if="onstatconfig.present">
-        <echo message="Deploing stat config files"/>
-        <unzip src="${package-stat.name}" dest="${work.dir}/deploy"/>
-        <gunzip src="${work.dir}/deploy/lb-stat-config.tar.gz"
-                dest="${work.dir}/deploy/lb-stat-config.tar"/>
-        <untar src="${work.dir}/deploy/lb-stat-config.tar" dest="/"/>
-        <delete file="${work.dir}/deploy/lb-stat-config.tar"/>
     </target>
 
     <target name="import-changeset" depends="prepare-deploy-config" if="onportalconfig.present">
