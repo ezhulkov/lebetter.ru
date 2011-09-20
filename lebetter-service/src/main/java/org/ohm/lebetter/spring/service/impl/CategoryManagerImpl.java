@@ -31,7 +31,6 @@ import java.security.AccessControlException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Properties;
 
 @SuppressWarnings("unchecked")
 public class CategoryManagerImpl
@@ -229,20 +228,6 @@ public class CategoryManagerImpl
         return parent == null ?
                categoryDao.getAllReadyRootCategories() :
                categoryDao.getAllReadyCategories(parent);
-    }
-
-    private Properties parseInfo(String info) {
-        Properties result = new Properties();
-        if (info != null) {
-            String[] pairs = info.split("#");
-            for (String pair : pairs) {
-                String[] param = pair.split(":");
-                if (param.length == 2 && !org.room13.mallcore.news.util.StringUtils.isEmpty(param[1])) {
-                    result.put(param[0], param[1]);
-                }
-            }
-        }
-        return result;
     }
 
     @Override
