@@ -3,10 +3,6 @@
                                 flash="flashMessage"
                                 xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
-    <t:pageLink t:page="about">О представительстве</t:pageLink><br/>
-    <t:pageLink t:page="manufacture">Фабрика</t:pageLink><br/>
-    <t:pageLink t:page="catalog">Каталог</t:pageLink><br/>
-    <t:pageLink t:page="partners">Партнерам</t:pageLink><br/>
-    <t:pageLink t:page="contacts">Контакты</t:pageLink><br/>
+
 
 </t:mallcomponents.layout.layout>

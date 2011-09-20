@@ -1,5 +1,6 @@
 package org.ohm.lebetter.spring.service.impl;
 
+import org.ohm.lebetter.model.SitemapAware;
 import org.ohm.lebetter.model.impl.entities.DealerEntity;
 import org.ohm.lebetter.model.impl.entities.UserEntity;
 import org.ohm.lebetter.spring.dao.DealerDao;
@@ -41,9 +42,19 @@ public class DealerManagerImpl
     @Override
     @Transactional(propagation = Propagation.REQUIRED)
     public void save(DealerEntity object, UserEntity caller) throws ObjectExistsException {
-        object.setAltId(StringUtil.translit(object.getName()) + "-" + object.getRootId());
-        super.save(object, caller);
-
+        synchronized (dealerDao) {
+            String altId = StringUtil.translit(object.getName());
+            DealerEntity prev = (DealerEntity) getByAltId(altId);
+            if (prev != null && !prev.getId().equals(object.getId())) {
+                altId += "-" + object.getId();
+            }
+            object.setAltId(altId);
+            super.save(object, caller);
+        }
     }
 
+    @Override
+    public SitemapAware getByAltId(String altid) {
+        return SitemapAwareManagerImpl.getByAltId(altid, dealerDao);
+    }
 }

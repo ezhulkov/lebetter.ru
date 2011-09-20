@@ -1,0 +1,18 @@
+<t:mallcomponents.layout.layout title="Lebetter.ru - Где купить"
+                                bodyId="partners"
+                                flash="flashMessage"
+                                xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+    Где купить
+
+    <t:grid pagerPosition="bottom" rowsPerPage="50" id="datagrid" source="dealers" row="oneDealer" include="name">
+        <t:parameter name="nameHeader"/>
+        <t:parameter name="nameCell">
+            <t:pageLink context="oneDealer.altid" page="dealer">${oneDealer.name}</t:pageLink>
+        </t:parameter>
+        <t:parameter name="empty">
+            <p class="nomsg">${message:empty.list}</p>
+        </t:parameter>
+    </t:grid>
+
+</t:mallcomponents.layout.layout>

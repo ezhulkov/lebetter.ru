@@ -5,6 +5,6 @@ import org.ohm.lebetter.model.impl.entities.UserEntity;
 import org.room13.mallcore.spring.service.GenericManager;
 
 public interface DealerManager
-        extends GenericManager<DealerEntity, UserEntity> {
+        extends GenericManager<DealerEntity, UserEntity>, SitemapAwareManager<DealerEntity> {
 
 }

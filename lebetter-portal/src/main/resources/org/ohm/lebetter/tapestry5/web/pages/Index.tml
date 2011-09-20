@@ -1,5 +1,8 @@
-<div>
+<t:mallcomponents.layout.layout title="Lebetter.ru - Представительство в России"
+                                bodyId="index"
+                                flash="flashMessage"
+                                xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
-        Сайт в разработке. Пожалуйста, зайдите позже
+    Сайт в разработке, пожалуйста, зайдите позже.
 
-</div>
+</t:mallcomponents.layout.layout>

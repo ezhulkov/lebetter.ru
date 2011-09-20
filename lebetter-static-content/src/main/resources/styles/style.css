@@ -3,6 +3,11 @@ html, body {
     width: 100%;
 }
 
+.main_menu li {
+    display: inline;
+    margin: 5px;
+}
+
 .checkbox3 {
     background-image: url('/images/lb-front/form/check.png');
     background-repeat: no-repeat;

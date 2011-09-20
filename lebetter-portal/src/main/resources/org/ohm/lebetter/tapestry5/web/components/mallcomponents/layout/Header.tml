@@ -10,4 +10,25 @@
 
     <hr/>
 
+    <ul class="main_menu">
+        <li>
+            <t:pageLink t:page="about">О представительстве</t:pageLink>
+        </li>
+        <li>
+            <t:pageLink t:page="manufacture">Фабрика</t:pageLink>
+        </li>
+        <li>
+            <t:pageLink t:page="catalog">Каталог</t:pageLink>
+        </li>
+        <li>
+            <t:pageLink t:page="partners">Партнерам</t:pageLink>
+        </li>
+        <li>
+            <t:pageLink t:page="contacts">Контакты</t:pageLink>
+        </li>
+        <li>
+            <t:pageLink t:page="dealer/list">Где купить</t:pageLink>
+        </li>
+    </ul>
+
 </div>

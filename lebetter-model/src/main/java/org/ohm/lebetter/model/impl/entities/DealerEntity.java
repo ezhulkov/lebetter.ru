@@ -3,6 +3,7 @@ package org.ohm.lebetter.model.impl.entities;
 import org.hibernate.annotations.AccessType;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.ohm.lebetter.model.SitemapAware;
 import org.room13.mallcore.model.impl.BaseOwnerAwareEntity;
 
 import javax.persistence.Column;
@@ -14,7 +15,8 @@ import javax.persistence.Table;
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @AccessType("field")
 public class DealerEntity
-        extends BaseOwnerAwareEntity {
+        extends BaseOwnerAwareEntity
+        implements SitemapAware {
 
     @Column
     private String altId;
@@ -63,4 +65,5 @@ public class DealerEntity
     public void setDescription(String description) {
         this.description = description;
     }
+
 }

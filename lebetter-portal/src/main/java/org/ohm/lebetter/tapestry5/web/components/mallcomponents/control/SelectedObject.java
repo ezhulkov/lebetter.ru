@@ -103,11 +103,13 @@ public class SelectedObject extends GrantCheck {
 
         if (getObject() == null && !StringUtils.isBlank(idStr) && objectManager != null) {
 
-            ObjectBaseEntity obe;
+            ObjectBaseEntity obe = null;
 
             if (objectManager instanceof SitemapAwareManager) {
                 obe = ((SitemapAwareManager) objectManager).getByAltId(idStr);
-            } else {
+            }
+
+            if (obe == null) {
                 obe = getById(idStr, objectManager);
             }
 

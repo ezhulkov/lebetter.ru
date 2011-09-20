@@ -14,6 +14,8 @@
     <br/>
     <t:pageLink t:page="catalog">Каталог</t:pageLink>
     <br/>
+    <t:pageLink t:page="dealer/list">Где купить</t:pageLink>
+    <br/>
     <t:if test="auth.authenticated">
         <t:pageLink t:page="po">Личный Кабинет</t:pageLink>
         <t:parameter name="else">

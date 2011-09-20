@@ -22,6 +22,14 @@
             <input t:id="name" class="validate_input"/>
         </div>
 
+        <div class="ks_orderadress_input_s">
+            <div class="ks_orderadress_legend_s">
+                <t:label for="status"/>
+                :
+            </div>
+            <select t:id="status"/>
+        </div>
+
         <div class="ks_orderadress_input">
             <div class="ks_orderadress_legend">
                 <t:label for="discount"/>

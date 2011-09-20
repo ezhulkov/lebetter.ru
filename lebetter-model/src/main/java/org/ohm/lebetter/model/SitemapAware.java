@@ -9,7 +9,4 @@ public interface SitemapAware extends ObjectBaseEntity {
 
     public void setAltId(String altId);
 
-    public String getEntityUrl();
-
-    public boolean useNewsDS();
 }
