@@ -1,0 +1,14 @@
+<t:mallcomponents.layout.layout title="Lebetter.ru - Личный Кабинет"
+                                bodyId="po"
+                                flash="flashMessage"
+                                xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+    <t:mallcomponents.layout.office>
+
+        <p>Создать дилера</p>
+
+        <t:mallcomponents.object.dealerNew/>
+
+    </t:mallcomponents.layout.office>
+
+</t:mallcomponents.layout.layout>

@@ -3,6 +3,7 @@ package org.ohm.lebetter.tapestry5.web.services.impl;
 import org.apache.tapestry5.ioc.services.ThreadLocale;
 import org.apache.tapestry5.services.Context;
 import org.ohm.lebetter.spring.service.CategoryManager;
+import org.ohm.lebetter.spring.service.DealerManager;
 import org.ohm.lebetter.spring.service.MailManager;
 import org.ohm.lebetter.spring.service.ProductManager;
 import org.ohm.lebetter.spring.service.PropertyManager;
@@ -141,5 +142,10 @@ public class ServiceFacadeImpl implements ServiceFacade {
     @Override
     public PasswordEncoder getPasswordEncoder() {
         return serviceManager.getPasswordEncoder();
+    }
+
+    @Override
+    public DealerManager getDealerManager() {
+        return serviceManager.getDealerManager();
     }
 }

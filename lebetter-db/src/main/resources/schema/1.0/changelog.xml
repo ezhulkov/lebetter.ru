@@ -904,4 +904,37 @@
         </sql>
     </changeSet>
 
+    <changeSet id="1.0.0-16" author="ezhulkov">
+        <sql>
+            create table public.app_dealer (
+            id int8 not null,
+            objectdeleted bool default false,
+            objectstatus int4 not null default 0,
+            rootid int8,
+            rootobject bool default false,
+            deletiondate timestamptz,
+            searchstatus int4 default 0,
+            language_id int8,
+            remover_id int8,
+            creator_id int8,
+            name varchar(128),
+            discount float4 default 0,
+            description varchar(4096),
+            entitycode varchar(6) default 'Dealer',
+            createddate timestamptz default now(),
+            altid varchar(150),
+            primary key (id),
+            constraint app_dealer_creator foreign key (creator_id) references app_user(id) on delete cascade
+            );
+            create unique index app_dealer_idx5 on public.app_dealer (rootid, rootobject, language_id);
+            create index app_dealer_altidx on public.app_dealer (altid);
+            create index app_dealer_creator_id_idx on public.app_dealer (creator_id);
+            create index app_dealer_ec_idx on public.app_dealer (entitycode);
+            create index app_dealer_idx1 on public.app_dealer (objectdeleted, objectstatus, deletiondate);
+            create index app_dealer_idx2 on public.app_dealer (lower(name));
+            create index app_dealer_language_id_idx on public.app_dealer (language_id);
+            create index app_dealer_rootid_idx on public.app_dealer (rootid);
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>

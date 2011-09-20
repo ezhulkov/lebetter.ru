@@ -1,6 +1,7 @@
 package org.ohm.lebetter.tapestry5.web.services;
 
 import org.ohm.lebetter.spring.service.CategoryManager;
+import org.ohm.lebetter.spring.service.DealerManager;
 import org.ohm.lebetter.spring.service.MailManager;
 import org.ohm.lebetter.spring.service.ProductManager;
 import org.ohm.lebetter.spring.service.PropertyManager;
@@ -68,5 +69,7 @@ public interface ServiceFacade {
     public PropertyValueManager getPropertyValueManager();
 
     public PasswordEncoder getPasswordEncoder();
+
+    public DealerManager getDealerManager();
 
 }

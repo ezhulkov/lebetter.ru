@@ -4,7 +4,36 @@
                                 xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
     <t:mallcomponents.layout.office>
+
         <p>Дилеры</p>
+
+        <t:pageLink t:page="po/dealer/create">Создать нового дилера</t:pageLink>
+
+        <t:grid pagerPosition="bottom" rowsPerPage="50" id="datagrid" source="dealers" row="oneDealer"
+                include="name,discount" add="owner" reorder="name,owner,discount">
+            <t:parameter name="nameHeader">
+                Название
+            </t:parameter>
+            <t:parameter name="ownerHeader">
+                Менеджер
+            </t:parameter>
+            <t:parameter name="discountHeader">
+                Скидка
+            </t:parameter>
+            <t:parameter name="nameCell">
+                <t:pageLink context="oneDealer.rootid" page="po/dealer" class="underline">${oneDealer.name}</t:pageLink>
+            </t:parameter>
+            <t:parameter name="ownerCell">
+                Владелец
+            </t:parameter>
+            <t:parameter name="discountCell">
+                ${oneDealer.discount}
+            </t:parameter>
+            <t:parameter name="empty">
+                <p class="nomsg">${message:empty.list}</p>
+            </t:parameter>
+        </t:grid>
+
     </t:mallcomponents.layout.office>
 
 </t:mallcomponents.layout.layout>

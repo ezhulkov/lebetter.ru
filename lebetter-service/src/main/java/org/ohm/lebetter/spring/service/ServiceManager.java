@@ -23,6 +23,8 @@ public interface ServiceManager
 
     public MailManager getMailManager();
 
+    public DealerManager getDealerManager();
+
     @Override
     public UserKinderManager getUserManager();
 

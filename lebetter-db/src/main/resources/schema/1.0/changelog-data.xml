@@ -44,6 +44,17 @@
             <column name="description" value="Редактировать каталог"/>
             <column name="name" value="Каталог"/>
         </insert>
+        <insert tableName="app_actiongroup">
+            <column name="id" value="3"/>
+            <column name="objectdeleted" value="false"/>
+            <column name="objectstatus" value="0"/>
+            <column name="rootobject" value="true"/>
+            <column name="rootid" value="3"/>
+            <column name="language_id" value="1"/>
+            <column name="code" value="DEALER"/>
+            <column name="description" value="Редактировать дилеров"/>
+            <column name="name" value="Дилеры"/>
+        </insert>
     </changeSet>
 
     <changeSet id="data-1.0.0-3" author="ezhulkov">
@@ -118,6 +129,42 @@
             <column name="description" value="Удалить существующий товар"/>
             <column name="name" value="Удалить товар"/>
             <column name="actiongroup_id" value="2"/>
+        </insert>
+        <insert tableName="app_action">
+            <column name="id" value="7"/>
+            <column name="rootid" value="7"/>
+            <column name="language_id" value="1"/>
+            <column name="objectdeleted" value="false"/>
+            <column name="objectstatus" value="0"/>
+            <column name="rootobject" value="true"/>
+            <column name="code" value="ADD_DEALER"/>
+            <column name="description" value="Добавить нового дилера"/>
+            <column name="name" value="Добавить дилера"/>
+            <column name="actiongroup_id" value="2"/>
+        </insert>
+        <insert tableName="app_action">
+            <column name="id" value="8"/>
+            <column name="rootid" value="8"/>
+            <column name="language_id" value="1"/>
+            <column name="objectdeleted" value="false"/>
+            <column name="objectstatus" value="0"/>
+            <column name="rootobject" value="true"/>
+            <column name="code" value="EDIT_DEALER"/>
+            <column name="description" value="Редактировать существующего дилера"/>
+            <column name="name" value="Редактировать дилера"/>
+            <column name="actiongroup_id" value="3"/>
+        </insert>
+        <insert tableName="app_action">
+            <column name="id" value="9"/>
+            <column name="rootid" value="9"/>
+            <column name="language_id" value="1"/>
+            <column name="objectdeleted" value="false"/>
+            <column name="objectstatus" value="0"/>
+            <column name="rootobject" value="true"/>
+            <column name="code" value="DEL_DEALER"/>
+            <column name="description" value="Удалить существующего дилера"/>
+            <column name="name" value="Удалить дилера"/>
+            <column name="actiongroup_id" value="3"/>
         </insert>
     </changeSet>
 
@@ -274,6 +321,21 @@
         </insert>
         <insert tableName="app_role_action">
             <column name="role_id" value="6"/>
+            <column name="action_id" value="7"/>
+            <column name="flag" value="2"/>
+        </insert>
+        <insert tableName="app_role_action">
+            <column name="role_id" value="6"/>
+            <column name="action_id" value="8"/>
+            <column name="flag" value="2"/>
+        </insert>
+        <insert tableName="app_role_action">
+            <column name="role_id" value="6"/>
+            <column name="action_id" value="9"/>
+            <column name="flag" value="2"/>
+        </insert>
+        <insert tableName="app_role_action">
+            <column name="role_id" value="6"/>
             <column name="action_id" value="1"/>
             <column name="flag" value="2"/>
         </insert>
@@ -290,6 +352,11 @@
         <insert tableName="app_role_action">
             <column name="role_id" value="1"/>
             <column name="action_id" value="2"/>
+            <column name="flag" value="2"/>
+        </insert>
+        <insert tableName="app_role_action">
+            <column name="role_id" value="1"/>
+            <column name="action_id" value="8"/>
             <column name="flag" value="2"/>
         </insert>
         <insert tableName="app_role_action">

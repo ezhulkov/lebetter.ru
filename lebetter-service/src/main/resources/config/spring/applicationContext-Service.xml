@@ -49,6 +49,7 @@
           p:propertyValueManager-ref="propertyValueManager"
           p:propertyManager-ref="propertyManager"
           p:passwordEncoder-ref="passwordEncoder"
+          p:dealerManager-ref="dealerManager"
           p:i18n-ref="i18n">
         <property name="blogService">
             <null/>
@@ -249,7 +250,13 @@
           p:ownerDao-ref="ownerDao"
           p:productDao-ref="productDao"/>
 
+    <bean id="dealerManager" parent="genericManager"
+          class="org.ohm.lebetter.spring.service.impl.DealerManagerImpl"
+          p:ownerDao-ref="ownerDao"
+          p:dealerDao-ref="dealerDao"/>
+
     <bean name="productDao" class="org.ohm.lebetter.spring.dao.impl.ProductDaoHibernate" parent="genericDao"/>
+    <bean name="dealerDao" class="org.ohm.lebetter.spring.dao.impl.DealerDaoHibernate" parent="genericDao"/>
 
     <bean id="categoryManager" parent="genericManager"
           class="org.ohm.lebetter.spring.service.impl.CategoryManagerImpl">

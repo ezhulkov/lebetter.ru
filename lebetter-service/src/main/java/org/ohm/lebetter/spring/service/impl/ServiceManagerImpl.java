@@ -1,6 +1,7 @@
 package org.ohm.lebetter.spring.service.impl;
 
 import org.ohm.lebetter.spring.service.CategoryManager;
+import org.ohm.lebetter.spring.service.DealerManager;
 import org.ohm.lebetter.spring.service.DictPropertyHolder;
 import org.ohm.lebetter.spring.service.MailManager;
 import org.ohm.lebetter.spring.service.ProductManager;
@@ -27,6 +28,7 @@ public class ServiceManagerImpl
     private Map<String, SyncDictProcessor> syncDictProcessors;
     private I18nBean i18n;
     private PasswordEncoder passwordEncoder;
+    private DealerManager dealerManager;
 
     @Override
     public CategoryManager getCategoryManager() {
@@ -87,6 +89,15 @@ public class ServiceManagerImpl
     public MailManager getMailManager() {
         return getMailEngine() instanceof MailManager ?
                (MailManager) getMailEngine() : null;
+    }
+
+    public void setDealerManager(DealerManager dealerManager) {
+        this.dealerManager = dealerManager;
+    }
+
+    @Override
+    public DealerManager getDealerManager() {
+        return dealerManager;
     }
 
     @Override

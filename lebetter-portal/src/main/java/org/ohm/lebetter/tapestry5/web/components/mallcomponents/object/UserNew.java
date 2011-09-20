@@ -76,7 +76,7 @@ public class UserNew extends AbstractEditComponent {
             public boolean onFormSubmit(UserEntity object) throws Exception {
                 if (!StringUtil.isEmpty(object.getConfirmPassword1())) {
                     if (!object.getConfirmPassword1().equals(object.getConfirmPassword2())) {
-                        getBase().addFlashToSession(getBase().getText("errorpwd"), Type.FAILURE);
+                        getBase().addFlashToSession(getBase().getText("error.pwd"), Type.FAILURE);
                         return false;
                     }
                 }
