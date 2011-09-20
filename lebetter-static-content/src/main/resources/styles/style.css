@@ -22,3 +22,7 @@ html, body {
 .checkbox3.f2 {
     background-position: -42px 0px;
 }
+
+.NFButtonRight, .NFButtonLeft, .NFButtonResRight, .NFButtonResLeft {
+    display: none;
+}

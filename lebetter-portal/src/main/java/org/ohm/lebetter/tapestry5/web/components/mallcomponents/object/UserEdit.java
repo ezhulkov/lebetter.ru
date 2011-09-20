@@ -11,18 +11,17 @@ import org.ohm.lebetter.tapestry5.web.components.base.AbstractEditComponent;
 import org.ohm.lebetter.tapestry5.web.components.base.EditObjectCallback;
 import org.ohm.lebetter.tapestry5.web.data.FlashMessage.Type;
 import org.ohm.lebetter.tapestry5.web.services.impl.GenericSelectModel;
-import org.room13.mallcore.model.impl.embedded.AddressSocial;
 import org.room13.mallcore.model.impl.entities.RoleEntity;
 import org.room13.mallcore.util.StringUtil;
 
 import java.util.List;
 
-public class UserNew extends AbstractEditComponent {
+public class UserEdit extends AbstractEditComponent {
 
     @Property
     private RoleEntity role;
 
-    @Component(id = "email", parameters = {"value=selectedObject.name",
+    @Component(id = "email", parameters = {"value=selectedObject.address.email",
                                            "validate=maxlength=64,regexp,required"})
     private TextField propertyNameField;
 
@@ -56,13 +55,10 @@ public class UserNew extends AbstractEditComponent {
                                                            RoleEntity.class, "name", "rootId",
                                                            getIOC().getPropertyAccess());
         }
+        role = getSelectedObject().getRoles().get(0);
     }
 
     public UserEntity getSelectedObject() {
-        if (getSelectedObjectInternal() == null) {
-            UserEntity selectedObject = getServiceFacade().getUserManager().getNewInstance();
-            setSelectedObjectInternal(selectedObject);
-        }
         return (UserEntity) getSelectedObjectInternal();
     }
 
@@ -84,8 +80,6 @@ public class UserNew extends AbstractEditComponent {
                     object.getRoles().clear();
                     object.getRoles().add(role);
                 }
-                object.setAddress(new AddressSocial());
-                object.getAddress().setEmail(object.getName());
                 return true;
             }
 

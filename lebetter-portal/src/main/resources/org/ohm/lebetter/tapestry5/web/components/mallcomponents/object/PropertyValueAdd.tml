@@ -20,10 +20,10 @@
                <div class="ks_comm_button">
                  <img class="NFButtonResLeft" src="/images/0.gif"/><input id="catvalres" type="reset"
                                                                           class="microescape NFButtonRes"
-                                                                          value="${message:cancelbtn}"/><img src="/images/0.gif"
+                                                                          value="${message:btncancel}"/><img src="/images/0.gif"
                                                                                                              class="NFButtonResRight"/> <img
                        class="NFButtonLeft" src="/images/0.gif"/><input type="submit" id="submitNewPropertyValueButton"
-                                                                        value="${message:addbtn}" class="NFButton"/><img
+                                                                        value="${message:btnadd}" class="NFButton"/><img
                        src="/images/0.gif" class="NFButtonRight"/>
 
                </div>

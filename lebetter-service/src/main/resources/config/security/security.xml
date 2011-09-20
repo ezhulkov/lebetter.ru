@@ -20,6 +20,8 @@
                     authentication-failure-url="/auth/login/error"
                     login-processing-url="/j_security_check"/>
 
+        <logout invalidate-session="true" logout-success-url="/" logout-url="/auth/logout"/>
+
         <remember-me user-service-ref="userManager" key="f9dfb931-1596-485f-a65b-1ec6ab2441ab"/>
 
     </http>

@@ -8,12 +8,14 @@
             objectRemovedLabel="literal:user.deleted"
             objectAddedLabel="literal:user.added"
             objectExistsLabel="literal:user.exists"
-            newObject="literal:true"
+            newObject="literal:false"
             listPage="literal:/po/user/list"
             objectPage="literal:/po/user"
             objectManager="serviceFacade.userManager"
             selectedObject="selectedObject"
             submitCallback="callback">
+
+        Логин: ${selectedObject.name}<br/>
 
         <div class="ks_orderadress_input">
             <div class="ks_orderadress_legend">

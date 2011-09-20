@@ -18,7 +18,7 @@
 
                     <t:mallComponents.control.menuLink action="ADD_PROPERTY" object="selectedProperty">
                       <div class="ks_comm_button"><!-- Кнопки "отмена" и "создать" -->
-                        <img class="NFButtonResLeft" src="/images/0.gif"/><input id="catres" type="reset" class="microescape NFButtonRes" name="" value="${message:cancelbtn}"/><img src="/images/0.gif" class="NFButtonResRight"/> <img class="NFButtonLeft" src="/images/0.gif"/><input type="submit" id="submitAddButton" class="NFButton" value="${message:addbtn}"/><img src="/images/0.gif" class="NFButtonRight"/>
+                        <img class="NFButtonResLeft" src="/images/0.gif"/><input id="catres" type="reset" class="microescape NFButtonRes" name="" value="${message:btncancel}"/><img src="/images/0.gif" class="NFButtonResRight"/> <img class="NFButtonLeft" src="/images/0.gif"/><input type="submit" id="submitAddButton" class="NFButton" value="${message:btnadd}"/><img src="/images/0.gif" class="NFButtonRight"/>
                       </div>
                     </t:mallComponents.control.menuLink>
               <div class="break"></div>

@@ -1,6 +1,12 @@
 <div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
     <t:pageLink t:page="index2"><img style="width:100px;" src="/images/logo.jpg"/></t:pageLink>
+    <t:unless test="auth.authenticated">
+        <t:pageLink t:page="auth/login">вход для партнеров</t:pageLink>
+    </t:unless>
+    <t:if test="auth.authenticated">
+        <a href="auth/logout">выход</a>
+    </t:if>
 
     <hr/>
 

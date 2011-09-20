@@ -193,7 +193,7 @@
             <column name="code" value="ROLE_HUMAN"/>
             <column name="description" value="Человек"/>
             <column name="name" value="Человек"/>
-            <column name="virtual" value="false"/>
+            <column name="virtual" value="true"/>
         </insert>
         <insert tableName="app_role">
             <column name="id" value="5"/>
@@ -205,7 +205,7 @@
             <column name="code" value="ROLE_STAFF"/>
             <column name="description" value="Персонал портала"/>
             <column name="name" value="Персонал портала"/>
-            <column name="virtual" value="false"/>
+            <column name="virtual" value="true"/>
             <column name="parent_id" value="4"/>
         </insert>
         <insert tableName="app_role">
