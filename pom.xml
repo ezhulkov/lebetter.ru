@@ -697,7 +697,7 @@
     </dependencies>
 
     <properties>
-        <mallcore-version>1.22.0-BETA</mallcore-version>
+        <mallcore-version>1.23.0-BETA</mallcore-version>
         <artifact.version>2.0.4</artifact.version>
         <jsch.version>1.7.1</jsch.version>
         <unitils.version>2.2</unitils.version>
