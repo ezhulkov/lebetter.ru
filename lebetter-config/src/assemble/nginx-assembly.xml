@@ -10,7 +10,7 @@
     <fileSets>
         <fileSet>
             <directory>src/main/resources/config/nginx</directory>
-            <outputDirectory>/usr/local/etc/lb/nginx/config-template</outputDirectory>
+            <outputDirectory>/etc/lebetter/nginx/config-template</outputDirectory>
             <fileMode>0644</fileMode>
             <directoryMode>0755</directoryMode>
             <filtered>true</filtered>

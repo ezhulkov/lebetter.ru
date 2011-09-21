@@ -76,73 +76,50 @@
         </zip>
     </target>
 
-    <target name="prepare-deploy-bin">
-
-        <echo message="Preparing deploy bin packages"/>
-        <fail unless="tomcat.home" message="define 'tomcat.home' (path) property"/>
-
-        <available file="${package-portal.name}" property="onportal.present"/>
-
-    </target>
-
-    <target name="deploy" description="deploy distribution package" depends="prepare-deploy-bin">
+    <target name="deploy">
         <echo message="Deploing packages"/>
         <mkdir dir="${work.dir}/deploy"/>
         <antcall target="deploy-portalbin"/>
+        <antcall target="deploy-nginxbin"/>
     </target>
 
-    <target name="prepare-deploy-config">
-        <echo message="Preparing deploy config packages"/>
-        <available file="${package-portal.name}" property="onportal.present"/>
-        <available file="${package-nginx.name}" property="onnginx.present"/>
-        <condition property="onportalconfig.present">
-            <and>
-                <istrue value="${external.config}"/>
-                <istrue value="${onportal.present}"/>
-            </and>
-        </condition>
-        <condition property="onnginxconfig.present">
-            <and>
-                <istrue value="${onnginx.present}"/>
-            </and>
-        </condition>
-    </target>
-
-    <target name="deploy-config" depends="prepare-deploy-config">
+    <target name="deploy-config">
         <echo message="Deploing config packages"/>
         <antcall target="deploy-portalconfig"/>
         <antcall target="deploy-nginxconfig"/>
     </target>
 
-    <target name="deploy-portalbin" depends="prepare-deploy-bin" if="onportal.present">
+    <target name="deploy-portalbin">
         <echo message="Deploing portal files"/>
         <unzip src="${package-portal.name}" dest="${work.dir}/deploy"/>
         <unjar src="${work.dir}/deploy/ROOT.war" dest="${tomcat.home}/webapps/ROOT"/>
     </target>
 
-    <target name="deploy-nginxconfig" depends="prepare-deploy-config" if="onnginxconfig.present">
-        <echo message="Deploing nginx config files"/>
+    <target name="deploy-nginxbin">
+        <echo message="Deploing nginx html files"/>
         <unzip src="${package-nginx.name}" dest="${work.dir}/deploy"/>
-        <gunzip src="${work.dir}/deploy/lb-nginx-config.tar.gz"
-                dest="${work.dir}/deploy/lb-nginx-config.tar"/>
-        <untar src="${work.dir}/deploy/lb-nginx-config.tar" dest="/"/>
-        <delete file="${work.dir}/deploy/lb-nginx-config.tar"/>
-        <gunzip src="${work.dir}/deploy/lb-static-content.tar.gz"
-                dest="${work.dir}/deploy/lb-static-content.tar"/>
+        <gunzip src="${work.dir}/deploy/lb-static-content.tar.gz" dest="${work.dir}/deploy/lb-static-content.tar"/>
         <untar src="${work.dir}/deploy/lb-static-content.tar" dest="${nginx.home}"/>
         <delete file="${work.dir}/deploy/lb-static-content.tar"/>
     </target>
 
-    <target name="deploy-portalconfig" depends="prepare-deploy-config" if="onportalconfig.present">
+    <target name="deploy-nginxconfig">
+        <echo message="Deploing nginx config files"/>
+        <unzip src="${package-nginx.name}" dest="${work.dir}/deploy"/>
+        <gunzip src="${work.dir}/deploy/lb-nginx-config.tar.gz" dest="${work.dir}/deploy/lb-nginx-config.tar"/>
+        <untar src="${work.dir}/deploy/lb-nginx-config.tar" dest="/"/>
+        <delete file="${work.dir}/deploy/lb-nginx-config.tar"/>
+    </target>
+
+    <target name="deploy-portalconfig">
         <echo message="Deploing portal config files"/>
         <unzip src="${package-portal.name}" dest="${work.dir}/deploy"/>
-        <gunzip src="${work.dir}/deploy/lb-portal-config.tar.gz"
-                dest="${work.dir}/deploy/lb-portal-config.tar"/>
+        <gunzip src="${work.dir}/deploy/lb-portal-config.tar.gz" dest="${work.dir}/deploy/lb-portal-config.tar"/>
         <untar src="${work.dir}/deploy/lb-portal-config.tar" dest="/"/>
         <delete file="${work.dir}/deploy/lb-portal-config.tar"/>
     </target>
 
-    <target name="import-changeset" depends="prepare-deploy-config" if="onportalconfig.present">
+    <target name="import-changeset" if="onportalconfig.present">
         <echo message="Importing new changeset"/>
         <unzip src="${package-portal.name}" dest="${work.dir}/deploy"/>
         <gunzip src="${work.dir}/deploy/lb-db.tar.gz" dest="${work.dir}/deploy/lb-db.tar"/>

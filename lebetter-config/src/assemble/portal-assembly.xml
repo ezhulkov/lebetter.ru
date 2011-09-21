@@ -10,7 +10,7 @@
     <fileSets>
         <fileSet>
             <directory>../lebetter-service/src/main/resources/config</directory>
-            <outputDirectory>/usr/local/etc/lb/portal/config-template</outputDirectory>
+            <outputDirectory>/etc/lebetter/portal/config-template</outputDirectory>
             <fileMode>0644</fileMode>
             <directoryMode>0755</directoryMode>
             <filtered>true</filtered>
