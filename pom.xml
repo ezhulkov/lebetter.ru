@@ -42,6 +42,7 @@
     </profiles>
 
     <modules>
+        <module>lebetter-config</module>
         <module>lebetter-model</module>
         <module>lebetter-db</module>
         <module>lebetter-static-content</module>

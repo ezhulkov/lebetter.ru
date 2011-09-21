@@ -1,0 +1,42 @@
+upstream portal {
+    ip_hash;
+    server          portal:8080;
+}
+
+upstream filehandler {
+    ip_hash;
+    server          fh:8080;
+}
+
+server {
+
+    listen       80;
+    server_name  lebetter.ru www.lebetter.ru;
+
+    if ($host = 'www.lebetter.ru' ) {
+        rewrite  ^/(.*)$  http://lebetter.ru/$1  permanent;
+    }
+
+    include nginx-block.conf;
+    include nginx-core.conf;
+
+}
+
+server {
+
+    listen 80;
+    server_name static.lebetter.ru;
+
+    location ~* ^(/favicon.ico|/images|/icon|/scripts|/styles|/FCKeditor|/multipow|/yandex) {
+        root                        /usr/share/nginx/www/html;
+        access_log                  /var/log/nginx/static.log;
+        add_header                  Cache-Control   "public, max-age=1209600";
+    }
+
+    location ~* (.*\.jpg|.*\.gif|for_set.png) {
+        root                        /var/ftp;
+        access_log                  /var/log/nginx/static.log;
+        add_header                  Cache-Control   "public, max-age=1209600";
+    }
+
+}

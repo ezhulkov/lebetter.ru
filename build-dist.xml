@@ -20,9 +20,7 @@
         <artifact:dependencies filesetId="dependencies.fileset">
             <dependency groupId="org.room13.lebetter" artifactId="lebetter-portal" version="1.1.0-SNAPSHOT" type="war"/>
             <!--<dependency groupId="org.room13.lebetter" artifactId="lebetter-filehandler" version="1.1.0-SNAPSHOT" type="war"/>-->
-            <!--<dependency groupId="org.room13.lebetter" artifactId="lebetter-dataprocessor" version="1.1.0-SNAPSHOT" type="war"/>-->
             <dependency groupId="org.room13.lebetter" artifactId="lebetter-static-content" version="1.1.0-SNAPSHOT" classifier="files" type="tar.gz"/>
-            <dependency groupId="org.room13.lebetter" artifactId="lebetter-db" version="1.1.0-SNAPSHOT" type="tar.gz"/>
         </artifact:dependencies>
         <mkdir dir="${work.dir}/dependencies"/>
         <copy flatten="true" todir="${work.dir}/dependencies" overwrite="true" verbose="true">
@@ -60,12 +58,6 @@
                 <include name="lebetter-static-content-*.tar.gz"/>
             </fileset>
             <mapper type="merge" to="lb-static-content.tar.gz"/>
-        </move>
-        <move todir="${work.dir}/pkg" overwrite="true" verbose="true">
-            <fileset dir="${work.dir}/dependencies">
-                <include name="lebetter-db-*.tar.gz"/>
-            </fileset>
-            <mapper type="merge" to="lb-db.tar.gz"/>
         </move>
         <!--<move todir="${work.dir}/pkg" overwrite="true" verbose="true">-->
             <!--<fileset dir="${work.dir}/dependencies">-->
