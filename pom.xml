@@ -29,14 +29,37 @@
                 <mvn.jdbc.username>lbdb</mvn.jdbc.username>
                 <mvn.jdbc.username.test>lbdbtest</mvn.jdbc.username.test>
                 <mvn.log4j.appender.xml>&lt;appender-ref ref="CONSOLE"/&gt;</mvn.log4j.appender.xml>
-                <mvn.log4j.file/>
+                <mvn.log4j.file>lebetter</mvn.log4j.file>
                 <mvn.fileupload.url>http://localhost:8080/principalgetter</mvn.fileupload.url>
                 <mvn.lb.notification.email>noreply@lebetter.ru</mvn.lb.notification.email>
                 <mvn.smtp.host>localhost</mvn.smtp.host>
-                <mvn.nginx.home>${java.io.tmpdir}</mvn.nginx.home>
                 <mvn.ftp.dir>/var/ftp</mvn.ftp.dir>
                 <mvn.img.static.addresses>http://localhost</mvn.img.static.addresses>
                 <mvn.ftp.dir>/var/ftp</mvn.ftp.dir>
+            </properties>
+        </profile>
+        <profile>
+            <id>production</id>
+            <properties>
+                <mvn.webapp.dir>target/lebetter</mvn.webapp.dir>
+                <mvn.lb.portal.config.path>file:/etc/lebetter/portal</mvn.lb.portal.config.path>
+                <mvn.lb.fh.config.path>file:/etc/lebetter/fh</mvn.lb.fh.config.path>
+                <mvn.lb.config.external>true</mvn.lb.config.external>
+                <mvn.archive.classes>true</mvn.archive.classes>
+                <mvn.tapestry.production-mode>true</mvn.tapestry.production-mode>
+                <mvn.jdbc.dburl>jdbc:postgresql://localhost:5432/lbdb</mvn.jdbc.dburl>
+                <mvn.jdbc.password>lbdb</mvn.jdbc.password>
+                <mvn.jdbc.username>lbdb</mvn.jdbc.username>
+                <mvn.jdbc.dburl.test/>
+                <mvn.jdbc.password.test/>
+                <mvn.jdbc.username.test/>
+                <mvn.log4j.appender.xml>&lt;appender-ref ref="FILE"/&gt;&lt;appender-ref ref="EMAIL"/&gt;</mvn.log4j.appender.xml>
+                <mvn.log4j.file>/var/log/tomcat7/lebetter</mvn.log4j.file>
+                <mvn.fileupload.url>http://localhost:8080/principalgetter</mvn.fileupload.url>
+                <mvn.lb.notification.email>noreply@lebetter.ru</mvn.lb.notification.email>
+                <mvn.smtp.host>localhost</mvn.smtp.host>
+                <mvn.ftp.dir>/var/ftp</mvn.ftp.dir>
+                <mvn.img.static.addresses>http://static.lebetter.ru</mvn.img.static.addresses>
             </properties>
         </profile>
     </profiles>
@@ -118,11 +141,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-antrun-plugin</artifactId>
                 <dependencies>
-                    <dependency>
-                        <groupId>commons-net</groupId>
-                        <artifactId>commons-net</artifactId>
-                        <version>1.4.1</version>
-                    </dependency>
                     <dependency>
                         <groupId>oro</groupId>
                         <artifactId>oro</artifactId>
@@ -400,7 +418,7 @@
             <dependency>
                 <groupId>org.springframework.security</groupId>
                 <artifactId>spring-security-taglibs</artifactId>
-                <version>2.0.3</version>
+                <version>${spring.security.version}</version>
                 <exclusions>
                     <exclusion>
                         <artifactId>spring-web</artifactId>

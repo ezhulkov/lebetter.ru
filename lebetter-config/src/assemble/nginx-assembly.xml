@@ -16,6 +16,7 @@
             <filtered>true</filtered>
             <lineEnding>keep</lineEnding>
             <includes>
+                <include>**/*</include>
                 <include>**/*.*</include>
             </includes>
         </fileSet>
