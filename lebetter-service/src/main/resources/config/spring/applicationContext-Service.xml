@@ -51,13 +51,7 @@
           p:passwordEncoder-ref="passwordEncoder"
           p:dealerManager-ref="dealerManager"
           p:i18n-ref="i18n">
-        <property name="blogService">
-            <null/>
-        </property>
-        <property name="commentService">
-            <null/>
-        </property>
-        <property name="categoryService">
+        <property name="newsCategoryManager">
             <null/>
         </property>
         <property name="syncDictProcessors">
@@ -219,11 +213,6 @@
             MASCULINE|SECOND|r_2_4|esoft|я;
             MASCULINE|SECOND|r_2_4|hard|а;
         "/>
-    </bean>
-
-    <bean name="newsFeedService" class="org.room13.mallcore.news.service.NewsFeedManagerImpl">
-        <property name="serviceManager" ref="serviceManager"/>
-        <property name="i18nBean" ref="i18n"/>
     </bean>
 
     <bean id="i18n" class="org.room13.mallcore.spring.service.I18nBeanImpl">

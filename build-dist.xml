@@ -79,6 +79,12 @@
     <target name="deploy">
         <echo message="Deploing packages"/>
         <mkdir dir="${work.dir}/deploy"/>
+        <delete includeEmptyDirs="true">
+            <fileset dir="${nginx.home}" includes="**/*" defaultexcludes="false"/>
+        </delete>
+        <delete includeEmptyDirs="true">
+            <fileset dir="${tomcat.home}/webapps/ROOT" includes="**/*" defaultexcludes="false"/>
+        </delete>
         <antcall target="deploy-portalbin"/>
         <antcall target="deploy-nginxbin"/>
     </target>
