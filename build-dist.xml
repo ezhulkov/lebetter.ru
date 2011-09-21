@@ -105,6 +105,9 @@
         <echo message="Deploing portal files"/>
         <unzip src="${package-portal.name}" dest="${work.dir}/deploy"/>
         <unjar src="${work.dir}/deploy/ROOT.war" dest="${tomcat.home}/webapps/ROOT"/>
+        <chmod perm="g+w">
+            <fileset dir="${tomcat.home}/webapps/ROOT" includes="**/*.tml"/>
+        </chmod>
     </target>
 
     <target name="deploy-nginxbin">
@@ -112,6 +115,9 @@
         <unzip src="${package-nginx.name}" dest="${work.dir}/deploy"/>
         <gunzip src="${work.dir}/deploy/lb-static-content.tar.gz" dest="${work.dir}/deploy/lb-static-content.tar"/>
         <untar src="${work.dir}/deploy/lb-static-content.tar" dest="${nginx.home}"/>
+        <chmod perm="g+w">
+            <fileset dir="${nginx.home}" includes="**/*"/>
+        </chmod>
         <delete file="${work.dir}/deploy/lb-static-content.tar"/>
     </target>
 
