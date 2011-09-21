@@ -56,6 +56,12 @@
         </move>
         <move todir="${work.dir}/pkg" overwrite="true" verbose="true">
             <fileset dir="${work.dir}/dependencies">
+                <include name="lebetter-db-*.tar.gz"/>
+            </fileset>
+            <mapper type="merge" to="lb-db.tar.gz"/>
+        </move>
+        <move todir="${work.dir}/pkg" overwrite="true" verbose="true">
+            <fileset dir="${work.dir}/dependencies">
                 <include name="lebetter-config-*-nginx.tar.gz"/>
             </fileset>
             <mapper type="merge" to="lb-nginx-config.tar.gz"/>
@@ -125,7 +131,7 @@
         <delete file="${work.dir}/deploy/lb-portal-config.tar"/>
     </target>
 
-    <target name="import-changeset" if="onportalconfig.present">
+    <target name="import-changeset">
         <echo message="Importing new changeset"/>
         <unzip src="${package-portal.name}" dest="${work.dir}/deploy"/>
         <gunzip src="${work.dir}/deploy/lb-db.tar.gz" dest="${work.dir}/deploy/lb-db.tar"/>
