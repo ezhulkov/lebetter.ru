@@ -3,6 +3,57 @@
                                 flash="flashMessage"
                                 xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
+        <!-- S -->
+        <div class="slide">
+          <div class="centered">
 
+           <!-- slider -->
+           <div class="slider_box">
+
+            <button class="prev" title="Предыдущая"><img src="/images/0.gif" alt="Предыдущая" title="Предыдущая" /></button>
+            <button class="next" title="Следующая"><img src="/images/0.gif" alt="Следующая" title="Следующая" /></button>
+
+            <div class="slider">
+              <ul>
+                  <li><a class="grouped_elements" rel="group1" href="/images/pic/pic1.jpg"><img src="/images/pic/pic1.jpg" width="920" height="350" alt="" /></a></li>
+                  <li><a class="grouped_elements" rel="group1" href="/images/pic/pic1.jpg"><img src="/images/pic/pic1.jpg" width="920" height="350" alt="" /></a></li>
+                  <li><a class="grouped_elements" rel="group1" href="/images/pic/pic1.jpg"><img src="/images/pic/pic1.jpg" width="920" height="350" alt="" /></a></li>
+                  <li><a class="grouped_elements" rel="group1" href="/images/pic/pic1.jpg"><img src="/images/pic/pic1.jpg" width="920" height="350" alt="" /></a></li>
+                  <li><a class="grouped_elements" rel="group1" href="/images/pic/pic1.jpg"><img src="/images/pic/pic1.jpg" width="920" height="350" alt="" /></a></li>
+              </ul>
+            </div>
+           </div>
+
+          </div>
+        </div>
+        <!-- B -->
+        <div class="pictures">
+          <div class="centered">
+
+           <!-- pictures -->
+           <div class="pictures_box">
+
+            <ul>
+              <li>
+              <img src="/images/pic/divan.png" alt="Мебель для гостиной" title="Мебель для гостиной" />
+              <h3><a href=" ">Мебель для гостиной</a></h3>
+              <a href=" ">Если прихожая – это лицо квартиры, то гостиная – ее сердце.</a>
+              </li>
+              <li>
+              <img src="/images/pic/krovat.png" alt="Спальни" title="Спальни" />
+              <h3><a href=" ">Спальни</a></h3>
+              <a href=" ">Спальня - это место, в котором мы по статистике проводим больше всего времени.</a>
+              </li>
+              <li>
+              <img src="/images/pic/stul.png" alt="Мебель для отелей" title="Мебель для отелей" />
+              <h3><a href=" ">Мебель для отелей</a></h3>
+              <a href=" ">Сколько милых памяти событий прошло в окружении тумбочек.</a>
+              </li>
+            </ul>
+
+           </div>
+
+          </div>
+        </div>
 
 </t:mallcomponents.layout.layout>

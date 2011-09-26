@@ -1,26 +1,95 @@
-<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" class="ks_bottom_block">
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
-    <hr/>
+  <!-- BottomMenu -->
+  <div class="botmenu">
+    <div class="centered">
+      <div class="botmenu_box">
 
-    <t:pageLink t:page="manufacture">Фабрика</t:pageLink>
-    <br/>
-    <t:pageLink t:page="about">О представительстве</t:pageLink>
-    <br/>
-    <t:pageLink t:page="contacts">Контакты</t:pageLink>
-    <br/>
-    <t:pageLink t:page="partners">Партнерам</t:pageLink>
-    <br/>
-    <t:pageLink t:page="sitemap">Карта сайта</t:pageLink>
-    <br/>
-    <t:pageLink t:page="catalog">Каталог</t:pageLink>
-    <br/>
-    <t:pageLink t:page="dealer/list">Где купить</t:pageLink>
-    <br/>
-    <t:if test="auth.authenticated">
-        <t:pageLink t:page="po">Личный Кабинет</t:pageLink>
-        <t:parameter name="else">
-            <t:pageLink t:page="auth/login">Вход</t:pageLink>
-        </t:parameter>
-    </t:if>
+      <ul>
+        <li><h2><t:pageLink t:page="about">О представительстве</t:pageLink></h2></li>
+      </ul>
+      <ul>
+        <li><h2><t:pageLink t:page="manufacture">Фабрика</t:pageLink></h2></li>
+      </ul>
+      <ul>
+        <li><h2><t:pageLink t:page="catalog">Каталог</t:pageLink></h2></li>
+      </ul>
+      <ul>
+        <li><h2><t:pageLink t:page="dealer/list">Где купить</t:pageLink></h2></li>
+      </ul>
+      <ul>
+        <li><h2><t:pageLink t:page="partners">Партнерам</t:pageLink></h2></li>
+      </ul>
+      <ul>
+        <li><h2><t:pageLink t:page="contacts">Контакты</t:pageLink></h2></li>
+      </ul>
+
+      <ul>
+        <li><h2><t:pageLink t:page="sitemap">Карта сайта</t:pageLink></h2></li>
+      </ul>
+      <ul>
+        <li>
+
+          <t:if test="auth.authenticated">
+              <h2><t:pageLink t:page="po">Личный Кабинет</t:pageLink> </h2>
+              <t:parameter name="else">
+                  <h2><t:pageLink t:page="auth/login">Вход</t:pageLink></h2>
+              </t:parameter>
+          </t:if>
+
+        </li>
+      </ul>
+
+<!--
+        <ul>
+          <li><h2><a href="">О нас</a></h2></li>
+          <li><a href="">Компания</a></li>
+          <li><a href="">Обращение директора</a></li>
+          <li><a href="">Контакты</a></li>
+          <li><a href="">Вакансии</a></li>
+        </ul>
+
+        <ul>
+          <li><h2><a href="">Каталог продукции</a></h2></li>
+          <li><a href="">Гостиная</a></li>
+          <li><a href="">Спальня</a></li>
+          <li><a href="">Кабинет</a></li>
+          <li><a href="">Прихожая</a></li>
+          <li><a href="">Ванная</a></li>
+          <li><a href="">Предметы мебели и аксессуары</a></li>
+          <li><a href="">Мебель для гостиниц, баров, ресторанов</a></li>
+        </ul>
+
+        <ul>
+          <li><h2><a href="">Качество</a></h2></li>
+          <li><a href="">Наши преимущества</a></li>
+          <li><a href="">Гарантия качества</a></li>
+        </ul>
+
+        <ul>
+          <li><h2><a href="#">История фабрики</a></h2></li>
+        </ul>
+
+        <ul>
+          <li><h2><a href="">Где купить</a></h2></li>
+          <li><a href="">Москва</a></li>
+          <li><a href="">Санкт-Петербург</a></li>
+          <li><a href="">Дилеры</a></li>
+        </ul>
+
+        <ul>
+          <li><h2><a href="#">Для партнеров</a></h2></li>
+        </ul>
+-->
+
+      </div>
+    </div>
+  </div>
+  <!-- Copyright -->
+  <div class="copy">
+    <div class="centered">
+      © 2011 Lebetter    <a href="mailto:info@lebetter.ru">info@lebetter.ru</a>
+    </div>
+  </div>
 
 </div>
