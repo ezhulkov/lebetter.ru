@@ -25,14 +25,11 @@
                         </goals>
                         <configuration>
                             <nosuffix>true</nosuffix>
-                            <statistics>false</statistics>
+                            <statistics>true</statistics>
                             <encoding>UTF-8</encoding>
                             <failOnWarning>false</failOnWarning>
                             <jswarn>false</jswarn>
                             <outputDirectory>target/compressed</outputDirectory>
-                            <excludes>
-                                <exclude>**/jcarousellite_1.0.1.min.js</exclude>
-                            </excludes>
                         </configuration>
                     </execution>
                 </executions>
