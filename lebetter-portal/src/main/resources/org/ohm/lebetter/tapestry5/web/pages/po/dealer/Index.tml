@@ -11,6 +11,11 @@
 
             <t:mallcomponents.object.dealerEdit object="selectedDealer"/>
 
+            <p>Создатели и владельцы</p>
+            <t:mallComponents.object.objectOwnerEdit objectManager="serviceFacade.dealerManager"
+                                                     object="selectedDealer"
+                                                     action="EDIT_DEALER"/>
+
         </t:mallcomponents.control.selectedObject>
 
     </t:mallcomponents.layout.office>

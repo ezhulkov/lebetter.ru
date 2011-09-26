@@ -1,0 +1,61 @@
+<span xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="producer">
+
+    <t:form autofocus="false" zone="ownerArea">
+        <div class="ks_order_approve_descr">
+            <ul>
+                <t:if test="object.creator">
+                    <li>
+                        <b class="ks_orderadress_legend">Создатель</b>:
+                        <t:pageLink t:page="user" t:context="object.creator.rootId" class="underline">${object.creator.name}</t:pageLink>
+                    </li>
+                     
+                </t:if>
+                <t:if test="object.creatorRep">
+                    <li>
+                        <b class="ks_orderadress_legend">'Как-бы' создатель:</b>
+                        <t:pageLink t:page="user" t:context="object.creatorRep.rootId" class="underline">${object.creatorRep.name}</t:pageLink>
+                    </li>
+                </t:if>
+                <t:if test="owners">
+                    <li>
+                        <b class="ks_orderadress_legend">Владельцы:</b>&#0160;
+                        <t:loop t:formState="NONE" source="owners" value="ownerRef">
+                            <t:pageLink t:page="user"
+                                        t:context="ownerRef.owner.rootId"
+                                        class="underline">${ownerRef.owner.name}
+                            </t:pageLink>
+                            <t:actionLink t:id="removeOwnerAjax" t:zone="ownerArea" t:context="ownerRef.owner.id">[X]</t:actionLink>
+                            &#0160;
+                        </t:loop>
+                    </li>
+                </t:if>
+            </ul>
+        </div>
+
+        <div class="ks_adm_order_detail">
+
+            <div class="ks_orderadress_input">
+                <div class="ks_orderadress_legend">
+                    <t:label for="owner"/>
+                    :
+                </div>
+                <input t:id="owner" class="validate_input orderbox_login"/>
+            </div>
+
+            <div class="ks_orderadress_input">
+                <div class="ks_orderadress_legend">
+                    <t:label for="creatorrep"/>
+                    :
+                </div>
+                <input t:id="creatorrep" class="validate_input orderbox_login"/>
+            </div>
+
+            <div class="ks_objectownershow_1">
+                <img class="NFButtonLeft" src="/images/0.gif"/><input type="submit" id="submitButton" value="${message:assignbtn}" class="NFButton"/><img src="/images/0.gif" class="NFButtonRight"/>
+            </div>
+
+        </div>
+
+    </t:form>
+
+</span>

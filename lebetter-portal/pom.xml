@@ -58,10 +58,11 @@
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
                 <groupId>org.apache.maven.plugins</groupId>
+                <version>2.1-beta-1</version>
                 <configuration>
                     <filteringDeploymentDescriptors>true</filteringDeploymentDescriptors>
                     <archiveClasses>${mvn.archive.classes}</archiveClasses>
-                    <warName>lb-portal-${project.version}</warName>
+                    <warName>ks-lebetter-${version}</warName>
                     <webappDirectory>${mvn.webapp.dir}</webappDirectory>
                     <archive>
                         <addMavenDescriptor>true</addMavenDescriptor>
