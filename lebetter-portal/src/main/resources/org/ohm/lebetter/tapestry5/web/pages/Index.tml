@@ -5,4 +5,20 @@
 
     Сайт в разработке, пожалуйста, зайдите позже.
 
+    <!--/* Start fancybox gallery */-->
+    <!--jQuery("a.grouped_elements").fancybox({-->
+    <!--'speedIn'        :    600,-->
+    <!--'speedOut'        :    200-->
+
+    <!--});-->
+    <!--jQuery("a.gmap").fancybox({-->
+    <!--'width'                : '80%',-->
+    <!--'height'            : '75%',-->
+    <!--'autoScale'            : false,-->
+    <!--'transitionIn'        : 'none',-->
+    <!--'transitionOut'        : 'none',-->
+    <!--'type'                : 'iframe'-->
+    <!--});-->
+
+
 </t:mallcomponents.layout.layout>

@@ -49,4 +49,8 @@
 
         </div>
 
+    <t:mallComponents.control.javascript>
+        AG.initMainPage();
+    </t:mallComponents.control.javascript>
+
 </t:mallcomponents.layout.layout>

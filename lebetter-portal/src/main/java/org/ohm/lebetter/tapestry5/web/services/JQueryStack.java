@@ -40,7 +40,7 @@ public class JQueryStack implements JavaScriptStack {
         };
 
         javaScriptStack = F
-                .flow("proxy:/scripts/jquery-1.5.2.min.js")
+                .flow("proxy:/scripts/jquery-1.6.4.min.js")
                 .map(pathToAsset).toList();
 
     }
