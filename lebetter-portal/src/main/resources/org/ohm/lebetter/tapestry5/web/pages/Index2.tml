@@ -5,8 +5,6 @@
 
         <!-- S -->
         <div class="slide">
-          <div class="centered">
-
            <!-- slider -->
            <div class="slider_box">
 
@@ -23,13 +21,9 @@
               </ul>
             </div>
            </div>
-
-          </div>
         </div>
         <!-- B -->
         <div class="pictures">
-          <div class="centered">
-
            <!-- pictures -->
            <div class="pictures_box">
 
@@ -53,7 +47,6 @@
 
            </div>
 
-          </div>
         </div>
 
 </t:mallcomponents.layout.layout>

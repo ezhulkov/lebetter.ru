@@ -14,10 +14,8 @@
             <meta name="description" content="${description}"/>
         </t:if>
 
-        <link rel="stylesheet" type="text/css" href="/styles/style.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="/styles/jquery.fancybox-1.3.4.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="/styles/print.css" media="print" />
-
 
         <script type="text/javascript" src="/scripts/jquery.easing-1.3.pack.js"></script>
         <script type="text/javascript" src="/scripts/jquery.mousewheel-3.0.4.pack.js"></script>
@@ -46,7 +44,7 @@
           	jQuery("a.grouped_elements").fancybox({
           		//'transitionIn'	:	'elastic',
           		//'transitionOut'	:	'elastic',
-          	   //	'overlayShow'	:	false, 
+          	   //	'overlayShow'	:	false,
           		'speedIn'		:	600,
           		'speedOut'		:	200
 
@@ -79,8 +77,13 @@
             <t:mallcomponents.layout.header/>
             <!--/noindex-->
 
+            <div class="content">
+              <div class="centered">
 
-            <t:body/>
+                <t:body/>
+
+              </div>
+            </div>
 
           </td>
         </tr>

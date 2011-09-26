@@ -40,7 +40,7 @@ body {
   display: none;
 }
 .top {
-
+  background: #ffffff url(/images/bg2.gif) repeat-x 0px 100%;
 }
 .bottom {
   /*vertical-align: bottom;*/
@@ -223,8 +223,7 @@ body {
 
 /* Pictures */
 .pictures {
-  background: #f2f2f2 url(/images/bg2.gif) repeat-x 0px 0px;
-  height: 139px;
+
 }
 .pictures_box {
   background: url(/images/bg3.png) no-repeat 50% 0px;
@@ -263,6 +262,10 @@ body {
   padding-bottom: 6px;
 }
 
+/* Content */
+.content {
+  
+}
 
 
 /* Bottom */
