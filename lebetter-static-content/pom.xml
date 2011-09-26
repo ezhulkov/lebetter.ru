@@ -30,6 +30,9 @@
                             <failOnWarning>false</failOnWarning>
                             <jswarn>false</jswarn>
                             <outputDirectory>target/compressed</outputDirectory>
+                            <excludes>
+                                <exclude>**/jcarousellite_1.0.1.min.js</exclude>
+                            </excludes>
                         </configuration>
                     </execution>
                 </executions>
