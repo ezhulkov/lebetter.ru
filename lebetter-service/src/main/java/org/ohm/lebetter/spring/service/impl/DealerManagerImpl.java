@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @SuppressWarnings("unchecked")
 public class DealerManagerImpl
-        extends KinderGenericManagerImpl<DealerEntity, UserEntity>
+        extends LBGenericManagerImpl<DealerEntity, UserEntity>
         implements DealerManager {
 
     public static final RMLogger log = new RMLogger(DealerManagerImpl.class);

@@ -11,7 +11,7 @@ import javax.servlet.ServletException;
  * Time: 15:02:02
  * To change this template use File | Settings | File Templates.
  */
-public class KinderAbstractFilter extends MallAbstractFilter {
+public class AbstractFilter extends MallAbstractFilter {
 
     @Override
     public void initFilterBean() throws ServletException {

@@ -34,7 +34,7 @@ import java.util.List;
 
 @SuppressWarnings("unchecked")
 public class CategoryManagerImpl
-        extends KinderGenericManagerImpl<CategoryEntity, UserEntity>
+        extends LBGenericManagerImpl<CategoryEntity, UserEntity>
         implements CategoryManager {
 
     private CategoryDao categoryDao;

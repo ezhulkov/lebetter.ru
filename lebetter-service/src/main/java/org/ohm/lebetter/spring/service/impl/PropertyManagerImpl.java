@@ -40,7 +40,7 @@ import static org.ohm.lebetter.model.impl.entities.TagToValueEntity.Type.LIST;
 
 @SuppressWarnings("unchecked")
 public class PropertyManagerImpl
-        extends KinderGenericManagerImpl<PropertyEntity, UserEntity>
+        extends LBGenericManagerImpl<PropertyEntity, UserEntity>
         implements PropertyManager {
 
     private PropertyDao propertyDao;

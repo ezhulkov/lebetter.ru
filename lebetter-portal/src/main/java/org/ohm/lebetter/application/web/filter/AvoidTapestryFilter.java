@@ -19,7 +19,7 @@ import java.util.TreeSet;
  * Time: 16:58:17
  * To change this template use File | Settings | File Templates.
  */
-public class AvoidTapestryFilter extends KinderAbstractFilter {
+public class AvoidTapestryFilter extends AbstractFilter {
 
     private final Collection<String> include = new TreeSet<String>();
 

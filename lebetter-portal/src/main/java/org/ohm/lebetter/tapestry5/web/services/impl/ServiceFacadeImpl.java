@@ -9,7 +9,7 @@ import org.ohm.lebetter.spring.service.ProductManager;
 import org.ohm.lebetter.spring.service.PropertyManager;
 import org.ohm.lebetter.spring.service.PropertyValueManager;
 import org.ohm.lebetter.spring.service.ServiceManager;
-import org.ohm.lebetter.spring.service.UserKinderManager;
+import org.ohm.lebetter.spring.service.UserLBManager;
 import org.ohm.lebetter.tapestry5.web.services.ServiceFacade;
 import org.room13.mallcore.spring.service.ActionGroupManager;
 import org.room13.mallcore.spring.service.ActionManager;
@@ -64,7 +64,7 @@ public class ServiceFacadeImpl implements ServiceFacade {
     }
 
     @Override
-    public UserKinderManager getUserManager() {
+    public UserLBManager getUserManager() {
         return getServiceManager().getUserManager();
     }
 

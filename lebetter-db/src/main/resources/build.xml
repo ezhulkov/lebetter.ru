@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Kinder database helper" basedir="." id="dbh"
+<project name="Database helper" basedir="." id="dbh"
          xmlns:artifact="antlib:org.apache.maven.artifact.ant">
 
     <tstamp/>

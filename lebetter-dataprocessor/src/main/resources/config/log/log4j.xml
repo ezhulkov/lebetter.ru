@@ -18,7 +18,7 @@
         <param name="SMTPHost" value="${mvn.smtp.host}"/>
         <param name="To" value="${mvn.rm.notification.email}"/>
         <param name="From" value="${mvn.rm.notification.email}"/>
-        <param name="Subject" value="[kinder-dp] Log4j error log"/>
+        <param name="Subject" value="[lebetter-dp] Log4j error log"/>
 
         <layout class="org.apache.log4j.PatternLayout">
             <!--<param name="ConversionPattern" value="%p [%t] %c{1}.%M(%L) | %m%n"/>-->

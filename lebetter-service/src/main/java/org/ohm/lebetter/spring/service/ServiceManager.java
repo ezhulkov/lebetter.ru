@@ -26,7 +26,7 @@ public interface ServiceManager
     public DealerManager getDealerManager();
 
     @Override
-    public UserKinderManager getUserManager();
+    public UserLBManager getUserManager();
 
     public I18nBean getI18n();
 

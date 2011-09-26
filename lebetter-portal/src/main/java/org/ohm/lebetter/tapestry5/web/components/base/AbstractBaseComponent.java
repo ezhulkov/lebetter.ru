@@ -184,7 +184,7 @@ public abstract class AbstractBaseComponent implements WebAppFacade {
     }
 
     public String getStaticLink() {
-        return "http://static.kindershopping.ru/" + getAuth().getUser().getRootId() + "/";
+        return "http://static.lebetter.ru/" + getAuth().getUser().getRootId() + "/";
     }
 
 

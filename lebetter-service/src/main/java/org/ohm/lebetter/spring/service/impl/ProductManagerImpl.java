@@ -26,7 +26,7 @@ import java.util.Set;
 
 @SuppressWarnings("unchecked")
 public class ProductManagerImpl
-        extends KinderGenericManagerImpl<ProductEntity, UserEntity>
+        extends LBGenericManagerImpl<ProductEntity, UserEntity>
         implements ProductManager {
 
     public static final RMLogger log = new RMLogger(ProductManagerImpl.class);

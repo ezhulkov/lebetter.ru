@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class TapestryURLFilter extends KinderAbstractFilter {
+public class TapestryURLFilter extends AbstractFilter {
 
     private static final RMLogger log = new RMLogger(TapestryURLFilter.class);
 

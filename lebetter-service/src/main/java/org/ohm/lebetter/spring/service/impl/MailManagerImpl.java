@@ -130,7 +130,7 @@ public class MailManagerImpl
                 log.debug("Create message object...");
                 MimeMessageHelper message = new MimeMessageHelper(mimeMessage, false);
                 message.setText(mBody, true);
-                message.setSubject(subject == null ? "KinderShopping" : subject);
+                message.setSubject(subject == null ? "Lebetter.ru" : subject);
                 message.setReplyTo(defaultFrom);
                 message.setFrom(defaultFrom);
                 message.setTo(rcptEmails);

@@ -5,7 +5,7 @@ import org.room13.mallcore.spring.service.UserManager;
 
 import java.util.Comparator;
 
-public interface UserKinderManager
+public interface UserLBManager
         extends UserManager<UserEntity, UserEntity> {
 
     public static final Comparator<UserEntity> USER_BY_LASTNAME_SORT =

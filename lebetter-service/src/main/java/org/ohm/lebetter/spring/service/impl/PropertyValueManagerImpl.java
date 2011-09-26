@@ -20,7 +20,7 @@ import java.security.AccessControlException;
 import java.util.List;
 
 public class PropertyValueManagerImpl
-        extends KinderGenericManagerImpl<PropertyValueEntity, UserEntity>
+        extends LBGenericManagerImpl<PropertyValueEntity, UserEntity>
         implements PropertyValueManager {
 
     private PropertyValueDao propertyValueDao;

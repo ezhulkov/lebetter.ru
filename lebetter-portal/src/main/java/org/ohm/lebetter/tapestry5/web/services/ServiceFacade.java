@@ -6,7 +6,7 @@ import org.ohm.lebetter.spring.service.MailManager;
 import org.ohm.lebetter.spring.service.ProductManager;
 import org.ohm.lebetter.spring.service.PropertyManager;
 import org.ohm.lebetter.spring.service.PropertyValueManager;
-import org.ohm.lebetter.spring.service.UserKinderManager;
+import org.ohm.lebetter.spring.service.UserLBManager;
 import org.room13.mallcore.spring.service.ActionGroupManager;
 import org.room13.mallcore.spring.service.ActionManager;
 import org.room13.mallcore.spring.service.DataManager;
@@ -33,7 +33,7 @@ public interface ServiceFacade {
 
     public ServiceManager getServiceManager();
 
-    public UserKinderManager getUserManager();
+    public UserLBManager getUserManager();
 
     public RoleManager getRoleManager();
 

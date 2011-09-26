@@ -123,7 +123,7 @@ public abstract class AbstractBasePage implements WebAppFacade {
     }
 
     public String getStaticLink() {
-        return "http://static.kindershopping.ru/" + getAuth().getUser().getRootId() + "/";
+        return "http://static.lebetter.ru/" + getAuth().getUser().getRootId() + "/";
     }
 
     protected void clearCookie() {
@@ -136,7 +136,7 @@ public abstract class AbstractBasePage implements WebAppFacade {
     }
 
     public String getSocialImage() {
-        return "http://kindershopping.ru/images/lb-front/logo.gif";
+        return "http://lebetter.ru/images/lb-front/logo.gif";
     }
 
 

@@ -5,14 +5,14 @@ import org.ohm.lebetter.spring.service.ServiceManager;
 import org.room13.mallcore.model.ObjectBaseEntity;
 import org.room13.mallcore.spring.service.impl.PortalGenericManagerImpl;
 
-public class KinderGenericManagerImpl<T extends ObjectBaseEntity, TU extends UserEntity>
+public class LBGenericManagerImpl<T extends ObjectBaseEntity, TU extends UserEntity>
         extends PortalGenericManagerImpl<T, TU> {
 
-    public KinderGenericManagerImpl() {
+    public LBGenericManagerImpl() {
         super();
     }
 
-    protected KinderGenericManagerImpl(Class<T> persistentClass) {
+    protected LBGenericManagerImpl(Class<T> persistentClass) {
         super(persistentClass);
     }
 

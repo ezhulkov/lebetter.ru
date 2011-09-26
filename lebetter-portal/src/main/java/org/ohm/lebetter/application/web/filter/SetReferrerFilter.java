@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class SetReferrerFilter extends KinderAbstractFilter {
+public class SetReferrerFilter extends AbstractFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request,

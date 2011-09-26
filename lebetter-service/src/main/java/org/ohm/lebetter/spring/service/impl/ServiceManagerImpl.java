@@ -8,7 +8,7 @@ import org.ohm.lebetter.spring.service.ProductManager;
 import org.ohm.lebetter.spring.service.PropertyManager;
 import org.ohm.lebetter.spring.service.PropertyValueManager;
 import org.ohm.lebetter.spring.service.ServiceManager;
-import org.ohm.lebetter.spring.service.UserKinderManager;
+import org.ohm.lebetter.spring.service.UserLBManager;
 import org.ohm.lebetter.spring.sync.SyncDictProcessor;
 import org.room13.mallcore.spring.service.impl.I18nBean;
 import org.springframework.beans.factory.annotation.Required;
@@ -101,8 +101,8 @@ public class ServiceManagerImpl
     }
 
     @Override
-    public UserKinderManager getUserManager() {
-        return (UserKinderManager) super.getUserManager();
+    public UserLBManager getUserManager() {
+        return (UserLBManager) super.getUserManager();
     }
 
     @Override
@@ -126,7 +126,7 @@ public class ServiceManagerImpl
     }
 
     @SuppressWarnings("PMD")
-    public void setUserManager(UserKinderManager userManager) {
+    public void setUserManager(UserLBManager userManager) {
         super.setUserManager(userManager);
     }
 

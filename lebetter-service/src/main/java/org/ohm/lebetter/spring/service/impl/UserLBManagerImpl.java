@@ -3,7 +3,7 @@ package org.ohm.lebetter.spring.service.impl;
 import org.ohm.lebetter.Constants;
 import org.ohm.lebetter.model.impl.entities.UserEntity;
 import org.ohm.lebetter.spring.service.MailManager;
-import org.ohm.lebetter.spring.service.UserKinderManager;
+import org.ohm.lebetter.spring.service.UserLBManager;
 import org.room13.mallcore.annotations.Permission;
 import org.room13.mallcore.annotations.PermissionsCheckType;
 import org.room13.mallcore.model.ImageAware;
@@ -13,9 +13,9 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 
-public class UserKinderManagerImpl
+public class UserLBManagerImpl
         extends UserManagerImpl<UserEntity, UserEntity>
-        implements UserKinderManager {
+        implements UserLBManager {
 
     @Override
     @Transactional
@@ -29,7 +29,7 @@ public class UserKinderManagerImpl
 
     }
 
-    public UserKinderManagerImpl() {
+    public UserLBManagerImpl() {
         super(UserEntity.class);
     }
 

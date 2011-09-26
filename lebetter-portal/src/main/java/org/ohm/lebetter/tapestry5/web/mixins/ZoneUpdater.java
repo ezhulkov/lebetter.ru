@@ -19,7 +19,7 @@ import org.apache.tapestry5.ioc.annotations.Inject;
  * Time: 17:18:38
  * To change this template use File | Settings | File Templates.
  */
-@Import(library = "classpath:/org/room13/kinder/tapestry5/web/mixins/ZoneUpdater.js")
+@Import(library = "classpath:/org/ohm/lebetter/tapestry5/web/mixins/ZoneUpdater.js")
 public class ZoneUpdater {
 
     public static final String PLACEHOLDER = "XXX";

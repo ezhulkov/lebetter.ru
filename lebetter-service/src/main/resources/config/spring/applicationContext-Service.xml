@@ -77,7 +77,7 @@
         <entry key="Product" value-ref="productManager"/>
     </util:map>
 
-    <bean id="userDao" parent="genericDao" class="org.ohm.lebetter.spring.dao.impl.UserKinderDaoHibernate"/>
+    <bean id="userDao" parent="genericDao" class="org.ohm.lebetter.spring.dao.impl.UserLBDaoHibernate"/>
 
     <bean id="roleDao" parent="genericDao" class="org.room13.mallcore.spring.dao.impl.RoleDaoHibernate"/>
 
@@ -124,14 +124,14 @@
           p:sessionFactory-ref="sessionFactory"/>
 
     <bean abstract="true" id="genericManager"
-          class="org.ohm.lebetter.spring.service.impl.KinderGenericManagerImpl">
+          class="org.ohm.lebetter.spring.service.impl.LBGenericManagerImpl">
         <property name="serviceManager" ref="serviceManager"/>
         <property name="imageDao" ref="imageDao"/>
         <property name="popularityDao" ref="popularityDao"/>
     </bean>
 
     <bean id="userManager" parent="genericManager"
-          class="org.ohm.lebetter.spring.service.impl.UserKinderManagerImpl"
+          class="org.ohm.lebetter.spring.service.impl.UserLBManagerImpl"
           init-method="afterPropertiesSet"
           p:ownerDao-ref="ownerDao"
           p:userDao-ref="userDao"
