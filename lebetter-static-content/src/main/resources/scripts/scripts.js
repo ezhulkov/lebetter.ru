@@ -1,7 +1,2 @@
-jQuery(document).ready(function() {
-
-});
-
-AG = {
-
-}
+jQuery(document).ready(function(){});
+AG={};
