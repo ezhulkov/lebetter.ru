@@ -11,7 +11,7 @@ import org.apache.tapestry5.corelib.components.TextField;
 import org.ohm.lebetter.model.impl.entities.UserEntity;
 import org.ohm.lebetter.tapestry5.web.components.base.AbstractBaseComponent;
 import org.ohm.lebetter.tapestry5.web.data.FlashMessage;
-import org.room13.mallcore.model.CreatorRepAware;
+import org.room13.mallcore.model.OwnerAware;
 import org.room13.mallcore.model.impl.entities.ObjectOwnerEntity;
 import org.room13.mallcore.spring.service.ObjectBadRoleException;
 import org.room13.mallcore.spring.service.ObjectIsNullException;
@@ -32,7 +32,7 @@ public class ObjectOwnerShow extends AbstractBaseComponent {
 
     @Property
     @Parameter(name = "object", required = false, allowNull = false)
-    private CreatorRepAware object = null;
+    private OwnerAware object = null;
 
     @Property
     @Parameter(name = "objectManager", required = false, allowNull = false)
@@ -45,21 +45,14 @@ public class ObjectOwnerShow extends AbstractBaseComponent {
     @Component(id = "owner", parameters = {"value=ownerLogin", "validate=maxlength=64"})
     private TextField ownerField;
 
-    @Component(id = "creatorrep", parameters = {"value=creatorLogin", "validate=maxlength=64"})
-    private TextField creatorField;
-
     @Property
     private String ownerLogin = null;
-
-    @Property
-    private String creatorLogin = null;
 
     @Property
     private ObjectOwnerEntity ownerRef;
 
     public void beginRender() {
-        object = (CreatorRepAware) getServiceFacade().getGenericManagerMap().
-                get(object.getEntityCode()).get(object.getId());
+        object = (OwnerAware) getServiceFacade().getGenericManagerMap().get(object.getEntityCode()).get(object.getId());
     }
 
     @OnEvent(value = "submit", component = "form")
@@ -68,7 +61,7 @@ public class ObjectOwnerShow extends AbstractBaseComponent {
 
         if (getRMLogger().isDebugEnabled()) {
             getRMLogger().debug("Entered set owner/creator for object method. Username: " +
-                    ownerLogin, object);
+                                ownerLogin, object);
         }
 
         //try to set owner/creator for object
@@ -77,11 +70,6 @@ public class ObjectOwnerShow extends AbstractBaseComponent {
             if (!StringUtils.isEmpty(ownerLogin)) {
                 UserEntity user = getServiceFacade().getUserManager().getUserByUsername(ownerLogin);
                 objectManager.addOwner(object, role, user);
-            }
-            if (!StringUtils.isEmpty(creatorLogin)) {
-                objectManager.setCreatorRep(object, creatorLogin, getAuth().getUser());
-                UserEntity user = getServiceFacade().getUserManager().getUserByUsername(creatorLogin);
-                object.setCreatorRep(user);
             }
             getBase().addFlashToSession(getBase().getText("owner.assigned"), FlashMessage.Type.SUCCESS);
         } catch (AccessControlException acex) {
@@ -97,7 +85,7 @@ public class ObjectOwnerShow extends AbstractBaseComponent {
             getBase().addFlashToSession(getBase().getText("error.not." + role), FlashMessage.Type.FAILURE);
         }
 
-        object = (CreatorRepAware) objectManager.get(oid);
+        object = (OwnerAware) objectManager.get(oid);
         getRMLogger().debug("Owner/creator set: " + object.getCreator());
 
         return getAjaxBlock();
@@ -106,13 +94,13 @@ public class ObjectOwnerShow extends AbstractBaseComponent {
 
     public Block onActionFromRemoveOwnerAjax(Long uid) {
         objectManager.removeOwner(object, role,
-                getServiceFacade().getUserManager().get(uid));
+                                  getServiceFacade().getUserManager().get(uid));
         return getAjaxBlock();
     }
 
     public List<ObjectOwnerEntity> getOwners() {
         return object.getOwners() != null && object.getOwners().size() > 0 ?
-                object.getOwners() : null;
+               object.getOwners() : null;
     }
 
 }

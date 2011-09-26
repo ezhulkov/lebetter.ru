@@ -4,18 +4,20 @@ import org.hibernate.annotations.AccessType;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.ohm.lebetter.model.SitemapAware;
-import org.room13.mallcore.model.impl.BaseOwnerAwareEntity;
+import org.room13.mallcore.model.impl.BaseCreatorRepAwareEntity;
+import org.room13.mallcore.model.impl.entities.UserEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.util.Collections;
 
 @Entity
 @Table(name = "app_dealer")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @AccessType("field")
 public class DealerEntity
-        extends BaseOwnerAwareEntity
+        extends BaseCreatorRepAwareEntity
         implements SitemapAware {
 
     @Column

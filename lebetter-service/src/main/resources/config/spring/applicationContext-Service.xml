@@ -68,6 +68,7 @@
     <util:map id="genericManagerMap"
               map-class="java.util.HashMap">
         <entry key="User" value-ref="userManager"/>
+        <entry key="Dealer" value-ref="dealerManager"/>
         <entry key="Role" value-ref="roleManager"/>
         <entry key="Language" value-ref="languageManager"/>
         <entry key="SystemParameter" value-ref="systemParameterManager"/>

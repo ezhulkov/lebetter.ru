@@ -1,17 +1,22 @@
 package org.ohm.lebetter.spring.service.impl;
 
+import org.ohm.lebetter.Constants;
 import org.ohm.lebetter.model.SitemapAware;
 import org.ohm.lebetter.model.impl.entities.DealerEntity;
 import org.ohm.lebetter.model.impl.entities.UserEntity;
 import org.ohm.lebetter.spring.dao.DealerDao;
 import org.ohm.lebetter.spring.service.DealerManager;
 import org.room13.mallcore.log.RMLogger;
+import org.room13.mallcore.model.CreatorRepAware;
 import org.room13.mallcore.spring.dao.OwnerDao;
 import org.room13.mallcore.spring.service.ObjectExistsException;
 import org.room13.mallcore.util.StringUtil;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.security.AccessControlException;
+import java.util.List;
 
 
 @SuppressWarnings("unchecked")
@@ -57,4 +62,60 @@ public class DealerManagerImpl
     public SitemapAware getByAltId(String altid) {
         return SitemapAwareManagerImpl.getByAltId(altid, dealerDao);
     }
+
+    @Override
+    @Transactional
+    public void setOwner(DealerEntity object, String ownerName,
+                         String roleName, UserEntity caller)
+            throws ObjectExistsException {
+        if (getServiceManager().getRoleManager().isRoleAssigned(caller, Constants.Roles.ROLE_ADMIN)) {
+            OwnerAwareManagerImpl.setOwner(object, ownerName,
+                                           getServiceManager().getUserManager(),
+                                           ownerDao);
+        } else {
+            getRMLogger().errorSecurityViolation("Tries to set owner for object.", object);
+            throw new AccessControlException("access denied");
+        }
+    }
+
+    @Override
+    @Transactional
+    public void setOwners(DealerEntity object, String roleName, List<UserEntity> userEntities) {
+        OwnerAwareManagerImpl.setOwners(object, userEntities, ownerDao);
+    }
+
+
+    @Override
+    @Transactional
+    public void addOwner(DealerEntity object, String roleName, UserEntity user) {
+        OwnerAwareManagerImpl.addOwner(object, user, ownerDao);
+    }
+
+    @Override
+    @Transactional
+    public void removeOwner(DealerEntity object, String roleName, UserEntity user) {
+        OwnerAwareManagerImpl.removeOwner(object, user, ownerDao);
+    }
+
+    @Override
+    @Transactional
+    public void setCreatorRep(CreatorRepAware object, String creatorName, UserEntity caller)
+            throws ObjectExistsException {
+        if (getServiceManager().getRoleManager().isRoleAssigned(caller, Constants.Roles.ROLE_ADMIN)) {
+            OwnerAwareManagerImpl.setCreatorRep(object,
+                                                creatorName,
+                                                getServiceManager().getUserManager(),
+                                                dealerDao);
+        } else {
+            getRMLogger().errorSecurityViolation("Tries to set creator for object.", caller);
+            throw new AccessControlException("access denied");
+        }
+    }
+
+    @Override
+    public List<DealerEntity> getObjectsOwnedBy(UserEntity user) {
+        List<Long> ids = ownerDao.getObjectsIdsOwnedBy(user, "Dealer", null, null, null);
+        return getAll(ids);
+    }
+
 }
