@@ -249,8 +249,6 @@ public class EditObjectShow extends AbstractEditObject {
             return;
         }
 
-        getBase().addFlashToSession(getBase().getText(getObjectRemovedLabel()), FlashMessage.Type.SUCCESS);
-
         getRMLogger().info("Object deleted", getSelectedObject());
 
         getIOC().getResponse().sendRedirect(listPageLocal);

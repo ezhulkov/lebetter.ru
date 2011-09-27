@@ -7,7 +7,7 @@
 
         <h1>Создать категорию</h1>
 
-        <t:mallcomponents.object.categoryNew/>
+        <t:mallcomponents.object.categoryNew parent="parentCategory"/>
 
     </t:mallcomponents.layout.office>
 

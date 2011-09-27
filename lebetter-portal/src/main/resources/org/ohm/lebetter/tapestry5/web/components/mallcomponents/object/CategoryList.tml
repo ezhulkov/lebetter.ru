@@ -5,7 +5,7 @@
         <t:parameter name="nameHeader">
             Название
         </t:parameter>
-        <t:parameter name="nameHeader">
+        <t:parameter name="codeHeader">
             Код
         </t:parameter>
         <t:parameter name="objectStatusHeader">
