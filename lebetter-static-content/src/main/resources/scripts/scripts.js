@@ -1,6 +1,13 @@
 jQuery(document).ready(function() {
 });
 AG = {
+    processChange: function() {
+        if (jQuery("select#type").val() == 'DICTIONARY') {
+            jQuery('#DICT').css('display', 'block');
+        } else {
+            jQuery('#DICT').css('display', 'none');
+        }
+    },
     initMainPage: function() {
         /* Start carousel */
         jQuery(function() {

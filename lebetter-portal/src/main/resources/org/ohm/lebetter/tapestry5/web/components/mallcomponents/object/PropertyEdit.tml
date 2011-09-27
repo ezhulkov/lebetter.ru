@@ -211,11 +211,5 @@
               }
             });
         });
-        // Расставляем tabindex
-        jQuery("#editObjectForm input.NFButton").attr("tabindex","8");
-
-        jQuery(document).ready(function() {
-        jQuery("#propertytype").find("select[id^='status']").selectbox();
-        });
     </script>
 </div>
