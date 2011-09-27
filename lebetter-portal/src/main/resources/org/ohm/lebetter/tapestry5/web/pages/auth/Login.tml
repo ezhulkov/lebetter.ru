@@ -1,29 +1,59 @@
 <t:mallcomponents.layout.layout title="Lebetter.ru - Вход для партнеров"
                                 bodyId="auth"
                                 flash="flashMessage"
-                                xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+                                xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" class="dbl_col">
 
-    <t:if test="error">
-        <b>Ошибка</b><br/>
-        В системе не зарегистрирован такой <br/>адрес электронной почты <br/>или
-        введен неправильный пароль.
-    </t:if>
 
-    <form id="ks_login_form2" method="post" action="${auth.springSecurityUrl}">
+  <div class="dbl_col_left">
+    <!-- LeftMenu -->
 
-        <div>Адрес электронной почты:</div>
-        <input type="text" id="username" name="j_username" tabindex="1"/>
 
-        <div >Пароль:</div>
-        <input type="password" id="password" name="j_password" tabindex="2"/>
+  </div>
+  <div class="dbl_col_right">
+    <!-- ContentBox -->
 
-        <input type="checkbox" name="_spring_security_remember_me"
-               id="rememberMeu" tabindex="3"/> <label
-            for="rememberMeu">Запомнить меня</label>
+      <div id="bread_crumbs_box" class="status">
+        <a class="status_home" href="/"><img src="/images/0.gif" alt="" /></a><span class="status_hr"><img src="/images/0.gif" alt="" /></span>Вход для партнеров
+      </div>
 
-        <t:pagelink page="auth/passwordforgot" class="ks_auth_win_links_color2">Забыли пароль?</t:pagelink>
-        <input tabindex="4" type="submit" name="login" title="Войти" value="Войти"/>
+      <h1>Вход для партнеров</h1>
 
-    </form>
+      <t:if test="error">
+        <div class="error_box">
+          <b>Ошибка</b><br/>
+          В системе не зарегистрирован такой <br/>адрес электронной почты или<br/>
+          введен неправильный пароль.
+        </div>
+      </t:if>
+
+      <form id="ks_login_form2" method="post" action="${auth.springSecurityUrl}">
+
+        <div class="input_box">
+          <div class="input_label">Адрес электронной почты:</div>
+          <input type="text" id="username" name="j_username" class="form_input" tabindex="1"/>
+        </div>
+
+        <div class="input_box">
+          <div class="input_label">Пароль:</div>
+          <input type="password" id="password" name="j_password" class="form_input" tabindex="2"/>
+        </div>
+
+        <div class="input_ubox">
+          <input type="checkbox" name="_spring_security_remember_me"
+                 id="rememberMeu" tabindex="3"/> <label
+              for="rememberMeu">Запомнить меня</label>
+        </div>
+
+        <div class="input_ubox">
+          <t:pagelink page="auth/passwordforgot" class="ks_auth_win_links_color2">Забыли пароль?</t:pagelink>
+        </div>
+
+        <div class="input_ubox">
+          <input tabindex="4" type="submit" name="login" class="form_but" title="Войти" value="Войти"/>
+        </div>
+
+      </form>
+
+  </div>
 
 </t:mallcomponents.layout.layout>
