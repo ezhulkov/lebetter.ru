@@ -428,3 +428,23 @@ a {
 a:hover {
   text-decoration: none;
 }
+
+.checkbox3 {
+    background-image: url('/images/lb-front/form/check.png');
+    background-repeat: no-repeat;
+    width: 21px;
+    height: 21px;
+    cursor: pointer
+}
+
+.checkbox3.f0 {
+    background-position: 0px 0px;
+}
+
+.checkbox3.f1 {
+    background-position: -21px 0px;
+}
+
+.checkbox3.f2 {
+    background-position: -42px 0px;
+}

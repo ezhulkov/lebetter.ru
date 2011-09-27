@@ -5,14 +5,14 @@
             <ul>
                 <t:if test="object.creator">
                     <li>
-                        <b >Создатель</b>:
+                        <b>Создатель</b>:
                         <t:pageLink t:page="po/user" t:context="object.creator.rootId" class="underline">${object.creator.name}</t:pageLink>
                     </li>
                      
                 </t:if>
                 <t:if test="owners">
                     <li>
-                        <b >Владельцы:</b>&#0160;
+                        <b>Владельцы:</b>&#0160;
                         <t:loop t:formState="NONE" source="owners" value="ownerRef">
                             <t:pageLink t:page="po/user"
                                         t:context="ownerRef.owner.rootId"
@@ -37,7 +37,7 @@
             </div>
 
             <div class="ks_objectownershow_1">
-                <img class="NFButtonLeft" src="/images/0.gif"/><input type="submit" id="submitButton" value="${message:assignbtn}" class="NFButton"/><img src="/images/0.gif" class="NFButtonRight"/>
+                <img class="NFButtonLeft" src="/images/0.gif"/><input type="submit" id="submitButton" value="Назначить" class="NFButton"/><img src="/images/0.gif" class="NFButtonRight"/>
             </div>
 
         </div>

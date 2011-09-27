@@ -5,7 +5,7 @@
 
     <t:mallcomponents.layout.office>
 
-        <p>Пользователи</p>
+        <h1>Пользователи</h1>
 
         <t:pageLink t:page="po/user/create">Создать пользователя</t:pageLink>
 

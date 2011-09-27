@@ -7,7 +7,7 @@
 
         <t:mallcomponents.control.selectedObject>
 
-            <p>Пользователь ${selectedUser.fullName}</p>
+            <h1>Пользователь ${selectedUser.fullName}</h1>
 
             Логин: ${selectedUser.name}
 

@@ -8,7 +8,6 @@ import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.ohm.lebetter.tapestry5.web.components.base.AbstractBaseComponent;
-import org.ohm.lebetter.tapestry5.web.data.FlashMessage;
 import org.room13.mallcore.model.impl.entities.ActionEntity;
 import org.room13.mallcore.model.impl.entities.RoleEntity;
 import org.room13.mallcore.model.impl.entities.RoleToActionEntity;
@@ -75,8 +74,6 @@ public class ActionsEdit extends AbstractBaseComponent {
 
             }
         }
-
-        getBase().addFlashToSession(getBase().getText("parsing.done"), FlashMessage.Type.SUCCESS);
 
         return actionsBlock;
     }

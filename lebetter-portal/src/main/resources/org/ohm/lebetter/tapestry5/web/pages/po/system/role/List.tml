@@ -4,7 +4,7 @@
                                 xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
     <t:mallcomponents.layout.office>
-    Роли
+    <h1>Роли</h1>
 
     <t:grid id="datagrid" source="allRoles" row="oneRole" include="name,code" rowsPerPage="50">
         <t:parameter name="nameHeader">Имя</t:parameter>

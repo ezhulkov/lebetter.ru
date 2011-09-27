@@ -5,7 +5,7 @@
 
     <t:mallcomponents.layout.office>
 
-        <p>Дилеры</p>
+        <h1>Дилеры</h1>
 
         <t:pageLink t:page="po/dealer/create">Создать дилера</t:pageLink>
 
