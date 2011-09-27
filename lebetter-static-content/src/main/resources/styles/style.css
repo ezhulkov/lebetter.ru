@@ -273,10 +273,10 @@ body {
 }
 .dbl_col_left {
   float: left;
-  width: 240px;
+  width: 230px;
 }
 .dbl_col_right {
-  padding: 0px 0px 0px 240px;
+  padding: 0px 0px 0px 230px;
   width: 721px;
   color: #303030;
   line-height: 16px;
@@ -303,7 +303,7 @@ ul.leftmenu li {
 }
 ul.leftmenu li a {
   display: block;
-  width: 179px;
+  width: 169px;
   padding: 8px 0px 7px 30px;
   border-bottom: 3px solid #d2d2d2;
   text-decoration: none;
@@ -311,26 +311,54 @@ ul.leftmenu li a {
   font-size: 14px;
   font-weight: bold;
 }
+/* level 2 */
 ul.leftmenu ul {
   padding: 6px 0px 6px 20px;
 }
 ul.leftmenu ul li {
   padding: 0px 0px 0px 0px;
+  border-bottom: 1px solid #d2d2d2;
+  width: 179px;
 }
+/*ul.leftmenu ul li:hover {
+  border-bottom: 0px solid #d2d2d2;
+}*/
 ul.leftmenu ul li a {
   font-size: 12px;
   color: #47190a;
-  padding: 3px 9px 4px 10px;
-  width: 170px;
-  border-bottom: 1px solid #d2d2d2;
+  padding: 3px 9px 5px 10px;
+  width: 160px;
+  border-bottom: 0px solid #d2d2d2;
 }
 ul.leftmenu ul li.sel a,
 ul.leftmenu ul li a:hover {
   color: #000000;
   background-color: #e3e3e3;
   padding: 3px 9px 5px 10px;
+}
+/* level 3 */
+ul.leftmenu ul ul {
+  padding: 0px 0px 0px 0px;
+}
+ul.leftmenu ul ul li {
+  padding: 0px 0px 0px 0px;
   border-bottom: 0px solid #d2d2d2;
 }
+ul.leftmenu ul ul li a {
+  font-size: 12px;
+  color: #606060;
+  padding: 3px 9px 5px 25px;
+  width: 145px;
+  border-bottom: 0px solid #d2d2d2;
+}
+ul.leftmenu ul ul li.sel a,
+ul.leftmenu ul ul li a:hover {
+  color: #101010;
+  background-color: #e3e3e3;
+  padding: 3px 9px 5px 25px;
+}
+
+
 
 /* status */
 .status {
