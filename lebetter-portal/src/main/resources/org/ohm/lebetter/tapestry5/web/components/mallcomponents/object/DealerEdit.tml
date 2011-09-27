@@ -14,8 +14,8 @@
             objectManager="serviceFacade.dealerManager"
             selectedObject="selectedObject">
 
-        <div class="ks_orderadress_input">
-            <div class="ks_orderadress_legend">
+        <div >
+            <div >
                 <t:label for="name"/>
                 :
             </div>
@@ -30,16 +30,16 @@
             <select t:id="status"/>
         </div>
 
-        <div class="ks_orderadress_input">
-            <div class="ks_orderadress_legend">
+        <div >
+            <div >
                 <t:label for="discount"/>
                 :
             </div>
             <input t:id="discount" class="validate_input"/>
         </div>
 
-        <div class="ks_orderadress_input">
-            <div class="ks_orderadress_legend">
+        <div >
+            <div >
                 <t:label for="description"/>
                 :
             </div>

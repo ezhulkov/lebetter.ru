@@ -5,14 +5,14 @@
             <ul>
                 <t:if test="object.creator">
                     <li>
-                        <b class="ks_orderadress_legend">Создатель</b>:
+                        <b >Создатель</b>:
                         <t:pageLink t:page="po/user" t:context="object.creator.rootId" class="underline">${object.creator.name}</t:pageLink>
                     </li>
                      
                 </t:if>
                 <t:if test="owners">
                     <li>
-                        <b class="ks_orderadress_legend">Владельцы:</b>&#0160;
+                        <b >Владельцы:</b>&#0160;
                         <t:loop t:formState="NONE" source="owners" value="ownerRef">
                             <t:pageLink t:page="po/user"
                                         t:context="ownerRef.owner.rootId"
@@ -28,8 +28,8 @@
 
         <div class="ks_adm_order_detail">
 
-            <div class="ks_orderadress_input">
-                <div class="ks_orderadress_legend">
+            <div >
+                <div >
                     <t:label for="owner"/>
                     :
                 </div>

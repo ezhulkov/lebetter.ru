@@ -7,9 +7,13 @@
 
         <t:mallcomponents.control.selectedObject>
 
-            <p>Категория ${selectedCategory.name}</p>
+            <h1>Категория ${selectedCategory.name}</h1>
 
-            <!--<t:mallcomponents.object.dealerEdit object="selectedDealer"/>-->
+            <t:mallcomponents.object.categoryEdit object="selectedCategory"/>
+
+            <h2>Подкатегории</h2>
+            <t:pageLink t:page="po/system/category/create" t:context="selectedCategory.rootId">Создать подкатегорию</t:pageLink>
+            <t:mallcomponents.object.categorySubList parent="selectedCategory"/>
 
         </t:mallcomponents.control.selectedObject>
 

@@ -39,7 +39,7 @@
             <div class="break"></div>
         </t:if>
         <t:if test="propertyIsValue">
-            <div class="ks_orderadress_input">
+            <div >
                 <!--<div class="ks_orderadress_legend3"> </div>-->
                 <input name="2RM-VALUE-${selectedProperty.rootid}" class="validate_input orderbox_login" type="text"/>
             </div>

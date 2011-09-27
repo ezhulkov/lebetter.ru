@@ -17,25 +17,25 @@
             drawDelete="showControls"
             drawLang="showControls">
 
-                <div class="ks_orderadress_input">
-                  <div class="ks_orderadress_legend"><t:label for="name"/>:</div>
+                <div >
+                  <div ><t:label for="name"/>:</div>
                   <input t:id="name" class="validate_input orderbox_login" tabindex="1"/>
                 </div>
 
 
-                <div class="ks_orderadress_input">
-                  <div class="ks_orderadress_legend"><t:label for="code"/>:</div>
+                <div >
+                  <div ><t:label for="code"/>:</div>
                   <input t:id="code" class="validate_input orderbox_login" tabindex="2"/>
                 </div>
 
 
-                <div class="ks_orderadress_input">
-                  <div class="ks_orderadress_legend"><t:label for="alias"/>:</div>
+                <div >
+                  <div ><t:label for="alias"/>:</div>
                   <input t:id="alias" class="validate_input orderbox_login" tabindex="3"/>
                 </div>
               <div class="break"></div>
-              <div class="ks_orderadress_input" >
-                <div class="ks_orderadress_legend"><t:label for="description"/>:</div>
+              <div  >
+                <div ><t:label for="description"/>:</div>
                    <div class="NFTextareaTop" style="width: 442px;"><img src="/images/0.gif" class="NFTextareaTopLeft"/></div>
                    <div class="NFTextareaRight" style="height: 36px;  width: 447px;">
                      <div class="NFTextareaLeft" style="height: 36px;"/>
@@ -45,8 +45,8 @@
               </div>
               <div class="break"></div>
                 <t:if test="selectedObject.rootObject">
-                  <div class="ks_orderadress_input" style="width: 480px;">
-                    <div class="ks_orderadress_legend">
+                  <div  style="width: 480px;">
+                    <div >
                       <div class="ks_legend_check_label">
                         <t:checkBox t:id="attention" type="checkbox" style="height: 13px; width: 13px;" tabindex="5"/> 
                         <t:label for="attention" style='font-weight: normal'/>

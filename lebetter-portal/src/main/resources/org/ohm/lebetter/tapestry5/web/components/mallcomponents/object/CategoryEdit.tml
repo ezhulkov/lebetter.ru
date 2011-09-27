@@ -1,22 +1,22 @@
-﻿<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="category" class="ks_adm_content_tabscontent ks_adm_order_detail ks_adm_content_forbut">
+﻿<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="category">
+
     <t:if test="selectedObject.parent">
-        <span id="parent_type_label">${message:parent-type-label}:
-            <t:mallComponents.object.objectLink object="selectedObject.parent" page="po/staff/category"/>
+        <span id="parent_type_label">
+            <t:pageLink t:page="po/system/category" t:context="selectedObject.parent.id">Родительская категори - ${selectedObject.parent.name}</t:pageLink>
         </span>
     </t:if>
-    <t:mallComponents.control.menuLink action="VIEW_CATEGORY" object="selectedObject">
+
+    <t:mallComponents.control.menuLink roles="ROLE_ADMIN">
 
         <t:mallComponents.control.editObject
-                addAction="ADD_CATEGORY"
-                delAction="DEL_CATEGORY"
-                editAction="EDIT_CATEGORY"
+                roles="ROLE_ADMIN"
                 objectSavedLabel="category.saved"
-                objectRemovedLabel="category.removed"
-                objectExistsLabel="error.category.exists"
+                objectRemovedLabel="category.deleted"
+                objectExistsLabel="category.exists"
                 objectAddedLabel="category.added"
                 newObject="literal:false"
-                listPage="literal:/po/staff/categories"
-                objectPage="literal:/po/staff/category"
+                listPage="literal:/po/system/category/list"
+                objectPage="literal:/po/system/category"
                 objectManager="serviceFacade.categoryManager"
                 submitCallback="callback"
                 selectedObject="selectedObject"
@@ -24,50 +24,40 @@
 
             <input type="hidden" id="2RM-SORDER" name="2RM-SORDER"/>
 
-            <div class="ks_orderadress_input">
-                <div class="ks_orderadress_legend">
+            <div >
+                <div >
                     <t:label for="name"/>
                     :
                 </div>
                 <input t:id="name" class="validate_input orderbox_login" tabindex="1"/>
             </div>
 
-            <div class="ks_orderadress_input">
-                <div class="ks_orderadress_legend">
-                    <t:label for="alias"/>
+            <div >
+                <div >
+                    <t:label for="code"/>
                     :
                 </div>
-                <input t:id="alias" class="validate_input orderbox_login" tabindex="2"/>
+                <input t:id="code" class="validate_input orderbox_login" tabindex="1"/>
             </div>
 
-            <div class="ks_orderadress_input_s ks_categoryedit_1">
-                <div class="ks_orderadress_legend_s">
+            <div>
+                <div>
                     <t:label for="status"/>
                     :
                 </div>
                 <select t:id="status" class="validate_input orderbox_login select_init ks_categoryedit_2" tabindex="3"/>
             </div>
 
-            <div class="ks_orderadress_input">
-                <div class="ks_orderadress_legend">
+            <div >
+                <div >
                     <t:label for="position"/>
                     :
                 </div>
                 <input t:id="position" class="validate_input orderbox_login" tabindex="4"/>
             </div>
 
-            <div class="ks_orderadress_input">
-                <div class="ks_orderadress_legend">
-                    <t:label for="relcode"/>
-                    :
-                </div>
-                <input t:id="relcode" class="validate_input orderbox_login" tabindex="5"/>
-            </div>
-
-            <div class="ks_orderadress_input ks_categoryedit_3"/>
-
-            <div class="ks_orderadress_input">
-                <div class="ks_orderadress_legend">
+            <div >
+                <div >
                     <t:label for="properties"/>
                     :
                 </div>
@@ -83,8 +73,8 @@
                 </div>
             </div>
 
-            <div class="ks_orderadress_input">
-                <div class="ks_orderadress_legend">${message:category.chooseorder}:</div>
+            <div >
+                <div>Порядок свойств:</div>
                 <ul id="sortable">
                     <t:loop volatile="true" source="searchOrder" value="oneProperty">
                         <li id="${oneProperty.rootid}">
@@ -133,12 +123,6 @@
             </script>
 
         </t:mallComponents.control.editObject>
-
-        <script language="JavaScript" type="text/javascript">
-          // Расставляем tabindex
-          jQuery("#editObjectForm select[multiple]='multiple'").attr("tabindex","6");
-          jQuery("#editObjectForm input.NFButton").attr("tabindex","7");
-        </script>
 
     </t:mallComponents.control.menuLink>
 

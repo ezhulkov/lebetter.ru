@@ -1,8 +1,8 @@
 <div class="t-palette" xml:space="default" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
     <div class="t-palette-available ks_deliveryedit_9">
 
-      <div class="ks_orderadress_input">
-          <div class="ks_orderadress_legend"><t:delegate to="availableLabel"/>:</div>
+      <div >
+          <div ><t:delegate to="availableLabel"/>:</div>
           <div class="NFMultiSelectTop ks_deliveryedit_6">
               <img src="/images/0.gif" class="NFMultiSelectTopLeft"/></div>
           <div class="NFMultiSelectRight ks_deliveryedit_5">
@@ -23,8 +23,8 @@
     </div>
     <div class="t-palette-selected ks_deliveryedit_10">
 
-      <div class="ks_orderadress_input">
-          <div class="ks_orderadress_legend"><t:delegate to="selectedLabel"/>:</div>
+      <div >
+          <div ><t:delegate to="selectedLabel"/>:</div>
           <div class="NFMultiSelectTop ks_deliveryedit_6">
               <img src="/images/0.gif" class="NFMultiSelectTopLeft"/></div>
           <div class="NFMultiSelectRight ks_deliveryedit_5">

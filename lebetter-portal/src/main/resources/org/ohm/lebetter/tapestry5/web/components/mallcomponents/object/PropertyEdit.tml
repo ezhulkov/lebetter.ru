@@ -18,16 +18,16 @@
                 selectedSecurityObject="selectedObjectRoot"
                 parentObject="parentObject">
 
-            <div class="ks_orderadress_input">
-                <div class="ks_orderadress_legend">
+            <div >
+                <div >
                     <t:label for="name"/>
                     :
                 </div>
                 <input t:id="name" class="validate_input orderbox_login" tabindex="1"/>
             </div>
 
-            <div class="ks_orderadress_input">
-                <div class="ks_orderadress_legend">
+            <div >
+                <div >
                     <t:label for="alias"/>
                     :
                 </div>
@@ -35,8 +35,8 @@
             </div>
 
             <t:if test="selectedObject.rootObject">
-                <div class="ks_orderadress_input">
-                    <div class="ks_orderadress_legend">
+                <div >
+                    <div >
                         <t:label for="status"/>
                         :
                     </div>
@@ -45,8 +45,8 @@
             </t:if>
 
             <div class="break"></div>
-            <div class="ks_orderadress_input">
-                <div class="ks_orderadress_legend">
+            <div >
+                <div >
                     <t:label for="code"/>
                     :
                 </div>
@@ -54,15 +54,15 @@
             </div>
             <div class="break"></div>
 
-            <div class="ks_orderadress_input">
-                <div class="ks_orderadress_legend">${message:property.type}:
+            <div >
+                <div >${message:property.type}:
                     <span class="itemtype">${selectedObjectRoot.type}</span></div>
             </div>
 
             <div class="break"></div>
 
             <div class="ks_orderadress_input ks_propertyedit_2">
-                <div class="ks_orderadress_legend">
+                <div >
                     <t:checkBox t:id="mandatory" type="checkbox" class="ks_propertyedit_3" tabindex="5"/>
 
                     <t:label for="mandatory" class="ks_propertyedit_4"/>
@@ -70,7 +70,7 @@
             </div>
 
             <div class="ks_orderadress_input ks_propertyedit_2">
-                <div class="ks_orderadress_legend">
+                <div >
                     <t:checkBox t:id="special" type="checkbox" class="ks_propertyedit_3" tabindex="6"/>
 
                     <t:label for="special" class="ks_propertyedit_4"/>
@@ -80,7 +80,7 @@
             <t:if test="selectedPropertyIsListOrDict">
                 <t:if test="selectedObject.rootObject">
                     <div class="ks_orderadress_input ks_propertyedit_5">
-                        <div class="ks_orderadress_legend">
+                        <div >
 
                             <t:checkBox t:id="multiple" type="checkbox" class="ks_propertyedit_3" tabindex="7"/>
                              
@@ -93,8 +93,8 @@
             </t:if>
 
             <t:if test="selectedPropertyIsDict">
-                <div class="ks_orderadress_input">
-                    <div class="ks_orderadress_legend">${message:property.dictionary}:
+                <div >
+                    <div >${message:property.dictionary}:
                         <span class="itemtype">${selectedObjectRoot.dictionary}</span></div>
                 </div>
                 <div class="break"></div>

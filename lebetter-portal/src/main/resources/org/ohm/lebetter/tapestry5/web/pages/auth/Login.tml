@@ -14,7 +14,7 @@
         <div>Адрес электронной почты:</div>
         <input type="text" id="username" name="j_username" tabindex="1"/>
 
-        <div class="ks_orderadress_legend">Пароль:</div>
+        <div >Пароль:</div>
         <input type="password" id="password" name="j_password" tabindex="2"/>
 
         <input type="checkbox" name="_spring_security_remember_me"

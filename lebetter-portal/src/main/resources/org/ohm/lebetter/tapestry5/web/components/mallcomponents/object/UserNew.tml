@@ -15,48 +15,48 @@
             selectedObject="selectedObject"
             submitCallback="callback">
 
-        <div class="ks_orderadress_input">
-            <div class="ks_orderadress_legend">
+        <div >
+            <div >
                 <t:label for="email"/>
                 :
             </div>
             <input t:id="email" class="validate_input"/>
         </div>
 
-        <div class="ks_orderadress_input">
-            <div class="ks_orderadress_legend">
+        <div >
+            <div >
                 <t:label for="fname"/>
                 :
             </div>
             <input t:id="fname" class="validate_input"/>
         </div>
 
-        <div class="ks_orderadress_input">
-            <div class="ks_orderadress_legend">
+        <div >
+            <div >
                 <t:label for="lname"/>
                 :
             </div>
             <t:input t:id="lname" class="validate_input"/>
         </div>
 
-        <div class="ks_orderadress_input">
-            <div class="ks_orderadress_legend">
+        <div >
+            <div >
                 <t:label for="pwd1"/>
                 :
             </div>
             <t:input t:id="pwd1" class="validate_input"/>
         </div>
 
-        <div class="ks_orderadress_input">
-            <div class="ks_orderadress_legend">
+        <div >
+            <div >
                 <t:label for="pwd2"/>
                 :
             </div>
             <t:input t:id="pwd2" class="validate_input"/>
         </div>
 
-        <div class="ks_orderadress_input">
-            <div class="ks_orderadress_legend">
+        <div >
+            <div >
                 <t:label for="role"/>
                 :
             </div>

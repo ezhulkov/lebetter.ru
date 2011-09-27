@@ -2,13 +2,13 @@
 
      <t:form t:id="newValueForm" t:context="property.rootid">
 
-              <div class="ks_orderadress_input">
-                <div class="ks_orderadress_legend"><t:label for="propertyValue"/>:</div>
+              <div >
+                <div ><t:label for="propertyValue"/>:</div>
                 <input t:id="propertyValue" class="validate_input"/>
               </div>
 
-              <div class="ks_orderadress_input">
-                <div class="ks_orderadress_legend"><t:label for="description"/>:</div>
+              <div >
+                <div ><t:label for="description"/>:</div>
                    <div class="NFTextareaTop ks_propertyvalueadd_1"><img src="/images/0.gif" class="NFTextareaTopLeft"/></div>
                    <div class="NFTextareaRight ks_propertyvalueadd_2">
                      <div class="NFTextareaLeft ks_propertyvalueadd_2"/>
