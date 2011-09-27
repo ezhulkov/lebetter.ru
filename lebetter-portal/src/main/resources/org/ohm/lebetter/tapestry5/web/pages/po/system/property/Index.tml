@@ -8,6 +8,7 @@
         <t:mallcomponents.control.selectedObject>
 
             <h1>Свойство ${selectedProperty.name}</h1>
+            <h2>Тип ${selectedProperty.type}</h2>
 
             <t:mallcomponents.object.propertyEdit object="selectedProperty"/>
 

@@ -4,6 +4,9 @@
         <t:parameter name="objectStatusHeader">
             Статус
         </t:parameter>
+        <t:parameter name="typeHeader">
+            Тип
+        </t:parameter>
         <t:parameter name="nameHeader">
             Название
         </t:parameter>
