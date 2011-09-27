@@ -61,86 +61,65 @@
 
         </t:mallComponents.control.editObject>
 
-        <!--<t:if test="selectedPropertyIsList">-->
+        <t:if test="selectedPropertyIsList">
+            <t:if test="selectedObject.rootObject">
+                <!-- Cat values -->
+                <div class="ks_adm_content_tabscontent">
+                    <h2>Значения свойства</h2>
+                    <div class="ks_adm_content_buts">
 
-            <!--<t:if test="selectedObject.rootObject">-->
+                    </div>
+                    <t:mallComponents.object.propertyValueList property="selectedObjectRoot"/>
 
-                <!--&lt;!&ndash; Cat values &ndash;&gt;-->
-                <!--<div class="ks_adm_content_tabscontent">-->
-                    <!--<h2>${message:categories.page}</h2>-->
-
-                    <!--<div class="ks_adm_content_buts">-->
-                        <!--<t:mallComponents.control.menuLink action="EDIT_PROPERTY" object="selectedObject">-->
-
-                            <!--<div class="ks_content_grey_but_r">-->
-                                <!--<div class="ks_content_grey_but_l">-->
-                                    <!--<a href="#addcatvalue" id="addcatvaluebtn" class="ks_content_grey_but">${message:addcatvaluebtn}</a>-->
-                                <!--</div>-->
-                            <!--</div>-->
-
-                            <!--&lt;!&ndash; addbox_ &ndash;&gt;-->
-                            <!--<div class="ks_propertyedit_7">-->
-                                <!--<div id="addcatvalue">-->
-                                    <!--<t:mallComponents.object.propertyValueAdd property="selectedObject"/>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                            <!--&lt;!&ndash; /addbox_ &ndash;&gt;-->
-
-                        <!--</t:mallComponents.control.menuLink>-->
-                    <!--</div>-->
-                    <!--<t:mallComponents.object.propertyValueList property="selectedObjectRoot"/>-->
-
-                <!--</div>-->
-                <!--&lt;!&ndash; /Cat values &ndash;&gt;-->
-
-            <!--</t:if>-->
-
-        <!--</t:if>-->
+                </div>
+                <!-- /Cat values -->
+            </t:if>
+        </t:if>
 
         <!--<t:if test="selectedPropertyIsDict">-->
 
-            <!--<div class="propertyDetail topborder">-->
+        <!--<div class="propertyDetail topborder">-->
 
-                <!--<t:mallComponents.object.propertyValueList property="selectedObject"/>-->
+        <!--<t:mallComponents.object.propertyValueList property="selectedObject"/>-->
 
-            <!--</div>-->
+        <!--</div>-->
 
         <!--</t:if>-->
 
         <!--<t:if test="selectedPropertyIsGroup">-->
-            <!--<t:if test="selectedObject.rootObject">-->
+        <!--<t:if test="selectedObject.rootObject">-->
 
-                <!--<div class="ks_adm_content_tabscontent">-->
-                    <!--<h2>${message:categories.page}</h2>-->
+        <!--<div class="ks_adm_content_tabscontent">-->
+        <!--<h2>${message:categories.page}</h2>-->
 
-                    <!--<div class="ks_adm_content_buts">-->
-                        <!--&lt;!&ndash; Sub properties &ndash;&gt;-->
-                        <!--<t:mallComponents.control.menuLink action="ADD_PROPERTY">-->
-                            <!--<div class="ks_content_grey_but_r">-->
-                                <!--<div class="ks_content_grey_but_l">-->
-                                    <!--<a href="#addsubcatvalue" id="addsubcatvaluebtn" class="ks_content_grey_but">${message:addsubcatvaluebtn}</a>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                            <!--<div class="shopaddbox rm_ctrl_wcwin">-->
+        <!--<div class="ks_adm_content_buts">-->
+        <!--&lt;!&ndash; Sub properties &ndash;&gt;-->
+        <!--<t:mallComponents.control.menuLink action="ADD_PROPERTY">-->
+        <!--<div class="ks_content_grey_but_r">-->
+        <!--<div class="ks_content_grey_but_l">-->
+        <!--<a href="#addsubcatvalue" id="addsubcatvaluebtn" class="ks_content_grey_but">${message:addsubcatvaluebtn}</a>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="shopaddbox rm_ctrl_wcwin">-->
 
-                                <!--&lt;!&ndash; addbox_ &ndash;&gt;-->
-                                <!--<div class="ks_propertyedit_7">-->
-                                    <!--<div id="addsubcatvalue">-->
-                                        <!--<t:mallComponents.object.propertySubTypeAdd parent="selectedObject"/>-->
-                                    <!--</div>-->
-                                <!--</div>-->
-                                <!--&lt;!&ndash; /addbox_ &ndash;&gt;-->
+        <!--&lt;!&ndash; addbox_ &ndash;&gt;-->
+        <!--<div class="ks_propertyedit_7">-->
+        <!--<div id="addsubcatvalue">-->
+        <!--<t:mallComponents.object.propertySubTypeAdd parent="selectedObject"/>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; /addbox_ &ndash;&gt;-->
 
-                            <!--</div>-->
-                        <!--</t:mallComponents.control.menuLink>-->
-                    <!--</div>-->
+        <!--</div>-->
+        <!--</t:mallComponents.control.menuLink>-->
+        <!--</div>-->
 
-                    <!--<t:mallComponents.object.propertyList parent="selectedObjectRoot"/>-->
+        <!--<t:mallComponents.object.propertyList parent="selectedObjectRoot"/>-->
 
-                <!--</div>-->
-                <!--&lt;!&ndash; /Sub properties &ndash;&gt;-->
+        <!--</div>-->
+        <!--&lt;!&ndash; /Sub properties &ndash;&gt;-->
 
-            <!--</t:if>-->
+        <!--</t:if>-->
         <!--</t:if>-->
 
     </t:mallComponents.control.menuLink>

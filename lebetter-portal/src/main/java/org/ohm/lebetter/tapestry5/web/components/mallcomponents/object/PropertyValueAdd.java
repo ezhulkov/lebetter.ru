@@ -5,7 +5,6 @@ import org.apache.tapestry5.annotations.OnEvent;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
-import org.apache.tapestry5.corelib.components.TextArea;
 import org.apache.tapestry5.corelib.components.TextField;
 import org.ohm.lebetter.model.impl.entities.PropertyEntity;
 import org.ohm.lebetter.model.impl.entities.PropertyValueEntity;
@@ -30,27 +29,14 @@ public class PropertyValueAdd extends AbstractBaseComponent {
             parameters = {"value=newPropertyValue.name", "validate=required,maxlength=32"})
     private TextField propertyValueField;
 
-    @Component(id = "description",
-            parameters = {"value=newPropertyValue.description", "validate=maxlength=255"})
-    private TextArea propertyDescriptionField;
-
     void beginRender() {
         newPropertyValue = new PropertyValueEntity();
     }
 
-
     @OnEvent(value = "submit", component = "newValueForm")
     public void onNewValueFormSubmit(Long propertyId) {
 
-        if (getRMLogger().isDebugEnabled()) {
-            getRMLogger().debug("Entered new value method. Parent cat: " + propertyId);
-        }
-
         property = getServiceFacade().getPropertyManager().get(propertyId);
-
-        if (getRMLogger().isTraceEnabled()) {
-            getRMLogger().trace("Parent cat", property);
-        }
 
         //Try to add new property value
         try {
@@ -67,9 +53,6 @@ public class PropertyValueAdd extends AbstractBaseComponent {
                     FlashMessage.Type.FAILURE);
             return;
         }
-
-        getBase().addFlashToSession(getBase().getText("property.value.added"),
-                FlashMessage.Type.SUCCESS);
 
     }
 
