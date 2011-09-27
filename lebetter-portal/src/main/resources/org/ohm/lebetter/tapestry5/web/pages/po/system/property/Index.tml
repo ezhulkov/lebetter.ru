@@ -1,0 +1,18 @@
+<t:mallcomponents.layout.layout title="Lebetter.ru - Личный Кабинет"
+                                bodyId="po"
+                                flash="flashMessage"
+                                xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+    <t:mallcomponents.layout.office>
+
+        <t:mallcomponents.control.selectedObject>
+
+            <h1>Свойство ${selectedProperty.name}</h1>
+
+            <t:mallcomponents.object.propertyEdit object="selectedProperty"/>
+
+        </t:mallcomponents.control.selectedObject>
+
+    </t:mallcomponents.layout.office>
+
+</t:mallcomponents.layout.layout>

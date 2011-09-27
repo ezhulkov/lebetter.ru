@@ -10,7 +10,7 @@ import org.ohm.lebetter.model.impl.entities.PropertyEntity;
 import org.ohm.lebetter.spring.service.PropertyManager;
 import org.ohm.lebetter.tapestry5.web.components.base.AbstractBaseComponent;
 import org.ohm.lebetter.tapestry5.web.data.FlashMessage;
-import org.ohm.lebetter.tapestry5.web.pages.po.system.Properties;
+import org.ohm.lebetter.tapestry5.web.pages.po.system.property.List;
 import org.room13.mallcore.spring.service.ObjectExistsException;
 
 import java.security.AccessControlException;
@@ -38,7 +38,7 @@ public class PropertySubTypeAdd extends AbstractBaseComponent {
 
     @OnEvent(value = "cancelButton", component = "button")
     Object onCancel() {
-        return Properties.class;
+        return List.class;
     }
 
     @OnEvent(value = "submit", component = "propertyForm")
@@ -91,7 +91,7 @@ public class PropertySubTypeAdd extends AbstractBaseComponent {
 
         getBase().addFlashToSession(getBase().getText("property.type.removed"), FlashMessage.Type.SUCCESS);
 
-        return Properties.class;
+        return List.class;
     }
 
 }
