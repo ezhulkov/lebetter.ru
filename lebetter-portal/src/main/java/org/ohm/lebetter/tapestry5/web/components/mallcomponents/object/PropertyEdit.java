@@ -20,25 +20,9 @@ public class PropertyEdit extends AbstractEditComponent {
                parameters = {"value=selectedObject.name", "validate=required,maxlength=128"})
     private TextField propertyNameField;
 
-    @Component(id = "code",
-               parameters = {"value=selectedObject.code", "validate=maxlength=8"})
-    private TextField propertyCodeField;
-
-    @Component(id = "alias",
-               parameters = {"value=selectedObject.alias", "validate=maxlength=128"})
-    private TextField propertyAliasField;
-
     @Component(id = "multiple",
                parameters = {"value=selectedObject.multiple"})
     private Checkbox propertyMultipleField;
-
-    @Component(id = "mandatory",
-               parameters = {"value=selectedObject.mandatory"})
-    private Checkbox propertyMandatoryField;
-
-    @Component(id = "special",
-               parameters = {"value=selectedObject.specialFilter"})
-    private Checkbox propertySpecialField;
 
     @Property
     private GenericStatusSelectModel statusSelectModel = null;

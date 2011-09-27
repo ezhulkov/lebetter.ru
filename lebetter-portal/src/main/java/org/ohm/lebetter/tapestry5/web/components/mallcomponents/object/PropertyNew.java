@@ -21,19 +21,19 @@ public class PropertyNew extends AbstractEditComponent {
     @Cached
     public boolean isSelectedPropertyIsGroup() {
         return getSelectedObject() != null &&
-                getSelectedObject().getType().equals(PropertyEntity.Type.GROUP);
+               getSelectedObject().getType().equals(PropertyEntity.Type.GROUP);
     }
 
     @Cached
     public boolean isSelectedPropertyIsList() {
         return getSelectedObject() != null &&
-                getSelectedObject().getType().equals(PropertyEntity.Type.LIST);
+               getSelectedObject().getType().equals(PropertyEntity.Type.LIST);
     }
 
     @Cached
     public boolean isSelectedPropertyIsDict() {
         return getSelectedObject() != null &&
-                getSelectedObject().getType().equals(PropertyEntity.Type.DICTIONARY);
+               getSelectedObject().getType().equals(PropertyEntity.Type.DICTIONARY);
     }
 
     public PropertyEntity getSelectedObject() {

@@ -1,46 +1,43 @@
 <div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="propertytype" class="ks_adm_new_popup">
 
-    <t:mallComponents.control.menuLink action="VIEW_PROPERTY" object="selectedObject">
+    <t:mallComponents.control.menuLink roles="ROLE_ADMIN" object="selectedObject">
 
         <t:mallComponents.control.editObject
-                addAction="ADD_PROPERTY"
-                delAction="DEL_PROPERTY"
-                editAction="EDIT_PROPERTY"
-                objectSavedLabel="property.type.saved"
-                objectRemovedLabel="property.type.removed"
-                objectExistsLabel="error.property.type.exists"
-                objectAddedLabel="property.type.added"
+                roles="ROLE_ADMIN"
+                objectSavedLabel="property.saved"
+                objectRemovedLabel="property.deleted"
+                objectExistsLabel="property.exists"
+                objectAddedLabel="property.added"
                 newObject="literal:true"
-                listPage="literal:/po/staff/categories"
-                objectPage="literal:/po/staff/property"
+                listPage="literal:/po/system/property/list"
+                objectPage="literal:/po/system/property"
                 objectManager="serviceFacade.propertyManager"
                 selectedObject="selectedObject"
                 selectedSecurityObject="selectedObjectRoot">
 
-                                                            <script type="text/javascript">
-                                                                function processChange() {
-                                                                    if (jQuery("select#type").val() == 'DICTIONARY') {
-                                                                        jQuery('#DICT').css('display', 'block');
-                                                                    } else {
-                                                                        jQuery('#DICT').css('display', 'none');
-                                                                    }
-                                                                }
-                                                            </script>
+            <div>
+                <div>
+                    <t:label for="name"/>
+                    :
+                </div>
+                <input t:id="name"/>
+            </div>
 
-              <div >
-                <div ><t:label for="name"/>:</div>
-                <input t:id="name" class="validate_input"/>
-              </div>
+            <div>
+                <div>
+                    <t:label for="type"/>
+                    :
+                </div>
+                <select onChange="AG.processChange();" t:id="type"/>
+            </div>
 
-              <div >
-                <div ><t:label for="type"/>:</div>
-                <select onChange="processChange();" t:id="type" class="ks_propertynew_1"/>
-              </div>
-
-              <div class="ks_orderadress_input ks_propertynew_2" id="DICT">
-                <div ><t:label for="dictionary"/>:</div>
-                <input t:id="dictionary" class="validate_input"/>
-              </div>
+            <div class="display_none" id="DICT">
+                <div>
+                    <t:label for="dictionary"/>
+                    :
+                </div>
+                <input t:id="dictionary"/>
+            </div>
 
         </t:mallComponents.control.editObject>
 

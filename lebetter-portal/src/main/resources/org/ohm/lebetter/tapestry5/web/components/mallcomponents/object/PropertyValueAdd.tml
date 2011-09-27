@@ -1,32 +1,25 @@
-<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="propertyvalueadd"  class="ks_adm_new_popup">
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="propertyvalueadd" class="ks_adm_new_popup">
 
-     <t:form t:id="newValueForm" t:context="property.rootid">
+    <t:form t:id="newValueForm" t:context="property.rootid">
 
-              <div >
-                <div ><t:label for="propertyValue"/>:</div>
-                <input t:id="propertyValue" class="validate_input"/>
-              </div>
+        <div>
+            <div>
+                <t:label for="propertyValue"/>
+                :
+            </div>
+            <input t:id="propertyValue"/>
+        </div>
 
-              <div >
-                <div ><t:label for="description"/>:</div>
-                   <div class="NFTextareaTop ks_propertyvalueadd_1"><img src="/images/0.gif" class="NFTextareaTopLeft"/></div>
-                   <div class="NFTextareaRight ks_propertyvalueadd_2">
-                     <div class="NFTextareaLeft ks_propertyvalueadd_2"/>
-                     <input t:id="description" class="text medium NFTextarea" style="width: 200px; height: 36px;"/>
-                   </div>
-                   <div class="NFTextareaBottom ks_propertyvalueadd_1"><img src="/images/0.gif" class="NFTextareaBottomLeft"/></div>
-              </div>
+        <div class="ks_comm_button">
+            <img class="NFButtonResLeft" src="/images/0.gif"/><input id="catvalres" type="reset"
+                                                                     class="microescape NFButtonRes"
+                                                                     value="${message:btncancel}"/><img src="/images/0.gif"
+                                                                                                        class="NFButtonResRight"/> <img
+                class="NFButtonLeft" src="/images/0.gif"/><input type="submit" id="submitNewPropertyValueButton"
+                                                                 value="${message:btnadd}" class="NFButton"/><img
+                src="/images/0.gif" class="NFButtonRight"/>
 
-               <div class="ks_comm_button">
-                 <img class="NFButtonResLeft" src="/images/0.gif"/><input id="catvalres" type="reset"
-                                                                          class="microescape NFButtonRes"
-                                                                          value="${message:btncancel}"/><img src="/images/0.gif"
-                                                                                                             class="NFButtonResRight"/> <img
-                       class="NFButtonLeft" src="/images/0.gif"/><input type="submit" id="submitNewPropertyValueButton"
-                                                                        value="${message:btnadd}" class="NFButton"/><img
-                       src="/images/0.gif" class="NFButtonRight"/>
-
-               </div>
-       <div class="break"></div>
-     </t:form>
+        </div>
+        <div class="break"></div>
+    </t:form>
 </div>

@@ -7,7 +7,7 @@
 
         <h1>Создать свойство</h1>
 
-        <!--<t:mallcomponents.object.categoryNew parent="parentCategory"/>-->
+        <t:mallcomponents.object.propertyNew parent="parentCategory"/>
 
     </t:mallcomponents.layout.office>
 

@@ -1,42 +1,30 @@
 <div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="propertytype">
 
-    <t:mallComponents.control.menuLink action="VIEW_PROPERTY" object="selectedObject">
+    <t:mallComponents.control.menuLink roles="ROLE_ADMIN">
 
         <t:mallComponents.control.editObject
-                addAction="ADD_PROPERTY"
-                delAction="DEL_PROPERTY"
-                editAction="EDIT_PROPERTY"
-                objectSavedLabel="property.type.saved"
-                objectRemovedLabel="property.type.removed"
-                objectExistsLabel="error.property.type.exists"
-                objectAddedLabel="property.type.added"
+                roles="ROLE_ADMIN"
+                objectSavedLabel="property.saved"
+                objectRemovedLabel="property.deleted"
+                objectExistsLabel="property.exists"
+                objectAddedLabel="property.added"
                 newObject="literal:false"
-                listPage="literal:/po/staff/properties"
-                objectPage="literal:/po/staff/property"
+                listPage="literal:/po/system/property/list"
+                objectPage="literal:/po/system/property"
                 objectManager="serviceFacade.propertyManager"
-                selectedObject="selectedObject"
-                selectedSecurityObject="selectedObjectRoot"
-                parentObject="parentObject">
+                selectedObject="selectedObject">
 
-            <div >
-                <div >
+            <div>
+                <div>
                     <t:label for="name"/>
                     :
                 </div>
                 <input t:id="name" class="validate_input orderbox_login" tabindex="1"/>
             </div>
 
-            <div >
-                <div >
-                    <t:label for="alias"/>
-                    :
-                </div>
-                <input t:id="alias" class="validate_input orderbox_login" tabindex="2"/>
-            </div>
-
             <t:if test="selectedObject.rootObject">
-                <div >
-                    <div >
+                <div>
+                    <div>
                         <t:label for="status"/>
                         :
                     </div>
@@ -45,42 +33,11 @@
             </t:if>
 
             <div class="break"></div>
-            <div >
-                <div >
-                    <t:label for="code"/>
-                    :
-                </div>
-                <input t:id="code" class="validate_input orderbox_login" tabindex="4"/>
-            </div>
-            <div class="break"></div>
-
-            <div >
-                <div >${message:property.type}:
-                    <span class="itemtype">${selectedObjectRoot.type}</span></div>
-            </div>
-
-            <div class="break"></div>
-
-            <div class="ks_orderadress_input ks_propertyedit_2">
-                <div >
-                    <t:checkBox t:id="mandatory" type="checkbox" class="ks_propertyedit_3" tabindex="5"/>
-
-                    <t:label for="mandatory" class="ks_propertyedit_4"/>
-                </div>
-            </div>
-
-            <div class="ks_orderadress_input ks_propertyedit_2">
-                <div >
-                    <t:checkBox t:id="special" type="checkbox" class="ks_propertyedit_3" tabindex="6"/>
-
-                    <t:label for="special" class="ks_propertyedit_4"/>
-                </div>
-            </div>
 
             <t:if test="selectedPropertyIsListOrDict">
                 <t:if test="selectedObject.rootObject">
                     <div class="ks_orderadress_input ks_propertyedit_5">
-                        <div >
+                        <div>
 
                             <t:checkBox t:id="multiple" type="checkbox" class="ks_propertyedit_3" tabindex="7"/>
                              
@@ -93,9 +50,10 @@
             </t:if>
 
             <t:if test="selectedPropertyIsDict">
-                <div >
-                    <div >${message:property.dictionary}:
-                        <span class="itemtype">${selectedObjectRoot.dictionary}</span></div>
+                <div>
+                    <div>${message:property.dictionary}:
+                        <span class="itemtype">${selectedObjectRoot.dictionary}</span>
+                    </div>
                 </div>
                 <div class="break"></div>
             </t:if>
@@ -104,118 +62,66 @@
         </t:mallComponents.control.editObject>
 
         <t:if test="selectedPropertyIsList">
-
             <t:if test="selectedObject.rootObject">
-
                 <!-- Cat values -->
                 <div class="ks_adm_content_tabscontent">
-                    <h2>${message:categories.page}</h2>
-
+                    <h2>Значения свойства</h2>
                     <div class="ks_adm_content_buts">
-                        <t:mallComponents.control.menuLink action="EDIT_PROPERTY" object="selectedObject">
 
-                                <div class="ks_content_grey_but_r">
-                                    <div class="ks_content_grey_but_l">
-                                      <a href="#addcatvalue" id="addcatvaluebtn" class="ks_content_grey_but">${message:addcatvaluebtn}</a>
-                                    </div>
-                                </div>
-
-                                    <!-- addbox_ -->
-                                      <div class="ks_propertyedit_7">
-                                        <div id="addcatvalue">
-                                          <t:mallComponents.object.propertyValueAdd property="selectedObject"/>
-                                        </div>
-                                      </div>
-                                    <!-- /addbox_ -->
-
-                        </t:mallComponents.control.menuLink>
                     </div>
                     <t:mallComponents.object.propertyValueList property="selectedObjectRoot"/>
 
                 </div>
                 <!-- /Cat values -->
-
-            </t:if>
-
-        </t:if>
-
-        <t:if test="selectedPropertyIsDict">
-
-            <div class="propertyDetail topborder">
-
-                <t:mallComponents.object.propertyValueList property="selectedObject"/>
-
-            </div>
-
-        </t:if>
-
-        <t:if test="selectedPropertyIsGroup">
-            <t:if test="selectedObject.rootObject">
-
-                <div class="ks_adm_content_tabscontent">
-                    <h2>${message:categories.page}</h2>
-
-                    <div class="ks_adm_content_buts">
-                        <!-- Sub properties -->
-                        <t:mallComponents.control.menuLink action="ADD_PROPERTY">
-                                <div class="ks_content_grey_but_r">
-                                    <div class="ks_content_grey_but_l">
-                                        <a href="#addsubcatvalue" id="addsubcatvaluebtn" class="ks_content_grey_but">${message:addsubcatvaluebtn}</a>
-                                    </div>
-                                </div>
-                                <div class="shopaddbox rm_ctrl_wcwin">
-
-                                    <!-- addbox_ -->
-                                        <div class="ks_propertyedit_7">
-                                          <div id="addsubcatvalue">
-                                              <t:mallComponents.object.propertySubTypeAdd parent="selectedObject"/>
-                                          </div>
-                                        </div>
-                                    <!-- /addbox_ -->
-
-                                </div>
-                        </t:mallComponents.control.menuLink>
-                    </div>
-
-                    <t:mallComponents.object.propertyList parent="selectedObjectRoot"/>
-
-                </div>
-                <!-- /Sub properties -->
-
             </t:if>
         </t:if>
+
+        <!--<t:if test="selectedPropertyIsDict">-->
+
+        <!--<div class="propertyDetail topborder">-->
+
+        <!--<t:mallComponents.object.propertyValueList property="selectedObject"/>-->
+
+        <!--</div>-->
+
+        <!--</t:if>-->
+
+        <!--<t:if test="selectedPropertyIsGroup">-->
+        <!--<t:if test="selectedObject.rootObject">-->
+
+        <!--<div class="ks_adm_content_tabscontent">-->
+        <!--<h2>${message:categories.page}</h2>-->
+
+        <!--<div class="ks_adm_content_buts">-->
+        <!--&lt;!&ndash; Sub properties &ndash;&gt;-->
+        <!--<t:mallComponents.control.menuLink action="ADD_PROPERTY">-->
+        <!--<div class="ks_content_grey_but_r">-->
+        <!--<div class="ks_content_grey_but_l">-->
+        <!--<a href="#addsubcatvalue" id="addsubcatvaluebtn" class="ks_content_grey_but">${message:addsubcatvaluebtn}</a>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="shopaddbox rm_ctrl_wcwin">-->
+
+        <!--&lt;!&ndash; addbox_ &ndash;&gt;-->
+        <!--<div class="ks_propertyedit_7">-->
+        <!--<div id="addsubcatvalue">-->
+        <!--<t:mallComponents.object.propertySubTypeAdd parent="selectedObject"/>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; /addbox_ &ndash;&gt;-->
+
+        <!--</div>-->
+        <!--</t:mallComponents.control.menuLink>-->
+        <!--</div>-->
+
+        <!--<t:mallComponents.object.propertyList parent="selectedObjectRoot"/>-->
+
+        <!--</div>-->
+        <!--&lt;!&ndash; /Sub properties &ndash;&gt;-->
+
+        <!--</t:if>-->
+        <!--</t:if>-->
 
     </t:mallComponents.control.menuLink>
-    <script language="JavaScript" type="text/javascript">
-        jQuery(document).ready(function() {
-             jQuery("#addcatvaluebtn").fancybox({
-                'type': 'inline',
-                'autoDimensions': true,
-                 'scrolling': 'visible',
-                'title': '${message:addcatvaluebtn}',
-                'titlePosition' : 'outside',
-                'transitionIn' : 'none',
-                'transitionOut' : 'none'
-            });
-             jQuery("#addsubcatvaluebtn").fancybox({
-                'type': 'inline',
-                'autoDimensions': true,
-                'scrolling': 'visible',
-                'title': '${message:addsubcatvaluebtn}',
-                'titlePosition' : 'outside',
-                'transitionIn' : 'none',
-                'transitionOut' : 'none'
-            });
-            jQuery("#catvalres, #catres").bind({'click' : function() {
-                jQuery.fancybox.close();
-              }
-            });
-        });
-        // Расставляем tabindex
-        jQuery("#editObjectForm input.NFButton").attr("tabindex","8");
 
-        jQuery(document).ready(function() {
-        jQuery("#propertytype").find("select[id^='status']").selectbox();
-        });
-    </script>
 </div>
