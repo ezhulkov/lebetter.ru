@@ -7,7 +7,7 @@
         <h1>Категории</h1>
 
         <t:pageLink t:page="po/system/category/create">Создать категорию</t:pageLink>
-        <t:mallcomponents.object.categorySubList/>
+        <t:mallcomponents.object.categoryList/>
 
     </t:mallcomponents.layout.office>
 
