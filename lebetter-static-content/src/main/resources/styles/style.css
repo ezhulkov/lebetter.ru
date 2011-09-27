@@ -61,22 +61,33 @@ body {
   float: left;
   padding: 13px 0px 16px 30px;
 }
-.signup {
+.head_lnk {
   display: block;
   float: right;
-  background: url(/images/ico/lock.gif) no-repeat 0px 0px;
-  margin: 67px 59px 0px 0px;
+  margin: 67px 100px 0px 0px;
   padding: 0px 0px 0px 16px;
   height: 16px;
   line-height: 16px;
 }
-.signup span {
+.head_lnk2 {
+  margin-right: 10px;
+}
+.signup {
+  display: block;
+  float: right;
+  background: url(/images/ico/lock.gif) no-repeat 0px 0px;
+  margin: 67px 100px 0px 0px;
+  padding: 0px 0px 0px 16px;
+  height: 16px;
+  line-height: 16px;
+}
+.head_lnk span, .signup span {
   display: block;
   height: 12px;
   line-height: 12px;
   border-bottom: 1px solid #d1d0d1;
 }
-.signup:hover span {
+.head_lnk:hover span, .signup:hover span {
   border-bottom: 0px solid #d1d0d1;
 }
 /* TopMenu */

@@ -16,8 +16,8 @@ public class CategorySubList extends AbstractBaseComponent {
     private CategoryEntity oneCategory;
 
     @Property
-    @Parameter(name = "parent", required = true, allowNull = false)
-    private CategoryEntity parent = null;
+    @Parameter(name = "parent", required = false, allowNull = true)
+    private CategoryEntity parent;
 
     @Cached
     public List<CategoryEntity> getAllCategories() {

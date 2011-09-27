@@ -943,4 +943,13 @@
         </addColumn>
     </changeSet>
 
+    <changeSet id="1.0.0-18" author="ezhulkov">
+        <addColumn tableName="app_category">
+            <column name="code" type="varchar(32)"/>
+        </addColumn>
+        <createIndex tableName="app_category" indexName="app_category_code_idx">
+            <column name="code"/>
+        </createIndex>
+    </changeSet>
+
 </databaseChangeLog>

@@ -1,8 +1,6 @@
 <div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd"
      id="office" class="office">
 
-    <p><t:pageLink t:page="po">Личный Кабинет</t:pageLink></p>
-
     <t:body/>
 
 </div>

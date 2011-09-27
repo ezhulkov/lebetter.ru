@@ -4,7 +4,11 @@
                                 xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
     <t:mallcomponents.layout.office>
-        Категории
+        <p>Категории</p>
+
+        <t:pageLink t:page="po/system/category/create">Создать категорию</t:pageLink>
+        <t:mallcomponents.object.categorySubList/>
+
     </t:mallcomponents.layout.office>
 
 </t:mallcomponents.layout.layout>

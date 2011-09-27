@@ -1,4 +1,4 @@
-package org.ohm.lebetter.tapestry5.web.pages.po.system;
+package org.ohm.lebetter.tapestry5.web.pages.po.system.category;
 
 import org.ohm.lebetter.tapestry5.web.pages.base.AbstractBasePage;
 
@@ -6,8 +6,8 @@ import org.ohm.lebetter.tapestry5.web.pages.base.AbstractBasePage;
  * Created by IntelliJ IDEA.
  * User: eugene
  * Date: 16.09.11
- * Time: 17:01
+ * Time: 18:59
  * To change this template use File | Settings | File Templates.
  */
-public class Categories extends AbstractBasePage {
+public class Create extends AbstractBasePage {
 }
