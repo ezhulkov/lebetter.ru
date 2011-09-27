@@ -42,6 +42,9 @@ public class CategoryEntity
     private String name = "";
 
     @Column
+    private String code = "";
+
+    @Column
     private Integer position;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -109,5 +112,13 @@ public class CategoryEntity
 
     public void setProducts(List<ProductEntity> products) {
         this.products = products;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 }

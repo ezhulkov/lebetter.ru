@@ -27,18 +27,18 @@
                                                                 }
                                                             </script>
 
-              <div class="ks_orderadress_input">
-                <div class="ks_orderadress_legend"><t:label for="name"/>:</div>
+              <div >
+                <div ><t:label for="name"/>:</div>
                 <input t:id="name" class="validate_input"/>
               </div>
 
-              <div class="ks_orderadress_input">
-                <div class="ks_orderadress_legend"><t:label for="type"/>:</div>
+              <div >
+                <div ><t:label for="type"/>:</div>
                 <select onChange="processChange();" t:id="type" class="ks_propertynew_1"/>
               </div>
 
               <div class="ks_orderadress_input ks_propertynew_2" id="DICT">
-                <div class="ks_orderadress_legend"><t:label for="dictionary"/>:</div>
+                <div ><t:label for="dictionary"/>:</div>
                 <input t:id="dictionary" class="validate_input"/>
               </div>
 

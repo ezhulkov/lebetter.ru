@@ -7,11 +7,13 @@
 
         <t:mallcomponents.control.selectedObject>
 
-            <h1>Пользователь ${selectedUser.fullName}</h1>
+            <h1>Категория ${selectedCategory.name}</h1>
 
-            Логин: ${selectedUser.name}
+            <t:mallcomponents.object.categoryEdit object="selectedCategory"/>
 
-            <t:mallcomponents.object.userEdit object="selectedUser"/>
+            <h2>Подкатегории</h2>
+            <t:pageLink t:page="po/system/category/create" t:context="selectedCategory.rootId">Создать подкатегорию</t:pageLink>
+            <t:mallcomponents.object.categorySubList parent="selectedCategory"/>
 
         </t:mallcomponents.control.selectedObject>
 

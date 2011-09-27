@@ -7,11 +7,11 @@
 
         <t:mallcomponents.control.selectedObject>
 
-            <p>Дилер ${selectedDealer.name}, скида ${selectedDealer.discount}</p>
+            <h1>Дилер ${selectedDealer.name}, скидка ${selectedDealer.discount}</h1>
 
             <t:mallcomponents.object.dealerEdit object="selectedDealer"/>
 
-            <p>Создатели и владельцы</p>
+            <h2>Создатели и владельцы</h2>
             <t:mallComponents.object.objectOwnerEdit objectManager="serviceFacade.dealerManager"
                                                      object="selectedDealer"
                                                      action="EDIT_DEALER"/>

@@ -1,18 +1,22 @@
 <span xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="categorylist">
 
-  <t:grid id="datagrid" pagerPosition="bottom" source="allCategories" row="oneCategory" include="name,objectStatus">
-      <t:parameter name="objectStatusHeader">
-          ${message:objectStatus-label}
-      </t:parameter>
-      <t:parameter name="nameHeader">
-          ${message:name-label}
-      </t:parameter>
-      <t:parameter name="nameCell">
-          <t:pageLink page="po/staff/category" context="oneCategory.rootid" class="underline">${oneCategory.name}</t:pageLink>
-      </t:parameter>
-      <t:parameter name="empty">
-          <p class="nomsg">${message:empty.list}</p>
-      </t:parameter>
-  </t:grid>
+  <t:grid id="datagrid" rowsPerPage="15" pagerPosition="bottom"
+            source="allCategories" row="oneCategory" include="name,code,objectStatus" >
+        <t:parameter name="nameHeader">
+            Название
+        </t:parameter>
+        <t:parameter name="codeHeader">
+            Код
+        </t:parameter>
+        <t:parameter name="objectStatusHeader">
+            Статус
+        </t:parameter>
+        <t:parameter name="nameCell">
+            <t:pageLink page="po/system/category" context="oneCategory.rootid" class="underline">${oneCategory.name}</t:pageLink>
+        </t:parameter>
+        <t:parameter name="empty">
+            <p class="nomsg">${message:empty.list}</p>
+        </t:parameter>
+    </t:grid>
 
 </span>

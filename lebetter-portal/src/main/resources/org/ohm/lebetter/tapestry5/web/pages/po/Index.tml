@@ -22,11 +22,11 @@
             <t:pageLink t:page="po/order/list">Заказы</t:pageLink>
             <br/>
             <hr/>
-            <t:pageLink t:page="po/system/roles">Роли и права доступа</t:pageLink>
+            <t:pageLink t:page="po/system/role/list">Роли и права доступа</t:pageLink>
             <br/>
-            <t:pageLink t:page="po/system/categories">Категории товаров</t:pageLink>
+            <t:pageLink t:page="po/system/category/list">Категории товаров</t:pageLink>
             <br/>
-            <t:pageLink t:page="po/system/properties">Свойства товаров</t:pageLink>
+            <t:pageLink t:page="po/system/property/list">Свойства товаров</t:pageLink>
             <br/>
         </t:if>
 

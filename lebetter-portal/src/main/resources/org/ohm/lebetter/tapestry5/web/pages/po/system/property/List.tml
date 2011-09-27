@@ -4,7 +4,12 @@
                                 xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
     <t:mallcomponents.layout.office>
-        Категории
+
+        <h1 class="role">Свойства</h1>
+
+        <t:pageLink t:page="po/system/property/create">Создать свойство</t:pageLink>
+        <t:mallcomponents.object.propertyList/>
+
     </t:mallcomponents.layout.office>
 
 </t:mallcomponents.layout.layout>

@@ -1,13 +1,13 @@
 <div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="propertytype" class="ks_adm_new_popup">
 
     <t:form t:id="propertyForm" t:context="parentProperty.rootid">
-              <div class="ks_orderadress_input">
-                <div class="ks_orderadress_legend"><t:label for="propertyName"/>:</div>
+              <div >
+                <div ><t:label for="propertyName"/>:</div>
                 <input t:id="propertyName" class="validate_input"/>
               </div>
 
-              <div class="ks_orderadress_input">
-                <div class="ks_orderadress_legend"><t:label for="propertyDescription"/>:</div>
+              <div >
+                <div ><t:label for="propertyDescription"/>:</div>
                    <div class="NFTextareaTop ks_propertysubtypeadd_1"><img src="/images/0.gif" class="NFTextareaTopLeft"/></div>
                    <div class="NFTextareaRight ks_propertysubtypeadd_2">
                      <div class="NFTextareaLeft ks_propertysubtypeadd_2"/>

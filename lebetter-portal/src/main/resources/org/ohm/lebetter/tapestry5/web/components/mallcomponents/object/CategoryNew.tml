@@ -1,25 +1,32 @@
-<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="categorynew"  class="ks_adm_new_popup">
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="categorynew">
 
     <t:mallComponents.control.editObject
-            addAction="ADD_CATEGORY"
-            delAction="DEL_CATEGORY"
-            editAction="EDIT_CATEGORY"
+            roles="ROLE_ADMIN"
             objectSavedLabel="category.saved"
-            objectRemovedLabel="category.removed"
-            objectExistsLabel="error.category.exists"
+            objectRemovedLabel="category.deleted"
+            objectExistsLabel="category.exists"
             objectAddedLabel="category.added"
             newObject="literal:true"
-            listPage="literal:/po/staff/categories"
-            objectPage="literal:/po/staff/category"
+            listPage="literal:/po/system/category/list"
+            objectPage="literal:/po/system/category"
             objectManager="serviceFacade.categoryManager"
-            selectedObject="selectedObject"
-            key="literal:newcategory"
-            drawDelete="literal:false"
-            drawLang="literal:false">
-              <div class="ks_orderadress_input">
-                <div class="ks_orderadress_legend"><t:label for="name"/>:</div>
-                <input t:id="name" class="validate_input"/>
-              </div>
+            selectedObject="selectedObject">
+
+        <div>
+            <div>
+                <t:label for="name"/>
+                :
+            </div>
+            <input t:id="name" class="validate_input"/>
+        </div>
+
+        <div>
+            <div>
+                <t:label for="code"/>
+                :
+            </div>
+            <input t:id="code" class="validate_input"/>
+        </div>
 
     </t:mallComponents.control.editObject>
 

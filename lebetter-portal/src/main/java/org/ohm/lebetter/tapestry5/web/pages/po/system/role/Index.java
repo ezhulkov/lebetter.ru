@@ -1,4 +1,4 @@
-package org.ohm.lebetter.tapestry5.web.pages.po.system;
+package org.ohm.lebetter.tapestry5.web.pages.po.system.role;
 
 import org.apache.tapestry5.Block;
 import org.apache.tapestry5.annotations.Cached;
@@ -17,7 +17,7 @@ import org.room13.mallcore.model.impl.entities.RoleEntity;
  * Time: 17:55:42
  * To change this template use File | Settings | File Templates.
  */
-public class Role extends AdminBasePage {
+public class Index extends AdminBasePage {
 
     @Persist
     private String curBlockStr;

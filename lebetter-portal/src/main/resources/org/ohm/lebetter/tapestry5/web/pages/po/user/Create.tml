@@ -5,7 +5,7 @@
 
     <t:mallcomponents.layout.office>
 
-        <p>Создать пользователя</p>
+        <h1>Создать пользователя</h1>
 
         <t:mallcomponents.object.userNew/>
 

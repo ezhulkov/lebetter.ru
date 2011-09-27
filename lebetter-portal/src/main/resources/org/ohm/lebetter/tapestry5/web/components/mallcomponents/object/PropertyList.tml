@@ -2,13 +2,13 @@
 
     <t:grid id="datagrid" pagerPosition="bottom" source="allCategories" row="oneProperty" include="name,type,objectStatus">
         <t:parameter name="objectStatusHeader">
-            ${message:objectStatus-label}
+            Статус
         </t:parameter>
         <t:parameter name="nameHeader">
-            ${message:name-label}
+            Название
         </t:parameter>
         <t:parameter name="nameCell">
-            <t:pageLink page="po/staff/property" context="oneProperty.rootid" class="underline">${oneProperty.name}</t:pageLink>
+            <t:pageLink page="po/system/property" context="oneProperty.rootid" class="underline">${oneProperty.name}</t:pageLink>
         </t:parameter>
         <t:parameter name="typeCell">
             ${onePropertyRoot.type}

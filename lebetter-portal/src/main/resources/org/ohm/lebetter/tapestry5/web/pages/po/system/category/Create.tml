@@ -5,15 +5,9 @@
 
     <t:mallcomponents.layout.office>
 
-        <t:mallcomponents.control.selectedObject>
+        <h1>Создать категорию</h1>
 
-            <h1>Пользователь ${selectedUser.fullName}</h1>
-
-            Логин: ${selectedUser.name}
-
-            <t:mallcomponents.object.userEdit object="selectedUser"/>
-
-        </t:mallcomponents.control.selectedObject>
+        <t:mallcomponents.object.categoryNew parent="parentCategory"/>
 
     </t:mallcomponents.layout.office>
 

@@ -16,6 +16,9 @@ public class CategoryNew extends AbstractEditComponent {
     @Component(id = "name", parameters = {"value=selectedObject.name", "validate=required,maxlength=64"})
     private TextField nameField;
 
+    @Component(id = "code", parameters = {"value=selectedObject.code", "validate=required,maxlength=64"})
+    private TextField codeField;
+
     public CategoryEntity getSelectedObject() {
         if (getSelectedObjectInternal() == null) {
             CategoryEntity selectedObject = getServiceFacade().getCategoryManager().getNewInstance();

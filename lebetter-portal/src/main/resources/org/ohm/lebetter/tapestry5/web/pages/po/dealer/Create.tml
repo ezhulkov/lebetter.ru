@@ -5,7 +5,7 @@
 
     <t:mallcomponents.layout.office>
 
-        <p>Создать дилера</p>
+        <h1>Создать дилера</h1>
 
         <t:mallcomponents.object.dealerNew/>
 

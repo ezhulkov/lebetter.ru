@@ -9,7 +9,8 @@
           <t:pageLink t:page="auth/login" class="signup"><span>Вход для партнеров</span></t:pageLink>
       </t:unless>
       <t:if test="auth.authenticated">
-          <a href="auth/logout" class="signup"><span>Выход</span></a>
+          <a href="auth/logout" class="head_lnk"><span>Выход</span></a>
+          <t:pageLink t:page="po" class="head_lnk head_lnk2"><span>Личный кабинет</span></t:pageLink>
       </t:if>
     </div>
   </div>

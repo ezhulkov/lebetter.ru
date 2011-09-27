@@ -29,14 +29,11 @@ public class CategoryEdit extends AbstractEditComponent {
     @Property
     private PropertyEntity oneProperty;
 
-    @Component(id = "name", parameters = {"value=selectedObject.name", "validate=required,maxlength=128"})
+    @Component(id = "name", parameters = {"value=selectedObject.name", "validate=required,maxlength=64"})
     private TextField nameField;
 
-    @Component(id = "alias", parameters = {"value=selectedObject.alias", "validate=maxlength=128"})
-    private TextField aliasField;
-
-    @Component(id = "relcode", parameters = {"value=selectedObject.relCode", "validate=maxlength=32"})
-    private TextField relcodeField;
+    @Component(id = "code", parameters = {"value=selectedObject.code", "validate=required,maxlength=64"})
+    private TextField codeField;
 
     @Component(id = "position", parameters = {"value=selectedObject.position"})
     private TextField positionField;
@@ -80,9 +77,9 @@ public class CategoryEdit extends AbstractEditComponent {
     public void onPrepare() throws Exception {
 
         statusSelectModel = new GenericStatusSelectModel(getAuth().getUser(),
-                getServiceFacade().getRoleManager(),
-                getSelectedObjectRoot(),
-                getIOC().getPropertyAccess());
+                                                         getServiceFacade().getRoleManager(),
+                                                         getSelectedObjectRoot(),
+                                                         getIOC().getPropertyAccess());
 
         PropertyManager propertyManager = getServiceFacade().getPropertyManager();
         CategoryManager categoryManager = getServiceFacade().getCategoryManager();
@@ -93,24 +90,24 @@ public class CategoryEdit extends AbstractEditComponent {
 
         if (propertyModel == null) {
             propertyModel = new GenericSelectModel<PropertyEntity>(allCategories, allCategoriesL,
-                    PropertyEntity.class,
-                    "name",
-                    "rootId",
-                    getIOC().getPropertyAccess());
+                                                                   PropertyEntity.class,
+                                                                   "name",
+                                                                   "rootId",
+                                                                   getIOC().getPropertyAccess());
         }
 
         if (categoryPropertyModel == null) {
             categoryPropertyModel = new GenericSelectModel<PropertyEntity>(categoryProperties,
-                    categoryPropertiesL,
-                    PropertyEntity.class,
-                    "name",
-                    "rootId",
-                    getIOC().getPropertyAccess());
+                                                                           categoryPropertiesL,
+                                                                           PropertyEntity.class,
+                                                                           "name",
+                                                                           "rootId",
+                                                                           getIOC().getPropertyAccess());
         }
 
         if (multiValueEncoder == null) {
             multiValueEncoder = new GenericMultiValueEncoder<PropertyEntity>(allCategories,
-                    allCategoriesL, "rootId");
+                                                                             allCategoriesL, "rootId");
         }
 
     }
@@ -159,7 +156,7 @@ public class CategoryEdit extends AbstractEditComponent {
                             }
                         } catch (Exception ex) {
                             getRMLogger().error("Error whine processing search order.",
-                                    getSelectedObjectRoot(), ex);
+                                                getSelectedObjectRoot(), ex);
                             return false;
                         }
                     }
@@ -168,13 +165,13 @@ public class CategoryEdit extends AbstractEditComponent {
                 try {
                     CategoryManager categoryManager = getServiceFacade().getCategoryManager();
                     categoryManager.setNewSearchChain(getSelectedObjectRoot(),
-                            selectedCatIds,
-                            newOrderList,
-                            getAuth().getUser());
+                                                      selectedCatIds,
+                                                      newOrderList,
+                                                      getAuth().getUser());
                 } catch (Exception ex) {
                     getRMLogger().error("Error setting search order chain", getSelectedObjectRoot(), ex);
                     getBase().addFlashToSession(getBase().getText("error.generic"),
-                            FlashMessage.Type.FAILURE);
+                                                FlashMessage.Type.FAILURE);
                     return false;
                 }
             }
