@@ -1,9 +1,46 @@
 <t:mallcomponents.layout.layout title="Lebetter.ru - Каталог"
                                 bodyId="catalog"
                                 flash="flashMessage"
-                                xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+                                xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" class="dbl_col">
 
-    Товар
-    <t:pageLink t:page="catalog/list">Категории</t:pageLink>
+
+  <div class="dbl_col_left">
+    <!-- LeftMenu -->
+      <ul class="leftmenu">
+        <li><a href="">Каталог продукции</a>
+          <ul>
+            <li><a href="">Гостинная</a></li>
+            <li><a href="">Спальня</a>
+              <ul>
+                <li><a href="">Кровати</a></li>
+                <li><a href="">Тумбочки</a></li>
+                <li class="sel"><a href="">Разная мебель</a></li>
+                <li><a href="">Комоды и зеркала</a></li>
+                <li><a href="">Туалетные столики</a></li>
+                <li><a href="">Шкафы</a></li>
+              </ul>
+            </li>
+            <li><a href="">Кабинет</a></li>
+            <li><a href="">Прихожая</a></li>
+            <li><a href="">Ванная</a></li>
+            <li><a href="">Предметы мебели и аксессуары</a></li>
+            <li><a href="">Мебель для гостинных, баров, ресторанов</a></li>
+          </ul>
+        </li>
+      </ul>
+
+  </div>
+  <div class="dbl_col_right">
+    <!-- ContentBox -->
+
+      <div id="bread_crumbs_box" class="status">
+        <a class="status_home" href="/"><img src="/images/0.gif" alt="" /></a><span class="status_hr"><img src="/images/0.gif" alt="" /></span><a href="">Каталог продукции</a><span class="status_hr"><img src="/images/0.gif" alt="" /></span>Товар
+      </div>
+
+      <h1>Товар</h1>
+
+      <t:pageLink t:page="catalog/list">Категории</t:pageLink>
+
+  </div>
 
 </t:mallcomponents.layout.layout>
