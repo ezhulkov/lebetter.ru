@@ -98,6 +98,22 @@ input, select, textarea {
 .head_lnk:hover span, .signup:hover span {
   border-bottom: 0px solid #d1d0d1;
 }
+*+html .head_lnk span,
+*+html .signup span {
+  height: 16px;
+  line-height: 16px;
+  text-decoration: underline;
+  border-bottom: 0px solid #d1d0d1;
+  cursor: pointer;
+/*ie7*/
+}
+*+html .head_lnk:hover span,
+*+html .signup:hover span {
+  text-decoration: none;
+  border-bottom: 0px solid #d1d0d1;
+/*ie7*/
+}
+
 /* TopMenu */
 .topmenu {
   background: url(/images/bg1.gif) repeat-x 0px 0px;
@@ -304,19 +320,17 @@ ul#topnav .sub ul li a:hover {
 }
 
 /* Double Colonum */
-.dbl_col {
-
-}
 .dbl_col_left {
-  float: left;
+  /*float: left;*/
   width: 230px;
   padding: 0px 0px 30px 0px;
 }
 .dbl_col_right {
-  padding: 0px 0px 30px 230px;
-  width: 721px;
   color: #303030;
+  /*display: table;*/
   line-height: 16px;
+  padding: 0 0 30px 0px;
+  width: 720px;
 }
 .dbl_col_right ul {
   list-style: square;
@@ -461,13 +475,43 @@ ul.leftmenu ul ul li a:hover {
   width: 234px;
 }
 .form_but {
-  background: url(/images/form/but.gif) repeat-x 0px 0px;
+  background: #515151 url(/images/form/but.gif) repeat-x 0px 0px;
   border: 1px solid #323232;
   font-size: 14px;
   color: #ffffff;
   padding: 5px 16px 5px 16px;
   cursor: pointer;
 }
+*+html .form_but {
+  overflow: visible;
+  line-height: 15px;
+  border: 1px solid #323232;
+  /* ie7 */
+}
+/* Dealers List */
+ul.dealer_list {
+  list-style: none;
+  width: 721px;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+}
+ul.dealer_list li {
+  list-style: none;
+  padding: 0px 0px 8px 0px;
+  margin: 0px 0px 0px 0px;
+  float: left;
+  width: 360px;
+}
+ul.dealer_list td {
+  line-height: 20px;
+  padding: 0px 19px 0px 0px;
+}
+.dealer_hr {
+  background: url(/images/hr4.gif) no-repeat 0px 100%;
+  padding: 0px 0px 0px 0px;
+}
+
+
 
 
 /* Bottom */
@@ -536,8 +580,15 @@ h2 {
 	font-family: Trebuchet MS, "Helvetica CY", "Nimbus Sans L", sans-serif;
     line-height: normal;
     padding: 0px 0px 5px 0px;
+    float: none;
+    clear: both;
 }
-
+h3 {
+    font-size: 14px;
+	font-family: Trebuchet MS, "Helvetica CY", "Nimbus Sans L", sans-serif;
+    line-height: normal;
+    padding: 0px 0px 4px 0px;
+}
 p {
 	margin: 0;
 	padding: 0px 0px 16px 0px;

@@ -3,6 +3,135 @@
                                 flash="flashMessage"
                                 xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
-       Контакты
+<table>
+  <tr>
+    <td class="dbl_col_left">
+      <!-- LeftMenu -->
+      <ul class="leftmenu">
+        <li><a href="">О нас</a>
+          <ul>
+            <li class="sel"><a href="">О компании</a></li>
+            <li><a href="">Миссия</a></li>
+            <li><a href="">Вакансии</a></li>
+            <li><a href="">Контакты</a></li>
+          </ul>
+        </li>
+      </ul>
+    </td>
+    <td class="dbl_col_right">
+      <!-- ContentBox -->
+      <div id="bread_crumbs_box" class="status">
+        <a class="status_home" href="/"><img src="/images/0.gif" alt="" /></a><span class="status_hr"><img src="/images/0.gif" alt="" /></span>Контакты
+      </div>
+
+      <h1>Контакты</h1>
+
+      <h2>Москва</h2>
+
+      <ul class="dealer_list dealer_hr">
+        <li>
+
+          <h3><a href=" ">ООО «Рога и копыта»</a></h3>
+          <table>
+            <tr>
+              <td>Адрес:</td>
+              <td>Москва, Тверская, 1</td>
+            </tr>
+            <tr>
+              <td>Телефон:</td>
+              <td>+7 (495) 123-45-67, 123-45-68</td>
+            </tr>
+            <tr>
+              <td>Сайт:</td>
+              <td>www.rogaikopyta.ru</td>
+            </tr>
+            <tr>
+              <td>Email:</td>
+              <td>info@rogaikopyta.ru </td>
+            </tr>
+          </table>
+
+        </li>
+        <li>
+
+          <h3><a href=" ">ООО «Оптторг»</a></h3>
+          <table>
+            <tr>
+              <td>Адрес:</td>
+              <td>Московская область, Красногорский район,<br />
+                  г. Красногорск, Лесная, 22</td>
+            </tr>
+            <tr>
+              <td>Телефон:</td>
+              <td>+7 (495) 223-45-67 </td>
+            </tr>
+            <tr>
+              <td>Сайт:</td>
+              <td>www.opttorg.ru</td>
+            </tr>
+            <tr>
+              <td>Email:</td>
+              <td>info@opttorg.ru</td>
+            </tr>
+          </table>
+
+        </li>
+      </ul>
+
+      <h2>Москва</h2>
+
+      <ul class="dealer_list">
+        <li>
+
+          <h3><a href=" ">ООО «Рога и копыта»</a></h3>
+          <table>
+            <tr>
+              <td>Адрес:</td>
+              <td>Москва, Тверская, 1</td>
+            </tr>
+            <tr>
+              <td>Телефон:</td>
+              <td>+7 (495) 123-45-67, 123-45-68</td>
+            </tr>
+            <tr>
+              <td>Сайт:</td>
+              <td>www.rogaikopyta.ru</td>
+            </tr>
+            <tr>
+              <td>Email:</td>
+              <td>info@rogaikopyta.ru </td>
+            </tr>
+          </table>
+
+        </li>
+        <li>
+
+          <h3><a href=" ">ООО «Оптторг»</a></h3>
+          <table>
+            <tr>
+              <td>Адрес:</td>
+              <td>Московская область, Красногорский район,<br />
+                  г. Красногорск, Лесная, 22</td>
+            </tr>
+            <tr>
+              <td>Телефон:</td>
+              <td>+7 (495) 223-45-67 </td>
+            </tr>
+            <tr>
+              <td>Сайт:</td>
+              <td>www.opttorg.ru</td>
+            </tr>
+            <tr>
+              <td>Email:</td>
+              <td>info@opttorg.ru</td>
+            </tr>
+          </table>
+
+        </li>
+      </ul>
+
+    </td>
+  </tr>
+</table>
 
 </t:mallcomponents.layout.layout>

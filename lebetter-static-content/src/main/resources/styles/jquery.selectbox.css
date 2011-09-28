@@ -34,7 +34,7 @@
     overflow:hidden;
     padding:4px 27px 0 0;
 }
-*+html .jquery-selectbox .jquery-selectbox-currentItem {  HEIGHT:20PX; PADDING: 8PX 2PX 0 3PX; /*ie7*/}
+*+html .jquery-selectbox .jquery-selectbox-currentItem {  HEIGHT:20PX; PADDING: 5PX 2PX 0 3PX; /*ie7*/}
 
 #prodtypeitem .jquery-selectbox .jquery-selectbox-list {
     z-index: 70;
@@ -57,9 +57,9 @@
 }
 
 .jquery-selectbox .jquery-selectbox-list span {
-    padding: 0 2px 0 3px;
+    padding: 0 2px 0 7px;
 }
-*+html .jquery-selectbox .jquery-selectbox-list span {HEIGHT:20PX; PADDING: 5PX 2PX 0 3PX; /*ie7*/}
+*+html .jquery-selectbox .jquery-selectbox-list span {PADDING: 0 2PX 0 10PX;/*HEIGHT:20PX; PADDING: 5PX 2PX 0 3PX;*/ /*ie7*/}
 
 .jquery-selectbox .jquery-selectbox-moreButton {
     float: right;
