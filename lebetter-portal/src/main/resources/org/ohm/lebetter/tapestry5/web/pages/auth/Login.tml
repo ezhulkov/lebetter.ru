@@ -38,9 +38,20 @@
           <input type="password" id="password" name="j_password" class="form_input" tabindex="2"/>
         </div>
 
+        <div class="input_box">
+          <div class="input_label">Город:</div>
+          <select class="form_select" tabindex="3">
+            <option value="Москва">Москва</option>
+            <option value="C.-Петербург">C.-Петербург</option>
+            <option value="Нишний Новгород">Нишний Новгород</option>
+            <option value="Челябинск">Челябинск</option>
+            <option value="Владивосток">Владивосток</option>
+          </select>
+        </div>
+
         <div class="input_ubox">
           <input type="checkbox" name="_spring_security_remember_me"
-                 id="rememberMeu" tabindex="3"/> <label
+                 id="rememberMeu" tabindex="4"/> <label
               for="rememberMeu">Запомнить меня</label>
         </div>
 
@@ -49,7 +60,7 @@
         </div>
 
         <div class="input_ubox">
-          <input tabindex="4" type="submit" name="login" class="form_but" title="Войти" value="Войти"/>
+          <input tabindex="5" type="submit" name="login" class="form_but" title="Войти" value="Войти"/>
         </div>
 
       </form>

@@ -437,6 +437,8 @@ ul.leftmenu ul ul li a:hover {
 }
 .input_box {
   padding: 0px 0px 10px 0px;
+  clear: both;
+  height: 32px;
 }
 .input_label {
   padding: 8px 4px 7px 0px;
@@ -447,12 +449,16 @@ ul.leftmenu ul ul li a:hover {
 }
 .input_ubox {
   padding: 0px 0px 10px 156px;
+  clear: both;
 }
 .form_input {
   background: url(/images/form/input.gif) no-repeat 0px 0px;
   padding: 6px 4px 7px 4px;
   height: 19px;
   width: 249px;
+}
+.form_select {
+  width: 234px;
 }
 .form_but {
   background: url(/images/form/but.gif) repeat-x 0px 0px;
