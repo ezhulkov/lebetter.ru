@@ -31,13 +31,15 @@ import java.text.Format;
 @Import(
         stack = {"jquery"},
         stylesheet = {"proxy:/styles/style.css",
-                      "proxy:/styles/jquery.fancybox-1.3.4.css"},
+                      "proxy:/styles/jquery.fancybox-1.3.4.css",
+                      "proxy:/styles/jquery.selectbox.css"},
         library = {"proxy:/scripts/jquery-ui-1.8.9.custom.min.js",
                    "proxy:/scripts/jquery.fancybox-1.3.4.js",
                    "proxy:/scripts/jquery.easing-1.3.pack.js",
                    "proxy:/scripts/jquery.hoverIntent.minified.js",
                    "proxy:/scripts/jquery.cookie.js",
                    "proxy:/scripts/jquery.metadata.js",
+                   "proxy:/scripts/jquery.selectbox-0.6.1.js",
                    "proxy:/scripts/jcarousellite_1.0.1.min.js",
                    "proxy:/scripts/scripts.js"}
 )
