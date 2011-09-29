@@ -507,8 +507,11 @@ ul.dealer_list td {
   padding: 0px 19px 0px 0px;
 }
 .dealer_hr {
-  background: url(/images/hr4.gif) no-repeat 0px 100%;
-  padding: 0px 0px 0px 0px;
+  background: url(/images/hr4.gif) no-repeat 50% 9px;
+  padding: 9px 0px 10px 0px;
+  height: 1px;
+  width: 720px;
+  clear: both;
 }
 
 
