@@ -1,11 +1,12 @@
 <t:mallcomponents.layout.layout title="Lebetter.ru - Каталог"
                                 bodyId="catalog"
                                 flash="flashMessage"
-                                xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" class="dbl_col">
+                                xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
-
-  <div class="dbl_col_left">
-    <!-- LeftMenu -->
+<table>
+  <tr>
+    <td class="dbl_col_left">
+      <!-- LeftMenu -->
       <ul class="leftmenu">
         <li><a href="">Каталог продукции</a>
           <ul>
@@ -28,10 +29,9 @@
           </ul>
         </li>
       </ul>
-
-  </div>
-  <div class="dbl_col_right">
-    <!-- ContentBox -->
+    </td>
+    <td class="dbl_col_right">
+      <!-- ContentBox -->
 
       <div id="bread_crumbs_box" class="status">
         <a class="status_home" href="/"><img src="/images/0.gif" alt="" /></a><span class="status_hr"><img src="/images/0.gif" alt="" /></span><a href="">Каталог продукции</a><span class="status_hr"><img src="/images/0.gif" alt="" /></span>Товар
@@ -41,6 +41,8 @@
 
       <t:pageLink t:page="catalog/list">Категории</t:pageLink>
 
-  </div>
+    </td>
+  </tr>
+</table>
 
 </t:mallcomponents.layout.layout>

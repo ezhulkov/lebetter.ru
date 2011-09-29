@@ -1,4 +1,5 @@
 jQuery(document).ready(function() {
+   jQuery("select").selectbox();
 });
 AG = {
     processChange: function() {
