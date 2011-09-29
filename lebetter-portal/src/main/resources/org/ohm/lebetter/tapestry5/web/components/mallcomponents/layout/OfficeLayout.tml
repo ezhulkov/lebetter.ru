@@ -1,6 +1,45 @@
 <div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd"
      id="office" class="office">
 
-    <t:body/>
+    <t:block t:id="leftMenuBlock">
+        <ul class="leftmenu">
+            <li>
+                <t:pageLink t:page="po">Личный кабинет</t:pageLink>
+                <ul>
+                    <li id="login_menu">
+                        <t:pageLink t:page="po/order/list">Заказы</t:pageLink>
+                    </li>
+                    <li id="cat_menu">
+                        <t:pageLink t:page="po/catalog/list">Каталог</t:pageLink>
+                    </li>
+                    <t:if test="auth.adminRole">
+                        <li>&#160;</li>
+                        <li id="users_menu">
+                            <t:pageLink t:page="po/user/list">Пользователи</t:pageLink>
+                        </li>
+                        <li id="dealers_menu">
+                            <t:pageLink t:page="po/dealer/list">Дилеры</t:pageLink>
+                        </li>
+                        <li>&#160;</li>
+                        <li id="roles_menu">
+                            <t:pageLink t:page="po/system/role/list">Роли и права доступа</t:pageLink>
+                        </li>
+                        <li id="cats_menu">
+                            <t:pageLink t:page="po/system/category/list">Категории товаров</t:pageLink>
+                        </li>
+                        <li id="props_menu">
+                            <t:pageLink t:page="po/system/property/list">Свойства товаров</t:pageLink>
+                        </li>
+                    </t:if>
+                </ul>
+            </li>
+        </ul>
+    </t:block>
+
+    <t:mallcomponents.layout.browse leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
+
+        <t:body/>
+
+    </t:mallcomponents.layout.browse>
 
 </div>

@@ -4,7 +4,7 @@ import org.apache.tapestry5.annotations.Cached;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.grid.GridDataSource;
 import org.ohm.lebetter.model.impl.entities.DealerEntity;
-import org.ohm.lebetter.tapestry5.web.pages.base.AbstractBasePage;
+import org.ohm.lebetter.tapestry5.web.pages.base.AdminBasePage;
 import org.ohm.lebetter.tapestry5.web.util.datasource.GenericEntityGridDS;
 
 /**
@@ -14,7 +14,7 @@ import org.ohm.lebetter.tapestry5.web.util.datasource.GenericEntityGridDS;
  * Time: 17:01
  * To change this template use File | Settings | File Templates.
  */
-public class List extends AbstractBasePage {
+public class List extends AdminBasePage {
 
     @Property
     private DealerEntity oneDealer;

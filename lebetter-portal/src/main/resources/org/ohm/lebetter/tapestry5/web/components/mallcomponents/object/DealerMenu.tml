@@ -1,0 +1,13 @@
+<ul xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" class="leftmenu">
+    <li>
+        <t:pageLink t:page="dealer/list">Где купить</t:pageLink>
+        <ul>
+            <li id="dlrs_menu">
+                <t:pageLink t:page="dealer/list">Дилеры</t:pageLink>
+            </li>
+            <li id="part_menu">
+                <t:pageLink t:page="partners">Партнерам</t:pageLink>
+            </li>
+        </ul>
+    </li>
+</ul>

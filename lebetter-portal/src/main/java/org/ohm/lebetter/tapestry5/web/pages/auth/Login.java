@@ -2,6 +2,7 @@ package org.ohm.lebetter.tapestry5.web.pages.auth;
 
 import org.apache.tapestry5.annotations.Property;
 import org.ohm.lebetter.tapestry5.web.pages.base.AbstractBasePage;
+import org.ohm.lebetter.tapestry5.web.pages.base.AbstractBrowseBasePage;
 
 /**
  * Created by IntelliJ IDEA.
@@ -10,7 +11,7 @@ import org.ohm.lebetter.tapestry5.web.pages.base.AbstractBasePage;
  * Time: 16:11:47
  * To change this template use File | Settings | File Templates.
  */
-public class Login extends AbstractBasePage {
+public class Login extends AbstractBrowseBasePage {
 
     @Property
     private boolean error;

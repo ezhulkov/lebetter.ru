@@ -1,5 +1,9 @@
 package org.ohm.lebetter.tapestry5.web.components.mallcomponents.layout;
 
+import org.apache.tapestry5.Block;
+import org.apache.tapestry5.annotations.Parameter;
+import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.ioc.annotations.Inject;
 import org.ohm.lebetter.tapestry5.web.components.base.AbstractBaseComponent;
 
 /**
@@ -12,7 +16,13 @@ import org.ohm.lebetter.tapestry5.web.components.base.AbstractBaseComponent;
 
 public class OfficeLayout extends AbstractBaseComponent {
 
+    @Property
+    @Inject
+    private Block leftMenuBlock;
 
+    @Property
+    @Parameter(required = true, allowNull = false)
+    private Block breadCrumpsBlock;
 
 }
 

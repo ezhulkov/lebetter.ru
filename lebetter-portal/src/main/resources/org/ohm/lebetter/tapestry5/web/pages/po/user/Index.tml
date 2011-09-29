@@ -3,9 +3,19 @@
                                 flash="flashMessage"
                                 xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
-    <t:mallcomponents.layout.office>
+    <t:mallcomponents.layout.office leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
 
         <t:mallcomponents.control.selectedObject>
+
+            <t:block t:id="breadCrumpsBlock">
+                <a class="status_home" href="/"><img src="/images/0.gif" alt=""/></a>
+                <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+                <a href="/po">Личный кабинет</a>
+                <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+                <a href="/po/user/list">Пользователи</a>
+                <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+                ${selectedUser.fullName}
+            </t:block>
 
             <h1>Пользователь ${selectedUser.fullName}</h1>
 

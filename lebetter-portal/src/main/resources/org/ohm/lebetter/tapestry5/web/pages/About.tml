@@ -6,22 +6,16 @@
     <t:block t:id="breadCrumpsBlock">
         <a class="status_home" href="/"><img src="/images/0.gif" alt=""/></a>
         <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
-        <a href="">О нас</a>
+        <a href="/about">О нас</a>
         <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
-        О компании
+        О представительстве
     </t:block>
 
     <t:block t:id="leftMenuBlock">
-        <ul class="leftmenu">
-            <li><a href="">О нас</a>
-                <ul>
-                    <li class="sel"><a href="">О компании</a></li>
-                    <li><a href="">Миссия</a></li>
-                    <li><a href="">Вакансии</a></li>
-                    <li><a href="">Контакты</a></li>
-                </ul>
-            </li>
-        </ul>
+        <t:mallcomponents.object.infMenu/>
+        <t:mallComponents.control.javascript>
+            AG.colorCell("#about_menu");
+        </t:mallComponents.control.javascript>
     </t:block>
 
     <t:mallcomponents.layout.browse leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">

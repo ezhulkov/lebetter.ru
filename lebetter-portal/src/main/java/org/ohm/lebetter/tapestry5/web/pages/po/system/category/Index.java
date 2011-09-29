@@ -4,7 +4,7 @@ import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Property;
 import org.ohm.lebetter.model.impl.entities.CategoryEntity;
 import org.ohm.lebetter.tapestry5.web.components.mallcomponents.control.SelectedObject;
-import org.ohm.lebetter.tapestry5.web.pages.base.AbstractBasePage;
+import org.ohm.lebetter.tapestry5.web.pages.base.AdminBasePage;
 
 /**
  * Created by IntelliJ IDEA.
@@ -13,7 +13,7 @@ import org.ohm.lebetter.tapestry5.web.pages.base.AbstractBasePage;
  * Time: 18:59
  * To change this template use File | Settings | File Templates.
  */
-public class Index extends AbstractBasePage {
+public class Index extends AdminBasePage {
 
     @Property
     private CategoryEntity selectedCategory;

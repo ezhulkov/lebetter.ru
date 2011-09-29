@@ -4,11 +4,11 @@ import org.apache.tapestry5.annotations.Cached;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.grid.GridDataSource;
 import org.ohm.lebetter.model.impl.entities.DealerEntity;
-import org.ohm.lebetter.tapestry5.web.pages.base.AbstractBasePage;
+import org.ohm.lebetter.tapestry5.web.pages.base.AbstractBrowseBasePage;
 import org.ohm.lebetter.tapestry5.web.util.datasource.GenericEntityGridDS;
 import org.room13.mallcore.model.ObjectBaseEntity.Status;
 
-public class List extends AbstractBasePage {
+public class List extends AbstractBrowseBasePage {
 
     @Property
     private DealerEntity oneDealer;

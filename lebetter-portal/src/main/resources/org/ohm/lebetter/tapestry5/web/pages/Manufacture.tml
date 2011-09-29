@@ -3,6 +3,25 @@
                                 flash="flashMessage"
                                 xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
-       История фабрики.
+    <t:block t:id="breadCrumpsBlock">
+        <a class="status_home" href="/"><img src="/images/0.gif" alt=""/></a>
+        <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+        <a href="/about">О нас</a>
+        <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+        Фабрика
+    </t:block>
+
+    <t:block t:id="leftMenuBlock">
+        <t:mallcomponents.object.infMenu/>
+        <t:mallComponents.control.javascript>
+            AG.colorCell("#manuf_menu");
+        </t:mallComponents.control.javascript>
+    </t:block>
+
+    <t:mallcomponents.layout.browse leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
+
+        <h1>Фабрика</h1>
+
+    </t:mallcomponents.layout.browse>
 
 </t:mallcomponents.layout.layout>

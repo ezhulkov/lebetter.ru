@@ -3,16 +3,35 @@
                                 flash="flashMessage"
                                 xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
-    Где купить
+    <t:block t:id="breadCrumpsBlock">
+        <a class="status_home" href="/"><img src="/images/0.gif" alt=""/></a>
+        <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+        <a href="/dealer/list">Где купить</a>
+        <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+        Дилеры
+    </t:block>
 
-    <t:grid pagerPosition="bottom" rowsPerPage="50" id="datagrid" source="dealers" row="oneDealer" include="name">
-        <t:parameter name="nameHeader"/>
-        <t:parameter name="nameCell">
-            <t:pageLink context="oneDealer.altid" page="dealer">${oneDealer.name}</t:pageLink>
-        </t:parameter>
-        <t:parameter name="empty">
-            <p class="nomsg">${message:empty.list}</p>
-        </t:parameter>
-    </t:grid>
+    <t:block t:id="leftMenuBlock">
+        <t:mallcomponents.object.dealerMenu/>
+        <t:mallComponents.control.javascript>
+            AG.colorCell("#dlrs_menu");
+        </t:mallComponents.control.javascript>
+    </t:block>
+
+    <t:mallcomponents.layout.browse leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
+
+        <h1>Дилеры</h1>
+
+        <t:grid pagerPosition="bottom" rowsPerPage="50" id="datagrid" source="dealers" row="oneDealer" include="name">
+            <t:parameter name="nameHeader"/>
+            <t:parameter name="nameCell">
+                <t:pageLink context="oneDealer.altid" page="dealer">${oneDealer.name}</t:pageLink>
+            </t:parameter>
+            <t:parameter name="empty">
+                <p class="nomsg">${message:empty.list}</p>
+            </t:parameter>
+        </t:grid>
+
+    </t:mallcomponents.layout.browse>
 
 </t:mallcomponents.layout.layout>

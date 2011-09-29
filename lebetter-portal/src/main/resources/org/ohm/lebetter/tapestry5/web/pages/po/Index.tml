@@ -3,30 +3,19 @@
                                 flash="flashMessage"
                                 xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
-    <t:mallcomponents.layout.office>
+    <t:block t:id="breadCrumpsBlock">
+        <a class="status_home" href="/"><img src="/images/0.gif" alt=""/></a>
+        <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+        <a href="/po">Личный кабинет</a>
+        <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+        Главная
+    </t:block>
+
+    <t:mallcomponents.layout.office leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
 
         <t:if test="auth.dealerRole">
             Моя персональная скидка на все товары: 10%<br/>
             <t:pageLink t:page="po/order/list">Заказы</t:pageLink>
-            <br/>
-        </t:if>
-
-        <t:pageLink t:page="po/catalog/list">Каталог</t:pageLink>
-        <br/>
-
-        <t:if test="auth.adminRole">
-            <t:pageLink t:page="po/user/list">Пользователи</t:pageLink>
-            <br/>
-            <t:pageLink t:page="po/dealer/list">Дилеры</t:pageLink>
-            <br/>
-            <t:pageLink t:page="po/order/list">Заказы</t:pageLink>
-            <br/>
-            <hr/>
-            <t:pageLink t:page="po/system/role/list">Роли и права доступа</t:pageLink>
-            <br/>
-            <t:pageLink t:page="po/system/category/list">Категории товаров</t:pageLink>
-            <br/>
-            <t:pageLink t:page="po/system/property/list">Свойства товаров</t:pageLink>
             <br/>
         </t:if>
 

@@ -1,6 +1,6 @@
 package org.ohm.lebetter.tapestry5.web.pages.po.system.property;
 
-import org.ohm.lebetter.tapestry5.web.pages.base.AbstractBasePage;
+import org.ohm.lebetter.tapestry5.web.pages.base.AdminBasePage;
 
 /**
  * Created by IntelliJ IDEA.
@@ -9,5 +9,5 @@ import org.ohm.lebetter.tapestry5.web.pages.base.AbstractBasePage;
  * Time: 17:02
  * To change this template use File | Settings | File Templates.
  */
-public class List extends AbstractBasePage {
+public class List extends AdminBasePage {
 }

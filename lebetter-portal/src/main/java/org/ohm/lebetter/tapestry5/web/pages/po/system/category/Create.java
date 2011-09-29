@@ -2,7 +2,7 @@ package org.ohm.lebetter.tapestry5.web.pages.po.system.category;
 
 import org.apache.tapestry5.annotations.Property;
 import org.ohm.lebetter.model.impl.entities.CategoryEntity;
-import org.ohm.lebetter.tapestry5.web.pages.base.AbstractBasePage;
+import org.ohm.lebetter.tapestry5.web.pages.base.AdminBasePage;
 
 /**
  * Created by IntelliJ IDEA.
@@ -11,7 +11,7 @@ import org.ohm.lebetter.tapestry5.web.pages.base.AbstractBasePage;
  * Time: 18:59
  * To change this template use File | Settings | File Templates.
  */
-public class Create extends AbstractBasePage {
+public class Create extends AdminBasePage {
 
     @Property
     private CategoryEntity parentCategory;

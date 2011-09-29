@@ -1,7 +1,10 @@
 jQuery(document).ready(function() {
-   jQuery("select").selectbox();
+    jQuery("select").selectbox();
 });
 AG = {
+    colorCell: function(el) {
+        jQuery(el).addClass('sel');
+    },
     processChange: function() {
         if (jQuery("select#type").val() == 'DICTIONARY') {
             jQuery('#DICT').css('display', 'block');

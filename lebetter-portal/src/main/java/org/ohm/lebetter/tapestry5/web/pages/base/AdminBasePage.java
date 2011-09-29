@@ -1,6 +1,8 @@
 package org.ohm.lebetter.tapestry5.web.pages.base;
 
-import org.apache.tapestry5.annotations.Import;
+import org.apache.tapestry5.Block;
+import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.ioc.annotations.Inject;
 
 /**
  * Created by IntelliJ IDEA.
@@ -10,5 +12,9 @@ import org.apache.tapestry5.annotations.Import;
  * To change this template use File | Settings | File Templates.
  */
 public abstract class AdminBasePage extends AbstractBasePage {
+
+    @Property
+    @Inject
+    private Block breadCrumpsBlock;
 
 }
