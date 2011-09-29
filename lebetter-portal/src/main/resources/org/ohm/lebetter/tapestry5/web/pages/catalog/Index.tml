@@ -38,6 +38,26 @@
       </div>
 
       <h1>Товар</h1>
+      <!-- Product Categories -->
+      <img src="/images/0.gif" alt="" class="prod_cat_tizer" />
+      <!-- Product Categories Grid -->
+      <div class="prod_cat_box">
+        <ul class="prod_cat_grid">
+          <li><img src="/images/pic/cat/pic1.png" alt="" /><h3><a href="">Столы</a></h3></li>
+          <li><img src="/images/pic/cat/pic2.png" alt="" /><h3><a href="">Стулья</a></h3></li>
+          <li><img src="/images/pic/cat/pic3.png" alt="" /><h3><a href="">Шкафы</a></h3></li>
+          <li><img src="/images/pic/cat/pic4.png" alt="" /><h3><a href="">Тумбочки</a></h3></li>
+          <li><img src="/images/pic/cat/pic5.png" alt="" /><h3><a href="">Комоды</a></h3></li>
+          <li><img src="/images/pic/cat/pic6.png" alt="" /><h3><a href="">Двуспальные кровати</a></h3></li>
+          <li><img src="/images/pic/cat/pic7.png" alt="" /><h3><a href="">Диваны</a></h3></li>
+        </ul>
+      </div>
+
+
+
+      <br /><br />
+
+      <div class="break"></div>
 
       <t:pageLink t:page="catalog/list">Категории</t:pageLink>
 

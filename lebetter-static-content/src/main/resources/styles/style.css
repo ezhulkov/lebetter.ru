@@ -497,12 +497,16 @@ ul.dealer_list {
 }
 ul.dealer_list li {
   list-style: none;
-  padding: 0px 0px 8px 0px;
+  padding: 0px 0px 0px 0px;
   margin: 0px 0px 0px 0px;
   float: left;
   width: 360px;
 }
-ul.dealer_list td {
+.dealer_inf {
+  padding: 0px 19px 0px 0px;
+  margin-bottom: 8px;
+}
+.dealer_inf td {
   line-height: 20px;
   padding: 0px 19px 0px 0px;
 }
@@ -514,6 +518,61 @@ ul.dealer_list td {
   clear: both;
 }
 
+/* Dealers Item */
+.dealer_item {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+  clear: both;
+}
+.dealer_item_l {
+  padding: 4px 0px 0px 0px;
+  float: left;
+  width: 170px;
+}
+.dealer_item_r {
+  padding: 0px 0px 0px 170px;
+  width: 550px;
+}
+
+/* ProdCategories */
+.prod_cat_tizer {
+  background: url(/images/pic/pic2.jpg) no-repeat 0px 0px;
+  height: 229px;
+  width: 720px;
+}
+.prod_cat_box {
+  background: url(/images/hr5.png) no-repeat 0px 0px;
+  display: table-cell;
+  width: 720px;
+}
+ul.prod_cat_grid {
+  margin: 0px 0px 0px 0px;
+  padding: 3px 0px 0px 0px;
+  list-style: none;
+}
+ul.prod_cat_grid li {
+  margin: 0px 0px 0px 0px;
+  padding: 10px 0px 10px 0px;
+  float: left;
+  height: 60px;
+  width: 180px;
+}
+ul.prod_cat_grid li img {
+  margin: 0px 9px 0px 0px;
+  float: left;
+}
+ul.prod_cat_grid li h3 {
+  display: table-cell;
+  height: 60px;
+  line-height: 60px;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+  vertical-align: middle;
+}
+ul.prod_cat_grid li h3 a {
+  text-decoration: none;
+  line-height: 18px;
+}
 
 
 
