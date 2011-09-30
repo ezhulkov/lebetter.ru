@@ -28,7 +28,7 @@
 
                     <t:if test="selectedRole.parent">
                         Родительская роль
-                        <t:pageLink t:page="po/system/role" t:context="${selectedRole.parent.rootId}" class="underline">${selectedRole.parent.name}</t:pageLink>
+                        <t:pageLink t:page="po/system/role" t:context="${selectedRole.parent.rootId}" class="underline">'${selectedRole.parent.name}'</t:pageLink>
                     </t:if>
 
                 </div>

@@ -11,10 +11,7 @@
         <t:block id="actionsBlock">
 
             <div class="ks_adm_content_buts">
-                <img class="NFButtonLeft" src="/images/0.gif"/>
-                <input id="buttonSave" type="submit" value="Сохранить"
-                       class="NFButton"/>
-                <img class="NFButtonRight" src="/images/0.gif"/>
+                <input id="buttonSave" type="submit" value="Сохранить" class="form_but"/>
             </div>
 
             <div class="granttable">
@@ -27,9 +24,9 @@
                     </t:parameter>
                     <t:parameter name="codeCell">
                         <t:if test="oneAction.actionGroupName">
-                            ${oneAction.actionGroupName}
+                            <strong>${oneAction.actionGroupName}</strong>
                             <t:parameter name="else">
-                                ${oneAction.code}
+                                &#160;&#160;&#160;&#160;${oneAction.code}
                             </t:parameter>
                         </t:if>
                     </t:parameter>

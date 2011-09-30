@@ -22,3 +22,7 @@ a.create_link {
     padding: 0 38px 10px 0;
     font-size: 11pt;
 }
+
+.form_but adm {
+    float:right;
+}
