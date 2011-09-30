@@ -1,3 +1,11 @@
+.office_body h1, .office_body h2 {
+    float: left;
+}
+
+.office_body h2 {
+    padding-top:5px;
+}
+
 #datagrid {
     width: 95%;
 }
@@ -19,7 +27,7 @@
 
 a.create_link {
     float: right;
-    padding: 0 38px 10px 0;
+    padding: 8px 38px 10px 0;
     font-size: 11pt;
 }
 
@@ -31,10 +39,12 @@ img.t-error-icon {
     margin: 8px 0 0 10px;
 }
 
-.form_edit {
-    padding: 0;
-}
-
 select.select {
     width: 235px;
+}
+
+.multiselect select {
+    width: 260px;
+    /*height: 145px;*/
+    border: 1px solid #505050;
 }
