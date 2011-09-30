@@ -54,6 +54,28 @@
       </div>
 
 
+      <!-- Product Categories Grid 2 -->
+      <h1>Разная мебель</h1>
+      <div class="prod_cat_box2">
+        <ul class="prod_cat_grid2">
+          <li><img src="/images/pic/cat/mpic1.png" alt="" /><h3><a href="">Столы</a></h3></li>
+          <li><img src="/images/pic/cat/mpic2.png" alt="" /><h3><a href="">Столы</a></h3></li>
+          <li><img src="/images/pic/cat/mpic3.png" alt="" /><h3><a href="">Столы</a></h3></li>
+          <li><img src="/images/pic/cat/mpic4.png" alt="" /><h3><a href="">Столы</a></h3></li>
+          <li><img src="/images/pic/cat/mpic5.png" alt="" /><h3><a href="">Столы</a></h3></li>
+          <li><img src="/images/pic/cat/mpic6.png" alt="" /><h3><a href="">Столы</a></h3></li>
+          <li><img src="/images/pic/cat/mpic7.png" alt="" /><h3><a href="">Столы</a></h3></li>
+          <li><img src="/images/pic/cat/mpic8.png" alt="" /><h3><a href="">Столы</a></h3></li>
+          <li><img src="/images/pic/cat/mpic9.png" alt="" /><h3><a href="">Столы</a></h3></li>
+          <li><img src="/images/pic/cat/mpic10.png" alt="" /><h3><a href="">Столы</a></h3></li>
+          <li><img src="/images/pic/cat/mpic11.png" alt="" /><h3><a href="">Столы</a></h3></li>
+          <li><img src="/images/pic/cat/mpic12.png" alt="" /><h3><a href="">Столы</a></h3></li>
+          <li><img src="/images/pic/cat/mpic13.png" alt="" /><h3><a href="">Столы</a></h3></li>
+          <li><img src="/images/pic/cat/mpic14.png" alt="" /><h3><a href="">Столы</a></h3></li>
+          <li><img src="/images/pic/cat/mpic15.png" alt="" /><h3><a href="">Столы</a></h3></li>
+        </ul>
+      </div>
+      <div class="hr_big"></div>
 
       <br /><br />
 

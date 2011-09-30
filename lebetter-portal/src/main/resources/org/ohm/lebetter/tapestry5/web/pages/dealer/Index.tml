@@ -2,7 +2,7 @@
                                 bodyId="po"
                                 flash="flashMessage"
                                 xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
-
+ 
     <t:mallcomponents.control.selectedObject>
 
         <p>Дилер ${selectedDealer.name}</p>

@@ -53,6 +53,14 @@ input, select, textarea {
 .bottom {
   /*vertical-align: bottom;*/
 }
+.hr_big {
+  background: url(/images/hr4.gif) no-repeat 50% 9px;
+  padding: 9px 0px 10px 0px;
+  height: 1px;
+  width: 720px;
+  clear: both;
+}
+
 
 /* Header */
 .header {
@@ -557,13 +565,6 @@ ul.dealer_list li {
   line-height: 20px;
   padding: 0px 19px 0px 0px;
 }
-.dealer_hr {
-  background: url(/images/hr4.gif) no-repeat 50% 9px;
-  padding: 9px 0px 10px 0px;
-  height: 1px;
-  width: 720px;
-  clear: both;
-}
 
 /* Dealers Item */
 .dealer_item {
@@ -595,6 +596,7 @@ ul.dealer_list li {
   background: url(/images/hr5.png) no-repeat 0px 0px;
   display: table-cell;
   width: 720px;
+  padding: 0px 0px 0px 0px;
 }
 ul.prod_cat_grid {
   margin: 0px 0px 0px 0px;
@@ -634,6 +636,17 @@ ul.prod_cat_grid li h3 a {
 *+html ul.prod_cat_grid li h3 a {
   float: none;
   /* ie7 */
+}
+.prod_cat_box2 {
+
+}
+ul.prod_cat_grid2 {
+ list-style: none;
+ margin: 0px 0px 0px 0px;
+ padding: 0px 0px 0px 0px;
+}
+ul.prod_cat_grid2 li {
+
 }
 
 
