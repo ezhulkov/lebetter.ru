@@ -234,11 +234,12 @@ ul#topnav .sub ul li a {
     /*white-space: nowrap;*/
 }
 
+ul#topnav li.u .sub ul li:hover a,
+ul#topnav .sub ul li:hover a,
 ul#topnav li.u .sub ul li a:hover,
 ul#topnav .sub ul li a:hover {
     color: #c05634;
     background: none; /*--Override background position--*/
-
 }
 /*TopMenu : 3st level */
 ul#topnav li ul.sub2 {
@@ -265,8 +266,20 @@ ul#topnav .sub ul li a:hover .sub2 {
     display: block;
     visibility: visible;
 }
-
-
+ul#topnav li.u .sub ul li:hover li a,
+ul#topnav .sub ul li:hover li a,
+ul#topnav li.u .sub ul li a:hover li a,
+ul#topnav .sub ul li a:hover li a {
+    color: #47190A;
+    background: none; /*--Override background position--*/
+}
+ul#topnav li.u .sub ul li:hover li a:hover,
+ul#topnav .sub ul li:hover li a:hover,
+ul#topnav li.u .sub ul li a:hover li a:hover,
+ul#topnav .sub ul li a:hover li a:hover {
+    color: #c05634;
+    background: none; /*--Override background position--*/
+}
 
 
 /* Slider */

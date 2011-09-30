@@ -28,7 +28,7 @@
             <li>
 
                 <h3><a href=" ">ООО «Рога и копыта»</a></h3>
-                <table>
+                <table class="dealer_inf">
                     <tr>
                         <td>Адрес:</td>
                         <td>Москва, Тверская, 1</td>
@@ -51,7 +51,7 @@
             <li>
 
                 <h3><a href=" ">ООО «Оптторг»</a></h3>
-                <table>
+                <table class="dealer_inf">
                     <tr>
                         <td>Адрес:</td>
                         <td>Московская область, Красногорский район,<br/>
@@ -76,7 +76,7 @@
             <li>
 
                 <h3><a href=" ">ООО «Оптторг»</a></h3>
-                <table>
+                <table class="dealer_inf">
                     <tr>
                         <td>Адрес:</td>
                         <td>Московская область, Красногорский район,<br/>
@@ -108,7 +108,7 @@
             <li>
 
                 <h3><a href=" ">ООО «Рога и копыта»</a></h3>
-                <table>
+                <table class="dealer_inf">
                     <tr>
                         <td>Адрес:</td>
                         <td>Москва, Тверская, 1</td>
@@ -131,7 +131,7 @@
             <li>
 
                 <h3><a href=" ">ООО «Оптторг»</a></h3>
-                <table>
+                <table class="dealer_inf">
                     <tr>
                         <td>Адрес:</td>
                         <td>Московская область, Красногорский район,<br/>
