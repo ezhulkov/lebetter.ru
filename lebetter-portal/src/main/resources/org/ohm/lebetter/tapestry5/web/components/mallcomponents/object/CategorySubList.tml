@@ -1,11 +1,14 @@
 <span xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="categorylist">
 
     <t:grid id="datagrid" rowsPerPage="15" pagerPosition="bottom"
-            source="allCategories" row="oneCategory" include="name,code,objectStatus" >
+            source="allCategories" row="oneCategory" include="name,code,position,objectStatus" >
         <t:parameter name="nameHeader">
             Название
         </t:parameter>
-        <t:parameter name="nameHeader">
+        <t:parameter name="positionHeader">
+            Порядок
+        </t:parameter>
+        <t:parameter name="codeHeader">
             Код
         </t:parameter>
         <t:parameter name="objectStatusHeader">
