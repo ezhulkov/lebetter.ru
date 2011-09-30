@@ -33,7 +33,7 @@
                     <t:label for="owner"/>
                     :
                 </div>
-                <input t:id="owner" class="validate_input orderbox_login"/>
+                <input t:id="owner" />
             </div>
 
             <div class="ks_objectownershow_1">

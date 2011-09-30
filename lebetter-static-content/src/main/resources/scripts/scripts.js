@@ -1,6 +1,3 @@
-jQuery(document).ready(function() {
-    jQuery("select").selectbox();
-});
 AG = {
     colorCell: function(el) {
         jQuery(el).addClass('sel');

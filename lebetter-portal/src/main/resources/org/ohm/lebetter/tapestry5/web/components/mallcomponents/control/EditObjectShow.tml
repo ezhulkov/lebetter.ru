@@ -79,6 +79,8 @@
 
     <script language="JavaScript" type="text/javascript">
         var key = "${key}" + "-edit";
+        //Разукрашиваем селектбоксы
+        jQuery(".select").selectbox();
         //Расставляем кнопки на свои места
         jQuery("div#" + key).find("#itembut").empty();
         jQuery("div#" + key).find("div.rbut").css("display", "block");

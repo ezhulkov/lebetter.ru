@@ -60,7 +60,7 @@
                 <t:label for="role"/>
                 :
             </div>
-            <t:select t:id="role" class="validate_input"/>
+            <t:select t:id="role" class="select"/>
         </div>
 
     </t:mallComponents.control.editObject>

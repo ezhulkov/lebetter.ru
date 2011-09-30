@@ -27,7 +27,7 @@
                 <t:label for="status"/>
                 :
             </div>
-            <select t:id="status"/>
+            <select t:id="status" class="select"/>
         </div>
 
         <div >
