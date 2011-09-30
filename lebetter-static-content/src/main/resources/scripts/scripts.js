@@ -37,7 +37,7 @@ AG = {
                 jQuery.fn.calcSubWidth = function() {
                     rowWidth = 0;
                     //Calculate row
-                    jQuery(this).find("ul").each(function() {
+                    jQuery(this).find("ul.sub1").each(function() {
                         rowWidth += jQuery(this).width();
                     });
                 };

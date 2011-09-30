@@ -240,6 +240,34 @@ ul#topnav .sub ul li a:hover {
     background: none; /*--Override background position--*/
 
 }
+/*TopMenu : 3st level */
+ul#topnav li ul.sub2 {
+    font-weight: normal;
+    left: 100%;
+    margin-top: -11px;
+    right: auto;
+    top: 0;
+    width: 200px;
+    position: absolute;
+    visibility: hidden;
+    background: #EEEEEE;
+/*    border-top: 0px solid #CCCCCC;
+    border-right: 1px solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;*/
+    border: 1px solid #CCCCCC;
+    padding: 11px 19px 11px 19px;
+}
+ul#topnav li ul.sub2 li {
+    border-bottom: 0px solid #CCCCCC;
+}
+ul#topnav li .sub ul li:hover .sub2,
+ul#topnav .sub ul li a:hover .sub2 {
+    display: block;
+    visibility: visible;
+}
+
+
+
 
 /* Slider */
 .slider_box {

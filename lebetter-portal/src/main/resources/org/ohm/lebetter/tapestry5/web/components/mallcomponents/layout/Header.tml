@@ -37,18 +37,21 @@
                     <t:pageLink t:page="catalog">Каталог</t:pageLink>
                     <t:if test="categories">
                         <div class="sub">
-                            <ul>
-                                <t:loop t:formState="NONE" source="categories" value="oneCategory">
-                                    <li><a href="">${oneCategory.name}</a></li>
-                                    <!--<t:if test="subCategories">-->
-                                        <!--<ul>-->
-                                            <!--<t:loop t:formState="NONE" source="subCategories" value="oneSubCategory">-->
-                                                <!--<li><a href="">${oneSubCategory.name}</a></li>-->
-                                            <!--</t:loop>-->
-                                        <!--</ul>-->
-                                    <!--</t:if>-->
-                                </t:loop>
-                            </ul>
+                          <ul class="sub1">
+                            <t:loop t:formState="NONE" source="categories" value="oneCategory">
+
+                                <li><a href="">${oneCategory.name}</a>
+                                <t:if test="subCategories">
+                                 <ul class="sub2">
+                                    <t:loop t:formState="NONE" source="subCategories" value="oneSubCategory">
+                                        <li><a href="">${oneSubCategory.name}</a></li>
+                                    </t:loop>
+                                 </ul>
+                                </t:if>
+                                </li>
+
+                            </t:loop>
+                          </ul>
                         </div>
                     </t:if>
                 </li>
