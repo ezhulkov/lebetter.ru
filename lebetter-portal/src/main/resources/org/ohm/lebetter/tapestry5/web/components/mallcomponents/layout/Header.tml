@@ -1,107 +1,131 @@
 <div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
-  <!-- Header -->
-  <div class="header">
-      <div class="centered">
-        <t:pageLink t:page="index2" class="logo"><img src="/images/logo.png" width="471" height="68" alt="Lebetter" title="Lebetter" /></t:pageLink>
+    <!-- Header -->
+    <div class="header">
+        <div class="centered">
+            <t:pageLink t:page="index2" class="logo">
+                <img src="/images/logo.png" width="471" height="68" alt="Lebetter" title="Lebetter"/>
+            </t:pageLink>
 
-      <t:unless test="auth.authenticated">
-          <t:pageLink t:page="auth/login" class="signup"><span>Вход для партнеров</span></t:pageLink>
-      </t:unless>
-      <t:if test="auth.authenticated">
-          <a href="auth/logout" class="head_lnk"><span>Выход</span></a>
-          <t:pageLink t:page="po" class="head_lnk head_lnk2"><span>Личный кабинет</span></t:pageLink>
-      </t:if>
+            <t:unless test="auth.authenticated">
+                <t:pageLink t:page="auth/login" class="signup">
+                    <span>Вход для партнеров</span>
+                </t:pageLink>
+            </t:unless>
+            <t:if test="auth.authenticated">
+                <a href="auth/logout" class="head_lnk">
+                    <span>Выход</span>
+                </a>
+                <t:pageLink t:page="po" class="head_lnk head_lnk2">
+                    <span>Личный кабинет</span>
+                </t:pageLink>
+            </t:if>
+        </div>
     </div>
-  </div>
-  <!-- TopMenu -->
-  <div class="topmenu">
-    <div class="centered">
+    <!-- TopMenu -->
+    <div class="topmenu">
+        <div class="centered">
 
-    <ul id="topnav">
-        <li class="f">
-            <t:pageLink t:page="about">О представительстве</t:pageLink>
-        </li>
-        <li>
-            <t:pageLink t:page="manufacture">Фабрика</t:pageLink>
-        </li>
-        <li>
-            <t:pageLink t:page="catalog">Каталог</t:pageLink>
-        </li>
-        <li>
-            <t:pageLink t:page="dealer/list">Где купить</t:pageLink>
-        </li>
-        <li>
-            <t:pageLink t:page="partners">Партнерам</t:pageLink>
-        </li>
-        <li>
-            <t:pageLink t:page="contacts">Контакты</t:pageLink>
-        </li>
-    </ul>
-
-<!--      <ul>
-        <li class="f">
-        <a href="#">О нас</a>
-
-          <div class="sub">
-            <ul>
-              <li><a href="">Компания</a></li>
-              <li><a href="">Обращение директора</a></li>
-              <li><a href="">Контакты</a></li>
-              <li><a href="">Вакансии</a></li>
+            <ul id="topnav">
+                <li class="f">
+                    <t:pageLink t:page="about">О представительстве</t:pageLink>
+                </li>
+                <li>
+                    <t:pageLink t:page="manufacture">Фабрика</t:pageLink>
+                </li>
+                <li>
+                    <t:pageLink t:page="catalog">Каталог</t:pageLink>
+                    <t:if test="categories">
+                        <div class="sub">
+                            <ul>
+                                <t:loop t:formState="NONE" source="categories" value="oneCategory">
+                                    <li><a href="">${oneCategory.name}</a></li>
+                                    <!--<t:if test="subCategories">-->
+                                        <!--<ul>-->
+                                            <!--<t:loop t:formState="NONE" source="subCategories" value="oneSubCategory">-->
+                                                <!--<li><a href="">${oneSubCategory.name}</a></li>-->
+                                            <!--</t:loop>-->
+                                        <!--</ul>-->
+                                    <!--</t:if>-->
+                                </t:loop>
+                            </ul>
+                        </div>
+                    </t:if>
+                </li>
+                <li>
+                    <t:pageLink t:page="dealer/list">Где купить</t:pageLink>
+                </li>
+                <li>
+                    <t:pageLink t:page="partners">Партнерам</t:pageLink>
+                </li>
+                <li>
+                    <t:pageLink t:page="contacts">Контакты</t:pageLink>
+                </li>
             </ul>
-          </div>
 
-        </li>
-        <li>
-        <a href="#">Каталог продукции</a>
-          <div class="sub">
-            <ul>
-              <li><a href="">Гостиная</a></li>
-              <li><a href="">Спальня</a></li>
-              <li><a href="">Кабинет</a></li>
-              <li><a href="">Прихожая</a></li>
-            </ul>
-            <ul>
-              <li><a href="">Ванная</a></li>
-              <li><a href="">Предметы мебели и аксессуары</a></li>
-              <li><a href="">Мебель для гостиниц, баров, ресторанов</a></li>
-            </ul>
-          </div>
+            <!--      <ul>
+              <li class="f">
+              <a href="#">О нас</a>
 
-        </li>
-        <li>
-        <a href="#">Качество</a>
+                <div class="sub">
+                  <ul>
+                    <li><a href="">Компания</a></li>
+                    <li><a href="">Обращение директора</a></li>
+                    <li><a href="">Контакты</a></li>
+                    <li><a href="">Вакансии</a></li>
+                  </ul>
+                </div>
 
-          <div class="sub">
-            <ul>
-              <li><a href="">Наши преимущества</a></li>
-              <li><a href="">Гарантия качества</a></li>
-            </ul>
-          </div>
+              </li>
+              <li>
+              <a href="#">Каталог продукции</a>
+                <div class="sub">
+                  <ul>
+                    <li><a href="">Гостиная</a></li>
+                    <li><a href="">Спальня</a></li>
+                    <li><a href="">Кабинет</a></li>
+                    <li><a href="">Прихожая</a></li>
+                  </ul>
+                  <ul>
+                    <li><a href="">Ванная</a></li>
+                    <li><a href="">Предметы мебели и аксессуары</a></li>
+                    <li><a href="">Мебель для гостиниц, баров, ресторанов</a></li>
+                  </ul>
+                </div>
 
-        </li>
-        <li>
-        <a href="#">История фабрики</a>
-        </li>
-        <li>
-        <a href="#">Где купить</a>
+              </li>
+              <li>
+              <a href="#">Качество</a>
 
-          <div class="sub">
-            <ul>
-              <li><a href="">Москва</a></li>
-              <li><a href="">Санкт-Петербург</a></li>
-              <li><a href="">Дилеры</a></li>
-            </ul>
-          </div>
+                <div class="sub">
+                  <ul>
+                    <li><a href="">Наши преимущества</a></li>
+                    <li><a href="">Гарантия качества</a></li>
+                  </ul>
+                </div>
 
-        </li>
-        <li>
-        <a href="#">Для партнеров</a>
+              </li>
+              <li>
+              <a href="#">История фабрики</a>
+              </li>
+              <li>
+              <a href="#">Где купить</a>
 
-        </li>
-      </ul>-->
+                <div class="sub">
+                  <ul>
+                    <li><a href="">Москва</a></li>
+                    <li><a href="">Санкт-Петербург</a></li>
+                    <li><a href="">Дилеры</a></li>
+                  </ul>
+                </div>
+
+              </li>
+              <li>
+              <a href="#">Для партнеров</a>
+
+              </li>
+            </ul>-->
+        </div>
     </div>
-  </div>
 
 </div>
