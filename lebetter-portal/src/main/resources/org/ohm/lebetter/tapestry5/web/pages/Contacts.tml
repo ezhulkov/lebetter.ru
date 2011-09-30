@@ -157,16 +157,16 @@
 
     </t:mallcomponents.layout.browse>
 
-    <!--&lt;!&ndash; Старничка дилера &ndash;&gt;-->
+    <!-- Старничка дилера -->
     <!--<h1>ООО «Рога и копыта»</h1>-->
 
     <!--<div class="dealer_item">-->
         <!--<div class="dealer_item_l">-->
-            <!--&lt;!&ndash; DealLogo &ndash;&gt;-->
+            <!-- DealLogo -->
             <!--<img src="/images/pic/dealers/pic1.jpg" alt=""/>-->
         <!--</div>-->
         <!--<div class="dealer_item_r">-->
-            <!--&lt;!&ndash; DealInf &ndash;&gt;-->
+            <!-- DealInf -->
             <!--<table class="dealer_inf">-->
                 <!--<tr>-->
                     <!--<td>Адрес:</td>-->
@@ -192,7 +192,7 @@
 
             <!--<p>Наша компания понимает, что мы продаем не просто домашнюю обстановку – мы предлагаем сделать Ваш дом уютнее.</p>-->
 
-            <!--&lt;!&ndash; gmap &ndash;&gt;-->
+            <!-- gmap -->
             <!--<iframe width="550" height="150" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps/ms?msa=0&amp;msid=216453582507131094150.0004ae13a0d6ec230dfac&amp;ie=UTF8&amp;t=m&amp;vpsrc=0&amp;ll=55.752483,37.65623&amp;spn=0.000906,0.00589&amp;z=17&amp;output=embed"></iframe>-->
             <!--<br/>-->
             <!--<small>Просмотреть-->
