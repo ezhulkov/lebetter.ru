@@ -23,6 +23,8 @@
 
             <h1>Пользователь '${selectedUser.fullName}'</h1>
 
+            <div class="break"/>
+
             <t:mallcomponents.object.userEdit object="selectedUser"/>
 
         </t:mallcomponents.control.selectedObject>

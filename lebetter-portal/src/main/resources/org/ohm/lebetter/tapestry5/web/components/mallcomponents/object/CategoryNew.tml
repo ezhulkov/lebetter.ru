@@ -12,16 +12,16 @@
             objectManager="serviceFacade.categoryManager"
             selectedObject="selectedObject">
 
-        <div>
-            <div>
+        <div class="input_box">
+            <div class="input_label">
                 <t:label for="name"/>
                 :
             </div>
             <input t:id="name" class="form_input"/>
         </div>
 
-        <div>
-            <div>
+        <div class="input_box">
+            <div class="input_label">
                 <t:label for="code"/>
                 :
             </div>

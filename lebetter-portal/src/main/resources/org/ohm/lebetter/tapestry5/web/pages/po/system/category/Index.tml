@@ -23,6 +23,8 @@
 
             <h1>Категория '${selectedCategory.name}'</h1>
 
+            <div class="break"/>
+
             <t:mallcomponents.object.categoryEdit object="selectedCategory"/>
 
             <t:unless test="selectedCategory.parent">

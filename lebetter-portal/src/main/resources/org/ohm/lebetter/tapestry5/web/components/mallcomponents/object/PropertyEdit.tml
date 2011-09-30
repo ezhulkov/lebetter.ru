@@ -14,17 +14,24 @@
                 objectManager="serviceFacade.propertyManager"
                 selectedObject="selectedObject">
 
-            <div>
-                <div>
+            <div class="input_box">
+                <div class="input_label">
+                    Тип:
+                </div>
+                <input class="form_input" disabled="disabled" value="${selectedObject.type}"/>
+            </div>
+
+            <div class="input_box">
+                <div class="input_label">
                     <t:label for="name"/>
                     :
                 </div>
-                <input t:id="name"  tabindex="1"/>
+                <input t:id="name" class="form_input" tabindex="1"/>
             </div>
 
             <t:if test="selectedObject.rootObject">
-                <div>
-                    <div>
+                <div class="input_box">
+                    <div class="input_label">
                         <t:label for="status"/>
                         :
                     </div>
@@ -66,6 +73,7 @@
                 <!-- Cat values -->
                 <div class="ks_adm_content_tabscontent">
                     <h2>Значения свойства</h2>
+
                     <div class="ks_adm_content_buts">
 
                     </div>
