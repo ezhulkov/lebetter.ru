@@ -3,11 +3,21 @@
                                 flash="flashMessage"
                                 xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
-    <t:mallcomponents.layout.office>
+    <t:mallcomponents.layout.office leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
 
         <t:mallcomponents.control.selectedObject>
 
-            <h1>Дилер ${selectedDealer.name}, скидка ${selectedDealer.discount}</h1>
+            <t:block t:id="breadCrumpsBlock">
+                <a class="status_home" href="/"><img src="/images/0.gif" alt=""/></a>
+                <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+                <a href="/po">Личный кабинет</a>
+                <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+                <a href="/po/dealer/list">Дилеры</a>
+                <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+                '${selectedDealer.name}'
+            </t:block>
+
+            <h1>Дилер '${selectedDealer.name}', скидка ${selectedDealer.discount}</h1>
 
             <t:mallcomponents.object.dealerEdit object="selectedDealer"/>
 

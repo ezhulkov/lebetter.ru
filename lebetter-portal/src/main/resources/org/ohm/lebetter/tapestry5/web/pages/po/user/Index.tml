@@ -14,10 +14,10 @@
                 <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
                 <a href="/po/user/list">Пользователи</a>
                 <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
-                ${selectedUser.fullName}
+                '${selectedUser.fullName}'
             </t:block>
 
-            <h1>Пользователь ${selectedUser.fullName}</h1>
+            <h1>Пользователь '${selectedUser.fullName}'</h1>
 
             Логин: ${selectedUser.name}
 

@@ -3,24 +3,33 @@
                                 flash="flashMessage"
                                 xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
-    <t:mallcomponents.layout.office>
-    <h1>Роли</h1>
+    <t:block t:id="breadCrumpsBlock">
+        <a class="status_home" href="/"><img src="/images/0.gif" alt=""/></a>
+        <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+        <a href="/po">Личный кабинет</a>
+        <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+        Роли
+    </t:block>
 
-    <t:grid id="datagrid" source="allRoles" row="oneRole" include="name,code" rowsPerPage="50">
-        <t:parameter name="nameHeader">Имя</t:parameter>
-        <t:parameter name="codeHeader">Код</t:parameter>
-        <t:parameter name="nameCell">
-            <t:pageLink t:page="po/system/role" t:context="${oneRole.rootId}" class="underline" style="padding-left:${padding}">
-                ${oneRole.name}
-            </t:pageLink>
-        </t:parameter>
-        <t:parameter name="codeCell">
-            ${oneRole.code}
-        </t:parameter>
-        <t:parameter name="empty">
-            <p class="nomsg">Пустой список</p>
-        </t:parameter>
-    </t:grid>
-        </t:mallcomponents.layout.office>
+    <t:mallcomponents.layout.office leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
+
+        <h1>Роли</h1>
+
+        <t:grid id="datagrid" source="allRoles" row="oneRole" include="name,code" rowsPerPage="50">
+            <t:parameter name="nameHeader">Имя</t:parameter>
+            <t:parameter name="codeHeader">Код</t:parameter>
+            <t:parameter name="nameCell">
+                <t:pageLink t:page="po/system/role" t:context="${oneRole.rootId}" class="underline" style="padding-left:${padding}">
+                    ${oneRole.name}
+                </t:pageLink>
+            </t:parameter>
+            <t:parameter name="codeCell">
+                ${oneRole.code}
+            </t:parameter>
+            <t:parameter name="empty">
+                <p class="nomsg">Пустой список</p>
+            </t:parameter>
+        </t:grid>
+    </t:mallcomponents.layout.office>
 
 </t:mallcomponents.layout.layout>
