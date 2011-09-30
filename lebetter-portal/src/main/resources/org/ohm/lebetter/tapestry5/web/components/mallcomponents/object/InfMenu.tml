@@ -11,9 +11,11 @@
             <li id="contacts_menu">
                 <t:pageLink t:page="contacts">Контакты</t:pageLink>
             </li>
-            <li id="login_menu">
-                <t:pageLink t:page="auth/login">Вход для партнеров</t:pageLink>
-            </li>
+            <t:unless test="auth.authenticated">
+                <li id="login_menu">
+                    <t:pageLink t:page="auth/login">Вход для партнеров</t:pageLink>
+                </li>
+            </t:unless>
         </ul>
     </li>
 </ul>
