@@ -533,6 +533,10 @@ ul.dealer_list li {
   padding: 0px 0px 0px 170px;
   width: 550px;
 }
+*+html .dealer_item_r {
+  padding-left: 0px !important;
+  /* ie7 */
+}
 
 /* ProdCategories */
 .prod_cat_tizer {
@@ -573,6 +577,18 @@ ul.prod_cat_grid li h3 a {
   text-decoration: none;
   line-height: 18px;
 }
+*+html ul.prod_cat_grid li h3 {
+  display: table-cell;
+  height: 60px;
+  line-height: 60px;
+  vertical-align: middle;
+  /* ie7 */
+}
+*+html ul.prod_cat_grid li h3 a {
+  float: none;
+  /* ie7 */
+}
+
 
 
 
