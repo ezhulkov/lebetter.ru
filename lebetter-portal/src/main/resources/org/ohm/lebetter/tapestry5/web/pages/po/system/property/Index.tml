@@ -23,7 +23,7 @@
 
             <h1>Свойство '${selectedProperty.name}'</h1>
 
-            <h2>Тип ${selectedProperty.type}</h2>
+            <div class="break"/>
 
             <t:mallcomponents.object.propertyEdit object="selectedProperty"/>
 

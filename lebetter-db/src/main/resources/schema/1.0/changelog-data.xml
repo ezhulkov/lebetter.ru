@@ -423,4 +423,11 @@
     </sql>
   </changeSet>
 
+    <changeSet id="data-1.0.9" author="ezhulkov">
+        <sql>
+            update app_role_action set action_id=2 where id=8;
+            update app_role_action set action_id=3 where id=9;
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>

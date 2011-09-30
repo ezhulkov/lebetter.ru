@@ -23,7 +23,7 @@
 
             <h1>Пользователь '${selectedUser.fullName}'</h1>
 
-            Логин: ${selectedUser.name}
+            <div class="break"/>
 
             <t:mallcomponents.object.userEdit object="selectedUser"/>
 

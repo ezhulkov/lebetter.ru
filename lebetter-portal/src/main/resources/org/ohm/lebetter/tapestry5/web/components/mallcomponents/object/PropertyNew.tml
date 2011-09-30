@@ -15,28 +15,28 @@
                 selectedObject="selectedObject"
                 selectedSecurityObject="selectedObjectRoot">
 
-            <div>
-                <div>
+            <div class="input_box">
+                <div class="input_label">
                     <t:label for="name"/>
                     :
                 </div>
-                <input t:id="name"/>
+                <input t:id="name" class="form_input"/>
             </div>
 
-            <div>
-                <div>
+            <div class="input_box">
+                <div class="input_label">
                     <t:label for="type"/>
                     :
                 </div>
-                <select onChange="AG.processChange();" t:id="type"/>
+                <select onChange="AG.processChange();" t:id="type" class="select"/>
             </div>
 
-            <div class="display_none" id="DICT">
-                <div>
+            <div class="display_none input_box" id="DICT">
+                <div class="input_label">
                     <t:label for="dictionary"/>
                     :
                 </div>
-                <input t:id="dictionary"/>
+                <input t:id="dictionary" class="form_input"/>
             </div>
 
         </t:mallComponents.control.editObject>

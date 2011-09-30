@@ -15,52 +15,52 @@
             selectedObject="selectedObject"
             submitCallback="callback">
 
-        <div >
-            <div >
+        <div class="input_box">
+            <div class="input_label">
                 <t:label for="email"/>
                 :
             </div>
-            <input t:id="email" class="validate_input"/>
+            <input t:id="email" class="form_input"/>
         </div>
 
-        <div >
-            <div >
+        <div class="input_box">
+            <div class="input_label">
                 <t:label for="fname"/>
                 :
             </div>
-            <input t:id="fname" class="validate_input"/>
+            <input t:id="fname" class="form_input"/>
         </div>
 
-        <div >
-            <div >
+        <div class="input_box">
+            <div class="input_label">
                 <t:label for="lname"/>
                 :
             </div>
-            <t:input t:id="lname" class="validate_input"/>
+            <t:input t:id="lname" class="form_input"/>
         </div>
 
-        <div >
-            <div >
+        <div class="input_box">
+            <div class="input_label">
                 <t:label for="pwd1"/>
                 :
             </div>
-            <t:input t:id="pwd1" class="validate_input"/>
+            <t:input t:id="pwd1" class="form_input"/>
         </div>
 
-        <div >
-            <div >
+        <div class="input_box">
+            <div class="input_label">
                 <t:label for="pwd2"/>
                 :
             </div>
-            <t:input t:id="pwd2" class="validate_input"/>
+            <t:input t:id="pwd2" class="form_input"/>
         </div>
 
-        <div >
-            <div >
+        <div class="input_box">
+            <div class="input_label">
                 <t:label for="role"/>
                 :
             </div>
-            <t:select t:id="role" class="validate_input"/>
+            <t:select t:id="role" class="select"/>
         </div>
 
     </t:mallComponents.control.editObject>

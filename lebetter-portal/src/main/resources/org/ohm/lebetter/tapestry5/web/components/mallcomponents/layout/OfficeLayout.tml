@@ -38,7 +38,9 @@
 
     <t:mallcomponents.layout.browse leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
 
-        <t:body/>
+        <div class="office_body">
+            <t:body/>
+        </div>
 
     </t:mallcomponents.layout.browse>
 

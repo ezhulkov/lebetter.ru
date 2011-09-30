@@ -21,4 +21,8 @@ public class UserEntity extends org.room13.mallcore.model.impl.entities.UserEnti
         super(login, password);
     }
 
+    @Override
+    public String getFullName() {
+        return super.getFullName().trim();
+    }
 }

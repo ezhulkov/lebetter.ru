@@ -1,18 +1,22 @@
 <div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="producer">
 
-  <t:mallComponents.control.menuLink action="${action}" object="object">
+    <t:mallComponents.control.menuLink action="${action}" object="object">
 
-    <t:zone id="ownerArea">
-       <t:delegate to="ownerBlock"/>
-    </t:zone>
+        <t:zone id="ownerArea">
+            <t:delegate to="ownerBlock"/>
+        </t:zone>
 
-    <t:block id="ownerBlock">
+        <t:block id="ownerBlock">
 
-        <!--<t:mallcomponents.object.flash object="base.flashMessage"/>-->
-        <t:mallcomponents.object.objectOwnerShow ajaxBlock="ownerBlock" object="object" objectManager="objectManager" role="role"/>
+            <t:if test="base.flashMessage2">
+                <div class="error_box">${base.flashMessage.message}</div>
+            </t:if>
 
-    </t:block>
+            <!--<t:mallcomponents.object.flash object="base.flashMessage"/>-->
+            <t:mallcomponents.object.objectOwnerShow ajaxBlock="ownerBlock" object="object" objectManager="objectManager" role="role"/>
 
-  </t:mallComponents.control.menuLink>
+        </t:block>
+
+    </t:mallComponents.control.menuLink>
 
 </div>

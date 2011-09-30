@@ -1,6 +1,7 @@
 package org.ohm.lebetter.tapestry5.web.pages.base;
 
 import org.apache.tapestry5.Block;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
@@ -11,6 +12,9 @@ import org.apache.tapestry5.ioc.annotations.Inject;
  * Time: 14:17:53
  * To change this template use File | Settings | File Templates.
  */
+@Import(
+        stylesheet = {"proxy:/styles/admin-style.css"}
+)
 public abstract class AdminBasePage extends AbstractBasePage {
 
     @Property

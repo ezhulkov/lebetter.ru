@@ -2,36 +2,27 @@
 
     <!-- Блок, содержащий форму, стандартные кнопки редактирования объекта и кастомный код редактирования объектов -->
     <t:if test="base.flashMessage2">
-        <div class="flash_msg">${base.flashMessage.message}</div>
+        <div class="error_box">${base.flashMessage.message}</div>
     </t:if>
 
     <t:unless test="newObject">
         <t:form t:id="editObjectForm" t:autofocus="false" t:zone="editAreaZone" t:context="saveContext">
-
+            <!-- Кастомный код редактирования -->
+            <t:body/>
             <!-- Кнопки для редактирования -->
             <div>
-
                 <t:if test="editAllowed">
                     <div class="rbut ks_editobjectshow_1">
-                        <img class="NFButtonResLeft" src="/images/0.gif"/>
-                        <input type="reset" name="" value="${message:btncancel}" class="NFButtonRes"/>
-                        <img src="/images/0.gif" class="NFButtonResRight"/>
-                        <img class="NFButtonLeft" src="/images/0.gif"/>
-                        <input id="buttonSave" type="submit" value="${message:btnsave}" class="NFButton"/>
-                        <img src="/images/0.gif" class="NFButtonRight"/>
+                        <input type="reset" name="" value="Отменить" class="form_but"/>
+                        <input id="buttonSave" type="submit" value="Сохранить" class="form_but"/>
                         <t:if test="delAllowed">
                             <t:if test="drawDelete">
-                                <t:mallComponents.control.ie9CompatibleActionLink t:id="delObject" t:context="delContext">${message:btndel}</t:mallComponents.control.ie9CompatibleActionLink>
+                                <t:mallComponents.control.ie9CompatibleActionLink t:id="delObject" t:context="delContext">Удалить</t:mallComponents.control.ie9CompatibleActionLink>
                             </t:if>
                         </t:if>
                     </div>
                 </t:if>
-
             </div>
-
-            <!-- Кастомный код редактирования -->
-            <t:body/>
-
         </t:form>
     </t:unless>
 
@@ -44,14 +35,8 @@
                     <t:body/>
                     <div class="ks_comm_button">
                         <!-- Кнопки "отмена" и "создать" -->
-                        <img class="NFButtonLeft" src="/images/0.gif"/>
-                        <input type="reset" id="buttonEsc" name="" value="${message:btncancel}"
-                               class="NFButton"/>
-                        <img src="/images/0.gif" class="NFButtonResRight"/>
-                        <img class="NFButtonLeft" src="/images/0.gif"/>
-                        <input type="submit" id="buttonAdd" value="${message:btnadd}"
-                               class="NFButton ks_editobjectshow_9"/>
-                        <img src="/images/0.gif" class="NFButtonRight"/>
+                        <input type="reset" id="buttonEsc" name="" value="Отменить" class="form_but"/>
+                        <input type="submit" id="buttonAdd" value="Создать" class="form_but"/>
                     </div>
                     <div class="break"></div>
                 </t:form>
@@ -62,14 +47,8 @@
                     <t:body/>
                     <div class="ks_comm_button">
                         <!-- Кнопки "отмена" и "создать" -->
-                        <img class="NFButtonLeft" src="/images/0.gif"/>
-                        <input type="reset" id="buttonEsc" name="" value="${message:btncancel}"
-                               class="NFButton"/>
-                        <img src="/images/0.gif" class="NFButtonResRight"/>
-                        <img class="NFButtonLeft" src="/images/0.gif"/>
-                        <input type="submit" id="buttonAdd" value="${message:btnadd}"
-                               class="NFButton ks_editobjectshow_9"/>
-                        <img src="/images/0.gif" class="NFButtonRight"/>
+                        <input type="reset" id="buttonEsc" name="" value="Отменить" class="form_but"/>
+                        <input type="submit" id="buttonAdd" value="Создать" class="form_but"/>
                     </div>
                     <div class="break"></div>
                 </t:form>
@@ -79,6 +58,8 @@
 
     <script language="JavaScript" type="text/javascript">
         var key = "${key}" + "-edit";
+        //Разукрашиваем селектбоксы
+        jQuery(".select").selectbox();
         //Расставляем кнопки на свои места
         jQuery("div#" + key).find("#itembut").empty();
         jQuery("div#" + key).find("div.rbut").css("display", "block");

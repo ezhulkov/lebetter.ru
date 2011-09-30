@@ -1,11 +1,5 @@
 ﻿<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="category">
 
-    <t:if test="selectedObject.parent">
-        <span id="parent_type_label">
-            <t:pageLink t:page="po/system/category" t:context="selectedObject.parent.id">Родительская категори - ${selectedObject.parent.name}</t:pageLink>
-        </span>
-    </t:if>
-
     <t:mallComponents.control.menuLink roles="ROLE_ADMIN">
 
         <t:mallComponents.control.editObject
@@ -24,56 +18,56 @@
 
             <input type="hidden" id="2RM-SORDER" name="2RM-SORDER"/>
 
-            <div >
-                <div >
+            <t:if test="selectedObject.parent">
+                <div class="input_box">
+                    <div class="input_label">
+                        Родительская категория:
+                    </div>
+                    <input disabled="disabled" value="${selectedObject.parent.name}" class="form_input"/>
+                </div>
+            </t:if>
+
+            <div class="input_box">
+                <div class="input_label">
                     <t:label for="name"/>
                     :
                 </div>
-                <input t:id="name" class="validate_input orderbox_login" tabindex="1"/>
+                <input t:id="name" tabindex="1" class="form_input"/>
             </div>
 
-            <div >
-                <div >
-                    <t:label for="code"/>
-                    :
-                </div>
-                <input t:id="code" class="validate_input orderbox_login" tabindex="1"/>
-            </div>
-
-            <div>
-                <div>
+            <div class="input_box">
+                <div class="input_label">
                     <t:label for="status"/>
                     :
                 </div>
-                <select t:id="status" class="validate_input orderbox_login select_init ks_categoryedit_2" tabindex="3"/>
+                <select t:id="status" class="select" tabindex="3"/>
             </div>
 
-            <div >
-                <div >
+            <div class="input_box">
+                <div class="input_label">
+                    <t:label for="code"/>
+                    :
+                </div>
+                <input t:id="code" tabindex="2" class="form_input"/>
+            </div>
+
+            <div class="input_box">
+                <div class="input_label">
                     <t:label for="position"/>
                     :
                 </div>
-                <input t:id="position" class="validate_input orderbox_login" tabindex="4"/>
+                <input t:id="position" tabindex="4" class="form_input"/>
             </div>
 
-            <div >
-                <div >
+            <div class="input_box multiselect">
+                <div class="input_label">
                     <t:label for="properties"/>
                     :
                 </div>
-                <div class="NFMultiSelectTop ks_categoryedit_4">
-                    <img src="/images/0.gif" class="NFMultiSelectTopLeft"/>
-                </div>
-                <div class="NFMultiSelectRight ks_categoryedit_5">
-                    <div class="NFMultiSelectLeft ks_categoryedit_6"/>
-                    <t:selectmultiple t:id="properties" class="NFMultiSelect"/>
-                </div>
-                <div class="NFMultiSelectBottom ks_categoryedit_4">
-                    <img src="/images/0.gif" class="NFMultiSelectBottomLeft"/>
-                </div>
+                <t:selectmultiple t:id="properties"/>
             </div>
 
-            <div >
+            <div class="input_box">
                 <div>Порядок свойств:</div>
                 <ul id="sortable">
                     <t:loop volatile="true" source="searchOrder" value="oneProperty">
@@ -88,20 +82,12 @@
                 </ul>
             </div>
 
-            <!-- /center -->
-
-            <!-- /right -->
-
             <script type="text/javascript">
 
-                <!--jQuery(".catcaption span").empty();-->
                 jQuery("#parent_type_label").insertAfter('#2rm_category_par');
-
-                jQuery("#sortable").sortable({
-                    stop: function(event, ui) {
-                        setSortOrder();
-                    }
-                });
+                jQuery("#sortable").sortable({stop: function(event, ui) {
+                    setSortOrder();
+                }});
                 jQuery("#sortable").disableSelection();
                 setSortOrder();
                 function setSortOrder() {
@@ -109,9 +95,10 @@
                     if (ule != null) {
                         var iles = ule.children;
                         var liOrder = "";
-                        for (var i = 0; i <t:outputraw t:value="literal:&lt;"/> iles.length; i = i + 1) {
-                            if (iles[i] != null){
-                                if(iles[i].id != ""){
+                        for (var i = 0; i <t:outputraw t:value = "literal:&lt;"/> iles.length; i = i + 1 )
+                        {
+                            if (iles[i] != null) {
+                                if (iles[i].id != "") {
                                     liOrder += iles[i].id + "-";
                                 }
                             }

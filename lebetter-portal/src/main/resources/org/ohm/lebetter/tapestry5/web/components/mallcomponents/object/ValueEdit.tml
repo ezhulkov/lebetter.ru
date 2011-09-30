@@ -19,19 +19,19 @@
 
                 <div >
                   <div ><t:label for="name"/>:</div>
-                  <input t:id="name" class="validate_input orderbox_login" tabindex="1"/>
+                  <input t:id="name"  tabindex="1"/>
                 </div>
 
 
                 <div >
                   <div ><t:label for="code"/>:</div>
-                  <input t:id="code" class="validate_input orderbox_login" tabindex="2"/>
+                  <input t:id="code"  tabindex="2"/>
                 </div>
 
 
                 <div >
                   <div ><t:label for="alias"/>:</div>
-                  <input t:id="alias" class="validate_input orderbox_login" tabindex="3"/>
+                  <input t:id="alias"  tabindex="3"/>
                 </div>
               <div class="break"></div>
               <div  >
