@@ -6,7 +6,7 @@
             <li>
                 <t:pageLink t:page="po">Личный кабинет</t:pageLink>
                 <ul>
-                    <li id="login_menu">
+                    <li id="order_menu">
                         <t:pageLink t:page="po/order/list">Заказы</t:pageLink>
                     </li>
                     <li id="cat_menu">

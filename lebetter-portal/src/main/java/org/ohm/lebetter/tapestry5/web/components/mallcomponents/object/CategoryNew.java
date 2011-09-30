@@ -10,7 +10,7 @@ import org.ohm.lebetter.tapestry5.web.components.base.AbstractEditComponent;
 public class CategoryNew extends AbstractEditComponent {
 
     @Property
-    @Parameter(name = "parent", required = false, allowNull = false)
+    @Parameter(name = "parent", required = false, allowNull = true)
     private CategoryEntity parent;
 
     @Component(id = "name", parameters = {"value=selectedObject.name", "validate=required,maxlength=64"})

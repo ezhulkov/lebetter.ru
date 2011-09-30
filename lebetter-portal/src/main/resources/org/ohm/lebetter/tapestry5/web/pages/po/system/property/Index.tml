@@ -3,11 +3,26 @@
                                 flash="flashMessage"
                                 xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
-    <t:mallcomponents.layout.office>
+    <t:mallcomponents.layout.office leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
 
         <t:mallcomponents.control.selectedObject>
 
-            <h1>Свойство ${selectedProperty.name}</h1>
+            <t:block t:id="breadCrumpsBlock">
+                <a class="status_home" href="/"><img src="/images/0.gif" alt=""/></a>
+                <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+                <a href="/po">Личный кабинет</a>
+                <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+                <a href="/po/system/property/list">Свойства</a>
+                <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+                '${selectedProperty.name}'
+            </t:block>
+
+            <t:mallComponents.control.javascript>
+                AG.colorCell("#props_menu");
+            </t:mallComponents.control.javascript>
+
+            <h1>Свойство '${selectedProperty.name}'</h1>
+
             <h2>Тип ${selectedProperty.type}</h2>
 
             <t:mallcomponents.object.propertyEdit object="selectedProperty"/>

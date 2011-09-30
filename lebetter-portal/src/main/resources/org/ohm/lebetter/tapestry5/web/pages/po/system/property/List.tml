@@ -3,9 +3,21 @@
                                 flash="flashMessage"
                                 xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
-    <t:mallcomponents.layout.office>
+    <t:block t:id="breadCrumpsBlock">
+        <a class="status_home" href="/"><img src="/images/0.gif" alt=""/></a>
+        <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+        <a href="/po">Личный кабинет</a>
+        <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+        Свойства
+    </t:block>
 
-        <h1 class="role">Свойства</h1>
+    <t:mallComponents.control.javascript>
+        AG.colorCell("#props_menu");
+    </t:mallComponents.control.javascript>
+
+    <t:mallcomponents.layout.office leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
+
+        <h1>Свойства</h1>
 
         <t:pageLink t:page="po/system/property/create">Создать свойство</t:pageLink>
         <t:mallcomponents.object.propertyList/>
