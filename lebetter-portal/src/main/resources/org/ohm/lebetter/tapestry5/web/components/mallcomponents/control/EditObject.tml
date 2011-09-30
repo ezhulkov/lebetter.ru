@@ -1,6 +1,6 @@
 <t:any xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" class="ks_adm_form_detail">
 
-    <t:zone id="editAreaZone">
+    <t:zone id="editAreaZone" class="form_edit">
         <!-- Зона, куда записываем всю форму редактирования объекта -->
         <t:delegate to="editAreaBlock"/>
     </t:zone>

@@ -17,7 +17,7 @@
                 <t:label for="name"/>
                 :
             </div>
-            <input t:id="name" class="validate_input"/>
+            <input t:id="name" class="form_input"/>
         </div>
 
         <div>
@@ -25,7 +25,7 @@
                 <t:label for="code"/>
                 :
             </div>
-            <input t:id="code" class="validate_input"/>
+            <input t:id="code" class="form_input"/>
         </div>
 
     </t:mallComponents.control.editObject>

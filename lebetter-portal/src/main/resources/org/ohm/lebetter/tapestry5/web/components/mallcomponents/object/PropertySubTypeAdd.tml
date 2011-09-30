@@ -3,7 +3,7 @@
     <t:form t:id="propertyForm" t:context="parentProperty.rootid">
               <div >
                 <div ><t:label for="propertyName"/>:</div>
-                <input t:id="propertyName" class="validate_input"/>
+                <input t:id="propertyName" class="form_input"/>
               </div>
 
               <div >

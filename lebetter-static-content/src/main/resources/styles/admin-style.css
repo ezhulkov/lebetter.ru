@@ -1,5 +1,5 @@
 #datagrid {
-    width:95%;
+    width: 95%;
 }
 
 #datagrid th {
@@ -9,7 +9,7 @@
 }
 
 #datagrid th.objectStatus {
-    width:60px;
+    width: 60px;
 }
 
 #datagrid td {
@@ -24,5 +24,17 @@ a.create_link {
 }
 
 .form_but adm {
-    float:right;
+    float: right;
+}
+
+img.t-error-icon {
+    margin: 8px 0 0 10px;
+}
+
+.form_edit {
+    padding: 0;
+}
+
+select.select {
+    width: 235px;
 }

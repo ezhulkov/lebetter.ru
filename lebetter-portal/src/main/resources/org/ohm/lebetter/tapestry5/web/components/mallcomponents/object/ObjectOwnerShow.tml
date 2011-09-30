@@ -8,7 +8,6 @@
                         <b>Создатель</b>:
                         <t:pageLink t:page="po/user" t:context="object.creator.rootId" class="underline">${object.creator.name}</t:pageLink>
                     </li>
-                     
                 </t:if>
                 <t:if test="owners">
                     <li>
@@ -28,16 +27,16 @@
 
         <div class="ks_adm_order_detail">
 
-            <div >
-                <div >
+            <div class="input_box">
+                <div class="input_label">
                     <t:label for="owner"/>
                     :
                 </div>
-                <input t:id="owner" />
+                <input t:id="owner" class="form_input"/>
             </div>
 
             <div class="ks_objectownershow_1">
-                <img class="NFButtonLeft" src="/images/0.gif"/><input type="submit" id="submitButton" value="Назначить" class="NFButton"/><img src="/images/0.gif" class="NFButtonRight"/>
+                <input type="submit" id="submitButton" value="Назначить" class="form_but"/>
             </div>
 
         </div>
