@@ -19,7 +19,7 @@
 
         <h1>Свойства</h1>
 
-        <t:pageLink t:page="po/system/property/create">Создать свойство</t:pageLink>
+        <t:pageLink t:page="po/system/property/create" class="create_link">Создать свойство</t:pageLink>
         <t:mallcomponents.object.propertyList/>
 
     </t:mallcomponents.layout.office>

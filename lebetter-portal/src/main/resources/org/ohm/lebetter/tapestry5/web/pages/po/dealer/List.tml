@@ -19,7 +19,7 @@
 
         <h1>Дилеры</h1>
 
-        <t:pageLink t:page="po/dealer/create">Создать дилера</t:pageLink>
+        <t:pageLink t:page="po/dealer/create" class="create_link">Создать дилера</t:pageLink>
 
         <t:grid pagerPosition="bottom" rowsPerPage="50" id="datagrid" source="dealers" row="oneDealer"
                 include="name,discount" add="owner" reorder="name,owner,discount">
