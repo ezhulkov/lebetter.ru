@@ -11,6 +11,10 @@
         Свойства
     </t:block>
 
+    <t:mallComponents.control.javascript>
+        AG.colorCell("#props_menu");
+    </t:mallComponents.control.javascript>
+
     <t:mallcomponents.layout.office leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
 
         <h1>Свойства</h1>

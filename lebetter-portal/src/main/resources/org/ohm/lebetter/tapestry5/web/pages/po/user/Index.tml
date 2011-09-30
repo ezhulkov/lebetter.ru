@@ -17,6 +17,10 @@
                 '${selectedUser.fullName}'
             </t:block>
 
+            <t:mallComponents.control.javascript>
+                AG.colorCell("#users_menu");
+            </t:mallComponents.control.javascript>
+
             <h1>Пользователь '${selectedUser.fullName}'</h1>
 
             Логин: ${selectedUser.name}

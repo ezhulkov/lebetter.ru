@@ -13,6 +13,10 @@
         Создать
     </t:block>
 
+    <t:mallComponents.control.javascript>
+        AG.colorCell("#users_menu");
+    </t:mallComponents.control.javascript>
+
     <t:mallcomponents.layout.office leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
 
         <h1>Создать пользователя</h1>

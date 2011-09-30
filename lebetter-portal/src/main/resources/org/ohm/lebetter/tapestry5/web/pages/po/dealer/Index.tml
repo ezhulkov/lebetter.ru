@@ -17,6 +17,10 @@
                 '${selectedDealer.name}'
             </t:block>
 
+            <t:mallComponents.control.javascript>
+                AG.colorCell("#dealers_menu");
+            </t:mallComponents.control.javascript>
+
             <h1>Дилер '${selectedDealer.name}', скидка ${selectedDealer.discount}</h1>
 
             <t:mallcomponents.object.dealerEdit object="selectedDealer"/>

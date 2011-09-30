@@ -11,6 +11,10 @@
         Роли
     </t:block>
 
+    <t:mallComponents.control.javascript>
+        AG.colorCell("#roles_menu");
+    </t:mallComponents.control.javascript>
+
     <t:mallcomponents.layout.office leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
 
         <h1>Роли</h1>
