@@ -678,7 +678,7 @@ ul.prod_cat_grid2 li img {
 ul.prod_cat_grid2 li a {
   line-height: 14px;
   text-decoration: none;
-  letter-spacing: -1px;
+  letter-spacing: 0px;
 }
 
 /* Navigation */
