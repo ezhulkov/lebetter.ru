@@ -61,6 +61,22 @@ input, select, textarea {
   clear: both;
 }
 
+.but_lnk {
+  background: #515151 url(/images/form/but.gif) repeat-x 0px 0px;
+  border: 1px solid #323232;
+  color: #ffffff;
+  padding: 5px 16px 5px 16px;
+  margin: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: normal;
+}
+.but_lnk img {
+  background: url(/images/ico/book.gif) no-repeat 0px 3px;
+  height: 16px;
+  width: 19px;
+}
 
 /* Header */
 .header {
@@ -646,7 +662,59 @@ ul.prod_cat_grid2 {
  padding: 0px 0px 0px 0px;
 }
 ul.prod_cat_grid2 li {
+  float: left;
+  height: 160px;
+  width: 130px;
+  text-align: center;
+  padding: 0px 17px 0px 0px;
+}
+ul.prod_cat_grid2 li.row {
+  padding-right: 0px !important;
+}
+ul.prod_cat_grid2 li img {
+  height: 120px;
+  width: 120px;
+}
+ul.prod_cat_grid2 li a {
+  line-height: 14px;
+  text-decoration: none;
+  letter-spacing: -1px;
+}
 
+/* Navigation */
+.nav {
+  padding: 2px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+  text-align: center;
+}
+.nav_prev,
+.nav_next {
+  height: 16px;
+  width:  11px;
+}
+.nav_prev {
+  background: url(/images/but/prev.gif) no-repeat 4px 7px;
+}
+.nav_next {
+  background: url(/images/but/next.gif) no-repeat 3px 7px;
+}
+.nav a,
+.nav span {
+  border-right: 1px solid #e3e3e3;
+  padding: 0px 5px 0px 5px;
+  text-decoration: none;
+}
+.nav a.l {
+  border-right: 0px solid #e3e3e3;
+}
+.nav a:hover {
+  background: #e3e3e3;
+  color: #000000;
+}
+.slide_bu_che {
+  background: #e3e3e3;
+  color: #000000;
+  padding: 0px 5px 0px 5px;
 }
 
 

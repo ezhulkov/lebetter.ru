@@ -23,6 +23,11 @@ AG = {
         /* Correct for pictures */
         jQuery(".pictures_box ul li:last-child").css("background", "none");
     },
+    gridManipulation: function() {
+
+       jQuery("ul.prod_cat_grid2 li:nth-child(5n)").addClass("row");
+
+    },
     menuPlay: function() {
 
         function megaHoverOver() {
