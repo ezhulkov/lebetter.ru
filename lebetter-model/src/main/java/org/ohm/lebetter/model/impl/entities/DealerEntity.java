@@ -3,14 +3,13 @@ package org.ohm.lebetter.model.impl.entities;
 import org.hibernate.annotations.AccessType;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.ohm.lebetter.model.DictSyncAware;
 import org.ohm.lebetter.model.SitemapAware;
 import org.room13.mallcore.model.impl.BaseCreatorRepAwareEntity;
-import org.room13.mallcore.model.impl.entities.UserEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import java.util.Collections;
 
 @Entity
 @Table(name = "app_dealer")
@@ -18,7 +17,7 @@ import java.util.Collections;
 @AccessType("field")
 public class DealerEntity
         extends BaseCreatorRepAwareEntity
-        implements SitemapAware {
+        implements SitemapAware, DictSyncAware {
 
     @Column
     private String altId;

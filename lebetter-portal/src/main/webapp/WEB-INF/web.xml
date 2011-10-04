@@ -116,13 +116,13 @@
         <filter-class>org.apache.tapestry5.spring.TapestrySpringFilter</filter-class>
     </filter>
     <filter>
-       <filter-name>removeJSessionIdFilter</filter-name>
-       <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
+        <filter-name>removeJSessionIdFilter</filter-name>
+        <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
     </filter>
 
     <filter-mapping>
-       <filter-name>removeJSessionIdFilter</filter-name>
-       <url-pattern>/*</url-pattern>
+        <filter-name>removeJSessionIdFilter</filter-name>
+        <url-pattern>/*</url-pattern>
     </filter-mapping>
     <filter-mapping>
         <filter-name>encodingFilter</filter-name>
@@ -164,9 +164,6 @@
     </filter-mapping>
 
     <listener>
-        <listener-class>org.room13.mallcore.application.web.listener.Log4JInit</listener-class>
-    </listener>
-    <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
     <listener>
@@ -175,18 +172,22 @@
     <listener>
         <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
     </listener>
-    <!--<listener>-->
-        <!--<listener-class>org.ohm.lebetter.application.web.listener.MallListener</listener-class>-->
-    <!--</listener>-->
+    <listener>
+        <listener-class>org.room13.mallcore.application.web.listener.Log4JInit</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>org.ohm.lebetter.application.web.listener.MallListener</listener-class>
+    </listener>
 
     <!--<servlet>-->
-        <!--<servlet-name>Jersey Web Application</servlet-name>-->
-        <!--<servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>-->
-        <!--<load-on-startup>1</load-on-startup>-->
+    <!--<servlet-name>Jersey Web Application</servlet-name>-->
+    <!--<servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>-->
+    <!--<load-on-startup>1</load-on-startup>-->
     <!--</servlet>-->
     <!--<servlet-mapping>-->
-        <!--<servlet-name>Jersey Web Application</servlet-name>-->
-        <!--<url-pattern>/rest/*</url-pattern>-->
+    <!--<servlet-name>Jersey Web Application</servlet-name>-->
+    <!--<url-pattern>/rest/*</url-pattern>-->
     <!--</servlet-mapping>-->
 
     <!--Server errors, not catched by tapestry filter.-->

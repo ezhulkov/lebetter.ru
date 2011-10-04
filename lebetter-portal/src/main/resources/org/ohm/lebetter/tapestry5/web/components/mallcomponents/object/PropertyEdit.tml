@@ -16,17 +16,10 @@
 
             <div class="input_box">
                 <div class="input_label">
-                    Тип:
-                </div>
-                <input class="form_input" disabled="disabled" value="${selectedObject.type}"/>
-            </div>
-
-            <div class="input_box">
-                <div class="input_label">
                     <t:label for="name"/>
                     :
                 </div>
-                <input t:id="name" class="form_input" tabindex="1"/>
+                <input t:id="name" class="form_input"/>
             </div>
 
             <t:if test="selectedObject.rootObject">
@@ -35,36 +28,39 @@
                         <t:label for="status"/>
                         :
                     </div>
-                    <select t:id="status" class="form_select" tabindex="3"/>
+                    <select t:id="status" class="form_select"/>
                 </div>
+            </t:if>
+
+            <div class="input_box">
+                <div class="input_label">
+                    Тип:
+                </div>
+                <input class="form_input" disabled="disabled" value="${selectedObject.type}"/>
+            </div>
+
+            <t:if test="selectedPropertyIsDict">
+                <div class="input_label">
+                    Словарь:
+                </div>
+                <input class="form_input" disabled="disabled" value="${selectedObject.dictionary}"/>
             </t:if>
 
             <div class="break"></div>
 
             <t:if test="selectedPropertyIsListOrDict">
                 <t:if test="selectedObject.rootObject">
-                    <div class="ks_orderadress_input ks_propertyedit_5">
-                        <div>
-
-                            <t:checkBox t:id="multiple" type="checkbox" class="ks_propertyedit_3" tabindex="7"/>
-                             
+                    <div class="input_box">
+                        <div class="input_label">
                             <t:label for="multiple" class="ks_propertyedit_6"/>
-
+                            :
                         </div>
+                        <br/>
+                        <t:checkBox t:id="multiple" type="checkbox" class="ks_propertyedit_3"/>
                     </div>
                     <div class="break"></div>
                 </t:if>
             </t:if>
-
-            <t:if test="selectedPropertyIsDict">
-                <div>
-                    <div>${message:property.dictionary}:
-                        <span class="itemtype">${selectedObject.dictionary}</span>
-                    </div>
-                </div>
-                <div class="break"></div>
-            </t:if>
-
 
         </t:mallComponents.control.editObject>
 
@@ -73,7 +69,7 @@
         <t:if test="selectedPropertyIsList">
             <t:if test="selectedObject.rootObject">
                 <!-- Cat values -->
-                <div class="ks_adm_content_tabscontent">
+                <div>
                     <div class="adm_add_box">
                         <t:pageLink t:page="po/system/value/create" context="selectedObject.rootId" class="create_link">Создать значение</t:pageLink>
                     </div>
@@ -85,51 +81,23 @@
             </t:if>
         </t:if>
 
-        <!--<t:if test="selectedPropertyIsDict">-->
+        <t:if test="selectedPropertyIsDict">
+            <div>
+                <h2>Значения свойства</h2>
+                <t:mallComponents.object.propertyValueList property="selectedObject"/>
+            </div>
+        </t:if>
 
-        <!--<div class="propertyDetail topborder">-->
-
-        <!--<t:mallComponents.object.propertyValueList property="selectedObject"/>-->
-
-        <!--</div>-->
-
-        <!--</t:if>-->
-
-        <!--<t:if test="selectedPropertyIsGroup">-->
-        <!--<t:if test="selectedObject.rootObject">-->
-
-        <!--<div class="ks_adm_content_tabscontent">-->
-        <!--<h2>${message:categories.page}</h2>-->
-
-        <!--<div class="ks_adm_content_buts">-->
-        <!--&lt;!&ndash; Sub properties &ndash;&gt;-->
-        <!--<t:mallComponents.control.menuLink action="ADD_PROPERTY">-->
-        <!--<div class="ks_content_grey_but_r">-->
-        <!--<div class="ks_content_grey_but_l">-->
-        <!--<a href="#addsubcatvalue" id="addsubcatvaluebtn" class="ks_content_grey_but">${message:addsubcatvaluebtn}</a>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--<div class="shopaddbox rm_ctrl_wcwin">-->
-
-        <!--&lt;!&ndash; addbox_ &ndash;&gt;-->
-        <!--<div class="ks_propertyedit_7">-->
-        <!--<div id="addsubcatvalue">-->
-        <!--<t:mallComponents.object.propertySubTypeAdd parent="selectedObject"/>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--&lt;!&ndash; /addbox_ &ndash;&gt;-->
-
-        <!--</div>-->
-        <!--</t:mallComponents.control.menuLink>-->
-        <!--</div>-->
-
-        <!--<t:mallComponents.object.propertyList parent="selectedObject"/>-->
-
-        <!--</div>-->
-        <!--&lt;!&ndash; /Sub properties &ndash;&gt;-->
-
-        <!--</t:if>-->
-        <!--</t:if>-->
+        <t:if test="selectedPropertyIsGroup">
+            <div>
+                <div class="adm_add_box">
+                    <t:pageLink t:page="po/system/value/create" context="selectedObject.rootId" class="create_link">Создать свойство</t:pageLink>
+                </div>
+                <h2>Свойства группы</h2>
+                <t:mallComponents.object.propertyList parent="selectedObject"/>
+            </div>
+            <!-- /Sub properties -->
+        </t:if>
 
     </t:mallComponents.control.menuLink>
 
