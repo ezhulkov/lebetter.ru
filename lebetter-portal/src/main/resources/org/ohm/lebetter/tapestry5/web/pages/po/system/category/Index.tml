@@ -27,9 +27,13 @@
 
             <t:mallcomponents.object.categoryEdit object="selectedCategory"/>
 
+            <div class="hr_big"/>
+
             <t:unless test="selectedCategory.parent">
+                <div class="adm_add_box">
+                    <t:pageLink t:page="po/system/category/create" t:context="selectedCategory.rootId" class="create_link">Создать подкатегорию</t:pageLink>
+                </div>
                 <h2>Подкатегории</h2>
-                <t:pageLink t:page="po/system/category/create" t:context="selectedCategory.rootId" class="create_link">Создать подкатегорию</t:pageLink>
                 <t:mallcomponents.object.categorySubList parent="selectedCategory"/>
             </t:unless>
 

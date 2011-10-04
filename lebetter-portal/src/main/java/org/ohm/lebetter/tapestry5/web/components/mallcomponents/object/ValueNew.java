@@ -1,18 +1,28 @@
 package org.ohm.lebetter.tapestry5.web.components.mallcomponents.object;
 
 import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.corelib.components.TextField;
 import org.ohm.lebetter.model.impl.entities.PropertyEntity;
 import org.ohm.lebetter.model.impl.entities.PropertyValueEntity;
 import org.ohm.lebetter.tapestry5.web.components.base.AbstractEditComponent;
+import org.room13.mallcore.model.ObjectBaseEntity.Status;
 
-public class ValueEdit extends AbstractEditComponent {
+public class ValueNew extends AbstractEditComponent {
 
-    @Component(id = "name",
-               parameters = {"value=selectedObject.name", "validate=required,maxlength=128"})
-    private TextField nameField;
+    @Parameter(allowNull = false, required = true)
+    private PropertyEntity parent;
+
+    @Component(id = "name", parameters = {"value=selectedObject.name", "validate=required,maxlength=64"})
+    private TextField propertyNameField;
 
     public PropertyValueEntity getSelectedObject() {
+        if (getSelectedObjectInternal() == null) {
+            PropertyValueEntity selectedObject = getServiceFacade().getPropertyValueManager().getNewInstance();
+            selectedObject.setProperty(parent);
+            selectedObject.setObjectStatus(Status.READY);
+            setSelectedObjectInternal(selectedObject);
+        }
         return (PropertyValueEntity) getSelectedObjectInternal();
     }
 
@@ -22,11 +32,6 @@ public class ValueEdit extends AbstractEditComponent {
 
     public PropertyValueEntity getSelectedObjectRoot() {
         return (PropertyValueEntity) getSelectedRootObjectInternal();
-    }
-
-    public boolean getShowControls() {
-        return !(getSelectedObject().getProperty() != null &&
-                 getSelectedObject().getProperty().getType().equals(PropertyEntity.Type.DICTIONARY));
     }
 
 }

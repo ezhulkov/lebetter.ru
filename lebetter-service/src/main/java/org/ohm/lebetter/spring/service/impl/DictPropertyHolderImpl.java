@@ -28,7 +28,7 @@ public class DictPropertyHolderImpl implements DictPropertyHolder, ApplicationCo
 
     private ApplicationContext context;
 
-    public void clear(){
+    public void clear() {
         dictToPropertyMap.clear();
     }
 
@@ -66,7 +66,7 @@ public class DictPropertyHolderImpl implements DictPropertyHolder, ApplicationCo
                     }
                 }
                 if (dictToPropertyMap.get(dictionary) != null &&
-                        dictToPropertyMap.get(dictionary).size() == 0) {
+                    dictToPropertyMap.get(dictionary).size() == 0) {
                     dictToPropertyMap.remove(dictionary);
                 }
             }

@@ -1,19 +1,18 @@
 <span xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="propertyvaluelist">
 
     <t:grid id="datagrid" rowsPerPage="15" pagerPosition="bottom" source="values" row="oneValue" include="name,objectStatus">
-      <t:parameter name="objectStatusHeader">
-          ${message:objectStatus-label}
-      </t:parameter>
-      <t:parameter name="nameHeader">
-          ${message:name-label}
-      </t:parameter>
-      <t:parameter name="nameCell">
-          <t:pageLink page="po/staff/value" context="oneValue.rootid"
-                      class="underline">${oneValue.name}</t:pageLink>
-      </t:parameter>
-      <t:parameter name="empty">
-          <p class="nomsg">${message:empty.list}</p>
-      </t:parameter>
+        <t:parameter name="objectStatusHeader">
+            Статус
+        </t:parameter>
+        <t:parameter name="nameHeader">
+            Название
+        </t:parameter>
+        <t:parameter name="nameCell">
+            <t:pageLink page="po/system/value" context="oneValue.rootid">${oneValue.name}</t:pageLink>
+        </t:parameter>
+        <t:parameter name="empty">
+            <p class="nomsg">${message:empty.list}</p>
+        </t:parameter>
     </t:grid>
 
 </span>

@@ -40,7 +40,7 @@
                     <t:label for="status"/>
                     :
                 </div>
-                <select t:id="status" class="select" tabindex="3"/>
+                <select t:id="status" class="form_select" tabindex="3"/>
             </div>
 
             <div class="input_box">
@@ -66,6 +66,8 @@
                 </div>
                 <t:selectmultiple t:id="properties"/>
             </div>
+
+            <div class="break"/>
 
             <div class="input_box">
                 <div>Порядок свойств:</div>
