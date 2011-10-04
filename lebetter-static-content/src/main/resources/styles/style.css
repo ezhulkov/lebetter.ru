@@ -583,6 +583,14 @@ form {
   height: 54px;
   width: 247px;
 }
+.form_multiselect {
+  width: 257px;
+  float: left;
+}
+.form_multiselect select {
+  height: 54px;
+  width: 247px;
+}
 .form_but {
   background: #515151 url(/images/form/but.gif) repeat-x 0px 0px;
   border: 1px solid #323232;
@@ -637,7 +645,7 @@ form .NFMultiSelectTopLeft, form .NFMultiSelectBottomLeft {width:11px; height:6p
 form .NFMultiSelectTopLeft {background: url(/images/form/textarea-tl.png) no-repeat 0 0;}
 form .NFMultiSelectBottomLeft {background: url(/images/form/textarea-bl.png) no-repeat 0 0;}
 form .NFMultiSelectLeft, form .NFMultiSelectRight, form .NFMultiSelectLeftH, form .NFMultiSelectRightH {float:left; padding-bottom:6px;}
-form .NFMultiSelectLeft, form .NFMultiSelectLeftH {width:5px;}
+form .NFMultiSelectLeft, form .NFMultiSelectLeftH {width:5px; height: 48px;}
 form .NFMultiSelectLeft {background:url(/images/form/textarea-l-off.png) repeat-y 0 0;}
 form .NFMultiSelectLeftH {background:url(/images/form/textarea-l-over.png) repeat-y 0 0;}
 form .NFMultiSelectRight, form .NFMultiSelectRightH {padding-right:5px; padding-bottom:0;}

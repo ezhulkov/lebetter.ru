@@ -31,7 +31,7 @@
 
             <t:unless test="selectedCategory.parent">
                 <div class="adm_add_box">
-                    <t:pageLink t:page="po/system/category/create" t:context="selectedCategory.rootId" class="create_link">Создать подкатегорию</t:pageLink>
+                    <t:pageLink t:page="po/system/category/create" t:context="selectedCategory.rootId" class="create_link2">Создать подкатегорию</t:pageLink>
                 </div>
                 <h2>Подкатегории</h2>
                 <t:mallcomponents.object.categorySubList parent="selectedCategory"/>

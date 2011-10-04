@@ -59,12 +59,20 @@
                 <input t:id="position" tabindex="4" class="form_input"/>
             </div>
 
-            <div class="input_box multiselect">
+            <div class="input_box">
                 <div class="input_label">
                     <t:label for="properties"/>
                     :
                 </div>
-                <t:selectmultiple t:id="properties"/>
+                <div class="form_multiselect">
+                  <div class="NFMultiSelectTop"><img src="/images/0.gif" class="NFMultiSelectTopLeft" alt=""/></div>
+                  <div class="NFMultiSelectRight">
+                    <div class="NFMultiSelectLeft"></div>
+                    <t:selectmultiple t:id="properties"/>
+                  </div>
+                  <div class="NFMultiSelectBottom"><img src="/images/0.gif" class="NFMultiSelectBottomLeft" alt=""/></div>
+                </div>
+
             </div>
 
             <div class="break"/>

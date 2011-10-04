@@ -10,7 +10,7 @@
 
         <t:block id="actionsBlock">
 
-            <div class="ks_adm_content_buts">
+            <div class="form_butpos_r ActionsEdit_1">
                 <input id="buttonSave" type="submit" value="Сохранить" class="form_but"/>
             </div>
 
