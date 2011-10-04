@@ -35,7 +35,7 @@
                         <t:label for="status"/>
                         :
                     </div>
-                    <select t:id="status" class="select" tabindex="3"/>
+                    <select t:id="status" class="form_select" tabindex="3"/>
                 </div>
             </t:if>
 
@@ -59,7 +59,7 @@
             <t:if test="selectedPropertyIsDict">
                 <div>
                     <div>${message:property.dictionary}:
-                        <span class="itemtype">${selectedObjectRoot.dictionary}</span>
+                        <span class="itemtype">${selectedObject.dictionary}</span>
                     </div>
                 </div>
                 <div class="break"></div>
@@ -68,16 +68,16 @@
 
         </t:mallComponents.control.editObject>
 
+        <div class="break"/>
+
         <t:if test="selectedPropertyIsList">
             <t:if test="selectedObject.rootObject">
                 <!-- Cat values -->
                 <div class="ks_adm_content_tabscontent">
                     <h2>Значения свойства</h2>
 
-                    <div class="ks_adm_content_buts">
-
-                    </div>
-                    <t:mallComponents.object.propertyValueList property="selectedObjectRoot"/>
+                    <t:pageLink t:page="po/system/value/create" context="selectedObject.rootId" class="create_link">Создать значение</t:pageLink>
+                    <t:mallComponents.object.propertyValueList property="selectedObject"/>
 
                 </div>
                 <!-- /Cat values -->
@@ -122,7 +122,7 @@
         <!--</t:mallComponents.control.menuLink>-->
         <!--</div>-->
 
-        <!--<t:mallComponents.object.propertyList parent="selectedObjectRoot"/>-->
+        <!--<t:mallComponents.object.propertyList parent="selectedObject"/>-->
 
         <!--</div>-->
         <!--&lt;!&ndash; /Sub properties &ndash;&gt;-->

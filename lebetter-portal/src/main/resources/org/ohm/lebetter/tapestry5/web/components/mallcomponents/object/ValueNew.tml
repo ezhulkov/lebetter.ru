@@ -1,0 +1,31 @@
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="propertytype" class="ks_adm_new_popup">
+
+    <t:mallComponents.control.menuLink roles="ROLE_ADMIN" object="selectedObject">
+
+        <t:mallComponents.control.editObject
+                roles="ROLE_ADMIN"
+                objectSavedLabel="value.saved"
+                objectRemovedLabel="value.deleted"
+                objectExistsLabel="value.exists"
+                objectAddedLabel="value.added"
+                newObject="literal:true"
+                listPage="literal:/po/system/value/list"
+                objectPage="literal:/po/system/value"
+                objectManager="serviceFacade.propertyValueManager"
+                selectedObject="selectedObject"
+                selectedSecurityObject="selectedObjectRoot">
+
+            <div class="input_box">
+                <div class="input_label">
+                    <t:label for="name"/>
+                    :
+                </div>
+                <input t:id="name" class="form_input"/>
+            </div>
+
+        </t:mallComponents.control.editObject>
+
+    </t:mallComponents.control.menuLink>
+
+
+</div>

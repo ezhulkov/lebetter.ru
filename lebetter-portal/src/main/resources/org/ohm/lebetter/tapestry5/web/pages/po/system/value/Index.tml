@@ -1,0 +1,34 @@
+<t:mallcomponents.layout.layout title="Lebetter.ru - Личный Кабинет"
+                                bodyId="po"
+                                flash="flashMessage"
+                                xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+    <t:mallcomponents.control.selectedObject>
+
+        <t:block t:id="breadCrumpsBlock">
+            <a class="status_home" href="/"><img src="/images/0.gif" alt=""/></a>
+            <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+            <a href="/po">Личный кабинет</a>
+            <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+            <a href="/po/system/property/list">Свойства</a>
+            <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+            <a href="/po/system/property/${selectedValue.property.id}">'${selectedValue.property.name}'</a>
+            <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+            '${selectedValue.name}'
+        </t:block>
+
+        <t:mallComponents.control.javascript>
+            AG.colorCell("#props_menu");
+        </t:mallComponents.control.javascript>
+
+        <t:mallcomponents.layout.office leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
+
+            <h1>'${selectedValue.name}'</h1>
+
+             <t:mallcomponents.object.valueEdit object="selectedValue"/>
+
+        </t:mallcomponents.layout.office>
+
+    </t:mallcomponents.control.selectedObject>
+
+</t:mallcomponents.layout.layout>
