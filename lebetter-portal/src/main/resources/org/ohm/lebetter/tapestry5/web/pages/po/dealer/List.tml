@@ -17,9 +17,11 @@
 
     <t:mallcomponents.layout.office leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
 
-        <h1>Дилеры</h1>
+        <div class="adm_add_box">
+          <t:pageLink t:page="po/dealer/create" class="create_link">Создать дилера</t:pageLink>
+        </div>
 
-        <t:pageLink t:page="po/dealer/create" class="create_link">Создать дилера</t:pageLink>
+        <h1>Дилеры</h1>
 
         <t:grid pagerPosition="bottom" rowsPerPage="50" id="datagrid" source="dealers" row="oneDealer"
                 include="name,discount" add="owner" reorder="name,owner,discount">

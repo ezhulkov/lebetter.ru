@@ -5,11 +5,13 @@
     /*float: left;*/
 }
 .adm_ul ul {
-    list-style: square outside none;
-    margin: 0;
-    padding: 0 0 8px 14px !important;
+  list-style: square outside none;
+  margin: 0;
+  padding: 0 0 8px 14px !important;
 }
-
+.adm_add_box {
+  position: relative;
+}
 
 #datagrid {
     width: 95%;
