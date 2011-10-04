@@ -1,4 +1,4 @@
-<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="propertytype" class="ks_adm_new_popup">
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="propertytype">
 
     <t:mallComponents.control.editObject
             addAction="ADD_DEALER"
@@ -35,7 +35,15 @@
                 <t:label for="description"/>
                 :
             </div>
-            <t:textarea t:id="description" class="form_input"/>
+            <div class="form_textarea">
+              <div class="NFTextareaTop"><img src="/images/0.gif" class="NFTextareaTopLeft" alt=""/></div>
+              <div class="NFTextareaRight">
+                <div class="NFTextareaLeft"></div>
+                <t:textarea t:id="description"/>
+              </div>
+              <div class="NFTextareaBottom"><img src="/images/0.gif" class="NFTextareaBottomLeft" alt=""/></div>
+            </div>
+
         </div>
 
     </t:mallComponents.control.editObject>

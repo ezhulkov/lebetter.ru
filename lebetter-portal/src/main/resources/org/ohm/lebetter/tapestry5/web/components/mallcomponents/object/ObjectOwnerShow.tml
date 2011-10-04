@@ -1,7 +1,7 @@
 <span xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="producer">
 
     <t:form autofocus="false" zone="ownerArea">
-        <div class="ks_order_approve_descr">
+        <div class="adm_ul">
             <ul>
                 <t:if test="object.creator">
                     <li>
@@ -25,21 +25,18 @@
             </ul>
         </div>
 
-        <div class="ks_adm_order_detail">
-
-            <div class="input_box">
-                <div class="input_label">
-                    <t:label for="owner"/>
-                    :
-                </div>
-                <input t:id="owner" class="form_input"/>
+        <div class="input_box">
+            <div class="input_label">
+                <t:label for="owner"/>
+                :
             </div>
-
-            <div class="ks_objectownershow_1">
-                <input type="submit" id="submitButton" value="Назначить" class="form_but"/>
-            </div>
-
+            <input t:id="owner" class="form_input"/>
         </div>
+
+        <div class="form_butpos_r ObjectOwnerShow_1">
+            <input type="submit" id="submitButton" value="Назначить" class="form_but"/>
+        </div>
+
 
     </t:form>
 

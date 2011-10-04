@@ -10,14 +10,15 @@
             <!-- Кастомный код редактирования -->
             <t:body/>
             <!-- Кнопки для редактирования -->
-            <div>
+            <div class="form_butpos_r">
                 <t:if test="editAllowed">
-                    <div class="rbut ks_editobjectshow_1">
+                    <div class="rbut">
                         <input type="reset" name="" value="Отменить" class="form_but"/>
                         <input id="buttonSave" type="submit" value="Сохранить" class="form_but"/>
                         <t:if test="delAllowed">
                             <t:if test="drawDelete">
-                                <t:mallComponents.control.ie9CompatibleActionLink t:id="delObject" t:context="delContext">Удалить</t:mallComponents.control.ie9CompatibleActionLink>
+                                <div class="break"></div><br />
+                                <t:mallComponents.control.ie9CompatibleActionLink t:id="delObject" t:context="delContext" class="but_del"><img src="/images/0.gif" alt=" " />Удалить</t:mallComponents.control.ie9CompatibleActionLink>
                             </t:if>
                         </t:if>
                     </div>
@@ -33,7 +34,7 @@
                 <t:form t:id="addObjectFormAjax" autofocus="false" zone="${targetZone}">
                     <!-- Кастомные элементы создания объекта -->
                     <t:body/>
-                    <div class="ks_comm_button">
+                    <div class="form_butpos_r">
                         <!-- Кнопки "отмена" и "создать" -->
                         <input type="reset" id="buttonEsc" name="" value="Отменить" class="form_but"/>
                         <input type="submit" id="buttonAdd" value="Создать" class="form_but"/>
@@ -45,7 +46,7 @@
                 <t:form t:id="addObjectForm" autofocus="false">
                     <!-- Кастомные элементы создания объекта -->
                     <t:body/>
-                    <div class="ks_comm_button">
+                    <div class="form_butpos_r">
                         <!-- Кнопки "отмена" и "создать" -->
                         <input type="reset" id="buttonEsc" name="" value="Отменить" class="form_but"/>
                         <input type="submit" id="buttonAdd" value="Создать" class="form_but"/>
@@ -59,7 +60,7 @@
     <script language="JavaScript" type="text/javascript">
         var key = "${key}" + "-edit";
         //Разукрашиваем селектбоксы
-        jQuery(".select").selectbox();
+        jQuery(".form_select").selectbox();
         //Расставляем кнопки на свои места
         jQuery("div#" + key).find("#itembut").empty();
         jQuery("div#" + key).find("div.rbut").css("display", "block");

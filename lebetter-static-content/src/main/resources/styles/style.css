@@ -68,6 +68,7 @@ input, select, textarea {
   padding: 5px 16px 5px 16px;
   margin: 2px;
   cursor: pointer;
+  text-align: center;
   text-decoration: none;
   font-size: 12px;
   font-weight: normal;
@@ -77,6 +78,27 @@ input, select, textarea {
   height: 16px;
   width: 19px;
 }
+.but_del {
+  background: #515151 url(/images/form/but2.gif) repeat-x 0px 0px;
+  border: 1px solid #303030;
+  color: #303030;
+  display: block;
+  padding: 5px 16px 5px 16px;
+  margin: 2px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: normal;
+}
+.but_del img {
+  background: url(/images/ico/del2.gif) no-repeat 0px 3px;
+  height: 16px;
+  width: 19px;
+}
+
+
+
 
 /* Header */
 .header {
@@ -206,7 +228,7 @@ ul#topnav li .sub {
     border-left: 1px solid #cccccc;
     padding: 15px 15px 11px 19px;
     float: left;
-    z-index: 100;
+    z-index: 1000;
 
     display: none; /*--Hidden for those with js turned off--*/
 }
@@ -507,6 +529,9 @@ ul.leftmenu ul ul li a:hover {
 }
 
 /* Forms */
+form {
+  position: relative;
+}
 .error_box {
   background: #ffca04 url(/images/ico/warning.gif) no-repeat 10px 8px;
   border: 1px solid #606060;
@@ -532,7 +557,7 @@ ul.leftmenu ul ul li a:hover {
   white-space: nowrap;
 }
 .input_ubox {
-  padding: 0px 0px 10px 156px;
+  padding: 0px 0px 10px 154px;
   clear: both;
 }
 .form_input {
@@ -544,13 +569,21 @@ ul.leftmenu ul ul li a:hover {
 .form_select {
   width: 234px;
 }
+.form_textarea {
+  width: 257px;
+  float: left;
+}
+.form_textarea textarea {
+  height: 54px;
+  width: 247px;
+}
 .form_but {
   background: #515151 url(/images/form/but.gif) repeat-x 0px 0px;
   border: 1px solid #323232;
   font-size: 14px;
   color: #ffffff;
   padding: 5px 16px 5px 16px;
-  margin: 2px;
+  margin: 0px 2px 0px 2px;
   cursor: pointer;
 }
 *+html .form_but {
@@ -559,6 +592,50 @@ ul.leftmenu ul ul li a:hover {
   border: 1px solid #323232;
   /* ie7 */
 }
+.form_butpos_r {
+  top: 0px;
+  right: 0px;
+  position: absolute;
+}
+
+
+/*Textareas*/
+.NFTextarea { color: #535353; background: url(/images/0.gif); font:12px; line-height: 18px; margin:0;}
+.NFTextareaTop, form .NFTextareaBottom {height:6px; clear:both; float:none; padding-right:10px;}
+.NFTextareaTop {background:url(/images/form/textarea-tr.png) no-repeat 100% 0;}
+.NFTextareaBottom {background:url(/images/form/textarea-br.png) no-repeat 100% 0; margin-bottom:5px;}
+.NFTextareaTopLeft, form .NFTextareaBottomLeft {width:11px; height:6px;}
+.containerPlus form .NFTextareaTopLeft {background-color: #d2d3d3;}
+form .NFTextareaTopLeft {background: url(/images/form/textarea-tl.png) no-repeat 0 0;}
+.containerPlus form .NFTextareaBottomLeft {background-color: #d2d3d3;}
+form .NFTextareaBottomLeft {background: url(/images/form/textarea-bl.png) no-repeat 0 0;}
+form .NFTextareaLeft, form .NFTextareaRight, form .NFTextareaLeftH, form .NFTextareaRightH {float:left; padding-bottom:6px; height:54px;}
+form .NFTextareaLeft, form .NFTextareaLeftH {width:5px;}
+.containerPlus form .NFTextareaLeft {background-color: #d2d3d3;}
+form .NFTextareaLeft {background:url(/images/form/textarea-l-off.png) repeat-y 0 0;}
+form .NFTextareaLeftH {background:url(/images/form/textarea-l-over.png) repeat-y 0 0;}
+form .NFTextareaRight, form .NFTextareaRightH {padding-right:5px; padding-bottom:0;}
+form .NFTextareaRight {background:url(/images/form/textarea-r-off.png) repeat-y 100% 0;}
+/* IE7 */ *:first-child+html form .NFTextareaRight { margin-top:-5px;}
+form .NFTextareaRightH {background:url(/images/form/textarea-r-over.png) repeat-y 100% 100%;}
+
+/*Multiple Selects*/
+form .NFMultiSelect {border:0; background:none; margin:0;}
+form .NFMultiSelectTop, form .NFMultiSelectBottom {height:6px; clear:both; float:none; padding-right:10px;}
+form .NFMultiSelectTop {background:url(/images/form/textarea-tr.png) no-repeat 100% 0; line-height: 6px; vertical-align: bottom;}
+form .NFMultiSelectBottom {background:url(/images/form/textarea-br.png) no-repeat 100% 0; margin-bottom:5px;}
+form .NFMultiSelectTopLeft, form .NFMultiSelectBottomLeft {width:11px; height:6px;}
+form .NFMultiSelectTopLeft {background: url(/images/form/textarea-tl.png) no-repeat 0 0;}
+form .NFMultiSelectBottomLeft {background: url(/images/form/textarea-bl.png) no-repeat 0 0;}
+form .NFMultiSelectLeft, form .NFMultiSelectRight, form .NFMultiSelectLeftH, form .NFMultiSelectRightH {float:left; padding-bottom:6px;}
+form .NFMultiSelectLeft, form .NFMultiSelectLeftH {width:5px;}
+form .NFMultiSelectLeft {background:url(/images/form/textarea-l-off.png) repeat-y 0 0;}
+form .NFMultiSelectLeftH {background:url(/images/form/textarea-l-over.png) repeat-y 0 0;}
+form .NFMultiSelectRight, form .NFMultiSelectRightH {padding-right:5px; padding-bottom:0;}
+form .NFMultiSelectRight {background:url(/images/form/textarea-r-off.png) repeat-y 100% 0;}
+form .NFMultiSelectRightH {background:url(/images/form/textarea-r-over.png) repeat-y 100% 0;}
+
+
 /* Dealers List */
 ul.dealer_list {
   list-style: none;

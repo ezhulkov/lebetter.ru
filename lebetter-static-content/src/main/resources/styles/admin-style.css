@@ -4,7 +4,11 @@
 .office_body h1, .office_body h2 {
     /*float: left;*/
 }
-
+.adm_ul ul {
+    list-style: square outside none;
+    margin: 0;
+    padding: 0 0 8px 14px !important;
+}
 
 
 #datagrid {
@@ -42,12 +46,19 @@ img.t-error-icon {
     margin: 8px 0 0 10px;
 }
 
-select.select {
+/*select.select {
     width: 235px;
-}
+}*/
 
 .multiselect select {
     width: 260px;
     /*height: 145px;*/
     border: 1px solid #505050;
 }
+
+/* LayoutsCorrect */
+.ObjectOwnerShow_1 {
+ top: 32px !important;
+ right: 108px !important;
+}
+

@@ -27,6 +27,8 @@
 
             <t:mallcomponents.object.dealerEdit object="selectedDealer"/>
 
+            <div class="hr_big"/>
+
             <h2>Создатели и владельцы</h2>
             <div class="break"/>
             <t:mallComponents.object.objectOwnerEdit objectManager="serviceFacade.dealerManager"
