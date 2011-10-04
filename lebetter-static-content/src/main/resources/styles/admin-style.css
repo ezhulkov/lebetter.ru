@@ -14,7 +14,7 @@
 }
 
 #datagrid {
-    width: 95%;
+    width: 100%;
 }
 
 #datagrid th {
@@ -31,15 +31,24 @@
     padding: 5px 0 5px 10px;
     font-size: 9pt;
 }
-
+#datagrid td.chbox {
+    text-align: center;
+    width: 31px;
+}
 a.create_link {
-    padding: 8px 38px 10px 0;
+    padding: 8px 0px 10px 0;
     font-size: 11pt;
     position: absolute;
     right: 0;
     top: 0;
 }
-
+a.create_link2 {
+    padding: 3px 0px 8px 0;
+    font-size: 11pt;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
 .form_but adm {
     float: right;
 }
