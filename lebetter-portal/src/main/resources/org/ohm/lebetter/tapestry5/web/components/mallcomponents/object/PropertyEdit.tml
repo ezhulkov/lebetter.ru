@@ -68,15 +68,16 @@
 
         </t:mallComponents.control.editObject>
 
-        <div class="break"/>
+        <div class="hr_big"/>
 
         <t:if test="selectedPropertyIsList">
             <t:if test="selectedObject.rootObject">
                 <!-- Cat values -->
                 <div class="ks_adm_content_tabscontent">
+                    <div class="adm_add_box">
+                        <t:pageLink t:page="po/system/value/create" context="selectedObject.rootId" class="create_link">Создать значение</t:pageLink>
+                    </div>
                     <h2>Значения свойства</h2>
-
-                    <t:pageLink t:page="po/system/value/create" context="selectedObject.rootId" class="create_link">Создать значение</t:pageLink>
                     <t:mallComponents.object.propertyValueList property="selectedObject"/>
 
                 </div>

@@ -6,6 +6,7 @@ import org.apache.tapestry5.corelib.components.TextField;
 import org.ohm.lebetter.model.impl.entities.PropertyEntity;
 import org.ohm.lebetter.model.impl.entities.PropertyValueEntity;
 import org.ohm.lebetter.tapestry5.web.components.base.AbstractEditComponent;
+import org.room13.mallcore.model.ObjectBaseEntity.Status;
 
 public class ValueNew extends AbstractEditComponent {
 
@@ -19,6 +20,7 @@ public class ValueNew extends AbstractEditComponent {
         if (getSelectedObjectInternal() == null) {
             PropertyValueEntity selectedObject = getServiceFacade().getPropertyValueManager().getNewInstance();
             selectedObject.setProperty(parent);
+            selectedObject.setObjectStatus(Status.READY);
             setSelectedObjectInternal(selectedObject);
         }
         return (PropertyValueEntity) getSelectedObjectInternal();
