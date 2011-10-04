@@ -582,6 +582,7 @@ form {
 .form_textarea textarea {
   height: 54px;
   width: 247px;
+  resize: none;
 }
 .form_multiselect {
   width: 257px;
