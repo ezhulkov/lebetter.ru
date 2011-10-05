@@ -1,9 +1,6 @@
 .office_body {
   position: relative;
 }
-.office_body h1, .office_body h2 {
-    /*float: left;*/
-}
 .adm_ul ul {
   list-style: square outside none;
   margin: 0;
@@ -49,23 +46,77 @@ a.create_link2 {
     right: 0;
     top: 0;
 }
-.form_but adm {
+/*.form_but adm {
     float: right;
-}
+}*/
 
 img.t-error-icon {
     margin: 8px 0 0 10px;
 }
+/* FormElements */
+form {
+  position: relative;
+}
+.form_textarea {
+  width: 257px;
+  float: left;
+}
+.form_textarea textarea {
+  height: 154px;
+  width: 247px;
+  resize: none;
+}
+.form_multiselect {
+  width: 257px;
+  float: left;
+}
+.form_multiselect select {
+  height: 154px;
+  width: 247px;
+}
+.form_butpos_r {
+  top: 0px;
+  right: 0px;
+  position: absolute;
+}
 
-/*select.select {
-    width: 235px;
-}*/
 
-/*.multiselect select {
-    width: 260px;
-    height: 145px;
-    border: 1px solid #505050;
-}*/
+/*Textareas*/
+.NFTextarea { color: #535353; background: url(/images/0.gif); font:12px; line-height: 18px; margin:0;}
+.NFTextareaTop, form .NFTextareaBottom {height:6px; clear:both; float:none; padding-right:10px;}
+.NFTextareaTop {background:url(/images/form/textarea-tr.png) no-repeat 100% 0;}
+.NFTextareaBottom {background:url(/images/form/textarea-br.png) no-repeat 100% 0; margin-bottom:5px;}
+.NFTextareaTopLeft, form .NFTextareaBottomLeft {width:11px; height:6px;}
+.containerPlus form .NFTextareaTopLeft {background-color: #d2d3d3;}
+form .NFTextareaTopLeft {background: url(/images/form/textarea-tl.png) no-repeat 0 0;}
+.containerPlus form .NFTextareaBottomLeft {background-color: #d2d3d3;}
+form .NFTextareaBottomLeft {background: url(/images/form/textarea-bl.png) no-repeat 0 0;}
+form .NFTextareaLeft, form .NFTextareaRight, form .NFTextareaLeftH, form .NFTextareaRightH {float:left; padding-bottom:6px; height:154px;}
+form .NFTextareaLeft, form .NFTextareaLeftH {width:5px;}
+.containerPlus form .NFTextareaLeft {background-color: #d2d3d3;}
+form .NFTextareaLeft {background:url(/images/form/textarea-l-off.png) repeat-y 0 0;}
+form .NFTextareaLeftH {background:url(/images/form/textarea-l-over.png) repeat-y 0 0;}
+form .NFTextareaRight, form .NFTextareaRightH {padding-right:5px; padding-bottom:0;}
+form .NFTextareaRight {background:url(/images/form/textarea-r-off.png) repeat-y 100% 0;}
+/* IE7 */ *:first-child+html form .NFTextareaRight { margin-top:-5px;}
+form .NFTextareaRightH {background:url(/images/form/textarea-r-over.png) repeat-y 100% 100%;}
+
+/*Multiple Selects*/
+form .NFMultiSelect {border:0; background:none; margin:0;}
+form .NFMultiSelectTop, form .NFMultiSelectBottom {height:6px; clear:both; float:none; padding-right:10px;}
+form .NFMultiSelectTop {background:url(/images/form/textarea-tr.png) no-repeat 100% 0; line-height: 6px; vertical-align: bottom;}
+form .NFMultiSelectBottom {background:url(/images/form/textarea-br.png) no-repeat 100% 0; margin-bottom:5px;}
+form .NFMultiSelectTopLeft, form .NFMultiSelectBottomLeft {width:11px; height:6px;}
+form .NFMultiSelectTopLeft {background: url(/images/form/textarea-tl.png) no-repeat 0 0;}
+form .NFMultiSelectBottomLeft {background: url(/images/form/textarea-bl.png) no-repeat 0 0;}
+form .NFMultiSelectLeft, form .NFMultiSelectRight, form .NFMultiSelectLeftH, form .NFMultiSelectRightH {float:left; padding-bottom:6px;}
+form .NFMultiSelectLeft, form .NFMultiSelectLeftH {width:5px; height: 148px;}
+form .NFMultiSelectLeft {background:url(/images/form/textarea-l-off.png) repeat-y 0 0;}
+form .NFMultiSelectLeftH {background:url(/images/form/textarea-l-over.png) repeat-y 0 0;}
+form .NFMultiSelectRight, form .NFMultiSelectRightH {padding-right:5px; padding-bottom:0;}
+form .NFMultiSelectRight {background:url(/images/form/textarea-r-off.png) repeat-y 100% 0;}
+form .NFMultiSelectRightH {background:url(/images/form/textarea-r-over.png) repeat-y 100% 0;}
+
 
 /* LayoutsCorrect */
 .ObjectOwnerShow_1 {
