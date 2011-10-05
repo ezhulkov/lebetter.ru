@@ -21,7 +21,7 @@
                 AG.colorCell("#dealers_menu");
             </t:mallComponents.control.javascript>
 
-            <h1>Дилер '${selectedDealer.name}', скидка ${selectedDealer.discount}</h1>
+            <h1>Дилер '${selectedDealer.name}', скидка ${selectedDealer.discount}%</h1>
 
             <div class="break"/>
 
@@ -31,7 +31,7 @@
                         <t:mallComponents.control.ie9CompatibleActionLink t:id="descTab" t:zone="editZone">Общее</t:mallComponents.control.ie9CompatibleActionLink>
                     </li>
                     <li>
-                        <t:mallComponents.control.ie9CompatibleActionLink t:id="picsTab" t:zone="editZone">Картинка</t:mallComponents.control.ie9CompatibleActionLink>
+                        <t:mallComponents.control.ie9CompatibleActionLink t:id="picsTab" t:zone="editZone">Логотип</t:mallComponents.control.ie9CompatibleActionLink>
                     </li>
                     <li>
                         <t:mallComponents.control.ie9CompatibleActionLink t:id="mapTab" t:zone="editZone">Карта</t:mallComponents.control.ie9CompatibleActionLink>
