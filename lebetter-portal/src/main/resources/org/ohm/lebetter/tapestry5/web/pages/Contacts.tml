@@ -157,49 +157,4 @@
 
     </t:mallcomponents.layout.browse>
 
-    <!-- Старничка дилера -->
-    <!--<h1>ООО «Рога и копыта»</h1>-->
-
-    <!--<div class="dealer_item">-->
-        <!--<div class="dealer_item_l">-->
-            <!-- DealLogo -->
-            <!--<img src="/images/pic/dealers/pic1.jpg" alt=""/>-->
-        <!--</div>-->
-        <!--<div class="dealer_item_r">-->
-            <!-- DealInf -->
-            <!--<table class="dealer_inf">-->
-                <!--<tr>-->
-                    <!--<td>Адрес:</td>-->
-                    <!--<td>Московская область, Красногорский район,<br/>-->
-                        <!--г. Красногорск, Лесная, 22-->
-                    <!--</td>-->
-                <!--</tr>-->
-                <!--<tr>-->
-                    <!--<td>Телефон:</td>-->
-                    <!--<td>+7 (495) 223-45-67</td>-->
-                <!--</tr>-->
-                <!--<tr>-->
-                    <!--<td>Сайт:</td>-->
-                    <!--<td><a href="http://www.opttorg.ru" target="_blank">www.opttorg.ru</a></td>-->
-                <!--</tr>-->
-                <!--<tr>-->
-                    <!--<td>Email:</td>-->
-                    <!--<td><a href="mailto:info@rogaikopyta.ru">info@rogaikopyta.ru</a></td>-->
-                <!--</tr>-->
-            <!--</table>-->
-
-            <!--<p>Компания «Рога и копыта» более 12 лет занимается продажей мебели. Высокое качество сервиса, гарантийное и постгарантийное обслуживание, внимательный и высококвалифицированный персонал – «Рога и копыта» предлагает Вам не только удобную, красивую и качественную мебель, но и полный спектр сопутствующих услуг.</p>-->
-
-            <!--<p>Наша компания понимает, что мы продаем не просто домашнюю обстановку – мы предлагаем сделать Ваш дом уютнее.</p>-->
-
-            <!-- gmap -->
-            <!--<iframe width="550" height="150" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps/ms?msa=0&amp;msid=216453582507131094150.0004ae13a0d6ec230dfac&amp;ie=UTF8&amp;t=m&amp;vpsrc=0&amp;ll=55.752483,37.65623&amp;spn=0.000906,0.00589&amp;z=17&amp;output=embed"></iframe>-->
-            <!--<br/>-->
-            <!--<small>Просмотреть-->
-                <!--<a href="http://maps.google.com/maps/ms?msa=0&amp;msid=216453582507131094150.0004ae13a0d6ec230dfac&amp;ie=UTF8&amp;t=m&amp;vpsrc=0&amp;ll=55.752483,37.65623&amp;spn=0.000906,0.00589&amp;z=17&amp;source=embed" style="color:#0000FF;text-align:left">ул. Земляной Вал</a> на карте большего размера-->
-            <!--</small>-->
-
-        <!--</div>-->
-    <!--</div>-->
-
 </t:mallcomponents.layout.layout>

@@ -15,6 +15,26 @@ public class DealerEdit extends AbstractEditComponent {
                                           "validate=maxlength=64,required"})
     private TextField propertyNameField;
 
+    @Component(id = "city", parameters = {"value=selectedObject.city",
+                                          "validate=maxlength=64,required"})
+    private TextField propertyCityField;
+
+    @Component(id = "addressLine", parameters = {"value=selectedObject.addressLine",
+                                             "validate=maxlength=128"})
+    private TextField propertyAddressField;
+
+    @Component(id = "site", parameters = {"value=selectedObject.site",
+                                          "validate=maxlength=64"})
+    private TextField propertySiteField;
+
+    @Component(id = "telephone", parameters = {"value=selectedObject.telephone",
+                                               "validate=maxlength=64"})
+    private TextField propertyTelField;
+
+    @Component(id = "email", parameters = {"value=selectedObject.email",
+                                           "validate=maxlength=64,regexp"})
+    private TextField propertyeMailField;
+
     @Component(id = "discount", parameters = {"value=selectedObject.discount", "validate=maxlength=64"})
     private TextField propertyFNameField;
 

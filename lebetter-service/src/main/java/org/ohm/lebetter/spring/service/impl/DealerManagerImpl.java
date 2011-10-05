@@ -47,6 +47,11 @@ public class DealerManagerImpl
     @Override
     @Transactional(propagation = Propagation.REQUIRED)
     public void save(DealerEntity object, UserEntity caller) throws ObjectExistsException {
+
+        if (!StringUtil.isEmpty(object.getSite())) {
+            object.setSite(StringUtil.normalizeSiteName(object.getSite()));
+        }
+
         synchronized (dealerDao) {
             String altId = StringUtil.translit(object.getName());
             DealerEntity prev = (DealerEntity) getByAltId(altId);
