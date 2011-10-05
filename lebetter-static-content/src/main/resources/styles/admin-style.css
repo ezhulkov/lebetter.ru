@@ -132,6 +132,52 @@ form .NFMultiSelectRightH {background:url(/images/form/textarea-r-over.png) repe
     background-position: -42px 0px;
 }
 
+/* Tabs */
+.adm_tab {
+  background: url(/images/hr7.png) no-repeat 0px 29px;
+  height: 54px;
+}
+.adm_tab ul {
+  margin: 0px 0px 0px 0px !important;
+  padding: 0px 0px 0px 0px !important;
+  height: 33px;
+  overflow: hidden;
+}
+.adm_tab ul li {
+  list-style: none;
+  float: left;
+  height: 34px;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.adm_tab ul li a {
+  background: #b5b4b5;
+  border-top: 1px solid #808181;
+  border-right: 1px solid #808181;
+  border-bottom: 1px solid #808181;
+  border-left: 1px solid #808181;
+  color: #303030;
+  padding: 5px 16px 5px 16px;
+  margin: 2px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: normal;
+  display: block;
+}
+.adm_tab ul li a:hover,
+.adm_tab ul li.sel a {
+  /*font-weight: bold;*/
+  color: #000000;
+  background: #ffffff !important;
+  padding: 5px 16px 6px 16px !important;
+  border-top: 1px solid #808181;
+  border-right: 1px solid #808181;
+  border-bottom: 0px solid #808181;
+  border-left: 1px solid #808181;
+}
+
 /* LayoutsCorrect */
 .ObjectOwnerShow_1 {
  top: 32px !important;

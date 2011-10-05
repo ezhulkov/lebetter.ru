@@ -25,18 +25,18 @@
 
             <div class="break"/>
 
-            <div>
+            <div class="adm_tab">
                 <ul>
-                    <li>
+                    <li id="tab_desc">
                         <t:mallComponents.control.ie9CompatibleActionLink t:id="descTab" t:zone="editZone">Общее</t:mallComponents.control.ie9CompatibleActionLink>
                     </li>
-                    <li>
+                    <li id="tab_pics">
                         <t:mallComponents.control.ie9CompatibleActionLink t:id="picsTab" t:zone="editZone">Логотип</t:mallComponents.control.ie9CompatibleActionLink>
                     </li>
-                    <li>
+                    <li id="tab_map">
                         <t:mallComponents.control.ie9CompatibleActionLink t:id="mapTab" t:zone="editZone">Карта</t:mallComponents.control.ie9CompatibleActionLink>
                     </li>
-                    <li>
+                    <li id="tab_admin">
                         <t:mallComponents.control.ie9CompatibleActionLink t:id="adminTab" t:zone="editZone">Админу</t:mallComponents.control.ie9CompatibleActionLink>
                     </li>
                 </ul>
@@ -68,6 +68,13 @@
             </t:block>
 
         </t:mallcomponents.control.selectedObject>
+
+        <t:mallComponents.control.javascript>
+            jQuery(".adm_tab a").bind('click', function(){
+               jQuery(this).parents("ul").find("li.sel").removeClass("sel");
+               jQuery(this).parent("li").addClass("sel");
+            });
+        </t:mallComponents.control.javascript>
 
     </t:mallcomponents.layout.office>
 
