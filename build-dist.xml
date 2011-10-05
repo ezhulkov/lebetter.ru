@@ -116,6 +116,7 @@
         <gunzip src="${work.dir}/deploy/lb-static-content.tar.gz" dest="${work.dir}/deploy/lb-static-content.tar"/>
         <untar src="${work.dir}/deploy/lb-static-content.tar" dest="${nginx.home}"/>
         <chmod perm="g+w">
+            <fileset dir="${nginx.home}" includes="*"/>
             <fileset dir="${nginx.home}" includes="**/*"/>
         </chmod>
         <delete file="${work.dir}/deploy/lb-static-content.tar"/>

@@ -1,5 +1,9 @@
 package org.ohm.lebetter.spring.service.impl;
 
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
 import org.ohm.lebetter.Constants;
 import org.ohm.lebetter.model.SitemapAware;
 import org.ohm.lebetter.model.impl.entities.DealerEntity;
@@ -8,6 +12,7 @@ import org.ohm.lebetter.spring.dao.DealerDao;
 import org.ohm.lebetter.spring.service.DealerManager;
 import org.room13.mallcore.log.RMLogger;
 import org.room13.mallcore.model.CreatorRepAware;
+import org.room13.mallcore.model.ObjectBaseEntity.Status;
 import org.room13.mallcore.spring.dao.OwnerDao;
 import org.room13.mallcore.spring.service.ObjectExistsException;
 import org.room13.mallcore.util.StringUtil;
@@ -123,4 +128,21 @@ public class DealerManagerImpl
         return getAll(ids);
     }
 
+    @Override
+    public List<String> getCities() {
+        DetachedCriteria criteria = DetachedCriteria.forClass(DealerEntity.class);
+        criteria.add(Restrictions.eq("objectStatus", Status.READY));
+        criteria.setProjection(Projections.distinct(Projections.projectionList().
+                add(Projections.property("city"))));
+        criteria.addOrder(Order.asc("city"));
+        return (List<String>) dealerDao.findByCriteria(criteria, -1, -1);
+    }
+
+    @Override
+    public List<DealerEntity> getAllReadyByCity(String city) {
+        DetachedCriteria criteria = DetachedCriteria.forClass(DealerEntity.class);
+        criteria.add(Restrictions.eq("city", city));
+        criteria.add(Restrictions.eq("objectStatus", Status.READY));
+        return dealerDao.findRootByCriteria(criteria, -1, -1);
+    }
 }
