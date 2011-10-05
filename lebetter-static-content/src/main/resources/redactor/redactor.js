@@ -1058,10 +1058,10 @@ function detectWebkit()
 
                 $('#redactor_file_alt').val($el.attr('alt'));
                 
-                var float = $el.css('float');
-                if (float == 'none') float = 0;
+                var float = $el.css("float");
+                if (float == "none") float = 0;
                 
-                $('#redactor_form_image_align').val(float);
+                $("#redactor_form_image_align").val(float);
 
             }.bind2(this);       
         
