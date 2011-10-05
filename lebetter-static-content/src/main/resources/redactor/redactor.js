@@ -1123,7 +1123,7 @@ function detectWebkit()
                 var float = $('#redactor_form_image_align').val();
                 
                 if (float == 'left') className = 'class=="img_left"';
-                else if (float == 'right') className = 'class="img_right"';
+                else if (float == 'right') className = "class='img_right'";
                 
                 var html = '<img alt="' + alt + '" src="' + data + '" ' + className + ' />';
             }
