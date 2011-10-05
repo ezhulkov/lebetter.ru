@@ -1,7 +1,9 @@
 package org.ohm.lebetter.tapestry5.web.pages.po.dealer;
 
+import org.apache.tapestry5.Block;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.ioc.annotations.Inject;
 import org.ohm.lebetter.model.impl.entities.DealerEntity;
 import org.ohm.lebetter.tapestry5.web.components.mallcomponents.control.SelectedObject;
 import org.ohm.lebetter.tapestry5.web.pages.base.AdminBasePage;
@@ -14,6 +16,22 @@ import org.ohm.lebetter.tapestry5.web.pages.base.AdminBasePage;
  * To change this template use File | Settings | File Templates.
  */
 public class Index extends AdminBasePage {
+
+    @Property
+    @Inject
+    private Block descBlock;
+
+    @Property
+    @Inject
+    private Block picsBlock;
+
+    @Property
+    @Inject
+    private Block mapBlock;
+
+    @Property
+    @Inject
+    private Block adminBlock;
 
     @Property
     private DealerEntity selectedDealer;
@@ -29,6 +47,22 @@ public class Index extends AdminBasePage {
 
     public Long onPassivate() {
         return selectedDealer == null ? null : selectedDealer.getRootId();
+    }
+
+    public Block onActionFromPicsTab() {
+        return picsBlock;
+    }
+
+    public Block onActionFromDescTab() {
+        return descBlock;
+    }
+
+    public Block onActionFromMapTab() {
+        return mapBlock;
+    }
+
+    public Block onActionFromAdminTab() {
+        return adminBlock;
     }
 
 }
