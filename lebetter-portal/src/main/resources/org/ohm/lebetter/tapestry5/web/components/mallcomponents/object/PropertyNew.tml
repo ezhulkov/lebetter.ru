@@ -23,21 +23,23 @@
                 <input t:id="name" class="form_input"/>
             </div>
 
-            <div class="input_box">
-                <div class="input_label">
-                    <t:label for="type"/>
-                    :
+            <t:unless test="parent">
+                <div class="input_box">
+                    <div class="input_label">
+                        <t:label for="type"/>
+                        :
+                    </div>
+                    <select onChange="AG.processChange();" t:id="type" class="form_select"/>
                 </div>
-                <select onChange="AG.processChange();" t:id="type" class="form_select"/>
-            </div>
 
-            <div class="display_none input_box" id="DICT">
-                <div class="input_label">
-                    <t:label for="dictionary"/>
-                    :
+                <div class="display_none input_box" id="DICT">
+                    <div class="input_label">
+                        <t:label for="dictionary"/>
+                        :
+                    </div>
+                    <input t:id="dictionary" class="form_input"/>
                 </div>
-                <input t:id="dictionary" class="form_input"/>
-            </div>
+            </t:unless>
 
         </t:mallComponents.control.editObject>
 

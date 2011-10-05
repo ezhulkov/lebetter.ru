@@ -71,7 +71,7 @@
                 <!-- Cat values -->
                 <div>
                     <div class="adm_add_box">
-                        <t:pageLink t:page="po/system/value/create" context="selectedObject.rootId" class="create_link">Создать значение</t:pageLink>
+                        <t:pageLink t:page="po/system/value/create" context="selectedObject.rootId" class="create_link2">Создать значение</t:pageLink>
                     </div>
                     <h2>Значения свойства</h2>
                     <t:mallComponents.object.propertyValueList property="selectedObject"/>
@@ -91,7 +91,7 @@
         <t:if test="selectedPropertyIsGroup">
             <div>
                 <div class="adm_add_box">
-                    <t:pageLink t:page="po/system/value/create" context="selectedObject.rootId" class="create_link">Создать свойство</t:pageLink>
+                    <t:pageLink t:page="po/system/property/create" context="selectedObject.rootId" class="create_link2">Создать свойство</t:pageLink>
                 </div>
                 <h2>Свойства группы</h2>
                 <t:mallComponents.object.propertyList parent="selectedObject"/>
