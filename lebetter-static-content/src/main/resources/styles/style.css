@@ -748,8 +748,21 @@ ul.prod_cat_grid2 li a {
 }
 .prod_colors {
   color: #01010;
+  padding: 0px 0px 11px 0px;
 }
-
+.prod_colors b {
+  line-height: 30px;
+  padding: 0px 9px 0px 0px;
+}
+.prod_colors_item img,
+.prod_colors_item {
+  height: 30px;
+  width: 30px;
+  line-height: 30px;
+}
+.prod_colors_item {
+  margin: 0px 4px 0px 0px;
+}
 
 .prod_item_r p {
   padding: 7px 0px 0px 0px;
