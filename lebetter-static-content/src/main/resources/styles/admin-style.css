@@ -1,6 +1,10 @@
+.t-zone {
+  background-color: transparent !important;
+}
+
 #redactor_imp_modal input,
 #redactor_imp_modal textarea {
-    border: 1px solid gray;
+    border: 1px solid #606060;
 }
 .office_body {
   position: relative;
