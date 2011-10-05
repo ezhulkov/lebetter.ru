@@ -21,7 +21,7 @@
                 AG.colorCell("#dealers_menu");
             </t:mallComponents.control.javascript>
 
-            <h1>Дилер '${selectedDealer.name}', скидка ${selectedDealer.discount}</h1>
+            <h1>Дилер '${selectedDealer.name}', скидка ${selectedDealer.discount}%</h1>
 
             <div class="break"/>
 
