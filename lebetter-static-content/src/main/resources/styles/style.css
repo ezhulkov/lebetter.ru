@@ -60,7 +60,13 @@ input, select, textarea {
   width: 720px;
   clear: both;
 }
-
+.hr_mid {
+  background: url(/images/hr4.gif) no-repeat 50% 9px;
+  padding: 9px 0px 10px 0px;
+  height: 1px;
+  width: 288px;
+  clear: both;
+}
 .but_lnk {
   background: #515151 url(/images/form/but.gif) repeat-x 0px 0px;
   border: 1px solid #323232;
@@ -847,22 +853,3 @@ a:hover {
   text-decoration: none;
 }
 
-.checkbox3 {
-    background-image: url('/images/lb-front/form/check.png');
-    background-repeat: no-repeat;
-    width: 21px;
-    height: 21px;
-    cursor: pointer
-}
-
-.checkbox3.f0 {
-    background-position: 0px 0px;
-}
-
-.checkbox3.f1 {
-    background-position: -21px 0px;
-}
-
-.checkbox3.f2 {
-    background-position: -42px 0px;
-}

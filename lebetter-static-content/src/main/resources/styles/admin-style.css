@@ -79,8 +79,6 @@ form {
   right: 0px;
   position: absolute;
 }
-
-
 /*Textareas*/
 .NFTextarea { color: #535353; background: url(/images/0.gif); font:12px; line-height: 18px; margin:0;}
 .NFTextareaTop, form .NFTextareaBottom {height:6px; clear:both; float:none; padding-right:10px;}
@@ -100,7 +98,6 @@ form .NFTextareaRight, form .NFTextareaRightH {padding-right:5px; padding-bottom
 form .NFTextareaRight {background:url(/images/form/textarea-r-off.png) repeat-y 100% 0;}
 /* IE7 */ *:first-child+html form .NFTextareaRight { margin-top:-5px;}
 form .NFTextareaRightH {background:url(/images/form/textarea-r-over.png) repeat-y 100% 100%;}
-
 /*Multiple Selects*/
 form .NFMultiSelect {border:0; background:none; margin:0;}
 form .NFMultiSelectTop, form .NFMultiSelectBottom {height:6px; clear:both; float:none; padding-right:10px;}
@@ -117,6 +114,23 @@ form .NFMultiSelectRight, form .NFMultiSelectRightH {padding-right:5px; padding-
 form .NFMultiSelectRight {background:url(/images/form/textarea-r-off.png) repeat-y 100% 0;}
 form .NFMultiSelectRightH {background:url(/images/form/textarea-r-over.png) repeat-y 100% 0;}
 
+/* Roles */
+.checkbox3 {
+    background-image: url('/images/lb-front/form/check.png');
+    background-repeat: no-repeat;
+    width: 21px;
+    height: 21px;
+    cursor: pointer
+}
+.checkbox3.f0 {
+    background-position: 0px 0px;
+}
+.checkbox3.f1 {
+    background-position: -21px 0px;
+}
+.checkbox3.f2 {
+    background-position: -42px 0px;
+}
 
 /* LayoutsCorrect */
 .ObjectOwnerShow_1 {
