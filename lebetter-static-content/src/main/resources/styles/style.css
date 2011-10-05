@@ -61,7 +61,7 @@ input, select, textarea {
   clear: both;
 }
 .hr_mid {
-  background: url(/images/hr4.gif) no-repeat 50% 9px;
+  background: url(/images/hr6.png) no-repeat 50% 9px;
   padding: 9px 0px 10px 0px;
   height: 1px;
   width: 288px;
@@ -720,6 +720,39 @@ ul.prod_cat_grid2 li a {
   line-height: 14px;
   text-decoration: none;
   letter-spacing: 0px;
+}
+/* ProductItem */
+.prod_item_box {
+
+}
+.prod_item_l {
+  width: 432px;
+  float: left;
+}
+.prod_item_r {
+  width: 288px;
+  padding-left: 432px;
+}
+*+html .prod_item_r {
+  padding-left: 0px !important;
+  /* ie7 */
+}
+.prod_inf {
+  padding: 0px 19px 0px 0px;
+  margin-bottom: 8px;
+  color: #010101;
+}
+.prod_inf td {
+  line-height: 18px;
+  padding: 0px 19px 0px 0px;
+}
+.prod_colors {
+  color: #01010;
+}
+
+
+.prod_item_r p {
+  padding: 7px 0px 0px 0px;
 }
 
 /* Navigation */
