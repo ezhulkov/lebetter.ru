@@ -16,9 +16,7 @@ import org.room13.mallcore.model.ObjectBaseEntity;
  */
 @Import(
         stylesheet = {"proxy:/redactor/css/redactor.css"},
-        library = {"proxy:/redactor/langs/ru.js",
-                   "proxy:/redactor/toolbars/main.js",
-                   "proxy:/redactor/redactor.js"}
+        library = {"proxy:/redactor/redactor.js"}
 )
 public abstract class AbstractEditComponent
         extends AbstractBaseComponent {

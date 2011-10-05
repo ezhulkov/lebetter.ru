@@ -1,3 +1,7 @@
+#redactor_imp_modal input,
+#redactor_imp_modal textarea {
+    border: 1px solid gray;
+}
 .office_body {
   position: relative;
 }
