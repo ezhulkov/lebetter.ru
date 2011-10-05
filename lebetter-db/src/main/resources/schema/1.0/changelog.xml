@@ -952,4 +952,14 @@
         </createIndex>
     </changeSet>
 
+    <changeSet id="1.0.0-19" author="ezhulkov">
+        <addColumn tableName="app_dealer">
+            <column name="city" type="varchar(64)"/>
+            <column name="address" type="varchar(128)"/>
+            <column name="site" type="varchar(64)"/>
+            <column name="telephone" type="varchar(64)"/>
+            <column name="email" type="varchar(64)"/>
+        </addColumn>
+    </changeSet>
+
 </databaseChangeLog>

@@ -22,15 +22,45 @@
 
         <h1>Дилеры</h1>
 
-        <t:grid pagerPosition="bottom" rowsPerPage="50" id="datagrid" source="dealers" row="oneDealer" include="name">
-            <t:parameter name="nameHeader"/>
-            <t:parameter name="nameCell">
-                <t:pageLink context="oneDealer.altid" page="dealer">${oneDealer.name}</t:pageLink>
-            </t:parameter>
-            <t:parameter name="empty">
-                <p class="nomsg">${message:empty.list}</p>
-            </t:parameter>
-        </t:grid>
+        <t:loop t:formState="NONE" source="cities" value="oneCity">
+            <h2>${oneCity}</h2>
+            <ul class="dealer_list">
+                <t:loop t:formState="NONE" source="dealers" value="oneDealer">
+                    <li>
+                        <h3>
+                            <t:pageLink t:page="dealer" t:context="oneDealer.rootId">${oneDealer.name}</t:pageLink>
+                        </h3>
+                        <table class="dealer_inf">
+                            <t:if test="oneDealer.addressLine">
+                                <tr>
+                                    <td>Адрес:</td>
+                                    <td>${oneDealer.city}, ${oneDealer.addressLine}</td>
+                                </tr>
+                            </t:if>
+                            <t:if test="oneDealer.telephone">
+                                <tr>
+                                    <td>Телефон:</td>
+                                    <td>${oneDealer.telephone}</td>
+                                </tr>
+                            </t:if>
+                            <t:if test="oneDealer.site">
+                                <tr>
+                                    <td>Сайт:</td>
+                                    <td><a href="${oneDealer.site}" target="_blank">${oneDealer.site}</a>
+                                    </td>
+                                </tr>
+                            </t:if>
+                            <t:if test="oneDealer.email">
+                                <tr>
+                                    <td>Email:</td>
+                                    <td><a href="mailto:${oneDealer.email}">${oneDealer.email}</a></td>
+                                </tr>
+                            </t:if>
+                        </table>
+                    </li>
+                </t:loop>
+            </ul>
+        </t:loop>
 
     </t:mallcomponents.layout.browse>
 

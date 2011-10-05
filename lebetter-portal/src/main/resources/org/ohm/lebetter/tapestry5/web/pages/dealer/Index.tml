@@ -2,13 +2,86 @@
                                 bodyId="po"
                                 flash="flashMessage"
                                 xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
- 
+
     <t:mallcomponents.control.selectedObject>
 
-        <p>Дилер ${selectedDealer.name}</p>
+        <t:block t:id="breadCrumpsBlock">
+            <a class="status_home" href="/"><img src="/images/0.gif" alt=""/></a>
+            <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+            <a href="/dealer/list">Где купить</a>
+            <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+            <a href="/dealer/list">Дилеры</a>
+            <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+            '${selectedDealer.name}'
+        </t:block>
 
-        <t:outputraw value="selectedDealer.description"/>
+        <t:block t:id="leftMenuBlock">
+            <t:mallcomponents.object.dealerMenu/>
+        <t:mallComponents.control.javascript>
+            AG.colorCell("#dlrs_menu");
+        </t:mallComponents.control.javascript>
+        </t:block>
 
+        <t:mallcomponents.layout.browse leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
+
+            <!--Старничка дилера -->
+            <h1>${selectedDealer.name}</h1>
+
+            <div class="dealer_item">
+                <div class="dealer_item_l">
+                    <!--DealLogo -->
+                    <img src="/images/lb-front/def/nopic.gif" alt=""/>
+                </div>
+                <div class="dealer_item_r">
+                    <!--DealInf -->
+                    <table class="dealer_inf">
+                        <t:if test="${selectedDealer.addressLine}">
+                            <tr>
+                                <td>Адрес:</td>
+                                <td>${selectedDealer.city}, ${selectedDealer.addressLine}</td>
+                            </tr>
+                        </t:if>
+                        <t:if test="${selectedDealer.telephone}">
+                            <tr>
+                                <td>Телефон:</td>
+                                <td>${selectedDealer.telephone}</td>
+                            </tr>
+                        </t:if>
+                        <t:if test="${selectedDealer.site}">
+                            <tr>
+                                <td>Сайт:</td>
+                                <td>
+                                    <a href="${selectedDealer.site}" target="_blank">${selectedDealer.site}</a>
+                                </td>
+                            </tr>
+                        </t:if>
+                        <t:if test="${selectedDealer.email}">
+                            <tr>
+                                <td>Email:</td>
+                                <td><a href="mailto:${selectedDealer.email}">${selectedDealer.email}</a></td>
+                            </tr>
+                        </t:if>
+                    </table>
+
+                    <t:if test="selectedDealer.description">
+                        <t:outputraw value="selectedDealer.description"/>
+                    </t:if>
+
+                    <br/>
+                    <br/>
+                    <br/>
+
+                    <!--gmap -->
+                    <iframe width="550" height="150" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps/ms?msa=0&amp;msid=216453582507131094150.0004ae13a0d6ec230dfac&amp;ie=UTF8&amp;t=m&amp;vpsrc=0&amp;ll=55.752483,37.65623&amp;spn=0.000906,0.00589&amp;z=17&amp;output=embed"></iframe>
+                    <br/>
+                    <small>Просмотреть
+                        <a href="http://maps.google.com/maps/ms?msa=0&amp;msid=216453582507131094150.0004ae13a0d6ec230dfac&amp;ie=UTF8&amp;t=m&amp;vpsrc=0&amp;ll=55.752483,37.65623&amp;spn=0.000906,0.00589&amp;z=17&amp;source=embed" style="color:#0000FF;text-align:left">ул. Земляной Вал</a> на карте большего размера
+                    </small>
+
+                </div>
+            </div>
+
+        </t:mallcomponents.layout.browse>
     </t:mallcomponents.control.selectedObject>
 
 </t:mallcomponents.layout.layout>

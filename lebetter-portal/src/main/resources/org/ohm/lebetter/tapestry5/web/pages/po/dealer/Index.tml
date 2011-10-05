@@ -25,15 +25,47 @@
 
             <div class="break"/>
 
-            <t:mallcomponents.object.dealerEdit object="selectedDealer"/>
+            <div>
+                <ul>
+                    <li>
+                        <t:mallComponents.control.ie9CompatibleActionLink t:id="descTab" t:zone="editZone">Общее</t:mallComponents.control.ie9CompatibleActionLink>
+                    </li>
+                    <li>
+                        <t:mallComponents.control.ie9CompatibleActionLink t:id="picsTab" t:zone="editZone">Картинка</t:mallComponents.control.ie9CompatibleActionLink>
+                    </li>
+                    <li>
+                        <t:mallComponents.control.ie9CompatibleActionLink t:id="mapTab" t:zone="editZone">Карта</t:mallComponents.control.ie9CompatibleActionLink>
+                    </li>
+                    <li>
+                        <t:mallComponents.control.ie9CompatibleActionLink t:id="adminTab" t:zone="editZone">Админу</t:mallComponents.control.ie9CompatibleActionLink>
+                    </li>
+                </ul>
+            </div>
 
-            <div class="hr_big"/>
+            <t:zone t:id="editZone">
+                <t:delegate to="descBlock"/>
+            </t:zone>
 
-            <h2>Создатели и владельцы</h2>
-            <div class="break"/>
-            <t:mallComponents.object.objectOwnerEdit objectManager="serviceFacade.dealerManager"
-                                                     object="selectedDealer"
-                                                     action="EDIT_DEALER"/>
+            <t:block t:id="descBlock">
+                <t:mallcomponents.object.dealerEdit object="selectedDealer"/>
+            </t:block>
+
+            <t:block t:id="picsBlock">
+                PICS
+            </t:block>
+
+            <t:block t:id="mapBlock">
+                MAP
+            </t:block>
+
+            <t:block t:id="adminBlock">
+                <h2>Создатели и владельцы</h2>
+
+                <div class="break"/>
+                <t:mallComponents.object.objectOwnerEdit objectManager="serviceFacade.dealerManager"
+                                                         object="selectedDealer"
+                                                         action="EDIT_DEALER"/>
+            </t:block>
 
         </t:mallcomponents.control.selectedObject>
 

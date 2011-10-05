@@ -2,21 +2,24 @@ package org.ohm.lebetter.tapestry5.web.pages.dealer;
 
 import org.apache.tapestry5.annotations.Cached;
 import org.apache.tapestry5.annotations.Property;
-import org.apache.tapestry5.grid.GridDataSource;
 import org.ohm.lebetter.model.impl.entities.DealerEntity;
 import org.ohm.lebetter.tapestry5.web.pages.base.AbstractBrowseBasePage;
-import org.ohm.lebetter.tapestry5.web.util.datasource.GenericEntityGridDS;
-import org.room13.mallcore.model.ObjectBaseEntity.Status;
 
 public class List extends AbstractBrowseBasePage {
 
     @Property
     private DealerEntity oneDealer;
 
+    @Property
+    private String oneCity;
+
     @Cached
-    public GridDataSource getDealers() {
-        java.util.List<Long> ids = getServiceFacade().getDealerManager().getAllIds(Status.READY, "name", null, null);
-        return new GenericEntityGridDS<DealerEntity>(ids, getServiceFacade().getDealerManager(), DealerEntity.class);
+    public java.util.List<String> getCities() {
+        return getServiceFacade().getDealerManager().getCities();
+    }
+
+    public java.util.List<DealerEntity> getDealers() {
+        return getServiceFacade().getDealerManager().getAllReadyByCity(oneCity);
     }
 
 }

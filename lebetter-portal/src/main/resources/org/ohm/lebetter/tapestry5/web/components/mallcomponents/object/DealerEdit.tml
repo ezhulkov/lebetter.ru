@@ -32,11 +32,53 @@
 
         <div class="input_box">
             <div class="input_label">
-                <t:label for="discount"/>
+                <t:label for="site"/>
                 :
             </div>
-            <input t:id="discount" class="form_input"/>
+            <input t:id="site" class="form_input"/>
         </div>
+
+        <div class="input_box">
+            <div class="input_label">
+                <t:label for="email"/>
+                :
+            </div>
+            <input t:id="email" class="form_input"/>
+        </div>
+
+        <div class="input_box">
+            <div class="input_label">
+                <t:label for="telephone"/>
+                :
+            </div>
+            <input t:id="telephone" class="form_input"/>
+        </div>
+
+        <div class="input_box">
+            <div class="input_label">
+                <t:label for="city"/>
+                :
+            </div>
+            <input t:id="city" class="form_input"/>
+        </div>
+
+        <div class="input_box">
+            <div class="input_label">
+                <t:label for="addressLine"/>
+                :
+            </div>
+            <input t:id="addressLine" class="form_input"/>
+        </div>
+
+        <t:if test="auth.adminRole">
+            <div class="input_box">
+                <div class="input_label">
+                    <t:label for="discount"/>
+                    :
+                </div>
+                <input t:id="discount" class="form_input"/>
+            </div>
+        </t:if>
 
         <div class="input_box">
             <div class="input_label">
@@ -46,8 +88,8 @@
             <div class="form_textarea">
                 <!--<div class="NFTextareaTop"><img src="/images/0.gif" class="NFTextareaTopLeft" alt=""/></div>-->
                 <!--<div class="NFTextareaRight">-->
-                    <!--<div class="NFTextareaLeft"></div>-->
-                    <t:textarea t:id="description" style="width:560px;" class="redactor_textarea"/>
+                <!--<div class="NFTextareaLeft"></div>-->
+                <t:textarea t:id="description" style="width:560px;" class="redactor_textarea"/>
                 <!--</div>-->
                 <!--<div class="NFTextareaBottom"><img src="/images/0.gif" class="NFTextareaBottomLeft" alt=""/>-->
                 <!--</div>-->

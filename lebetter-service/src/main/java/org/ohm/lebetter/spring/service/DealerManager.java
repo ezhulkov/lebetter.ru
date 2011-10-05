@@ -5,9 +5,15 @@ import org.ohm.lebetter.model.impl.entities.UserEntity;
 import org.room13.mallcore.spring.service.GenericManager;
 import org.room13.mallcore.spring.service.OwnerAwareManager;
 
+import java.util.List;
+
 public interface DealerManager
         extends GenericManager<DealerEntity, UserEntity>,
                 SitemapAwareManager<DealerEntity>,
                 OwnerAwareManager<DealerEntity, UserEntity> {
+
+    public List<String> getCities();
+
+    public List<DealerEntity> getAllReadyByCity(String city);
 
 }
