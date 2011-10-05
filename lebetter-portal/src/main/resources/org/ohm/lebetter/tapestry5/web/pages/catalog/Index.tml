@@ -123,7 +123,7 @@
           </table>
 
           <div class="prod_colors">
-            <b>Цвет:</b>
+            <b>Цвет:</b><a class="prod_colors_item" href=""><img style="background: #ff9000;" src="/images/0.gif" alt="" /></a><a class="prod_colors_item" href=""><img style="background: #7cada7;" src="/images/0.gif" alt="" /></a><a class="prod_colors_item" href=""><img style="background: #e9e8ca;" src="/images/0.gif" alt="" /></a><a class="prod_colors_item" href=""><img style="background: #0f1014;" src="/images/0.gif" alt="" /></a>
           </div>
 
           <div class="hr_mid"></div>
