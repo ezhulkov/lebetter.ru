@@ -1,5 +1,6 @@
 package org.ohm.lebetter.tapestry5.web.components.base;
 
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
@@ -13,6 +14,12 @@ import org.room13.mallcore.model.ObjectBaseEntity;
  * Time: 17:01:24
  * To change this template use File | Settings | File Templates.
  */
+@Import(
+        stylesheet = {"proxy:/redactor/css/redactor.css"},
+        library = {"proxy:/redactor/langs/ru.js",
+                   "proxy:/redactor/toolbars/main.js",
+                   "proxy:/redactor/redactor.js"}
+)
 public abstract class AbstractEditComponent
         extends AbstractBaseComponent {
 
@@ -33,7 +40,7 @@ public abstract class AbstractEditComponent
 
     protected final ObjectBaseEntity getSelectedRootObjectInternal() {
         if (editObject.isNewObject() ||
-                getSelectedObjectInternal().isRootObject()) {
+            getSelectedObjectInternal().isRootObject()) {
             return getSelectedObjectInternal();
         } else {
             return editObject.getObjectManager().getRootDuplicate(getSelectedObjectInternal().getRootId());

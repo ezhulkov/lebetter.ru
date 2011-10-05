@@ -7,6 +7,8 @@
 
         <p>Дилер ${selectedDealer.name}</p>
 
+        <t:outputraw value="selectedDealer.description"/>
+
     </t:mallcomponents.control.selectedObject>
 
 </t:mallcomponents.layout.layout>

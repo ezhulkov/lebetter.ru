@@ -2,7 +2,7 @@
 
     <!-- Блок, содержащий форму, стандартные кнопки редактирования объекта и кастомный код редактирования объектов -->
     <t:if test="base.flashMessage2">
-        <div class="error_box">${base.flashMessage.message}</div>
+        <div class="error_box error_box2">${base.flashMessage.message}</div>
     </t:if>
 
     <t:unless test="newObject">
@@ -71,6 +71,10 @@
             jQuery("#itemdel").empty();
             jQuery("#" + key).find("a.del-btn").css("display", "block");
             jQuery("#" + key).find("a.del-btn").appendTo("#itemdel");
+        }
+        //Рисуем редактор
+        if (jQuery(".redactor_textarea").html() != null) {
+            jQuery(".redactor_textarea").redactor();
         }
 
     </script>

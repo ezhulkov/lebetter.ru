@@ -545,6 +545,9 @@ form {
   padding: 6px 9px 7px 34px;
   width: 368px;
 }
+.error_box.error_box2 {
+  width: 672px;
+}
 .input_box {
   padding: 0px 0px 10px 0px;
   clear: both;
@@ -580,7 +583,7 @@ form {
   float: left;
 }
 .form_textarea textarea {
-  height: 54px;
+  height: 154px;
   width: 247px;
   resize: none;
 }
@@ -589,7 +592,7 @@ form {
   float: left;
 }
 .form_multiselect select {
-  height: 54px;
+  height: 154px;
   width: 247px;
 }
 .form_but {
@@ -627,7 +630,7 @@ form {
 form .NFTextareaTopLeft {background: url(/images/form/textarea-tl.png) no-repeat 0 0;}
 .containerPlus form .NFTextareaBottomLeft {background-color: #d2d3d3;}
 form .NFTextareaBottomLeft {background: url(/images/form/textarea-bl.png) no-repeat 0 0;}
-form .NFTextareaLeft, form .NFTextareaRight, form .NFTextareaLeftH, form .NFTextareaRightH {float:left; padding-bottom:6px; height:54px;}
+form .NFTextareaLeft, form .NFTextareaRight, form .NFTextareaLeftH, form .NFTextareaRightH {float:left; padding-bottom:6px; height:154px;}
 form .NFTextareaLeft, form .NFTextareaLeftH {width:5px;}
 .containerPlus form .NFTextareaLeft {background-color: #d2d3d3;}
 form .NFTextareaLeft {background:url(/images/form/textarea-l-off.png) repeat-y 0 0;}
@@ -646,7 +649,7 @@ form .NFMultiSelectTopLeft, form .NFMultiSelectBottomLeft {width:11px; height:6p
 form .NFMultiSelectTopLeft {background: url(/images/form/textarea-tl.png) no-repeat 0 0;}
 form .NFMultiSelectBottomLeft {background: url(/images/form/textarea-bl.png) no-repeat 0 0;}
 form .NFMultiSelectLeft, form .NFMultiSelectRight, form .NFMultiSelectLeftH, form .NFMultiSelectRightH {float:left; padding-bottom:6px;}
-form .NFMultiSelectLeft, form .NFMultiSelectLeftH {width:5px; height: 48px;}
+form .NFMultiSelectLeft, form .NFMultiSelectLeftH {width:5px; height: 148px;}
 form .NFMultiSelectLeft {background:url(/images/form/textarea-l-off.png) repeat-y 0 0;}
 form .NFMultiSelectLeftH {background:url(/images/form/textarea-l-over.png) repeat-y 0 0;}
 form .NFMultiSelectRight, form .NFMultiSelectRightH {padding-right:5px; padding-bottom:0;}

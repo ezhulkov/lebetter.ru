@@ -1,5 +1,7 @@
 package org.ohm.lebetter.application.web.filter;
 
+import javax.servlet.ServletException;
+
 /**
  * Created by IntelliJ IDEA.
  * User: eugene
@@ -9,5 +11,9 @@ package org.ohm.lebetter.application.web.filter;
  */
 public class ApplicationFilter extends org.room13.mallcore.application.web.filter.ApplicationFilter {
 
+    public void initFilterBean() throws ServletException {
+        super.initFilterBean();
+        addFilter("/redactor");
+    }
 
 }

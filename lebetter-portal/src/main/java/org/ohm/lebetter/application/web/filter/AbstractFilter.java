@@ -19,5 +19,6 @@ public class AbstractFilter extends MallAbstractFilter {
         addFilter("/lb-fh");
         addFilter("/2ra");
         addFilter("/multipow");
+        addFilter("/redactor");
     }
 }
