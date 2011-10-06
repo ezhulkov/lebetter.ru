@@ -1,4 +1,4 @@
-<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="propertytype">
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="propertytype" class="DealerMap_1">
 
     <t:mallComponents.control.editObject
             addAction="ADD_DEALER"
@@ -18,7 +18,7 @@
         <input t:id="lat" id="lat" class="form_input"/>
         <input t:id="lng" id="lng" class="form_input"/>
         <input t:id="zoom" id="zoom" class="form_input"/>
-        <div id="map" style="width:650px;height:400px;border: 1px solid gray;"></div>
+        <div id="map" style="width:720px;height:400px;border: 1px solid gray;"></div>
 
         <script language="JavaScript" type="text/javascript">
             AG.initializeMap(jQuery("#lat").val(), jQuery("#lng").val(), jQuery("#zoom").val(), "'${selectedObject.name}'", true);

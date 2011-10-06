@@ -238,10 +238,10 @@ ul#topnav li .sub {
     border-right: 1px solid #cccccc;
     border-bottom: 1px solid #cccccc;
     border-left: 1px solid #cccccc;
-    padding: 15px 15px 11px 19px;
+    padding: 15px 0px 11px 19px;
     float: left;
     z-index: 1000;
-
+    width: 235px;
     display: none; /*--Hidden for those with js turned off--*/
 }
 
@@ -257,8 +257,8 @@ ul#topnav li .row {
 ul#topnav li .sub ul {
     list-style: none;
     margin: 0;
-    padding: 0px 4px 0px 0px;
-    width: 235px;
+    padding: 0px 0px 0px 0px;
+    /*width: 235px;*/
 
     float: left;
 }
@@ -266,14 +266,15 @@ ul#topnav li .sub ul {
 ul#topnav .sub ul li {
     width: 100%; /*--Override parent list item--*/
     color: #47190a;
-    background: none;
+    background: url(/images/hr8.gif) no-repeat 0px 100%;
     font-size: 14px;
 
-    border-bottom: 1px solid #d2d2d2;
+    /*border-bottom: 1px solid #d2d2d2;*/
 }
 
 ul#topnav .sub ul li.l {
-    border-bottom: 0px solid #d2d2d2;
+    background: none;
+    /*border-bottom: 0px solid #d2d2d2;*/
 }
 
 ul#topnav li.u .sub ul li a,
@@ -282,7 +283,7 @@ ul#topnav .sub ul li a {
     text-indent: 0; /*--Override text-indent from parent list item--*/
 
     height: auto; /*--Override height from parent list item--*/
-    padding: 6px 11px 5px 11px;
+    padding: 6px 11px 6px 11px;
     display: block;
     background: none;
     text-decoration: none;
@@ -304,7 +305,7 @@ ul#topnav li ul.sub2 {
     font-weight: normal;
     left: 100%;
     margin-top: -1px;
-    margin-left: 35px;
+    margin-left: 0px;
     right: auto;
     top: 0;
     width: 200px;
@@ -318,6 +319,7 @@ ul#topnav li ul.sub2 {
     padding: 1px 19px 3px 19px;
 }
 ul#topnav li ul.sub2 li {
+  background: none;
     border-bottom: 0px solid #CCCCCC;
 }
 ul#topnav li ul.sub2 li.menu2nd {
