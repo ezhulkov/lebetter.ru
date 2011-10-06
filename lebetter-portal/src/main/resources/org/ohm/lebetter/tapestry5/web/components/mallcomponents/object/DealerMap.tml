@@ -1,0 +1,31 @@
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="propertytype">
+
+    <t:mallComponents.control.editObject
+            addAction="ADD_DEALER"
+            delAction="DEL_DEALER"
+            editAction="EDIT_DEALER"
+            objectSavedLabel="literal:dealer.saved"
+            objectRemovedLabel="literal:dealer.deleted"
+            objectAddedLabel="literal:dealer.added"
+            objectExistsLabel="literal:dealer.exists"
+            newObject="literal:false"
+            listPage="literal:/po/dealer/list"
+            objectPage="literal:/po/dealer"
+            objectManager="serviceFacade.dealerManager"
+            selectedObject="selectedObject"
+            drawDelete="literal:false">
+
+        <t:form id="mapForm">
+            <input t:id="lat" class="form_input"/>
+            <input t:id="lng" class="form_input"/>
+            <input t:id="zoom" class="form_input"/>
+
+            <div id="map" style="width:650px;height:400px;border: 1px solid gray;"></div>
+        </t:form>
+        <script language="JavaScript" type="text/javascript">
+            AG.initializeMap(jQuery("#lat").val(), jQuery("#lng").val(), jQuery("#zoom").val(), "'${selectedDealer.name}'");
+        </script>
+
+    </t:mallComponents.control.editObject>
+
+</div>

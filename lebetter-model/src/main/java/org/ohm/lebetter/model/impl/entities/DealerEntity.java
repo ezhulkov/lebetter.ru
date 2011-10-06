@@ -47,13 +47,13 @@ public class DealerEntity
     private String description;
 
     @Column
-    private int zoom;
+    private int zoom = 12;
 
     @Column
-    private float lat;
+    private double lat = 55.754167897761d;
 
     @Column
-    private float lng;
+    private double lng = 37.624053955078125d;
 
     public DealerEntity() {
         setEntityCode("Dealer");
@@ -139,19 +139,19 @@ public class DealerEntity
         this.zoom = zoom;
     }
 
-    public float getLat() {
+    public double getLat() {
         return lat;
     }
 
-    public void setLat(float lat) {
+    public void setLat(double lat) {
         this.lat = lat;
     }
 
-    public float getLng() {
+    public double getLng() {
         return lng;
     }
 
-    public void setLng(float lng) {
+    public void setLng(double lng) {
         this.lng = lng;
     }
 }

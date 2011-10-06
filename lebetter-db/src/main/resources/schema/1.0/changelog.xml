@@ -965,8 +965,8 @@
     <changeSet id="1.0.0-20" author="ezhulkov">
         <addColumn tableName="app_dealer">
             <column name="zoom" type="int" defaultValueNumeric="12"/>
-            <column name="lat" type="float" defaultValueNumeric="55.754167897761"/>
-            <column name="lng" type="float" defaultValueNumeric="37.624053955078125"/>
+            <column name="lat" type="double precision" defaultValueNumeric="55.754167897761"/>
+            <column name="lng" type="double precision" defaultValueNumeric="37.624053955078125"/>
         </addColumn>
     </changeSet>
 

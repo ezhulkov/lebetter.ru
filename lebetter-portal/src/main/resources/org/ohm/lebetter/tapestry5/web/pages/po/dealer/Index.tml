@@ -55,15 +55,7 @@
             </t:block>
 
             <t:block t:id="mapBlock">
-                <div id="map" style="width:650px;height:400px;"></div>
-                <t:form id="mapForm">
-                    <input type="text" id="lat" name="lat" value="${selectedDealer.lat}"/>
-                    <input type="text" id="lng" name="lng" value="${selectedDealer.lng}"/>
-                    <input type="text" id="zoom" name="zoom" value="${selectedDealer.zoom}"/>
-                </t:form>
-                <script language="JavaScript" type="text/javascript">
-                    AG.initializeMap(jQuery("#lat").val(), jQuery("#lng").val(), jQuery("#zoom").val(), "'${selectedDealer.name}'");
-                </script>
+                <t:mallcomponents.object.dealerMap object="selectedDealer"/>
             </t:block>
 
             <t:block t:id="adminBlock">
