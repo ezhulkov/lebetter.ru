@@ -303,7 +303,8 @@ ul#topnav .sub ul li a:hover {
 ul#topnav li ul.sub2 {
     font-weight: normal;
     left: 100%;
-    margin-top: -11px;
+    margin-top: -1px;
+    margin-left: 35px;
     right: auto;
     top: 0;
     width: 200px;
@@ -314,10 +315,23 @@ ul#topnav li ul.sub2 {
     border-right: 1px solid #CCCCCC;
     border-bottom: 1px solid #CCCCCC;*/
     border: 1px solid #CCCCCC;
-    padding: 11px 19px 11px 19px;
+    padding: 1px 19px 3px 19px;
 }
 ul#topnav li ul.sub2 li {
     border-bottom: 0px solid #CCCCCC;
+}
+ul#topnav li ul.sub2 li.menu2nd {
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    position: relative;
+}
+ul#topnav li ul.sub2 li.menu2nd img {
+    height: 17px;
+    width: 10px;
+    top: 10px;
+    left: -29px;
+    background: url(/images/menu2nd.gif) no-repeat 0px 0px;
+    position: absolute;
 }
 ul#topnav li .sub ul li:hover .sub2,
 ul#topnav .sub ul li a:hover .sub2 {

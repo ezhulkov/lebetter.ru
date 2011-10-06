@@ -96,6 +96,7 @@ AG = {
 
         jQuery("ul#topnav li .sub").parent("li").addClass("u");
         jQuery("ul#topnav li .sub ul li:last-child").addClass("l");
+        jQuery("<li class='menu2nd'><img src='/images/0.gif' alt=''></li>").prependTo("ul#topnav li ul.sub2");
         jQuery("ul#topnav li .sub").css({'opacity':'0'});
         //jQuery("ul#topnav li .sub > ul").markerUndermenuCols();
         jQuery("ul#topnav li").hoverIntent(config);
