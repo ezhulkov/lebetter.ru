@@ -46,6 +46,15 @@ public class DealerEntity
     @Column
     private String description;
 
+    @Column
+    private int zoom;
+
+    @Column
+    private float lat;
+
+    @Column
+    private float lng;
+
     public DealerEntity() {
         setEntityCode("Dealer");
     }
@@ -120,5 +129,29 @@ public class DealerEntity
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public int getZoom() {
+        return zoom;
+    }
+
+    public void setZoom(int zoom) {
+        this.zoom = zoom;
+    }
+
+    public float getLat() {
+        return lat;
+    }
+
+    public void setLat(float lat) {
+        this.lat = lat;
+    }
+
+    public float getLng() {
+        return lng;
+    }
+
+    public void setLng(float lng) {
+        this.lng = lng;
     }
 }

@@ -1,6 +1,7 @@
 package org.ohm.lebetter.tapestry5.web.pages.po.dealer;
 
 import org.apache.tapestry5.Block;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
@@ -15,6 +16,9 @@ import org.ohm.lebetter.tapestry5.web.pages.base.AdminBasePage;
  * Time: 18:59
  * To change this template use File | Settings | File Templates.
  */
+@Import(
+        library = {"proxy:http://maps.googleapis.com/maps/api/js?v=3.4&sensor=false"}
+)
 public class Index extends AdminBasePage {
 
     @Property

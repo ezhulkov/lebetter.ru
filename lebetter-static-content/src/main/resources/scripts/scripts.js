@@ -1,4 +1,28 @@
 AG = {
+    map: google.maps.Map,
+    marker: google.maps.Marker,
+    initializeMap: function(lat, lng, zoom, title) {
+        var latlng = new google.maps.LatLng(lat, lng);
+        var myOptions = {
+          zoom: parseInt(zoom),
+          center: latlng,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        map = new google.maps.Map(document.getElementById("map"), myOptions);
+        marker = new google.maps.Marker({
+            position: latlng,
+            map: map,
+            title: title
+        });
+        google.maps.event.addListener(map, 'zoom_changed', function() {
+            jQuery("#zoom").val(map.getZoom());
+        });
+        google.maps.event.addListener(map, 'click', function(event) {
+            marker.setPosition(event.latLng);
+            jQuery("#lat").val(event.latLng.lat());
+            jQuery("#lng").val(event.latLng.lng());
+        });
+    },
     colorCell: function(el) {
         jQuery(el).addClass('sel');
     },
