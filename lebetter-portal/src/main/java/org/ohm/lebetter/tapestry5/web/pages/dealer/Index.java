@@ -1,5 +1,6 @@
 package org.ohm.lebetter.tapestry5.web.pages.dealer;
 
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Property;
 import org.ohm.lebetter.model.impl.entities.DealerEntity;
@@ -13,6 +14,9 @@ import org.ohm.lebetter.tapestry5.web.pages.base.AbstractBrowseBasePage;
  * Time: 18:59
  * To change this template use File | Settings | File Templates.
  */
+@Import(
+        library = {"proxy:http://maps.googleapis.com/maps/api/js?v=3.4&sensor=false"}
+)
 public class Index extends AbstractBrowseBasePage {
 
     @Property

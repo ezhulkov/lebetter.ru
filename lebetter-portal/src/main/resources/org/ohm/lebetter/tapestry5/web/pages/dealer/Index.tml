@@ -71,12 +71,12 @@
                     <br/>
                     <br/>
 
-                    <!--gmap -->
-                    <iframe width="550" height="150" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps/ms?msa=0&amp;msid=216453582507131094150.0004ae13a0d6ec230dfac&amp;ie=UTF8&amp;t=m&amp;vpsrc=0&amp;ll=55.752483,37.65623&amp;spn=0.000906,0.00589&amp;z=17&amp;output=embed"></iframe>
-                    <br/>
-                    <small>Просмотреть
-                        <a href="http://maps.google.com/maps/ms?msa=0&amp;msid=216453582507131094150.0004ae13a0d6ec230dfac&amp;ie=UTF8&amp;t=m&amp;vpsrc=0&amp;ll=55.752483,37.65623&amp;spn=0.000906,0.00589&amp;z=17&amp;source=embed" style="color:#0000FF;text-align:left">ул. Земляной Вал</a> на карте большего размера
-                    </small>
+                    <div id="map" style="width:650px;height:400px;border: 1px solid gray;"></div>
+
+                    <script language="JavaScript" type="text/javascript">
+                        AG.initializeMap('${selectedDealer.lat}', '${selectedDealer.lng}',
+                                         '${selectedDealer.zoom}', "'${selectedObject.name}'");
+                    </script>
 
                 </div>
             </div>

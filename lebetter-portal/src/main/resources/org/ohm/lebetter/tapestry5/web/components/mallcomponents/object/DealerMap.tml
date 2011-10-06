@@ -15,15 +15,13 @@
             selectedObject="selectedObject"
             drawDelete="literal:false">
 
-        <t:form id="mapForm">
-            <input t:id="lat" class="form_input"/>
-            <input t:id="lng" class="form_input"/>
-            <input t:id="zoom" class="form_input"/>
+        <input t:id="lat" id="lat" class="form_input"/>
+        <input t:id="lng" id="lng" class="form_input"/>
+        <input t:id="zoom" id="zoom" class="form_input"/>
+        <div id="map" style="width:650px;height:400px;border: 1px solid gray;"></div>
 
-            <div id="map" style="width:650px;height:400px;border: 1px solid gray;"></div>
-        </t:form>
         <script language="JavaScript" type="text/javascript">
-            AG.initializeMap(jQuery("#lat").val(), jQuery("#lng").val(), jQuery("#zoom").val(), "'${selectedDealer.name}'");
+            AG.initializeMap(jQuery("#lat").val(), jQuery("#lng").val(), jQuery("#zoom").val(), "'${selectedObject.name}'");
         </script>
 
     </t:mallComponents.control.editObject>
