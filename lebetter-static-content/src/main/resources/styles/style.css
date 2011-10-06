@@ -241,7 +241,7 @@ ul#topnav li .sub {
     padding: 15px 0px 11px 19px;
     float: left;
     z-index: 1000;
-    width: 235px;
+    width: 255px !important;
     display: none; /*--Hidden for those with js turned off--*/
 }
 
