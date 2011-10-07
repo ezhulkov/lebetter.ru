@@ -1,0 +1,25 @@
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+    <h1>Каталог продукции - ${selectedCategory.name}</h1>
+
+    <!-- Product Categories -->
+    <img src="/images/lb-front/def/nopic3.gif" alt="${selectedCategory.name}" title="${selectedCategory.name}"/>
+    <!-- Product Categories Grid -->
+    <t:if test="selectedCategory.children">
+        <div class="prod_cat_box">
+            <ul class="prod_cat_grid">
+                <t:loop t:formState="NONE" source="selectedCategory.children" value="oneSubCategory">
+                    <li>
+                        <t:pageLink t:page="catalog" t:context="oneSubCategory.rootId">
+                            <img src="/images/lb-front/def/nopic2.gif" class="quimby_search_image" alt="${oneSubCategory.name}" title="${oneSubCategory.name}"/>
+                        </t:pageLink>
+                        <h3>
+                            <t:pageLink t:page="catalog" t:context="oneSubCategory.rootId">${oneSubCategory.name}</t:pageLink>
+                        </h3>
+                    </li>
+                </t:loop>
+            </ul>
+        </div>
+    </t:if>
+
+</div>

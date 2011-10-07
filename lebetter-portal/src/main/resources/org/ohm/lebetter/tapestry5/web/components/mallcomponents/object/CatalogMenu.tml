@@ -4,18 +4,13 @@
         <ul>
             <t:loop t:formState="NONE" source="categories" value="oneCategory">
                 <li>
-                    <t:if test="oneCategory.children">
-                        <t:pageLink id="menu${oneCategory.rootId}" t:page="catalog" t:context="oneCategory.altId">${oneCategory.name}</t:pageLink>
-                        <t:parameter name="else">
-                            <t:pageLink id="menu${oneCategory.rootId}" t:page="catalog/list" t:context="oneCategory.altId">${oneCategory.name}</t:pageLink>
-                        </t:parameter>
-                    </t:if>
+                    <t:pageLink id="menu${oneCategory.rootId}" t:page="catalog" t:context="oneCategory.altId">${oneCategory.name}</t:pageLink>
                     <t:if test="currentCategory">
                         <t:if test="oneCategory.children">
                             <ul>
                                 <t:loop t:formState="NONE" source="oneCategory.children" value="oneSubCategory">
                                     <li>
-                                        <t:pageLink t:page="catalog/list" t:context="oneSubCategory.altId">${oneSubCategory.name}</t:pageLink>
+                                        <t:pageLink id="menu${oneSubCategory.rootId}" t:page="catalog" t:context="oneSubCategory.altId">${oneSubCategory.name}</t:pageLink>
                                     </li>
                                 </t:loop>
                             </ul>

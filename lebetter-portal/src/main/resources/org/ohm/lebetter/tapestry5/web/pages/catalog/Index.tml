@@ -14,36 +14,22 @@
         </t:block>
 
         <t:block t:id="leftMenuBlock">
-            <t:mallcomponents.object.catalogMenu selectedCategory="selectedCategory"/>
+            <t:mallcomponents.object.catalogMenu selectedCategory="selectedCategoryParent"/>
         </t:block>
 
         <t:mallcomponents.layout.browse leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
-            <h1>Каталог продукции - ${selectedCategory.name}</h1>
-
-            <!-- Product Categories -->
-            <img src="/images/lb-front/def/nopic3.gif" alt="${selectedCategory.name}" title="${selectedCategory.name}"/>
-            <!-- Product Categories Grid -->
-            <t:if test="subCategories">
-                <div class="prod_cat_box">
-                    <ul class="prod_cat_grid">
-                    <t:loop t:formState="NONE" source="subCategories" value="oneSubCategory">
-                        <li>
-                            <t:pageLink t:page="catalog/list" t:context="oneSubCategory.rootId">
-                                <img src="/images/lb-front/def/nopic2.gif" class="quimby_search_image" alt="${oneSubCategory.name}" title="${oneSubCategory.name}"/>
-                            </t:pageLink>
-                            <h3>
-                                <t:pageLink t:page="catalog/list" t:context="oneSubCategory.rootId">${oneSubCategory.name}</t:pageLink>
-                            </h3>
-                        </li>
-                    </t:loop>
-                    </ul>
-                </div>
+            <t:if test="selectedCategory.children">
+                <t:mallcomponents.object.catalogWithChildren selectedCategory="selectedCategory"/>
+                <t:parameter name="else">
+                    <t:mallcomponents.object.catalogWithNoChildren selectedCategory="selectedCategory"/>
+                </t:parameter>
             </t:if>
-
         </t:mallcomponents.layout.browse>
 
         <t:mallComponents.control.javascript>
-            AG.colorCell("#menu${selectedCategory.rootId}");
+            <t:if test="selectedCategory.parent">
+                AG.colorCell("#menu${selectedCategoryParent.rootId}");
+            </t:if>
         </t:mallComponents.control.javascript>
 
     </t:mallcomponents.control.selectedObject>

@@ -1,6 +1,5 @@
 package org.ohm.lebetter.tapestry5.web.pages.catalog;
 
-import org.apache.tapestry5.annotations.Cached;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Property;
 import org.ohm.lebetter.model.impl.entities.CategoryEntity;
@@ -51,9 +50,8 @@ public class Index extends AbstractBrowseBasePage {
         return selectedCategory == null ? null : selectedCategory.getAltId();
     }
 
-    @Cached
-    public List<CategoryEntity> getSubCategories() {
-        return getServiceFacade().getCategoryManager().getAllReadyCategories(selectedCategory);
+    public CategoryEntity getSelectedCategoryParent() {
+        return selectedCategory.getParent() == null ? selectedCategory : selectedCategory.getParent();
     }
 
 }
