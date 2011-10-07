@@ -1,20 +1,22 @@
 AG = {
-    map: google.maps.Map,
-    marker: google.maps.Marker,
     initializeMap: function(lat, lng, zoom, title, events) {
+        var map;
+        var marker;
         var latlng = new google.maps.LatLng(lat, lng);
         var myOptions = {
-          zoom: parseInt(zoom),
-          center: latlng,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
+            zoom: parseInt(zoom),
+            center: latlng,
+            mapTypeControl: false,
+            overviewMapControl: true,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         map = new google.maps.Map(document.getElementById("map"), myOptions);
         marker = new google.maps.Marker({
-            position: latlng,
-            map: map,
-            title: title
-        });
-        if(events){
+                                            position: latlng,
+                                            map: map,
+                                            title: title
+                                        });
+        if (events) {
             google.maps.event.addListener(map, 'zoom_changed', function() {
                 jQuery("#zoom").val(map.getZoom());
             });

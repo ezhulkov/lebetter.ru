@@ -15,7 +15,7 @@ import org.ohm.lebetter.tapestry5.web.pages.base.AbstractBrowseBasePage;
  * To change this template use File | Settings | File Templates.
  */
 @Import(
-        library = {"proxy:http://maps.googleapis.com/maps/api/js?v=3.4&sensor=false"}
+        library = {"proxy:http://maps.googleapis.com/maps/api/js?sensor=false"}
 )
 public class Index extends AbstractBrowseBasePage {
 
