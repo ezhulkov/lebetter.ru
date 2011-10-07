@@ -1,0 +1,10 @@
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+    <t:if test="selectedCategory.children">
+        <t:mallcomponents.object.catalogWithChildren selectedCategory="selectedCategory"/>
+        <t:parameter name="else">
+            <t:mallcomponents.object.catalogWithNoChildren selectedCategory="selectedCategory"/>
+        </t:parameter>
+    </t:if>
+
+</div>

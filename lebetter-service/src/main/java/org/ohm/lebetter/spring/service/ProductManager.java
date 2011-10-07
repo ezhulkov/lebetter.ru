@@ -10,7 +10,7 @@ import java.util.Set;
 
 public interface ProductManager
         extends GenericManager<ProductEntity, UserEntity>,
-                ObjectSearchAwareManager<ProductEntity> {
+                ObjectSearchAwareManager<ProductEntity>, SitemapAwareManager<ProductEntity> {
 
     public ProductEntity getProductByArticul(String articul);
 

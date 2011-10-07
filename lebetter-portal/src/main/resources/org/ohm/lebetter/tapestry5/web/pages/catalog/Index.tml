@@ -18,13 +18,17 @@
         </t:block>
 
         <t:mallcomponents.layout.browse leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
-            <t:if test="selectedCategory.children">
-                <t:mallcomponents.object.catalogWithChildren selectedCategory="selectedCategory"/>
-                <t:parameter name="else">
-                    <t:mallcomponents.object.catalogWithNoChildren selectedCategory="selectedCategory"/>
-                </t:parameter>
+
+            <t:if test="selectedProduct">
+                <t:mallcomponents.object.showProduct selectedCategory="selectedCategory" selectedProduct="selectedProduct"/>
             </t:if>
+
+            <t:unless test="selectedProduct">
+                <t:mallcomponents.object.showCatalog selectedCategory="selectedCategory"/>
+            </t:unless>
+
         </t:mallcomponents.layout.browse>
+
 
         <t:mallComponents.control.javascript>
             <t:if test="selectedCategory.parent">

@@ -4,6 +4,7 @@ import org.hibernate.annotations.AccessType;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.ohm.lebetter.model.DescriptionAware;
+import org.ohm.lebetter.model.SitemapAware;
 import org.room13.mallcore.model.impl.BaseCreatorAwareEntity;
 
 import javax.persistence.CascadeType;
@@ -24,7 +25,7 @@ import java.util.List;
 @AccessType("field")
 public class ProductEntity
         extends BaseCreatorAwareEntity
-        implements DescriptionAware {
+        implements DescriptionAware, SitemapAware {
 
     @Column
     private String altId;
@@ -57,6 +58,7 @@ public class ProductEntity
         setEntityCode("Product");
     }
 
+    @Override
     public String getAltId() {
         return altId;
     }

@@ -5,6 +5,7 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projection;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
+import org.ohm.lebetter.model.SitemapAware;
 import org.ohm.lebetter.model.impl.entities.CategoryEntity;
 import org.ohm.lebetter.model.impl.entities.ProductEntity;
 import org.ohm.lebetter.model.impl.entities.PropertyValueEntity;
@@ -129,4 +130,8 @@ public class ProductManagerImpl
         return getSearchObjectsIds(pType, values, null).size();
     }
 
+    @Override
+    public SitemapAware getByAltId(String altid) {
+        return SitemapAwareManagerImpl.getByAltId(altid, productDao);
+    }
 }
