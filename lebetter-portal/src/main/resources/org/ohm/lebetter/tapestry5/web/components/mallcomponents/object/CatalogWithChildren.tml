@@ -22,4 +22,9 @@
         </div>
     </t:if>
 
+    <t:mallComponents.control.javascript>
+      AG.gridCatManipulation();
+    </t:mallComponents.control.javascript>
+
+
 </div>
