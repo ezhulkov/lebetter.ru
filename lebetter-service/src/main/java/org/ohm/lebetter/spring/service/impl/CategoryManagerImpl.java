@@ -239,6 +239,7 @@ public class CategoryManagerImpl
         for (CategoryEntity root : roots) {
             CategoryEntity rootElement = new CategoryEntity();
             rootElement.setId(root.getId());
+            rootElement.setAltId(root.getAltId());
             rootElement.setRootId(root.getRootId());
             rootElement.setName(root.getName());
             rootElement.setCode(root.getCode());
@@ -248,6 +249,7 @@ public class CategoryManagerImpl
                 CategoryEntity subElement = new CategoryEntity();
                 subElement.setParent(rootElement);
                 subElement.setId(sub.getId());
+                subElement.setAltId(sub.getAltId());
                 subElement.setRootId(sub.getRootId());
                 subElement.setName(sub.getName());
                 subElement.setCode(sub.getCode());
