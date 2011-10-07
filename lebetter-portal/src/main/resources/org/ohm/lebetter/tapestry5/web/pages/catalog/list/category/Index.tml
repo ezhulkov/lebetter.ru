@@ -3,6 +3,49 @@
                                 flash="flashMessage"
                                 xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
-        Грид
+    <!-- Product Item -->
+    <h1>Двуспальная кровать</h1>
+
+    <div class="prod_item_box">
+        <div class="prod_item_l">
+            <!-- img -->
+
+
+        </div>
+        <div class="prod_item_r">
+            <!-- descr -->
+            <table class="prod_inf">
+                <tr>
+                    <td>Размер:</td>
+                    <td><b>270x200x120</b></td>
+                </tr>
+                <tr>
+                    <td>Размер матраса:</td>
+                    <td><b>220х200</b></td>
+                </tr>
+                <tr>
+                    <td>Материал обивки:</td>
+                    <td><b>Кожа</b></td>
+                </tr>
+                <tr>
+                    <td>Дерево:</td>
+                    <td><b>Дуб</b></td>
+                </tr>
+                <tr>
+                    <td>Подушки в комплекте:</td>
+                    <td><b>4 шт.</b></td>
+                </tr>
+            </table>
+
+            <div class="prod_colors">
+                <b>Цвет:</b><a class="prod_colors_item" href=""><img style="background: #ff9000;" src="/images/0.gif" alt=""/></a><a class="prod_colors_item" href=""><img style="background: #7cada7;" src="/images/0.gif" alt=""/></a><a class="prod_colors_item" href=""><img style="background: #e9e8ca;" src="/images/0.gif" alt=""/></a><a class="prod_colors_item" href=""><img style="background: #0f1014;" src="/images/0.gif" alt=""/></a>
+            </div>
+
+            <div class="hr_mid"></div>
+
+            <p>Модель нового качества. Необычный дизайн очевиден при первом взгляде: кровать с перемещающимися по окружности кровати спинками, угловая секция с нишей-баром внутри, стеклянные полки, оснащенные светодиодными светильниками, столешница с высокоглянцевым белым покрытием, радиоуправление освещением.</p>
+
+        </div>
+    </div>
 
 </t:mallcomponents.layout.layout>

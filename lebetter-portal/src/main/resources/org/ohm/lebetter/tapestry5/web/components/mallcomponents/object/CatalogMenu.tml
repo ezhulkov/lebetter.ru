@@ -1,0 +1,28 @@
+<ul xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" class="leftmenu">
+    <li>
+        <t:pageLink t:page="catalog">Каталог продукции</t:pageLink>
+        <ul>
+            <t:loop t:formState="NONE" source="categories" value="oneCategory">
+                <li>
+                    <t:if test="oneCategory.children">
+                        <t:pageLink id="menu${oneCategory.rootId}" t:page="catalog" t:context="oneCategory.altId">${oneCategory.name}</t:pageLink>
+                        <t:parameter name="else">
+                            <t:pageLink id="menu${oneCategory.rootId}" t:page="catalog/list" t:context="oneCategory.altId">${oneCategory.name}</t:pageLink>
+                        </t:parameter>
+                    </t:if>
+                    <t:if test="currentCategory">
+                        <t:if test="oneCategory.children">
+                            <ul>
+                                <t:loop t:formState="NONE" source="oneCategory.children" value="oneSubCategory">
+                                    <li>
+                                        <t:pageLink t:page="catalog/list" t:context="oneSubCategory.altId">${oneSubCategory.name}</t:pageLink>
+                                    </li>
+                                </t:loop>
+                            </ul>
+                        </t:if>
+                    </t:if>
+                </li>
+            </t:loop>
+        </ul>
+    </li>
+</ul>

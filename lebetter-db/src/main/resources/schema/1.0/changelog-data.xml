@@ -430,4 +430,37 @@
         </sql>
     </changeSet>
 
+
+    <changeSet id="data-1.0.10" author="ezhulkov">
+        <sql>
+        update app_category set altId='gostinaya' where parent_id is null and code='SALON';
+        update app_category set altId='spalnya' where parent_id is null and code='BEDROOM';
+        update app_category set altId='kabinet' where parent_id is null and code='CABINET';
+        update app_category set altId='prihozhaya' where parent_id is null and code='HALL';
+        update app_category set altId='vannaya' where parent_id is null and code='BATHROOM';
+        update app_category set altId='predmety-mebeli-i-aksessuary' where parent_id is null and code='ACCESSORY';
+        update app_category set altId='mebel-dlya-gostinits-barov-i-restoranov' where parent_id is null and code='HOTEL';
+        update app_category set altId='divany' where parent_id=300 and code='SOFA';
+        update app_category set altId='stoly-obedennye' where parent_id=300 and code='TABLE';
+        update app_category set altId='stulya' where parent_id=300 and code='CHAIR';
+        update app_category set altId='vitriny-stellazhi' where parent_id=300 and code='RACK';
+        update app_category set altId='komody-konsoli-tumbochki' where parent_id=300 and code='CHEST';
+        update app_category set altId='tumbochki' where parent_id=301 and code='CUPBOARD';
+        update app_category set altId='komody-i-zerkala' where parent_id=301 and code='CHEST';
+        update app_category set altId='tualetnye-stoliki' where parent_id=301 and code='SMALL_TABLE';
+        update app_category set altId='pismennye-stoly' where parent_id=302 and code='WRITE_TABLE';
+        update app_category set altId='rabochie-kresla' where parent_id=302 and code='WORK_ARMCHAIR';
+        update app_category set altId='biblioteki-stellazhi-byuro' where parent_id=302 and code='LIBRARY';
+        update app_category set altId='divany-325' where parent_id=302 and code='SOFA';
+        update app_category set altId='kresla' where parent_id=300 and code='ARMCHAIR';
+        update app_category set altId='zhurnalnye-i-kofeinye-stoliki' where parent_id=300 and code='SMALL_TABLE';
+        update app_category set altId='barnye-stulya-i-stoiki' where parent_id=300 and code='BAR';
+        update app_category set altId='tumby-pod-tv' where parent_id=300 and code='TV';
+        update app_category set altId='kaminy' where parent_id=300 and code='FIREPLACE';
+        update app_category set altId='krovati' where parent_id=301 and code='BED';
+        update app_category set altId='shkafy' where parent_id=301 and code='WARDROBE';
+        </sql>
+    </changeSet>
+
+
 </databaseChangeLog>

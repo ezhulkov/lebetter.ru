@@ -497,7 +497,8 @@ ul.leftmenu ul li a {
   border-bottom: 0px solid #d2d2d2;
 }
 ul.leftmenu ul li.sel a,
-ul.leftmenu ul li a:hover {
+ul.leftmenu ul li a:hover,
+a.sel {
   color: #000000;
   background-color: #e3e3e3;
   padding: 3px 9px 5px 10px;

@@ -17,7 +17,7 @@ import java.util.List;
 
 public interface CategoryManager
         extends GenericManager<CategoryEntity, UserEntity>,
-                ObjectCreatorAwareManager<CategoryEntity, UserEntity> {
+                ObjectCreatorAwareManager<CategoryEntity, UserEntity>, SitemapAwareManager<CategoryEntity> {
 
     public static final Comparator<PropertyEntity> PROPERTY_ENTITY_COMPARATOR =
             new Comparator<PropertyEntity>() {
@@ -47,6 +47,8 @@ public interface CategoryManager
     public List<CategoryEntity> getAllRootCategories();
 
     public List<CategoryEntity> getAllReadyCategories(CategoryEntity parent);
+
+    public List<CategoryEntity> getAllReadyCategoriesForUI();
 
     public List<CategoryEntity> getAllReadyLeafCategories();
 

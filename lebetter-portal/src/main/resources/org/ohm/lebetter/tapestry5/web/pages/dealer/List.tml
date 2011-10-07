@@ -28,7 +28,7 @@
                 <t:loop t:formState="NONE" source="dealers" value="oneDealer">
                     <li>
                         <h3>
-                            <t:pageLink t:page="dealer" t:context="oneDealer.rootId">${oneDealer.name}</t:pageLink>
+                            <t:pageLink t:page="dealer" t:context="oneDealer.altId">${oneDealer.name}</t:pageLink>
                         </h3>
                         <table class="dealer_inf">
                             <t:if test="oneDealer.addressLine">

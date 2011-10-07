@@ -37,21 +37,29 @@
                     <t:pageLink t:page="catalog">Каталог</t:pageLink>
                     <t:if test="categories">
                         <div class="sub">
-                          <ul class="sub1">
+                            <ul class="sub1">
                             <t:loop t:formState="NONE" source="categories" value="oneCategory">
 
-                                <li><a href="">${oneCategory.name}</a>
-                                <t:if test="subCategories">
-                                 <ul class="sub2">
-                                    <t:loop t:formState="NONE" source="subCategories" value="oneSubCategory">
-                                        <li><a href="">${oneSubCategory.name}</a></li>
-                                    </t:loop>
-                                 </ul>
-                                </t:if>
+                                <li>
+                                    <t:if test="oneCategory.children">
+                                        <t:pageLink t:page="catalog" t:context="oneCategory.altId">${oneCategory.name}</t:pageLink>
+                                        <t:parameter name="else">
+                                            <t:pageLink t:page="catalog/list" t:context="oneCategory.altId">${oneCategory.name}</t:pageLink>
+                                        </t:parameter>
+                                    </t:if>
+                                    <t:if test="oneCategory.children">
+                                        <ul class="sub2">
+                                            <t:loop t:formState="NONE" source="oneCategory.children" value="oneSubCategory">
+                                                <li>
+                                                    <t:pageLink t:page="catalog/list" t:context="oneSubCategory.altId">${oneSubCategory.name}</t:pageLink>
+                                                </li>
+                                            </t:loop>
+                                        </ul>
+                                    </t:if>
                                 </li>
 
                             </t:loop>
-                          </ul>
+                            </ul>
                         </div>
                     </t:if>
                 </li>
@@ -66,68 +74,6 @@
                 </li>
             </ul>
 
-            <!--      <ul>
-              <li class="f">
-              <a href="#">О нас</a>
-
-                <div class="sub">
-                  <ul>
-                    <li><a href="">Компания</a></li>
-                    <li><a href="">Обращение директора</a></li>
-                    <li><a href="">Контакты</a></li>
-                    <li><a href="">Вакансии</a></li>
-                  </ul>
-                </div>
-
-              </li>
-              <li>
-              <a href="#">Каталог продукции</a>
-                <div class="sub">
-                  <ul>
-                    <li><a href="">Гостиная</a></li>
-                    <li><a href="">Спальня</a></li>
-                    <li><a href="">Кабинет</a></li>
-                    <li><a href="">Прихожая</a></li>
-                  </ul>
-                  <ul>
-                    <li><a href="">Ванная</a></li>
-                    <li><a href="">Предметы мебели и аксессуары</a></li>
-                    <li><a href="">Мебель для гостиниц, баров, ресторанов</a></li>
-                  </ul>
-                </div>
-
-              </li>
-              <li>
-              <a href="#">Качество</a>
-
-                <div class="sub">
-                  <ul>
-                    <li><a href="">Наши преимущества</a></li>
-                    <li><a href="">Гарантия качества</a></li>
-                  </ul>
-                </div>
-
-              </li>
-              <li>
-              <a href="#">История фабрики</a>
-              </li>
-              <li>
-              <a href="#">Где купить</a>
-
-                <div class="sub">
-                  <ul>
-                    <li><a href="">Москва</a></li>
-                    <li><a href="">Санкт-Петербург</a></li>
-                    <li><a href="">Дилеры</a></li>
-                  </ul>
-                </div>
-
-              </li>
-              <li>
-              <a href="#">Для партнеров</a>
-
-              </li>
-            </ul>-->
         </div>
     </div>
 

@@ -6,6 +6,7 @@ import org.hibernate.criterion.CriteriaSpecification;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
 import org.ohm.lebetter.Constants.Roles;
+import org.ohm.lebetter.model.SitemapAware;
 import org.ohm.lebetter.model.impl.entities.CategoryEntity;
 import org.ohm.lebetter.model.impl.entities.ProductEntity;
 import org.ohm.lebetter.model.impl.entities.PropertyEntity;
@@ -22,6 +23,7 @@ import org.room13.mallcore.annotations.Permission;
 import org.room13.mallcore.annotations.PermissionsCheckType;
 import org.room13.mallcore.model.ObjectBaseEntity;
 import org.room13.mallcore.spring.service.ObjectExistsException;
+import org.room13.mallcore.util.StringUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.dao.support.DataAccessUtils;
@@ -171,8 +173,15 @@ public class CategoryManagerImpl
                                                   "parent",
                                                   "properties"});
 
-            //Explicit save
-            categoryDao.save(categoryPersist);
+            synchronized (categoryDao) {
+                String altId = StringUtil.translit(categoryPersist.getName());
+                CategoryEntity prev = (CategoryEntity) getByAltId(altId);
+                if (prev != null && !prev.getId().equals(categoryPersist.getId())) {
+                    altId += "-" + categoryPersist.getId();
+                }
+                categoryPersist.setAltId(altId);
+                categoryDao.save(categoryPersist);
+            }
 
         } else {
             throw new ObjectExistsException("Type exists exception");
@@ -219,6 +228,33 @@ public class CategoryManagerImpl
                 names.add(cat.getName());
                 result.add(cat);
             }
+        }
+        return result;
+    }
+
+    @Override
+    public List<CategoryEntity> getAllReadyCategoriesForUI() {
+        List<CategoryEntity> result = new LinkedList<CategoryEntity>();
+        List<CategoryEntity> roots = getAllReadyCategories(null);
+        for (CategoryEntity root : roots) {
+            CategoryEntity rootElement = new CategoryEntity();
+            rootElement.setId(root.getId());
+            rootElement.setRootId(root.getRootId());
+            rootElement.setName(root.getName());
+            rootElement.setCode(root.getCode());
+            List<CategoryEntity> subs = getAllReadyCategories(root);
+            List<CategoryEntity> resSubs = new LinkedList<CategoryEntity>();
+            for (CategoryEntity sub : subs) {
+                CategoryEntity subElement = new CategoryEntity();
+                subElement.setParent(rootElement);
+                subElement.setId(sub.getId());
+                subElement.setRootId(sub.getRootId());
+                subElement.setName(sub.getName());
+                subElement.setCode(sub.getCode());
+                resSubs.add(subElement);
+            }
+            rootElement.setChildren(resSubs);
+            result.add(rootElement);
         }
         return result;
     }
@@ -420,5 +456,10 @@ public class CategoryManagerImpl
                 add(Restrictions.eq("prod.id", product.getId())).
                 add(Restrictions.eq("objectStatus", ObjectBaseEntity.Status.READY));
         return categoryDao.findRootByCriteria(criteria, -1, -1);
+    }
+
+    @Override
+    public SitemapAware getByAltId(String altid) {
+        return SitemapAwareManagerImpl.getByAltId(altid, categoryDao);
     }
 }

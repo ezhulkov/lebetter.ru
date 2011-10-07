@@ -3,6 +3,7 @@ package org.ohm.lebetter.model.impl.entities;
 import org.hibernate.annotations.AccessType;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.ohm.lebetter.model.SitemapAware;
 import org.room13.mallcore.model.CreatorAware;
 import org.room13.mallcore.model.OwnerAware;
 import org.room13.mallcore.model.impl.BaseOwnerAwareEntity;
@@ -17,7 +18,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,9 +34,12 @@ import java.util.List;
 @AccessType("field")
 public class CategoryEntity
         extends BaseOwnerAwareEntity
-        implements OwnerAware, CreatorAware {
+        implements OwnerAware, CreatorAware, SitemapAware {
 
     private static final long serialVersionUID = 2111426163273315211L;
+
+    @Column
+    private String altId;
 
     @Column
     private String name = "";
@@ -120,5 +123,14 @@ public class CategoryEntity
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    @Override
+    public String getAltId() {
+        return altId;
+    }
+
+    public void setAltId(String altId) {
+        this.altId = altId;
     }
 }

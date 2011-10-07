@@ -24,11 +24,7 @@ public class Header extends AbstractBaseComponent {
 
     @Cached
     public List<CategoryEntity> getCategories() {
-        return getServiceFacade().getCategoryManager().getAllReadyCategories(null);
-    }
-
-    public List<CategoryEntity> getSubCategories() {
-        return getServiceFacade().getCategoryManager().getAllReadyCategories(oneCategory);
+        return getServiceFacade().getCategoryManager().getAllReadyCategoriesForUI();
     }
 
 }

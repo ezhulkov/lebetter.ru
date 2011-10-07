@@ -3,147 +3,45 @@
                                 flash="flashMessage"
                                 xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
-<table>
-  <tr>
-    <td class="dbl_col_left">
-      <!-- LeftMenu -->
-      <ul class="leftmenu">
-        <li><a href="">Каталог продукции</a>
-          <ul>
-            <li><a href="">Гостинная</a></li>
-            <li><a href="">Спальня</a>
-              <ul>
-                <li><a href="">Кровати</a></li>
-                <li><a href="">Тумбочки</a></li>
-                <li class="sel"><a href="">Разная мебель</a></li>
-                <li><a href="">Комоды и зеркала</a></li>
-                <li><a href="">Туалетные столики</a></li>
-                <li><a href="">Шкафы</a></li>
-              </ul>
-            </li>
-            <li><a href="">Кабинет</a></li>
-            <li><a href="">Прихожая</a></li>
-            <li><a href="">Ванная</a></li>
-            <li><a href="">Предметы мебели и аксессуары</a></li>
-            <li><a href="">Мебель для гостинных, баров, ресторанов</a></li>
-          </ul>
-        </li>
-      </ul>
-    </td>
-    <td class="dbl_col_right">
-      <!-- ContentBox -->
+    <t:block t:id="breadCrumpsBlock">
+        <a class="status_home" href="/"><img src="/images/0.gif" alt=""/></a>
+        <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+        <a href="/catalog">Каталог продукции</a>
+        <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+        Категории
+    </t:block>
 
-      <div id="bread_crumbs_box" class="status">
-        <a class="status_home" href="/"><img src="/images/0.gif" alt="" /></a><span class="status_hr"><img src="/images/0.gif" alt="" /></span><a href="">Каталог продукции</a><span class="status_hr"><img src="/images/0.gif" alt="" /></span>Товар
-      </div>
+    <t:block t:id="leftMenuBlock">
+        <t:mallcomponents.object.catalogMenu selectedCategory="selectedCategory"/>
+    </t:block>
 
-      <h1>Товар</h1>
-      <!-- Product Categories -->
-      <img src="/images/0.gif" alt="" class="prod_cat_tizer" />
-      <!-- Product Categories Grid -->
-      <div class="prod_cat_box">
-        <ul class="prod_cat_grid">
-          <li><img src="/images/pic/cat/pic1.png" alt="" /><h3><a href="">Столы</a></h3></li>
-          <li><img src="/images/pic/cat/pic2.png" alt="" /><h3><a href="">Стулья</a></h3></li>
-          <li><img src="/images/pic/cat/pic3.png" alt="" /><h3><a href="">Шкафы</a></h3></li>
-          <li><img src="/images/pic/cat/pic4.png" alt="" /><h3><a href="">Тумбочки</a></h3></li>
-          <li><img src="/images/pic/cat/pic5.png" alt="" /><h3><a href="">Комоды</a></h3></li>
-          <li><img src="/images/pic/cat/pic6.png" alt="" /><h3><a href="">Двуспальные кровати</a></h3></li>
-          <li><img src="/images/pic/cat/pic7.png" alt="" /><h3><a href="">Диваны</a></h3></li>
-        </ul>
-      </div>
+    <t:mallcomponents.layout.browse leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
+        <h1>Каталог продукции - ${selectedCategory.name}</h1>
 
+        <!-- Product Categories -->
+        <img src="/images/lb-front/def/nopic3.gif" alt="${selectedCategory.name}" title="${selectedCategory.name}"/>
+        <!-- Product Categories Grid -->
+        <t:if test="subCategories">
+            <div class="prod_cat_box">
+                <ul class="prod_cat_grid">
+                    <t:loop t:formState="NONE" source="subCategories" value="oneSubCategory">
+                        <li>
+                            <t:pageLink t:page="catalog/list" t:context="oneSubCategory.rootId">
+                                <img src="/images/lb-front/def/nopic2.gif" class="quimby_search_image" alt="${oneSubCategory.name}" title="${oneSubCategory.name}"/>
+                            </t:pageLink>
+                            <h3>
+                                <t:pageLink t:page="catalog/list" t:context="oneSubCategory.rootId">${oneSubCategory.name}</t:pageLink>
+                            </h3>
+                        </li>
+                    </t:loop>
+                </ul>
+            </div>
+        </t:if>
 
-      <!-- Product Categories Grid 2 -->
-      <h1>
-        Разная мебель
-        <a class="but_lnk" href=""><img src="/images/0.gif" alt=" " />Журнал</a>
-      </h1>
+    </t:mallcomponents.layout.browse>
 
-
-
-      <div class="prod_cat_box2">
-        <ul class="prod_cat_grid2">
-          <li><img src="/images/pic/cat/mpic1.png" alt="" /><a href="">Столик на кривых ножках</a></li>
-          <li><img src="/images/pic/cat/mpic2.png" alt="" /><a href="">Красивый стул с кожаной обивкой</a></li>
-          <li><img src="/images/pic/cat/mpic3.png" alt="" /><a href="">Кресло в цветочек</a></li>
-          <li><img src="/images/pic/cat/mpic4.png" alt="" /><a href="">Комод с зеркалом</a></li>
-          <li><img src="/images/pic/cat/mpic5.png" alt="" /><a href="">Двуспальная кровать с металлической спинкой</a></li>
-          <li><img src="/images/pic/cat/mpic6.png" alt="" /><a href="">Шкаф трехстворчатый</a></li>
-          <li><img src="/images/pic/cat/mpic7.png" alt="" /><a href="">Двуспальная кровать с кожаной спинкой</a></li>
-          <li><img src="/images/pic/cat/mpic8.png" alt="" /><a href="">Зеленый диван с подушками</a></li>
-          <li><img src="/images/pic/cat/mpic9.png" alt="" /><a href="">Серое кресло</a></li>
-          <li><img src="/images/pic/cat/mpic10.png" alt="" /><a href="">Диван с квадратными и круглыми подушками</a></li>
-          <li><img src="/images/pic/cat/mpic11.png" alt="" /><a href="">Серое кресло</a></li>
-          <li><img src="/images/pic/cat/mpic12.png" alt="" /><a href="">Диван с квадратными и круглыми подушками</a></li>
-          <li><img src="/images/pic/cat/mpic13.png" alt="" /><a href="">Белый стул</a></li>
-          <li><img src="/images/pic/cat/mpic14.png" alt="" /><a href="">Комод на прикольных ножках</a></li>
-          <li><img src="/images/pic/cat/mpic15.png" alt="" /><a href="">Черная тумбочка</a></li>
-        </ul>
-      </div>
-      <div class="hr_big"></div>
-
-      <div class="nav">
-        <a href=""><img class="nav_prev" src="/images/0.gif" alt="" /></a><span class="slide_bu_che">1</span><a href="">2</a><a href="">3</a><a href="">4</a><a href="">5</a><a href="">6</a><a href="">7</a><a href="">8</a><a href="">9</a><a href="">10</a><a href="">11</a><a href="">12</a><span>...</span><a href="">78</a><a href="">Показать все</a><a class="l" href=""><img class="nav_next" src="/images/0.gif" alt="" /></a>
-      </div>
-
-      <br /><br />
-
-      <!-- Product Item -->
-      <h1>Двуспальная кровать</h1>
-      <div class="prod_item_box">
-        <div class="prod_item_l">
-          <!-- img -->
-
-
-        </div>
-        <div class="prod_item_r">
-          <!-- descr -->
-          <table class="prod_inf">
-            <tr>
-              <td>Размер:</td>
-              <td><b>270x200x120</b></td>
-            </tr>
-            <tr>
-              <td>Размер матраса:</td>
-              <td><b>220х200</b></td>
-            </tr>
-            <tr>
-              <td>Материал обивки:</td>
-              <td><b>Кожа</b></td>
-            </tr>
-            <tr>
-              <td>Дерево:</td>
-              <td><b>Дуб</b></td>
-            </tr>
-            <tr>
-              <td>Подушки в комплекте:</td>
-              <td><b>4 шт.</b></td>
-            </tr>
-          </table>
-
-          <div class="prod_colors">
-            <b>Цвет:</b><a class="prod_colors_item" href=""><img style="background: #ff9000;" src="/images/0.gif" alt="" /></a><a class="prod_colors_item" href=""><img style="background: #7cada7;" src="/images/0.gif" alt="" /></a><a class="prod_colors_item" href=""><img style="background: #e9e8ca;" src="/images/0.gif" alt="" /></a><a class="prod_colors_item" href=""><img style="background: #0f1014;" src="/images/0.gif" alt="" /></a>
-          </div>
-
-          <div class="hr_mid"></div>
-
-          <p>Модель нового качества. Необычный дизайн очевиден при первом взгляде: кровать с перемещающимися по окружности кровати спинками, угловая секция с нишей-баром внутри, стеклянные полки, оснащенные светодиодными светильниками, столешница с высокоглянцевым белым покрытием, радиоуправление освещением.</p>
-
-        </div>
-      </div>
-
-      <div class="break"></div>
-
-      <t:pageLink t:page="catalog/list">Категории</t:pageLink>
-
-        <t:mallComponents.control.javascript>
-              /* Start 'gridManipulation' */
-              AG.gridManipulation();
-        </t:mallComponents.control.javascript>
-
-    </td>
-  </tr>
-</table>
+    <t:mallComponents.control.javascript>
+        AG.colorCell("#menu${selectedCategory.rootId}");
+    </t:mallComponents.control.javascript>
 
 </t:mallcomponents.layout.layout>
