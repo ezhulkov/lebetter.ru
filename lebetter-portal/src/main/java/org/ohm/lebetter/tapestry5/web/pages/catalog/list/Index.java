@@ -1,6 +1,6 @@
 package org.ohm.lebetter.tapestry5.web.pages.catalog.list;
 
-import org.ohm.lebetter.tapestry5.web.pages.base.AbstractBasePage;
+import org.ohm.lebetter.tapestry5.web.pages.base.AbstractBrowseBasePage;
 
 /**
  * Created by IntelliJ IDEA.
@@ -9,6 +9,6 @@ import org.ohm.lebetter.tapestry5.web.pages.base.AbstractBasePage;
  * Time: 16:23
  * To change this template use File | Settings | File Templates.
  */
-public class Index extends AbstractBasePage {
+public class Index extends AbstractBrowseBasePage {
 
 }

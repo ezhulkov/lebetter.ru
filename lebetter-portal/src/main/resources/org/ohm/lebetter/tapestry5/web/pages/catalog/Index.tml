@@ -3,27 +3,29 @@
                                 flash="flashMessage"
                                 xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
-    <t:block t:id="breadCrumpsBlock">
-        <a class="status_home" href="/"><img src="/images/0.gif" alt=""/></a>
-        <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
-        <a href="/catalog">Каталог продукции</a>
-        <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
-        Категории
-    </t:block>
+    <t:mallcomponents.control.selectedObject>
 
-    <t:block t:id="leftMenuBlock">
-        <t:mallcomponents.object.catalogMenu selectedCategory="selectedCategory"/>
-    </t:block>
+        <t:block t:id="breadCrumpsBlock">
+            <a class="status_home" href="/"><img src="/images/0.gif" alt=""/></a>
+            <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+            <a href="/catalog">Каталог продукции</a>
+            <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+            Категории
+        </t:block>
 
-    <t:mallcomponents.layout.browse leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
-        <h1>Каталог продукции - ${selectedCategory.name}</h1>
+        <t:block t:id="leftMenuBlock">
+            <t:mallcomponents.object.catalogMenu selectedCategory="selectedCategory"/>
+        </t:block>
 
-        <!-- Product Categories -->
-        <img src="/images/lb-front/def/nopic3.gif" alt="${selectedCategory.name}" title="${selectedCategory.name}"/>
-        <!-- Product Categories Grid -->
-        <t:if test="subCategories">
-            <div class="prod_cat_box">
-                <ul class="prod_cat_grid">
+        <t:mallcomponents.layout.browse leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
+            <h1>Каталог продукции - ${selectedCategory.name}</h1>
+
+            <!-- Product Categories -->
+            <img src="/images/lb-front/def/nopic3.gif" alt="${selectedCategory.name}" title="${selectedCategory.name}"/>
+            <!-- Product Categories Grid -->
+            <t:if test="subCategories">
+                <div class="prod_cat_box">
+                    <ul class="prod_cat_grid">
                     <t:loop t:formState="NONE" source="subCategories" value="oneSubCategory">
                         <li>
                             <t:pageLink t:page="catalog/list" t:context="oneSubCategory.rootId">
@@ -34,14 +36,16 @@
                             </h3>
                         </li>
                     </t:loop>
-                </ul>
-            </div>
-        </t:if>
+                    </ul>
+                </div>
+            </t:if>
 
-    </t:mallcomponents.layout.browse>
+        </t:mallcomponents.layout.browse>
 
-    <t:mallComponents.control.javascript>
-        AG.colorCell("#menu${selectedCategory.rootId}");
-    </t:mallComponents.control.javascript>
+        <t:mallComponents.control.javascript>
+            AG.colorCell("#menu${selectedCategory.rootId}");
+        </t:mallComponents.control.javascript>
+
+    </t:mallcomponents.control.selectedObject>
 
 </t:mallcomponents.layout.layout>
