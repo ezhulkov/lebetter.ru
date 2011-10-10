@@ -685,21 +685,26 @@ ul.prod_cat_grid li {
   width: 162px;
 }
 ul.prod_cat_grid li {
-  background: url(/images/hr5.png) no-repeat -180px 0px;
-}
-ul.prod_cat_grid li.r_b {
-  background: url(/images/hr5.png) no-repeat -180px 0px;
+  background: url(/images/hr9.png) no-repeat -192px -80px;
 }
 ul.prod_cat_grid li.r_f {
-  background: url(/images/hr5.png) no-repeat -180px 0px;
+  background: url(/images/hr9.png) no-repeat -192px 0px;
 }
 ul.prod_cat_grid li.r_l {
-  background: url(/images/hr5.png) no-repeat -530px 0px;
+  background: url(/images/hr9.png) no-repeat -360px 0px;
 }
 ul.prod_cat_grid li.r_b {
-  background: url(/images/hr5.png) no-repeat -180px -80px;
+  background: url(/images/hr9.png) no-repeat -192px -160px;
 }
-
+ul.prod_cat_grid li.r_l.r_b {
+  background: url(/images/hr9.png) no-repeat -360px -160px;
+}
+ul.prod_cat_grid li.r_s {
+  background: url(/images/hr10.png) no-repeat 162px 0px;
+}
+ul.prod_cat_grid li.r_s.r_l {
+  background: none;
+}
 
 ul.prod_cat_grid li img {
   margin: 0px 9px 0px 0px;
