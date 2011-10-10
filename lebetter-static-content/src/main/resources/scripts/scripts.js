@@ -54,6 +54,27 @@ AG = {
     gridManipulation: function() {
        jQuery("ul.prod_cat_grid2 li:nth-child(5n)").addClass("row");
     },
+    gridCatManipulation: function() {
+       jQuery("ul.prod_cat_grid li:nth-child(4n), ul.prod_cat_grid li:last-child").addClass("r_l");
+       var prodLength = jQuery("ul.prod_cat_grid li").length; // вычисляем количество item-ов
+       var prodRows = Math.ceil(prodLength/4); //вычисляем количество строк
+
+       jQuery("ul.prod_cat_grid li").each(function(i){
+         var rowNumber = Math.floor(i/4 + 1);
+         jQuery(this).addClass("r" + rowNumber);
+         if(rowNumber>=prodRows){
+           jQuery(this).addClass("r_b");
+         }
+         if(prodLength<=4 && rowNumber==1){
+           jQuery(this).addClass("r_s");
+         }
+         if(rowNumber==1){
+           jQuery(this).addClass("r_f");
+         }
+       });
+
+       //alert(prodLength + '   ' + prodRows);
+    },
     menuPlay: function() {
 
         function megaHoverOver() {
