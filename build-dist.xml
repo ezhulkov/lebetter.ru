@@ -111,7 +111,7 @@
             <fileset dir="${tomcat.home}/webapps/ROOT" includes="**/*"/>
         </chgrp>
         <chmod perm="775">
-            <fileset dir="${tomcat.home}/webapps/ROOT" includes="**/*.jsp"/>
+            <fileset dir="${tomcat.home}/webapps/ROOT" includes="**/*.tml"/>
         </chmod>
     </target>
 
