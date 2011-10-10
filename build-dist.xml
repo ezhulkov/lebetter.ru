@@ -105,8 +105,13 @@
         <echo message="Deploing portal files"/>
         <unzip src="${package-portal.name}" dest="${work.dir}/deploy"/>
         <unjar src="${work.dir}/deploy/ROOT.war" dest="${tomcat.home}/webapps/ROOT"/>
-        <chmod perm="g+w">
-            <fileset dir="${tomcat.home}/webapps/ROOT" includes="**/*.tml"/>
+        <chgrp group="webdev">
+            <dirset dir="${tomcat.home}/webapps/ROOT" includes="*"/>
+            <dirset dir="${tomcat.home}/webapps/ROOT" includes="**/*"/>
+            <fileset dir="${tomcat.home}/webapps/ROOT" includes="**/*"/>
+        </chgrp>
+        <chmod perm="775">
+            <fileset dir="${tomcat.home}/webapps/ROOT" includes="**/*.jsp"/>
         </chmod>
     </target>
 
@@ -115,8 +120,14 @@
         <unzip src="${package-nginx.name}" dest="${work.dir}/deploy"/>
         <gunzip src="${work.dir}/deploy/lb-static-content.tar.gz" dest="${work.dir}/deploy/lb-static-content.tar"/>
         <untar src="${work.dir}/deploy/lb-static-content.tar" dest="${nginx.home}"/>
-        <chmod perm="g+w">
-            <fileset dir="${nginx.home}" includes="*"/>
+        <chgrp group="webdev">
+            <dirset dir="${nginx.home}" includes="*"/>
+            <dirset dir="${nginx.home}" includes="**/*"/>
+            <fileset dir="${nginx.home}" includes="**/*"/>
+        </chgrp>
+        <chmod perm="775">
+            <dirset dir="${nginx.home}" includes="*"/>
+            <dirset dir="${nginx.home}" includes="**/*"/>
             <fileset dir="${nginx.home}" includes="**/*"/>
         </chmod>
         <delete file="${work.dir}/deploy/lb-static-content.tar"/>
