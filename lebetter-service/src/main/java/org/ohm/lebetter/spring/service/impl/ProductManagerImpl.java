@@ -14,6 +14,7 @@ import org.ohm.lebetter.model.impl.entities.UserEntity;
 import org.ohm.lebetter.spring.dao.ProductDao;
 import org.ohm.lebetter.spring.service.ProductManager;
 import org.room13.mallcore.log.RMLogger;
+import org.room13.mallcore.model.ObjectBaseEntity.Status;
 import org.room13.mallcore.spring.dao.OwnerDao;
 import org.room13.mallcore.spring.service.ObjectExistsException;
 import org.room13.mallcore.util.StringUtil;
@@ -59,8 +60,12 @@ public class ProductManagerImpl
     }
 
     @Override
-    public List<Long> getIdsByCategory(CategoryEntity category) {
+    public List<Long> getIdsByCategory(CategoryEntity category, Status status) {
         DetachedCriteria criteria = DetachedCriteria.forClass(ProductEntity.class);
+
+        if (status != null) {
+            criteria.add(Restrictions.eq("objectStatus", status));
+        }
 
         if (category != null) {
             if (category.getParent() == null) {

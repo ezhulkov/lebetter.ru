@@ -6,47 +6,26 @@
     </h1>
 
     <div class="prod_cat_box2">
-        <ul class="prod_cat_grid2">
-            <li>
-                <img src="/images/pic/cat/mpic1.png" alt=""/><a href="">Столик на кривых ножках</a>
-            </li>
-            <li>
-                <img src="/images/pic/cat/mpic2.png" alt=""/><a href="">Красивый стул с кожаной обивкой</a>
-            </li>
-            <li><img src="/images/pic/cat/mpic3.png" alt=""/><a href="">Кресло в цветочек</a></li>
-            <li><img src="/images/pic/cat/mpic4.png" alt=""/><a href="">Комод с зеркалом</a></li>
-            <li>
-                <img src="/images/pic/cat/mpic5.png" alt=""/><a href="">Двуспальная кровать с металлической спинкой</a>
-            </li>
-            <li><img src="/images/pic/cat/mpic6.png" alt=""/><a href="">Шкаф трехстворчатый</a></li>
-            <li>
-                <img src="/images/pic/cat/mpic7.png" alt=""/><a href="">Двуспальная кровать с кожаной спинкой</a>
-            </li>
-            <li><img src="/images/pic/cat/mpic8.png" alt=""/><a href="">Зеленый диван с подушками</a>
-            </li>
-            <li><img src="/images/pic/cat/mpic9.png" alt=""/><a href="">Серое кресло</a></li>
-            <li>
-                <img src="/images/pic/cat/mpic10.png" alt=""/><a href="">Диван с квадратными и круглыми подушками</a>
-            </li>
-            <li><img src="/images/pic/cat/mpic11.png" alt=""/><a href="">Серое кресло</a></li>
-            <li>
-                <img src="/images/pic/cat/mpic12.png" alt=""/><a href="">Диван с квадратными и круглыми подушками</a>
-            </li>
-            <li><img src="/images/pic/cat/mpic13.png" alt=""/><a href="">Белый стул</a></li>
-            <li>
-                <img src="/images/pic/cat/mpic14.png" alt=""/><a href="">Комод на прикольных ножках</a>
-            </li>
-            <li><img src="/images/pic/cat/mpic15.png" alt=""/><a href="">Черная тумбочка</a></li>
-        </ul>
+        <t:if test="products">
+            !!!<ul class="prod_cat_grid2">
+                <t:mallComponents.control.pagedLoopAjax source="products"
+                                                        rowsPerPage="16"
+                                                        value="oneProduct">
+                    <li>
+                        <img src="/images/pic/cat/mpic1.png" alt=""/><a href="">Столик на кривых ножках</a>
+                    </li>
+                </t:mallComponents.control.pagedLoopAjax>
+            </ul>!!!
+        </t:if>
     </div>
-    <div class="hr_big"></div>
+    <!--<div class="hr_big"></div>-->
 
-    <div class="nav">
-        <span class="slide_bu_che">1</span>
-        <a href="">2</a><a href="">3</a><a href="">4</a><a href="">5</a><a href="">6</a><a href="">7</a><a href="">8</a><a href="">9</a><a href="">10</a><a href="">11</a><a href="">12</a>
-        <span>...</span>
-        <a href="">78</a>
-    </div>
+    <!--<div class="nav">-->
+    <!--<span class="slide_bu_che">1</span>-->
+    <!--<a href="">2</a><a href="">3</a><a href="">4</a><a href="">5</a><a href="">6</a><a href="">7</a><a href="">8</a><a href="">9</a><a href="">10</a><a href="">11</a><a href="">12</a>-->
+    <!--<span>...</span>-->
+    <!--<a href="">78</a>-->
+    <!--</div>-->
 
     <t:mallComponents.control.javascript>
         AG.colorCell("#menu${selectedCategory.rootId}");

@@ -29,7 +29,8 @@ public class List extends AdminBasePage {
 
     @Cached
     public GridDataSource getProducts() {
-        java.util.List<Long> ids = getServiceFacade().getProductManager().getIdsByCategory(selectedCategory);
+        java.util.List<Long> ids = getServiceFacade().getProductManager().getIdsByCategory(selectedCategory,
+                                                                                           null);
         return new GenericEntityGridDS<ProductEntity>(ids,
                                                       getServiceFacade().getProductManager(),
                                                       ProductEntity.class);
