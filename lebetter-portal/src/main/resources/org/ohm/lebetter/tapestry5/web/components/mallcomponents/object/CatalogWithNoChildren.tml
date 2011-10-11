@@ -13,9 +13,9 @@
                                                         value="oneProduct">
                     <li>
                         <t:pageLink t:page="index" t:context="oneProduct.name">
-                            <img src="/images/lb-front/def/nopic4.gif" alt="${oneProduct.name}" title="${oneProduct.name}"/>
+                            <img src="/images/lb-front/def/nopic4.gif" alt="${oneProduct.altid}" title="${oneProduct.name}"/>
                         </t:pageLink>
-                        <t:pageLink t:page="index" t:context="oneProduct.name">${oneProduct.name}</t:pageLink>
+                        <t:pageLink t:page="catalog" t:context="productContext">${oneProduct.name}</t:pageLink>
                     </li>
                 </t:mallComponents.control.pagedLoopAjax>
             </ul>

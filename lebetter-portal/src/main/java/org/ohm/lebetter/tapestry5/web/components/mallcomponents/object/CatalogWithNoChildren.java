@@ -26,4 +26,13 @@ public class CatalogWithNoChildren extends AbstractBaseComponent {
         return getServiceFacade().getProductManager().getAll(ids);
     }
 
+    public String[] getProductContext() {
+        CategoryEntity cat = null;
+        oneProduct = getServiceFacade().getProductManager().get(oneProduct.getId());
+        if (oneProduct.getCategories() != null && oneProduct.getCategories().size() != 0) {
+            cat = oneProduct.getCategories().get(0);
+        }
+        return new String[]{cat == null ? "" : cat.getAltId(), oneProduct.getAltId()};
+    }
+
 }
