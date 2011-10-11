@@ -1,4 +1,4 @@
-<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+﻿<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
     <h1>
         ${selectedCategory.name}
@@ -48,9 +48,166 @@
         <a href="">78</a>
     </div>
 
+
+
+
+<!-- ==================================================== -->
+
+<h1>Двуспальная кровать</h1>
+
+
+<div class="prod_item_box">
+  <div class="prod_item_l">
+  <!-- img -->
+    <div class="prod_item_img">
+
+      <div id="gallery" class="cont">
+        <div id="controls" class="controls"></div>
+        <div class="slideshow-container">
+          <div id="loading" class="loader"></div>
+          <div id="slideshow" class="slideshow"></div>
+        </div>
+        <div id="caption" class="caption-container"></div>
+      </div>
+      <div id="thumbs" class="navigation">
+        <ul class="thumbs noscript">
+          <li>
+            <a class="thumb" name="leaf1" href="/images/pic/cat/prod-1-m.jpg" title="Title #0"><img src="/images/pic/cat/prod-1-s.jpg" alt="Title #0" /></a>
+            <div class="caption">
+              <div class="download">
+                <a id="pic1" rel="bigpics_group" href="/images/pic/cat/prod-1-m.jpg">Увеличить изображение</a>
+                <script language="JavaScript" type="text/javascript">
+                  jQuery("a#pic1").fancybox({
+                    'titleShow'     : false
+                  });
+                </script>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a class="thumb" name="leaf2" href="/images/pic/cat/prod-2-m.jpg" title="Title #0"><img src="/images/pic/cat/prod-2-s.jpg" alt="Title #0" /></a>
+            <div class="caption">
+              <div class="download">
+                <a id="pic2" rel="bigpics_group" href="http://farm4.static.flickr.com/3261/2538183196_8baf9a8015_b.jpg">Увеличить изображение</a>
+                <script language="JavaScript" type="text/javascript">
+                  jQuery("a#pic2").fancybox({
+                    'titleShow'     : false
+                  });
+                </script>
+              </div>
+            </div>
+          </li>
+          <li>
+          <a class="thumb" name="leaf3" href="/images/pic/cat/prod-3-m.jpg" title="Title #0"><img src="/images/pic/cat/prod-3-s.jpg" alt="Title #0" /></a>
+          <div class="caption">
+            <div class="download">
+              <a id="pic3" rel="bigpics_group" href="http://farm4.static.flickr.com/3261/2538183196_8baf9a8015_b.jpg">Увеличить изображение</a>
+              <script language="JavaScript" type="text/javascript">
+                jQuery("a#pic3").fancybox({
+                  'titleShow'     : false
+                });
+              </script>
+            </div>
+          </div>
+          </li>
+          <li>
+          <a class="thumb" name="leaf4" href="http://farm4.static.flickr.com/3261/2538183196_8baf9a8015.jpg" title="Title #0"><img src="http://farm4.static.flickr.com/3261/2538183196_8baf9a8015_s.jpg" alt="Title #0" /></a>
+          <div class="caption">
+          <div class="download">
+          <a id="pic4" rel="bigpics_group" href="http://farm4.static.flickr.com/3261/2538183196_8baf9a8015_b.jpg">Увеличить изображение</a>
+              <script language="JavaScript" type="text/javascript">
+                jQuery("a#pic4").fancybox({
+                  'titleShow'     : false
+                });
+              </script>
+          </div>
+          </div>
+          </li>
+          <li>
+          <a class="thumb" name="leaf5" href="http://farm4.static.flickr.com/3261/2538183196_8baf9a8015.jpg" title="Title #0"><img src="http://farm4.static.flickr.com/3261/2538183196_8baf9a8015_s.jpg" alt="Title #0" /></a>
+          <div class="caption">
+          <div class="download">
+          <a id="pic5" rel="bigpics_group" href="http://farm4.static.flickr.com/3261/2538183196_8baf9a8015_b.jpg">Увеличить изображение</a>
+              <script language="JavaScript" type="text/javascript">
+                jQuery("a#pic5").fancybox({
+                  'titleShow'     : false
+                });
+              </script>
+          </div>
+          </div>
+          </li>
+          <li>
+          <a class="thumb" name="leaf6" href="http://farm4.static.flickr.com/3261/2538183196_8baf9a8015.jpg" title="Title #0"><img src="http://farm4.static.flickr.com/3261/2538183196_8baf9a8015_s.jpg" alt="Title #0" /></a>
+          <div class="caption">
+          <div class="download">
+          <a id="pic6" rel="bigpics_group" href="http://farm4.static.flickr.com/3261/2538183196_8baf9a8015_b.jpg">Увеличить изображение</a>
+              <script language="JavaScript" type="text/javascript">
+                jQuery("a#pic6").fancybox({
+                  'titleShow'     : false
+                });
+              </script>
+          </div>
+          </div>
+          </li>
+          <li>
+          <a class="thumb" name="leaf7" href="http://farm4.static.flickr.com/3261/2538183196_8baf9a8015.jpg" title="Title #0"><img src="http://farm4.static.flickr.com/3261/2538183196_8baf9a8015_s.jpg" alt="Title #0" /></a>
+          <div class="caption">
+          <div class="download">
+          <a id="pic7" rel="bigpics_group" href="http://farm4.static.flickr.com/3261/2538183196_8baf9a8015_b.jpg">Увеличить изображение</a>
+              <script language="JavaScript" type="text/javascript">
+                jQuery("a#pic7").fancybox({
+                  'titleShow'     : false
+                });
+              </script>
+          </div>
+          </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+
+  </div>
+  <div class="prod_item_r">
+  <!-- descr -->
+  <table class="prod_inf">
+    <tr>
+      <td>Размер:</td>
+      <td><b>270x200x120</b></td>
+    </tr>
+    <tr>
+      <td>Размер матраса:</td>
+      <td><b>220х200</b></td>
+    </tr>
+    <tr>
+      <td>Материал обивки:</td>
+      <td><b>Кожа</b></td>
+    </tr>
+    <tr>
+      <td>Дерево:</td>
+      <td><b>Дуб</b></td>
+    </tr>
+    <tr>
+      <td>Подушки в комплекте:</td>
+      <td><b>4 шт.</b></td>
+    </tr>
+  </table>
+  <div class="prod_colors">
+  <b>Цвет:</b><a class="prod_colors_item" href=""><img style="background: #ff9000;" src="/images/0.gif" alt="" /></a><a class="prod_colors_item" href=""><img style="background: #7cada7;" src="/images/0.gif" alt="" /></a><a class="prod_colors_item" href=""><img style="background: #e9e8ca;" src="/images/0.gif" alt="" /></a><a class="prod_colors_item" href=""><img style="background: #0f1014;" src="/images/0.gif" alt="" /></a>
+  </div>
+  <div class="hr_mid"></div>
+  <p>Модель нового качества. Необычный дизайн очевиден при первом взгляде: кровать с перемещающимися по окружности кровати спинками, угловая секция с нишей-баром внутри, стеклянные полки, оснащенные светодиодными светильниками, столешница с высокоглянцевым белым покрытием, радиоуправление освещением.</p>
+  </div>
+</div>
+
+<!-- /==================================================================================== -->
+
+
     <t:mallComponents.control.javascript>
         AG.colorCell("#menu${selectedCategory.rootId}");
         AG.gridManipulation();
+        AG.galleryItem();
     </t:mallComponents.control.javascript>
 
 </div>

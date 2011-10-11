@@ -14,6 +14,10 @@
             <meta name="description" content="${description}"/>
         </t:if>
 
+		<link rel="stylesheet" href="/styles/galleriffic.css" type="text/css" />
+		<script type="text/javascript" src="/scripts/jquery.galleriffic.js"></script>
+		<script type="text/javascript" src="/scripts/jquery.opacityrollover.js"></script>
+
         <script type="text/javascript" language="JavaScript">
             jQuery.noConflict();
         </script>

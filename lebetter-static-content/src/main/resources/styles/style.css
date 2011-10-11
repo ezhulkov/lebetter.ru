@@ -47,6 +47,9 @@ input, select, textarea {
 .printable {
   display: none;
 }
+.noscript {
+  display: none;
+}
 .top {
   background: #ffffff url(/images/bg2.gif) repeat-x 0px 100%;
 }
@@ -771,11 +774,19 @@ ul.prod_cat_grid2 li a {
 .prod_item_r {
   width: 288px;
   padding-left: 432px;
+  display: table;
 }
 *+html .prod_item_r {
   padding-left: 0px !important;
   /* ie7 */
 }
+.prod_item_img {
+  height: 330px;
+  width: 410px;
+  overflow: hidden;
+}
+
+
 .prod_inf {
   padding: 0px 19px 0px 0px;
   margin-bottom: 8px;
