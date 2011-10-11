@@ -1,4 +1,4 @@
-<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="propertytype">
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="productnew">
 
     <t:mallComponents.control.editObject
             addAction="ADD_PRODUCT"
@@ -12,7 +12,8 @@
             listPage="literal:/po/catalog/list"
             objectPage="literal:/po/catalog"
             objectManager="serviceFacade.productManager"
-            selectedObject="selectedObject">
+            selectedObject="selectedObject"
+            submitCallback="callback">
 
         <div class="input_box">
             <div class="input_label">

@@ -7,6 +7,7 @@ import org.apache.tapestry5.corelib.components.TextField;
 import org.ohm.lebetter.model.impl.entities.CategoryEntity;
 import org.ohm.lebetter.model.impl.entities.ProductEntity;
 import org.ohm.lebetter.tapestry5.web.components.base.AbstractEditComponent;
+import org.ohm.lebetter.tapestry5.web.components.base.EditObjectCallback;
 import org.ohm.lebetter.tapestry5.web.services.impl.GenericSelectModel;
 
 import java.util.LinkedList;
@@ -37,7 +38,7 @@ public class ProductNew extends AbstractEditComponent {
         for (CategoryEntity cat : cats) {
             readyCategories.add(cat);
             for (CategoryEntity child : cat.getChildren()) {
-                child.setName("---------" + child.getName());
+                child.setName("--------- " + child.getName());
                 readyCategories.add(child);
             }
         }
@@ -59,6 +60,21 @@ public class ProductNew extends AbstractEditComponent {
 
     public void setSelectedObject(ProductEntity object) {
         setSelectedObjectInternal(object);
+    }
+
+    public EditObjectCallback getCallback() {
+        return new EditObjectCallback<ProductEntity>() {
+            @Override
+            public boolean onFormSubmit(ProductEntity object) throws Exception {
+                object.getCategories().add(category);
+                return true;
+            }
+
+            @Override
+            public boolean onPostFormSubmit(ProductEntity object) throws Exception {
+                return true;
+            }
+        };
     }
 
 }

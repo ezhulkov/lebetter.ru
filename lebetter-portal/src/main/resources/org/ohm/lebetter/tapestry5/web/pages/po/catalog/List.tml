@@ -4,10 +4,10 @@
                                 xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
     <t:block t:id="breadCrumpsBlock">
-        <a class="objectStatus_home" href="/"><img src="/images/0.gif" alt=""/></a>
-        <span class="objectStatus_hr"><img src="/images/0.gif" alt=""/></span>
+        <a class="status_home" href="/"><img src="/images/0.gif" alt=""/></a>
+        <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
         <a href="/po">Личный кабинет</a>
-        <span class="objectStatus_hr"><img src="/images/0.gif" alt=""/></span>
+        <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
         Каталог
     </t:block>
 
@@ -22,6 +22,8 @@
         </div>
 
         <h1>Каталог</h1>
+
+        <t:mallComponents.object.productFilter category="selectedCategory"/>
 
         <t:grid pagerPosition="bottom" rowsPerPage="50" id="datagrid" source="products" row="oneProduct"
                 include="name,objectStatus" add="photo,category" reorder="photo,name,category,objectStatus">

@@ -27,10 +27,6 @@ public class List extends AdminBasePage {
         selectedCategory = getServiceFacade().getCategoryManager().get(cid);
     }
 
-    public Long onPassivate() {
-        return selectedCategory == null ? null : selectedCategory.getRootId();
-    }
-
     @Cached
     public GridDataSource getProducts() {
         java.util.List<Long> ids = getServiceFacade().getProductManager().getIdsByCategory(selectedCategory);
