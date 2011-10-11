@@ -7,15 +7,18 @@
 
     <div class="prod_cat_box2">
         <t:if test="products">
-            !!!<ul class="prod_cat_grid2">
+            <ul class="prod_cat_grid2">
                 <t:mallComponents.control.pagedLoopAjax source="products"
                                                         rowsPerPage="16"
                                                         value="oneProduct">
                     <li>
-                        <img src="/images/pic/cat/mpic1.png" alt=""/><a href="">Столик на кривых ножках</a>
+                        <t:pageLink t:page="index" t:context="oneProduct.name">
+                            <img src="/images/lb-front/def/nopic4.gif" alt="${oneProduct.name}" title="${oneProduct.name}"/>
+                        </t:pageLink>
+                        <t:pageLink t:page="index" t:context="oneProduct.name">${oneProduct.name}</t:pageLink>
                     </li>
                 </t:mallComponents.control.pagedLoopAjax>
-            </ul>!!!
+            </ul>
         </t:if>
     </div>
     <!--<div class="hr_big"></div>-->
