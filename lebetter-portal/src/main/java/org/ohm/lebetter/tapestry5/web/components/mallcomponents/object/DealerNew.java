@@ -15,9 +15,6 @@ public class DealerNew extends AbstractEditComponent {
     @Component(id = "discount", parameters = {"value=selectedObject.discount", "validate=maxlength=64"})
     private TextField propertyFNameField;
 
-    @Component(id = "description", parameters = {"value=selectedObject.description", "validate=maxlength=4000"})
-    private TextArea descField;
-
     public DealerEntity getSelectedObject() {
         if (getSelectedObjectInternal() == null) {
             DealerEntity selectedObject = getServiceFacade().getDealerManager().getNewInstance();

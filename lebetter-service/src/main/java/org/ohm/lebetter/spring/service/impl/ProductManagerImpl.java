@@ -1,5 +1,6 @@
 package org.ohm.lebetter.spring.service.impl;
 
+import org.hibernate.criterion.CriteriaSpecification;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projection;
@@ -13,7 +14,6 @@ import org.ohm.lebetter.model.impl.entities.UserEntity;
 import org.ohm.lebetter.spring.dao.ProductDao;
 import org.ohm.lebetter.spring.service.ProductManager;
 import org.room13.mallcore.log.RMLogger;
-import org.room13.mallcore.model.ObjectBaseEntity;
 import org.room13.mallcore.spring.dao.OwnerDao;
 import org.room13.mallcore.spring.service.ObjectExistsException;
 import org.room13.mallcore.util.StringUtil;
@@ -22,7 +22,6 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Set;
 
 
 @SuppressWarnings("unchecked")
@@ -59,56 +58,23 @@ public class ProductManagerImpl
 
     }
 
-    protected DetachedCriteria applySort(String sortField, String sortOrder, DetachedCriteria criteria) {
-        if (sortField != null) {
-            if (sortField.contains(".")) {
-                String[] sAliases = sortField.split("\\.");
-                for (int i = 0; i < sAliases.length - 1; i++) {
-                    criteria = criteria.createAlias(sAliases[i], sAliases[i]);
-                }
-            }
-            if ("desc".equalsIgnoreCase(sortOrder)) {
-                criteria = criteria.addOrder(Order.desc(sortField));
-            } else {
-                criteria = criteria.addOrder(Order.asc(sortField));
-            }
-        }
-        return criteria;
-    }
-
-    @Override
-    public ProductEntity getProductByArticul(String articul) {
-        DetachedCriteria criteria = DetachedCriteria.
-                forClass(ProductEntity.class).
-                add(Restrictions.eq("rootId", articul)).
-                add(Restrictions.eq("objectStatus", ObjectBaseEntity.Status.READY));
-        List<ProductEntity> res = genericDao.findRootByCriteria(criteria, 0, 1);
-        if (res.size() == 0) {
-            return null;
-        } else {
-            return res.get(0);
-        }
-    }
-
     @Override
     public List<Long> getIdsByCategory(CategoryEntity category) {
-
         DetachedCriteria criteria = DetachedCriteria.forClass(ProductEntity.class);
 
-        criteria.createAlias("categories", "cat");
-        criteria.add(Restrictions.eq("cat.rootId", category.getRootId()));
+        if (category != null) {
+            if (category.getParent() == null) {
+                criteria.createAlias("categories", "cat", CriteriaSpecification.INNER_JOIN);
+                criteria.createAlias("cat.parent", "rcat", CriteriaSpecification.INNER_JOIN);
+                criteria.add(Restrictions.eq("rcat.rootId", category.getRootId()));
+            } else {
+                criteria.createAlias("categories", "cat");
+                criteria.add(Restrictions.eq("cat.rootId", category.getRootId()));
+            }
+        }
         criteria.addOrder(Order.asc("name"));
         Projection projection = Projections.property("id");
         return genericDao.findProjectionByCriteria(criteria, projection, -1, -1);
-
-    }
-
-    @Override
-    @Transactional
-    public void removeByIdList(Set<Long> ids, UserEntity user) {
-        for (Long id : ids) {
-            remove(get(id), user);
-        }
     }
 
     @Override
@@ -117,11 +83,8 @@ public class ProductManagerImpl
                                           Order sort) {
         long startTime = System.currentTimeMillis();
         getRMLogger().debug("Entering getSearchObjectsIds");
-
         List<Long> result = productDao.getSearchProductIds(category, values, sort);
-
         getRMLogger().debug("Time: " + (System.currentTimeMillis() - startTime));
-
         return result;
     }
 
