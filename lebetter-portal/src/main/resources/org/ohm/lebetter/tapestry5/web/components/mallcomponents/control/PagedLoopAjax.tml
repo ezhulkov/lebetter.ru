@@ -12,20 +12,21 @@
             </t:loop>
         </div>
 
-        <div class='break'></div><br/>
-      <!--Pager-->
-       <div class="slide_pager">
+        <div class='break'></div>
+        <br/>
+        <!--Pager-->
+        <div class="slide_pager">
         <t:loop t:formState="NONE" source="pages" value="onePage">
             <t:if test="onePage.link">
                 <t:if test="pageSelected">
                     <span class="slide_bu_che">${onePage.hint}</span>
                     <t:parameter name="else">
                         <t:mallComponents.control.ie9CompatibleActionLink t:id="setPageAjax"
-                                      t:context="ctx"
-                                      t:zone="${zoneId}">
-                      <!--<a href='#${onePage.idx}'>-->
+                                                                          t:context="ctx"
+                                                                          t:zone="${zoneId}">
+                            <!--<a href='#${onePage.idx}'>-->
                             ${onePage.hint}
-                      <!--</a>-->
+                            <!--</a>-->
                         </t:mallComponents.control.ie9CompatibleActionLink>
                     </t:parameter>
                 </t:if>
@@ -39,40 +40,40 @@
             <t:if test="reloadCallback">
                 ${reloadCallback};
             </t:if>
-         </script>
+        </script>
     </t:block>
 
     <t:block id="empty">
         <p class="nomsg">${message:empty.list}</p>
     </t:block>
 
-  <div style="display:none">
-    <t:mallComponents.control.ie9CompatibleActionLink
-            t:id="loadInitialAjax"
-            t:zone="${zoneId}"/>
-  </div>
+    <div style="display:none">
+        <t:mallComponents.control.ie9CompatibleActionLink
+                t:id="loadInitialAjax"
+                t:zone="${zoneId}"/>
+    </div>
 
   <script language="JavaScript" type="text/javascript">
       jQuery(document).ready(function(jq) {
-        var singleRunFlag=true;
-        jq.history.init(function(hash) {
-          if(singleRunFlag){
-            if (hash == "") {
-                  hash='0';
-            }
+          var singleRunFlag = true;
+          jq.history.init(function(hash) {
+              if (singleRunFlag) {
+                  if (hash == "") {
+                      hash = '0';
+                  }
 
-            var idx = parseInt(hash);
-            if(isNaN(idx)) {
-                idx=0;
-            }
+                  var idx = parseInt(hash);
+                  if (isNaN(idx)) {
+                      idx = 0;
+                  }
 
-            var link = "${loadInitialLink}".
-            replace("PARAM1", idx).
-            replace("PARAM2",'${pageKey}');
-            KS.tapestry.triggerLink("loadInitialAjax", link);
-            singleRunFlag=false;
-          }
-        }, { unescape: ",/" });
+                  var link = "${loadInitialLink}".
+                          replace("PARAM1", idx).
+                          replace("PARAM2", '${pageKey}');
+                  AG.tapestry.triggerLink("loadInitialAjax", link);
+                  singleRunFlag = false;
+              }
+          }, { unescape: ",/" });
       });
   </script>
 

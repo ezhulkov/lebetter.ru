@@ -3,6 +3,7 @@ package org.ohm.lebetter.tapestry5.web.components.mallcomponents.control;
 import org.apache.tapestry5.BindingConstants;
 import org.apache.tapestry5.Block;
 import org.apache.tapestry5.annotations.BeginRender;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Zone;
@@ -23,6 +24,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+@Import(
+        library = {"proxy:/scripts/jquery.history.js"}
+)
 public class PagedLoopAjax extends AbstractBaseComponent {
     private static final RMLogger log = new RMLogger(PagedLoopAjax.class);
 

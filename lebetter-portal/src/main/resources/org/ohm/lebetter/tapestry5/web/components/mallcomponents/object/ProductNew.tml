@@ -1,0 +1,36 @@
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="productnew">
+
+    <t:mallComponents.control.editObject
+            addAction="ADD_PRODUCT"
+            delAction="DEL_PRODUCT"
+            editAction="EDIT_PRODUCT"
+            objectSavedLabel="literal:product.saved"
+            objectRemovedLabel="literal:product.deleted"
+            objectAddedLabel="literal:product.added"
+            objectExistsLabel="literal:product.exists"
+            newObject="literal:true"
+            listPage="literal:/po/catalog/list"
+            objectPage="literal:/po/catalog"
+            objectManager="serviceFacade.productManager"
+            selectedObject="selectedObject"
+            submitCallback="callback">
+
+        <div class="input_box">
+            <div class="input_label">
+                <t:label for="name"/>
+                :
+            </div>
+            <input t:id="name" class="form_input"/>
+        </div>
+
+        <div class="input_box">
+            <div class="input_label">
+                <t:label for="category"/>
+                :
+            </div>
+            <select t:id="category" class="form_select"/>
+        </div>
+
+    </t:mallComponents.control.editObject>
+
+</div>

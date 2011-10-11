@@ -1,0 +1,80 @@
+<t:mallcomponents.layout.layout title="Lebetter.ru - Личный Кабинет"
+                                bodyId="po"
+                                flash="flashMessage"
+                                xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+    <t:mallcomponents.layout.office leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
+
+        <t:mallcomponents.control.selectedObject>
+
+            <t:block t:id="breadCrumpsBlock">
+                <a class="status_home" href="/"><img src="/images/0.gif" alt=""/></a>
+                <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+                <a href="/po">Личный кабинет</a>
+                <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+                <a href="/po/catalog/list">Каталог</a>
+                <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+                '${selectedProduct.name}'
+            </t:block>
+
+            <t:mallComponents.control.javascript>
+                AG.colorCell("#cat_menu");
+            </t:mallComponents.control.javascript>
+
+            <h1>Товар '${selectedProduct.name}'</h1>
+
+            <div class="break"/>
+
+            <!--<div class="adm_tab">-->
+            <!--<ul>-->
+            <!--<li id="tab_desc">-->
+            <!--<t:mallComponents.control.ie9CompatibleActionLink t:id="descTab" t:zone="editZone">Общее</t:mallComponents.control.ie9CompatibleActionLink>-->
+            <!--</li>-->
+            <!--<li id="tab_pics">-->
+            <!--<t:mallComponents.control.ie9CompatibleActionLink t:id="picsTab" t:zone="editZone">Логотип</t:mallComponents.control.ie9CompatibleActionLink>-->
+            <!--</li>-->
+            <!--<li id="tab_map">-->
+            <!--<t:mallComponents.control.ie9CompatibleActionLink t:id="mapTab" t:zone="editZone">Карта</t:mallComponents.control.ie9CompatibleActionLink>-->
+            <!--</li>-->
+            <!--<li id="tab_admin">-->
+            <!--<t:mallComponents.control.ie9CompatibleActionLink t:id="adminTab" t:zone="editZone">Админу</t:mallComponents.control.ie9CompatibleActionLink>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--</div>-->
+
+            <!--<t:zone t:id="editZone">-->
+            <!--<t:delegate to="descBlock"/>-->
+            <!--</t:zone>-->
+
+            <!--<t:block t:id="descBlock">-->
+            <!--<t:mallcomponents.object.dealerEdit object="selectedDealer"/>-->
+            <!--</t:block>-->
+
+            <!--<t:block t:id="picsBlock">-->
+            <!--PICS-->
+            <!--</t:block>-->
+
+            <!--<t:block t:id="mapBlock">-->
+            <!--<t:mallcomponents.object.dealerMap object="selectedDealer"/>-->
+            <!--</t:block>-->
+
+            <!--<t:block t:id="adminBlock">-->
+            <!--<h2>Создатели и владельцы</h2>-->
+            <!--<div class="break"/>-->
+            <!--<t:mallComponents.object.objectOwnerEdit objectManager="serviceFacade.dealerManager"-->
+            <!--object="selectedDealer"-->
+            <!--action="EDIT_DEALER"/>-->
+            <!--</t:block>-->
+
+        </t:mallcomponents.control.selectedObject>
+
+        <t:mallComponents.control.javascript>
+            jQuery(".adm_tab a").bind('click', function(){
+                jQuery(this).parents("ul").find("li.sel").removeClass("sel");
+                jQuery(this).parent("li").addClass("sel");
+            });
+        </t:mallComponents.control.javascript>
+
+    </t:mallcomponents.layout.office>
+
+</t:mallcomponents.layout.layout>

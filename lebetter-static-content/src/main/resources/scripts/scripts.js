@@ -56,8 +56,8 @@ AG = {
     },
     gridCatManipulation: function() {
        jQuery("ul.prod_cat_grid li:nth-child(4n)").addClass("r_l");
-       var prodLength = jQuery("ul.prod_cat_grid li").length; // вычисляем количество item-ов
-       var prodRows = Math.ceil(prodLength/4); //вычисляем количество строк
+       var prodLength = jQuery("ul.prod_cat_grid li").length; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ item-пїЅпїЅ
+       var prodRows = Math.ceil(prodLength/4); //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 
        jQuery("ul.prod_cat_grid li").each(function(i){
          var rowNumber = Math.floor(i/4 + 1);
@@ -219,6 +219,23 @@ AG = {
         //jQuery("ul#topnav li .sub > ul").markerUndermenuCols();
         jQuery("ul#topnav li").hoverIntent(config);
 
+    },
+    tapestry : {
+        /*
+         many thanks to ingesol
+         http://tinybits.blogspot.com/2009/10/missing-javascript.html
+         */
+        submitZoneForm : function(elementId) {
+            var element = $(elementId);
+            element.fire(Tapestry.FORM_PROCESS_SUBMIT_EVENT);
+        },
+        triggerLink : function(elementId, url) {
+            var pElementId = jQuery("a[id^='" + elementId + "']").attr("id");
+            var element = $(pElementId);
+            var zoneObject = Tapestry.findZoneManager(element);
+            if (zoneObject) {
+                zoneObject.updateFromURL(url);
+            }
+        }
     }
-
 };

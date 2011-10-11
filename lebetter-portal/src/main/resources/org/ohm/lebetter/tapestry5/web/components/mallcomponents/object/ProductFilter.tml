@@ -1,0 +1,45 @@
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+    <br/>
+
+    <select class="form_select" id="productfilter" style="width:690px;">
+        <option value="">Все товары</option>
+        <t:loop t:formState="NONE" source="categories" value="oneCategory">
+            <t:if test="selCategory">
+                <option selected="selected" value="${oneCategory.rootId}">
+                    ${oneCategory.name}
+                </option>
+                <t:parameter name="else">
+                    <option value="${oneCategory.rootId}">
+                        ${oneCategory.name}
+                    </option>
+                </t:parameter>
+            </t:if>
+            <t:if test="oneCategory.children">
+                <t:loop t:formState="NONE" source="oneCategory.children" value="oneSubCategory">
+                    <t:if test="selSubCategory">
+                        <option selected="selected" value="${oneSubCategory.rootId}">
+                            --------- ${oneSubCategory.name}
+                        </option>
+                        <t:parameter name="else">
+                            <option value="${oneSubCategory.rootId}">
+                                --------- ${oneSubCategory.name}
+                            </option>
+                        </t:parameter>
+                    </t:if>
+                </t:loop>
+            </t:if>
+        </t:loop>
+    </select>
+
+    <br/>
+    <br/>
+    <br/>
+
+    <script language="JavaScript" type="text/javascript">
+        jQuery("#productfilter").selectbox().bind('change', function() {
+            window.location = "/po/catalog/list/" + jQuery(this).val();
+        });
+    </script>
+
+</div>

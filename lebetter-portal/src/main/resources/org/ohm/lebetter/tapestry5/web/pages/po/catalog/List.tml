@@ -16,7 +16,42 @@
     </t:mallComponents.control.javascript>
 
     <t:mallcomponents.layout.office leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
+
+        <div class="adm_add_box">
+            <t:pageLink t:page="po/catalog/create" class="create_link">Создать товар</t:pageLink>
+        </div>
+
         <h1>Каталог</h1>
+
+        <t:mallComponents.object.productFilter category="selectedCategory"/>
+
+        <t:grid pagerPosition="bottom" rowsPerPage="50" id="datagrid" source="products" row="oneProduct"
+                include="name,objectStatus" add="photo,category" reorder="photo,name,category,objectStatus">
+            <t:parameter name="nameHeader"/>
+            <t:parameter name="photoHeader"/>
+            <t:parameter name="categoryHeader"/>
+            <t:parameter name="objectStatusHeader"/>
+            <t:parameter name="nameCell">
+                <t:pageLink t:page="po/catalog" t:context="oneProduct.rootId">${oneProduct.name}</t:pageLink>
+            </t:parameter>
+            <t:parameter name="photoCell">
+                <img src="/images/lb-front/def/nopic2.gif"/>
+            </t:parameter>
+            <t:parameter name="categoryCell">
+                <t:if test="productCategory">
+                    <t:pageLink t:page="po/catalog/list" t:context="productCategory.rootId">${productCategory.name}</t:pageLink>
+                    <t:parameter name="else">—</t:parameter>
+                </t:if>
+            </t:parameter>
+            <t:parameter name="objectStatusCell">
+                ${oneProduct.objectStatus}
+            </t:parameter>
+            <t:parameter name="empty">
+                <p class="nomsg">${message:empty.list}</p>
+            </t:parameter>
+        </t:grid>
+
+
     </t:mallcomponents.layout.office>
 
 </t:mallcomponents.layout.layout>
