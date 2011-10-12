@@ -352,8 +352,7 @@ div.t-data-grid-pager {
     background: url(/images/but/next.gif) no-repeat 3px 7px;
 }
 
-div.t-data-grid-pager a,
-div.t-data-grid-pager span {
+div.t-data-grid-pager a {
     border-right: 1px solid #e3e3e3;
     border-bottom: 0px solid #e3e3e3;
     border-left: 0px solid #e3e3e3;
@@ -361,7 +360,8 @@ div.t-data-grid-pager span {
     padding: 0px 5px 0px 5px;
     text-decoration: none;
     background-color: transparent;
-    color: #000000;
+    font-size: 12px;
+    color: #47190a;
     margin: 0 !important;
 }
 
@@ -373,7 +373,9 @@ div.t-data-grid-pager span.current {
     padding: 0px 5px 0px 5px;
     text-decoration: none;
     background-color: #e3e3e3;
+    font-size: 12px;
     color: #000000;
+    margin: 0 !important;
 }
 
 div.t-data-grid-pager a.l {
