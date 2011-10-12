@@ -49,8 +49,4 @@ public class PropertyTemplate extends AbstractBaseComponent {
         return result;
     }
 
-    public boolean isColor() {
-        return "Color".equals(selectedProperty.getDictionary());
-    }
-
 }
