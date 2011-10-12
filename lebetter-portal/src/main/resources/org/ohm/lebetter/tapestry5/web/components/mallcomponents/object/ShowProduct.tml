@@ -41,30 +41,20 @@
         <div class="prod_item_r">
             <!-- descr -->
             <table class="prod_inf">
-                <tr>
-                    <td>Размер:</td>
-                    <td><b>270x200x120</b></td>
-                </tr>
-                <tr>
-                    <td>Размер матраса:</td>
-                    <td><b>220х200</b></td>
-                </tr>
-                <tr>
-                    <td>Материал обивки:</td>
-                    <td><b>Кожа</b></td>
-                </tr>
-                <tr>
-                    <td>Дерево:</td>
-                    <td><b>Дуб</b></td>
-                </tr>
-                <tr>
-                    <td>Подушки в комплекте:</td>
-                    <td><b>4 шт.</b></td>
-                </tr>
+                <t:loop t:formState="NONE" source="properties" value="oneProperty">
+                    <tr>
+                        <td>${oneProperty.name}:</td>
+                        <td>
+                            <t:mallComponents.control.loopMore source="values" value="oneValue" showCount="30">
+                                &#160;<b>${oneValue.name}</b>
+                            </t:mallComponents.control.loopMore>
+                        </td>
+                    </tr>
+                </t:loop>
             </table>
-            <div class="prod_colors">
-                <b>Цвет:</b><a class="prod_colors_item" href=""><img style="background: #ff9000;" src="/images/0.gif" alt=""/></a><a class="prod_colors_item" href=""><img style="background: #7cada7;" src="/images/0.gif" alt=""/></a><a class="prod_colors_item" href=""><img style="background: #e9e8ca;" src="/images/0.gif" alt=""/></a><a class="prod_colors_item" href=""><img style="background: #0f1014;" src="/images/0.gif" alt=""/></a>
-            </div>
+            <!--<div class="prod_colors">-->
+            <!--<b>Цвет:</b><a class="prod_colors_item" href=""><img style="background: #ff9000;" src="/images/0.gif" alt=""/></a><a class="prod_colors_item" href=""><img style="background: #7cada7;" src="/images/0.gif" alt=""/></a><a class="prod_colors_item" href=""><img style="background: #e9e8ca;" src="/images/0.gif" alt=""/></a><a class="prod_colors_item" href=""><img style="background: #0f1014;" src="/images/0.gif" alt=""/></a>-->
+            <!--</div>-->
             <div class="hr_mid"></div>
             <t:if test="${selectedProduct.description}">
                 <p>

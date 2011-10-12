@@ -31,8 +31,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.security.AccessControlException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 @SuppressWarnings("unchecked")
 public class CategoryManagerImpl
@@ -464,4 +468,49 @@ public class CategoryManagerImpl
     public SitemapAware getByAltId(String altid) {
         return SitemapAwareManagerImpl.getByAltId(altid, categoryDao);
     }
+
+    @Override
+    public List<PropertyEntity> getAllPropertiesForUI(ProductEntity product) {
+
+        Map<String, PropertyEntity> properties = new HashMap<String, PropertyEntity>();
+        for (CategoryEntity category : getAllReadyForProduct(product)) {
+            for (PropertyEntity catProp : getAllReadyProperties(category)) {
+                String propKey = catProp.getName();
+                PropertyEntity distinctProp = properties.get(propKey);
+                if (distinctProp == null) {
+                    distinctProp = getServiceManager().getPropertyManager().getNewInstance();
+                    distinctProp.setName(catProp.getName());
+                    distinctProp.setId(catProp.getId());
+                    distinctProp.setRootId(catProp.getRootId());
+                    distinctProp.setDictionary(catProp.getDictionary());
+                    properties.put(propKey, distinctProp);
+                }
+
+                List<PropertyValueEntity> vals = getParamValues(catProp, product);
+                for (PropertyValueEntity val : vals) {
+                    boolean exists = false;
+                    for (PropertyValueEntity propertyValueEntity : distinctProp.getValues()) {
+                        if (propertyValueEntity.getName().equals(val.getName())) {
+                            exists = true;
+                            break;
+                        }
+                    }
+                    if (!exists) {
+                        distinctProp.getValues().add(val);
+                    }
+                }
+            }
+        }
+
+        Collection<PropertyEntity> vals = properties.values();
+        List<PropertyEntity> result = new LinkedList<PropertyEntity>();
+        for (PropertyEntity val : vals) {
+            result.add(val);
+        }
+        Collections.sort(result, PROPERTY_ENTITY_COMPARATOR);
+
+        return result;
+
+    }
+
 }
