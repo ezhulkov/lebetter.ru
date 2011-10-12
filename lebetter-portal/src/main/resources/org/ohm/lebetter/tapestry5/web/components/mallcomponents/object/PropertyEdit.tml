@@ -55,7 +55,6 @@
                             <t:label for="multiple" class="ks_propertyedit_6"/>
                             :
                         </div>
-                        <br/>
                         <t:checkBox t:id="multiple" type="checkbox" class="ks_propertyedit_3"/>
                     </div>
                     <div class="break"></div>

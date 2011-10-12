@@ -584,6 +584,10 @@ ul.leftmenu ul ul li a:hover {
   clear: both;
   height: 32px;
 }
+.input_box input[type="checkbox"] {
+  clear: both;
+  height: 32px;
+}
 .input_info {
   padding: 0px 0px 10px 0px;
   clear: both;
