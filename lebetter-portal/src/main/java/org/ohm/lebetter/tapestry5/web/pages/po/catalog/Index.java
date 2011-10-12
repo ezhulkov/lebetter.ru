@@ -4,6 +4,7 @@ import org.apache.tapestry5.Block;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
+import org.ohm.lebetter.model.impl.entities.CategoryEntity;
 import org.ohm.lebetter.model.impl.entities.ProductEntity;
 import org.ohm.lebetter.tapestry5.web.components.mallcomponents.control.SelectedObject;
 import org.ohm.lebetter.tapestry5.web.pages.base.AdminBasePage;
@@ -55,6 +56,15 @@ public class Index extends AdminBasePage {
 
     public Block onActionFromAdminTab() {
         return adminBlock;
+    }
+
+     public String[] getProductContext() {
+        CategoryEntity cat = null;
+        selectedProduct = getServiceFacade().getProductManager().get(selectedProduct.getId());
+        if (selectedProduct.getCategories() != null && selectedProduct.getCategories().size() != 0) {
+            cat = selectedProduct.getCategories().get(0);
+        }
+        return new String[]{cat == null ? "" : cat.getAltId(), selectedProduct.getAltId()};
     }
 
 }

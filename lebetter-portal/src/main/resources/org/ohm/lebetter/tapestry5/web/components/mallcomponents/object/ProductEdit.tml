@@ -44,8 +44,4 @@
 
     </t:mallComponents.control.editObject>
 
-    <t:mallComponents.control.javascript>
-        AG.colorCell("#tab_desc");
-    </t:mallComponents.control.javascript>
-
 </div>
