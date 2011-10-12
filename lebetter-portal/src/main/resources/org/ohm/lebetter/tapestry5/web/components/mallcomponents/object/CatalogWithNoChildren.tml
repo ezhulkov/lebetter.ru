@@ -9,7 +9,7 @@
         <t:if test="products">
             <ul class="prod_cat_grid2">
                 <t:mallComponents.control.pagedLoopAjax source="products"
-                                                        rowsPerPage="5"
+                                                        rowsPerPage="4"
                                                         value="oneProduct">
                     <li>
                         <t:pageLink t:page="catalog" t:context="productContext">
