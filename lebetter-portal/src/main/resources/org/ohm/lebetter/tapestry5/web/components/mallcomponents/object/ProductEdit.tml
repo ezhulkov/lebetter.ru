@@ -60,4 +60,11 @@
 
     </t:mallComponents.control.editObject>
 
+    <br/>
+
+    <div class="hr_big"/>
+    <br/>
+
+    <t:mallComponents.object.objectDescription object="selectedObject"/>
+
 </div>

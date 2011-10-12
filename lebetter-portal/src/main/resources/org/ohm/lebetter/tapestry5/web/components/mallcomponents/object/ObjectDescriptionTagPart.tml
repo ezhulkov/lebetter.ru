@@ -1,0 +1,223 @@
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+    <table class="w100">
+
+        <tr class="ks_objectdescriptiontagpart_1">
+            <td>
+
+                <!--Шаблоны категорий-->
+                <t:loop t:formState="NONE" source="propertiesMultiple" value="oneProperty">
+
+                    <script language="JavaScript" type="text/javascript">
+                        initCatArray('${oneProperty.rootid}', '${oneProperty.type}', '${oneProperty.multiple}');
+                    </script>
+
+                    <!-- Шаблон для области, которая содержит набор множественных тегов -->
+                    <div id="mas${oneProperty.rootid}" class="multiple-category-holder">
+                        <table class="w100">
+                            <tr>
+                                <td>
+                                    <div class="c-link">
+                                        <t:pageLink page="personaloffice/staff/property" class="ks_lnk_green" context="oneProperty.rootid">${oneProperty.name}:</t:pageLink>
+                                    </div>
+                                    <div class="c-mtags" id="maph${oneProperty.rootId}">
+                                        <!-- Сюда накидываем множественные теги -->
+                                    </div>
+                                <t:mallComponents.control.menuLink autoCompleteAction="true" actionPrefix="EDIT_" object="selectedSecurityObject">
+                                    <div id="plush${oneProperty.rootid}" class="ks_objectdescriptiontagpart_2">
+                                        <!-- Добавление свойства -->
+                                    </div>
+
+                                </t:mallComponents.control.menuLink>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- Шаблон для множественного тега -->
+                    <dt class="multiple-category-one c-area" id="mc${oneProperty.rootid}">
+                        <t:mallComponents.object.propertyTemplate property="oneProperty"/>
+                    </dt>
+
+                    <!-- Шаблон для кнопки добавления нового множественного тега -->
+                    <dt id="mcadd${oneProperty.rootid}" class="ks_objectdescriptiontagpart_3">
+                        <t:mallComponents.control.menuLink autoCompleteAction="true" actionPrefix="EDIT_" object="selectedSecurityObject">
+                            <a href="#" onclick="return false;" class="add-onecat-link" id="al${oneProperty.rootid}"><img src="/images/but/c-add.png" alt="+" title="${message:addbtn}"/></a>
+                        </t:mallComponents.control.menuLink>
+                    </dt>
+
+                    <!-- Шаблон для кнопки удаления множественного тега -->
+                    <dt class="multiple-category-one c-del2" id="dc${oneProperty.rootid}">
+                        <t:mallComponents.control.menuLink autoCompleteAction="true" actionPrefix="EDIT_" object="selectedSecurityObject">
+                            <a href="#" onclick="return false;" class="del-onecat-link" id="dl${oneProperty.rootid}"><img src="/images/but/c-del.png" alt="-" title="${message:delbtn}"/></a>
+                        </t:mallComponents.control.menuLink>
+                    </dt>
+
+                    <!-- Шаблон для категории и кнопки удалить -->
+                    <div class="multiple-category-one-box ks_objectdescriptiontagpart_4" id="mb${oneProperty.rootid}">
+                        <table>
+                            <tr>
+                                <td id="mbe"></td>
+                                <td id="mbd"></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </t:loop>
+
+                <t:loop volatile="true" source="propertiesSingle" value="oneProperty">
+
+                    <script language="JavaScript" type="text/javascript">
+                        initCatArray('${oneProperty.rootid}', '${oneProperty.type}', '${oneProperty.multiple}');
+                    </script>
+
+                    <!-- Шаблон для одиночного тега -->
+                    <dt class="single-category" id="sc${oneProperty.rootid}">
+                    <div class="c-link2">
+                        <t:pageLink page="personaloffice/staff/property" class="ks_lnk_green" context="oneProperty.rootid">
+                            <t:mallComponents.control.trimmedString length="32" value="${oneProperty.name}"/>
+                            :
+                        </t:pageLink>
+                    </div>
+                    <div class="c-mtags">
+                        <t:mallComponents.object.propertyTemplate property="oneProperty"/>
+                    </div>
+                    </dt>
+                </t:loop>
+
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+
+                <div class="catcaption">
+
+                    <span class="zag">${message:tags.values}</span>
+
+                </div>
+                <div class="c-clear ks_objectdescriptiontagpart_5"></div>
+                <t:form t:zone="${targetZone}">
+
+                    <!-- Куда вставляем шаблоны -->
+                    <div id="cat-holder">
+
+                        <!-- шаблоны множественных категорий -->
+                        <div id="cat-holder-multi"/>
+
+                        <!-- шаблоны одиночных категорий -->
+                        <div class="single-category-holder-bb">
+                            <div id="cat-holder-single"/>
+                        </div>
+
+                        <div class="break"></div>
+
+                    </div>
+
+                    <script language="JavaScript" type="text/javascript">
+                        <t:loop t:formState="NONE" source="propertiesMultiple" value="oneProperty">
+                            <t:loop t:formState="NONE" source="tagsMultiple" value="oneTagLink">
+                                //тут мы для каждого множественного тега переносим его шаблон в видимое место
+                                var catType = '${oneTagLink.propertyValue.property.type}';
+                                var catValue;
+                                if (catType == 'DICTIONARY' || catType == 'LIST') {
+                                    catValue = '${oneTagLink.propertyValue.name}';
+                                } else if (catType == 'VALUE' || catType == 'GROUP') {
+                                    catValue = '${oneTagLink.value}';
+                                }
+                                addMultipleCategory('${oneTagLink.propertyValue.property.rootid}', catValue);
+                            </t:loop>
+                        </t:loop>
+                        <t:loop t:formState="NONE" source="tagsSingle" value="oneTagLink">
+                            //а вот тут для каждого одиночного тега переносим его шаблон в видимое место
+                            var catType = '${oneTagLink.propertyValue.property.type}';
+                            var catValue = '';
+                            var catValList = '${oneTagLink.propertyValue.name}';
+                            var catValueValue = '${oneTagLink.value}';
+                            var catValueGroup = '${oneTagLink.tempValue}';
+                            var catId = '${oneTagLink.propertyValue.property.rootid}';
+                            if (catType == 'DICTIONARY' || catType == 'LIST') {
+                                catValue = catValList;
+                            } else if (catType == 'VALUE') {
+                                catValue = catValueValue;
+                            } else if (catType == 'GROUP') {
+                                catValue = catValueGroup;
+                            }
+                            addSingleCategory(catId, catValue);
+                        </t:loop>
+                    </script>
+
+                    <div class="break"></div>
+
+                    <div class="rbut2">
+
+                        <t:mallComponents.control.menuLink autoCompleteAction="true" actionPrefix="EDIT_" object="selectedSecurityObject">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="buttonsg">
+                                            <div>
+                                                <div>
+                                                    <t:mallComponents.control.ie9CompatibleActionLink t:zone="${targetZone}" t:id="cancelAjax">${message:cancelbtn}</t:mallComponents.control.ie9CompatibleActionLink>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <img class="NFButtonLeft" src="/images/0.gif"/>
+                                        <input id="buttonSet" type="submit" value="${message:savebtn}" class="NFButton"/>
+                                        <img class="NFButtonRight" src="/images/0.gif"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </t:mallComponents.control.menuLink>
+
+                    </div>
+
+                </t:form>
+
+            </td>
+        </tr>
+
+    </table>
+
+    <script language="JavaScript" type="text/javascript">
+
+        setSingleCount(${propertiesSingle.size()});
+        setAllCount(${properties.size()});
+
+        // удаление выбранного набора множественных тегов
+        jQuery(".del-mcat-link").click(
+                function() {
+                    var catId = $(this).id.substring(2, $(this).id.length);
+                    jQuery("#cat-holder-multi").find("#mas" + catId).remove();
+                    jQuery('#a' + catId).parent().css('display', 'block');
+                    return false;
+                }
+        );
+
+        // добавление ещё одного множественного тега в категории
+        jQuery(".add-onecat-link").click(
+                function() {
+                    var catId = $(this).id.substring(2, $(this).id.length);
+                    addMultipleCategory(catId, null);
+                    return false;
+                }
+        );
+
+        jQuery("div.val_color_adm").click(function(){
+            var sel = jQuery(this).hasClass("ks_select_color");
+            var cpvid=jQuery(this).attr("pvid");
+            var cpid=jQuery(this).attr("pid");
+            if(sel){
+                jQuery(this).removeClass("ks_select_color");
+                jQuery("form").find("input#2RM-COLOR-"+cpid+"-"+cpvid).removeAttr("value");
+            } else {
+                jQuery(this).addClass("ks_select_color");
+                jQuery("form").find("input#2RM-COLOR-"+cpid+"-"+cpvid).val(cpvid);
+            }
+        });
+
+    </script>
+
+</div>
