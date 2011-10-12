@@ -76,7 +76,7 @@
         if (jQuery(".redactor_textarea").html() != null) {
             jQuery(".redactor_textarea").redactor();
         }
-
+        jQuery("#name").focus();
     </script>
 
 </div>

@@ -31,11 +31,6 @@
             <select t:id="category" class="form_select"/>
         </div>
 
-        <t:mallComponents.control.javascript>
-            jQuery("#name").focus();
-        </t:mallComponents.control.javascript>
-
-
     </t:mallComponents.control.editObject>
 
 </div>
