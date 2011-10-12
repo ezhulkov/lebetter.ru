@@ -1,7 +1,3 @@
-.t-zone {
-  background-color: transparent !important;
-}
-
 #redactor_imp_modal input,
 #redactor_imp_modal textarea {
     border: 1px solid #606060;
@@ -192,6 +188,65 @@ form .NFMultiSelectRightH {background:url(/images/form/textarea-r-over.png) repe
   border-right: 1px solid #808181;
   border-bottom: 0px solid #808181;
   border-left: 1px solid #808181;
+}
+
+/* AdminTableNavigation */
+div.t-data-grid-pager {
+  padding: 12px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+  text-align: center;
+}
+.nav_prev,
+.nav_next {
+  height: 16px;
+  width:  11px;
+}
+.nav_prev {
+  background: url(/images/but/prev.gif) no-repeat 4px 7px;
+}
+.nav_next {
+  background: url(/images/but/next.gif) no-repeat 3px 7px;
+}
+div.t-data-grid-pager a,
+div.t-data-grid-pager span {
+  border-right: 1px solid #e3e3e3;
+  border-bottom: 0px solid #e3e3e3;
+  border-left: 0px solid #e3e3e3;
+  border-top: 0px solid #e3e3e3;
+  padding: 0px 5px 0px 5px;
+  text-decoration: none;
+  background-color: transparent;
+  color: #000000;
+  margin: 0 !important;
+}
+div.t-data-grid-pager span.current {
+  border-right: 1px solid #e3e3e3;
+  border-bottom: 0px solid #e3e3e3;
+  border-left: 0px solid #e3e3e3;
+  border-top: 0px solid #e3e3e3;
+  padding: 0px 5px 0px 5px;
+  text-decoration: none;
+  background-color: #e3e3e3;
+  color: #000000;
+}
+div.t-data-grid-pager a.l {
+  border-right: 0px solid #e3e3e3;
+  border-bottom: 0px solid #e3e3e3;
+  border-left: 0px solid #e3e3e3;
+  border-top: 0px solid #e3e3e3;
+}
+div.t-data-grid-pager a:hover {
+  background: #e3e3e3;
+  color: #000000;
+  border-right: 1px solid #e3e3e3;
+  border-bottom: 0px solid #e3e3e3;
+  border-left: 0px solid #e3e3e3;
+  border-top: 0px solid #e3e3e3;
+}
+div.slide_bu_che {
+  background: #e3e3e3;
+  color: #000000;
+  padding: 0px 5px 0px 5px;
 }
 
 /* LayoutsCorrect */
