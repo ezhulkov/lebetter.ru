@@ -25,7 +25,7 @@
 
         <t:mallComponents.object.productFilter category="selectedCategory"/>
 
-        <t:grid pagerPosition="bottom" rowsPerPage="50" id="datagrid" source="products" row="oneProduct"
+        <t:grid pagerPosition="bottom" rowsPerPage="5" id="datagrid" source="products" row="oneProduct"
                 include="name,objectStatus" add="photo,category" reorder="photo,name,category,objectStatus">
             <t:parameter name="nameHeader"/>
             <t:parameter name="photoHeader"/>

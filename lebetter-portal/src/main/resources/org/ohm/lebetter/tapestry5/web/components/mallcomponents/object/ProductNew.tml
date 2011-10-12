@@ -20,7 +20,7 @@
                 <t:label for="name"/>
                 :
             </div>
-            <input t:id="name" class="form_input"/>
+            <input t:id="name" id="name" class="form_input"/>
         </div>
 
         <div class="input_box">
@@ -30,6 +30,11 @@
             </div>
             <select t:id="category" class="form_select"/>
         </div>
+
+        <t:mallComponents.control.javascript>
+            jQuery("#name").focus();
+        </t:mallComponents.control.javascript>
+
 
     </t:mallComponents.control.editObject>
 
