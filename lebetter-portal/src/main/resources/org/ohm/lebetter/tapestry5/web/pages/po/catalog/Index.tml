@@ -25,46 +25,42 @@
 
             <div class="break"/>
 
-            <!--<div class="adm_tab">-->
-            <!--<ul>-->
-            <!--<li id="tab_desc">-->
-            <!--<t:mallComponents.control.ie9CompatibleActionLink t:id="descTab" t:zone="editZone">Общее</t:mallComponents.control.ie9CompatibleActionLink>-->
-            <!--</li>-->
-            <!--<li id="tab_pics">-->
-            <!--<t:mallComponents.control.ie9CompatibleActionLink t:id="picsTab" t:zone="editZone">Логотип</t:mallComponents.control.ie9CompatibleActionLink>-->
-            <!--</li>-->
-            <!--<li id="tab_map">-->
-            <!--<t:mallComponents.control.ie9CompatibleActionLink t:id="mapTab" t:zone="editZone">Карта</t:mallComponents.control.ie9CompatibleActionLink>-->
-            <!--</li>-->
-            <!--<li id="tab_admin">-->
-            <!--<t:mallComponents.control.ie9CompatibleActionLink t:id="adminTab" t:zone="editZone">Админу</t:mallComponents.control.ie9CompatibleActionLink>-->
-            <!--</li>-->
-            <!--</ul>-->
-            <!--</div>-->
+            <div class="adm_tab">
+                <ul>
+                    <li id="tab_desc">
+                        <t:mallComponents.control.ie9CompatibleActionLink t:id="descTab" t:zone="editZone">Общее</t:mallComponents.control.ie9CompatibleActionLink>
+                    </li>
+                    <li id="tab_pics">
+                        <t:mallComponents.control.ie9CompatibleActionLink t:id="picsTab" t:zone="editZone">Фотографии</t:mallComponents.control.ie9CompatibleActionLink>
+                    </li>
+                    <t:if test="auth.adminRole">
+                        <li id="tab_admin">
+                            <t:mallComponents.control.ie9CompatibleActionLink t:id="adminTab" t:zone="editZone" style="color:#d00; font-weight:bold;">Админу</t:mallComponents.control.ie9CompatibleActionLink>
+                        </li>
+                    </t:if>
+                </ul>
+            </div>
 
-            <!--<t:zone t:id="editZone">-->
-            <!--<t:delegate to="descBlock"/>-->
-            <!--</t:zone>-->
+            <t:zone t:id="editZone">
+                <t:delegate to="descBlock"/>
+            </t:zone>
 
-            <!--<t:block t:id="descBlock">-->
-            <!--<t:mallcomponents.object.dealerEdit object="selectedDealer"/>-->
-            <!--</t:block>-->
+            <t:block t:id="descBlock">
+                <t:mallcomponents.object.productEdit object="selectedProduct"/>
+            </t:block>
 
-            <!--<t:block t:id="picsBlock">-->
-            <!--PICS-->
-            <!--</t:block>-->
+            <t:block t:id="picsBlock">
+                <!--<t:mallcomponents.object.dealerEdit object="selectedDealer"/>-->
+            </t:block>
 
-            <!--<t:block t:id="mapBlock">-->
-            <!--<t:mallcomponents.object.dealerMap object="selectedDealer"/>-->
-            <!--</t:block>-->
+            <t:block t:id="adminBlock">
+                <h2>Создатели и владельцы</h2>
 
-            <!--<t:block t:id="adminBlock">-->
-            <!--<h2>Создатели и владельцы</h2>-->
-            <!--<div class="break"/>-->
-            <!--<t:mallComponents.object.objectOwnerEdit objectManager="serviceFacade.dealerManager"-->
-            <!--object="selectedDealer"-->
-            <!--action="EDIT_DEALER"/>-->
-            <!--</t:block>-->
+                <div class="break"/>
+                <!--<t:mallComponents.object.objectOwnerEdit objectManager="serviceFacade.productManager"-->
+                <!--object="selectedProduct"-->
+                <!--action="EDIT_PRODUCT"/>-->
+            </t:block>
 
         </t:mallcomponents.control.selectedObject>
 

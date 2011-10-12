@@ -36,9 +36,11 @@
                     <li id="tab_map">
                         <t:mallComponents.control.ie9CompatibleActionLink t:id="mapTab" t:zone="editZone">Карта</t:mallComponents.control.ie9CompatibleActionLink>
                     </li>
-                    <li id="tab_admin">
-                        <t:mallComponents.control.ie9CompatibleActionLink t:id="adminTab" t:zone="editZone">Админу</t:mallComponents.control.ie9CompatibleActionLink>
-                    </li>
+                    <t:if test="auth.adminRole">
+                        <li id="tab_admin">
+                            <t:mallComponents.control.ie9CompatibleActionLink t:id="adminTab" t:zone="editZone" style="color:#d00; font-weight:bold;">Админу</t:mallComponents.control.ie9CompatibleActionLink>
+                        </li>
+                    </t:if>
                 </ul>
             </div>
 
@@ -60,6 +62,7 @@
 
             <t:block t:id="adminBlock">
                 <h2>Создатели и владельцы</h2>
+
                 <div class="break"/>
                 <t:mallComponents.object.objectOwnerEdit objectManager="serviceFacade.dealerManager"
                                                          object="selectedDealer"

@@ -86,13 +86,7 @@
                 :
             </div>
             <div class="form_textarea">
-                <!--<div class="NFTextareaTop"><img src="/images/0.gif" class="NFTextareaTopLeft" alt=""/></div>-->
-                <!--<div class="NFTextareaRight">-->
-                <!--<div class="NFTextareaLeft"></div>-->
                 <t:textarea t:id="description" style="width:560px;" class="redactor_textarea"/>
-                <!--</div>-->
-                <!--<div class="NFTextareaBottom"><img src="/images/0.gif" class="NFTextareaBottomLeft" alt=""/>-->
-                <!--</div>-->
             </div>
         </div>
 
@@ -103,6 +97,5 @@
     <t:mallComponents.control.javascript>
         AG.colorCell("#tab_desc");
     </t:mallComponents.control.javascript>
-
 
 </div>

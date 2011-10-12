@@ -1,0 +1,51 @@
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="propertytype">
+
+    <t:mallComponents.control.editObject
+            addAction="ADD_PRODUCT"
+            delAction="DEL_PRODUCT"
+            editAction="EDIT_PRODUCT"
+            objectSavedLabel="literal:product.saved"
+            objectRemovedLabel="literal:product.deleted"
+            objectAddedLabel="literal:product.added"
+            objectExistsLabel="literal:product.exists"
+            newObject="literal:false"
+            listPage="literal:/po/catalog/list"
+            objectPage="literal:/po/catalogealer"
+            objectManager="serviceFacade.productManager"
+            selectedObject="selectedObject">
+
+        <div class="input_box">
+            <div class="input_label">
+                <t:label for="name"/>
+                :
+            </div>
+            <input t:id="name" class="form_input"/>
+        </div>
+
+        <div class="input_box">
+            <div class="input_label">
+                <t:label for="status"/>
+                :
+            </div>
+            <select t:id="status" class="form_select"/>
+        </div>
+
+        <div class="input_box">
+            <div class="input_label">
+                <t:label for="description"/>
+                :
+            </div>
+            <div class="form_textarea">
+                <t:textarea t:id="description" style="width:560px;" class="redactor_textarea"/>
+            </div>
+        </div>
+
+        <div class="break"></div>
+
+    </t:mallComponents.control.editObject>
+
+    <t:mallComponents.control.javascript>
+        AG.colorCell("#tab_desc");
+    </t:mallComponents.control.javascript>
+
+</div>
