@@ -75,6 +75,7 @@
     </div>
 
     <t:mallComponents.control.javascript>
+        AG.colorCell("#menu${selectedCategory.rootId}");
         AG.galleryItem();
     </t:mallComponents.control.javascript>
 

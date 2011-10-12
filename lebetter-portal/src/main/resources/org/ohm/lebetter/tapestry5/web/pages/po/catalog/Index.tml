@@ -61,9 +61,9 @@
                 <h2>Создатели и владельцы</h2>
 
                 <div class="break"/>
-                <!--<t:mallComponents.object.objectOwnerEdit objectManager="serviceFacade.productManager"-->
-                <!--object="selectedProduct"-->
-                <!--action="EDIT_PRODUCT"/>-->
+                <t:mallComponents.object.objectOwnerEdit objectManager="serviceFacade.productManager"
+                                                         object="selectedProduct"
+                                                         action="EDIT_PRODUCT"/>
             </t:block>
 
         </t:mallcomponents.control.selectedObject>

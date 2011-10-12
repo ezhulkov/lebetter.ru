@@ -42,4 +42,10 @@ public class List extends AdminBasePage {
                 (oneProduct.getCategories().get(0)));
     }
 
+    public String getStockStatus() {
+        return oneProduct.getStockStatus() == null ?
+               "-" :
+               getBase().getText(oneProduct.getStockStatus().toString());
+    }
+
 }

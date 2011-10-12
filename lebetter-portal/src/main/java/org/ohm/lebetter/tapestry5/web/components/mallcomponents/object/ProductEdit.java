@@ -15,6 +15,12 @@ public class ProductEdit extends AbstractEditComponent {
                                           "validate=maxlength=64,required"})
     private TextField propertyNameField;
 
+    @Component(id = "stockStatus", parameters = {"value=selectedObject.stockStatus"})
+    private Select stockStatusField;
+
+    @Component(id = "price", parameters = {"value=selectedObject.price"})
+    private TextField priceField;
+
     @Component(id = "description", parameters = {"value=selectedObject.description", "validate=maxlength=4000"})
     private TextArea descField;
 

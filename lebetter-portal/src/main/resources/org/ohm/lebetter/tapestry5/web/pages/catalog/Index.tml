@@ -10,7 +10,7 @@
             <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
             <a href="/catalog">Каталог продукции</a>
             <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
-            Категории
+            '${selectedCategory.name}'
         </t:block>
 
         <t:block t:id="leftMenuBlock">
@@ -24,7 +24,12 @@
             </t:if>
 
             <t:unless test="selectedProduct">
-                <t:mallcomponents.object.showCatalog selectedCategory="selectedCategory"/>
+                <t:if test="selectedCategory.children">
+                    <t:mallcomponents.object.catalogWithChildren selectedCategory="selectedCategory"/>
+                    <t:parameter name="else">
+                        <t:mallcomponents.object.catalogWithNoChildren selectedCategory="selectedCategory"/>
+                    </t:parameter>
+                </t:if>
             </t:unless>
 
         </t:mallcomponents.layout.browse>

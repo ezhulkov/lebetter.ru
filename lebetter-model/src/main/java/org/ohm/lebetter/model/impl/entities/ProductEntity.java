@@ -6,10 +6,13 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.ohm.lebetter.model.DescriptionAware;
 import org.ohm.lebetter.model.SitemapAware;
 import org.room13.mallcore.model.impl.BaseCreatorAwareEntity;
+import org.room13.mallcore.model.impl.BaseCreatorRepAwareEntity;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -24,8 +27,12 @@ import java.util.List;
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @AccessType("field")
 public class ProductEntity
-        extends BaseCreatorAwareEntity
+        extends BaseCreatorRepAwareEntity
         implements DescriptionAware, SitemapAware {
+
+    public enum StockStatus {
+        ONSTOCK, MISSING
+    }
 
     @Column
     private String altId;
@@ -38,6 +45,10 @@ public class ProductEntity
 
     @Column
     private String description;
+
+    @Column
+    @Enumerated(EnumType.STRING)
+    private StockStatus stockStatus;
 
     @ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
     @JoinTable(name = "app_prod_cat",
@@ -113,5 +124,13 @@ public class ProductEntity
 
     public void setTagValues(List<TagToValueEntity> tagValues) {
         this.tagValues = tagValues;
+    }
+
+    public StockStatus getStockStatus() {
+        return stockStatus;
+    }
+
+    public void setStockStatus(StockStatus stockStatus) {
+        this.stockStatus = stockStatus;
     }
 }

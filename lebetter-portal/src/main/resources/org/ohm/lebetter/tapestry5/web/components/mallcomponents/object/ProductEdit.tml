@@ -32,6 +32,22 @@
 
         <div class="input_box">
             <div class="input_label">
+                <t:label for="stockStatus"/>
+                :
+            </div>
+            <select t:id="stockStatus" class="form_select"/>
+        </div>
+
+        <div class="input_box">
+            <div class="input_label">
+                <t:label for="price"/>
+                :
+            </div>
+            <input t:id="price" class="form_input"/>
+        </div>
+
+        <div class="input_box">
+            <div class="input_label">
                 <t:label for="description"/>
                 :
             </div>
