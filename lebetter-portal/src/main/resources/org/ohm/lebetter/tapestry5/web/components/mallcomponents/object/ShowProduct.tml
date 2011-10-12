@@ -42,14 +42,16 @@
             <!-- descr -->
             <table class="prod_inf">
                 <t:loop t:formState="NONE" source="properties" value="oneProperty">
-                    <tr>
-                        <td>${oneProperty.name}:</td>
-                        <td>
-                            <t:mallComponents.control.loopMore source="values" value="oneValue" showCount="30">
-                                &#160;<b>${oneValue.name}</b>
-                            </t:mallComponents.control.loopMore>
-                        </td>
-                    </tr>
+                    <t:if test="values">
+                        <tr>
+                            <td>${oneProperty.name}:</td>
+                            <td>
+                                <t:mallComponents.control.loopMore source="values" value="oneValue" showCount="30">
+                                    &#160;<b>${oneValue.name}</b>
+                                </t:mallComponents.control.loopMore>
+                            </td>
+                        </tr>
+                    </t:if>
                 </t:loop>
             </table>
             <!--<div class="prod_colors">-->

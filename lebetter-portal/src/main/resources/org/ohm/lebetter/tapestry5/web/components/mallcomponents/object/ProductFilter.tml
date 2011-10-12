@@ -5,30 +5,34 @@
     <select class="form_select" id="productfilter" style="width:690px;">
         <option value="">Все товары</option>
         <t:loop t:formState="NONE" source="categories" value="oneCategory">
-            <t:if test="selCategory">
-                <option selected="selected" value="${oneCategory.rootId}">
-                    ${oneCategory.name}
-                </option>
-                <t:parameter name="else">
-                    <option value="${oneCategory.rootId}">
+            <t:if test="oneCategory.children">
+                <optgroup label="${oneCategory.name}">
+                    <t:loop t:formState="NONE" source="oneCategory.children" value="oneSubCategory">
+                        <t:if test="selSubCategory">
+                            <option selected="selected" value="${oneSubCategory.rootId}">
+                                ${oneSubCategory.name}
+                            </option>
+                            <t:parameter name="else">
+                                <option value="${oneSubCategory.rootId}">
+                                    ${oneSubCategory.name}
+                                </option>
+                            </t:parameter>
+                        </t:if>
+                    </t:loop>
+                </optgroup>
+            </t:if>
+            <t:unless test="oneCategory.children">
+                <t:if test="selCategory">
+                    <option selected="selected" value="${oneCategory.rootId}">
                         ${oneCategory.name}
                     </option>
-                </t:parameter>
-            </t:if>
-            <t:if test="oneCategory.children">
-                <t:loop t:formState="NONE" source="oneCategory.children" value="oneSubCategory">
-                    <t:if test="selSubCategory">
-                        <option selected="selected" value="${oneSubCategory.rootId}">
-                            --------- ${oneSubCategory.name}
+                    <t:parameter name="else">
+                        <option value="${oneCategory.rootId}">
+                            ${oneCategory.name}
                         </option>
-                        <t:parameter name="else">
-                            <option value="${oneSubCategory.rootId}">
-                                --------- ${oneSubCategory.name}
-                            </option>
-                        </t:parameter>
-                    </t:if>
-                </t:loop>
-            </t:if>
+                    </t:parameter>
+                </t:if>
+            </t:unless>
         </t:loop>
     </select>
 

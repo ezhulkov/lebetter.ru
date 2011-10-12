@@ -9,7 +9,7 @@
         <t:if test="products">
             <ul class="prod_cat_grid2">
                 <t:mallComponents.control.pagedLoopAjax source="products"
-                                                        rowsPerPage="5"
+                                                        rowsPerPage="16"
                                                         value="oneProduct">
                     <li>
                         <t:pageLink t:page="catalog" t:context="productContext">
@@ -22,13 +22,6 @@
         </t:if>
     </div>
     <div class="hr_big"></div>
-
-    <!--<div class="nav">-->
-    <!--<span class="slide_bu_che">1</span>-->
-    <!--<a href="">2</a><a href="">3</a><a href="">4</a><a href="">5</a><a href="">6</a><a href="">7</a><a href="">8</a><a href="">9</a><a href="">10</a><a href="">11</a><a href="">12</a>-->
-    <!--<span>...</span>-->
-    <!--<a href="">78</a>-->
-    <!--</div>-->
 
     <t:mallComponents.control.javascript>
         AG.colorCell("#menu${selectedCategory.rootId}");
