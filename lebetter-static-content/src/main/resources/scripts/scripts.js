@@ -78,73 +78,64 @@ AG = {
 
        //alert(prodLength + '   ' + prodRows);
     },
+    productFancybox: function(ob) {
+        jQuery(ob).fancybox({
+              'titleShow'     : false
+        });
+    },
     galleryItem: function() {
-      // We only want these styles applied when javascript is enabled
-      jQuery('div.navigation').css({'width' : '98px', 'float' : 'left'});
-      jQuery('div.cont').css('display', 'block');
 
-      // Initially set opacity on thumbs and add
-      // additional styling for hover effect on thumbs
-      var onMouseOutOpacity = 0.67;
-      jQuery('#thumbs ul.thumbs li').opacityrollover({
-      	mouseOutOpacity:   onMouseOutOpacity,
-      	mouseOverOpacity:  1.0,
-      	fadeSpeed:         'fast',
-      	exemptionSelector: '.selected'
-      });
+        // We only want these styles applied when javascript is enabled
+        jQuery('div.navigation').css({'width' : '98px', 'float' : 'left'});
+        jQuery('div.cont').css('display', 'block');
 
-      // Initialize Advanced Galleriffic Gallery
-      var gallery = jQuery('#thumbs').galleriffic({
-      	delay:                     2500,
-      	numThumbs:                 3,
-      	preloadAhead:              10,
-      	enableTopPager:            false,
-      	enableBottomPager:         false,
-      	maxPagesToShow:            7,
-      	imageContainerSel:         '#slideshow',
-      	//controlsContainerSel:      '#controls',
-      	captionContainerSel:       '#caption',
-      	//loadingContainerSel:       '#loading',
-      	renderSSControls:          true,
-      	renderNavControls:         true,
-      	playLinkText:              'Play Slideshow',
-      	pauseLinkText:             'Pause Slideshow',
-      	prevLinkText:              '&lsaquo; Previous Photo',
-      	nextLinkText:              'Next Photo &rsaquo;',
-      	nextPageLinkText:          'Next &rsaquo;',
-      	prevPageLinkText:          '&lsaquo; Prev',
-      	enableHistory:             false,
-      	autoStart:                 false,
-      	syncTransitions:           true,
-      	defaultTransitionDuration: 900,
-      	onSlideChange:             function(prevIndex, nextIndex) {
-      		// 'this' refers to the gallery, which is an extension of jQuery('#thumbs')
-      		this.find('ul.thumbs').children()
-      			.eq(prevIndex).fadeTo('fast', onMouseOutOpacity).end()
-      			.eq(nextIndex).fadeTo('fast', 1.0);
-      	},
-      	onPageTransitionOut:       function(callback) {
-      		this.fadeTo('fast', 0.0, callback);
-      	},
-      	onPageTransitionIn:        function() {
-      		this.fadeTo('fast', 1.0);
-      	}
-      });
-      /*
-      jQuery("a#pic1").fancybox({
-        'titleShow'     : false
-      });
-      */
-      /*
-      jQuery("a[rel=bigpics_group]").fancybox({
-      'transitionIn'		: 'none',
-      'transitionOut'		: 'none',
-      'titlePosition' 	: 'over',
-      'titleFormat'       : function(title, currentArray, currentIndex, currentOpts) {
-          return '<span id="fancybox-title-over">Image ' +  (currentIndex + 1) + ' / ' + currentArray.length + ' ' + title + '</span>';
-      }
-      });
-      */
+        // Initially set opacity on thumbs and add
+        // additional styling for hover effect on thumbs
+        var onMouseOutOpacity = 0.67;
+        jQuery('#thumbs ul.thumbs li').opacityrollover({
+                                                           mouseOutOpacity:   onMouseOutOpacity,
+                                                           mouseOverOpacity:  1.0,
+                                                           fadeSpeed:         'fast',
+                                                           exemptionSelector: '.selected'
+                                                       });
+
+        // Initialize Advanced Galleriffic Gallery
+        var gallery = jQuery('#thumbs').galleriffic({
+                                                        delay:                     2500,
+                                                        numThumbs:                 3,
+                                                        preloadAhead:              10,
+                                                        enableTopPager:            false,
+                                                        enableBottomPager:         false,
+                                                        maxPagesToShow:            7,
+                                                        imageContainerSel:         '#slideshow',
+                                                        //controlsContainerSel:      '#controls',
+                                                        captionContainerSel:       '#caption',
+                                                        //loadingContainerSel:       '#loading',
+                                                        renderSSControls:          true,
+                                                        renderNavControls:         true,
+                                                        playLinkText:              'Play Slideshow',
+                                                        pauseLinkText:             'Pause Slideshow',
+                                                        prevLinkText:              '&lsaquo; Previous Photo',
+                                                        nextLinkText:              'Next Photo &rsaquo;',
+                                                        nextPageLinkText:          'Next &rsaquo;',
+                                                        prevPageLinkText:          '&lsaquo; Prev',
+                                                        enableHistory:             false,
+                                                        autoStart:                 false,
+                                                        syncTransitions:           true,
+                                                        defaultTransitionDuration: 900,
+                                                        onSlideChange:             function(prevIndex, nextIndex) {
+                                                            // 'this' refers to the gallery, which is an extension of jQuery('#thumbs')
+                                                            this.find('ul.thumbs').children()
+                                                                    .eq(prevIndex).fadeTo('fast', onMouseOutOpacity).end()
+                                                                    .eq(nextIndex).fadeTo('fast', 1.0);
+                                                        },
+                                                        onPageTransitionOut:       function(callback) {
+                                                            this.fadeTo('fast', 0.0, callback);
+                                                        },
+                                                        onPageTransitionIn:        function() {
+                                                            this.fadeTo('fast', 1.0);
+                                                        }
+                                                    });
     },
     menuPlay: function() {
 
