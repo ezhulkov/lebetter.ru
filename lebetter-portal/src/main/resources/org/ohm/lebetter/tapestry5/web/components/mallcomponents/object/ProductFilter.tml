@@ -10,11 +10,11 @@
                     <t:loop t:formState="NONE" source="oneCategory.children" value="oneSubCategory">
                         <t:if test="selSubCategory">
                             <option selected="selected" value="${oneSubCategory.rootId}">
-                                ${oneSubCategory.name}
+                                &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;${oneSubCategory.name}
                             </option>
                             <t:parameter name="else">
                                 <option value="${oneSubCategory.rootId}">
-                                    ${oneSubCategory.name}
+                                    &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;${oneSubCategory.name}
                                 </option>
                             </t:parameter>
                         </t:if>

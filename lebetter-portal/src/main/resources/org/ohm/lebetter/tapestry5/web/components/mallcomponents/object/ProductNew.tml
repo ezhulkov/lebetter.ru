@@ -25,10 +25,27 @@
 
         <div class="input_box">
             <div class="input_label">
-                <t:label for="category"/>
+                <label for="category">Категории</label>
                 :
             </div>
-            <select t:id="category" class="form_select"/>
+            <select id="category" class="form_select" name="LB-SEL-CAT">
+                <t:loop t:formState="NONE" source="categories" value="oneCategory">
+                    <t:if test="oneCategory.children">
+                        <optgroup label="${oneCategory.name}">
+                            <t:loop t:formState="NONE" source="oneCategory.children" value="oneSubCategory">
+                                        <option value="${oneSubCategory.rootId}">
+                                            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;${oneSubCategory.name}
+                                        </option>
+                            </t:loop>
+                        </optgroup>
+                    </t:if>
+                    <t:unless test="oneCategory.children">
+                        <option value="${oneCategory.rootId}">
+                            ${oneCategory.name}
+                        </option>
+                    </t:unless>
+                </t:loop>
+            </select>
         </div>
 
     </t:mallComponents.control.editObject>
