@@ -18,7 +18,7 @@
                         <t:if test="delAllowed">
                             <t:if test="drawDelete">
                                 <div class="break"></div><br />
-                                <t:mallComponents.control.ie9CompatibleActionLink t:id="delObject" t:context="delContext" class="but_del"><img src="/images/0.gif" alt=" " />Удалить</t:mallComponents.control.ie9CompatibleActionLink>
+                                <t:mallComponents.control.ie9CompatibleActionLink t:id="delObject" t:context="delContext" class="but_del">Удалить</t:mallComponents.control.ie9CompatibleActionLink>
                             </t:if>
                         </t:if>
                     </div>

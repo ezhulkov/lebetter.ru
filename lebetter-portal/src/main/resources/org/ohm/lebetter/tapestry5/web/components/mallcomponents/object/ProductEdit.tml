@@ -65,6 +65,7 @@
     <div class="hr_big"/>
     <br/>
 
+    <h2>Свойства</h2>
     <t:mallComponents.object.objectDescription object="selectedObject"/>
 
 </div>

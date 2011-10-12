@@ -58,13 +58,17 @@ public class Index extends AdminBasePage {
         return adminBlock;
     }
 
-     public String[] getProductContext() {
-        CategoryEntity cat = null;
+    public String[] getProductContext() {
         selectedProduct = getServiceFacade().getProductManager().get(selectedProduct.getId());
-        if (selectedProduct.getCategories() != null && selectedProduct.getCategories().size() != 0) {
-            cat = selectedProduct.getCategories().get(0);
-        }
+        CategoryEntity cat = getSelectedCategory();
         return new String[]{cat == null ? "" : cat.getAltId(), selectedProduct.getAltId()};
+    }
+
+    public CategoryEntity getSelectedCategory() {
+        if (selectedProduct.getCategories() != null && selectedProduct.getCategories().size() != 0) {
+            return selectedProduct.getCategories().get(0);
+        }
+        return null;
     }
 
 }

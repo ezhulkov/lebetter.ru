@@ -18,7 +18,7 @@
                             <tr>
                                 <td>
                                     <div class="c-link">
-                                        <t:pageLink page="personaloffice/staff/property" class="ks_lnk_green" context="oneProperty.rootid">${oneProperty.name}:</t:pageLink>
+                                        <t:pageLink page="po/system/property" class="ks_lnk_green" context="oneProperty.rootid">${oneProperty.name}:</t:pageLink>
                                     </div>
                                     <div class="c-mtags" id="maph${oneProperty.rootId}">
                                         <!-- Сюда накидываем множественные теги -->
@@ -42,14 +42,14 @@
                     <!-- Шаблон для кнопки добавления нового множественного тега -->
                     <dt id="mcadd${oneProperty.rootid}" class="ks_objectdescriptiontagpart_3">
                         <t:mallComponents.control.menuLink autoCompleteAction="true" actionPrefix="EDIT_" object="selectedSecurityObject">
-                            <a href="#" onclick="return false;" class="add-onecat-link" id="al${oneProperty.rootid}"><img src="/images/but/c-add.png" alt="+" title="${message:addbtn}"/></a>
+                            <a href="#" onclick="return false;" class="add-onecat-link" id="al${oneProperty.rootid}"><img src="/images/but/c-add.png" alt="+" title="Добаить"/></a>
                         </t:mallComponents.control.menuLink>
                     </dt>
 
                     <!-- Шаблон для кнопки удаления множественного тега -->
                     <dt class="multiple-category-one c-del2" id="dc${oneProperty.rootid}">
                         <t:mallComponents.control.menuLink autoCompleteAction="true" actionPrefix="EDIT_" object="selectedSecurityObject">
-                            <a href="#" onclick="return false;" class="del-onecat-link" id="dl${oneProperty.rootid}"><img src="/images/but/c-del.png" alt="-" title="${message:delbtn}"/></a>
+                            <a href="#" onclick="return false;" class="del-onecat-link" id="dl${oneProperty.rootid}"><img src="/images/but/c-del.png" alt="-" title="Удалить"/></a>
                         </t:mallComponents.control.menuLink>
                     </dt>
 
@@ -74,7 +74,7 @@
                     <!-- Шаблон для одиночного тега -->
                     <dt class="single-category" id="sc${oneProperty.rootid}">
                     <div class="c-link2">
-                        <t:pageLink page="personaloffice/staff/property" class="ks_lnk_green" context="oneProperty.rootid">
+                        <t:pageLink page="po/system/property" class="ks_lnk_green" context="oneProperty.rootid">
                             <t:mallComponents.control.trimmedString length="32" value="${oneProperty.name}"/>
                             :
                         </t:pageLink>
@@ -90,12 +90,6 @@
 
         <tr>
             <td>
-
-                <div class="catcaption">
-
-                    <span class="zag">${message:tags.values}</span>
-
-                </div>
                 <div class="c-clear ks_objectdescriptiontagpart_5"></div>
                 <t:form t:zone="${targetZone}">
 
@@ -155,18 +149,10 @@
                             <table>
                                 <tr>
                                     <td>
-                                        <div class="buttonsg">
-                                            <div>
-                                                <div>
-                                                    <t:mallComponents.control.ie9CompatibleActionLink t:zone="${targetZone}" t:id="cancelAjax">${message:cancelbtn}</t:mallComponents.control.ie9CompatibleActionLink>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <t:mallComponents.control.ie9CompatibleActionLink t:zone="${targetZone}" t:id="cancelAjax" class="form_but">Отменить</t:mallComponents.control.ie9CompatibleActionLink>
                                     </td>
                                     <td>
-                                        <img class="NFButtonLeft" src="/images/0.gif"/>
-                                        <input id="buttonSet" type="submit" value="${message:savebtn}" class="NFButton"/>
-                                        <img class="NFButtonRight" src="/images/0.gif"/>
+                                        <input id="buttonSet" type="submit" value="Сохранить" class="form_but"/>
                                     </td>
                                 </tr>
                             </table>

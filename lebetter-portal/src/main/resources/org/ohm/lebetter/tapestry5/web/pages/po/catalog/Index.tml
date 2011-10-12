@@ -26,6 +26,10 @@
             </div>
 
             <h1>Товар '${selectedProduct.name}'</h1>
+            <t:if test="auth.staffRole">
+                <h2>Категория <t:pageLink t:page="po/system/category" t:context="selectedCategory.rootId">'${selectedCategory.name}'</t:pageLink></h2>
+            </t:if>
+            <br/>
 
             <div class="break"/>
 
