@@ -2,16 +2,19 @@
 #redactor_imp_modal textarea {
     border: 1px solid #606060;
 }
+
 .office_body {
-  position: relative;
+    position: relative;
 }
+
 .adm_ul ul {
-  list-style: square outside none;
-  margin: 0;
-  padding: 0 0 8px 14px !important;
+    list-style: square outside none;
+    margin: 0;
+    padding: 0 0 8px 14px !important;
 }
+
 .adm_add_box {
-  position: relative;
+    position: relative;
 }
 
 #datagrid {
@@ -32,7 +35,7 @@
     width: 70px;
 }
 
-#datagrid th.category {
+#datagrid th.name {
     width: 250px;
 }
 
@@ -40,10 +43,12 @@
     padding: 5px 0 5px 10px;
     font-size: 9pt;
 }
+
 #datagrid td.chbox {
     text-align: center;
     width: 31px;
 }
+
 a.create_link {
     padding: 8px 0px 10px 0;
     font-size: 11pt;
@@ -51,6 +56,7 @@ a.create_link {
     right: 0;
     top: 0;
 }
+
 a.create_link2 {
     padding: 3px 0px 8px 0;
     font-size: 11pt;
@@ -58,6 +64,7 @@ a.create_link2 {
     right: 0;
     top: 0;
 }
+
 /*.form_but adm {
     float: right;
 }*/
@@ -65,66 +72,193 @@ a.create_link2 {
 img.t-error-icon {
     margin: 8px 0 0 10px;
 }
+
 /* FormElements */
 form {
-  position: relative;
+    position: relative;
 }
+
 .form_textarea {
-  width: 257px;
-  float: left;
+    width: 257px;
+    float: left;
 }
+
 .form_textarea textarea {
-  height: 154px;
-  width: 247px;
-  resize: none;
+    height: 154px;
+    width: 247px;
+    resize: none;
 }
+
 .form_multiselect {
-  width: 257px;
-  float: left;
+    width: 257px;
+    float: left;
 }
+
 .form_multiselect select {
-  height: 154px;
-  width: 247px;
+    height: 154px;
+    width: 247px;
 }
+
 .form_butpos_r {
-  top: 0px;
-  right: 0px;
-  position: absolute;
+    top: 0px;
+    right: 0px;
+    position: absolute;
 }
+
 /*Textareas*/
-.NFTextarea { color: #535353; background: url(/images/0.gif); font:12px; line-height: 18px; margin:0;}
-.NFTextareaTop, form .NFTextareaBottom {height:6px; clear:both; float:none; padding-right:10px;}
-.NFTextareaTop {background:url(/images/form/textarea-tr.png) no-repeat 100% 0;}
-.NFTextareaBottom {background:url(/images/form/textarea-br.png) no-repeat 100% 0; margin-bottom:5px;}
-.NFTextareaTopLeft, form .NFTextareaBottomLeft {width:11px; height:6px;}
-.containerPlus form .NFTextareaTopLeft {background-color: #d2d3d3;}
-form .NFTextareaTopLeft {background: url(/images/form/textarea-tl.png) no-repeat 0 0;}
-.containerPlus form .NFTextareaBottomLeft {background-color: #d2d3d3;}
-form .NFTextareaBottomLeft {background: url(/images/form/textarea-bl.png) no-repeat 0 0;}
-form .NFTextareaLeft, form .NFTextareaRight, form .NFTextareaLeftH, form .NFTextareaRightH {float:left; padding-bottom:6px; height:154px;}
-form .NFTextareaLeft, form .NFTextareaLeftH {width:5px;}
-.containerPlus form .NFTextareaLeft {background-color: #d2d3d3;}
-form .NFTextareaLeft {background:url(/images/form/textarea-l-off.png) repeat-y 0 0;}
-form .NFTextareaLeftH {background:url(/images/form/textarea-l-over.png) repeat-y 0 0;}
-form .NFTextareaRight, form .NFTextareaRightH {padding-right:5px; padding-bottom:0;}
-form .NFTextareaRight {background:url(/images/form/textarea-r-off.png) repeat-y 100% 0;}
-/* IE7 */ *:first-child+html form .NFTextareaRight { margin-top:-5px;}
-form .NFTextareaRightH {background:url(/images/form/textarea-r-over.png) repeat-y 100% 100%;}
+.NFTextarea {
+    color: #535353;
+    background: url(/images/0.gif);
+    font: 12px;
+    line-height: 18px;
+    margin: 0;
+}
+
+.NFTextareaTop, form .NFTextareaBottom {
+    height: 6px;
+    clear: both;
+    float: none;
+    padding-right: 10px;
+}
+
+.NFTextareaTop {
+    background: url(/images/form/textarea-tr.png) no-repeat 100% 0;
+}
+
+.NFTextareaBottom {
+    background: url(/images/form/textarea-br.png) no-repeat 100% 0;
+    margin-bottom: 5px;
+}
+
+.NFTextareaTopLeft, form .NFTextareaBottomLeft {
+    width: 11px;
+    height: 6px;
+}
+
+.containerPlus form .NFTextareaTopLeft {
+    background-color: #d2d3d3;
+}
+
+form .NFTextareaTopLeft {
+    background: url(/images/form/textarea-tl.png) no-repeat 0 0;
+}
+
+.containerPlus form .NFTextareaBottomLeft {
+    background-color: #d2d3d3;
+}
+
+form .NFTextareaBottomLeft {
+    background: url(/images/form/textarea-bl.png) no-repeat 0 0;
+}
+
+form .NFTextareaLeft, form .NFTextareaRight, form .NFTextareaLeftH, form .NFTextareaRightH {
+    float: left;
+    padding-bottom: 6px;
+    height: 154px;
+}
+
+form .NFTextareaLeft, form .NFTextareaLeftH {
+    width: 5px;
+}
+
+.containerPlus form .NFTextareaLeft {
+    background-color: #d2d3d3;
+}
+
+form .NFTextareaLeft {
+    background: url(/images/form/textarea-l-off.png) repeat-y 0 0;
+}
+
+form .NFTextareaLeftH {
+    background: url(/images/form/textarea-l-over.png) repeat-y 0 0;
+}
+
+form .NFTextareaRight, form .NFTextareaRightH {
+    padding-right: 5px;
+    padding-bottom: 0;
+}
+
+form .NFTextareaRight {
+    background: url(/images/form/textarea-r-off.png) repeat-y 100% 0;
+}
+
+/* IE7 */
+*:first-child+html form .NFTextareaRight {
+    margin-top: -5px;
+}
+
+form .NFTextareaRightH {
+    background: url(/images/form/textarea-r-over.png) repeat-y 100% 100%;
+}
+
 /*Multiple Selects*/
-form .NFMultiSelect {border:0; background:none; margin:0;}
-form .NFMultiSelectTop, form .NFMultiSelectBottom {height:6px; clear:both; float:none; padding-right:10px;}
-form .NFMultiSelectTop {background:url(/images/form/textarea-tr.png) no-repeat 100% 0; line-height: 6px; vertical-align: bottom;}
-form .NFMultiSelectBottom {background:url(/images/form/textarea-br.png) no-repeat 100% 0; margin-bottom:5px;}
-form .NFMultiSelectTopLeft, form .NFMultiSelectBottomLeft {width:11px; height:6px;}
-form .NFMultiSelectTopLeft {background: url(/images/form/textarea-tl.png) no-repeat 0 0;}
-form .NFMultiSelectBottomLeft {background: url(/images/form/textarea-bl.png) no-repeat 0 0;}
-form .NFMultiSelectLeft, form .NFMultiSelectRight, form .NFMultiSelectLeftH, form .NFMultiSelectRightH {float:left; padding-bottom:6px;}
-form .NFMultiSelectLeft, form .NFMultiSelectLeftH {width:5px; height: 148px;}
-form .NFMultiSelectLeft {background:url(/images/form/textarea-l-off.png) repeat-y 0 0;}
-form .NFMultiSelectLeftH {background:url(/images/form/textarea-l-over.png) repeat-y 0 0;}
-form .NFMultiSelectRight, form .NFMultiSelectRightH {padding-right:5px; padding-bottom:0;}
-form .NFMultiSelectRight {background:url(/images/form/textarea-r-off.png) repeat-y 100% 0;}
-form .NFMultiSelectRightH {background:url(/images/form/textarea-r-over.png) repeat-y 100% 0;}
+form .NFMultiSelect {
+    border: 0;
+    background: none;
+    margin: 0;
+}
+
+form .NFMultiSelectTop, form .NFMultiSelectBottom {
+    height: 6px;
+    clear: both;
+    float: none;
+    padding-right: 10px;
+}
+
+form .NFMultiSelectTop {
+    background: url(/images/form/textarea-tr.png) no-repeat 100% 0;
+    line-height: 6px;
+    vertical-align: bottom;
+}
+
+form .NFMultiSelectBottom {
+    background: url(/images/form/textarea-br.png) no-repeat 100% 0;
+    margin-bottom: 5px;
+}
+
+form .NFMultiSelectTopLeft, form .NFMultiSelectBottomLeft {
+    width: 11px;
+    height: 6px;
+}
+
+form .NFMultiSelectTopLeft {
+    background: url(/images/form/textarea-tl.png) no-repeat 0 0;
+}
+
+form .NFMultiSelectBottomLeft {
+    background: url(/images/form/textarea-bl.png) no-repeat 0 0;
+}
+
+form .NFMultiSelectLeft, form .NFMultiSelectRight, form .NFMultiSelectLeftH, form .NFMultiSelectRightH {
+    float: left;
+    padding-bottom: 6px;
+}
+
+form .NFMultiSelectLeft, form .NFMultiSelectLeftH {
+    width: 5px;
+    height: 148px;
+}
+
+form .NFMultiSelectLeft {
+    background: url(/images/form/textarea-l-off.png) repeat-y 0 0;
+}
+
+form .NFMultiSelectLeftH {
+    background: url(/images/form/textarea-l-over.png) repeat-y 0 0;
+}
+
+form .NFMultiSelectRight, form .NFMultiSelectRightH {
+    padding-right: 5px;
+    padding-bottom: 0;
+}
+
+form .NFMultiSelectRight {
+    background: url(/images/form/textarea-r-off.png) repeat-y 100% 0;
+}
+
+form .NFMultiSelectRightH {
+    background: url(/images/form/textarea-r-over.png) repeat-y 100% 0;
+}
 
 /* Roles */
 .checkbox3 {
@@ -134,132 +268,371 @@ form .NFMultiSelectRightH {background:url(/images/form/textarea-r-over.png) repe
     height: 21px;
     cursor: pointer
 }
+
 .checkbox3.f0 {
     background-position: 0px 0px;
 }
+
 .checkbox3.f1 {
     background-position: -21px 0px;
 }
+
 .checkbox3.f2 {
     background-position: -42px 0px;
 }
 
 /* Tabs */
 .adm_tab {
-  background: url(/images/hr7.png) no-repeat 0px 29px;
-  height: 54px;
+    background: url(/images/hr7.png) no-repeat 0px 29px;
+    height: 54px;
 }
+
 .adm_tab ul {
-  margin: 0px 0px 0px 0px !important;
-  padding: 0px 0px 0px 0px !important;
-  height: 33px;
-  overflow: hidden;
+    margin: 0px 0px 0px 0px !important;
+    padding: 0px 0px 0px 0px !important;
+    height: 33px;
+    overflow: hidden;
 }
+
 .adm_tab ul li {
-  list-style: none;
-  float: left;
-  height: 34px;
-  margin: 0 !important;
-  padding: 0 !important;
+    list-style: none;
+    float: left;
+    height: 34px;
+    margin: 0 !important;
+    padding: 0 !important;
 }
+
 .adm_tab ul li a {
-  background: #b5b4b5;
-  border-top: 1px solid #808181;
-  border-right: 1px solid #808181;
-  border-bottom: 1px solid #808181;
-  border-left: 1px solid #808181;
-  color: #303030;
-  padding: 5px 16px 5px 16px;
-  margin: 2px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  font-size: 12px;
-  font-weight: normal;
-  display: block;
+    background: #b5b4b5;
+    border-top: 1px solid #808181;
+    border-right: 1px solid #808181;
+    border-bottom: 1px solid #808181;
+    border-left: 1px solid #808181;
+    color: #303030;
+    padding: 5px 16px 5px 16px;
+    margin: 2px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: normal;
+    display: block;
 }
+
 .adm_tab ul li a:hover,
 .adm_tab ul li.sel a {
-  /*font-weight: bold;*/
-  color: #000000;
-  background: #ffffff !important;
-  padding: 5px 16px 6px 16px !important;
-  border-top: 1px solid #808181;
-  border-right: 1px solid #808181;
-  border-bottom: 0px solid #808181;
-  border-left: 1px solid #808181;
+    /*font-weight: bold;*/
+    color: #000000;
+    background: #ffffff !important;
+    padding: 5px 16px 6px 16px !important;
+    border-top: 1px solid #808181;
+    border-right: 1px solid #808181;
+    border-bottom: 0px solid #808181;
+    border-left: 1px solid #808181;
 }
 
 /* AdminTableNavigation */
 div.t-data-grid-pager {
-  padding: 12px 0px 0px 0px;
-  margin: 0px 0px 0px 0px;
-  text-align: center;
+    padding: 12px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    text-align: center;
 }
+
 .nav_prev,
 .nav_next {
-  height: 16px;
-  width:  11px;
+    height: 16px;
+    width: 11px;
 }
+
 .nav_prev {
-  background: url(/images/but/prev.gif) no-repeat 4px 7px;
+    background: url(/images/but/prev.gif) no-repeat 4px 7px;
 }
+
 .nav_next {
-  background: url(/images/but/next.gif) no-repeat 3px 7px;
+    background: url(/images/but/next.gif) no-repeat 3px 7px;
 }
+
 div.t-data-grid-pager a {
-  border-right: 1px solid #e3e3e3;
-  border-bottom: 0px solid #e3e3e3;
-  border-left: 0px solid #e3e3e3;
-  border-top: 0px solid #e3e3e3;
-  padding: 0px 5px 0px 5px;
-  text-decoration: none;
-  background-color: transparent;
-  color: #47190a;
-  margin: 0 !important;
-  font-size: 12px;
+    border-right: 1px solid #e3e3e3;
+    border-bottom: 0px solid #e3e3e3;
+    border-left: 0px solid #e3e3e3;
+    border-top: 0px solid #e3e3e3;
+    padding: 0px 5px 0px 5px;
+    text-decoration: none;
+    background-color: transparent;
+    font-size: 12px;
+    color: #47190a;
+    margin: 0 !important;
 }
+
 div.t-data-grid-pager span.current {
-  border-right: 1px solid #e3e3e3;
-  border-bottom: 0px solid #e3e3e3;
-  border-left: 0px solid #e3e3e3;
-  border-top: 0px solid #e3e3e3;
-  padding: 0px 5px 0px 5px;
-  text-decoration: none;
-  background-color: #e3e3e3;
-  color: #000000;
-  margin: 0 !important;
-  font-size: 12px;
+    border-right: 1px solid #e3e3e3;
+    border-bottom: 0px solid #e3e3e3;
+    border-left: 0px solid #e3e3e3;
+    border-top: 0px solid #e3e3e3;
+    padding: 0px 5px 0px 5px;
+    text-decoration: none;
+    background-color: #e3e3e3;
+    font-size: 12px;
+    color: #000000;
+    margin: 0 !important;
 }
+
 div.t-data-grid-pager a.l {
-  border-right: 0px solid #e3e3e3;
-  border-bottom: 0px solid #e3e3e3;
-  border-left: 0px solid #e3e3e3;
-  border-top: 0px solid #e3e3e3;
+    border-right: 0px solid #e3e3e3;
+    border-bottom: 0px solid #e3e3e3;
+    border-left: 0px solid #e3e3e3;
+    border-top: 0px solid #e3e3e3;
 }
+
 div.t-data-grid-pager a:hover {
-  background: #e3e3e3;
-  color: #000000;
-  border-right: 1px solid #e3e3e3;
-  border-bottom: 0px solid #e3e3e3;
-  border-left: 0px solid #e3e3e3;
-  border-top: 0px solid #e3e3e3;
+    background: #e3e3e3;
+    color: #000000;
+    border-right: 1px solid #e3e3e3;
+    border-bottom: 0px solid #e3e3e3;
+    border-left: 0px solid #e3e3e3;
+    border-top: 0px solid #e3e3e3;
 }
+
 div.slide_bu_che {
-  background: #e3e3e3;
-  color: #000000;
-  padding: 0px 5px 0px 5px;
+    background: #e3e3e3;
+    color: #000000;
+    padding: 0px 5px 0px 5px;
 }
 
 /* LayoutsCorrect */
 .ObjectOwnerShow_1 {
- top: 32px !important;
- right: 108px !important;
+    top: 32px !important;
+    right: 108px !important;
 }
+
 .ActionsEdit_1 {
-  top: -38px !important;
+    top: -38px !important;
 }
+
 .DealerMap_1 form {
-  padding-top: 43px;
+    padding-top: 43px;
+}
+
+#catcategory .ks_objectdescriptiontagpart_1 {
+    display: none;
+}
+
+#catcategory .ks_objectdescriptiontagpart_2 {
+    padding: 2px 0px 0px 15px;
+    float: left;
+    height: 27px;
+    width: 27px;
+}
+
+#catcategory .ks_objectdescriptiontagpart_3 {
+    padding: 0px 0px 0px 12px;
+    border-left: 1px dashed #cccccc;
+}
+
+#catcategory .ks_objectdescriptiontagpart_4 {
+    float: left;
+    height: 40px;
+}
+
+#catcategory .ks_objectdescriptiontagpart_5 {
+    display: none;
+}
+
+#catcategory .ks_objectdescriptiontagpart_6 {
+    height: 111px;
+}
+
+#catcategory .ks_objectdescriptiontagpart_7 {
+    padding: 0px 0px 0px 0px;
+}
+
+#catcategory .multiple-category-holder {
+    padding: 0px 0px 0px 0px;
+    width: 100%;
+}
+
+#catcategory .single-category-holder-bb {
+    padding: 0px 0px 0px 0px;
+    width: 100%;
+}
+
+#catcategory .c-del {
+    padding: 24px 4px 24px 4px;
+    background: #bbbdbe url(/images/bg-9.gif) repeat-x 0px 0px;
+    width: 17px;
+}
+
+#catcategory .mc-add {
+    padding: 22px 4px;
+    width: 30px;
+}
+
+#catcategory .single-category {
+    border-right: 0px solid black;
+    float: left;
+    height: 68px;
+    padding: 0px 16px 0px 12px;
+}
+
+#catcategory .single-category span.dscr {
+    float: left;
+    padding: 5px 3px 0px 12px;
+    color: #535353;
+}
+
+#catcategory #c-add-but {
+    position: absolute;
+    right: 10px;
+    top: -29px;
+}
+
+#catcategory .valueaddbox {
+    position: absolute;
+    border: 0px solid;
+    margin: -24px 0px 0px 450px;
+    padding: 0px 0px 0px 0px;
+    width: auto;
+    z-index: 70;
+}
+
+#catcategory .valueaddbox h3 {
+    font-size: 12px;
+    text-transform: none;
+    color: #313131;
+    padding: 0px 0px 9px 0px;
+    white-space: nowrap;
+}
+
+#catcategory .valueaddbox li {
+    /*margin-bottom: 5px;*/
+    font-size: 12px;
+    text-transform: none;
+    color: #707070;
+    padding: 0px 25px 5px 0px;
+    z-index: 10;
+}
+
+#catcategory .valueaddbox li a {
+    font-size: 12px;
+
+    text-transform: uppercase;
+    color: #707070;
+}
+
+#catcategory .valueaddbox li a:hover {
+    font-size: 12px;
+
+    text-transform: uppercase;
+    color: #355ea2;
+}
+
+#catcategory .addf {
+    position: absolute;
+    margin: -24px 0px 0px -123px;
+    display: none;
+    z-index: 70;
+}
+
+#catcategory .addf li {
+    margin-bottom: 5px;
+    font-size: 12px;
+    text-transform: none;
+    color: #707070;
+    padding: 0px 25px 0px 0px;
+    z-index: 10;
+}
+
+#catcategory .addf li a {
+    font-size: 12px;
+
+    text-transform: uppercase;
+    color: #707070;
+}
+
+#catcategory .addf li a:hover {
+    font-size: 12px;
+
+    text-transform: uppercase;
+    color: #c52200;
+}
+
+#catcategory .c-link {
+    padding: 8px 0px 6px 20px;
+    margin: 0px 0px 0px 0px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #666666;
+}
+
+#catcategory .c-link2 {
+    padding: 8px 0px 6px 8px;
+    margin: 0px 0px 0px 0px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #666666;
+}
+
+#catcategory .c-area {
+    padding: 0px 0px 14px 12px;
+    height: 25px;
+}
+
+#catcategory .c-add {
+    padding: 0px 10px 14px 5px;
+    /*background: url(/images/hr/hr-3.gif) no-repeat 45px 0px;*/
+}
+
+#catcategory .c-del2 {
+    padding: 7px 4px 14px 1px;
+    height: 25px;
+}
+
+#catcategory div.c-clear {
+    width: 182px;
+    position: absolute;
+    margin: -31px 0 0 700px;
+}
+
+#catcategory #c-add-but, #catcategory #c-del-but {
+    cursor: pointer;
+}
+
+#catcategory #c-add-but {
+    z-index: 80;
+}
+
+#catcategory #c-del-but {
+    z-index: 80;
+    position: relative;
+}
+
+#catcategory .ks_propertytemplate_1 {
+    display: block;
+}
+
+#catcategory .ks_propertytemplate_2 {
+    width: 186px;
+}
+
+#catcategory .ks_propertytemplate_3 {
+    padding-right: 29px;
+}
+
+/* PropertyValueAdd.tml */
+#catcategory .ks_propertyvalueadd_1 {
+    width: 200px;
+}
+
+#catcategory .ks_propertyvalueadd_2 {
+    height: 36px;
+}
+
+#catcategory .ks_orderadress_legend3 {
+    font-size: 12px;
+    font-weight: bold;
+    color: #666;
+    padding-left: 8px;
+    margin-bottom: 4px;
 }
 

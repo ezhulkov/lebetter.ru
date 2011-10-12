@@ -3,6 +3,7 @@ package org.ohm.lebetter.model.impl.entities;
 import org.hibernate.annotations.AccessType;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.room13.mallcore.model.impl.BaseCreatorAwareEntity;
 import org.room13.mallcore.model.impl.BaseCreatorRepAwareEntity;
 
 import javax.persistence.Column;
@@ -26,7 +27,7 @@ import javax.persistence.Transient;
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @AccessType("field")
 public class TagToValueEntity
-        extends BaseCreatorRepAwareEntity {
+        extends BaseCreatorAwareEntity {
 
     private static final long serialVersionUID = 1411712925325416811L;
 

@@ -6,6 +6,7 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projection;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
+import org.ohm.lebetter.Constants;
 import org.ohm.lebetter.model.SitemapAware;
 import org.ohm.lebetter.model.impl.entities.CategoryEntity;
 import org.ohm.lebetter.model.impl.entities.ProductEntity;
@@ -14,6 +15,7 @@ import org.ohm.lebetter.model.impl.entities.UserEntity;
 import org.ohm.lebetter.spring.dao.ProductDao;
 import org.ohm.lebetter.spring.service.ProductManager;
 import org.room13.mallcore.log.RMLogger;
+import org.room13.mallcore.model.CreatorRepAware;
 import org.room13.mallcore.model.ObjectBaseEntity.Status;
 import org.room13.mallcore.spring.dao.OwnerDao;
 import org.room13.mallcore.spring.service.ObjectExistsException;
@@ -22,6 +24,7 @@ import org.springframework.beans.factory.annotation.Required;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.security.AccessControlException;
 import java.util.List;
 
 
@@ -102,4 +105,60 @@ public class ProductManagerImpl
     public SitemapAware getByAltId(String altid) {
         return SitemapAwareManagerImpl.getByAltId(altid, productDao);
     }
+
+    @Override
+    @Transactional
+    public void setOwner(ProductEntity object, String ownerName,
+                         String roleName, UserEntity caller)
+            throws ObjectExistsException {
+        if (getServiceManager().getRoleManager().isRoleAssigned(caller, Constants.Roles.ROLE_ADMIN)) {
+            OwnerAwareManagerImpl.setOwner(object, ownerName,
+                                           getServiceManager().getUserManager(),
+                                           ownerDao);
+        } else {
+            getRMLogger().errorSecurityViolation("Tries to set owner for object.", object);
+            throw new AccessControlException("access denied");
+        }
+    }
+
+    @Override
+    @Transactional
+    public void setOwners(ProductEntity object, String roleName, List<UserEntity> userEntities) {
+        OwnerAwareManagerImpl.setOwners(object, userEntities, ownerDao);
+    }
+
+
+    @Override
+    @Transactional
+    public void addOwner(ProductEntity object, String roleName, UserEntity user) {
+        OwnerAwareManagerImpl.addOwner(object, user, ownerDao);
+    }
+
+    @Override
+    @Transactional
+    public void removeOwner(ProductEntity object, String roleName, UserEntity user) {
+        OwnerAwareManagerImpl.removeOwner(object, user, ownerDao);
+    }
+
+    @Override
+    @Transactional
+    public void setCreatorRep(CreatorRepAware object, String creatorName, UserEntity caller)
+            throws ObjectExistsException {
+        if (getServiceManager().getRoleManager().isRoleAssigned(caller, Constants.Roles.ROLE_ADMIN)) {
+            OwnerAwareManagerImpl.setCreatorRep(object,
+                                                creatorName,
+                                                getServiceManager().getUserManager(),
+                                                productDao);
+        } else {
+            getRMLogger().errorSecurityViolation("Tries to set creator for object.", caller);
+            throw new AccessControlException("access denied");
+        }
+    }
+
+    @Override
+    public List<ProductEntity> getObjectsOwnedBy(UserEntity user) {
+        List<Long> ids = ownerDao.getObjectsIdsOwnedBy(user, "Dealer", null, null, null);
+        return getAll(ids);
+    }
+
 }

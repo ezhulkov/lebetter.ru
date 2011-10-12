@@ -982,4 +982,16 @@
         </createIndex>
     </changeSet>
 
+    <changeSet id="1.0.0-23" author="ezhulkov">
+        <addColumn tableName="app_product">
+            <column name="stockstatus" type="varchar(10)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="1.0.0-24" author="ezhulkov">
+        <addColumn tableName="app_product">
+            <column name="creatorrep_id" type="int8"/>
+        </addColumn>
+    </changeSet>
+
 </databaseChangeLog>

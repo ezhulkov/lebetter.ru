@@ -1,49 +1,36 @@
 ﻿<span xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
-    <t:if test="color">
-        <div class="colors">
-            <t:loop t:formState="NONE" source="listValues" value="oneValue">
-                <div id="2RM-COLORDIV-${selectedProperty.id}-${oneValue.id}"
-                     pid="${selectedProperty.id}"
-                     pvid="${oneValue.id}" 
-                     class="val_color_adm c_adm__${oneValue.additionalDictInfo2} ks_propertytemplate_1" title="${oneValue.name}"/>
-                <input type="hidden" id="2RM-COLOR-${selectedProperty.id}-${oneValue.id}" name="2RM-COLOR-${selectedProperty.id}-${oneValue.id}"/>
-            </t:loop>
-        </div>
-    </t:if>
-    <t:unless test="color">
-        <t:if test="propertyIsList">
-            <select id="2RM-SELECT-${selectedProperty.rootid}" name="2RM-SELECT-${selectedProperty.rootid}" class="catselect ks_propertytemplate_2">
-                <option></option>
+    <t:if test="propertyIsList">
+        <select id="2RM-SELECT-${selectedProperty.rootid}" name="2RM-SELECT-${selectedProperty.rootid}" class="catselect ks_propertytemplate_2">
+            <option></option>
                 <t:loop source="listValues" value="oneValue">
                     <option value="${oneValue.rootid}">${oneValue.name}</option>
                 </t:loop>
-            </select>
+        </select>
             <script language="JavaScript" type="text/javascript">
               var se = jQuery(".catselect");
-              se.parents("dt.single-category").css("width","240px");
+              se.parents("dt.single-category").css("width", "240px");
             </script>
-        </t:if>
-        <t:if test="propertyIsGroup">
+    </t:if>
+    <t:if test="propertyIsGroup">
             <t:loop source="subProperties" value="oneProperty">
-                <div class="ks_orderadress_input ks_propertytemplate_3">
+                <div class="ks_propertytemplate_3">
                     <div class="ks_orderadress_legend3">
                         ${oneProperty.name}:
                     </div>
-                    <input name="RM-GVALUE-${selectedProperty.rootid}-${oneProperty.rootid}"  type="text"/>
+                    <input name="RM-GVALUE-${selectedProperty.rootid}-${oneProperty.rootid}" class="form_input" type="text"/>
                 </div>
                 <script language="JavaScript" type="text/javascript">
                   var inp = jQuery("input[name='RM-GVALUE-${selectedProperty.rootid}-${oneProperty.rootid}']");
-                  inp.parents("dt.single-category").css("height","86px");
+                  inp.parents("dt.single-category").css("height", "86px");
                 </script>
             </t:loop>
-            <div class="break"></div>
-        </t:if>
-        <t:if test="propertyIsValue">
-            <div >
-                <!--<div class="ks_orderadress_legend3"> </div>-->
-                <input name="2RM-VALUE-${selectedProperty.rootid}"  type="text"/>
-            </div>
-        </t:if>
-    </t:unless>
+        <div class="break"></div>
+    </t:if>
+    <t:if test="propertyIsValue">
+        <div>
+            <!--<div class="ks_orderadress_legend3"> </div>-->
+            <input name="2RM-VALUE-${selectedProperty.rootid}" class="form_input" type="text"/>
+        </div>
+    </t:if>
 
 </span>

@@ -1,0 +1,24 @@
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="catcategory">
+
+    <t:zone id="tagArea">
+        <t:delegate to="tagBlock"/>
+    </t:zone>
+
+    <t:block id="tagBlock">
+
+        <t:if test="base.flashMessage2">
+            <div class="error_box error_box2">${base.flashMessage.message}</div>
+        </t:if>
+
+        <t:mallComponents.object.ObjectDescriptionTagPart object="selectedObject"
+                                                          securityObject="selectedObject"
+                                                          ajaxBlock="tagBlock"
+                                                          targetZone="tagArea"/>
+
+        <script language="JavaScript" type="text/javascript">
+            jQuery("select.catselect").selectbox();
+        </script>
+
+    </t:block>
+
+</div>

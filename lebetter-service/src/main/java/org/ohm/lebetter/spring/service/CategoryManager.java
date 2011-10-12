@@ -85,4 +85,7 @@ public interface CategoryManager
     public List<CategoryEntity> getAllForProduct(ProductEntity product);
 
     public boolean hasCategories(ProductEntity productEntity);
+
+    public List<PropertyEntity> getAllPropertiesForUI(ProductEntity product);
+
 }

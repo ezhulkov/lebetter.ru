@@ -26,11 +26,13 @@
         <t:mallComponents.object.productFilter category="selectedCategory"/>
 
         <t:grid pagerPosition="bottom" rowsPerPage="5" id="datagrid" source="products" row="oneProduct"
-                include="name,objectStatus" add="photo,category" reorder="photo,name,category,objectStatus">
-            <t:parameter name="nameHeader"/>
+                include="name,objectStatus,price,stockStatus" add="photo,category" reorder="photo,name,category,price,stockStatus,objectStatus">
+            <t:parameter name="nameHeader">Название</t:parameter>
+            <t:parameter name="priceHeader">Цена (USD)</t:parameter>
             <t:parameter name="photoHeader"/>
-            <t:parameter name="categoryHeader"/>
-            <t:parameter name="objectStatusHeader"/>
+            <t:parameter name="categoryHeader">Категория</t:parameter>
+            <t:parameter name="objectStatusHeader">Статус</t:parameter>
+            <t:parameter name="stockStatusHeader">Наличие на складе</t:parameter>
             <t:parameter name="nameCell">
                 <t:pageLink t:page="po/catalog" t:context="oneProduct.rootId">${oneProduct.name}</t:pageLink>
             </t:parameter>
@@ -45,6 +47,9 @@
             </t:parameter>
             <t:parameter name="objectStatusCell">
                 ${oneProduct.objectStatus}
+            </t:parameter>
+            <t:parameter name="stockStatusCell">
+                ${stockStatus}
             </t:parameter>
             <t:parameter name="empty">
                 <p class="nomsg">${message:empty.list}</p>
