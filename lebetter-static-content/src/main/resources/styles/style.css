@@ -44,6 +44,10 @@ input, select, textarea {
 .break {
   clear: both;
 }
+.w100 {
+  width: 100%;
+}
+
 .printable {
   display: none;
 }
@@ -112,6 +116,10 @@ input, select, textarea {
   width: 19px;
 }
 
+/* TapestryFix */
+.t-zone {
+  background-color: transparent !important;
+}
 
 
 
@@ -757,6 +765,7 @@ ul.prod_cat_grid2 li.row {
 ul.prod_cat_grid2 li img {
   height: 120px;
   width: 120px;
+  margin-bottom: 2px;
 }
 ul.prod_cat_grid2 li a {
   line-height: 14px;
@@ -819,9 +828,9 @@ ul.prod_cat_grid2 li a {
 }
 
 /* Navigation */
-.nav {
+.slide_pager {
   padding: 2px 0px 0px 0px;
-  margin: 0px 0px 0px 0px;
+  margin: 0px 0px -32px 0px;
   text-align: center;
 }
 .nav_prev,
@@ -835,16 +844,16 @@ ul.prod_cat_grid2 li a {
 .nav_next {
   background: url(/images/but/next.gif) no-repeat 3px 7px;
 }
-.nav a,
-.nav span {
+.slide_pager a,
+.slide_pager span {
   border-right: 1px solid #e3e3e3;
   padding: 0px 5px 0px 5px;
   text-decoration: none;
 }
-.nav a.l {
+.slide_pager a.l {
   border-right: 0px solid #e3e3e3;
 }
-.nav a:hover {
+.slide_pager a:hover {
   background: #e3e3e3;
   color: #000000;
 }
