@@ -52,12 +52,12 @@ AG = {
         jQuery(".pictures_box ul li:last-child").css("background", "none");
     },
     gridManipulation: function() {
-       jQuery("ul.prod_cat_grid2 li:nth-child(5n)").addClass("row");
+       jQuery("ul.prod_cat_grid2 .t-zone li:nth-child(5n)").addClass("row");
     },
     gridCatManipulation: function() {
        jQuery("ul.prod_cat_grid li:nth-child(4n)").addClass("r_l");
-       var prodLength = jQuery("ul.prod_cat_grid li").length; // ��������� ���������� item-��
-       var prodRows = Math.ceil(prodLength/4); //��������� ���������� �����
+       var prodLength = jQuery("ul.prod_cat_grid li").length; // count the number of item-s
+       var prodRows = Math.ceil(prodLength/4); // count the number of rows
 
        jQuery("ul.prod_cat_grid li").each(function(i){
          var rowNumber = Math.floor(i/4 + 1);

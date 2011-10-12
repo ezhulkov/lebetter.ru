@@ -9,7 +9,7 @@
         <t:if test="products">
             <ul class="prod_cat_grid2">
                 <t:mallComponents.control.pagedLoopAjax source="products"
-                                                        rowsPerPage="4"
+                                                        rowsPerPage="5"
                                                         value="oneProduct">
                     <li>
                         <t:pageLink t:page="catalog" t:context="productContext">
@@ -21,7 +21,7 @@
             </ul>
         </t:if>
     </div>
-    <!--<div class="hr_big"></div>-->
+    <div class="hr_big"></div>
 
     <!--<div class="nav">-->
     <!--<span class="slide_bu_che">1</span>-->
