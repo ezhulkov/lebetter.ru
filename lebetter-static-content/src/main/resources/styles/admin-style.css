@@ -104,6 +104,11 @@ form {
     right: 0px;
     position: absolute;
 }
+.form_butpos_r2 {
+    top: 0px;
+    right: 0px;
+    position: absolute;
+}
 
 /*Textareas*/
 .NFTextarea {
@@ -400,20 +405,8 @@ div.slide_bu_che {
     padding: 0px 5px 0px 5px;
 }
 
-/* LayoutsCorrect */
-.ObjectOwnerShow_1 {
-    top: 32px !important;
-    right: 108px !important;
-}
 
-.ActionsEdit_1 {
-    top: -38px !important;
-}
-
-.DealerMap_1 form {
-    padding-top: 43px;
-}
-
+/* ProductPropertys */
 #catcategory .ks_objectdescriptiontagpart_1 {
     display: none;
 }
@@ -432,7 +425,7 @@ div.slide_bu_che {
 
 #catcategory .ks_objectdescriptiontagpart_4 {
     float: left;
-    height: 40px;
+    height: 42px;
 }
 
 #catcategory .ks_objectdescriptiontagpart_5 {
@@ -472,7 +465,8 @@ div.slide_bu_che {
     border-right: 0px solid black;
     float: left;
     height: 68px;
-    padding: 0px 16px 0px 12px;
+    padding: 0px 16px 0px 0px;
+    width: 293px !important;
 }
 
 #catcategory .single-category span.dscr {
@@ -558,11 +552,9 @@ div.slide_bu_che {
 }
 
 #catcategory .c-link {
-    padding: 8px 0px 6px 20px;
+    padding: 8px 0px 6px 8px;
     margin: 0px 0px 0px 0px;
-    font-size: 12px;
     font-weight: bold;
-    color: #666666;
 }
 
 #catcategory .c-link2 {
@@ -574,8 +566,8 @@ div.slide_bu_che {
 }
 
 #catcategory .c-area {
-    padding: 0px 0px 14px 12px;
-    height: 25px;
+    padding: 0px 0px 14px 0px;
+    height: 32px;
 }
 
 #catcategory .c-add {
@@ -584,8 +576,8 @@ div.slide_bu_che {
 }
 
 #catcategory .c-del2 {
-    padding: 7px 4px 14px 1px;
-    height: 25px;
+    padding: 7px 12px 14px 1px;
+    height: 32px;
 }
 
 #catcategory div.c-clear {
@@ -612,7 +604,7 @@ div.slide_bu_che {
 }
 
 #catcategory .ks_propertytemplate_2 {
-    width: 186px;
+    width: 234px;
 }
 
 #catcategory .ks_propertytemplate_3 {
@@ -635,4 +627,26 @@ div.slide_bu_che {
     padding-left: 8px;
     margin-bottom: 4px;
 }
+
+/* LayoutsCorrect */
+.ObjectOwnerShow_1 {
+    top: 32px !important;
+    right: 108px !important;
+}
+
+.ActionsEdit_1 {
+    top: -38px !important;
+}
+
+.DealerMap_1 form {
+    padding-top: 43px;
+}
+.ObjectDescriptionTagPart_1 {
+  float: left;
+}
+.ObjectDescriptionTagPart_2 {
+  top: -31px;
+}
+
+
 
