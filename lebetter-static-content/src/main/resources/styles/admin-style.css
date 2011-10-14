@@ -412,7 +412,7 @@ div.slide_bu_che {
 }
 
 #catcategory .ks_objectdescriptiontagpart_2 {
-    padding: 2px 0px 0px 15px;
+    padding: 2px 0px 0px 0px;
     float: left;
     height: 27px;
     width: 27px;
@@ -576,7 +576,7 @@ div.slide_bu_che {
 }
 
 #catcategory .c-del2 {
-    padding: 7px 12px 14px 1px;
+    padding: 7px 28px 14px 1px;
     height: 32px;
 }
 
