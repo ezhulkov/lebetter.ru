@@ -17,9 +17,11 @@
 
     <t:mallcomponents.layout.office leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
 
-        <div class="adm_add_box">
-            <t:pageLink t:page="po/catalog/create" class="create_link">Создать товар</t:pageLink>
-        </div>
+        <t:mallcomponents.control.menuLink roles="ROLE_STAFF">
+            <div class="adm_add_box">
+                <t:pageLink t:page="po/catalog/create" class="create_link">Создать товар</t:pageLink>
+            </div>
+        </t:mallcomponents.control.menuLink>
 
         <h1>Каталог</h1>
 
@@ -34,7 +36,7 @@
             <t:parameter name="objectStatusHeader">Статус</t:parameter>
             <t:parameter name="stockStatusHeader">Наличие на складе</t:parameter>
             <t:parameter name="nameCell">
-                <t:pageLink t:page="po/catalog" t:context="oneProduct.rootId">${oneProduct.name}</t:pageLink>
+                <t:pageLink t:page="po/catalog" t:context="oneProduct.rootId"><strong>${oneProduct.name}</strong></t:pageLink>
             </t:parameter>
             <t:parameter name="photoCell">
                 <img src="/images/lb-front/def/nopic2.gif"/>
@@ -44,9 +46,6 @@
                     <t:pageLink t:page="po/catalog/list" t:context="productCategory.rootId">${productCategory.name}</t:pageLink>
                     <t:parameter name="else">—</t:parameter>
                 </t:if>
-            </t:parameter>
-            <t:parameter name="objectStatusCell">
-                ${oneProduct.objectStatus}
             </t:parameter>
             <t:parameter name="stockStatusCell">
                 ${stockStatus}

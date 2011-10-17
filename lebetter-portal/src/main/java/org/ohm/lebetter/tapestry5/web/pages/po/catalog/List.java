@@ -7,6 +7,7 @@ import org.ohm.lebetter.model.impl.entities.CategoryEntity;
 import org.ohm.lebetter.model.impl.entities.ProductEntity;
 import org.ohm.lebetter.tapestry5.web.pages.base.AdminBasePage;
 import org.ohm.lebetter.tapestry5.web.util.datasource.GenericEntityGridDS;
+import org.room13.mallcore.model.ObjectBaseEntity.Status;
 
 /**
  * Created by IntelliJ IDEA.
@@ -29,8 +30,9 @@ public class List extends AdminBasePage {
 
     @Cached
     public GridDataSource getProducts() {
-        java.util.List<Long> ids = getServiceFacade().getProductManager().getIdsByCategory(selectedCategory,
-                                                                                           null);
+        java.util.List<Long> ids =
+                getServiceFacade().getProductManager().getIdsByCategory(selectedCategory,
+                                                                        getAuth().isStaffRole() ? null : Status.READY);
         return new GenericEntityGridDS<ProductEntity>(ids,
                                                       getServiceFacade().getProductManager(),
                                                       ProductEntity.class);

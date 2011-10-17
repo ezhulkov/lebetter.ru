@@ -19,7 +19,9 @@
 
         <t:mallcomponents.control.grantCheck roles="ROLE_STAFF">
             <h1>Свойства</h1>
-            <t:pageLink t:page="po/system/property/create" class="create_link">Создать свойство</t:pageLink>
+            <t:mallcomponents.control.menuLink roles="ROLE_ADMIN">
+                <t:pageLink t:page="po/system/property/create" class="create_link">Создать свойство</t:pageLink>
+            </t:mallcomponents.control.menuLink>
             <t:mallcomponents.object.propertyList/>
         </t:mallcomponents.control.grantCheck>
 

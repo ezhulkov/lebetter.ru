@@ -21,7 +21,9 @@
 
             <h1>Пользователи</h1>
 
-            <t:pageLink t:page="po/user/create" class="create_link">Создать пользователя</t:pageLink>
+            <t:mallcomponents.control.menuLink roles="ROLE_ADMIN">
+                <t:pageLink t:page="po/user/create" class="create_link">Создать пользователя</t:pageLink>
+            </t:mallcomponents.control.menuLink>
 
             <t:grid pagerPosition="bottom" rowsPerPage="50" id="datagrid" source="userlist" row="oneUser" include="username,fullname,rolesPrintable">
                 <t:parameter name="usernameHeader">

@@ -15,20 +15,22 @@
                     <li id="dealers_menu">
                         <t:pageLink t:page="po/dealer/list">Дилеры</t:pageLink>
                     </li>
-                    <t:if test="auth.adminRole">
+                    <t:if test="auth.staffRole">
                         <li>&#160;</li>
-                        <li id="users_menu">
-                            <t:pageLink t:page="po/user/list">Пользователи</t:pageLink>
-                        </li>
-                        <li>&#160;</li>
-                        <li id="roles_menu">
-                            <t:pageLink t:page="po/system/role/list">Роли и права доступа</t:pageLink>
-                        </li>
                         <li id="cats_menu">
                             <t:pageLink t:page="po/system/category/list">Категории товаров</t:pageLink>
                         </li>
                         <li id="props_menu">
                             <t:pageLink t:page="po/system/property/list">Свойства товаров</t:pageLink>
+                        </li>
+                    </t:if>
+                    <t:if test="auth.adminRole">
+                        <li>&#160;</li>
+                        <li id="users_menu">
+                            <t:pageLink t:page="po/user/list">Пользователи</t:pageLink>
+                        </li>
+                        <li id="roles_menu">
+                            <t:pageLink t:page="po/system/role/list">Роли и права доступа</t:pageLink>
                         </li>
                     </t:if>
                 </ul>

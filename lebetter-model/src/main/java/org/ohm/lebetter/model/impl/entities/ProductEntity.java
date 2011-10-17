@@ -48,7 +48,7 @@ public class ProductEntity
 
     @Column
     @Enumerated(EnumType.STRING)
-    private StockStatus stockStatus;
+    private StockStatus stockStatus = StockStatus.ONSTOCK;
 
     @ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
     @JoinTable(name = "app_prod_cat",
