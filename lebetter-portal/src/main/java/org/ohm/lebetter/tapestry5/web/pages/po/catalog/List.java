@@ -56,8 +56,8 @@ public class List extends AdminBasePage {
     }
 
     public Block onActionFromAddProduct(Long pid) {
-        ProductEntity product = getServiceFacade().getProductManager().get(pid);
-        return null;
+        getServiceFacade().getOrderManager().addProduct(pid, getAuth().getUser());
+        return getOfficeLayout().getBasketBlock();
     }
 
 }

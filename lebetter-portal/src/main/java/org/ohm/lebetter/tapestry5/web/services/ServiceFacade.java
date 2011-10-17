@@ -3,6 +3,7 @@ package org.ohm.lebetter.tapestry5.web.services;
 import org.ohm.lebetter.spring.service.CategoryManager;
 import org.ohm.lebetter.spring.service.DealerManager;
 import org.ohm.lebetter.spring.service.MailManager;
+import org.ohm.lebetter.spring.service.OrderManager;
 import org.ohm.lebetter.spring.service.ProductManager;
 import org.ohm.lebetter.spring.service.PropertyManager;
 import org.ohm.lebetter.spring.service.PropertyValueManager;
@@ -36,6 +37,8 @@ public interface ServiceFacade {
     public UserLBManager getUserManager();
 
     public RoleManager getRoleManager();
+
+    public OrderManager getOrderManager();
 
     public ActionManager getActionManager();
 

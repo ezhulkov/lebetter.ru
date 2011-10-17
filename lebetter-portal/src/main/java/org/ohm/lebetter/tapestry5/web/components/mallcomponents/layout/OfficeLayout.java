@@ -24,5 +24,12 @@ public class OfficeLayout extends AbstractBaseComponent {
     @Parameter(required = true, allowNull = false)
     private Block breadCrumpsBlock;
 
+    @Inject
+    private Block basketBlock;
+
+    public Block getBasketBlock() {
+        return basketBlock;
+    }
+
 }
 

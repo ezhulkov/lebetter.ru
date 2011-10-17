@@ -11,6 +11,8 @@ public interface ServiceManager
 
     public CategoryManager getCategoryManager();
 
+    public OrderManager getOrderManager();
+
     public PropertyManager getPropertyManager();
 
     public PropertyValueManager getPropertyValueManager();

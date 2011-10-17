@@ -41,6 +41,10 @@
         </ul>
     </t:block>
 
+    <t:block id="basketBlock">
+        (+1)
+    </t:block>
+
     <t:mallcomponents.layout.browse leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
 
         <div class="office_body">

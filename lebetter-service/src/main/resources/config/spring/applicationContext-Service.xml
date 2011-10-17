@@ -45,6 +45,7 @@
           p:properties-ref="properties"
           p:productManager-ref="productManager"
           p:categoryManager-ref="categoryManager"
+          p:orderManager-ref="orderManager"
           p:dictPropertyHolder-ref="dictPropertyHolder"
           p:propertyValueManager-ref="propertyValueManager"
           p:propertyManager-ref="propertyManager"

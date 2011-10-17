@@ -4,6 +4,7 @@ import org.ohm.lebetter.spring.service.CategoryManager;
 import org.ohm.lebetter.spring.service.DealerManager;
 import org.ohm.lebetter.spring.service.DictPropertyHolder;
 import org.ohm.lebetter.spring.service.MailManager;
+import org.ohm.lebetter.spring.service.OrderManager;
 import org.ohm.lebetter.spring.service.ProductManager;
 import org.ohm.lebetter.spring.service.PropertyManager;
 import org.ohm.lebetter.spring.service.PropertyValueManager;
@@ -29,10 +30,21 @@ public class ServiceManagerImpl
     private I18nBean i18n;
     private PasswordEncoder passwordEncoder;
     private DealerManager dealerManager;
+    private OrderManager orderManager;
 
     @Override
     public CategoryManager getCategoryManager() {
         return categoryManager;
+    }
+
+    @Override
+    public OrderManager getOrderManager() {
+        return orderManager;
+    }
+
+    @Required
+    public void setOrderManager(OrderManager orderManager) {
+        this.orderManager = orderManager;
     }
 
     @Required
