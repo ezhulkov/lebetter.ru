@@ -21,7 +21,6 @@
     <t:mallcomponents.layout.browse leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
 
         <h1>Дилеры</h1>
-
         <t:loop t:formState="NONE" source="cities" value="oneCity">
             <h2>${oneCity}</h2>
             <ul class="dealer_list">

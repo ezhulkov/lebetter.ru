@@ -17,10 +17,11 @@
 
     <t:mallcomponents.layout.office leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
 
-        <h1>Категории</h1>
-
-        <t:pageLink t:page="po/system/category/create" class="create_link">Создать категорию</t:pageLink>
-        <t:mallcomponents.object.categoryList/>
+        <t:mallcomponents.control.grantCheck roles="ROLE_STAFF">
+            <h1>Категории</h1>
+            <t:pageLink t:page="po/system/category/create" class="create_link">Создать категорию</t:pageLink>
+            <t:mallcomponents.object.categoryList/>
+        </t:mallcomponents.control.grantCheck>
 
     </t:mallcomponents.layout.office>
 

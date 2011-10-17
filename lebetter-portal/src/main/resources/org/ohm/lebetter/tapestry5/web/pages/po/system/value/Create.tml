@@ -23,9 +23,10 @@
 
         <t:mallcomponents.layout.office leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
 
-            <h1>Создать значение</h1>
-
-            <t:mallcomponents.object.valueNew parent="parent"/>
+            <t:mallcomponents.control.grantCheck roles="ROLE_STAFF">
+                <h1>Создать значение</h1>
+                <t:mallcomponents.object.valueNew parent="parent"/>
+            </t:mallcomponents.control.grantCheck>
 
         </t:mallcomponents.layout.office>
 

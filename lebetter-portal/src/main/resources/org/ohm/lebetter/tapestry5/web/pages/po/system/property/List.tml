@@ -17,10 +17,11 @@
 
     <t:mallcomponents.layout.office leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
 
-        <h1>Свойства</h1>
-
-        <t:pageLink t:page="po/system/property/create" class="create_link">Создать свойство</t:pageLink>
-        <t:mallcomponents.object.propertyList/>
+        <t:mallcomponents.control.grantCheck roles="ROLE_STAFF">
+            <h1>Свойства</h1>
+            <t:pageLink t:page="po/system/property/create" class="create_link">Создать свойство</t:pageLink>
+            <t:mallcomponents.object.propertyList/>
+        </t:mallcomponents.control.grantCheck>
 
     </t:mallcomponents.layout.office>
 

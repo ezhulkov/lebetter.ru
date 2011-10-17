@@ -19,9 +19,13 @@
 
     <t:mallcomponents.layout.office leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
 
-        <h1>Создать пользователя</h1>
+        <t:mallcomponents.control.grantCheck roles="ROLE_ADMIN">
 
-        <t:mallcomponents.object.userNew/>
+            <h1>Создать пользователя</h1>
+
+            <t:mallcomponents.object.userNew/>
+
+        </t:mallcomponents.control.grantCheck>
 
     </t:mallcomponents.layout.office>
 

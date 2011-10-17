@@ -62,13 +62,15 @@
             <t:input autocomplete="off" t:id="pwd2" class="form_input"/>
         </div>
 
-        <div class="input_box">
-            <div class="input_label">
-                <t:label for="role"/>
-                :
+        <t:if test="auth.adminRole">
+            <div class="input_box">
+                <div class="input_label">
+                    <t:label for="role"/>
+                    :
+                </div>
+                <t:select t:id="role" class="form_select"/>
             </div>
-            <t:select t:id="role" class="form_select"/>
-        </div>
+        </t:if>
 
     </t:mallComponents.control.editObject>
 
