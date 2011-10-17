@@ -17,25 +17,66 @@
             <t:pageLink title="Изменить профиль" t:page="po/user/index" t:context="auth.user.rootId">${auth.user.fullName}</t:pageLink>
         </h1>
 
-        <t:if test="auth.dealerRole">
-            Вы находитесь в личном кабинете
-            <strong>lebetter.ru</strong>. Слева расположено меню, в котором находятся пункты:
+        Вы находитесь в личном кабинете <strong>lebetter.ru</strong>.
+        Слева расположено меню, в котором находятся пункты:
 
-            <ul style="padding-top:20px;">
+        <ul style="padding-top:20px;">
+            <t:if test="auth.dealerRole">
                 <li><strong>
                     <t:pageLink t:page="po/order/list">Заказы</t:pageLink>
                 </strong> - список Ваших ранее оформленных заказов и оформление нового.
                 </li>
                 <li><strong>
                     <t:pageLink t:page="po/catalog/list">Каталог</t:pageLink>
-                </strong> - полный список товаров фабрики, которые можно добавить в заказ.
+                </strong> - полный каталог товаров фабрики, которые можно добавить в заказ.
                 </li>
                 <li><strong>
                     <t:pageLink t:page="po/dealer/list">Дилеры</t:pageLink>
                 </strong> - список организаций-дилеров, менеджером которых Вы являетесь.
                 </li>
-            </ul>
-        </t:if>
+            </t:if>
+            <t:if test="auth.managerRole">
+                <li><strong>
+                    <t:pageLink t:page="po/catalog/list">Каталог</t:pageLink>
+                </strong> - полный каталог товаров фабрики с возможностью создавать и редактировать.
+                </li>
+                <li><strong>
+                    <t:pageLink t:page="po/system/category/list">Категории товаров</t:pageLink>
+                </strong> - список категорий товаров с возможностью их редактирования.
+                </li>
+                <li><strong>
+                    <t:pageLink t:page="po/system/property/list">Свойства товаров</t:pageLink>
+                </strong> - список свойств товаров с возможностью их редактирования.
+                </li>
+            </t:if>
+            <t:if test="auth.adminRole">
+                <li><strong>
+                    <t:pageLink t:page="po/catalog/list">Каталог</t:pageLink>
+                </strong> - полный каталог товаров фабрики.
+                </li>
+                <li><strong>
+                    <t:pageLink t:page="po/order/list">Заказы</t:pageLink>
+                </strong> - список всех заказов, которые были оформлены дилерами.
+                </li>
+                <li><strong>
+                    <t:pageLink t:page="po/dealer/list">Дилеры</t:pageLink>
+                </strong> - список всех зарегистрированных дилеров.
+                </li>
+                <li><strong>
+                    <t:pageLink t:page="po/system/category/list">Категории товаров</t:pageLink>
+                </strong> - список категорий товаров с возможностью их редактирования.
+                </li>
+                <li><strong>
+                    <t:pageLink t:page="po/system/property/list">Свойства товаров</t:pageLink>
+                </strong> - список свойств товаров с возможностью их редактирования.
+                </li>
+                <li><strong>
+                    <t:pageLink t:page="po/user/list">Пользователи</t:pageLink>
+                </strong> - список всех зарегистрированных пользователей <b>lebetter.ru</b>.
+                </li>
+            </t:if>
+
+        </ul>
 
         Для изменения пароля или личного профиля,
         <t:pageLink t:page="po/user/index" t:context="auth.user.rootId">перейдите по этой ссылке</t:pageLink>

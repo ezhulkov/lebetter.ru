@@ -1,9 +1,9 @@
 ﻿<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="category">
 
-    <t:mallComponents.control.menuLink roles="ROLE_ADMIN">
+    <t:mallComponents.control.menuLink roles="ROLE_STAFF">
 
         <t:mallComponents.control.editObject
-                roles="ROLE_ADMIN"
+                roles="ROLE_STAFF"
                 objectSavedLabel="category.saved"
                 objectRemovedLabel="category.deleted"
                 objectExistsLabel="category.exists"
@@ -59,65 +59,67 @@
                 <input t:id="position" tabindex="4" class="form_input"/>
             </div>
 
-            <div class="input_box">
-                <div class="input_label">
-                    <t:label for="properties"/>
-                    :
+            <t:unless test="selectedObject.children">
+                <div class="input_box">
+                    <div class="input_label">
+                        <t:label for="properties"/>
+                        :
+                    </div>
+                    <div class="form_multiselect">
+                      <div class="NFMultiSelectTop"><img src="/images/0.gif" class="NFMultiSelectTopLeft" alt=""/></div>
+                      <div class="NFMultiSelectRight">
+                        <div class="NFMultiSelectLeft"></div>
+                        <t:selectmultiple t:id="properties"/>
+                      </div>
+                      <div class="NFMultiSelectBottom"><img src="/images/0.gif" class="NFMultiSelectBottomLeft" alt=""/></div>
+                    </div>
+
                 </div>
-                <div class="form_multiselect">
-                  <div class="NFMultiSelectTop"><img src="/images/0.gif" class="NFMultiSelectTopLeft" alt=""/></div>
-                  <div class="NFMultiSelectRight">
-                    <div class="NFMultiSelectLeft"></div>
-                    <t:selectmultiple t:id="properties"/>
-                  </div>
-                  <div class="NFMultiSelectBottom"><img src="/images/0.gif" class="NFMultiSelectBottomLeft" alt=""/></div>
-                </div>
 
-            </div>
+                <div class="break"/>
 
-            <div class="break"/>
-
-            <div>
-                <div>Порядок свойств:</div>
-                <ul id="sortable">
-                    <t:loop volatile="true" source="searchOrder" value="oneProperty">
-                        <li id="${oneProperty.rootid}">
-                            <div>
+                <div>
+                    <div>Порядок свойств:</div>
+                    <ul id="sortable">
+                        <t:loop volatile="true" source="searchOrder" value="oneProperty">
+                            <li id="${oneProperty.rootid}">
                                 <div>
-                                    <t:mallComponents.control.trimmedString length="22" value="${oneProperty.name}"/>
+                                    <div>
+                                        <t:mallComponents.control.trimmedString length="22" value="${oneProperty.name}"/>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                    </t:loop>
-                </ul>
-            </div>
+                            </li>
+                        </t:loop>
+                    </ul>
+                </div>
 
-            <script type="text/javascript">
+                <script type="text/javascript">
 
-                jQuery("#parent_type_label").insertAfter('#2rm_category_par');
-                jQuery("#sortable").sortable({stop: function(event, ui) {
+                    jQuery("#parent_type_label").insertAfter('#2rm_category_par');
+                    jQuery("#sortable").sortable({stop: function(event, ui) {
+                        setSortOrder();
+                    }});
+                    jQuery("#sortable").disableSelection();
                     setSortOrder();
-                }});
-                jQuery("#sortable").disableSelection();
-                setSortOrder();
-                function setSortOrder() {
-                    var ule = document.getElementById('sortable');
-                    if (ule != null) {
-                        var iles = ule.children;
-                        var liOrder = "";
-                        for (var i = 0; i <t:outputraw t:value = "literal:&lt;"/> iles.length; i = i + 1 )
-                        {
-                            if (iles[i] != null) {
-                                if (iles[i].id != "") {
-                                    liOrder += iles[i].id + "-";
+                    function setSortOrder() {
+                        var ule = document.getElementById('sortable');
+                        if (ule != null) {
+                            var iles = ule.children;
+                            var liOrder = "";
+                            for (var i = 0; i <t:outputraw t:value = "literal:&lt;"/> iles.length; i = i + 1 )
+                            {
+                                if (iles[i] != null) {
+                                    if (iles[i].id != "") {
+                                        liOrder += iles[i].id + "-";
+                                    }
                                 }
                             }
+                            var inp = document.getElementById("2RM-SORDER");
+                            inp.value = liOrder;
                         }
-                        var inp = document.getElementById("2RM-SORDER");
-                        inp.value = liOrder;
                     }
-                }
-            </script>
+                </script>
+            </t:unless>
 
         </t:mallComponents.control.editObject>
 

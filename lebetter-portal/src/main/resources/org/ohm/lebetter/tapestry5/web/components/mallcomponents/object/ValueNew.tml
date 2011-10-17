@@ -1,9 +1,9 @@
 <div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="propertytype" class="ks_adm_new_popup">
 
-    <t:mallComponents.control.menuLink roles="ROLE_ADMIN" object="selectedObject">
+    <t:mallComponents.control.menuLink roles="ROLE_STAFF">
 
         <t:mallComponents.control.editObject
-                roles="ROLE_ADMIN"
+                roles="ROLE_STAFF"
                 objectSavedLabel="value.saved"
                 objectRemovedLabel="value.deleted"
                 objectExistsLabel="value.exists"

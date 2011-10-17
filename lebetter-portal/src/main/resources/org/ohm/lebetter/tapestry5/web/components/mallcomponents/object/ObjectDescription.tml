@@ -7,7 +7,7 @@
     <t:block id="tagBlock">
 
         <t:if test="base.flashMessage2">
-            <div class="error_box error_box2">${base.flashMessage.message}</div>
+            <div class="error_box error_box2" style="width:370px;">${base.flashMessage.message}</div>
         </t:if>
 
         <t:mallComponents.object.ObjectDescriptionTagPart object="selectedObject"

@@ -27,7 +27,6 @@
                                     <div id="plush${oneProperty.rootid}" class="ks_objectdescriptiontagpart_2">
                                         <!-- Добавление свойства -->
                                     </div>
-
                                 </t:mallComponents.control.menuLink>
                                 </td>
                             </tr>
@@ -98,9 +97,9 @@
 
                         <t:mallComponents.control.menuLink autoCompleteAction="true" actionPrefix="EDIT_" object="selectedSecurityObject">
 
-                          <t:mallComponents.control.ie9CompatibleActionLink t:zone="${targetZone}" t:id="cancelAjax" class="but_lnk2 ObjectDescriptionTagPart_1">Отменить</t:mallComponents.control.ie9CompatibleActionLink>
+                            <t:mallComponents.control.ie9CompatibleActionLink t:zone="${targetZone}" t:id="cancelAjax" class="but_lnk2 ObjectDescriptionTagPart_1">Отменить</t:mallComponents.control.ie9CompatibleActionLink>
 
-                          <input id="buttonSet" type="submit" value="Сохранить" class="form_but"/>
+                            <input id="buttonSet" type="submit" value="Сохранить" class="form_but"/>
 
                         </t:mallComponents.control.menuLink>
 

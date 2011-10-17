@@ -14,6 +14,7 @@ import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.RequestGlobals;
 import org.apache.tapestry5.services.Response;
 import org.ohm.lebetter.Constants;
+import org.ohm.lebetter.Constants.Roles;
 import org.ohm.lebetter.model.impl.entities.UserEntity;
 import org.ohm.lebetter.tapestry5.web.base.WebAppAuthFacade;
 import org.ohm.lebetter.tapestry5.web.base.WebAppBaseFacade;
@@ -191,17 +192,22 @@ public final class BaseComponent implements WebAppIOCFacade, WebAppAuthFacade, W
 
     @Override
     public boolean isAdminRole() {
-        return getServiceFacade().getRoleManager().isRoleAssigned(getUser(), Constants.Roles.ROLE_ADMIN);
+        return getServiceFacade().getRoleManager().isRoleAssigned(getUser(), Roles.ROLE_ADMIN);
+    }
+
+    @Override
+    public boolean isManagerRole() {
+        return getServiceFacade().getRoleManager().isRoleAssigned(getUser(), Roles.ROLE_MANAGER);
     }
 
     @Override
     public boolean isStaffRole() {
-        return getServiceFacade().getRoleManager().isRoleAssigned(getUser(), Constants.Roles.ROLE_STAFF);
+        return getServiceFacade().getRoleManager().isRoleAssigned(getUser(), Roles.ROLE_STAFF);
     }
 
     @Override
     public boolean isDealerRole() {
-        return getServiceFacade().getRoleManager().isRoleAssigned(getUser(), Constants.Roles.ROLE_DEALER);
+        return getServiceFacade().getRoleManager().isRoleAssigned(getUser(), Roles.ROLE_DEALER);
     }
 
     @Override

@@ -1,9 +1,9 @@
 <div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="propertytype">
 
-    <t:mallComponents.control.menuLink roles="ROLE_ADMIN">
+    <t:mallComponents.control.menuLink roles="ROLE_STAFF">
 
         <t:mallComponents.control.editObject
-                roles="ROLE_ADMIN"
+                roles="ROLE_STAFF"
                 objectSavedLabel="property.saved"
                 objectRemovedLabel="property.deleted"
                 objectExistsLabel="property.exists"

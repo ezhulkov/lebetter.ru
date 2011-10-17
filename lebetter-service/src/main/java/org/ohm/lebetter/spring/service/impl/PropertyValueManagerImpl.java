@@ -1,7 +1,6 @@
 package org.ohm.lebetter.spring.service.impl;
 
 
-import org.ohm.lebetter.Constants;
 import org.ohm.lebetter.model.impl.entities.PropertyEntity;
 import org.ohm.lebetter.model.impl.entities.PropertyValueEntity;
 import org.ohm.lebetter.model.impl.entities.TagToValueEntity;
@@ -16,7 +15,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.security.AccessControlException;
 import java.util.List;
 
 public class PropertyValueManagerImpl
@@ -85,13 +83,6 @@ public class PropertyValueManagerImpl
                        PropertyValueEntity parentCategoryValue,
                        UserEntity caller) {
 
-        //Check grants
-        if (!getServiceManager().getRoleManager().isRoleAssigned(caller, Constants.Roles.ROLE_ADMIN)) {
-            getRMLogger().errorSecurityViolation("Tries to add new value for type " +
-                                                 propertyValue.getProperty().toString(), propertyValue);
-            throw new AccessControlException("access denied");
-        }
-
         if (getRMLogger().isDebugEnabled()) {
             getRMLogger().debug("Creating property value for insiders...");
         }
@@ -140,15 +131,9 @@ public class PropertyValueManagerImpl
     public void saveValueForInsiders(PropertyValueEntity propertyValue,
                                      PropertyEntity property,
                                      UserEntity caller) {
-        getRMLogger().debug("Save value for insiders...");
-
         PropertyValueEntity propertyValuePersist = propertyValueDao.get(propertyValue.getId());
         BeanUtils.copyProperties(propertyValue, propertyValuePersist);
         propertyValueDao.save(propertyValue);
-
-        //        createShinglesForCategoryValueForInsiders(propertyValue, caller);
-
-        getRMLogger().debug("Save value for insiders completed.");
     }
 
     @Override
@@ -156,32 +141,16 @@ public class PropertyValueManagerImpl
     public void removeValueForInsiders(PropertyValueEntity propertyValue,
                                        PropertyEntity property,
                                        UserEntity caller) {
-
-        getRMLogger().debug("Remove value for insiders...");
-
         PropertyEntity propertyPersist =
                 getServiceManagerExt().getPropertyManager().get(property.getId());
         PropertyValueEntity propertyValuePersist = propertyValueDao.get(propertyValue.getId());
-
-        if (getRMLogger().isDebugEnabled()) {
-            getRMLogger().debug("Remove links from value object to shingles...");
-        }
-
-
         List<PropertyValueEntity> propertyValuePersistAll =
                 propertyValueDao.getTranslatedObjects(propertyValuePersist);
         for (PropertyValueEntity propertyValueEntity : propertyValuePersistAll) {
             propertyPersist.getValues().remove(propertyValueEntity);
         }
-
         //Remove value object
         propertyValueDao.remove(propertyValuePersist);
-
-        if (getRMLogger().isDebugEnabled()) {
-            getRMLogger().debug("Remove value object complete.");
-        }
-
-        getRMLogger().debug("Remove value from insiders complete.");
     }
 
     @Override
@@ -221,17 +190,7 @@ public class PropertyValueManagerImpl
     @Override
     @Transactional
     public void remove(PropertyValueEntity propertyValue, UserEntity caller) {
-        getRMLogger().debug("Remove value from insiders...");
-
-        if (getServiceManager().getRoleManager().isRoleAssigned(caller, Constants.Roles.ROLE_ADMIN)) {
-
-            removeValueForInsiders(propertyValue, propertyValue.getProperty(), caller);
-
-        } else {
-            getRMLogger().errorSecurityViolation("Tries to del property value.", propertyValue);
-            throw new AccessControlException("access denied");
-        }
-        getRMLogger().debug("Remove value from insiders complete.");
+        removeValueForInsiders(propertyValue, propertyValue.getProperty(), caller);
     }
 
 }

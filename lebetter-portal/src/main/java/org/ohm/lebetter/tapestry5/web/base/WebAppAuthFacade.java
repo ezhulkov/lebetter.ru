@@ -25,6 +25,8 @@ public interface WebAppAuthFacade {
 
     public boolean isStaffRole();
 
+    public boolean isManagerRole();
+
     public boolean isDealerRole();
 
 }

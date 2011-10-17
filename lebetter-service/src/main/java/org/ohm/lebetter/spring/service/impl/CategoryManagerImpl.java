@@ -5,7 +5,6 @@ import org.hibernate.collection.AbstractPersistentCollection;
 import org.hibernate.criterion.CriteriaSpecification;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
-import org.ohm.lebetter.Constants.Roles;
 import org.ohm.lebetter.model.SitemapAware;
 import org.ohm.lebetter.model.impl.entities.CategoryEntity;
 import org.ohm.lebetter.model.impl.entities.ProductEntity;
@@ -29,7 +28,6 @@ import org.springframework.beans.factory.annotation.Required;
 import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.security.AccessControlException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -91,11 +89,6 @@ public class CategoryManagerImpl
 
         getRMLogger().debug("Category...", category);
 
-        if (!getServiceManager().getRoleManager().isRoleAssigned(caller, Roles.ROLE_ADMIN)) {
-            getRMLogger().errorSecurityViolation("Tries to add new category", category);
-            throw new AccessControlException("access denied");
-        }
-
         //Check unique
         if (!categoryDao.exists(category)) {
 
@@ -133,20 +126,13 @@ public class CategoryManagerImpl
 
         getRMLogger().debug("Remove category...");
 
-        if (getServiceManager().getRoleManager().isRoleAssigned(caller, Roles.ROLE_ADMIN)) {
+        //Remove
+        categoryDao.remove(category);
 
-            //Remove
-            categoryDao.remove(category);
-
-            //Evict 2nd level cache
-            ((AbstractPersistentCollection) category.getProducts()).dirty();
-            ((AbstractPersistentCollection) category.getProperties()).dirty();
-            ((AbstractPersistentCollection) category.getChildren()).dirty();
-
-        } else {
-            getRMLogger().errorSecurityViolation("Tries to del category.", category);
-            throw new AccessControlException("access denied");
-        }
+        //Evict 2nd level cache
+        ((AbstractPersistentCollection) category.getProducts()).dirty();
+        ((AbstractPersistentCollection) category.getProperties()).dirty();
+        ((AbstractPersistentCollection) category.getChildren()).dirty();
 
         getRMLogger().debug("Remove category complete.");
     }
@@ -200,12 +186,6 @@ public class CategoryManagerImpl
     public void save(CategoryEntity category, UserEntity caller) throws ObjectExistsException {
 
         getRMLogger().debug("Save category...", category);
-
-        //Check grants
-        if (!getServiceManager().getRoleManager().isRoleAssigned(caller, Roles.ROLE_ADMIN)) {
-            getRMLogger().errorSecurityViolation("Tries to edit category.", category);
-            throw new AccessControlException("access denied");
-        }
 
         saveInternal(category, caller);
 

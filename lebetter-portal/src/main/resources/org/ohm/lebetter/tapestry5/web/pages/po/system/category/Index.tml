@@ -30,9 +30,11 @@
             <div class="hr_big"/>
 
             <t:unless test="selectedCategory.parent">
-                <div class="adm_add_box">
-                    <t:pageLink t:page="po/system/category/create" t:context="selectedCategory.rootId" class="create_link2">Создать подкатегорию</t:pageLink>
-                </div>
+                <t:mallcomponents.control.menuLink roles="ROLE_ADMIN">
+                    <div class="adm_add_box">
+                        <t:pageLink t:page="po/system/category/create" t:context="selectedCategory.rootId" class="create_link2">Создать подкатегорию</t:pageLink>
+                    </div>
+                </t:mallcomponents.control.menuLink>
                 <h2>Подкатегории</h2>
                 <t:mallcomponents.object.categorySubList parent="selectedCategory"/>
             </t:unless>
