@@ -12,6 +12,7 @@
                     <t:unless test="auth.managerRole">
                         <li id="order_menu">
                             <t:pageLink t:page="po/order/list">Заказы</t:pageLink>
+                            <t:zone id="basket"/>
                         </li>
                         <li id="dealers_menu">
                             <t:pageLink t:page="po/dealer/list">Дилеры</t:pageLink>

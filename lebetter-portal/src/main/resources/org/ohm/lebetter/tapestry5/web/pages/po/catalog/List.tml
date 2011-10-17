@@ -33,10 +33,16 @@
             <t:parameter name="priceHeader">Цена (USD)</t:parameter>
             <t:parameter name="photoHeader"/>
             <t:parameter name="categoryHeader">Категория</t:parameter>
-            <t:parameter name="objectStatusHeader">Статус</t:parameter>
+            <t:parameter name="objectStatusHeader">
+                <t:if test="auth.dealerRole">
+                    В заказ
+                    <t:parameter name="else">Статус</t:parameter>
+                </t:if>
+            </t:parameter>
             <t:parameter name="stockStatusHeader">Наличие на складе</t:parameter>
             <t:parameter name="nameCell">
-                <t:pageLink t:page="po/catalog" t:context="oneProduct.rootId"><strong>${oneProduct.name}</strong></t:pageLink>
+                <t:pageLink t:page="po/catalog" t:context="oneProduct.rootId">
+                    <strong>${oneProduct.name}</strong></t:pageLink>
             </t:parameter>
             <t:parameter name="photoCell">
                 <img src="/images/lb-front/def/nopic2.gif"/>
@@ -50,11 +56,16 @@
             <t:parameter name="stockStatusCell">
                 ${stockStatus}
             </t:parameter>
+            <t:parameter name="objectStatusCell">
+                <t:if test="auth.dealerRole">
+                    <t:mallComponents.control.ie9CompatibleActionLink t:id="addProduct" t:zone="basket" t:context="oneProduct.rootId">В заказ</t:mallComponents.control.ie9CompatibleActionLink>
+                    <t:parameter name="else">${oneProductObjectStatus}</t:parameter>
+                </t:if>
+            </t:parameter>
             <t:parameter name="empty">
                 <p class="nomsg">${message:empty.list}</p>
             </t:parameter>
         </t:grid>
-
 
     </t:mallcomponents.layout.office>
 

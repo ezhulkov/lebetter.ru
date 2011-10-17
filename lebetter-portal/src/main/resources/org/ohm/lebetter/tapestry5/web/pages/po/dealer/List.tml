@@ -37,7 +37,7 @@
                 Менеджер
             </t:parameter>
             <t:parameter name="discountHeader">
-                Скидка
+                Скидка (%)
             </t:parameter>
             <t:parameter name="nameCell">
                 <t:pageLink context="oneDealer.rootid" page="po/dealer" class="underline">${oneDealer.name}</t:pageLink>

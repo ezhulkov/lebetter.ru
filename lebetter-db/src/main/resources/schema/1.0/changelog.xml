@@ -994,4 +994,29 @@
         </addColumn>
     </changeSet>
 
+    <changeSet id="1.0.0-25" author="ezhulkov">
+        <sql>
+            create table public.app_order (
+            id int8 not null,
+            objectdeleted bool default false,
+            objectstatus int4 not null default 0,
+            rootid int8,
+            rootobject bool default false,
+            deletiondate timestamptz,
+            searchstatus int4 default 0,
+            language_id int8,
+            remover_id int8,
+            creator_id int8,
+            entitycode varchar(5) default 'Order',
+            primary key (id),
+            constraint app_order_creator foreign key (creator_id) references app_user(id) on delete cascade
+            );
+            create unique index app_order_idx1 on public.app_order (rootid, rootobject, language_id);
+            create index app_order_creator_id_idx on public.app_order (creator_id);
+            create index app_order_ec_idx on public.app_order (entitycode);
+            create index app_order_idx2 on public.app_order (objectdeleted, objectstatus, deletiondate);
+            create index app_order_rootid_idx on public.app_order (rootid);
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>

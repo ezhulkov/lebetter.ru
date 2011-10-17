@@ -22,6 +22,7 @@
         <mapping class="org.room13.mallcore.model.impl.embedded.UserStatus"/>
         <mapping class="org.room13.mallcore.model.impl.embedded.AnyObjectPK"/>
 
+        <mapping class="org.ohm.lebetter.model.impl.entities.OrderEntity"/>
         <mapping class="org.ohm.lebetter.model.impl.entities.UserEntity"/>
         <mapping class="org.ohm.lebetter.model.impl.entities.DealerEntity"/>
         <mapping class="org.ohm.lebetter.model.impl.entities.ProductEntity"/>

@@ -1,5 +1,6 @@
 package org.ohm.lebetter.tapestry5.web.pages.po.catalog;
 
+import org.apache.tapestry5.Block;
 import org.apache.tapestry5.annotations.Cached;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.grid.GridDataSource;
@@ -48,6 +49,15 @@ public class List extends AdminBasePage {
         return oneProduct.getStockStatus() == null ?
                "-" :
                getBase().getText(oneProduct.getStockStatus().toString());
+    }
+
+    public String getOneProductObjectStatus() {
+        return getBase().getText(oneProduct.getObjectStatus().toString());
+    }
+
+    public Block onActionFromAddProduct(Long pid) {
+        ProductEntity product = getServiceFacade().getProductManager().get(pid);
+        return null;
     }
 
 }
