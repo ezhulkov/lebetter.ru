@@ -27,7 +27,9 @@
 
             <h1>Товар '${selectedProduct.name}'</h1>
             <t:if test="auth.staffRole">
-                <h2>Категория <t:pageLink t:page="po/system/category" t:context="selectedCategory.rootId">'${selectedCategory.name}'</t:pageLink></h2>
+                <h2>Категория
+                    <t:pageLink t:page="po/system/category" t:context="selectedCategory.rootId">'${selectedCategory.name}'</t:pageLink>
+                </h2>
             </t:if>
             <br/>
 
@@ -54,7 +56,7 @@
             </t:zone>
 
             <t:block t:id="descBlock">
-                <t:mallcomponents.object.productEdit object="selectedProduct"/>
+                <t:mallcomponents.object.productEdit object="selectedProduct" office="officeLayout"/>
             </t:block>
 
             <t:block t:id="picsBlock">

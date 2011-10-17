@@ -45,7 +45,8 @@
                     <strong>${oneProduct.name}</strong></t:pageLink>
             </t:parameter>
             <t:parameter name="photoCell">
-                <img src="/images/lb-front/def/nopic2.gif"/>
+                <t:pageLink t:page="po/catalog" t:context="oneProduct.rootId">
+                    <img src="/images/lb-front/def/nopic2.gif"/></t:pageLink>
             </t:parameter>
             <t:parameter name="categoryCell">
                 <t:if test="productCategory">

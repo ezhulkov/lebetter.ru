@@ -14,6 +14,16 @@
             objectManager="serviceFacade.productManager"
             selectedObject="selectedObject">
 
+        <t:if test="auth.dealerRole">
+            <div id="custom_btns2">
+                <t:mallComponents.control.ie9CompatibleActionLink t:id="addProduct"
+                                                                  t:zone="basket"
+                                                                  t:context="selectedObject.rootId"
+                                                                  class="but_del">Добавить в заказ
+                </t:mallComponents.control.ie9CompatibleActionLink>
+            </div>
+        </t:if>
+
         <div class="input_box">
             <div class="input_label">
                 <t:label for="name"/>
@@ -56,7 +66,9 @@
             </div>
         </div>
 
-        <div class="break"></div>
+        <script type="text/javascript" language="JavaScript">
+            jQuery("#custom_btns").empty().append(jQuery("#custom_btns2"));
+        </script>
 
     </t:mallComponents.control.editObject>
 

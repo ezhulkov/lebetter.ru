@@ -7,8 +7,6 @@
 
     <t:unless test="newObject">
         <t:form t:id="editObjectForm" t:autofocus="false" t:zone="editAreaZone" t:context="saveContext">
-            <!-- Кастомный код редактирования -->
-            <t:body/>
             <!-- Кнопки для редактирования -->
             <div class="form_butpos_r">
                 <t:if test="editAllowed">
@@ -24,7 +22,10 @@
                         </t:if>
                     </div>
                 </t:if>
+                <div id="custom_btns"/>
             </div>
+            <!-- Кастомный код редактирования -->
+            <t:body/>
         </t:form>
     </t:unless>
 

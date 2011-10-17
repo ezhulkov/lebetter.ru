@@ -9,6 +9,8 @@ import org.room13.mallcore.log.RMLogger;
 import org.room13.mallcore.spring.dao.OwnerDao;
 import org.springframework.beans.factory.annotation.Required;
 
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 
@@ -49,6 +51,8 @@ public class OrderManagerImpl
 
     @Override
     public List<ProductEntity> getProducts(UserEntity caller) {
-        return null;
+        List<ProductEntity> r = new LinkedList<ProductEntity>();
+        r.add(new ProductEntity());
+        return r;
     }
 }

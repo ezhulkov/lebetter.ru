@@ -12,7 +12,7 @@
                     <t:unless test="auth.managerRole">
                         <li id="order_menu">
                             <t:pageLink t:page="po/order/list">Заказы</t:pageLink>
-                            <t:zone id="basket"/>
+                            <t:zone id="basket" class="basket"/>
                         </li>
                         <li id="dealers_menu">
                             <t:pageLink t:page="po/dealer/list">Дилеры</t:pageLink>
@@ -42,7 +42,9 @@
     </t:block>
 
     <t:block id="basketBlock">
-        (+1)
+        <t:if test="productsCount">
+                (+${ProductsCount})
+        </t:if>
     </t:block>
 
     <t:mallcomponents.layout.browse leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">

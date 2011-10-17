@@ -31,5 +31,9 @@ public class OfficeLayout extends AbstractBaseComponent {
         return basketBlock;
     }
 
+    public int getProductsCount() {
+        return getServiceFacade().getOrderManager().getProducts(getAuth().getUser()).size();
+    }
+
 }
 

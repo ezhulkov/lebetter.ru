@@ -1,12 +1,15 @@
 package org.ohm.lebetter.tapestry5.web.components.mallcomponents.object;
 
+import org.apache.tapestry5.Block;
 import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Select;
 import org.apache.tapestry5.corelib.components.TextArea;
 import org.apache.tapestry5.corelib.components.TextField;
 import org.ohm.lebetter.model.impl.entities.ProductEntity;
 import org.ohm.lebetter.tapestry5.web.components.base.AbstractEditComponent;
+import org.ohm.lebetter.tapestry5.web.components.mallcomponents.layout.OfficeLayout;
 import org.ohm.lebetter.tapestry5.web.services.impl.GenericStatusSelectModel;
 
 public class ProductEdit extends AbstractEditComponent {
@@ -34,6 +37,10 @@ public class ProductEdit extends AbstractEditComponent {
     @Property
     private GenericStatusSelectModel statusSelectModel = null;
 
+    @Parameter
+    private OfficeLayout office;
+
+
     void onPrepare() throws Exception {
         statusSelectModel = new GenericStatusSelectModel(getAuth().getUser(),
                                                          getServiceFacade().getRoleManager(),
@@ -47,6 +54,11 @@ public class ProductEdit extends AbstractEditComponent {
 
     public void setSelectedObject(ProductEntity object) {
         setSelectedObjectInternal(object);
+    }
+
+    public Block onActionFromAddProduct(Long pid) {
+        getServiceFacade().getOrderManager().addProduct(pid, getAuth().getUser());
+        return office.getBasketBlock();
     }
 
 }
