@@ -5,7 +5,7 @@
 
     <t:mallcomponents.layout.office leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
 
-        <t:mallcomponents.control.selectedObject>
+        <t:mallcomponents.control.selectedObject roles="ROLE_OWNER">
 
             <t:block t:id="breadCrumpsBlock">
                 <a class="status_home" href="/"><img src="/images/0.gif" alt=""/></a>

@@ -2,7 +2,7 @@
 
     <!-- Блок, содержащий форму, стандартные кнопки редактирования объекта и кастомный код редактирования объектов -->
     <t:if test="base.flashMessage2">
-        <div class="error_box error_box2">${base.flashMessage.message}</div>
+        <div class="error_box error_box2 flash_box">${base.flashMessage.message}</div>
     </t:if>
 
     <t:unless test="newObject">
@@ -17,7 +17,8 @@
                         <input id="buttonSave" type="submit" value="Сохранить" class="form_but"/>
                         <t:if test="delAllowed">
                             <t:if test="drawDelete">
-                                <div class="break"></div><br />
+                                <div class="break"></div>
+                                <br/>
                                 <t:mallComponents.control.ie9CompatibleActionLink t:id="delObject" t:context="delContext" class="but_del">Удалить</t:mallComponents.control.ie9CompatibleActionLink>
                             </t:if>
                         </t:if>
@@ -77,6 +78,7 @@
             jQuery(".redactor_textarea").redactor();
         }
         jQuery("#name").focus();
+        jQuery(".flash_box").delay("5000").animate({opacity: 0}, 500);
     </script>
 
 </div>

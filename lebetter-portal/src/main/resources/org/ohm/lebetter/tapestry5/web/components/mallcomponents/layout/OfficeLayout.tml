@@ -12,13 +12,13 @@
                     <li id="cat_menu">
                         <t:pageLink t:page="po/catalog/list">Каталог</t:pageLink>
                     </li>
+                    <li id="dealers_menu">
+                        <t:pageLink t:page="po/dealer/list">Дилеры</t:pageLink>
+                    </li>
                     <t:if test="auth.adminRole">
                         <li>&#160;</li>
                         <li id="users_menu">
                             <t:pageLink t:page="po/user/list">Пользователи</t:pageLink>
-                        </li>
-                        <li id="dealers_menu">
-                            <t:pageLink t:page="po/dealer/list">Дилеры</t:pageLink>
                         </li>
                         <li>&#160;</li>
                         <li id="roles_menu">

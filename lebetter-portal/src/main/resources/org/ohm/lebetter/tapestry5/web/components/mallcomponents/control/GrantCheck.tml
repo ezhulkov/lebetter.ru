@@ -1,9 +1,12 @@
 <div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
-  <t:body/>
+    <t:body/>
 
-  <t:block id="notgranteddefault">
-    <div id="notgranted" class="syserror">${message:error.action.not.granted}</div>
-  </t:block>
+    <t:block id="notgranteddefault">
+        <div id="notgranted" class="syserror">
+            К сожалению, у Вас нет прав для просмотра этого объекта.
+            Обратитесь к администратору <a href="mailto:master@lebetter.ru">master@lebetter.ru</a>
+        </div>
+    </t:block>
 
 </div>
