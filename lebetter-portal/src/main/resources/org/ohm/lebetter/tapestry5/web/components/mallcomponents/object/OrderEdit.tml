@@ -1,0 +1,46 @@
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="propertytype" class="ks_adm_new_popup">
+
+    <t:mallComponents.control.editObject
+            editAction="EDIT_ORDER"
+            objectSavedLabel="literal:order.saved"
+            objectRemovedLabel="literal:order.deleted"
+            objectAddedLabel="literal:order.added"
+            objectExistsLabel="literal:order.exists"
+            newObject="literal:false"
+            listPage="literal:/po/order/list"
+            objectPage="literal:/po/order"
+            objectManager="serviceFacade.orderManager"
+            selectedObject="selectedObject"
+            submitCallback="callback">
+
+        <t:loop t:formState="NONE" source="products" value="oneProduct">
+            <table>
+                <tr>
+                    <td>
+                        <img src="http://localhost/images/lb-front/def/nopic6.gif" title="${oneProduct.product.name}" alt="${oneProduct.product.name}"/>
+                    </td>
+                    <td>
+                        <t:pageLink t:page="catalog" target="_blank" t:context="oneProductContext">
+                            <strong>${oneProduct.product.name} (${oneProduct.product.articul})</strong>
+                        </t:pageLink>
+                        <t:if test="properties">
+            <t:loop t:formState="NONE" source="properties" value="oneProperty">
+            <li>
+                ${oneProperty.name}:
+                <select class="">
+                    <option>Значение не выбрано</option>
+            <t:loop t:formState="NONE" source="values" value="oneValue">
+            <option>${oneValue.name}</option>
+            </t:loop>
+                </select>
+            </li>
+            </t:loop>
+                        </t:if>
+                    </td>
+                </tr>
+            </table>
+        </t:loop>
+
+    </t:mallComponents.control.editObject>
+
+</div>

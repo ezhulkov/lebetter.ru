@@ -16,8 +16,10 @@
                     <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
                     <a href="/po/order/list">Заказы</a>
                     <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
-                    <t:if test="selectedOrder.orderNumber">Оформление</t:if>
-                    <t:unless test="selectedOrder.orderNumber">'${selectedOrder.orderNumber}'</t:unless>
+                    <t:if test="selectedOrder">
+                        <t:if test="selectedOrder.orderNumber">Оформление</t:if>
+                        <t:unless test="selectedOrder.orderNumber">'${selectedOrder.orderNumber}'</t:unless>
+                    </t:if>
                 </t:block>
 
                 <t:mallComponents.control.javascript>
@@ -31,35 +33,7 @@
 
                 <div class="break"/>
 
-                <!--<t:form id="newOrder">-->
-                <!--<t:loop t:formState="NONE" source="products" value="oneProduct">-->
-                <!--<table>-->
-                <!--<tr>-->
-                <!--<td>-->
-                <!--<img src="http://localhost/images/lb-front/def/nopic6.gif" title="${oneProduct.product.name}" alt="${oneProduct.product.name}"/>-->
-                <!--</td>-->
-                <!--<td>-->
-                <!--<t:pageLink t:page="catalog" target="_blank" t:context="oneProductContext">-->
-                <!--<strong>${oneProduct.product.name} (${oneProduct.product.articul})</strong>-->
-                <!--</t:pageLink>-->
-                <!--<t:if test="properties">-->
-                <!--<t:loop t:formState="NONE" source="properties" value="oneProperty">-->
-                <!--<li>-->
-                <!--${oneProperty.name}:-->
-                <!--<select class="">-->
-                <!--<option>Значение не выбрано</option>-->
-                <!--<t:loop t:formState="NONE" source="values" value="oneValue">-->
-                <!--<option>${oneValue.name}</option>-->
-                <!--</t:loop>-->
-                <!--</select>-->
-                <!--</li>-->
-                <!--</t:loop>-->
-                <!--</t:if>-->
-                <!--</td>-->
-                <!--</tr>-->
-                <!--</table>-->
-                <!--</t:loop>-->
-                <!--</t:form>-->
+                <t:mallComponents.object.orderEdit object="selectedOrder"/>
 
             </t:mallcomponents.control.grantCheck>
 

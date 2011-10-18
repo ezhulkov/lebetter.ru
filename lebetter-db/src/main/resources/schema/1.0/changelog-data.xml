@@ -487,5 +487,35 @@
         </sql>
     </changeSet>
 
+    <changeSet id="data-1.0.12" author="ezhulkov">
+        <sql>
+            insert into app_role_action (role_id,action_id,flag) values (
+                (select r.id from app_role r where r.code='ROLE_CREATOR'),
+                (select a.id from app_action a where a.code='EDIT_ORDER'),
+                2
+            );
+
+        </sql>
+    </changeSet>
+
+    <changeSet id="data-1.0.13" author="ezhulkov">
+        <sql>
+            insert into app_role_action (role_id,action_id,flag) values (
+                (select r.id from app_role r where r.code='ROLE_OWNER'),
+                (select a.id from app_action a where a.code='EDIT_PRODUCT'),
+                2
+            );
+            insert into app_role_action (role_id,action_id,flag) values (
+                (select r.id from app_role r where r.code='ROLE_CREATOR'),
+                (select a.id from app_action a where a.code='EDIT_PRODUCT'),
+                2
+            );
+            insert into app_role_action (role_id,action_id,flag) values (
+                (select r.id from app_role r where r.code='ROLE_CREATOR'),
+                (select a.id from app_action a where a.code='EDIT_DEALER'),
+                2
+            );
+        </sql>
+    </changeSet>
 
 </databaseChangeLog>
