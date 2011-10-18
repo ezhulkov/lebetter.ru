@@ -1,0 +1,70 @@
+<t:mallcomponents.layout.layout title="Lebetter.ru - Личный Кабинет"
+                                bodyId="po"
+                                flash="flashMessage"
+                                xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+    <t:mallcomponents.layout.office leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
+
+        <t:mallcomponents.control.selectedObject>
+
+            <t:mallcomponents.control.grantCheck action="EDIT_ORDER" object="selectedOrder">
+
+                <t:block t:id="breadCrumpsBlock">
+                    <a class="status_home" href="/"><img src="/images/0.gif" alt=""/></a>
+                    <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+                    <a href="/po">Личный кабинет</a>
+                    <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+                    <a href="/po/order/list">Заказы</a>
+                    <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+                    <t:if test="selectedOrder.orderNumber">Оформление</t:if>
+                    <t:unless test="selectedOrder.orderNumber">'${selectedOrder.orderNumber}'</t:unless>
+                </t:block>
+
+                <t:mallComponents.control.javascript>
+                    AG.colorCell("#order_menu");
+                </t:mallComponents.control.javascript>
+
+                <h1>
+                    <t:if test="selectedOrder.orderNumber">Оформление нового заказа</t:if>
+                    <t:unless test="selectedOrder.orderNumber">Заказ '${selectedOrder.orderNumber}'</t:unless>
+                </h1>
+
+                <div class="break"/>
+
+                <!--<t:form id="newOrder">-->
+                <!--<t:loop t:formState="NONE" source="products" value="oneProduct">-->
+                <!--<table>-->
+                <!--<tr>-->
+                <!--<td>-->
+                <!--<img src="http://localhost/images/lb-front/def/nopic6.gif" title="${oneProduct.product.name}" alt="${oneProduct.product.name}"/>-->
+                <!--</td>-->
+                <!--<td>-->
+                <!--<t:pageLink t:page="catalog" target="_blank" t:context="oneProductContext">-->
+                <!--<strong>${oneProduct.product.name} (${oneProduct.product.articul})</strong>-->
+                <!--</t:pageLink>-->
+                <!--<t:if test="properties">-->
+                <!--<t:loop t:formState="NONE" source="properties" value="oneProperty">-->
+                <!--<li>-->
+                <!--${oneProperty.name}:-->
+                <!--<select class="">-->
+                <!--<option>Значение не выбрано</option>-->
+                <!--<t:loop t:formState="NONE" source="values" value="oneValue">-->
+                <!--<option>${oneValue.name}</option>-->
+                <!--</t:loop>-->
+                <!--</select>-->
+                <!--</li>-->
+                <!--</t:loop>-->
+                <!--</t:if>-->
+                <!--</td>-->
+                <!--</tr>-->
+                <!--</table>-->
+                <!--</t:loop>-->
+                <!--</t:form>-->
+
+            </t:mallcomponents.control.grantCheck>
+
+        </t:mallcomponents.control.selectedObject>
+
+    </t:mallcomponents.layout.office>
+
+</t:mallcomponents.layout.layout>

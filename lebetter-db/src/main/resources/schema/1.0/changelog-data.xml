@@ -462,5 +462,30 @@
         </sql>
     </changeSet>
 
+    <changeSet id="data-1.0.11" author="ezhulkov">
+        <sql>
+            INSERT INTO app_actiongroup (id, objectstatus, rootobject, rootid, language_id, name, code)
+            VALUES (nextval('hibernate_sequence'), 1, true, currval('hibernate_sequence'), 1, 'Заказы', 'ORDER');
+
+            INSERT INTO app_action (actiongroup_id, id, objectstatus, rootid, rootobject, language_id, name, code)
+            VALUES ((select g.id from app_actiongroup g where g.code='ORDER'),
+                    nextval('hibernate_sequence'), 1,
+                    currval('hibernate_sequence'), true, 1, 'Редактировать заказ', 'EDIT_ORDER');
+
+            insert into app_role_action (role_id,action_id,flag) values (
+                (select r.id from app_role r where r.code='ROLE_ADMIN'),
+                (select a.id from app_action a where a.code='EDIT_ORDER'),
+                2
+            );
+
+            insert into app_role_action (role_id,action_id,flag) values (
+                (select r.id from app_role r where r.code='ROLE_OWNER'),
+                (select a.id from app_action a where a.code='EDIT_ORDER'),
+                2
+            );
+
+        </sql>
+    </changeSet>
+
 
 </databaseChangeLog>
