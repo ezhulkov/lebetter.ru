@@ -1,20 +1,66 @@
 package org.ohm.lebetter.tapestry5.web.components.mallcomponents.object;
 
-import java.util.LinkedList;
-
+import org.apache.tapestry5.ValueEncoder;
 import org.apache.tapestry5.annotations.Cached;
+import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.corelib.components.Select;
+import org.apache.tapestry5.corelib.components.TextArea;
+import org.ohm.lebetter.model.impl.entities.DealerEntity;
 import org.ohm.lebetter.model.impl.entities.OrderEntity;
+import org.ohm.lebetter.model.impl.entities.OrderEntity.OrderStatus;
 import org.ohm.lebetter.model.impl.entities.OrderToProductEntity;
 import org.ohm.lebetter.model.impl.entities.PropertyEntity;
 import org.ohm.lebetter.model.impl.entities.PropertyValueEntity;
 import org.ohm.lebetter.model.impl.entities.TagToValueEntity;
+import org.ohm.lebetter.model.impl.entities.UserEntity;
 import org.ohm.lebetter.tapestry5.web.components.base.AbstractEditComponent;
 import org.ohm.lebetter.tapestry5.web.components.base.EditObjectCallback;
+import org.ohm.lebetter.tapestry5.web.services.impl.GenericOrderStatusSelectModel;
+import org.ohm.lebetter.tapestry5.web.services.impl.GenericSelectModel;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class OrderEdit extends AbstractEditComponent {
+
+    @Component(id = "dealer", parameters = {"model=dealerModel",
+                                            "encoder=dealerModel",
+                                            "value=selectedObject.dealer",
+                                            "validate=required"})
+    private Select dealerField;
+
+    @Component(id = "orderStatus", parameters = {"model=statusModel",
+                                                 "encoder=statusModel",
+                                                 "value=selectedObject.orderStatus",
+                                                 "validate=required"})
+    private Select statusField;
+
+    @Component(id = "comments", parameters = {"value=selectedObject.comments", "validate=maxlength=512"})
+    private TextArea descField;
+
+    @Property
+    private ValueEncoder<OrderStatus> statusModel = null;
+
+    @Property
+    private ValueEncoder<DealerEntity> dealerModel = null;
+
+    void onPrepare() throws Exception {
+        if (statusModel == null) {
+            statusModel = new GenericOrderStatusSelectModel(getAuth().isAdminRole(),
+                                                            getSelectedObject().getOrderStatus(),
+                                                            getIOC().getMessages(),
+                                                            getIOC().getPropertyAccess());
+        }
+        if (dealerModel == null) {
+            UserEntity creator =
+                    getServiceFacade().getUserManager().get(getSelectedObject().getCreator().getId());
+            List<DealerEntity> dealers = getServiceFacade().getDealerManager().getObjectsOwnedBy(creator);
+            dealerModel = new GenericSelectModel<DealerEntity>(dealers, dealers,
+                                                               DealerEntity.class, "name", "rootId",
+                                                               getIOC().getPropertyAccess());
+        }
+    }
 
     public OrderEntity getSelectedObject() {
         return (OrderEntity) getSelectedObjectInternal();

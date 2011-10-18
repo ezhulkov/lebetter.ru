@@ -1095,4 +1095,10 @@
         </modifyColumn>
     </changeSet>
 
+    <changeSet id="1.0.0-32" author="ezhulkov">
+        <addColumn tableName="app_order">
+            <column name="comments" type="varchar(512)"/>
+        </addColumn>
+    </changeSet>
+
 </databaseChangeLog>
