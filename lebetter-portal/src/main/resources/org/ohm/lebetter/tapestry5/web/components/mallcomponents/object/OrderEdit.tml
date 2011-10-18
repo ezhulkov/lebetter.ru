@@ -1,6 +1,8 @@
 <div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="propertytype" class="ks_adm_new_popup">
 
     <t:mallComponents.control.editObject
+            addAction="EDIT_ORDER"
+            delAction="EDIT_ORDER"
             editAction="EDIT_ORDER"
             objectSavedLabel="literal:order.saved"
             objectRemovedLabel="literal:order.deleted"
@@ -24,17 +26,17 @@
                             <strong>${oneProduct.product.name} (${oneProduct.product.articul})</strong>
                         </t:pageLink>
                         <t:if test="properties">
-            <t:loop t:formState="NONE" source="properties" value="oneProperty">
-            <li>
-                ${oneProperty.name}:
-                <select class="">
-                    <option>Значение не выбрано</option>
-            <t:loop t:formState="NONE" source="values" value="oneValue">
-            <option>${oneValue.name}</option>
-            </t:loop>
-                </select>
-            </li>
-            </t:loop>
+                            <t:loop t:formState="NONE" source="properties" value="oneProperty">
+                            <li>
+                                ${oneProperty.name}:
+                                <select class="">
+                                    <option>Значение не выбрано</option>
+                            <t:loop t:formState="NONE" source="values" value="oneValue">
+                            <option>${oneValue.name}</option>
+                            </t:loop>
+                                </select>
+                            </li>
+                            </t:loop>
                         </t:if>
                     </td>
                 </tr>
