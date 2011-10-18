@@ -5,18 +5,19 @@ import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
 import org.ohm.lebetter.model.impl.entities.OrderEntity;
 import org.ohm.lebetter.model.impl.entities.OrderEntity.OrderStatus;
+import org.ohm.lebetter.model.impl.entities.OrderToProductEntity;
 import org.ohm.lebetter.model.impl.entities.ProductEntity;
 import org.ohm.lebetter.model.impl.entities.UserEntity;
 import org.ohm.lebetter.spring.dao.OrderDao;
+import org.ohm.lebetter.spring.dao.OrderToProductDao;
 import org.ohm.lebetter.spring.service.OrderManager;
 import org.room13.mallcore.log.RMLogger;
-import org.room13.mallcore.model.ObjectBaseEntity;
+import org.room13.mallcore.model.ObjectBaseEntity.Status;
 import org.room13.mallcore.spring.dao.OwnerDao;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
 
 
@@ -28,10 +29,16 @@ public class OrderManagerImpl
     public static final RMLogger log = new RMLogger(OrderManagerImpl.class);
 
     protected OrderDao orderDao;
+    protected OrderToProductDao orderToProductDao;
     protected OwnerDao ownerDao;
 
     public OrderManagerImpl() {
         super(OrderEntity.class);
+    }
+
+    @Required
+    public void setOrderToProductDao(OrderToProductDao orderToProductDao) {
+        this.orderToProductDao = orderToProductDao;
     }
 
     @Required
@@ -66,43 +73,43 @@ public class OrderManagerImpl
 
     @Override
     @Transactional
-    public void addProduct(Long pid, OrderEntity order, UserEntity caller) {
+    public OrderToProductEntity addProduct(Long pid, OrderEntity order, UserEntity caller) {
         if (order == null) {
-            throw new RuntimeException("Can not create new order");
+            throw new RuntimeException("Order must not be null");
         }
         ProductEntity product = getServiceManager().getProductManager().get(pid);
-        order.getProducts().add(product);
-        save(order, caller);
+        OrderToProductEntity link = new OrderToProductEntity();
+        link.setProduct(product);
+        link.setOrder(order);
+        link.setCreator(caller);
+        link.setRootObject(true);
+        link.setObjectStatus(Status.READY);
+        orderToProductDao.create(link);
+        return link;
     }
 
     @Override
     @Transactional
-    public void removeProduct(Long pid, OrderEntity order, UserEntity caller) {
-        if (order == null) {
-            return;
-        }
-        List<ProductEntity> products = getProducts(order);
-        List<ProductEntity> newProducts = new LinkedList<ProductEntity>();
-        for (ProductEntity product : products) {
-            if (!product.getRootId().equals(pid)) {
-                newProducts.add(product);
-            }
-        }
-        if (newProducts.size() != products.size()) {
-            order.setProducts(newProducts);
-            save(order, null);
-        }
+    public void removeProduct(OrderToProductEntity link) {
+        orderToProductDao.remove(link);
     }
 
     @Override
-    public List<ProductEntity> getProducts(OrderEntity order) {
+    public List<OrderEntity> getDoneOrders(UserEntity caller) {
+        DetachedCriteria criteria = DetachedCriteria.forClass(OrderEntity.class).
+                add(Restrictions.eq("creator", caller)).
+                add(Restrictions.ne("orderStatus", OrderStatus.NEW));
+        return orderDao.findRootByCriteria(criteria, -1, -1);
+    }
+
+    @Override
+    public List<OrderToProductEntity> getProducts(OrderEntity order) {
         if (order == null) {
             return Collections.emptyList();
         }
-        DetachedCriteria criteria = DetachedCriteria.forClass(ProductEntity.class).
-                createAlias("orders", "ords", CriteriaSpecification.INNER_JOIN).
-                add(Restrictions.eq("ords.id", order.getRootId())).
-                add(Restrictions.eq("objectStatus", ObjectBaseEntity.Status.READY));
+        DetachedCriteria criteria = DetachedCriteria.forClass(OrderToProductEntity.class).
+                createAlias("order", "o", CriteriaSpecification.INNER_JOIN).
+                add(Restrictions.eq("o.rootId", order.getRootId()));
         return orderDao.findByCriteria(criteria, -1, -1);
     }
 

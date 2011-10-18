@@ -1,6 +1,7 @@
 package org.ohm.lebetter.spring.service.impl;
 
 import org.ohm.lebetter.model.impl.entities.OrderEntity;
+import org.ohm.lebetter.model.impl.entities.OrderToProductEntity;
 import org.ohm.lebetter.model.impl.entities.ProductEntity;
 import org.ohm.lebetter.spring.service.BaseTest;
 import org.room13.mallcore.model.ObjectBaseEntity.Status;
@@ -43,13 +44,16 @@ public class OrderTest extends BaseTest {
         serviceManager.getProductManager().create(prod2, null, admin);
 
         OrderEntity order = serviceManager.getOrderManager().getCurrentOrder(admin, false);
-        serviceManager.getOrderManager().addProduct(prod.getId(), order, admin);
-        serviceManager.getOrderManager().addProduct(prod2.getId(), order, admin);
+        OrderToProductEntity link1 = serviceManager.getOrderManager().addProduct(prod.getId(), order, admin);
+        OrderToProductEntity link2 = serviceManager.getOrderManager().addProduct(prod2.getId(), order, admin);
+        OrderToProductEntity link3 = serviceManager.getOrderManager().addProduct(prod2.getId(), order, admin);
 
+        Assert.assertEquals(serviceManager.getOrderManager().getProducts(order).size(), 3);
+        serviceManager.getOrderManager().removeProduct(link1);
         Assert.assertEquals(serviceManager.getOrderManager().getProducts(order).size(), 2);
-        serviceManager.getOrderManager().removeProduct(prod.getId(), order, admin);
+        serviceManager.getOrderManager().removeProduct(link2);
         Assert.assertEquals(serviceManager.getOrderManager().getProducts(order).size(), 1);
-        serviceManager.getOrderManager().removeProduct(prod2.getId(), order, admin);
+        serviceManager.getOrderManager().removeProduct(link3);
         Assert.assertEquals(serviceManager.getOrderManager().getProducts(order).size(), 0);
 
     }

@@ -20,7 +20,7 @@
         <t:mallcomponents.control.grantCheck roles="ROLE_ADMIN">
             <h1>Роли</h1>
 
-            <t:grid id="datagrid" source="allRoles" row="oneRole" include="name,code" rowsPerPage="50">
+            <t:grid id="datagrid" source="allRoles" row="oneRole" include="name,code" rowsPerPage="20">
                 <t:parameter name="nameHeader">Имя</t:parameter>
                 <t:parameter name="codeHeader">Код</t:parameter>
                 <t:parameter name="nameCell">

@@ -25,7 +25,7 @@
 
         <h1>Дилеры</h1>
 
-        <t:grid pagerPosition="bottom" rowsPerPage="50" id="datagrid" source="dealers" row="oneDealer"
+        <t:grid pagerPosition="bottom" rowsPerPage="20" id="datagrid" source="dealers" row="oneDealer"
                 include="name,discount,objectStatus" add="owner" reorder="name,owner,discount,objectStatus">
             <t:parameter name="nameHeader">
                 Название

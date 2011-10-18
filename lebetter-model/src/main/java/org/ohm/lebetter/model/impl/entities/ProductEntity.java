@@ -5,7 +5,6 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.ohm.lebetter.model.DescriptionAware;
 import org.ohm.lebetter.model.SitemapAware;
-import org.room13.mallcore.model.impl.BaseCreatorAwareEntity;
 import org.room13.mallcore.model.impl.BaseCreatorRepAwareEntity;
 
 import javax.persistence.CascadeType;
@@ -56,20 +55,11 @@ public class ProductEntity
                inverseJoinColumns = {@JoinColumn(name = "cat_id")})
     private List<CategoryEntity> categories = new ArrayList<CategoryEntity>();
 
-    @ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
-    @JoinTable(name = "app_prod_prop",
-               joinColumns = {@JoinColumn(name = "prod_id")},
-               inverseJoinColumns = {@JoinColumn(name = "prop_id")})
-    private List<PropertyEntity> selectableProperties;
-
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH, mappedBy = "product")
     private List<TagToValueEntity> tagValues;
 
-    @ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
-    @JoinTable(name = "app_order_prod",
-               joinColumns = {@JoinColumn(name = "prod_id")},
-               inverseJoinColumns = {@JoinColumn(name = "order_id")})
-    private List<OrderEntity> orders = new ArrayList<OrderEntity>();
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH, mappedBy = "product")
+    private List<OrderToProductEntity> orders = new ArrayList<OrderToProductEntity>();
 
     public ProductEntity() {
         setEntityCode("Product");
@@ -116,14 +106,6 @@ public class ProductEntity
         this.categories = categories;
     }
 
-    public List<PropertyEntity> getSelectableProperties() {
-        return selectableProperties;
-    }
-
-    public void setSelectableProperties(List<PropertyEntity> selectableProperties) {
-        this.selectableProperties = selectableProperties;
-    }
-
     public List<TagToValueEntity> getTagValues() {
         return tagValues;
     }
@@ -140,11 +122,11 @@ public class ProductEntity
         this.stockStatus = stockStatus;
     }
 
-    public List<OrderEntity> getOrders() {
+    public List<OrderToProductEntity> getOrders() {
         return orders;
     }
 
-    public void setOrders(List<OrderEntity> orders) {
+    public void setOrders(List<OrderToProductEntity> orders) {
         this.orders = orders;
     }
 }

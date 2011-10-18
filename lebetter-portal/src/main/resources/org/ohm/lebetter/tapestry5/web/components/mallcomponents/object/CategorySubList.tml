@@ -1,6 +1,6 @@
 <span xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="categorylist">
 
-    <t:grid id="datagrid" rowsPerPage="15" pagerPosition="bottom"
+    <t:grid id="datagrid" rowsPerPage="20" pagerPosition="bottom"
             source="allCategories" row="oneCategory" include="name,code,position,objectStatus" >
         <t:parameter name="nameHeader">
             Название

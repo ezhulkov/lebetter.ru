@@ -1,6 +1,6 @@
 <span xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="propertyvaluelist">
 
-    <t:grid id="datagrid" rowsPerPage="15" pagerPosition="bottom" source="values" row="oneValue" include="name,objectStatus">
+    <t:grid id="datagrid" rowsPerPage="20" pagerPosition="bottom" source="values" row="oneValue" include="name,objectStatus">
         <t:parameter name="objectStatusHeader">
             Статус
         </t:parameter>

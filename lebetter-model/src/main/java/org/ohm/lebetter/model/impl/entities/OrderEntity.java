@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,11 +33,8 @@ public class OrderEntity extends BaseCreatorAwareEntity {
     @ManyToOne(optional = true, fetch = FetchType.LAZY)
     private DealerEntity dealer;
 
-    @ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
-    @JoinTable(name = "app_order_prod",
-               joinColumns = {@JoinColumn(name = "order_id")},
-               inverseJoinColumns = {@JoinColumn(name = "prod_id")})
-    private List<ProductEntity> products = new ArrayList<ProductEntity>();
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH, mappedBy = "order")
+    private List<OrderToProductEntity> products = new ArrayList<OrderToProductEntity>();
 
     public OrderEntity() {
         setEntityCode("Order");
@@ -50,11 +48,11 @@ public class OrderEntity extends BaseCreatorAwareEntity {
         this.dealer = dealer;
     }
 
-    public List<ProductEntity> getProducts() {
+    public List<OrderToProductEntity> getProducts() {
         return products;
     }
 
-    public void setProducts(List<ProductEntity> products) {
+    public void setProducts(List<OrderToProductEntity> products) {
         this.products = products;
     }
 

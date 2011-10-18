@@ -1023,38 +1023,47 @@
     <changeSet id="1.0.0-26" author="ezhulkov">
         <addColumn tableName="app_order">
             <column name="dealer_id" type="int8"/>
+            <column name="orderstatus" type="varchar(8)"/>
         </addColumn>
         <createIndex tableName="app_order" indexName="app_order_dealer_idx">
             <column name="dealer_id"/>
+        </createIndex>
+        <createIndex tableName="app_order" indexName="app_order_status_idx">
+            <column name="orderstatus"/>
         </createIndex>
         <addForeignKeyConstraint baseTableName="app_order" baseColumnNames="dealer_id"
                                  constraintName="app_order_dealer_fk" referencedTableName="app_dealer"
                                  referencedColumnNames="id"
                                  onDelete="CASCADE"/>
-        <createTable tableName="app_order_prod">
-            <column name="order_id" type="int8"/>
-            <column name="prod_id" type="int8"/>
-        </createTable>
-        <addForeignKeyConstraint baseTableName="app_order_prod" baseColumnNames="order_id"
-                                 constraintName="app_order_prod_o_fk"
-                                 referencedTableName="app_order" referencedColumnNames="id"
-                                 onDelete="CASCADE"/>
-        <addForeignKeyConstraint baseTableName="app_order_prod" baseColumnNames="prod_id"
-                                 constraintName="app_order_prod_p_fk"
-                                 referencedTableName="app_product" referencedColumnNames="id"
-                                 onDelete="CASCADE"/>
-        <createIndex tableName="app_order_prod" indexName="app_order_prod_o_idx">
-            <column name="order_id"/>
-        </createIndex>
-        <createIndex tableName="app_order_prod" indexName="app_order_prod_p_idx">
-            <column name="prod_id"/>
-        </createIndex>
     </changeSet>
 
     <changeSet id="1.0.0-27" author="ezhulkov">
-        <addColumn tableName="app_order">
-            <column name="orderstatus" type="varchar(8)"/>
-        </addColumn>
+        <sql>
+        create table public.app_order_prod (
+            id int8 not null,
+            objectdeleted bool default false,
+            objectstatus int4 not null default 0,
+            rootid int8,
+            rootobject bool default false,
+            deletiondate timestamptz,
+            searchstatus int4 default 0,
+            language_id int8,
+            remover_id int8,
+            creator_id int8,
+            createddate timestamptz default now(),
+            entitycode varchar(14) default 'OrderToProduct',
+            prod_id int8,
+            order_id int8,
+            primary key (id),
+            constraint app_order_prod_creator foreign key (creator_id) references app_user(id) on delete cascade
+            );
+            create unique index app_order_prod_idx1 on public.app_order_prod (rootid, rootobject, language_id);
+            create index app_order_prod_ec_idx on public.app_order_prod (entitycode);
+            create index app_order_prod_idx2 on public.app_order_prod (objectdeleted, objectstatus, deletiondate);
+            create index app_order_prod_rootid_idx on public.app_order_prod (rootid);
+            create index app_order_prod_p_idx on public.app_order_prod (prod_id);
+            create index app_order_prod_o_idx on public.app_order_prod (order_id);
+        </sql>
     </changeSet>
 
 </databaseChangeLog>
