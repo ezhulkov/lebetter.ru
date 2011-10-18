@@ -22,7 +22,8 @@
         <t:if test="products">
             <t:loop t:formState="NONE" source="products" value="oneProduct">
                 <div>
-                    <t:pageLink t:page="catalog" t:context="oneProductContext">${oneProduct.product.name}</t:pageLink>
+                    <img src="http://localhost/images/lb-front/def/nopic6.gif" title="${oneProduct.product.name}" alt="${oneProduct.product.name}"/>
+                    ${oneProduct.product.articul} - <t:pageLink t:page="catalog" target="_blank" t:context="oneProductContext">${oneProduct.product.name}</t:pageLink>
                 </div>
             </t:loop>
 

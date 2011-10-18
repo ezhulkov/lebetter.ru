@@ -42,7 +42,7 @@
             <t:parameter name="stockStatusHeader">Наличие на складе</t:parameter>
             <t:parameter name="nameCell">
                 <t:pageLink t:page="po/catalog" t:context="oneProduct.rootId">
-                    <strong>${oneProduct.name}</strong></t:pageLink>
+                    <strong>${oneProduct.name} (${oneProduct.articul})</strong></t:pageLink>
             </t:parameter>
             <t:parameter name="photoCell">
                 <t:pageLink t:page="po/catalog" t:context="oneProduct.rootId">

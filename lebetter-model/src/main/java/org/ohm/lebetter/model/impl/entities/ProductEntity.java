@@ -37,6 +37,9 @@ public class ProductEntity
     private String altId;
 
     @Column
+    private String articul;
+
+    @Column
     private String name;
 
     @Column
@@ -128,5 +131,13 @@ public class ProductEntity
 
     public void setOrders(List<OrderToProductEntity> orders) {
         this.orders = orders;
+    }
+
+    public String getArticul() {
+        return articul;
+    }
+
+    public void setArticul(String articul) {
+        this.articul = articul;
     }
 }

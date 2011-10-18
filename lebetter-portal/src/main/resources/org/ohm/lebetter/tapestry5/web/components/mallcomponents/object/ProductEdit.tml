@@ -42,6 +42,14 @@
 
         <div class="input_box">
             <div class="input_label">
+                <t:label for="articul"/>
+                :
+            </div>
+            <input t:id="articul" class="form_input"/>
+        </div>
+
+        <div class="input_box">
+            <div class="input_label">
                 <t:label for="stockStatus"/>
                 :
             </div>

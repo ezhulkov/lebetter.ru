@@ -1083,4 +1083,10 @@
         </addColumn>
     </changeSet>
 
+    <changeSet id="1.0.0-30" author="ezhulkov">
+        <addColumn tableName="app_product">
+            <column name="articul" type="varchar(32)"/>
+        </addColumn>
+    </changeSet>
+
 </databaseChangeLog>

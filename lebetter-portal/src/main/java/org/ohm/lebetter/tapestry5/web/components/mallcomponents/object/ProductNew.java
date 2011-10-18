@@ -13,6 +13,9 @@ import java.util.List;
 
 public class ProductNew extends AbstractEditComponent {
 
+    @Component(id = "articul", parameters = {"value=selectedObject.articul", "validate=maxlength=32,required"})
+    private TextField propertyArtField;
+
     @Component(id = "name", parameters = {"value=selectedObject.name", "validate=maxlength=64,required"})
     private TextField propertyNameField;
 
