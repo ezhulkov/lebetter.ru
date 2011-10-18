@@ -30,28 +30,17 @@ public class OrderEdit extends AbstractEditComponent {
                                             "validate=required"})
     private Select dealerField;
 
-    @Component(id = "orderStatus", parameters = {"model=statusModel",
-                                                 "encoder=statusModel",
-                                                 "value=selectedObject.orderStatus",
-                                                 "validate=required"})
+    @Component(id = "type", parameters = {"value=selectedObject.orderStatus", "validate=required"})
     private Select statusField;
+
 
     @Component(id = "comments", parameters = {"value=selectedObject.comments", "validate=maxlength=512"})
     private TextArea descField;
 
     @Property
-    private ValueEncoder<OrderStatus> statusModel = null;
-
-    @Property
     private ValueEncoder<DealerEntity> dealerModel = null;
 
     void onPrepare() throws Exception {
-        if (statusModel == null) {
-            statusModel = new GenericOrderStatusSelectModel(getAuth().isAdminRole(),
-                                                            getSelectedObject().getOrderStatus(),
-                                                            getIOC().getMessages(),
-                                                            getIOC().getPropertyAccess());
-        }
         if (dealerModel == null) {
             UserEntity creator =
                     getServiceFacade().getUserManager().get(getSelectedObject().getCreator().getId());

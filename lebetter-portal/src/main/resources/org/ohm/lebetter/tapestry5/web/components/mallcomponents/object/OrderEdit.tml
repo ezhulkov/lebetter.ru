@@ -31,7 +31,12 @@
                 :
             </div>
             <div class="form_textarea">
-                <t:select t:id="orderStatus" class="form_select"/>
+                <t:if test="auth.adminRole">
+                    <t:select t:id="orderStatus" class="form_select"/>
+                    <t:parameter name="else">
+                        <input type="text" value="${selectedObject.orderStatus}" disabled="disabled" class="form_input"/>
+                    </t:parameter>
+                </t:if>
             </div>
         </div>
 
