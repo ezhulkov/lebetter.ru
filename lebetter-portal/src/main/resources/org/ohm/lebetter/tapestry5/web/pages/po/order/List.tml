@@ -35,7 +35,7 @@
 
         <h2>История заказов</h2>
         <t:grid pagerPosition="bottom" rowsPerPage="20" id="datagrid" source="orders" row="oneOrder"
-                include="orderNumber,placedDate,dealer,orderStatus" add="prods"
+                include="orderNumber,placedDate,dealer,orderStatus" add="prods,dealer"
                 reorder="orderNumber,placedDate,prods,dealer,orderStatus">
             <t:parameter name="orderNumberHeader">
                 Номер заказа

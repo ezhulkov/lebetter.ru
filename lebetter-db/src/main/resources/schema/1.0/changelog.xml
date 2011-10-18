@@ -1089,4 +1089,10 @@
         </addColumn>
     </changeSet>
 
+    <changeSet id="1.0.0-31" author="ezhulkov">
+        <modifyColumn tableName="app_order">
+            <column name="orderstatus" type="varchar(10)"/>
+        </modifyColumn>
+    </changeSet>
+
 </databaseChangeLog>
