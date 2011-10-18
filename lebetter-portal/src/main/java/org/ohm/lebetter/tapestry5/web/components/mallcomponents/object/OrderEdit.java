@@ -8,7 +8,6 @@ import org.apache.tapestry5.corelib.components.Select;
 import org.apache.tapestry5.corelib.components.TextArea;
 import org.ohm.lebetter.model.impl.entities.DealerEntity;
 import org.ohm.lebetter.model.impl.entities.OrderEntity;
-import org.ohm.lebetter.model.impl.entities.OrderEntity.OrderStatus;
 import org.ohm.lebetter.model.impl.entities.OrderToProductEntity;
 import org.ohm.lebetter.model.impl.entities.PropertyEntity;
 import org.ohm.lebetter.model.impl.entities.PropertyValueEntity;
@@ -16,7 +15,6 @@ import org.ohm.lebetter.model.impl.entities.TagToValueEntity;
 import org.ohm.lebetter.model.impl.entities.UserEntity;
 import org.ohm.lebetter.tapestry5.web.components.base.AbstractEditComponent;
 import org.ohm.lebetter.tapestry5.web.components.base.EditObjectCallback;
-import org.ohm.lebetter.tapestry5.web.services.impl.GenericOrderStatusSelectModel;
 import org.ohm.lebetter.tapestry5.web.services.impl.GenericSelectModel;
 
 import java.util.LinkedList;
@@ -30,9 +28,8 @@ public class OrderEdit extends AbstractEditComponent {
                                             "validate=required"})
     private Select dealerField;
 
-    @Component(id = "type", parameters = {"value=selectedObject.orderStatus", "validate=required"})
+    @Component(id = "orderStatus", parameters = {"value=selectedObject.orderStatus", "validate=required"})
     private Select statusField;
-
 
     @Component(id = "comments", parameters = {"value=selectedObject.comments", "validate=maxlength=512"})
     private TextArea descField;

@@ -42,8 +42,12 @@ public class List extends AdminBasePage {
     }
 
     public float getOrderTotalDiscSum() {
-        return getServiceFacade().getOrderManager().getOrderTotal(oneOrder,
-                                                                  oneOrder.getDealer().getDiscount());
+        if (oneOrder.getDealer() == null) {
+            return getServiceFacade().getOrderManager().getOrderTotal(oneOrder, 0);
+        } else {
+            return getServiceFacade().getOrderManager().getOrderTotal(oneOrder,
+                                                                      oneOrder.getDealer().getDiscount());
+        }
     }
 
 }
