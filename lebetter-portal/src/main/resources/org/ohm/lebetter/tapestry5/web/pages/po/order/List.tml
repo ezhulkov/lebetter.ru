@@ -56,6 +56,19 @@
                 <t:pageLink t:page="po/order" t:context="oneOrder.rootId">
                     <strong>${oneOrder.orderNumber}</strong></t:pageLink>
             </t:parameter>
+            <t:parameter name="prodsCell">
+                <ul>
+                    <t:loop t:formState="NONE" source="products" value="oneProduct">
+                        <li>
+                            <t:pageLink t:page="catalog" target="_blank" t:context="oneProductContext">${oneProduct.product.name} (${oneProduct.product.articul})</t:pageLink>
+                        </li>
+                    </t:loop>
+                </ul>
+                <b>Сумма: ${orderTotalSum}</b>
+                <t:if test="oneOrder.dealer">
+                    <b>Со скидкой: ${orderTotalDiscSum}</b>
+                </t:if>
+            </t:parameter>
             <t:parameter name="dealerCell">
                 <t:if test="oneOrder.dealer">
                     <t:pageLink t:page="po/dealer" t:context="oneOrder.dealer.rootId">${oneOrder.dealer.name}</t:pageLink>

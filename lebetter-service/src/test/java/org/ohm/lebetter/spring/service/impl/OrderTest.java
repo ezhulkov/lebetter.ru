@@ -37,10 +37,12 @@ public class OrderTest extends BaseTest {
 
         ProductEntity prod = new ProductEntity();
         prod.setObjectStatus(Status.READY);
+        prod.setPrice(10f);
         serviceManager.getProductManager().create(prod, null, admin);
 
         ProductEntity prod2 = new ProductEntity();
         prod2.setObjectStatus(Status.READY);
+        prod2.setPrice(12f);
         serviceManager.getProductManager().create(prod2, null, admin);
 
         OrderEntity order = serviceManager.getOrderManager().getCurrentOrder(admin, false);
@@ -49,6 +51,8 @@ public class OrderTest extends BaseTest {
         OrderToProductEntity link3 = serviceManager.getOrderManager().addProduct(prod2.getId(), order, admin);
 
         Assert.assertEquals(serviceManager.getOrderManager().getProducts(order).size(), 3);
+        Assert.assertEquals(serviceManager.getOrderManager().getOrderTotal(order), 34f);
+        Assert.assertEquals(serviceManager.getOrderManager().getOrderTotal(order, 30), 24f);
         serviceManager.getOrderManager().removeProduct(link1);
         Assert.assertEquals(serviceManager.getOrderManager().getProducts(order).size(), 2);
         serviceManager.getOrderManager().removeProduct(link2);

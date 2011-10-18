@@ -2,6 +2,7 @@ package org.ohm.lebetter.spring.service.impl;
 
 import org.hibernate.criterion.CriteriaSpecification;
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.ohm.lebetter.model.impl.entities.OrderEntity;
 import org.ohm.lebetter.model.impl.entities.OrderEntity.OrderStatus;
@@ -127,5 +128,21 @@ public class OrderManagerImpl
             object.setOrderNumber(SDF.format(object.getPlacedDate()) + "-" + on);
         }
         orderDao.save(object);
+    }
+
+    @Override
+    public float getOrderTotal(OrderEntity order) {
+        DetachedCriteria criteria = DetachedCriteria.forClass(ProductEntity.class).
+                createAlias("orders", "o2p", CriteriaSpecification.INNER_JOIN).
+                createAlias("o2p.order", "o", CriteriaSpecification.INNER_JOIN).
+                add(Restrictions.eq("o.rootId", order.getRootId())).
+                setProjection(Projections.sum("price"));
+        return ((Float) orderDao.findByCriteria(criteria, -1, -1).get(0)).floatValue();
+    }
+
+    @Override
+    public float getOrderTotal(OrderEntity order, int discount) {
+        float res = getOrderTotal(order);
+        return Math.round(res - ((res / 100) * discount));
     }
 }
