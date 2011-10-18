@@ -60,13 +60,13 @@
                 <ul>
                     <t:loop t:formState="NONE" source="products" value="oneProduct">
                         <li>
-                            <t:pageLink t:page="catalog" target="_blank" t:context="oneProductContext">${oneProduct.product.name} (${oneProduct.product.articul})</t:pageLink>
+                            <t:pageLink t:page="catalog" target="_blank" t:context="oneProductContext">${oneProduct.product.name} (${oneProduct.product.articul}), ${oneProduct.product.price} USD</t:pageLink>
                         </li>
                     </t:loop>
                 </ul>
-                <b>Сумма: ${orderTotalSum}</b>
+                <b>Общая стоимость: ${orderTotalSum} USD</b><br/>
                 <t:if test="oneOrder.dealer">
-                    <b>Со скидкой: ${orderTotalDiscSum}</b>
+                    <b>Со скидкой: ${orderTotalDiscSum} USD</b>
                 </t:if>
             </t:parameter>
             <t:parameter name="dealerCell">

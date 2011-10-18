@@ -41,7 +41,7 @@ public class List extends AdminBasePage {
         return getServiceFacade().getOrderManager().getOrderTotal(oneOrder);
     }
 
-    public float orderTotalDiscSum() {
+    public float getOrderTotalDiscSum() {
         return getServiceFacade().getOrderManager().getOrderTotal(oneOrder,
                                                                   oneOrder.getDealer().getDiscount());
     }
