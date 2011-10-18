@@ -1,7 +1,9 @@
 package org.ohm.lebetter.tapestry5.web.pages.po.order;
 
+import org.apache.tapestry5.annotations.Cached;
 import org.apache.tapestry5.annotations.Property;
 import org.ohm.lebetter.model.impl.entities.OrderEntity;
+import org.ohm.lebetter.model.impl.entities.OrderToProductEntity;
 import org.ohm.lebetter.tapestry5.web.pages.base.AdminBasePage;
 
 /**
@@ -14,10 +16,25 @@ import org.ohm.lebetter.tapestry5.web.pages.base.AdminBasePage;
 public class List extends AdminBasePage {
 
     @Property
+    private OrderToProductEntity oneProduct;
+
+    @Property
     private OrderEntity oneOrder;
 
+    @Cached
+    public java.util.List<OrderToProductEntity> getProducts() {
+        OrderEntity order = getServiceFacade().getOrderManager().getCurrentOrder(getAuth().getUser(), false);
+        return getServiceFacade().getOrderManager().getProducts(order);
+    }
+
+    @Cached
     public java.util.List<OrderEntity> getOrders() {
         return getServiceFacade().getOrderManager().getDoneOrders(getAuth().getUser());
+    }
+
+    public Object[] getOneProductContext() {
+        return new Object[]{oneProduct.getProduct().getCategories().get(0).getAltId(),
+                            oneProduct.getProduct().getAltId()};
     }
 
 }

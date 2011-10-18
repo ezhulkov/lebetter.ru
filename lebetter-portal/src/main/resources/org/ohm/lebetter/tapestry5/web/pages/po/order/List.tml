@@ -18,6 +18,24 @@
     <t:mallcomponents.layout.office leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
         <h1>Заказы</h1>
 
+        <h2>Текущий заказ</h2>
+        <t:if test="products">
+            <t:loop t:formState="NONE" source="products" value="oneProduct">
+                <div>
+                    <t:pageLink t:page="catalog" t:context="oneProductContext">${oneProduct.product.name}</t:pageLink>
+                </div>
+            </t:loop>
+
+            <t:parameter name="else">
+                Для того чтобы начать формирование нового заказа, надо
+                перейти в
+                <t:pageLink t:page="po/catalog/list">каталог</t:pageLink>
+                и, выбрав нужный товар, нажать ссылку "В заказ".
+            </t:parameter>
+        </t:if>
+
+        <div class="hr_big"></div>
+
         <h2>История заказов</h2>
         <t:grid pagerPosition="bottom" rowsPerPage="20" id="datagrid" source="orders" row="oneOrder"
                 include="orderNumber,placedDate,dealer,orderStatus" add="prods"
@@ -48,7 +66,7 @@
             <t:parameter name="placedDateCell">
             </t:parameter>
             <t:parameter name="empty">
-                <p class="nomsg">${message:empty.list}</p>
+                <p class="nomsg">Пустой список - Вы пока ещё не оформили ни одного заказа</p>
             </t:parameter>
         </t:grid>
 
