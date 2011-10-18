@@ -7,6 +7,7 @@ import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Select;
 import org.apache.tapestry5.corelib.components.TextArea;
 import org.apache.tapestry5.corelib.components.TextField;
+import org.ohm.lebetter.model.impl.entities.OrderEntity;
 import org.ohm.lebetter.model.impl.entities.ProductEntity;
 import org.ohm.lebetter.tapestry5.web.components.base.AbstractEditComponent;
 import org.ohm.lebetter.tapestry5.web.components.mallcomponents.layout.OfficeLayout;
@@ -57,7 +58,8 @@ public class ProductEdit extends AbstractEditComponent {
     }
 
     public Block onActionFromAddProduct(Long pid) {
-        getServiceFacade().getOrderManager().addProduct(pid, getAuth().getUser());
+        OrderEntity order = getServiceFacade().getOrderManager().getCurrentOrder(getAuth().getUser(), true);
+        getServiceFacade().getOrderManager().addProduct(pid, order, getAuth().getUser());
         return office.getBasketBlock();
     }
 

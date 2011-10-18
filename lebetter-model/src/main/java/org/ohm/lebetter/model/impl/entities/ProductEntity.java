@@ -65,6 +65,12 @@ public class ProductEntity
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH, mappedBy = "product")
     private List<TagToValueEntity> tagValues;
 
+    @ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    @JoinTable(name = "app_order_prod",
+               joinColumns = {@JoinColumn(name = "prod_id")},
+               inverseJoinColumns = {@JoinColumn(name = "order_id")})
+    private List<OrderEntity> orders = new ArrayList<OrderEntity>();
+
     public ProductEntity() {
         setEntityCode("Product");
     }
@@ -132,5 +138,13 @@ public class ProductEntity
 
     public void setStockStatus(StockStatus stockStatus) {
         this.stockStatus = stockStatus;
+    }
+
+    public List<OrderEntity> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<OrderEntity> orders) {
+        this.orders = orders;
     }
 }

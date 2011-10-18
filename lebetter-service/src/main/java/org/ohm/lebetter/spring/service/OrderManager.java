@@ -10,10 +10,12 @@ import java.util.List;
 public interface OrderManager
         extends GenericManager<OrderEntity, UserEntity> {
 
-    public void addProduct(Long pid, UserEntity caller);
+    public void addProduct(Long pid, OrderEntity order, UserEntity caller);
 
-    public void removeProduct(Long pid, UserEntity caller);
+    public void removeProduct(Long pid, OrderEntity order, UserEntity caller);
 
-    public List<ProductEntity> getProducts(UserEntity caller);
+    public OrderEntity getCurrentOrder(UserEntity caller, boolean createIfNeeded);
+
+    public List<ProductEntity> getProducts(OrderEntity order);
 
 }

@@ -4,6 +4,7 @@ import org.apache.tapestry5.Block;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
+import org.ohm.lebetter.model.impl.entities.OrderEntity;
 import org.ohm.lebetter.tapestry5.web.components.base.AbstractBaseComponent;
 
 /**
@@ -32,7 +33,8 @@ public class OfficeLayout extends AbstractBaseComponent {
     }
 
     public int getProductsCount() {
-        return getServiceFacade().getOrderManager().getProducts(getAuth().getUser()).size();
+        OrderEntity order = getServiceFacade().getOrderManager().getCurrentOrder(getAuth().getUser(), false);
+        return getServiceFacade().getOrderManager().getProducts(order).size();
     }
 
 }

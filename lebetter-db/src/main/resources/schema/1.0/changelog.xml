@@ -1007,6 +1007,7 @@
             language_id int8,
             remover_id int8,
             creator_id int8,
+            createddate timestamptz default now(),
             entitycode varchar(5) default 'Order',
             primary key (id),
             constraint app_order_creator foreign key (creator_id) references app_user(id) on delete cascade
@@ -1017,6 +1018,43 @@
             create index app_order_idx2 on public.app_order (objectdeleted, objectstatus, deletiondate);
             create index app_order_rootid_idx on public.app_order (rootid);
         </sql>
+    </changeSet>
+
+    <changeSet id="1.0.0-26" author="ezhulkov">
+        <addColumn tableName="app_order">
+            <column name="dealer_id" type="int8"/>
+        </addColumn>
+        <createIndex tableName="app_order" indexName="app_order_dealer_idx">
+            <column name="dealer_id"/>
+        </createIndex>
+        <addForeignKeyConstraint baseTableName="app_order" baseColumnNames="dealer_id"
+                                 constraintName="app_order_dealer_fk" referencedTableName="app_dealer"
+                                 referencedColumnNames="id"
+                                 onDelete="CASCADE"/>
+        <createTable tableName="app_order_prod">
+            <column name="order_id" type="int8"/>
+            <column name="prod_id" type="int8"/>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="app_order_prod" baseColumnNames="order_id"
+                                 constraintName="app_order_prod_o_fk"
+                                 referencedTableName="app_order" referencedColumnNames="id"
+                                 onDelete="CASCADE"/>
+        <addForeignKeyConstraint baseTableName="app_order_prod" baseColumnNames="prod_id"
+                                 constraintName="app_order_prod_p_fk"
+                                 referencedTableName="app_product" referencedColumnNames="id"
+                                 onDelete="CASCADE"/>
+        <createIndex tableName="app_order_prod" indexName="app_order_prod_o_idx">
+            <column name="order_id"/>
+        </createIndex>
+        <createIndex tableName="app_order_prod" indexName="app_order_prod_p_idx">
+            <column name="prod_id"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="1.0.0-27" author="ezhulkov">
+        <addColumn tableName="app_order">
+            <column name="orderstatus" type="varchar(8)"/>
+        </addColumn>
     </changeSet>
 
 </databaseChangeLog>

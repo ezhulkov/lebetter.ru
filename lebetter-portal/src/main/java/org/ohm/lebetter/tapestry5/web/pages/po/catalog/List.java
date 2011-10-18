@@ -5,6 +5,7 @@ import org.apache.tapestry5.annotations.Cached;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.grid.GridDataSource;
 import org.ohm.lebetter.model.impl.entities.CategoryEntity;
+import org.ohm.lebetter.model.impl.entities.OrderEntity;
 import org.ohm.lebetter.model.impl.entities.ProductEntity;
 import org.ohm.lebetter.tapestry5.web.pages.base.AdminBasePage;
 import org.ohm.lebetter.tapestry5.web.util.datasource.GenericEntityGridDS;
@@ -56,7 +57,8 @@ public class List extends AdminBasePage {
     }
 
     public Block onActionFromAddProduct(Long pid) {
-        getServiceFacade().getOrderManager().addProduct(pid, getAuth().getUser());
+        OrderEntity order = getServiceFacade().getOrderManager().getCurrentOrder(getAuth().getUser(), true);
+        getServiceFacade().getOrderManager().addProduct(pid, order, getAuth().getUser());
         return getOfficeLayout().getBasketBlock();
     }
 
