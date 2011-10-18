@@ -6,17 +6,17 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.room13.mallcore.model.impl.BaseCreatorAwareEntity;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -36,8 +36,22 @@ public class OrderEntity extends BaseCreatorAwareEntity {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH, mappedBy = "order")
     private List<OrderToProductEntity> products = new ArrayList<OrderToProductEntity>();
 
+    @Column
+    private Date placedDate;
+
+    @Column
+    private String orderNumber;
+
     public OrderEntity() {
         setEntityCode("Order");
+    }
+
+    public String getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(String orderNumber) {
+        this.orderNumber = orderNumber;
     }
 
     public DealerEntity getDealer() {
@@ -63,4 +77,19 @@ public class OrderEntity extends BaseCreatorAwareEntity {
     public void setOrderStatus(OrderStatus orderStatus) {
         this.orderStatus = orderStatus;
     }
+
+    public Date getPlacedDate() {
+        return placedDate;
+    }
+
+    public void setPlacedDate(Date placedDate) {
+        this.placedDate = placedDate;
+    }
+
+    @Transient
+    public String getPlacedDatePrintable() {
+        return getPlacedDate() == null ? "" :
+               DF.get().format(getPlacedDate());
+    }
+
 }

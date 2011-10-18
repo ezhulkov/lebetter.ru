@@ -1064,6 +1064,16 @@
             create index app_order_prod_p_idx on public.app_order_prod (prod_id);
             create index app_order_prod_o_idx on public.app_order_prod (order_id);
         </sql>
+        <addForeignKeyConstraint baseTableName="app_order_prod" baseColumnNames="prod_id"
+                                 constraintName="app_order_prod_p_fk" referencedTableName="app_product"
+                                 referencedColumnNames="id" onDelete="CASCADE"/>
+        <addForeignKeyConstraint baseTableName="app_order_prod" baseColumnNames="order_id"
+                                 constraintName="app_order_prod_o_fk" referencedTableName="app_order"
+                                 referencedColumnNames="id" onDelete="CASCADE"/>
+    </changeSet>
+
+    <changeSet id="1.0.0-28" author="ezhulkov">
+        <createSequence sequenceName="order_sequence" incrementBy="1" startValue="1"/>
     </changeSet>
 
 </databaseChangeLog>

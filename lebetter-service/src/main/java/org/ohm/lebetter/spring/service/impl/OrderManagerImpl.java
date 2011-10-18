@@ -14,10 +14,13 @@ import org.ohm.lebetter.spring.service.OrderManager;
 import org.room13.mallcore.log.RMLogger;
 import org.room13.mallcore.model.ObjectBaseEntity.Status;
 import org.room13.mallcore.spring.dao.OwnerDao;
+import org.room13.mallcore.spring.service.ObjectExistsException;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.SimpleDateFormat;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 
@@ -27,6 +30,7 @@ public class OrderManagerImpl
         implements OrderManager {
 
     public static final RMLogger log = new RMLogger(OrderManagerImpl.class);
+    private static final SimpleDateFormat SDF = new SimpleDateFormat("MMdd");
 
     protected OrderDao orderDao;
     protected OrderToProductDao orderToProductDao;
@@ -113,4 +117,15 @@ public class OrderManagerImpl
         return orderDao.findByCriteria(criteria, -1, -1);
     }
 
+    @Override
+    @Transactional
+    public void create(OrderEntity object, OrderEntity parent, UserEntity caller) throws ObjectExistsException {
+        super.create(object, parent, caller);
+        Long on = orderDao.getNextOrderNumber();
+        object.setPlacedDate(new Date(System.currentTimeMillis()));
+        synchronized (SDF) {
+            object.setOrderNumber(SDF.format(object.getPlacedDate()) + "-" + on);
+        }
+        orderDao.save(object);
+    }
 }

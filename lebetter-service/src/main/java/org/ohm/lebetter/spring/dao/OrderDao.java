@@ -9,4 +9,6 @@ import org.room13.mallcore.spring.dao.ObjectCreatorAwareDao;
 public interface OrderDao
         extends GenericDao<OrderEntity, UserEntity>, ObjectCreatorAwareDao {
 
+    public Long getNextOrderNumber();
+
 }

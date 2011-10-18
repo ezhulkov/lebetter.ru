@@ -20,27 +20,32 @@
 
         <h2>История заказов</h2>
         <t:grid pagerPosition="bottom" rowsPerPage="20" id="datagrid" source="orders" row="oneOrder"
-                include="name,discount,objectStatus" add="owner" reorder="name,owner,discount,objectStatus">
-            <t:parameter name="nameHeader">
-                Название
+                include="orderNumber,placedDate,dealer,orderStatus" add="prods"
+                reorder="orderNumber,placedDate,prods,dealer,orderStatus">
+            <t:parameter name="orderNumberHeader">
+                Номер заказа
             </t:parameter>
-            <t:parameter name="objectStatusHeader">
+            <t:parameter name="orderStatusHeader">
                 Статус
             </t:parameter>
-            <t:parameter name="ownerHeader">
-                Менеджер
+            <t:parameter name="dealerHeader">
+                Дилер
             </t:parameter>
-            <t:parameter name="discountHeader">
-                Скидка (%)
+            <t:parameter name="createdDateHeader">
+                Дата создания
             </t:parameter>
-            <t:parameter name="nameCell">
-                <t:pageLink context="oneDealer.rootid" page="po/dealer" class="underline">${oneDealer.name}</t:pageLink>
+            <t:parameter name="placedDateHeader">
+                Дата создания
             </t:parameter>
-            <t:parameter name="ownerCell">
-                Владелец
+            <t:parameter name="orderNumberCell">
             </t:parameter>
-            <t:parameter name="discountCell">
-                ${oneDealer.discount}
+            <t:parameter name="orderStatusCell">
+            </t:parameter>
+            <t:parameter name="dealerCell">
+            </t:parameter>
+            <t:parameter name="createdDateCell">
+            </t:parameter>
+            <t:parameter name="placedDateCell">
             </t:parameter>
             <t:parameter name="empty">
                 <p class="nomsg">${message:empty.list}</p>
