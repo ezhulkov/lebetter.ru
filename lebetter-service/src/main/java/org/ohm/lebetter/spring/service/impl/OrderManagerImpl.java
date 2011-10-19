@@ -4,6 +4,7 @@ import org.hibernate.criterion.CriteriaSpecification;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
+import org.ohm.lebetter.model.impl.entities.DealerEntity;
 import org.ohm.lebetter.model.impl.entities.OrderEntity;
 import org.ohm.lebetter.model.impl.entities.OrderEntity.OrderStatus;
 import org.ohm.lebetter.model.impl.entities.OrderToProductEntity;
@@ -79,6 +80,10 @@ public class OrderManagerImpl
             OrderEntity order = getNewInstance();
             order.setCreator(caller);
             order.setOrderStatus(OrderStatus.NEW);
+            List<DealerEntity> dealers = getServiceManager().getDealerManager().getObjectsOwnedBy(caller);
+            if (dealers != null && dealers.size() > 0) {
+                order.setDealer(dealers.get(0));
+            }
             create(order, null, caller);
             return order;
         }

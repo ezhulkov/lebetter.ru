@@ -33,7 +33,8 @@ public class OfficeLayout extends AbstractBaseComponent {
     }
 
     public int getProductsCount() {
-        return getServiceFacade().getOrderManager().getProducts(getCurrentOrder()).size();
+        int prodsCount = getServiceFacade().getOrderManager().getProducts(getCurrentOrder()).size();
+        return prodsCount == 0 ? (getCurrentOrder() == null ? 0 : 1) : prodsCount;
     }
 
     public OrderEntity getCurrentOrder() {
