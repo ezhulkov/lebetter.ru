@@ -67,7 +67,7 @@
             <table>
                 <tr>
                     <td>
-                        <img src="http://localhost/images/lb-front/def/nopic6.gif" title="${oneProduct.product.name}" alt="${oneProduct.product.name}"/>
+                        <img src="/images/lb-front/def/nopic6.gif" title="${oneProduct.product.name}" alt="${oneProduct.product.name}"/>
                     </td>
                     <td>
                         <t:pageLink t:page="catalog" target="_blank" t:context="oneProductContext">

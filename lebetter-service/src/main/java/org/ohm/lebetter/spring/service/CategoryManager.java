@@ -88,4 +88,8 @@ public interface CategoryManager
 
     public List<PropertyEntity> getAllPropertiesForUI(ProductEntity product);
 
+    public CategoryEntity getByCode(String code);
+
+    public List<CategoryEntity> getCategoriesToMainPage();
+
 }

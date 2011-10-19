@@ -18,7 +18,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,6 +46,12 @@ public class CategoryEntity
 
     @Column
     private String code = "";
+
+    @Column
+    private String description = "";
+
+    @Column
+    private boolean tomain = false;
 
     @Column
     private Integer position;
@@ -133,5 +138,21 @@ public class CategoryEntity
 
     public void setAltId(String altId) {
         this.altId = altId;
+    }
+
+    public boolean isTomain() {
+        return tomain;
+    }
+
+    public void setTomain(boolean tomain) {
+        this.tomain = tomain;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

@@ -40,44 +40,22 @@
         <div class="pictures_box">
 
             <ul>
-                <li>
-                    <img src="/images/pic/divan.png" alt="Мебель для гостиной" title="Мебель для гостиной"/>
-
-                    <h3><a href=" ">Мебель для гостиной</a></h3>
-                    <a href=" ">Если прихожая – это лицо квартиры, то гостиная – ее сердце.</a>
-                </li>
-                <li>
-                    <img src="/images/pic/krovat.png" alt="Спальни" title="Спальни"/>
-
-                    <h3><a href=" ">Спальни</a></h3>
-                    <a href=" ">Спальня - это место, в котором мы по статистике проводим больше всего времени.</a>
-                </li>
-                <li>
-                    <img src="/images/pic/stul.png" alt="Мебель для отелей" title="Мебель для отелей"/>
-
-                    <h3><a href=" ">Мебель для отелей</a></h3>
-                    <a href=" ">Сколько милых памяти событий прошло в окружении тумбочек.</a>
-                </li>
+                <t:loop t:formState="NONE" source="mainCategories" value="oneCategory">
+                    <li>
+                        <t:pageLink t:page="catalog" t:context="oneCategory.altId">
+                            <img src="/images/pic/divan.png" alt="${oneCategory.name}" title="${oneCategory.name}"/>
+                        </t:pageLink>
+                        <h3>
+                            <t:pageLink t:page="catalog" t:context="oneCategory.altId">${oneCategory.name}</t:pageLink>
+                        </h3>
+                        <t:pageLink t:page="catalog" t:context="oneCategory.altId">${oneCategory.description}</t:pageLink>
+                    </li>
+                </t:loop>
             </ul>
 
         </div>
 
     </div>
-
-    <!--/* Start fancybox gallery */-->
-    <!--jQuery("a.grouped_elements").fancybox({-->
-    <!--'speedIn'        :    600,-->
-    <!--'speedOut'        :    200-->
-
-    <!--});-->
-    <!--jQuery("a.gmap").fancybox({-->
-    <!--'width'                : '80%',-->
-    <!--'height'            : '75%',-->
-    <!--'autoScale'            : false,-->
-    <!--'transitionIn'        : 'none',-->
-    <!--'transitionOut'        : 'none',-->
-    <!--'type'                : 'iframe'-->
-    <!--});-->
 
     <t:mallComponents.control.javascript>
         AG.initMainPage();

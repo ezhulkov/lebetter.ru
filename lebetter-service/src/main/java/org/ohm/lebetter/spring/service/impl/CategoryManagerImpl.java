@@ -493,4 +493,18 @@ public class CategoryManagerImpl
 
     }
 
+    @Override
+    public List<CategoryEntity> getCategoriesToMainPage() {
+        DetachedCriteria criteria = DetachedCriteria.forClass(CategoryEntity.class).
+                add(Restrictions.eq("tomain", true));
+        return categoryDao.findRootByCriteria(criteria, 0, 3);
+    }
+
+    @Override
+    public CategoryEntity getByCode(String code) {
+        DetachedCriteria criteria = DetachedCriteria.forClass(CategoryEntity.class).
+                add(Restrictions.eq("code", code));
+        List<CategoryEntity> cats = categoryDao.findRootByCriteria(criteria, 0, 1);
+        return cats.size() > 0 ? cats.get(0) : null;
+    }
 }

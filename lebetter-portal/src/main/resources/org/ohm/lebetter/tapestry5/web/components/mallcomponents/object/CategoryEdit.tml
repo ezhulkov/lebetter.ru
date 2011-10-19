@@ -59,6 +59,25 @@
                 <input t:id="position" tabindex="4" class="form_input"/>
             </div>
 
+            <div class="input_box">
+                <div class="input_label">
+                    <t:label for="tomain" class="ks_propertyedit_6"/>
+                    :
+                </div>
+                <t:checkBox t:id="tomain" type="checkbox" class="ks_propertyedit_3"/>
+            </div>
+            <div class="break"></div>
+
+            <div class="input_box">
+                <div class="input_label">
+                    <t:label for="description"/>
+                    :
+                </div>
+                <div class="form_textarea">
+                    <t:textarea t:id="description" style="width:560px;" class="redactor_textarea"/>
+                </div>
+            </div>
+
             <t:unless test="selectedObject.children">
                 <div class="input_box">
                     <div class="input_label">

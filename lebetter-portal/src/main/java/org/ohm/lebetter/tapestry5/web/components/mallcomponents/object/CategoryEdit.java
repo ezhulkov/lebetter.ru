@@ -4,7 +4,9 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.corelib.components.Checkbox;
 import org.apache.tapestry5.corelib.components.Select;
+import org.apache.tapestry5.corelib.components.TextArea;
 import org.apache.tapestry5.corelib.components.TextField;
 import org.ohm.lebetter.model.impl.entities.CategoryEntity;
 import org.ohm.lebetter.model.impl.entities.PropertyEntity;
@@ -32,8 +34,14 @@ public class CategoryEdit extends AbstractEditComponent {
     @Component(id = "name", parameters = {"value=selectedObject.name", "validate=required,maxlength=64"})
     private TextField nameField;
 
+    @Component(id = "tomain", parameters = {"value=selectedObject.tomain"})
+    private Checkbox tomainField;
+
     @Component(id = "code", parameters = {"value=selectedObject.code", "validate=required,maxlength=64"})
     private TextField codeField;
+
+    @Component(id = "description", parameters = {"value=selectedObject.description", "validate=maxlength=256"})
+    private TextArea descriptionField;
 
     @Component(id = "position", parameters = {"value=selectedObject.position"})
     private TextField positionField;
