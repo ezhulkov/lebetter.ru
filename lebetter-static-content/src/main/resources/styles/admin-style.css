@@ -27,12 +27,29 @@
     font-size: 11pt;
 }
 
-#datagrid th.objectStatus {
-    width: 60px;
+#datagrid th.objectStatus,
+#datagrid th.orderStatus {
+    width: 70px;
 }
 
 #datagrid th.photo {
     width: 70px;
+}
+
+#datagrid th.orderNumber {
+    width: 110px;
+}
+
+#datagrid ul {
+    padding-left: 20px;
+}
+
+#datagrid ul li {
+    padding: 2px;
+}
+
+#datagrid th.placedDate {
+    width: 120px;
 }
 
 #datagrid th.name {

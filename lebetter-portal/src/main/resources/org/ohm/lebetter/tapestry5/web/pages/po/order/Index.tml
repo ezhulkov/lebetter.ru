@@ -17,8 +17,8 @@
                     <a href="/po/order/list">Заказы</a>
                     <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
                     <t:if test="selectedOrder">
-                        <t:if test="selectedOrder.orderNumber">Оформление</t:if>
-                        <t:unless test="selectedOrder.orderNumber">'${selectedOrder.orderNumber}'</t:unless>
+                        <t:if test="selectedOrderNew">Оформление</t:if>
+                        <t:unless test="selectedOrderNew">'${selectedOrder.orderNumber}'</t:unless>
                     </t:if>
                 </t:block>
 
@@ -27,8 +27,8 @@
                 </t:mallComponents.control.javascript>
 
                 <h1>
-                    <t:if test="selectedOrder.orderNumber">Оформление нового заказа</t:if>
-                    <t:unless test="selectedOrder.orderNumber">Заказ '${selectedOrder.orderNumber}'</t:unless>
+                    <t:if test="selectedOrderNew">Оформление нового заказа</t:if>
+                    <t:unless test="selectedOrderNew">Заказ '${selectedOrder.orderNumber}'</t:unless>
                 </h1>
 
                 <div class="break"/>

@@ -20,7 +20,7 @@
 
         <h2>Текущий заказ</h2>
         <t:if test="currentOrder">
-            В данный момент у Вас есть 1 неоформленный заказ. Для его оформления перейдите, пожалуйста,
+            В данный момент у Вас есть <b>1 неоформленный заказ</b>. Для его оформления перейдите, пожалуйста,
             <t:pageLink t:page="po/order" t:context="currentOrder.rootId">по этой ссылке</t:pageLink>
             .
             <t:parameter name="else">
@@ -35,7 +35,7 @@
 
         <h2>История заказов</h2>
         <t:grid pagerPosition="bottom" rowsPerPage="20" id="datagrid" source="orders" row="oneOrder"
-                include="orderNumber,placedDate,dealer,orderStatus" add="prods,dealer"
+                include="orderNumber,placedDate,orderStatus" add="prods,dealer"
                 reorder="orderNumber,placedDate,prods,dealer,orderStatus">
             <t:parameter name="orderNumberHeader">
                 Номер заказа
@@ -46,21 +46,35 @@
             <t:parameter name="dealerHeader">
                 Дилер
             </t:parameter>
-            <t:parameter name="createdDateHeader">
-                Дата создания
-            </t:parameter>
             <t:parameter name="placedDateHeader">
                 Дата создания
             </t:parameter>
-            <t:parameter name="orderNumberCell">
+            <t:parameter name="prodsHeader">
+                Товары
             </t:parameter>
-            <t:parameter name="orderStatusCell">
+            <t:parameter name="orderNumberCell">
+                <t:pageLink t:page="po/order" t:context="oneOrder.rootId">
+                    <strong>${oneOrder.orderNumber}</strong></t:pageLink>
+            </t:parameter>
+            <t:parameter name="prodsCell">
+                <ul>
+                    <t:loop t:formState="NONE" source="products" value="oneProduct">
+                        <li>
+                            <t:pageLink t:page="catalog" target="_blank" t:context="oneProductContext">${oneProduct.product.name} (${oneProduct.product.articul}), ${oneProduct.product.price} USD</t:pageLink>
+                        </li>
+                    </t:loop>
+                </ul>
+                <b>Общая стоимость: ${orderTotalSum} USD</b><br/>
+                <b>Со скидкой: ${orderTotalDiscSum} USD</b>
             </t:parameter>
             <t:parameter name="dealerCell">
-            </t:parameter>
-            <t:parameter name="createdDateCell">
+                <t:if test="oneOrder.dealer">
+                    <t:pageLink t:page="po/dealer" t:context="oneOrder.dealer.rootId">${oneOrder.dealer.name}</t:pageLink>
+                    <t:parameter name="else">—</t:parameter>
+                </t:if>
             </t:parameter>
             <t:parameter name="placedDateCell">
+                ${oneOrder.placedDatePrintable}
             </t:parameter>
             <t:parameter name="empty">
                 <p class="nomsg">Пустой список - Вы пока ещё не оформили ни одного заказа</p>

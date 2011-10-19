@@ -1,10 +1,9 @@
 package org.ohm.lebetter.tapestry5.web.pages.po.order;
 
-import org.apache.tapestry5.Block;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Property;
-import org.apache.tapestry5.ioc.annotations.Inject;
 import org.ohm.lebetter.model.impl.entities.OrderEntity;
+import org.ohm.lebetter.model.impl.entities.OrderEntity.OrderStatus;
 import org.ohm.lebetter.tapestry5.web.components.mallcomponents.control.SelectedObject;
 import org.ohm.lebetter.tapestry5.web.pages.base.AdminBasePage;
 
@@ -31,6 +30,10 @@ public class Index extends AdminBasePage {
 
     public Long onPassivate() {
         return selectedOrder == null ? null : selectedOrder.getRootId();
+    }
+
+    public boolean isSelectedOrderNew() {
+        return selectedOrder.getOrderStatus().equals(OrderStatus.NEW);
     }
 
 }

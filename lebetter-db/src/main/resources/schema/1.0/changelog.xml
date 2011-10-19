@@ -1095,4 +1095,22 @@
         </modifyColumn>
     </changeSet>
 
+    <changeSet id="1.0.0-32" author="ezhulkov">
+        <addColumn tableName="app_order">
+            <column name="comments" type="varchar(512)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="1.0.0-33" author="ezhulkov">
+        <modifyColumn tableName="app_dealer">
+            <column name="discount" type="int" defaultValue="0"/>
+        </modifyColumn>
+    </changeSet>
+
+    <changeSet id="1.0.0-34" author="ezhulkov">
+        <sql>
+            update app_dealer set discount=0 where discount is null;
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>

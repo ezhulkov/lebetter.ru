@@ -42,8 +42,19 @@ public class OrderEntity extends BaseCreatorAwareEntity {
     @Column
     private String orderNumber;
 
+    @Column
+    private String comments;
+
     public OrderEntity() {
         setEntityCode("Order");
+    }
+
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
     }
 
     public String getOrderNumber() {

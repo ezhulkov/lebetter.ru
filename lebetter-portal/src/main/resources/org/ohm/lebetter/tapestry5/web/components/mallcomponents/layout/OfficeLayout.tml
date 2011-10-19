@@ -45,8 +45,7 @@
 
     <t:block id="basketBlock">
         <t:if test="productsCount">
-            <t:pageLink t:page="po/order" t:context="currentOrder.rootId">+${productsCount}</t:pageLink>
-            <!--+${productsCount}-->
+            <t:pageLink style="text-decoration:underline;" t:page="po/order" t:context="currentOrder.rootId">+${productsCount}</t:pageLink>
         </t:if>
     </t:block>
 
