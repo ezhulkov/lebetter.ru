@@ -9,6 +9,7 @@ import org.ohm.lebetter.model.impl.entities.PropertyValueEntity;
 import org.ohm.lebetter.model.impl.entities.TagToValueEntity;
 import org.ohm.lebetter.model.impl.entities.UserEntity;
 import org.room13.mallcore.spring.service.GenericManager;
+import org.room13.mallcore.spring.service.ImageAwareManager;
 import org.room13.mallcore.spring.service.ObjectCreatorAwareManager;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,7 +18,8 @@ import java.util.List;
 
 public interface CategoryManager
         extends GenericManager<CategoryEntity, UserEntity>,
-                ObjectCreatorAwareManager<CategoryEntity, UserEntity>, SitemapAwareManager<CategoryEntity> {
+                ObjectCreatorAwareManager<CategoryEntity, UserEntity>,
+                SitemapAwareManager<CategoryEntity> {
 
     public static final Comparator<PropertyEntity> PROPERTY_ENTITY_COMPARATOR =
             new Comparator<PropertyEntity>() {

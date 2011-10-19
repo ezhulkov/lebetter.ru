@@ -12,6 +12,7 @@ import org.ohm.lebetter.spring.dao.DealerDao;
 import org.ohm.lebetter.spring.service.DealerManager;
 import org.room13.mallcore.log.RMLogger;
 import org.room13.mallcore.model.CreatorRepAware;
+import org.room13.mallcore.model.ImageAware;
 import org.room13.mallcore.model.ObjectBaseEntity.Status;
 import org.room13.mallcore.spring.dao.OwnerDao;
 import org.room13.mallcore.spring.service.ObjectExistsException;
@@ -145,4 +146,16 @@ public class DealerManagerImpl
         criteria.add(Restrictions.eq("objectStatus", Status.READY));
         return dealerDao.findRootByCriteria(criteria, -1, -1);
     }
+
+    @Override
+    public ImageAware.ImageStatus getImageStatus(DealerEntity entity, UserEntity caller) {
+        return super.getImageStatus(entity, caller);
+    }
+
+    @Override
+    @Transactional
+    public void setImageStatus(DealerEntity obe, ImageAware.ImageStatus imageStatus, UserEntity caller) {
+        super.setImageStatus(obe, imageStatus, caller);
+    }
+
 }

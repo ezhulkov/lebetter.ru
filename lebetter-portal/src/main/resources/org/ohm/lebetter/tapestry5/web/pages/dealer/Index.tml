@@ -30,7 +30,13 @@
             <div class="dealer_item">
                 <div class="dealer_item_l">
                     <!--DealLogo -->
-                    <img src="/images/lb-front/def/nopic.gif" alt=""/>
+                    <t:if test="selectedDealer.imageReady">
+                        <img alt="${selectedDealer.name}" title="${selectedDealer.name}"/>
+                        <t:parameter name="else">
+                            <img src="/images/lb-front/def/nopic.gif" alt="${selectedDealer.name}" title="${selectedDealer.name}"/>
+                        </t:parameter>
+                    </t:if>
+
                 </div>
                 <div class="dealer_item_r">
                     <!--DealInf -->
@@ -67,14 +73,14 @@
                         <t:outputraw value="selectedDealer.description"/>
                     </t:if>
 
-                    <br/>
-
                     <div id="map" style="width:500px;height:350px;border: 1px solid gray;"></div>
 
-                    <script language="JavaScript" type="text/javascript">
+
+
+                    <t:mallComponents.control.javascript>
                         LB.initializeMap('${selectedDealer.lat}', '${selectedDealer.lng}',
                                          '${selectedDealer.zoom}', "'${selectedDealer.name}'", false);
-                    </script>
+                    </t:mallComponents.control.javascript>
 
                 </div>
             </div>
