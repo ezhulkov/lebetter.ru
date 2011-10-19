@@ -1151,7 +1151,7 @@
     <changeSet id="1.0.0-36" author="ezhulkov">
         <addColumn tableName="app_category">
             <column name="tomain" type="boolean" defaultValueBoolean="false"/>
-            <column name="description" type="varchar(256)" defaultValueBoolean="false"/>
+            <column name="description" type="varchar(256)"/>
         </addColumn>
     </changeSet>
 

@@ -68,16 +68,6 @@
             </div>
             <div class="break"></div>
 
-            <div class="input_box">
-                <div class="input_label">
-                    <t:label for="description"/>
-                    :
-                </div>
-                <div class="form_textarea">
-                    <t:textarea t:id="description" style="width:560px;" class="redactor_textarea"/>
-                </div>
-            </div>
-
             <t:unless test="selectedObject.children">
                 <div class="input_box">
                     <div class="input_label">
@@ -139,6 +129,17 @@
                     }
                 </script>
             </t:unless>
+
+            <div class="input_box">
+                <div class="input_label">
+                    <t:label for="description"/>
+                    :
+                </div>
+                <div class="form_textarea">
+                    <t:textarea t:id="description" style="width:560px;" class="redactor_textarea"/>
+                </div>
+            </div>
+            <div class="break"></div>
 
         </t:mallComponents.control.editObject>
 
