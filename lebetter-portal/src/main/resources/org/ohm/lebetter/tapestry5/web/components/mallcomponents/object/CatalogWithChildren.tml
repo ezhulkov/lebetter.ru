@@ -23,7 +23,7 @@
     </t:if>
 
     <t:mallComponents.control.javascript>
-        AG.gridCatManipulation();
+        LB.gridCatManipulation();
     </t:mallComponents.control.javascript>
 
 </div>

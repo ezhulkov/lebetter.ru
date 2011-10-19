@@ -18,7 +18,7 @@
             </t:block>
 
             <t:mallComponents.control.javascript>
-                AG.colorCell("#roles_menu");
+                LB.colorCell("#roles_menu");
             </t:mallComponents.control.javascript>
 
             <h1>Роль '${selectedRole.name}'</h1>

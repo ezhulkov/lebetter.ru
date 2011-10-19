@@ -64,7 +64,7 @@
                     <t:label for="tomain" class="ks_propertyedit_6"/>
                     :
                 </div>
-                <t:checkBox t:id="tomain" type="checkbox" class="ks_propertyedit_3"/>
+                <t:checkBox t:id="tomain" id="tomain" type="checkbox" class="ks_propertyedit_3"/>
             </div>
             <div class="break"></div>
 
@@ -73,7 +73,7 @@
                     <t:label for="tomainname"/>
                     :
                 </div>
-                <input t:id="tomainname" class="form_input"/>
+                <input t:id="tomainname" id="tomainname" class="form_input"/>
             </div>
 
             <t:unless test="selectedObject.children">
@@ -111,7 +111,6 @@
                 </div>
 
                 <script type="text/javascript">
-
                     jQuery("#parent_type_label").insertAfter('#2rm_category_par');
                     jQuery("#sortable").sortable({stop: function(event, ui) {
                         setSortOrder();
@@ -144,10 +143,25 @@
                     :
                 </div>
                 <div class="form_textarea">
-                    <t:textarea t:id="description" style="width:560px;" class="redactor_textarea"/>
+                    <div class="NFTextareaTop"><img src="/images/0.gif" class="NFTextareaTopLeft" alt=""/>
+                    </div>
+                    <div class="NFTextareaRight">
+                        <div class="NFTextareaLeft"></div>
+                        <t:textarea t:id="description"/>
+                    </div>
+                    <div class="NFTextareaBottom">
+                        <img src="/images/0.gif" class="NFTextareaBottomLeft" alt=""/></div>
                 </div>
             </div>
             <div class="break"></div>
+
+            <script>
+                jQuery("#tomain").unbind().bind("change",function(){
+                    LB.setToMain(jQuery(this).attr("checked")=="checked");
+                })
+                LB.setToMain(${selectedObject.tomain});
+            </script>
+
 
         </t:mallComponents.control.editObject>
 

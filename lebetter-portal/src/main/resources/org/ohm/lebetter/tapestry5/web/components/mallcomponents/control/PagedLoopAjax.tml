@@ -70,7 +70,7 @@
                   var link = "${loadInitialLink}".
                           replace("PARAM1", idx).
                           replace("PARAM2", '${pageKey}');
-                  AG.tapestry.triggerLink("loadInitialAjax", link);
+                  LB.tapestry.triggerLink("loadInitialAjax", link);
                   singleRunFlag = false;
               }
           }, { unescape: ",/" });

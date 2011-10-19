@@ -12,7 +12,7 @@
     </t:block>
 
     <t:mallComponents.control.javascript>
-        AG.colorCell("#roles_menu");
+        LB.colorCell("#roles_menu");
     </t:mallComponents.control.javascript>
 
     <t:mallcomponents.layout.office leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">

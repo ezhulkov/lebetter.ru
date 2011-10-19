@@ -18,7 +18,7 @@
             </t:block>
 
             <t:mallComponents.control.javascript>
-                AG.colorCell("#props_menu");
+                LB.colorCell("#props_menu");
             </t:mallComponents.control.javascript>
 
             <h1>Свойство '${selectedProperty.name}'</h1>

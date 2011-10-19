@@ -37,7 +37,7 @@
 
         <t:mallComponents.control.javascript>
             <t:if test="selectedCategory.parent">
-                AG.colorCell("#menu${selectedCategoryParent.rootId}");
+                LB.colorCell("#menu${selectedCategoryParent.rootId}");
             </t:if>
         </t:mallComponents.control.javascript>
 

@@ -18,7 +18,7 @@
             </t:block>
 
             <t:mallComponents.control.javascript>
-                AG.colorCell("#cats_menu");
+                LB.colorCell("#cats_menu");
             </t:mallComponents.control.javascript>
 
             <h1>Категория '${selectedCategory.name}'</h1>

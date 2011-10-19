@@ -18,7 +18,7 @@
         <div id="map" style="width:718px;height:400px;border: 1px solid gray;"></div>
 
         <script language="JavaScript" type="text/javascript">
-            AG.initializeMap(jQuery("#lat").val(), jQuery("#lng").val(), jQuery("#zoom").val(), "'${selectedObject.name}'", true);
+            LB.initializeMap(jQuery("#lat").val(), jQuery("#lng").val(), jQuery("#zoom").val(), "'${selectedObject.name}'", true);
         </script>
 
     </t:mallComponents.control.editObject>

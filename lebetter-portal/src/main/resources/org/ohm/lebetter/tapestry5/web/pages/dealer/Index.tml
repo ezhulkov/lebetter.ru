@@ -18,7 +18,7 @@
         <t:block t:id="leftMenuBlock">
             <t:mallcomponents.object.dealerMenu/>
         <t:mallComponents.control.javascript>
-            AG.colorCell("#dlrs_menu");
+            LB.colorCell("#dlrs_menu");
         </t:mallComponents.control.javascript>
         </t:block>
 
@@ -72,7 +72,7 @@
                     <div id="map" style="width:500px;height:350px;border: 1px solid gray;"></div>
 
                     <script language="JavaScript" type="text/javascript">
-                        AG.initializeMap('${selectedDealer.lat}', '${selectedDealer.lng}',
+                        LB.initializeMap('${selectedDealer.lat}', '${selectedDealer.lng}',
                                          '${selectedDealer.zoom}', "'${selectedDealer.name}'", false);
                     </script>
 

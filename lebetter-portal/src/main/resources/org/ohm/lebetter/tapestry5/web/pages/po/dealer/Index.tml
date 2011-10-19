@@ -18,7 +18,7 @@
             </t:block>
 
             <t:mallComponents.control.javascript>
-                AG.colorCell("#dealers_menu");
+                LB.colorCell("#dealers_menu");
             </t:mallComponents.control.javascript>
 
             <div class="adm_add_box">

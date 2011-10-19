@@ -54,7 +54,7 @@
 
         <t:mallComponents.control.javascript>
               /* Start 'topmenu' */
-              AG.menuPlay();
+              LB.menuPlay();
         </t:mallComponents.control.javascript>
 
         <t:mallComponents.control.javascriptDestination/>

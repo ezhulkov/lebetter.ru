@@ -41,14 +41,14 @@
 
             <ul>
                 <t:loop t:formState="NONE" source="mainCategories" value="oneCategory">
-                    <li>
+                    <li class="banner">
                         <t:pageLink t:page="catalog" t:context="oneCategory.altId">
-                            <img src="/images/pic/divan.png" alt="${oneCategory.name}" title="${oneCategory.name}"/>
+                            <img src="/images/lb-front/def/nopic7.gif" alt="${oneCategory.name}" title="${oneCategory.name}"/>
                         </t:pageLink>
                         <h3>
                             <t:pageLink t:page="catalog" t:context="oneCategory.altId">${oneCategory.toMainName}</t:pageLink>
                         </h3>
-                        <t:pageLink t:page="catalog" t:context="oneCategory.altId">${oneCategory.description}</t:pageLink>
+                        <t:pageLink class="description" t:page="catalog" t:context="oneCategory.altId">${oneCategory.description}</t:pageLink>
                     </li>
                 </t:loop>
             </ul>
@@ -58,7 +58,7 @@
     </div>
 
     <t:mallComponents.control.javascript>
-        AG.initMainPage();
+        LB.initMainPage();
     </t:mallComponents.control.javascript>
 
 </t:mallcomponents.layout.layout>

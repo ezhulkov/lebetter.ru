@@ -29,7 +29,7 @@
                         <t:label for="type"/>
                         :
                     </div>
-                    <select onChange="AG.processChange();" t:id="type" class="form_select"/>
+                    <select onChange="LB.processChange();" t:id="type" class="form_select"/>
                 </div>
 
                 <div class="display_none input_box" id="DICT">

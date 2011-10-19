@@ -14,7 +14,7 @@
     <t:block t:id="leftMenuBlock">
         <t:mallcomponents.object.infMenu/>
         <t:mallComponents.control.javascript>
-            AG.colorCell("#login_menu");
+            LB.colorCell("#login_menu");
         </t:mallComponents.control.javascript>
     </t:block>
 

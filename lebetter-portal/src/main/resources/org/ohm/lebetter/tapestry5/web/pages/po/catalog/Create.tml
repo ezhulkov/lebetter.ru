@@ -14,7 +14,7 @@
     </t:block>
 
     <t:mallComponents.control.javascript>
-        AG.colorCell("#cat_menu");
+        LB.colorCell("#cat_menu");
     </t:mallComponents.control.javascript>
 
     <t:mallcomponents.layout.office leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">

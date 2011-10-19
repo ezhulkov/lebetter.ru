@@ -1,4 +1,4 @@
-AG = {
+LB = {
     initializeMap: function(lat, lng, zoom, title, events) {
         var map;
         var marker;
@@ -27,6 +27,13 @@ AG = {
             });
         }
     },
+    setToMain: function(val) {
+        if (val) {
+            jQuery("#tomainname").removeAttr("disabled");
+        } else {
+            jQuery("#tomainname").attr("disabled", "disabled");
+        }
+    },
     colorCell: function(el) {
         jQuery(el).addClass('sel');
     },
@@ -50,40 +57,48 @@ AG = {
         });
         /* Correct for pictures */
         jQuery(".pictures_box ul li:last-child").css("background", "none");
+        jQuery("li.banner").unbind().
+                bind("mouseenter",
+                     function() {
+                         jQuery(this).find("a.description").animate({color:"#47190A"}, 500);
+                     }).
+                bind("mouseout", function() {
+                         jQuery(this).find("a.description").animate({color:"#686868"}, 500);
+                     });
     },
     gridManipulation: function() {
-       jQuery("ul.prod_cat_grid2 .t-zone div li:nth-child(5n)").addClass("row");
-       jQuery("div.slide_pager a").last().addClass("l");
-       //jQuery("div.slide_pager a:last-child, div.t-data-grid-pager a:last-child").addClass("l");
+        jQuery("ul.prod_cat_grid2 .t-zone div li:nth-child(5n)").addClass("row");
+        jQuery("div.slide_pager a").last().addClass("l");
+        //jQuery("div.slide_pager a:last-child, div.t-data-grid-pager a:last-child").addClass("l");
     },
     gridCatManipulation: function() {
-       jQuery("ul.prod_cat_grid li:nth-child(4n)").addClass("r_l");
-       var prodLength = jQuery("ul.prod_cat_grid li").length; // count the number of item-s
-       var prodRows = Math.ceil(prodLength/4); // count the number of rows
+        jQuery("ul.prod_cat_grid li:nth-child(4n)").addClass("r_l");
+        var prodLength = jQuery("ul.prod_cat_grid li").length; // count the number of item-s
+        var prodRows = Math.ceil(prodLength / 4); // count the number of rows
 
-       jQuery("ul.prod_cat_grid li").each(function(i){
-         var rowNumber = Math.floor(i/4 + 1);
-         //jQuery(this).addClass("r" + rowNumber);
-         if(rowNumber==1){
-           jQuery(this).addClass("r_f");
-         }
-         if(rowNumber>=prodRows){
-           jQuery(this).addClass("r_b");
-         }
-         if(prodLength<=4 && rowNumber==1){
-           jQuery(this).removeClass("r_f");
-           jQuery(this).removeClass("r_b");
-           jQuery(this).addClass("r_s");
-         }
+        jQuery("ul.prod_cat_grid li").each(function(i) {
+            var rowNumber = Math.floor(i / 4 + 1);
+            //jQuery(this).addClass("r" + rowNumber);
+            if (rowNumber == 1) {
+                jQuery(this).addClass("r_f");
+            }
+            if (rowNumber >= prodRows) {
+                jQuery(this).addClass("r_b");
+            }
+            if (prodLength <= 4 && rowNumber == 1) {
+                jQuery(this).removeClass("r_f");
+                jQuery(this).removeClass("r_b");
+                jQuery(this).addClass("r_s");
+            }
 
-       });
+        });
 
-       //alert(prodLength + '   ' + prodRows);
+        //alert(prodLength + '   ' + prodRows);
     },
     productFancybox: function(ob) {
         jQuery(ob).fancybox({
-              'titleShow'     : false
-        });
+                                'titleShow'     : false
+                            });
     },
     galleryItem: function() {
 
