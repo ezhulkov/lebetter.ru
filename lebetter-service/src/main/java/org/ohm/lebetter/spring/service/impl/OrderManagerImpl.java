@@ -162,6 +162,15 @@ public class OrderManagerImpl
     }
 
     @Override
+    public void save(OrderEntity object, UserEntity caller) throws ObjectExistsException {
+        if (object.getOrderStatus().equals(OrderStatus.NEW)) {
+            object.setOrderStatus(OrderStatus.SUBMITTED);
+            object.setPlacedDate(new Date(System.currentTimeMillis()));
+        }
+        super.save(object, caller);
+    }
+
+    @Override
     public List<OrderToValueEntity> getOrderValues(OrderEntity order) {
         DetachedCriteria criteria = DetachedCriteria.forClass(OrderToValueEntity.class);
         criteria.createAlias("product", "p", CriteriaSpecification.INNER_JOIN);
