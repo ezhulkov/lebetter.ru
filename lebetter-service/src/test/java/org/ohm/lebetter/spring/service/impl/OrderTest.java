@@ -46,18 +46,18 @@ public class OrderTest extends BaseTest {
         serviceManager.getProductManager().create(prod2, null, admin);
 
         OrderEntity order = serviceManager.getOrderManager().getCurrentOrder(admin, false);
-        OrderToProductEntity link1 = serviceManager.getOrderManager().addProduct(prod.getId(), order, admin);
-        OrderToProductEntity link2 = serviceManager.getOrderManager().addProduct(prod2.getId(), order, admin);
-        OrderToProductEntity link3 = serviceManager.getOrderManager().addProduct(prod2.getId(), order, admin);
+        OrderToProductEntity link1 = serviceManager.getOrderManager().addOrderToProductLink(prod.getId(), order, admin);
+        OrderToProductEntity link2 = serviceManager.getOrderManager().addOrderToProductLink(prod2.getId(), order, admin);
+        OrderToProductEntity link3 = serviceManager.getOrderManager().addOrderToProductLink(prod2.getId(), order, admin);
 
         Assert.assertEquals(serviceManager.getOrderManager().getProducts(order).size(), 3);
         Assert.assertEquals(serviceManager.getOrderManager().getOrderTotal(order), 34f);
         Assert.assertEquals(serviceManager.getOrderManager().getOrderTotal(order, 30), 24f);
-        serviceManager.getOrderManager().removeProduct(link1);
+        serviceManager.getOrderManager().deleteOrderToProductLink(link1);
         Assert.assertEquals(serviceManager.getOrderManager().getProducts(order).size(), 2);
-        serviceManager.getOrderManager().removeProduct(link2);
+        serviceManager.getOrderManager().deleteOrderToProductLink(link2);
         Assert.assertEquals(serviceManager.getOrderManager().getProducts(order).size(), 1);
-        serviceManager.getOrderManager().removeProduct(link3);
+        serviceManager.getOrderManager().deleteOrderToProductLink(link3);
         Assert.assertEquals(serviceManager.getOrderManager().getProducts(order).size(), 0);
 
     }

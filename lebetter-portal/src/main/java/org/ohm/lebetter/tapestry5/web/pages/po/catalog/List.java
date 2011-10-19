@@ -58,7 +58,7 @@ public class List extends AdminBasePage {
 
     public Block onActionFromAddProduct(Long pid) {
         OrderEntity order = getServiceFacade().getOrderManager().getCurrentOrder(getAuth().getUser(), true);
-        getServiceFacade().getOrderManager().addProduct(pid, order, getAuth().getUser());
+        getServiceFacade().getOrderManager().addOrderToProductLink(pid, order, getAuth().getUser());
         return getOfficeLayout().getBasketBlock();
     }
 

@@ -1,5 +1,6 @@
 package org.ohm.lebetter.tapestry5.web.components.mallcomponents.object;
 
+import org.apache.tapestry5.Block;
 import org.apache.tapestry5.ValueEncoder;
 import org.apache.tapestry5.annotations.Cached;
 import org.apache.tapestry5.annotations.Component;
@@ -8,6 +9,7 @@ import org.apache.tapestry5.corelib.components.Select;
 import org.apache.tapestry5.corelib.components.TextArea;
 import org.ohm.lebetter.model.impl.entities.DealerEntity;
 import org.ohm.lebetter.model.impl.entities.OrderEntity;
+import org.ohm.lebetter.model.impl.entities.OrderEntity.OrderStatus;
 import org.ohm.lebetter.model.impl.entities.OrderToProductEntity;
 import org.ohm.lebetter.model.impl.entities.OrderToValueEntity;
 import org.ohm.lebetter.model.impl.entities.PropertyEntity;
@@ -145,6 +147,25 @@ public class OrderEdit extends AbstractEditComponent {
 
     public List<OrderToValueEntity> getOrderValues() {
         return getServiceFacade().getOrderManager().getOrderValues(getSelectedObject());
+    }
+
+    public Block onActionFromDelProduct(Long pid) {
+        OrderToProductEntity link = getServiceFacade().getOrderManager().getOrderToProductLink(pid);
+        getServiceFacade().getOrderManager().deleteOrderToProductLink(link);
+        return super.getAjaxBlock();
+    }
+
+    public boolean isSelectedOrderNew() {
+        return getSelectedObject().getOrderStatus().equals(OrderStatus.NEW);
+    }
+
+    public float getOrderTotalDiscountSum() {
+        return getServiceFacade().getOrderManager().getOrderTotal(getSelectedObject(),
+                                                                  getSelectedObject().getDealer().getDiscount());
+    }
+
+    public float getOrderTotalSum() {
+        return getServiceFacade().getOrderManager().getOrderTotal(getSelectedObject());
     }
 
 }

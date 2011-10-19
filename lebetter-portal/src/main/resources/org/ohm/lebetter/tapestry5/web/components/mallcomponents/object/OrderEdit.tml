@@ -15,6 +15,15 @@
             selectedObject="selectedObject"
             submitCallback="callback">
 
+        <t:unless test="selectedOrderNew">
+            <h3>Дата оформления: ${selectedObject.placedDatePrintable}</h3>
+        </t:unless>
+
+        <h3>Общая стоимость товаров: ${orderTotalSum} USD</h3>
+
+        <h3>С учетом скидки: ${orderTotalDiscountSum} USD</h3>
+        <br/>
+
         <div class="input_box">
             <div class="input_label">
                 <t:label for="dealer"/>
@@ -63,6 +72,9 @@
                     <td>
                         <t:pageLink t:page="catalog" target="_blank" t:context="oneProductContext">
                             <h3>${oneProduct.product.name} (${oneProduct.product.articul}), ${oneProduct.product.price} USD</h3>
+                            <t:mallComponents.control.ie9CompatibleActionLink t:zone="editAreaZone"
+                                                                              t:id="delProduct"
+                                                                              t:context="oneProduct.rootId">удалить товар</t:mallComponents.control.ie9CompatibleActionLink>
                         </t:pageLink>
                         <t:if test="properties">
                             <t:loop t:formState="NONE" source="properties" value="oneProperty">

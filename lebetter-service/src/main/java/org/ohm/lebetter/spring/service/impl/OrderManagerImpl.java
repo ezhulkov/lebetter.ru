@@ -109,7 +109,7 @@ public class OrderManagerImpl
 
     @Override
     @Transactional
-    public OrderToProductEntity addProduct(Long pid, OrderEntity order, UserEntity caller) {
+    public OrderToProductEntity addOrderToProductLink(Long pid, OrderEntity order, UserEntity caller) {
         if (order == null) {
             throw new RuntimeException("Order must not be null");
         }
@@ -126,7 +126,7 @@ public class OrderManagerImpl
 
     @Override
     @Transactional
-    public void removeProduct(OrderToProductEntity link) {
+    public void deleteOrderToProductLink(OrderToProductEntity link) {
         orderToProductDao.remove(link);
     }
 
@@ -162,15 +162,6 @@ public class OrderManagerImpl
     }
 
     @Override
-    public void save(OrderEntity object, UserEntity caller) throws ObjectExistsException {
-        if (object.getOrderStatus().equals(OrderStatus.NEW)) {
-            object.setOrderStatus(OrderStatus.SUBMITTED);
-            object.setPlacedDate(new Date(System.currentTimeMillis()));
-        }
-        super.save(object, caller);
-    }
-
-    @Override
     public List<OrderToValueEntity> getOrderValues(OrderEntity order) {
         DetachedCriteria criteria = DetachedCriteria.forClass(OrderToValueEntity.class);
         criteria.createAlias("product", "p", CriteriaSpecification.INNER_JOIN);
@@ -186,7 +177,8 @@ public class OrderManagerImpl
                 createAlias("o2p.order", "o", CriteriaSpecification.INNER_JOIN).
                 add(Restrictions.eq("o.rootId", order.getRootId())).
                 setProjection(Projections.sum("price"));
-        return ((Float) orderDao.findByCriteria(criteria, -1, -1).get(0)).floatValue();
+        Object result = orderDao.findByCriteria(criteria, -1, -1).get(0);
+        return result == null ? 0 : ((Float) result).floatValue();
     }
 
     @Override

@@ -16,9 +16,9 @@ public interface OrderManager
 
     public OrderToProductEntity setValuesToOrderLink(OrderToProductEntity link, List<PropertyValueEntity> values);
 
-    public OrderToProductEntity addProduct(Long pid, OrderEntity order, UserEntity caller);
+    public OrderToProductEntity addOrderToProductLink(Long pid, OrderEntity order, UserEntity caller);
 
-    public void removeProduct(OrderToProductEntity link);
+    public void deleteOrderToProductLink(OrderToProductEntity link);
 
     public OrderEntity getCurrentOrder(UserEntity caller, boolean createIfNeeded);
 
