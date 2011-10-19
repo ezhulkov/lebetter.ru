@@ -155,7 +155,7 @@ public class DealerManagerImpl
     @Override
     @Transactional
     public void setImageStatus(DealerEntity obe, ImageAware.ImageStatus imageStatus, UserEntity caller) {
-        super.setImageStatus(obe, imageStatus, caller);
+        imageDao.setImageStatus(obe, imageStatus);
     }
 
 }

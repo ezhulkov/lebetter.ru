@@ -1,0 +1,82 @@
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+    <div class="ks_content_grey_but_r">
+        <div class="ks_content_grey_but_l">
+            <div class="ks_content_grey_but">
+                <a href="#upload_sc${id}" id="${id}upload" title="">${title}</a>
+            </div>
+        </div>
+    </div>
+    <div class="ks_multipowimageupload_1">
+        <div id='upload_sc${id}'>
+            <div class="adv_outer" id="adv_outer${id}">
+                <strong>${message:flashplayer.required}</strong>
+                <a href="http://www.adobe.com/go/getflashplayer">&#32;<img border="0" src="/multipow/get_flash_player.gif" alt="Get Adobe Flash player"/></a>
+            </div>
+            <script type="text/javascript">
+
+                var params = {
+                    BGColor: "#f7f7f7"
+                };
+
+                var attributes = {
+                    id: "MultiPowUpload_${id}",
+                    name: "MultiPowUpload_${id}"
+                };
+
+                var flashvars = {
+                    "serialNumber":         "00822531641221271612435138176139254722210177",
+                    "uploadUrl":            "/ks-fh/fileupload?ticket=${ticket}",
+                    "backgroundColor":      "#f7f7f7" ,
+                    "showAlert":            "true",
+                    "language.autoDetect":  "true",
+                    "language.source":      "/multipow/Extra/Languages/Language_<t:outputraw t:value="literal:&lt;"/>LANGUAGE_CODE<t:outputraw t:value="literal:&gt;"/>.xml",
+                    "fileView.defaultView": "thumbnails",
+                    "fileFilter.types":     "${fileFilters}",
+                    "fileFilter.minCount":  "1",
+                    "fileFilter.maxCount":  "${maxFileCount}",
+                    "fileFilter.maxSize":   "${maxFileSize}",
+                    "sendThumbnails":       "false",
+                    "sendOriginalImages":   "true",
+                    "useExternalInterface": "true",
+                    "thumbnail.width":      "160",
+                    "thumbnail.height":     "120",
+                    "thumbnail.resizeMode": "fit",
+                    "thumbnail.format":     "JPG",
+                    "thumbnail.jpgQuality": "85",
+                    "thumbnail.backgroundColor": "#000000",
+                    "thumbnail.transparentBackground": "true",
+                    "thumbnail.autoRotate": "false",
+                    "readImageMetadata":    "false",
+                    "thumbnailView.allowCrop": "false",
+                    "thumbnailView.allowRotate": "false",
+                    "thumbnailView.thumbnailWidth": "120",
+                    "thumbnailView.thumbnailHeight": "120",
+                    "thumbnailView.cropRectKeepAspectRatio": "NO",
+                    "thumbnailView.showCropRectDimensions": "false"
+                };
+                //Default MultiPowUpload should have minimum width=400 and minimum height=180
+                swfobject.embedSWF("/multipow/ElementITMultiPowUpload.swf", "adv_outer${id}",
+                                   "${width}", "${height}",
+                                   "10.0.0", "/multipow/expressInstall.swf", flashvars, params, attributes);
+
+            </script>
+        </div>
+    </div>
+    <script type="text/javascript" language="JavaScript">
+        jQuery(document).ready(function() {
+            jQuery("#${id}upload").fancybox({
+                'autoDimensions': true,
+                'title': '${title}',
+                'titlePosition' : 'outside',
+                'transitionIn' : 'none',
+                'transitionOut' : 'none'
+            });
+        });
+        function MultiPowUpload_onComplete() {
+            jQuery('div.multipowUpload').each(function() {
+                jQuery(this).css('visibility', 'hidden');
+                jQuery("#MultiPowUpload_upload").hide();
+            });
+        }
+    </script>
+</div>
