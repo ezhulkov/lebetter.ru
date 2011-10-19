@@ -9,6 +9,7 @@ import org.apache.tapestry5.corelib.components.TextArea;
 import org.ohm.lebetter.model.impl.entities.DealerEntity;
 import org.ohm.lebetter.model.impl.entities.OrderEntity;
 import org.ohm.lebetter.model.impl.entities.OrderToProductEntity;
+import org.ohm.lebetter.model.impl.entities.OrderToValueEntity;
 import org.ohm.lebetter.model.impl.entities.PropertyEntity;
 import org.ohm.lebetter.model.impl.entities.PropertyValueEntity;
 import org.ohm.lebetter.model.impl.entities.TagToValueEntity;
@@ -17,8 +18,10 @@ import org.ohm.lebetter.tapestry5.web.components.base.AbstractEditComponent;
 import org.ohm.lebetter.tapestry5.web.components.base.EditObjectCallback;
 import org.ohm.lebetter.tapestry5.web.services.impl.GenericSelectModel;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public class OrderEdit extends AbstractEditComponent {
 
@@ -36,6 +39,9 @@ public class OrderEdit extends AbstractEditComponent {
 
     @Property
     private ValueEncoder<DealerEntity> dealerModel = null;
+
+    @Property
+    private OrderToValueEntity oneOrderValue;
 
     void onPrepare() throws Exception {
         if (dealerModel == null) {
@@ -65,6 +71,27 @@ public class OrderEdit extends AbstractEditComponent {
 
             @Override
             public boolean onPostFormSubmit(OrderEntity object) throws Exception {
+                List<String> names = getIOC().getRequest().getParameterNames();
+                Map<OrderToProductEntity, List<PropertyValueEntity>> orderValueSet =
+                        new HashMap<OrderToProductEntity, List<PropertyValueEntity>>();
+                for (String name : names) {
+                    if (name.startsWith("LB-")) {
+                        String val = getIOC().getRequest().getParameter(name);
+                        String parts[] = name.split("-");
+                        OrderToProductEntity link = getServiceFacade().getOrderManager().getOrderToProductLink(Long.parseLong(parts[1]));
+                        PropertyValueEntity value = getServiceFacade().getPropertyValueManager().get(Long.parseLong(val));
+                        List<PropertyValueEntity> l = orderValueSet.get(link);
+                        if (l == null) {
+                            l = new LinkedList<PropertyValueEntity>();
+                            orderValueSet.put(link, l);
+                        }
+                        l.add(value);
+                    }
+                }
+                for (OrderToProductEntity orderToProduct : orderValueSet.keySet()) {
+                    List<PropertyValueEntity> values = orderValueSet.get(orderToProduct);
+                    getServiceFacade().getOrderManager().setValuesToOrderLink(orderToProduct, values);
+                }
                 return true;
             }
         };
@@ -114,6 +141,10 @@ public class OrderEdit extends AbstractEditComponent {
     public Object[] getOneProductContext() {
         return new Object[]{oneProduct.getProduct().getCategories().get(0).getAltId(),
                             oneProduct.getProduct().getAltId()};
+    }
+
+    public List<OrderToValueEntity> getOrderValues() {
+        return getServiceFacade().getOrderManager().getOrderValues(getSelectedObject());
     }
 
 }

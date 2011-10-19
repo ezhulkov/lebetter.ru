@@ -41,7 +41,7 @@ public class DealerEntity
     private String telephone;
 
     @Column
-    private Integer discount;
+    private int discount = 0;
 
     @Column
     private String description;
@@ -75,11 +75,11 @@ public class DealerEntity
         this.name = name;
     }
 
-    public Integer getDiscount() {
+    public int getDiscount() {
         return discount;
     }
 
-    public void setDiscount(Integer discount) {
+    public void setDiscount(int discount) {
         this.discount = discount;
     }
 

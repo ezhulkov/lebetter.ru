@@ -32,6 +32,7 @@
         <mapping class="org.ohm.lebetter.model.impl.entities.TagToValueEntity"/>
         <mapping class="org.ohm.lebetter.model.impl.entities.PropertyToCategoryEntity"/>
         <mapping class="org.ohm.lebetter.model.impl.entities.OrderToProductEntity"/>
+        <mapping class="org.ohm.lebetter.model.impl.entities.OrderToValueEntity"/>
 
     </session-factory>
 

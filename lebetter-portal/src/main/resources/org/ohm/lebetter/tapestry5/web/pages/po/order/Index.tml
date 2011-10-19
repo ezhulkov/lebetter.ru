@@ -33,6 +33,15 @@
 
                 <div class="break"/>
 
+                <t:unless test="selectedOrderNew">
+                    <h3>Дата оформления: ${selectedOrder.placedDatePrintable}</h3>
+                </t:unless>
+
+                <h3>Общая стоимость товаров: ${orderTotalSum} USD</h3>
+
+                <h3>С учетом скидки: ${orderTotalDiscountSum} USD</h3>
+                <br/>
+
                 <t:mallComponents.object.orderEdit object="selectedOrder"/>
 
             </t:mallcomponents.control.grantCheck>

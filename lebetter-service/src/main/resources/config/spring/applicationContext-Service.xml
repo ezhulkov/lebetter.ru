@@ -250,12 +250,14 @@
           class="org.ohm.lebetter.spring.service.impl.OrderManagerImpl"
           p:ownerDao-ref="ownerDao"
           p:orderToProductDao-ref="orderToProductDao"
+          p:orderToValueDao-ref="orderToValueDao"
           p:orderDao-ref="orderDao"/>
 
     <bean name="productDao" class="org.ohm.lebetter.spring.dao.impl.ProductDaoHibernate" parent="genericDao"/>
     <bean name="dealerDao" class="org.ohm.lebetter.spring.dao.impl.DealerDaoHibernate" parent="genericDao"/>
     <bean name="orderDao" class="org.ohm.lebetter.spring.dao.impl.OrderDaoHibernate" parent="genericDao"/>
     <bean name="orderToProductDao" class="org.ohm.lebetter.spring.dao.impl.OrderToProductDaoHibernate" parent="genericDao"/>
+    <bean name="orderToValueDao" class="org.ohm.lebetter.spring.dao.impl.OrderToValueDaoHibernate" parent="genericDao"/>
 
     <bean id="categoryManager" parent="genericManager"
           class="org.ohm.lebetter.spring.service.impl.CategoryManagerImpl">

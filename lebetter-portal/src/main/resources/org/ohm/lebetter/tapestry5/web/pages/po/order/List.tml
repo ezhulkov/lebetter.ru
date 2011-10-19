@@ -65,7 +65,7 @@
                     </t:loop>
                 </ul>
                 <b>Общая стоимость: ${orderTotalSum} USD</b><br/>
-                <b>Со скидкой: ${orderTotalDiscSum} USD</b>
+                <b>Со скидкой: ${orderTotalSum} USD</b>
             </t:parameter>
             <t:parameter name="dealerCell">
                 <t:if test="oneOrder.dealer">

@@ -68,10 +68,10 @@
                             <t:loop t:formState="NONE" source="properties" value="oneProperty">
                                 <li>
                                     ${oneProperty.name}:<br/>
-                                    <select class="form_select">
-                                        <option>Значение не выбрано</option>
+                                    <select id="LB-${oneProduct.rootId}-${oneProperty.rootId}"
+                                            name="LB-${oneProduct.rootId}-${oneProperty.rootId}" class="form_select">
                                         <t:loop t:formState="NONE" source="values" value="oneValue">
-                                        <option>${oneValue.name}</option>
+                                        <option id="${oneValue.rootId}" value="${oneValue.rootId}">${oneValue.name}</option>
                                         </t:loop>
                                     </select>
                                 </li>
@@ -81,6 +81,14 @@
                 </tr>
             </table>
         </t:loop>
+
+        <script language="JavaScript" type="text/javascript">
+            var selId;
+            <t:loop t:formState="NONE" source="orderValues" value="oneOrderValue">
+                selId="LB-"+${oneOrderValue.product.id}+"-"+${oneOrderValue.value.property.rootId};
+                jQuery("#" + selId).find("#" + ${oneOrderValue.value.rootId}).attr("selected","selected");
+            </t:loop>
+        </script>
 
     </t:mallComponents.control.editObject>
 

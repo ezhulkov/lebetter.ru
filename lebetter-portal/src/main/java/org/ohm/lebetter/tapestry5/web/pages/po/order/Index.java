@@ -36,4 +36,13 @@ public class Index extends AdminBasePage {
         return selectedOrder.getOrderStatus().equals(OrderStatus.NEW);
     }
 
+    public float getOrderTotalDiscountSum() {
+        return getServiceFacade().getOrderManager().getOrderTotal(selectedOrder,
+                                                                  selectedOrder.getDealer().getDiscount());
+    }
+
+    public float getOrderTotalSum() {
+        return getServiceFacade().getOrderManager().getOrderTotal(selectedOrder);
+    }
+
 }

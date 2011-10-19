@@ -10,7 +10,10 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "app_order_prod")
@@ -19,16 +22,27 @@ import javax.persistence.Table;
 public class OrderToProductEntity
         extends BaseCreatorAwareEntity {
 
-    @JoinColumn(name="prod_id")
+    @JoinColumn(name = "prod_id")
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
     private ProductEntity product;
 
-    @JoinColumn(name="order_id")
+    @JoinColumn(name = "order_id")
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
     private OrderEntity order;
 
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH, mappedBy = "product")
+    private List<OrderToValueEntity> values = new ArrayList<OrderToValueEntity>();
+
     public OrderToProductEntity() {
         setEntityCode("OrderToProduct");
+    }
+
+    public List<OrderToValueEntity> getValues() {
+        return values;
+    }
+
+    public void setValues(List<OrderToValueEntity> values) {
+        this.values = values;
     }
 
     public ProductEntity getProduct() {
