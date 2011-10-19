@@ -3,7 +3,6 @@ package org.ohm.lebetter.tapestry5.web.components.base;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Parameter;
-import org.apache.tapestry5.annotations.Property;
 import org.ohm.lebetter.tapestry5.web.components.mallcomponents.control.EditObject;
 import org.room13.mallcore.model.ObjectBaseEntity;
 
@@ -24,7 +23,6 @@ public abstract class AbstractEditComponent
     @Parameter(name = "object", required = false, allowNull = false)
     private ObjectBaseEntity selectedObject;
 
-    @Property
     @InjectComponent
     private EditObject editObject;
 
@@ -45,4 +43,7 @@ public abstract class AbstractEditComponent
         }
     }
 
+    public EditObject getEditObject() {
+        return editObject;
+    }
 }

@@ -14,7 +14,6 @@ import org.apache.tapestry5.ioc.annotations.Inject;
  */
 public class EditObject extends AbstractEditObject {
 
-    @Property
     @Inject
     private Block editAreaBlock;
 
@@ -22,4 +21,7 @@ public class EditObject extends AbstractEditObject {
     @InjectComponent
     private EditObjectShow editObjectShow;
 
+    public Block getEditAreaBlock() {
+        return editAreaBlock;
+    }
 }

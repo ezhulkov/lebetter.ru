@@ -20,6 +20,7 @@ import org.ohm.lebetter.tapestry5.web.components.base.AbstractEditComponent;
 import org.ohm.lebetter.tapestry5.web.components.base.EditObjectCallback;
 import org.ohm.lebetter.tapestry5.web.services.impl.GenericSelectModel;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -68,11 +69,17 @@ public class OrderEdit extends AbstractEditComponent {
         return new EditObjectCallback<OrderEntity>() {
             @Override
             public boolean onFormSubmit(OrderEntity object) throws Exception {
+                //Submit order
+                if (object.getOrderStatus().equals(OrderStatus.NEW)) {
+                    object.setOrderStatus(OrderStatus.SUBMITTED);
+                    object.setPlacedDate(new Date(System.currentTimeMillis()));
+                }
                 return true;
             }
 
             @Override
             public boolean onPostFormSubmit(OrderEntity object) throws Exception {
+                //Set order values
                 List<String> names = getIOC().getRequest().getParameterNames();
                 Map<OrderToProductEntity, List<PropertyValueEntity>> orderValueSet =
                         new HashMap<OrderToProductEntity, List<PropertyValueEntity>>();
@@ -152,7 +159,7 @@ public class OrderEdit extends AbstractEditComponent {
     public Block onActionFromDelProduct(Long pid) {
         OrderToProductEntity link = getServiceFacade().getOrderManager().getOrderToProductLink(pid);
         getServiceFacade().getOrderManager().deleteOrderToProductLink(link);
-        return super.getAjaxBlock();
+        return super.getEditObject().getEditAreaBlock();
     }
 
     public boolean isSelectedOrderNew() {
