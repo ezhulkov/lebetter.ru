@@ -1152,6 +1152,7 @@
         <addColumn tableName="app_category">
             <column name="tomain" type="boolean" defaultValueBoolean="false"/>
             <column name="description" type="varchar(256)"/>
+            <column name="tomainname" type="varchar(32)"/>
         </addColumn>
     </changeSet>
 

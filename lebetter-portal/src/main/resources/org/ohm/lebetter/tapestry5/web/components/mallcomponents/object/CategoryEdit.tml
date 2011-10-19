@@ -32,7 +32,7 @@
                     <t:label for="name"/>
                     :
                 </div>
-                <input t:id="name" tabindex="1" class="form_input"/>
+                <input t:id="name" class="form_input"/>
             </div>
 
             <div class="input_box">
@@ -40,7 +40,7 @@
                     <t:label for="status"/>
                     :
                 </div>
-                <select t:id="status" class="form_select" tabindex="3"/>
+                <select t:id="status" class="form_select"/>
             </div>
 
             <div class="input_box">
@@ -48,7 +48,7 @@
                     <t:label for="code"/>
                     :
                 </div>
-                <input t:id="code" tabindex="2" class="form_input"/>
+                <input t:id="code" class="form_input"/>
             </div>
 
             <div class="input_box">
@@ -56,7 +56,7 @@
                     <t:label for="position"/>
                     :
                 </div>
-                <input t:id="position" tabindex="4" class="form_input"/>
+                <input t:id="position" class="form_input"/>
             </div>
 
             <div class="input_box">
@@ -67,6 +67,14 @@
                 <t:checkBox t:id="tomain" type="checkbox" class="ks_propertyedit_3"/>
             </div>
             <div class="break"></div>
+
+            <div class="input_box">
+                <div class="input_label">
+                    <t:label for="tomainname"/>
+                    :
+                </div>
+                <input t:id="tomainname" class="form_input"/>
+            </div>
 
             <t:unless test="selectedObject.children">
                 <div class="input_box">

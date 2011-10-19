@@ -45,6 +45,9 @@ public class CategoryEntity
     private String name = "";
 
     @Column
+    private String tomainname = "";
+
+    @Column
     private String code = "";
 
     @Column
@@ -154,5 +157,13 @@ public class CategoryEntity
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getTomainname() {
+        return tomainname;
+    }
+
+    public void setTomainname(String tomainname) {
+        this.tomainname = tomainname;
     }
 }

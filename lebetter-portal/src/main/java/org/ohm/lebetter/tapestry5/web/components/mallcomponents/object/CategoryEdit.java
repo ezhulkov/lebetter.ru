@@ -34,6 +34,9 @@ public class CategoryEdit extends AbstractEditComponent {
     @Component(id = "name", parameters = {"value=selectedObject.name", "validate=required,maxlength=64"})
     private TextField nameField;
 
+    @Component(id = "tomainname", parameters = {"value=selectedObject.name", "validate=maxlength=32"})
+    private TextField tomainnameField;
+
     @Component(id = "tomain", parameters = {"value=selectedObject.tomain"})
     private Checkbox tomainField;
 

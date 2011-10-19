@@ -46,7 +46,7 @@
                             <img src="/images/pic/divan.png" alt="${oneCategory.name}" title="${oneCategory.name}"/>
                         </t:pageLink>
                         <h3>
-                            <t:pageLink t:page="catalog" t:context="oneCategory.altId">${oneCategory.name}</t:pageLink>
+                            <t:pageLink t:page="catalog" t:context="oneCategory.altId">${oneCategory.toMainName}</t:pageLink>
                         </h3>
                         <t:pageLink t:page="catalog" t:context="oneCategory.altId">${oneCategory.description}</t:pageLink>
                     </li>
