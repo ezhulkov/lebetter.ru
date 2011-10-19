@@ -2,7 +2,7 @@
 
     <h1>
         ${selectedCategory.name}
-        <a class="but_lnk" style="float:right;" href=""><img src="/images/0.gif" alt=" "/>Журнал</a>
+        <!--<noindex>--><a id="fcat" class="but_lnk" style="float:right;" href="http://www.adobe.com/jp/events/cs3_web_edition_tour/swfs/perform.swf"><img src="/images/0.gif" alt=" "/>Журнал</a><!--</noindex>-->
     </h1>
 
     <div class="prod_cat_box2">
@@ -22,6 +22,20 @@
         </t:if>
     </div>
     <div class="hr_big"></div>
+
+    <script language="JavaScript" type="text/javascript">
+    /*<![CDATA[*/
+	jQuery("#fcat").fancybox({
+        'width'				: '90%',
+        'height'			: '80%',
+	    'padding'           : 0,
+        'autoScale'     	: false,
+        'transitionIn'		: 'none',
+		'transitionOut'		: 'none'
+        //'type'				: 'iframe'
+	});
+    /*]]>*/
+    </script>
 
     <t:mallComponents.control.javascript>
         AG.colorCell("#menu${selectedCategory.rootId}");
