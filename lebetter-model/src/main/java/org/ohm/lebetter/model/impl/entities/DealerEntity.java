@@ -3,12 +3,18 @@ package org.ohm.lebetter.model.impl.entities;
 import org.hibernate.annotations.AccessType;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.ohm.lebetter.model.DictSyncAware;
 import org.ohm.lebetter.model.SitemapAware;
+import org.room13.mallcore.model.ImageAware;
 import org.room13.mallcore.model.impl.BaseCreatorRepAwareEntity;
+import org.room13.mallcore.model.impl.entities.ImageStatusEntity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,7 +23,17 @@ import javax.persistence.Table;
 @AccessType("field")
 public class DealerEntity
         extends BaseCreatorRepAwareEntity
-        implements SitemapAware, DictSyncAware {
+        implements SitemapAware, ImageAware {
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH, optional = false)
+    @Cache(usage = CacheConcurrencyStrategy.NONE)
+    @JoinColumns({
+                         @JoinColumn(name = "rootId", referencedColumnName = "object_id",
+                                     insertable = false, updatable = false),
+                         @JoinColumn(name = "entityCode", referencedColumnName = "object_code",
+                                     insertable = false, updatable = false)
+                 })
+    private ImageStatusEntity imageStatus;
 
     @Column
     private String altId;
@@ -153,5 +169,35 @@ public class DealerEntity
 
     public void setLng(double lng) {
         this.lng = lng;
+    }
+
+    @Override
+    public ImageStatusEntity getImageStatus() {
+        return imageStatus;
+    }
+
+    @Override
+    public boolean isImageReady() {
+        return ObjectMediaImageAwareImpl.isImageReady(imageStatus);
+    }
+
+    @Override
+    public boolean isImageError() {
+        return ObjectMediaImageAwareImpl.isImageError(imageStatus);
+    }
+
+    @Override
+    public boolean isImageProcessing() {
+        return ObjectMediaImageAwareImpl.isImageProcessing(imageStatus);
+    }
+
+    @Override
+    public boolean isImageNotSet() {
+        return ObjectMediaImageAwareImpl.isImageNotSet(imageStatus);
+    }
+
+    @Override
+    public void setImageStatus(ImageStatusEntity imageStatus) {
+        this.imageStatus = imageStatus;
     }
 }

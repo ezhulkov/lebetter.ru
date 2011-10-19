@@ -1156,4 +1156,52 @@
         </addColumn>
     </changeSet>
 
+    <changeSet id="1.0.0-37" author="ezhulkov">
+        <sql>
+            CREATE RULE app_dealer_add_to_imagestatus AS ON INSERT TO app_dealer WHERE NEW.rootobject=true
+            DO ALSO
+            INSERT INTO app_image_status(object_id,object_code,image_status) values(NEW.id,'Dealer',0);
+            CREATE RULE app_dealer_remove_from_imagestatus AS ON DELETE TO app_dealer WHERE OLD.rootobject=true
+            DO ALSO
+            DELETE FROM app_image_status where object_id=OLD.rootid and object_code='Dealer';
+            insert into app_image_status(object_id,object_code,image_status) select id,'Dealer',0 from app_dealer;
+        </sql>
+        <sql>
+            CREATE RULE app_category_add_to_imagestatus AS ON INSERT TO app_category WHERE NEW.rootobject=true
+            DO ALSO
+            INSERT INTO app_image_status(object_id,object_code,image_status) values(NEW.id,'Category',0);
+            CREATE RULE app_category_remove_from_imagestatus AS ON DELETE TO app_category WHERE OLD.rootobject=true
+            DO ALSO
+            DELETE FROM app_image_status where object_id=OLD.rootid and object_code='category';
+            insert into app_image_status(object_id,object_code,image_status) select id,'Category',0 from app_category;
+        </sql>
+        <sql>
+            CREATE RULE app_property_add_to_imagestatus AS ON INSERT TO app_property WHERE NEW.rootobject=true
+            DO ALSO
+            INSERT INTO app_image_status(object_id,object_code,image_status) values(NEW.id,'Property',0);
+            CREATE RULE app_property_remove_from_imagestatus AS ON DELETE TO app_property WHERE OLD.rootobject=true
+            DO ALSO
+            DELETE FROM app_image_status where object_id=OLD.rootid and object_code='property';
+            insert into app_image_status(object_id,object_code,image_status) select id,'Property',0 from app_property;
+        </sql>
+        <sql>
+            CREATE RULE app_property_value_add_to_imagestatus AS ON INSERT TO app_property_value WHERE NEW.rootobject=true
+            DO ALSO
+            INSERT INTO app_image_status(object_id,object_code,image_status) values(NEW.id,'PropertyValue',0);
+            CREATE RULE app_property_value_remove_from_imagestatus AS ON DELETE TO app_property_value WHERE OLD.rootobject=true
+            DO ALSO
+            DELETE FROM app_image_status where object_id=OLD.rootid and object_code='property_value';
+            insert into app_image_status(object_id,object_code,image_status) select id,'PropertyValue',0 from app_property_value;
+        </sql>
+        <sql>
+            CREATE RULE app_product_add_to_imagestatus AS ON INSERT TO app_product WHERE NEW.rootobject=true
+            DO ALSO
+            INSERT INTO app_image_status(object_id,object_code,image_status) values(NEW.id,'Product',0);
+            CREATE RULE app_product_remove_from_imagestatus AS ON DELETE TO app_product WHERE OLD.rootobject=true
+            DO ALSO
+            DELETE FROM app_image_status where object_id=OLD.rootid and object_code='product';
+            insert into app_image_status(object_id,object_code,image_status) select id,'Product',0 from app_product;
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>
