@@ -3,7 +3,7 @@
     <!-- Header -->
     <div class="header">
         <div class="centered">
-            <t:pageLink t:page="index2" class="logo">
+            <t:pageLink t:page="index" class="logo">
                 <img src="/images/logo.png" width="471" height="68" alt="Lebetter" title="Lebetter"/>
             </t:pageLink>
 

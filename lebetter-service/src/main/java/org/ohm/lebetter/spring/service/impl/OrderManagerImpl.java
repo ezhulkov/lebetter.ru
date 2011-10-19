@@ -2,6 +2,7 @@ package org.ohm.lebetter.spring.service.impl;
 
 import org.hibernate.criterion.CriteriaSpecification;
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.ohm.lebetter.model.impl.entities.DealerEntity;
@@ -136,10 +137,19 @@ public class OrderManagerImpl
     }
 
     @Override
+    public List<OrderEntity> getDoneOrders() {
+        DetachedCriteria criteria = DetachedCriteria.forClass(OrderEntity.class).
+                add(Restrictions.ne("orderStatus", OrderStatus.NEW)).
+                addOrder(Order.asc("placedDate"));
+        return orderDao.findRootByCriteria(criteria, -1, -1);
+    }
+
+    @Override
     public List<OrderEntity> getDoneOrders(UserEntity caller) {
         DetachedCriteria criteria = DetachedCriteria.forClass(OrderEntity.class).
                 add(Restrictions.eq("creator", caller)).
-                add(Restrictions.ne("orderStatus", OrderStatus.NEW));
+                add(Restrictions.ne("orderStatus", OrderStatus.NEW)).
+                addOrder(Order.asc("placedDate"));
         return orderDao.findRootByCriteria(criteria, -1, -1);
     }
 

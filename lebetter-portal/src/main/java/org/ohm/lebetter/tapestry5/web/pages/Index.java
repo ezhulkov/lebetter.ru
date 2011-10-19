@@ -6,11 +6,6 @@ import javax.servlet.http.HttpServletResponse;
 
 public class Index extends AbstractBasePage {
 
-    //    public Class onActivate(Object... args) throws Exception {
-    //        return Index2.class;
-    //    }
-
-
     public void onActivate(Object... args) throws Exception {
         if (args.length != 0) {
             getIOC().getResponse().sendError(HttpServletResponse.SC_NOT_FOUND,

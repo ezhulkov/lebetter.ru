@@ -18,25 +18,29 @@
     <t:mallcomponents.layout.office leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
         <h1>Заказы</h1>
 
-        <h2>Текущий заказ</h2>
-        <t:if test="currentOrder">
-            В данный момент у Вас есть <b>1 неоформленный заказ</b>. Для его оформления перейдите, пожалуйста,
-            <t:pageLink t:page="po/order" t:context="currentOrder.rootId">по этой ссылке</t:pageLink>
-            .
-            <t:parameter name="else">
-                Для того чтобы начать формирование нового заказа, надо
-                перейти в
-                <t:pageLink t:page="po/catalog/list">каталог</t:pageLink>
-                и, выбрав нужный товар, нажать ссылку "В заказ".
-            </t:parameter>
-        </t:if>
+        <t:unless test="auth.adminRole">
 
-        <div class="hr_big"></div>
+            <h2>Текущий заказ</h2>
+            <t:if test="currentOrder">
+                В данный момент у Вас есть
+                <b>1 неоформленный заказ</b>. Для его оформления перейдите, пожалуйста,
+                <t:pageLink t:page="po/order" t:context="currentOrder.rootId">по этой ссылке</t:pageLink>
+                .
+                <t:parameter name="else">
+                    Для того чтобы начать формирование нового заказа, надо
+                    перейти в
+                    <t:pageLink t:page="po/catalog/list">каталог</t:pageLink>
+                    и, выбрав нужный товар, нажать ссылку "В заказ".
+                </t:parameter>
+            </t:if>
+
+            <div class="hr_big"></div>
+        </t:unless>
 
         <h2>История заказов</h2>
         <t:grid pagerPosition="bottom" rowsPerPage="20" id="datagrid" source="orders" row="oneOrder"
                 include="orderNumber,placedDate,orderStatus" add="prods,dealer"
-                reorder="orderNumber,placedDate,prods,dealer,orderStatus">
+                reorder="orderNumber,placedDate,dealer,prods,orderStatus">
             <t:parameter name="orderNumberHeader">
                 Номер заказа
             </t:parameter>
@@ -65,7 +69,7 @@
                     </t:loop>
                 </ul>
                 <b>Общая стоимость: ${orderTotalSum} USD</b><br/>
-                <b>Со скидкой: ${orderTotalSum} USD</b>
+                <b>Со скидкой: ${orderTotalDiscSum} USD</b>
             </t:parameter>
             <t:parameter name="dealerCell">
                 <t:if test="oneOrder.dealer">
@@ -77,9 +81,17 @@
                 ${oneOrder.placedDatePrintable}
             </t:parameter>
             <t:parameter name="empty">
-                <p class="nomsg">Пустой список - Вы пока ещё не оформили ни одного заказа</p>
+                <p class="nomsg">
+                    <t:if test="auth.adminRole">
+                        Пустой список - пока ещё никто не оформил заказов
+                        <t:parameter name="else">
+                            Пустой список - Вы пока ещё не оформили ни одного заказа
+                        </t:parameter>
+                    </t:if>
+                </p>
             </t:parameter>
         </t:grid>
+
 
     </t:mallcomponents.layout.office>
 

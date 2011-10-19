@@ -21,7 +21,11 @@ public class List extends AdminBasePage {
     private OrderEntity oneOrder;
 
     public java.util.List<OrderEntity> getOrders() {
-        return getServiceFacade().getOrderManager().getDoneOrders(getAuth().getUser());
+        if (getAuth().isAdminRole()) {
+            return getServiceFacade().getOrderManager().getDoneOrders();
+        } else {
+            return getServiceFacade().getOrderManager().getDoneOrders(getAuth().getUser());
+        }
     }
 
     public OrderEntity getCurrentOrder() {

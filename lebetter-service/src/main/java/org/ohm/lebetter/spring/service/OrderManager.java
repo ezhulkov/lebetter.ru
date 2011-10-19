@@ -26,6 +26,8 @@ public interface OrderManager
 
     public List<OrderEntity> getDoneOrders(UserEntity caller);
 
+    public List<OrderEntity> getDoneOrders();
+
     public float getOrderTotal(OrderEntity order);
 
     public float getOrderTotal(OrderEntity order, int discount);
