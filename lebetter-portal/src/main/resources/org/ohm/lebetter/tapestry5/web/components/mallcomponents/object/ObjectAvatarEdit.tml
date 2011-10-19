@@ -1,0 +1,61 @@
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" class="ks_orderadress_input_a ks_objectavataredit_1">
+    <table>
+        <tr>
+            <td class="img ks_objectavataredit_2">
+                <!-- image -->
+
+                <div class="ks_profile_avatar2">
+                 <table>
+                   <tr>
+                     <td class="ks_objectavataredit_3">
+
+                      <t:if test="selectedObjectRoot.imageReady">
+                      <div class="ks_objectavataredit_4">
+                        <div class="ks_profile_avatar2_t"></div>
+                        <img src="${avatarurl}" alt="avatar" title="avatar" class="ks_profile_avatar2_img ks_objectavataredit_5"/>
+                      </div>
+                      </t:if>
+                      <t:unless test="selectedObjectRoot.imageReady">
+                          <img src="/images/ks-front/def/topuser.gif" alt="Нет картинки" title="Нет картинки" class="avatar ks_objectavataredit_5"/>
+                      </t:unless>
+
+                     </td>
+                   </tr>
+                 </table>
+                </div>
+
+                <!-- /image -->
+            </td>
+            <td class="ks_objectavataredit_6">
+                <!-- form -->
+
+                <t:mallComponents.control.menuLink autoCompleteAction="true" actionPrefix="EDIT_"
+                                                   object="selectedObjectRoot">
+
+                    <t:if test="selectedObjectRoot.imageReady">
+                        <t:mallComponents.control.ie9CompatibleActionLink t:zone="delZone" t:id="delPhotoAjax" class="ks_ctrl_delavatar" t:context="selectedObject.rootId">
+                            <img src="/images/but/tb-del.png" alt="${message:delphotobtn}" title="${message:delphotobtn}"/>
+                        </t:mallComponents.control.ie9CompatibleActionLink>
+                        <script language="JavaScript" type="text/javascript">
+                          KS.ksavatar();
+                          jQuery(".ks_ctrl_delavatar").appendTo(".ks_profile_avatar2_t");
+                          jQuery(".ks_profile_avatar2_t").css("margin-bottom", "-24px");
+                        </script>
+                    </t:if>
+                    <t:mallComponents.object.multiPowImageUpload id="upload"
+                                                                 ticket="ticket"
+                                                                 multipleFiles="false"
+                                                                 height="300"
+                                                                 fileFilters="${fileFilters}"
+                                                                 needsLocalization="false"/>
+                    <t:zone id="delZone"/>
+                    <t:block id="delBlock"/>
+
+                </t:mallComponents.control.menuLink>
+
+                <!-- /form -->
+            </td>
+        </tr>
+    </table>
+
+</div>

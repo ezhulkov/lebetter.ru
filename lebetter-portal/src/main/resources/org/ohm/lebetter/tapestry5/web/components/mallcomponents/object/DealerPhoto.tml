@@ -1,0 +1,9 @@
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="photo">
+
+    <t:mallComponents.object.objectAvatarEdit
+            avatarManager="serviceFacade.dealerManager"
+            object="selectedObject"
+            handler="${literal:ptavatar}"
+            allowedExt="*.jpg;*.jpeg;*.png;"/>
+
+</div>

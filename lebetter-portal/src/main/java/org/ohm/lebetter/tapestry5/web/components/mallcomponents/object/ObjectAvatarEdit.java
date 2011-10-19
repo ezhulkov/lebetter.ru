@@ -1,5 +1,6 @@
 package org.ohm.lebetter.tapestry5.web.components.mallcomponents.object;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.tapestry5.BindingConstants;
 import org.apache.tapestry5.Block;
 import org.apache.tapestry5.annotations.Parameter;
@@ -16,7 +17,6 @@ import java.util.Date;
 
 import static org.room13.mallcore.spring.service.DataManager.FileNames.BIG_AVATAR_FILE;
 
-
 public class ObjectAvatarEdit extends AbstractBaseComponent {
 
     @Parameter(name = "object", required = true, allowNull = false)
@@ -25,7 +25,8 @@ public class ObjectAvatarEdit extends AbstractBaseComponent {
     @Parameter(name = "avatarManager", required = true, allowNull = false)
     private ImageAwareManager avatarManager;
 
-    @Parameter(name = "handler", required = false, allowNull = false)
+    @Parameter(name = "handler", required = false, allowNull = false,
+            defaultPrefix = BindingConstants.LITERAL)
     private String handler;
 
     @Property
@@ -33,6 +34,11 @@ public class ObjectAvatarEdit extends AbstractBaseComponent {
             defaultPrefix = BindingConstants.LITERAL,
             value = "/images/pic/no-avatar2.gif")
     private String noAvatarURL;
+
+    @Parameter(name = "imageToShow", required = false, allowNull = false,
+            defaultPrefix = BindingConstants.LITERAL,
+            value = "big_avatar.jpg")
+    private String imageToShow = BIG_AVATAR_FILE.getFileName();
 
     @Property(write = false)
     @Parameter(required = false, allowNull = false, value = "*.jpg;*.jpeg;",
@@ -61,7 +67,7 @@ public class ObjectAvatarEdit extends AbstractBaseComponent {
     }
 
     public String getAvatarUrl() {
-        return getServiceFacade().getDataManager().getDataFullURL(selectedObject, BIG_AVATAR_FILE);
+        return getServiceFacade().getDataManager().getDataFullURL(selectedObject, imageToShow);
     }
 
     public String getTicket() {
@@ -90,7 +96,15 @@ public class ObjectAvatarEdit extends AbstractBaseComponent {
         }
 
         return delBlock;
+    }
 
+    public String getFileFilters() {
+        if (StringUtils.isBlank(allowedExt)) {
+            return "Images(JPEG, GIF, PNG)|*.jpg:*.jpeg:*.gif:*.png";
+        }
+        String filters = allowedExt.replaceAll("\\;", ":");
+        return "Images|" + (filters.endsWith(":") ?
+                filters = filters.substring(0, filters.length() - 1) : filters);
     }
 
 }
