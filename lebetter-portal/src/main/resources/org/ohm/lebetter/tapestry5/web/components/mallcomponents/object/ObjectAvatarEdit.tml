@@ -15,13 +15,13 @@
             </td>
             <td class="ObjectAvatarEdit_2">
                 <!-- form -->
-                <t:mallComponents.control.menuLink autoCompleteAction="true" actionPrefix="EDIT_" object="selectedObject">
+                <t:mallComponents.control.menuLink roles="ROLE_STAFF">
 
-                    <t:mallComponents.object.multiPowImageUpload id="upload"
-                                                                 ticket="ticket"
+                    <t:mallComponents.object.multiPowImageUpload ticket="ticket"
                                                                  multipleFiles="false"
                                                                  height="300"
-                                                                 title="literal:Загрузить логотип"
+                                                                 title="${title}"
+                                                                 id="${id}"
                                                                  fileFilters="${fileFilters}"
                                                                  needsLocalization="false"/>
 

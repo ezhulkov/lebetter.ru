@@ -4,6 +4,7 @@
             ajaxBlock="ajaxBlock"
             avatarManager="serviceFacade.dealerManager"
             object="selectedObject"
+            title="literal:Загрузить логотип"
             handler="${literal:avatar}"
             allowedExt="*.jpg;*.jpeg;*.png;"/>
 

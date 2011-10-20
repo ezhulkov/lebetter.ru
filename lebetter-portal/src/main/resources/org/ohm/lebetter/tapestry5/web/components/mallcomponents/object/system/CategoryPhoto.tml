@@ -1,10 +1,26 @@
 ﻿<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="photo">
 
+    <t:if test="selectedObject.children">
+        <t:mallComponents.object.objectAvatarEdit
+                ajaxBlock="ajaxBlock"
+                avatarManager="serviceFacade.categoryManager"
+                object="selectedObject"
+                title="literal:Загрузить большую фотографию"
+                imageToShow="literal:category_big.jpg"
+                handler="${literal:catbigavatar}"
+                id="big_cat"
+                allowedExt="*.jpg;*.jpeg;*.png;"/>
+        <div class="hr_big"/>
+    </t:if>
+
     <t:mallComponents.object.objectAvatarEdit
-            ajaxBlock="ajaxBlock"
-            avatarManager="serviceFacade.categoryManager"
-            object="selectedObject"
-            handler="${literal:avatar}"
-            allowedExt="*.jpg;*.jpeg;*.png;"/>
+                ajaxBlock="ajaxBlock"
+                avatarManager="serviceFacade.categoryManager"
+                object="selectedObject"
+                title="literal:Загрузить фотографию"
+                imageToShow="literal:category.jpg"
+                handler="${literal:catavatar}"
+                id="cat"
+                allowedExt="*.jpg;*.jpeg;*.png;"/>
 
 </div>

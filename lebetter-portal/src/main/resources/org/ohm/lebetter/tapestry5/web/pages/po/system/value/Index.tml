@@ -25,7 +25,28 @@
 
             <h1>'${selectedValue.name}'</h1>
 
-             <t:mallcomponents.object.valueEdit object="selectedValue"/>
+            <div class="adm_tab">
+                <ul>
+                    <li id="tab_desc" class="sel">
+                        <t:mallComponents.control.ie9CompatibleActionLink t:id="descTab" t:zone="editZone">Общее</t:mallComponents.control.ie9CompatibleActionLink>
+                    </li>
+                    <li id="tab_pics">
+                        <t:mallComponents.control.ie9CompatibleActionLink t:id="picsTab" t:zone="editZone">Фотографии</t:mallComponents.control.ie9CompatibleActionLink>
+                    </li>
+                </ul>
+            </div>
+
+            <t:zone t:id="editZone">
+                <t:delegate to="descBlock"/>
+            </t:zone>
+
+            <t:block t:id="descBlock">
+                <t:mallcomponents.object.system.valueEdit object="selectedValue"/>
+            </t:block>
+
+            <t:block t:id="picsBlock">
+                <t:mallcomponents.object.system.valuePhoto object="selectedValue" ajaxBlock="picsBlock"/>
+            </t:block>
 
         </t:mallcomponents.layout.office>
 

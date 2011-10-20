@@ -5,12 +5,14 @@ import org.ohm.lebetter.model.impl.entities.PropertyValueEntity;
 import org.ohm.lebetter.model.impl.entities.UserEntity;
 import org.room13.mallcore.model.ObjectBaseEntity;
 import org.room13.mallcore.spring.service.GenericManager;
+import org.room13.mallcore.spring.service.ImageAwareManager;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 public interface PropertyValueManager
-        extends GenericManager<PropertyValueEntity, UserEntity> {
+        extends GenericManager<PropertyValueEntity, UserEntity>,
+                ImageAwareManager<PropertyValueEntity, UserEntity> {
 
     @Transactional
     public void createValueForInsiders(PropertyValueEntity propertyValue,

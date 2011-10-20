@@ -1,0 +1,12 @@
+﻿<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="photo">
+
+    <t:mallComponents.object.objectAvatarEdit
+                ajaxBlock="ajaxBlock"
+                avatarManager="serviceFacade.propertyValueManager"
+                object="selectedObject"
+                title="literal:Загрузить фотографию"
+                imageToShow="literal:value.jpg"
+                handler="${literal:valavatar}"
+                allowedExt="*.jpg;*.jpeg;*.png;"/>
+
+</div>

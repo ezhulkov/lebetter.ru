@@ -1,6 +1,7 @@
 package org.ohm.lebetter.spring.service.impl;
 
 
+import org.ohm.lebetter.model.impl.entities.CategoryEntity;
 import org.ohm.lebetter.model.impl.entities.PropertyEntity;
 import org.ohm.lebetter.model.impl.entities.PropertyValueEntity;
 import org.ohm.lebetter.model.impl.entities.TagToValueEntity;
@@ -9,7 +10,10 @@ import org.ohm.lebetter.spring.dao.PropertyDao;
 import org.ohm.lebetter.spring.dao.PropertyValueDao;
 import org.ohm.lebetter.spring.service.PropertyValueManager;
 import org.ohm.lebetter.spring.service.ServiceManager;
+import org.room13.mallcore.model.ImageAware;
 import org.room13.mallcore.model.ObjectBaseEntity;
+import org.room13.mallcore.model.impl.embedded.AnyObjectPK;
+import org.room13.mallcore.model.impl.entities.ImageStatusEntity;
 import org.room13.mallcore.spring.service.ObjectExistsException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Required;
@@ -191,6 +195,20 @@ public class PropertyValueManagerImpl
     @Transactional
     public void remove(PropertyValueEntity propertyValue, UserEntity caller) {
         removeValueForInsiders(propertyValue, propertyValue.getProperty(), caller);
+    }
+
+    @Override
+    public ImageAware.ImageStatus getImageStatus(PropertyValueEntity entity, UserEntity caller) {
+        return super.getImageStatus(entity, caller);
+    }
+
+    @Override
+    @Transactional
+    public void setImageStatus(PropertyValueEntity obe, ImageAware.ImageStatus imageStatus, UserEntity caller) {
+        AnyObjectPK key = new AnyObjectPK(obe.getRootId(), obe.getEntityCode());
+        ImageStatusEntity status = (ImageStatusEntity) propertyValueDao.getHibernateTemplate().get(ImageStatusEntity.class, key);
+        status.setImageStatus(imageStatus);
+        propertyValueDao.getHibernateTemplate().update(status);
     }
 
 }

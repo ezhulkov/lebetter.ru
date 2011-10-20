@@ -29,6 +29,17 @@ public class ObjectAvatarEdit extends AbstractBaseComponent {
     private String handler;
 
     @Property
+    @Parameter(name = "title", required = false, allowNull = false,
+               defaultPrefix = BindingConstants.LITERAL)
+    private String title;
+
+    @Property
+    @Parameter(name = "id", required = false, allowNull = false,
+               defaultPrefix = BindingConstants.LITERAL,
+               value = "oae")
+    private String id;
+
+    @Property
     @Parameter(name = "noAvatarURL", required = false, allowNull = false,
                defaultPrefix = BindingConstants.LITERAL,
                value = "/images/pic/no-avatar2.gif")
