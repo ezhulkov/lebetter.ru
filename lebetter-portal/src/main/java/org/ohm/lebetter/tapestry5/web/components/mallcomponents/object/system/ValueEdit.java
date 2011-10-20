@@ -12,6 +12,10 @@ public class ValueEdit extends AbstractEditComponent {
                parameters = {"value=selectedObject.name", "validate=required,maxlength=128"})
     private TextField nameField;
 
+    @Component(id = "code",
+               parameters = {"value=selectedObject.code", "validate=maxlength=32"})
+    private TextField codeField;
+
     public PropertyValueEntity getSelectedObject() {
         return (PropertyValueEntity) getSelectedObjectInternal();
     }

@@ -61,6 +61,9 @@ public class PropertyValueEntity
     private String name;
 
     @Column
+    private String code;
+
+    @Column
     private String additionalDictInfo;
 
     @Column
@@ -162,4 +165,11 @@ public class PropertyValueEntity
         this.imageStatus = imageStatus;
     }
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
 }

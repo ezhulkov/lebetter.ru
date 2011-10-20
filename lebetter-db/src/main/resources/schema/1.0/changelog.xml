@@ -1215,4 +1215,10 @@
         </sql>
     </changeSet>
 
+    <changeSet id="1.0.0-39" author="ezhulkov">
+        <addColumn tableName="app_property_value">
+            <column name="code" type="varchar(32)"/>
+        </addColumn>
+    </changeSet>
+
 </databaseChangeLog>

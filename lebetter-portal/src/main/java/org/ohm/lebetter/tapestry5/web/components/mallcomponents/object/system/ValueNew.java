@@ -16,6 +16,9 @@ public class ValueNew extends AbstractEditComponent {
     @Component(id = "name", parameters = {"value=selectedObject.name", "validate=required,maxlength=64"})
     private TextField propertyNameField;
 
+     @Component(id = "code", parameters = {"value=selectedObject.code", "validate=maxlength=32"})
+    private TextField propertyCodeField;
+
     public PropertyValueEntity getSelectedObject() {
         if (getSelectedObjectInternal() == null) {
             PropertyValueEntity selectedObject = getServiceFacade().getPropertyValueManager().getNewInstance();
