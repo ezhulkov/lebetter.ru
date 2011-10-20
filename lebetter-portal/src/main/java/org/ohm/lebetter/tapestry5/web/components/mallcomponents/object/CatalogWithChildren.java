@@ -30,7 +30,7 @@ public class CatalogWithChildren extends AbstractBaseComponent {
 
     public String getBigCatImageURL() {
         return getServiceFacade().getDataManager().getDataFullURL(selectedCategory,
-                                                                  FileNames.BIG_AVATAR_FILE);
+                                                                  FileNames.XBIG_AVATAR_FILE);
     }
 
 }
