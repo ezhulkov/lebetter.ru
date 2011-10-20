@@ -24,4 +24,5 @@ public abstract class AbstractPhotoComponent<T extends ImageAware>
     public T getSelectedObject() {
         return selectedObject;
     }
+
 }

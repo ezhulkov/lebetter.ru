@@ -57,7 +57,7 @@
             </t:block>
 
             <t:block t:id="picsBlock">
-                <t:mallcomponents.object.dealerPhoto object="selectedDealer" ajaxBlock="picsBlock"/>
+                <t:mallcomponents.object.dealerPhoto object="selectedDealerRenew" ajaxBlock="picsBlock"/>
             </t:block>
 
             <t:block t:id="mapBlock">

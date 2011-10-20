@@ -69,4 +69,8 @@ public class Index extends AdminBasePage {
         return adminBlock;
     }
 
+    public DealerEntity getSelectedDealerRenew() {
+        return getServiceFacade().getDealerManager().get(selectedDealer.getRootId());
+    }
+
 }

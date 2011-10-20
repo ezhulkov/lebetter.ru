@@ -14,6 +14,8 @@ import org.room13.mallcore.log.RMLogger;
 import org.room13.mallcore.model.CreatorRepAware;
 import org.room13.mallcore.model.ImageAware;
 import org.room13.mallcore.model.ObjectBaseEntity.Status;
+import org.room13.mallcore.model.impl.embedded.AnyObjectPK;
+import org.room13.mallcore.model.impl.entities.ImageStatusEntity;
 import org.room13.mallcore.spring.dao.OwnerDao;
 import org.room13.mallcore.spring.service.ObjectExistsException;
 import org.room13.mallcore.util.StringUtil;
@@ -155,7 +157,10 @@ public class DealerManagerImpl
     @Override
     @Transactional
     public void setImageStatus(DealerEntity obe, ImageAware.ImageStatus imageStatus, UserEntity caller) {
-        imageDao.setImageStatus(obe, imageStatus);
+        AnyObjectPK key = new AnyObjectPK(obe.getRootId(), obe.getEntityCode());
+        ImageStatusEntity status = (ImageStatusEntity) dealerDao.getHibernateTemplate().get(ImageStatusEntity.class, key);
+        status.setImageStatus(imageStatus);
+        dealerDao.getHibernateTemplate().update(status);
     }
 
 }
