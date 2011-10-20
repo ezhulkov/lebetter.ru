@@ -55,7 +55,7 @@
             </t:block>
 
             <t:block t:id="picsBlock">
-                <t:mallcomponents.object.system.categoryPhoto object="selectedCategory" ajaxBlock="picsBlock"/>
+                <t:mallcomponents.object.system.categoryPhoto object="selectedCategoryRenew" ajaxBlock="picsBlock"/>
             </t:block>
 
         </t:mallcomponents.control.selectedObject>

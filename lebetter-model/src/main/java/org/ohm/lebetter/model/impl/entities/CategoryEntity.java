@@ -5,18 +5,22 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.ohm.lebetter.model.SitemapAware;
 import org.room13.mallcore.model.CreatorAware;
+import org.room13.mallcore.model.ImageAware;
 import org.room13.mallcore.model.OwnerAware;
 import org.room13.mallcore.model.impl.BaseOwnerAwareEntity;
+import org.room13.mallcore.model.impl.entities.ImageStatusEntity;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,9 +38,19 @@ import java.util.List;
 @AccessType("field")
 public class CategoryEntity
         extends BaseOwnerAwareEntity
-        implements OwnerAware, CreatorAware, SitemapAware {
+        implements OwnerAware, CreatorAware, SitemapAware, ImageAware {
 
     private static final long serialVersionUID = 2111426163273315211L;
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH, optional = false)
+    @Cache(usage = CacheConcurrencyStrategy.NONE)
+    @JoinColumns({
+                         @JoinColumn(name = "rootId", referencedColumnName = "object_id",
+                                     insertable = false, updatable = false),
+                         @JoinColumn(name = "entityCode", referencedColumnName = "object_code",
+                                     insertable = false, updatable = false)
+                 })
+    private ImageStatusEntity imageStatus;
 
     @Column
     private String altId;
@@ -166,4 +180,35 @@ public class CategoryEntity
     public void setTomainname(String tomainname) {
         this.tomainname = tomainname;
     }
+
+    @Override
+    public ImageStatusEntity getImageStatus() {
+        return imageStatus;
+    }
+
+    @Override
+    public boolean isImageReady() {
+        return ObjectMediaImageAwareImpl.isImageReady(imageStatus);
+    }
+
+    @Override
+    public boolean isImageError() {
+        return ObjectMediaImageAwareImpl.isImageError(imageStatus);
+    }
+
+    @Override
+    public boolean isImageProcessing() {
+        return ObjectMediaImageAwareImpl.isImageProcessing(imageStatus);
+    }
+
+    @Override
+    public boolean isImageNotSet() {
+        return ObjectMediaImageAwareImpl.isImageNotSet(imageStatus);
+    }
+
+    @Override
+    public void setImageStatus(ImageStatusEntity imageStatus) {
+        this.imageStatus = imageStatus;
+    }
+
 }

@@ -20,7 +20,10 @@ import org.ohm.lebetter.spring.service.PropertyManager;
 import org.ohm.lebetter.spring.service.ServiceManager;
 import org.room13.mallcore.annotations.Permission;
 import org.room13.mallcore.annotations.PermissionsCheckType;
+import org.room13.mallcore.model.ImageAware;
 import org.room13.mallcore.model.ObjectBaseEntity;
+import org.room13.mallcore.model.impl.embedded.AnyObjectPK;
+import org.room13.mallcore.model.impl.entities.ImageStatusEntity;
 import org.room13.mallcore.spring.service.ObjectExistsException;
 import org.room13.mallcore.util.StringUtil;
 import org.springframework.beans.BeanUtils;
@@ -507,4 +510,19 @@ public class CategoryManagerImpl
         List<CategoryEntity> cats = categoryDao.findRootByCriteria(criteria, 0, 1);
         return cats.size() > 0 ? cats.get(0) : null;
     }
+
+    @Override
+    public ImageAware.ImageStatus getImageStatus(CategoryEntity entity, UserEntity caller) {
+        return super.getImageStatus(entity, caller);
+    }
+
+    @Override
+    @Transactional
+    public void setImageStatus(CategoryEntity obe, ImageAware.ImageStatus imageStatus, UserEntity caller) {
+        AnyObjectPK key = new AnyObjectPK(obe.getRootId(), obe.getEntityCode());
+        ImageStatusEntity status = (ImageStatusEntity) categoryDao.getHibernateTemplate().get(ImageStatusEntity.class, key);
+        status.setImageStatus(imageStatus);
+        categoryDao.getHibernateTemplate().update(status);
+    }
+
 }
