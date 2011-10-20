@@ -56,10 +56,10 @@
         <property name="imageResizeData">
             <list>
                 <bean class="org.room13.mallcore.spring.service.impl.imaging.ImageResizeData">
-                    <constructor-arg index="0" value="SMALL_AVATAR_FILE;60x60;true;INSCRIBED"/>
+                    <constructor-arg index="0" value="MEDIUM_AVATAR_FILE;130x105;true;INSCRIBED"/>
                 </bean>
                 <bean class="org.room13.mallcore.spring.service.impl.imaging.ImageResizeData">
-                    <constructor-arg index="0" value="MEDIUM_AVATAR_FILE;130x105;true;INSCRIBED"/>
+                    <constructor-arg index="0" value="SMALL_AVATAR_FILE;60x60;true;INSCRIBED"/>
                 </bean>
             </list>
         </property>
@@ -70,10 +70,10 @@
         <property name="imageResizeData">
             <list>
                 <bean class="org.room13.mallcore.spring.service.impl.imaging.ImageResizeData">
-                    <constructor-arg index="0" value="BIG_AVATAR_FILE;130x105;true;INSCRIBED"/>
+                    <constructor-arg index="0" value="XBIG_AVATAR_FILE;720x230;true;INSCRIBED"/>
                 </bean>
                 <bean class="org.room13.mallcore.spring.service.impl.imaging.ImageResizeData">
-                    <constructor-arg index="0" value="XBIG_AVATAR_FILE;720x230;true;INSCRIBED"/>
+                    <constructor-arg index="0" value="BIG_AVATAR_FILE;130x105;true;INSCRIBED"/>
                 </bean>
             </list>
         </property>
