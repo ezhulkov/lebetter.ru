@@ -101,9 +101,13 @@ form {
 }
 
 .form_textarea textarea {
+    background: url(/images/bg4.gif) repeat-x 0px 0px;
+    border: 1px solid #606060;
     height: 154px;
-    width: 247px;
+    width: 556px;
+    padding: 2px;
     resize: none;
+    /*width: 247px;*/
 }
 
 .form_multiselect {
@@ -694,7 +698,44 @@ ul.leftmenu ul li:hover a {
   background-color: #e3e3e3;
 }
 
-
-
-
+/* Order Index */
+.orderindex {
+  margin: 0px 0px 0px 0px;
+  padding: 12px 0px 13px 0px;
+  width: 720px;
+}
+.orderindex_l {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 31px 0px 0px;
+  width: 125px;
+}
+.orderindex_r {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+}
+.orderindex_r h3 {
+  float: left;
+  padding-right: 15px;
+}
+.orderindex_r .orderindex_del {
+  color: #606060;
+}
+.orderindex_r ul {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 564px;
+}
+.orderindex_r li {
+    border-right: 0 solid black;
+    float: left;
+    padding: 0 16px 0 0;
+    width: 280px !important;
+}
+.orderindex_r li .orderindex_proplabel {
+    color: #303030;
+    font-size: 12px;
+    margin: 0;
+    padding: 8px 0 6px 8px;
+}
 

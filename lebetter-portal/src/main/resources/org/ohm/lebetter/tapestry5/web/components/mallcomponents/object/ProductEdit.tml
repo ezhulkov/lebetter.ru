@@ -70,7 +70,7 @@
                 :
             </div>
             <div class="form_textarea">
-                <t:textarea t:id="description" style="width:560px;" class="redactor_textarea"/>
+                <t:textarea t:id="description" class="redactor_textarea"/>
             </div>
         </div>
 
