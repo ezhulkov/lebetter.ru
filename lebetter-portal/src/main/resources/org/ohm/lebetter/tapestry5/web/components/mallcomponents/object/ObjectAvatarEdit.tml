@@ -1,7 +1,7 @@
 <div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
     <table>
         <tr>
-            <td style="padding: 0 20px 0 10px;">
+            <td class="ObjectAvatarEdit_1">
                 <!-- image -->
                 <t:if test="selectedObject.imageReady">
                     <div>
@@ -13,7 +13,7 @@
                 </t:if>
                 <!-- /image -->
             </td>
-            <td>
+            <td class="ObjectAvatarEdit_2">
                 <!-- form -->
                 <t:mallComponents.control.menuLink autoCompleteAction="true" actionPrefix="EDIT_" object="selectedObject">
 
@@ -27,8 +27,8 @@
 
                     <t:if test="selectedObject.imageReady">
                         &#160;
-                        <t:mallComponents.control.ie9CompatibleActionLink t:zone="editZone" t:id="delPhotoAjax" t:context="selectedObject.rootId">
-                            удалить картинку
+                        <t:mallComponents.control.ie9CompatibleActionLink t:zone="editZone" t:id="delPhotoAjax" t:context="selectedObject.rootId" class="but_del">
+                            Удалить картинку
                         </t:mallComponents.control.ie9CompatibleActionLink>
                     </t:if>
 
