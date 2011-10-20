@@ -11,6 +11,7 @@
     <property name="work.dir" value="target/dist"/>
     <property name="snapshots.dir" value="snapshots"/>
     <property name="package-portal.name" value="${snapshots.dir}/lb-portal-pack.zip"/>
+    <property name="package-fh.name" value="${snapshots.dir}/lb-fh-pack.zip"/>
     <property name="package-nginx.name" value="${snapshots.dir}/lb-nginx-pack.zip"/>
 
     <property file="build-dist-localhost.properties"/>
@@ -46,6 +47,12 @@
         </move>
         <move todir="${work.dir}/pkg" overwrite="true" verbose="true">
             <fileset dir="${work.dir}/dependencies">
+                <include name="lebetter-fh-*.war"/>
+            </fileset>
+            <mapper type="merge" to="lb-fh.war"/>
+        </move>
+        <move todir="${work.dir}/pkg" overwrite="true" verbose="true">
+            <fileset dir="${work.dir}/dependencies">
                 <include name="lebetter-static-content-*.tar.gz"/>
             </fileset>
             <mapper type="merge" to="lb-static-content.tar.gz"/>
@@ -55,6 +62,12 @@
                 <include name="lebetter-config-*-portal.tar.gz"/>
             </fileset>
             <mapper type="merge" to="lb-portal-config.tar.gz"/>
+        </move>
+        <move todir="${work.dir}/pkg" overwrite="true" verbose="true">
+            <fileset dir="${work.dir}/dependencies">
+                <include name="lebetter-config-*-fh.tar.gz"/>
+            </fileset>
+            <mapper type="merge" to="lb-fh-config.tar.gz"/>
         </move>
         <move todir="${work.dir}/pkg" overwrite="true" verbose="true">
             <fileset dir="${work.dir}/dependencies">
@@ -74,6 +87,12 @@
                 <include name="ROOT.war"/>
                 <include name="lb-portal-config.tar.gz"/>
                 <include name="lb-db.tar.gz"/>
+            </fileset>
+        </zip>
+        <zip destfile="${package-fh.name}" compress="true" level="9">
+            <fileset dir="${work.dir}/pkg">
+                <include name="lb-fh.war"/>
+                <include name="lb-fh-config.tar.gz"/>
             </fileset>
         </zip>
         <zip destfile="${package-nginx.name}" compress="true" level="9">
