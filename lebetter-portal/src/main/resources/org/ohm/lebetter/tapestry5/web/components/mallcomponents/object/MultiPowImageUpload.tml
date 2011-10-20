@@ -1,7 +1,7 @@
 <div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
     <div>
-        <a href="#upload_sc${id}" id="${id}upload" class="but_del">${title}</a>
+        <a href="#upload_sc${id}" id="${id}upload" class="but_lnk2">${title}</a>
     </div>
 
     <div class="display_none">
@@ -17,7 +17,7 @@
             jQuery("#${id}upload").fancybox({
                                                 'autoDimensions': true,
                                                 'title': '${title}',
-                                                'titlePosition' : 'outside',
+                                                'titlePosition' : 'inside',
                                                 'transitionIn' : 'none',
                                                 'transitionOut' : 'none'
                                             });

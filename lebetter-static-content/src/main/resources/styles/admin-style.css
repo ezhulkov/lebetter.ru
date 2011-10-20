@@ -648,27 +648,6 @@ div.slide_bu_che {
     padding-left: 8px;
     margin-bottom: 4px;
 }
-
-/* LayoutsCorrect */
-.ObjectOwnerShow_1 {
-    top: 32px !important;
-    right: 108px !important;
-}
-
-.ActionsEdit_1 {
-    top: -38px !important;
-}
-
-.DealerMap_1 form {
-    padding-top: 43px;
-}
-.ObjectDescriptionTagPart_1 {
-  float: left;
-}
-.ObjectDescriptionTagPart_2 {
-  top: -31px;
-}
-
 /* left menu info */
 div.basket {
   position: absolute;
@@ -739,3 +718,29 @@ ul.leftmenu ul li:hover a {
     padding: 8px 0 6px 8px;
 }
 
+/* LayoutsCorrect */
+.ObjectOwnerShow_1 {
+    top: 32px !important;
+    right: 108px !important;
+}
+
+.ActionsEdit_1 {
+    top: -38px !important;
+}
+
+.DealerMap_1 form {
+    padding-top: 43px;
+}
+.ObjectDescriptionTagPart_1 {
+  float: left;
+}
+.ObjectDescriptionTagPart_2 {
+  top: -31px;
+}
+
+.ObjectAvatarEdit_1 {
+  padding: 0px 29px 0px 2px;
+}
+.ObjectAvatarEdit_2 {
+  padding: 5px 0px 0px 0px;
+}
