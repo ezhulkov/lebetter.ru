@@ -61,15 +61,20 @@
                     <strong>${oneOrder.orderNumber}</strong></t:pageLink>
             </t:parameter>
             <t:parameter name="prodsCell">
-                <ul>
-                    <t:loop t:formState="NONE" source="products" value="oneProduct">
-                        <li>
-                            <t:pageLink t:page="catalog" target="_blank" t:context="oneProductContext">${oneProduct.product.name} (${oneProduct.product.articul}), ${oneProduct.product.price} USD</t:pageLink>
-                        </li>
-                    </t:loop>
-                </ul>
-                <b>Общая стоимость: ${orderTotalSum} USD</b><br/>
-                <b>Со скидкой: ${orderTotalDiscSum} USD</b>
+                <t:if test="products">
+                    <ul>
+                        <t:loop t:formState="NONE" source="products" value="oneProduct">
+                            <li>
+                                <t:pageLink t:page="catalog" target="_blank" t:context="oneProductContext">${oneProduct.product.name} (${oneProduct.product.articul}), ${oneProduct.product.price} USD</t:pageLink>
+                            </li>
+                        </t:loop>
+                    </ul>
+                    <b>Общая стоимость: ${orderTotalSum} USD</b><br/>
+                    <b>Со скидкой: ${orderTotalDiscSum} USD</b>
+                    <t:parameter name="else">
+                        В заказе нет товаров
+                    </t:parameter>
+                </t:if>
             </t:parameter>
             <t:parameter name="dealerCell">
                 <t:if test="oneOrder.dealer">
