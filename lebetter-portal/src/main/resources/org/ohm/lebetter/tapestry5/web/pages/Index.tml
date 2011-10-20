@@ -43,7 +43,12 @@
                 <t:loop t:formState="NONE" source="mainCategories" value="oneCategory">
                     <li class="banner">
                         <t:pageLink t:page="catalog" t:context="oneCategory.altId">
-                            <img src="/images/lb-front/def/nopic7.gif" alt="${oneCategory.name}" title="${oneCategory.name}"/>
+                            <t:if test="oneCategory.imageReady">
+                                <img src="${catImageUrl}" alt="${oneCategory.name}" title="${oneCategory.name}"/>
+                                <t:parameter name="else">
+                                    <img src="/images/lb-front/def/nopic7.gif" alt="${oneCategory.name}" title="${oneCategory.name}"/>
+                                </t:parameter>
+                            </t:if>
                         </t:pageLink>
                         <h3>
                             <t:pageLink t:page="catalog" t:context="oneCategory.altId">${oneCategory.toMainName}</t:pageLink>

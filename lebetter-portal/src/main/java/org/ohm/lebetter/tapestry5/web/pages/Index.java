@@ -4,6 +4,7 @@ import org.apache.tapestry5.annotations.Cached;
 import org.apache.tapestry5.annotations.Property;
 import org.ohm.lebetter.model.impl.entities.CategoryEntity;
 import org.ohm.lebetter.tapestry5.web.pages.base.AbstractBasePage;
+import org.room13.mallcore.spring.service.DataManager.FileNames;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
@@ -24,6 +25,11 @@ public class Index extends AbstractBasePage {
     @Cached
     public List<CategoryEntity> getMainCategories() {
         return getServiceFacade().getCategoryManager().getCategoriesToMainPage();
+    }
+
+    public String getCatImageURL() {
+        return getServiceFacade().getDataManager().getDataFullURL(oneCategory,
+                                                                  FileNames.MEDIUM_AVATAR_FILE);
     }
 
 }
