@@ -7,179 +7,31 @@
             http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
             http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
 
-    <bean id="abstractFileHandler" abstract="true"
-          class="org.room13.mallcore.spring.service.impl.AbstractFileHandler">
+    <bean id="abstractFileHandler" abstract="true" class="org.room13.mallcore.spring.service.impl.AbstractFileHandler">
         <property name="serviceManager" ref="serviceManager"/>
         <property name="sessionFactory" ref="sessionFactory"/>
         <property name="imageUtilLayer" ref="${jms.layer}"/>
     </bean>
 
-    <bean class="org.ohm.lebetter.spring.service.impl.ImageProcessingLayerHolder">
-        <property name="imageUtilLayer" ref="${jms.layer}"/>
-    </bean>
-
-    <bean id="avatarHandler"
-          class="org.ohm.lebetter.spring.service.impl.KinderAvatarHandler"
+    <bean id="avatarHandler" class="org.room13.mallcore.spring.service.impl.AvatarHandler"
           parent="abstractFileHandler"
           init-method="init">
         <property name="maxFileSize" value="1048576"/>
         <property name="fileExt" value="jpeg,jpg,png"/>
-        <!--<property name="largeImageProcessing" value="false"/> causes NPE on ImageMagickResizeOperation:108 -->
-        <property name="imageResizeData">
-            <list>
-                <bean class="org.room13.mallcore.spring.service.impl.imaging.ImageResizeData">
-                    <constructor-arg index="0"
-                                     value="XBIG_AVATAR_FILE;300x300;false;INSCRIBED"/>
-                </bean>
-                <bean class="org.room13.mallcore.spring.service.impl.imaging.ImageResizeData">
-                    <constructor-arg index="0"
-                                     value="BIG_AVATAR_FILE;150x150;false;INSCRIBED"/>
-                </bean>
-                <bean class="org.room13.mallcore.spring.service.impl.imaging.ImageResizeData">
-                    <constructor-arg index="0"
-                                     value="TOP20_FILE;120x120;false;INSCRIBED"/>
-                </bean>
-                <bean class="org.room13.mallcore.spring.service.impl.imaging.ImageResizeData">
-                    <constructor-arg index="0"
-                                     value="MEDIUM_AVATAR_FILE;100x60;false;INSCRIBED"/>
-                </bean>
-                <bean class="org.room13.mallcore.spring.service.impl.imaging.ImageResizeData">
-                    <constructor-arg index="0"
-                                     value="SMALL_AVATAR_FILE;30x30;false;INSCRIBED"/>
-                </bean>
-            </list>
-        </property>
+        <property name="imageResizeData" ref="avatarResizeData"/>
         <property name="jpegQuality" value="1.0"/>
-        <property name="storeOriginal" value="false"/>
     </bean>
 
-    <bean id="productHandler"
-          class="org.room13.lebetter.spring.service.impl.ProductPhotoHandler"
-          parent="abstractFileHandler"
-          init-method="init"
-          p:stretchSmallImages="false"
-          p:storeOriginal="true"
-          p:jpegQuality="0.7"
-          p:largeImageProcessing="false"
-          p:fileExt="jpeg,jpg,png"
-          p:maxFileSize="20971520"
-          p:imageResizeData-ref="productPhotoResizeData"/>
-
-    <bean id="useravatarHandler"
-          class="org.ohm.lebetter.spring.service.impl.KinderAvatarHandler"
-          parent="abstractFileHandler"
-          init-method="init" p:jpegQuality="1">
-        <property name="maxFileSize" value="1048576"/>
-        <property name="fileExt" value="jpeg,jpg,png"/>
-        <!--<property name="largeImageProcessing" value="false"/> causes NPE on ImageMagickResizeOperation:108 -->
-        <property name="imageResizeData">
-            <list>
-                <bean class="org.room13.mallcore.spring.service.impl.imaging.ImageResizeData">
-                    <constructor-arg index="0"
-                                     value="BIG_AVATAR_FILE;200x270;false;INSCRIBED"/>
-                </bean>
-                <bean class="org.room13.mallcore.spring.service.impl.imaging.ImageResizeData">
-                    <constructor-arg index="0"
-                                     value="MEDIUM_AVATAR_FILE;90x90;false;INSCRIBED"/>
-                </bean>
-                <bean class="org.room13.mallcore.spring.service.impl.imaging.ImageResizeData">
-                    <constructor-arg index="0"
-                                     value="SMALL_AVATAR_FILE;30x30;false;INSCRIBED"/>
-                </bean>
-            </list>
-        </property>
-        <property name="storeOriginal" value="false"/>
-    </bean>
-
-
-    <bean id="branchstoreHandler"
-          class="org.room13.lebetter.spring.service.impl.BranchStoreHandler"
-          parent="abstractFileHandler"
-          init-method="init"
-          p:stretchSmallImages="false">
-        <property name="maxFileSize" value="1048576"/>
-        <property name="fileExt" value="jpeg,jpg,png"/>
-        <!--<property name="largeImageProcessing" value="false"/> causes NPE on ImageMagickResizeOperation:108 -->
-        <property name="imageResizeData">
-            <list>
-                <bean class="org.room13.mallcore.spring.service.impl.imaging.ImageResizeData">
-                    <constructor-arg index="0" value="branch_store_big.jpg"/>
-                    <constructor-arg index="1">
-                        <bean class="java.awt.Dimension">
-                            <constructor-arg index="0" value="400"/>
-                            <constructor-arg index="1" value="200"/>
-                        </bean>
-                    </constructor-arg>
-                    <constructor-arg index="2" value="false"/>
-                    <constructor-arg index="3" value="INSCRIBED"/>
-                </bean>
-            </list>
-        </property>
-        <property name="storeOriginal" value="false"/>
-    </bean>
-
-    <bean id="ptavatarHandler" class="org.ohm.lebetter.spring.service.impl.KinderAvatarHandler"
-          parent="abstractFileHandler" init-method="init">
-        <property name="maxFileSize" value="1048576"/>
-        <property name="fileExt" value="jpeg,jpg"/>
-        <!--<property name="largeImageProcessing" value="false"/> causes NPE on ImageMagickResizeOperation:108-->
-        <property name="stretchSmallImages" value="false"/>
-        <property name="jpegQuality" value="1.0"/>
-        <property name="imageResizeData">
-            <list>
-                <bean class="org.room13.mallcore.spring.service.impl.imaging.ImageResizeData">
-                    <constructor-arg index="0"
-                                     value="BIG_AVATAR_FILE;169x141;false;INSCRIBED"/>
-                </bean>
-                <bean class="org.room13.mallcore.spring.service.impl.imaging.ImageResizeData">
-                    <constructor-arg index="0"
-                                     value="SMALL_AVATAR_FILE;60x60;false;INSCRIBED"/>
-                </bean>
-            </list>
-        </property>
-        <property name="storeOriginal" value="false"/>
-    </bean>
-
-    <bean id="newsHandler" class="org.room13.mallcore.spring.service.impl.NewsImageHandler"
-          init-method="init" parent="abstractFileHandler">
-        <property name="maxFileSize" value="31457280"/>
-        <property name="fileExt" value="jpeg,jpg,png"/>
-        <property name="imageResizeData">
-            <list>
-                <bean class="org.room13.mallcore.spring.service.impl.imaging.ImageResizeData">
-                    <constructor-arg index="0"
-                                     value="TOP_NEWS_FILE;618x379;false;INSCRIBED"/>
-                </bean>
-                <bean class="org.room13.mallcore.spring.service.impl.imaging.ImageResizeData">
-                    <constructor-arg index="0"
-                                     value="POPULAR_NEWS_FILE;347x206;false;DESCRIBED"/>
-                </bean>
-                <bean class="org.room13.mallcore.spring.service.impl.imaging.ImageResizeData">
-                    <constructor-arg index="0"
-                                     value="MAIN_PAGE_NEWS_FILE;251x157;false;DESCRIBED"/>
-                </bean>
-                <bean class="org.room13.mallcore.spring.service.impl.imaging.ImageResizeData">
-                    <constructor-arg index="0"
-                                     value="LIST_NEWS_FILE;237x141;false;DESCRIBED"/>
-                </bean>
-                <bean class="org.room13.mallcore.spring.service.impl.imaging.ImageResizeData">
-                    <constructor-arg index="0"
-                                     value="MOST_COMMENTED_NEWS_FILE;187x140;false;DESCRIBED"/>
-                </bean>
-            </list>
-        </property>
+    <bean id="avatarResizeData" class="org.room13.mallcore.spring.service.impl.imaging.ImageResizeDataSet">
         <property name="storeOriginal" value="true"/>
-    </bean>
-
-    <bean id="pngforsetHandler" parent="abstractFileHandler"
-          class="org.room13.lebetter.spring.service.impl.PngForSetStoreHandler"
-          p:maxFileSize="20971520"
-          p:fileExt="png">
-        <property name="originalFileName">
-            <util:constant static-field="org.ohm.lebetter.Constants$FileNames.PRODUCT_PHOTO_FOR_SET"/>
+        <property name="imageResizeData">
+            <list>
+                <bean class="org.room13.mallcore.spring.service.impl.imaging.ImageResizeData">
+                    <constructor-arg index="0" value="BIG_AVATAR_FILE;150x150;true;INSCRIBED"/>
+                </bean>
+            </list>
         </property>
     </bean>
-
 
     <bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor"
           destroy-method="shutdown">
@@ -188,9 +40,8 @@
         <property name="queueCapacity" value="${fileupload.queueCapacity}"/>
     </bean>
 
-    <bean id="localImageUtilLayer" class="org.ohm.lebetter.spring.service.impl.KinderImageMagickProcessingLayer">
+    <bean id="localImageUtilLayer" class="org.room13.mallcore.spring.service.impl.LocalImageMagickProcessingLayer">
         <property name="dataManager" ref="dataManager"/>
-        <property name="markImageFile" value="${watermark.path}"/>
         <property name="colorProfile" value="classpath:/sRGB.icm"/>
         <property name="colorspace">
             <util:constant static-field="magick.ColorspaceType.sRGBColorspace"/>
@@ -202,6 +53,5 @@
             </bean>
         </property>
     </bean>
-
 
 </beans>

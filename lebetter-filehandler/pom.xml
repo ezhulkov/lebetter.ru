@@ -11,6 +11,63 @@
     <packaging>war</packaging>
     <name>Lebetter :: File Handler</name>
 
+    <build>
+        <finalName>filehandler</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <version>2.1-beta-1</version>
+                <configuration>
+                    <filteringDeploymentDescriptors>true</filteringDeploymentDescriptors>
+                    <archiveClasses>${mvn.archive.classes}</archiveClasses>
+                    <warName>lebetter-filehandler-${project.version}</warName>
+                    <webappDirectory>target/lebetter</webappDirectory>
+                    <archive>
+                        <addMavenDescriptor>true</addMavenDescriptor>
+                        <index>true</index>
+                    </archive>
+                    <overlays>
+                        <overlay>
+                            <groupId>org.room13.mallcore</groupId>
+                            <artifactId>mallcore-filehandler</artifactId>
+                            <excludes>
+                                <exclude>WEB-INF/lib/*</exclude>
+                            </excludes>
+                        </overlay>
+                    </overlays>
+                    <webResources>
+                        <resource>
+                            <directory>src/main/resources</directory>
+                            <targetPath>WEB-INF/classes</targetPath>
+                            <filtering>true</filtering>
+                            <includes>
+                                <include>**/*.*</include>
+                            </includes>
+                        </resource>
+                        <resource>
+                            <directory>../lebetter-service/src/main/resources</directory>
+                            <targetPath>WEB-INF/classes</targetPath>
+                            <includes>
+                                <include>**/ehcache.xml</include>
+                                <include>**/hibernate.cfg.xml</include>
+                                <include>**/*-dataManager.xml</include>
+                                <include>**/*-dataSource.xml</include>
+                            </includes>
+                        </resource>
+                    </webResources>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
     <dependencies>
         <dependency>
             <groupId>org.room13.mallcore</groupId>
@@ -72,66 +129,5 @@
             <artifactId>bonecp-provider</artifactId>
         </dependency>
     </dependencies>
-
-    <build>
-        <finalName>filehandler</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <configuration>
-                    <encoding>UTF-8</encoding>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <configuration>
-                    <filteringDeploymentDescriptors>true</filteringDeploymentDescriptors>
-                    <archiveClasses>${mvn.archive.classes}</archiveClasses>
-                    <warName>lebetter-filehandler-${project.version}</warName>
-                    <webappDirectory>${mvn.webapp.dir}</webappDirectory>
-                    <archive>
-                        <addMavenDescriptor>true</addMavenDescriptor>
-                        <index>true</index>
-                    </archive>
-                    <overlays>
-                        <overlay>
-                            <groupId>org.room13.mallcore</groupId>
-                            <artifactId>mallcore-filehandler</artifactId>
-                            <excludes>
-                                <exclude>WEB-INF/lib/*</exclude>
-                            </excludes>
-                        </overlay>
-                    </overlays>
-                    <webResources>
-                        <resource>
-                            <directory>src/main/resources</directory>
-                            <targetPath>WEB-INF/classes</targetPath>
-                            <filtering>true</filtering>
-                            <includes>
-                                <include>**/*.*</include>
-                            </includes>
-                        </resource>
-                        <resource>
-                            <directory>../lebetter-service/src/main/resources</directory>
-                            <targetPath>WEB-INF/classes</targetPath>
-                            <includes>
-                                <include>**/ehcache.xml</include>
-                                <include>**/ehcache-news.xml</include>
-                                <include>**/hibernate.cfg.xml</include>
-                                <include>**/hibernate-news.cfg.xml</include>
-                                <include>**/*-newsService.xml</include>
-                                <include>**/*-newsDAO.xml</include>
-                                <include>**/*-dataManager.xml</include>
-                                <include>**/*-dataSource.xml</include>
-                                <include>**/*-newsDataSource.xml</include>
-                            </includes>
-                        </resource>
-                    </webResources>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

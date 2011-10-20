@@ -55,13 +55,14 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <version>2.1-beta-1</version>
                 <configuration>
                     <filteringDeploymentDescriptors>true</filteringDeploymentDescriptors>
                     <archiveClasses>${mvn.archive.classes}</archiveClasses>
                     <warName>lebetter-dataprocessor-${project.version}</warName>
-                    <webappDirectory>${mvn.webapp.dir}</webappDirectory>
+                    <webappDirectory>target/lebetter</webappDirectory>
                     <archive>
                         <addMavenDescriptor>true</addMavenDescriptor>
                         <index>true</index>
@@ -75,26 +76,6 @@
                             </excludes>
                         </overlay>
                     </overlays>
-                    <webResources>
-                        <resource>
-                            <directory>src/main/resources</directory>
-                            <targetPath>WEB-INF/classes</targetPath>
-                            <filtering>true</filtering>
-                            <includes>
-                                <include>**/*.*</include>
-                            </includes>
-                        </resource>
-                        <resource>
-                            <directory>../lebetter-service/src/main/resources</directory>
-                            <targetPath>WEB-INF/classes</targetPath>
-                            <includes>
-                                <include>**/ehcache.xml</include>
-                                <include>**/hibernate.cfg.xml</include>
-                                <include>**/applicationContext-dataManager.xml</include>
-                                <include>**/applicationContext-dataSource.xml</include>
-                            </includes>
-                        </resource>
-                    </webResources>
                 </configuration>
             </plugin>
         </plugins>

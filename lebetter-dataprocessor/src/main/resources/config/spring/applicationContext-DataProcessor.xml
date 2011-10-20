@@ -56,7 +56,6 @@
 
     <bean id="localImageUtilLayer" class="org.room13.mallcore.spring.service.impl.LocalImageMagickProcessingLayer"
           destroy-method="destroyBean">
-        <property name="markImageFile" value="${watermark.path}"/>
         <property name="colorProfile" value="classpath:/sRGB.icm"/>
         <property name="colorspace">
             <util:constant static-field="magick.ColorspaceType.sRGBColorspace"/>
