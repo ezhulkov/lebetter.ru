@@ -35,6 +35,7 @@
                 <mvn.smtp.host>localhost</mvn.smtp.host>
                 <mvn.ftp.dir>/var/ftp</mvn.ftp.dir>
                 <mvn.img.static.addresses>http://localhost</mvn.img.static.addresses>
+                <mvn.ftp.dir>/var/ftp</mvn.ftp.dir>
             </properties>
         </profile>
         <profile>
@@ -63,6 +64,7 @@
                 <mvn.smtp.host>localhost</mvn.smtp.host>
                 <mvn.ftp.dir>/var/ftp</mvn.ftp.dir>
                 <mvn.img.static.addresses>http://localhost</mvn.img.static.addresses>
+                <mvn.ftp.dir>/var/ftp</mvn.ftp.dir>
             </properties>
         </profile>
         <profile>

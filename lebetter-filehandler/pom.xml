@@ -40,6 +40,11 @@
                             <artifactId>mallcore-filehandler</artifactId>
                             <excludes>
                                 <exclude>WEB-INF/lib/*</exclude>
+                                <exclude>**/applicationContext-JMS.xml</exclude>
+                                <exclude>**/applicationContext-JMX.xml</exclude>
+                                <exclude>**/applicationContext-JMXFH.xml</exclude>
+                                <exclude>**/applicationContext-newsDAO.xml</exclude>
+                                <exclude>**/applicationContext-newsService.xml</exclude>
                             </excludes>
                         </overlay>
                     </overlays>
@@ -55,11 +60,15 @@
                         <resource>
                             <directory>../lebetter-service/src/main/resources</directory>
                             <targetPath>WEB-INF/classes</targetPath>
+                            <filtering>true</filtering>
                             <includes>
                                 <include>**/ehcache.xml</include>
                                 <include>**/hibernate.cfg.xml</include>
+                                <include>**/*-Resources.xml</include>
                                 <include>**/*-dataManager.xml</include>
                                 <include>**/*-dataSource.xml</include>
+                                <include>**/*-DAO.xml</include>
+                                <include>**/*-Service.xml</include>
                             </includes>
                         </resource>
                     </webResources>

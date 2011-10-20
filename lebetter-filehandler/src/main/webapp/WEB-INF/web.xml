@@ -8,12 +8,8 @@
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:/config/spring/applicationContext-Resources.xml
-            classpath:/config/spring/applicationContext-dataSource.xml
-            classpath:/config/spring/applicationContext-DAO.xml
-            classpath:/config/spring/applicationContext-Service.xml
-            classpath:/config/spring/applicationContext-FileUpload.xml
-            classpath:/config/spring/applicationContext-dataManager.xml
+        <param-value>
+            classpath:/config/spring/applicationContext-Root.xml
         </param-value>
     </context-param>
 
