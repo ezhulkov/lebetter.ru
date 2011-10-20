@@ -1,4 +1,4 @@
-package org.ohm.lebetter.tapestry5.web.components.mallcomponents.object;
+package org.ohm.lebetter.tapestry5.web.components.mallcomponents.object.system;
 
 import org.apache.tapestry5.annotations.Cached;
 import org.apache.tapestry5.annotations.Property;

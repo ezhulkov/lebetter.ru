@@ -1,4 +1,4 @@
-package org.ohm.lebetter.tapestry5.web.components.mallcomponents.object;
+package org.ohm.lebetter.tapestry5.web.components.mallcomponents.object.system;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.tapestry5.annotations.Component;
@@ -14,6 +14,7 @@ import org.ohm.lebetter.spring.service.CategoryManager;
 import org.ohm.lebetter.spring.service.PropertyManager;
 import org.ohm.lebetter.tapestry5.web.components.base.AbstractEditComponent;
 import org.ohm.lebetter.tapestry5.web.components.base.EditObjectCallback;
+import org.ohm.lebetter.tapestry5.web.components.mallcomponents.object.SelectMultiple;
 import org.ohm.lebetter.tapestry5.web.data.FlashMessage;
 import org.ohm.lebetter.tapestry5.web.services.impl.GenericMultiValueEncoder;
 import org.ohm.lebetter.tapestry5.web.services.impl.GenericSelectModel;

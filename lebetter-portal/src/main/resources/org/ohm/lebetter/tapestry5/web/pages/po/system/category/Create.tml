@@ -21,7 +21,7 @@
 
         <t:mallcomponents.control.grantCheck roles="ROLE_ADMIN">
             <h1>Создать категорию</h1>
-            <t:mallcomponents.object.categoryNew parent="parentCategory"/>
+            <t:mallcomponents.object.system.categoryNew parent="parentCategory"/>
         </t:mallcomponents.control.grantCheck>
 
     </t:mallcomponents.layout.office>

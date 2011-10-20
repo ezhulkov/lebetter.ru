@@ -25,21 +25,47 @@
 
             <div class="break"/>
 
-            <t:mallcomponents.object.categoryEdit object="selectedCategory"/>
+            <div class="adm_tab">
+                <ul>
+                    <li id="tab_desc" class="sel">
+                        <t:mallComponents.control.ie9CompatibleActionLink t:id="descTab" t:zone="editZone">Общее</t:mallComponents.control.ie9CompatibleActionLink>
+                    </li>
+                    <li id="tab_pics">
+                        <t:mallComponents.control.ie9CompatibleActionLink t:id="picsTab" t:zone="editZone">Фотографии</t:mallComponents.control.ie9CompatibleActionLink>
+                    </li>
+                </ul>
+            </div>
 
-            <div class="hr_big"/>
+            <t:zone t:id="editZone">
+                <t:delegate to="descBlock"/>
+            </t:zone>
 
-            <t:unless test="selectedCategory.parent">
-                <t:mallcomponents.control.menuLink roles="ROLE_ADMIN">
-                    <div class="adm_add_box">
-                        <t:pageLink t:page="po/system/category/create" t:context="selectedCategory.rootId" class="create_link2">Создать подкатегорию</t:pageLink>
-                    </div>
-                </t:mallcomponents.control.menuLink>
-                <h2>Подкатегории</h2>
-                <t:mallcomponents.object.categorySubList parent="selectedCategory"/>
-            </t:unless>
+            <t:block t:id="descBlock">
+                <t:mallcomponents.object.system.categoryEdit object="selectedCategory"/>
+                <div class="hr_big"/>
+                <t:unless test="selectedCategory.parent">
+                    <t:mallcomponents.control.menuLink roles="ROLE_ADMIN">
+                        <div class="adm_add_box">
+                            <t:pageLink t:page="po/system/category/create" t:context="selectedCategory.rootId" class="create_link2">Создать подкатегорию</t:pageLink>
+                        </div>
+                    </t:mallcomponents.control.menuLink>
+                    <h2>Подкатегории</h2>
+                    <t:mallcomponents.object.system.categorySubList parent="selectedCategory"/>
+                </t:unless>
+            </t:block>
+
+            <t:block t:id="picsBlock">
+                <t:mallcomponents.object.system.categoryPhoto object="selectedCategory" ajaxBlock="picsBlock"/>
+            </t:block>
 
         </t:mallcomponents.control.selectedObject>
+
+        <t:mallComponents.control.javascript>
+            jQuery(".adm_tab a").bind('click', function(){
+                jQuery(this).parents("ul").find("li.sel").removeClass("sel");
+                jQuery(this).parent("li").addClass("sel");
+            });
+        </t:mallComponents.control.javascript>
 
     </t:mallcomponents.layout.office>
 

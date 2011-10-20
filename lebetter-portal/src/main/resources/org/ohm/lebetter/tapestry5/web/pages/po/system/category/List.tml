@@ -22,7 +22,7 @@
             <t:mallcomponents.control.menuLink roles="ROLE_ADMIN">
                 <t:pageLink t:page="po/system/category/create" class="create_link">Создать категорию</t:pageLink>
             </t:mallcomponents.control.menuLink>
-            <t:mallcomponents.object.categoryList/>
+            <t:mallcomponents.object.system.categoryList/>
         </t:mallcomponents.control.grantCheck>
 
     </t:mallcomponents.layout.office>
