@@ -92,7 +92,7 @@ public class CategoryDaoHibernate
         hql.append("from CategoryEntity ");
         hql.append("where parent.rootId=:id and parent.rootObject=true and ");
         hql.append("objectStatus=:status and rootObject=true ");
-        hql.append("order by position,name");
+        hql.append("order by position");
 
         Query query = getSession().createQuery(hql.toString());
         query.setCacheable(true);
@@ -160,7 +160,7 @@ public class CategoryDaoHibernate
         StringBuffer hql = new StringBuffer();
         hql.append("from CategoryEntity ");
         hql.append("where parent is null and objectStatus=? and rootObject=true ");
-        hql.append("order by position,name");
+        hql.append("order by position");
 
         Query query = getSession().createQuery(hql.toString());
         query.setCacheable(true);
