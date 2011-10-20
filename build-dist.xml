@@ -47,7 +47,7 @@
         </move>
         <move todir="${work.dir}/pkg" overwrite="true" verbose="true">
             <fileset dir="${work.dir}/dependencies">
-                <include name="lebetter-fh-*.war"/>
+                <include name="lebetter-filehandler-*.war"/>
             </fileset>
             <mapper type="merge" to="lb-fh.war"/>
         </move>
@@ -112,13 +112,18 @@
         <delete includeEmptyDirs="true">
             <fileset dir="${tomcat.home}/webapps/ROOT" includes="**/*" defaultexcludes="false"/>
         </delete>
+        <delete includeEmptyDirs="true">
+            <fileset dir="${tomcat.home}/webapps/lb-fh" includes="**/*" defaultexcludes="false"/>
+        </delete>
         <antcall target="deploy-portalbin"/>
+        <antcall target="deploy-fhbin"/>
         <antcall target="deploy-nginxbin"/>
     </target>
 
     <target name="deploy-config">
         <echo message="Deploing config packages"/>
         <antcall target="deploy-portalconfig"/>
+        <antcall target="deploy-fhconfig"/>
         <antcall target="deploy-nginxconfig"/>
     </target>
 
@@ -134,6 +139,12 @@
         <chmod perm="775">
             <fileset dir="${tomcat.home}/webapps/ROOT" includes="**/*.tml"/>
         </chmod>
+    </target>
+
+    <target name="deploy-fhbin">
+        <echo message="Deploing fh files"/>
+        <unzip src="${package-fh.name}" dest="${work.dir}/deploy"/>
+        <unjar src="${work.dir}/deploy/lb-fh.war" dest="${tomcat.home}/webapps/lb-fh"/>
     </target>
 
     <target name="deploy-nginxbin">
@@ -168,6 +179,14 @@
         <gunzip src="${work.dir}/deploy/lb-portal-config.tar.gz" dest="${work.dir}/deploy/lb-portal-config.tar"/>
         <untar src="${work.dir}/deploy/lb-portal-config.tar" dest="/"/>
         <delete file="${work.dir}/deploy/lb-portal-config.tar"/>
+    </target>
+
+    <target name="deploy-fhconfig">
+        <echo message="Deploing fh config files"/>
+        <unzip src="${package-fh.name}" dest="${work.dir}/deploy"/>
+        <gunzip src="${work.dir}/deploy/lb-fh-config.tar.gz" dest="${work.dir}/deploy/lb-fh-config.tar"/>
+        <untar src="${work.dir}/deploy/lb-fh-config.tar" dest="/"/>
+        <delete file="${work.dir}/deploy/lb-fh-config.tar"/>
     </target>
 
     <target name="import-changeset">
