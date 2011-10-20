@@ -1,11 +1,12 @@
-<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" class="ks_orderadress_input_a ks_objectavataredit_1">
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
     <table>
         <tr>
-            <td>
+            <td style="padding: 0 20px 0 10px;">
                 <!-- image -->
                 <t:if test="selectedObject.imageReady">
                     <div>
-                        <img src="${avatarurl}" alt="${selectedObject.name}" title="${selectedObject.name}"/>
+                        <img src="/images/lb-front/def/nopic4.gif" alt="${selectedObject.name}" title="${selectedObject.name}"/>
+                        <!--<img src="${avatarurl}" alt="${selectedObject.name}" title="${selectedObject.name}"/>-->
                     </div>
                     <t:parameter name="else">
                         <img src="/images/lb-front/def/nopic4.gif" alt="${selectedObject.name}" title="${selectedObject.name}"/>
@@ -13,18 +14,20 @@
                 </t:if>
                 <!-- /image -->
             </td>
-            <td class="ks_objectavataredit_6">
+            <td>
                 <!-- form -->
                 <t:mallComponents.control.menuLink autoCompleteAction="true" actionPrefix="EDIT_" object="selectedObject">
 
-                    <!--<t:mallComponents.object.multiPowImageUpload id="upload"-->
-                                                                 <!--ticket="ticket"-->
-                                                                 <!--multipleFiles="false"-->
-                                                                 <!--height="300"-->
-                                                                 <!--fileFilters="${fileFilters}"-->
-                                                                 <!--needsLocalization="false"/>-->
+                    <t:mallComponents.object.multiPowImageUpload id="upload"
+                                                                 ticket="ticket"
+                                                                 multipleFiles="false"
+                                                                 height="300"
+                                                                 title="literal:Загрузить логотип"
+                                                                 fileFilters="${fileFilters}"
+                                                                 needsLocalization="false"/>
 
                     <t:if test="selectedObject.imageReady">
+                        &#160;
                         <t:mallComponents.control.ie9CompatibleActionLink t:zone="editZone" t:id="delPhotoAjax" t:context="selectedObject.rootId">
                             удалить картинку
                         </t:mallComponents.control.ie9CompatibleActionLink>
