@@ -58,14 +58,14 @@
                 <t:mallcomponents.object.system.categoryPhoto object="selectedCategoryRenew" ajaxBlock="picsBlock"/>
             </t:block>
 
-        </t:mallcomponents.control.selectedObject>
+            <t:mallComponents.control.javascript>
+                jQuery(".adm_tab a").bind('click', function(){
+                    jQuery(this).parents("ul").find("li.sel").removeClass("sel");
+                    jQuery(this).parent("li").addClass("sel");
+                });
+            </t:mallComponents.control.javascript>
 
-        <t:mallComponents.control.javascript>
-            jQuery(".adm_tab a").bind('click', function(){
-                jQuery(this).parents("ul").find("li.sel").removeClass("sel");
-                jQuery(this).parent("li").addClass("sel");
-            });
-        </t:mallComponents.control.javascript>
+        </t:mallcomponents.control.selectedObject>
 
     </t:mallcomponents.layout.office>
 

@@ -98,14 +98,14 @@ input, select, textarea {
   background: #515151 url(/images/form/but.gif) repeat-x 0px 0px;
   border: 1px solid #323232;
   color: #ffffff;
-  padding: 5px 16px 7px 16px;
+  padding: 3px 16px 7px 16px;
   margin: 0 2px;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
   font-size: 14px;
   font-weight: normal;
-  height: 18px;
+  height: 16px;
   line-height: 20px;
 }
 .but_lnk2:hover {

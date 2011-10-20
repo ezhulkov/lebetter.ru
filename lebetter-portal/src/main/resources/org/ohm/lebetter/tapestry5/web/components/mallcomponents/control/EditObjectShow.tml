@@ -78,7 +78,7 @@
         if (jQuery(".redactor_textarea").html() != null) {
             jQuery(".redactor_textarea").redactor();
         }
-        jQuery("#name").focus();
+        jQuery("[id^='name']").focus();
         jQuery(".flash_box").delay("5000").animate({opacity: 0}, 500);
     </script>
 
