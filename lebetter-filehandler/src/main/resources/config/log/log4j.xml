@@ -10,7 +10,7 @@
         <param name="encoding" value="UTF-8"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern"
-                   value="[%p][%d][%X{session_id}][%X{ip}][%X{user}][%X{obe}] :: %m (%F line %L) %n"/>
+                   value="[%p][%d][%X{session_id}][%X{ip}][%X{user}][%X{obe}] :: %m%n"/>
         </layout>
     </appender>
 
