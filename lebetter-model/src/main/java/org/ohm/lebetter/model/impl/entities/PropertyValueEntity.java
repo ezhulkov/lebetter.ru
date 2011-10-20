@@ -172,4 +172,9 @@ public class PropertyValueEntity
     public void setCode(String code) {
         this.code = code;
     }
+
+    public String getNameCode() {
+        return name + (code == null ? "" : " (" + code + ")");
+    }
+
 }

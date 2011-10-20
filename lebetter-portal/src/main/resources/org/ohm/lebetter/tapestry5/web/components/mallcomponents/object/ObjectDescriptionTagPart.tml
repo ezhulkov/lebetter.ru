@@ -125,7 +125,7 @@
                                 var catType = '${oneTagLink.propertyValue.property.type}';
                                 var catValue;
                                 if (catType == 'DICTIONARY' || catType == 'LIST') {
-                                    catValue = '${oneTagLink.propertyValue.name}';
+                                    catValue = '${oneTagLink.propertyValue.nameCode}';
                                 } else if (catType == 'VALUE' || catType == 'GROUP') {
                                     catValue = '${oneTagLink.value}';
                                 }
@@ -136,7 +136,7 @@
                             //а вот тут для каждого одиночного тега переносим его шаблон в видимое место
                             var catType = '${oneTagLink.propertyValue.property.type}';
                             var catValue = '';
-                            var catValList = '${oneTagLink.propertyValue.name}';
+                            var catValList = '${oneTagLink.propertyValue.nameCode}';
                             var catValueValue = '${oneTagLink.value}';
                             var catValueGroup = '${oneTagLink.tempValue}';
                             var catId = '${oneTagLink.propertyValue.property.rootid}';

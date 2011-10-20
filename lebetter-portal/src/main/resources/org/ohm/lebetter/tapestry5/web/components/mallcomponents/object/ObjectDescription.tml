@@ -15,10 +15,6 @@
                                                           ajaxBlock="tagBlock"
                                                           targetZone="tagArea"/>
 
-        <script language="JavaScript" type="text/javascript">
-            jQuery("select.catselect").selectbox();
-        </script>
-
     </t:block>
 
 </div>

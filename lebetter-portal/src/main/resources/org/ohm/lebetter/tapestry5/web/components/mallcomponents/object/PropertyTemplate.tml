@@ -3,12 +3,7 @@
         <select id="2RM-SELECT-${selectedProperty.rootid}" name="2RM-SELECT-${selectedProperty.rootid}" class="catselect ks_propertytemplate_2">
             <option></option>
                 <t:loop source="listValues" value="oneValue">
-                    <option value="${oneValue.rootid}">
-                        ${oneValue.name}
-                        <t:if test="oneValue.code">
-                            - ${oneValue.code}
-                        </t:if>
-                    </option>
+                    <option value="${oneValue.rootid}">${oneValue.nameCode}</option>
                 </t:loop>
         </select>
             <script language="JavaScript" type="text/javascript">
