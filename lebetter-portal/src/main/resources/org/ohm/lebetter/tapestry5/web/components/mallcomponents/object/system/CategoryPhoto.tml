@@ -6,7 +6,7 @@
                 avatarManager="serviceFacade.categoryManager"
                 object="selectedObject"
                 title="literal:Загрузить большую фотографию"
-                imageToShow="literal:category_big.jpg"
+                imageToShow="literal:big_avatar.jpg"
                 handler="${literal:catbigavatar}"
                 id="big_cat"
                 allowedExt="*.jpg;*.jpeg;*.png;"/>
@@ -18,7 +18,7 @@
                 avatarManager="serviceFacade.categoryManager"
                 object="selectedObject"
                 title="literal:Загрузить фотографию"
-                imageToShow="literal:category.jpg"
+                imageToShow="literal:medium_avatar.jpg"
                 handler="${literal:catavatar}"
                 id="cat"
                 allowedExt="*.jpg;*.jpeg;*.png;"/>
