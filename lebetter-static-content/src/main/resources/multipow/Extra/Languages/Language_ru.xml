@@ -74,7 +74,7 @@
   <param name="messages.httpError.415">Неподдерживаемый тип носителя.</param>
   <param name="messages.httpError.416">Диапазон запроса.</param>
   <param name="messages.httpError.417">Результат не соответствует ожидаемому.</param>
-  <param name="messages.httpError.500">Internal Server Error. Обычно это означает, что получение сценарий ошибки.</param>
+  <param name="messages.httpError.500">Internal Server Error. Произошла ошибка на сервере.</param>
   <param name="messages.httpError.501">Не реализовано. Сервер не поддерживает метод POST.</param>
   <param name="messages.httpError.502">Bad Gateway.</param>
   <param name="messages.httpError.503">503 Service Unavailable. Сервер в настоящее время не в состоянии обработать запрос из-за временной перегрузки или обслуживания сервера.</param>

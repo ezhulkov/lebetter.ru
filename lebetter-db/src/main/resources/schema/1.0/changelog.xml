@@ -1204,4 +1204,15 @@
         </sql>
     </changeSet>
 
+    <changeSet id="1.0.0-38" author="ezhulkov">
+        <sql>
+            create table public.app_file_lock (
+              path varchar(256) not null,
+              timestamp timestamptz default now(),
+              cnt int4
+            );
+            create unique index app_file_lock_idx1 on public.app_file_lock (path);
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>
