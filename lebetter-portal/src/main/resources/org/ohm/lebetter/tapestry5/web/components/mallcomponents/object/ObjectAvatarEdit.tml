@@ -5,8 +5,7 @@
                 <!-- image -->
                 <t:if test="selectedObject.imageReady">
                     <div>
-                        <img src="/images/lb-front/def/nopic4.gif" alt="${selectedObject.name}" title="${selectedObject.name}"/>
-                        <!--<img src="${avatarurl}" alt="${selectedObject.name}" title="${selectedObject.name}"/>-->
+                        <img src="${avatarurl}" alt="${selectedObject.name}" title="${selectedObject.name}"/>
                     </div>
                     <t:parameter name="else">
                         <img src="/images/lb-front/def/nopic4.gif" alt="${selectedObject.name}" title="${selectedObject.name}"/>

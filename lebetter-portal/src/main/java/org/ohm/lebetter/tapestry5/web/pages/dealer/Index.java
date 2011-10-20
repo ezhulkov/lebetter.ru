@@ -6,6 +6,7 @@ import org.apache.tapestry5.annotations.Property;
 import org.ohm.lebetter.model.impl.entities.DealerEntity;
 import org.ohm.lebetter.tapestry5.web.components.mallcomponents.control.SelectedObject;
 import org.ohm.lebetter.tapestry5.web.pages.base.AbstractBrowseBasePage;
+import org.room13.mallcore.spring.service.DataManager;
 
 /**
  * Created by IntelliJ IDEA.
@@ -33,6 +34,11 @@ public class Index extends AbstractBrowseBasePage {
 
     public Long onPassivate() {
         return selectedDealer == null ? null : selectedDealer.getRootId();
+    }
+
+    public String getImageUrl() {
+        return getServiceFacade().getDataManager().getDataFullURL(selectedDealer,
+                                                                  DataManager.FileNames.BIG_AVATAR_FILE);
     }
 
 }

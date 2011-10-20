@@ -31,7 +31,7 @@
                 <div class="dealer_item_l">
                     <!--DealLogo -->
                     <t:if test="selectedDealer.imageReady">
-                        <img alt="${selectedDealer.name}" title="${selectedDealer.name}"/>
+                        <img src="${imageUrl}" alt="${selectedDealer.name}" title="${selectedDealer.name}"/>
                         <t:parameter name="else">
                             <img src="/images/lb-front/def/nopic.gif" alt="${selectedDealer.name}" title="${selectedDealer.name}"/>
                         </t:parameter>
