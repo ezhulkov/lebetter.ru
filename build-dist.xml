@@ -18,10 +18,12 @@
     <target name="copy-dependencies">
         <artifact:dependencies filesetId="dependencies.fileset">
             <dependency groupId="org.ohm.lebetter" artifactId="lebetter-portal" version="1.1.0-SNAPSHOT" type="war"/>
+            <dependency groupId="org.ohm.lebetter" artifactId="lebetter-filehandler" version="1.1.0-SNAPSHOT" type="war"/>
             <dependency groupId="org.ohm.lebetter" artifactId="lebetter-static-content" version="1.1.0-SNAPSHOT" classifier="files" type="tar.gz"/>
             <dependency groupId="org.ohm.lebetter" artifactId="lebetter-db" version="1.1.0-SNAPSHOT" type="tar.gz"/>
             <dependency groupId="org.ohm.lebetter" artifactId="lebetter-config" version="1.1.0-SNAPSHOT" classifier="nginx" type="tar.gz"/>
             <dependency groupId="org.ohm.lebetter" artifactId="lebetter-config" version="1.1.0-SNAPSHOT" classifier="portal" type="tar.gz"/>
+            <dependency groupId="org.ohm.lebetter" artifactId="lebetter-config" version="1.1.0-SNAPSHOT" classifier="fh" type="tar.gz"/>
         </artifact:dependencies>
         <mkdir dir="${work.dir}/dependencies"/>
         <copy flatten="true" todir="${work.dir}/dependencies" overwrite="true" verbose="true">

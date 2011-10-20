@@ -30,19 +30,19 @@
                             </descriptors>
                         </configuration>
                     </execution>
-                    <!--<execution>-->
-                        <!--<id>fh</id>-->
-                        <!--<phase>package</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>single</goal>-->
-                        <!--</goals>-->
-                        <!--<configuration>-->
-                            <!--<appendAssemblyId>true</appendAssemblyId>-->
-                            <!--<descriptors>-->
-                                <!--<descriptor>src/assemble/fh-assembly.xml</descriptor>-->
-                            <!--</descriptors>-->
-                        <!--</configuration>-->
-                    <!--</execution>-->
+                    <execution>
+                        <id>fh</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <appendAssemblyId>true</appendAssemblyId>
+                            <descriptors>
+                                <descriptor>src/assemble/fh-assembly.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                    </execution>
                     <execution>
                         <id>nginx</id>
                         <phase>package</phase>
@@ -56,19 +56,6 @@
                             </descriptors>
                         </configuration>
                     </execution>
-                    <!--<execution>-->
-                        <!--<id>ot</id>-->
-                        <!--<phase>package</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>single</goal>-->
-                        <!--</goals>-->
-                        <!--<configuration>-->
-                            <!--<appendAssemblyId>true</appendAssemblyId>-->
-                            <!--<descriptors>-->
-                                <!--<descriptor>src/assemble/ot-assembly.xml</descriptor>-->
-                            <!--</descriptors>-->
-                        <!--</configuration>-->
-                    <!--</execution>-->
                 </executions>
             </plugin>
         </plugins>
