@@ -21,6 +21,7 @@ public class Constants extends org.room13.mallcore.Constants {
     }
 
     public static class FileNames {
+        public static final String XBIG_PRODUCT_PHOTO_FILE = "xphoto_big.jpg";
         public static final String BIG_PRODUCT_PHOTO_FILE = "photo_big.jpg";
         public static final String MEDIUM_PRODUCT_PHOTO_FILE = "photo_medium.jpg";
         public static final String SMALL_PRODUCT_PHOTO_FILE = "photo_small.jpg";
