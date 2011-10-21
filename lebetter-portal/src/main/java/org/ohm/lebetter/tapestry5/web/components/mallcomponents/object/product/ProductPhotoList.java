@@ -101,7 +101,7 @@ public class ProductPhotoList extends AbstractBaseComponent {
     }
 
     public String getImageUrl() {
-        return getServiceFacade().getDataManager().getDataFullURL(onePhoto, FileNames.XSMALL_PHOTO);
+        return getServiceFacade().getDataManager().getDataFullURL(onePhoto, FileNames.SMALL_PHOTO);
     }
 
 }

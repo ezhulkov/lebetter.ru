@@ -41,7 +41,7 @@
                 <t:if test="onePhoto.imageReady">
                     <img src="${imageURL}" alt="${product.name}" title="${product.name}"/>
                     <t:parameter name="else">
-                        <img src="/images/lb-front/def/nopic4.gif" alt="${product.name}" title="${product.name}"/>
+                        <img src="/images/lb-front/def/nopic2.gif" alt="${product.name}" title="${product.name}"/>
                     </t:parameter>
                 </t:if>
             </t:parameter>
