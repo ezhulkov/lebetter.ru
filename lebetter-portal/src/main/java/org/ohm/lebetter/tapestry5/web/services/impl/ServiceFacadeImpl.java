@@ -7,6 +7,7 @@ import org.ohm.lebetter.spring.service.DealerManager;
 import org.ohm.lebetter.spring.service.MailManager;
 import org.ohm.lebetter.spring.service.OrderManager;
 import org.ohm.lebetter.spring.service.ProductManager;
+import org.ohm.lebetter.spring.service.ProductPhotoManager;
 import org.ohm.lebetter.spring.service.PropertyManager;
 import org.ohm.lebetter.spring.service.PropertyValueManager;
 import org.ohm.lebetter.spring.service.ServiceManager;
@@ -122,6 +123,11 @@ public class ServiceFacadeImpl implements ServiceFacade {
     @Override
     public ProductManager getProductManager() {
         return getServiceManager().getProductManager();
+    }
+
+    @Override
+    public ProductPhotoManager getProductPhotoManager() {
+        return getServiceManager().getProductPhotoManager();
     }
 
     @Override

@@ -6,6 +6,7 @@ import org.ohm.lebetter.spring.service.DictPropertyHolder;
 import org.ohm.lebetter.spring.service.MailManager;
 import org.ohm.lebetter.spring.service.OrderManager;
 import org.ohm.lebetter.spring.service.ProductManager;
+import org.ohm.lebetter.spring.service.ProductPhotoManager;
 import org.ohm.lebetter.spring.service.PropertyManager;
 import org.ohm.lebetter.spring.service.PropertyValueManager;
 import org.ohm.lebetter.spring.service.ServiceManager;
@@ -31,6 +32,7 @@ public class ServiceManagerImpl
     private PasswordEncoder passwordEncoder;
     private DealerManager dealerManager;
     private OrderManager orderManager;
+    private ProductPhotoManager productPhotoManager;
 
     @Override
     public CategoryManager getCategoryManager() {
@@ -125,6 +127,16 @@ public class ServiceManagerImpl
     @Override
     public PasswordEncoder getPasswordEncoder() {
         return passwordEncoder;
+    }
+
+    @Override
+    public ProductPhotoManager getProductPhotoManager() {
+        return productPhotoManager;
+    }
+
+    @Required
+    public void setProductPhotoManager(ProductPhotoManager productPhotoManager) {
+        this.productPhotoManager = productPhotoManager;
     }
 
     @Required

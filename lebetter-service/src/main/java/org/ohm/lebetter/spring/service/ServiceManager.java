@@ -34,4 +34,6 @@ public interface ServiceManager
 
     public PasswordEncoder getPasswordEncoder();
 
+    public ProductPhotoManager getProductPhotoManager();
+
 }

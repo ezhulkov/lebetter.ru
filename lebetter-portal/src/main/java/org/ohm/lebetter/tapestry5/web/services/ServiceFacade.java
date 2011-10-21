@@ -5,6 +5,7 @@ import org.ohm.lebetter.spring.service.DealerManager;
 import org.ohm.lebetter.spring.service.MailManager;
 import org.ohm.lebetter.spring.service.OrderManager;
 import org.ohm.lebetter.spring.service.ProductManager;
+import org.ohm.lebetter.spring.service.ProductPhotoManager;
 import org.ohm.lebetter.spring.service.PropertyManager;
 import org.ohm.lebetter.spring.service.PropertyValueManager;
 import org.ohm.lebetter.spring.service.UserLBManager;
@@ -61,6 +62,8 @@ public interface ServiceFacade {
     public Properties getProperties();
 
     public ProductManager getProductManager();
+
+    public ProductPhotoManager getProductPhotoManager();
 
     public CategoryManager getCategoryManager();
 

@@ -50,6 +50,7 @@
           p:propertyValueManager-ref="propertyValueManager"
           p:propertyManager-ref="propertyManager"
           p:passwordEncoder-ref="passwordEncoder"
+          p:productPhotoManager-ref="productPhotoManager"
           p:dealerManager-ref="dealerManager"
           p:i18n-ref="i18n">
         <property name="newsCategoryManager">
