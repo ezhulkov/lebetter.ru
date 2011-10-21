@@ -7,10 +7,11 @@
 
     <div class="prod_cat_box2">
         <t:if test="products">
+
             <ul class="prod_cat_grid2">
-                <t:mallComponents.control.pagedLoopAjax source="products"
-                                                        rowsPerPage="16"
-                                                        value="oneProduct">
+                <t:mallComponents.control.pagedLoop source="products"
+                                                    rowsPerPage="16"
+                                                    value="oneProduct">
                     <li>
                         <t:pageLink t:page="catalog" t:context="productContext">
                             <t:if test="productPhoto">
@@ -27,11 +28,11 @@
                         </t:pageLink>
                         <t:pageLink t:page="catalog" t:context="productContext">${oneProduct.name}</t:pageLink>
                     </li>
-                </t:mallComponents.control.pagedLoopAjax>
+                </t:mallComponents.control.pagedLoop>
             </ul>
+
         </t:if>
     </div>
-    <div class="hr_big"></div>
 
     <t:mallComponents.control.javascript>
         LB.colorCell("#menu${selectedCategory.rootId}");

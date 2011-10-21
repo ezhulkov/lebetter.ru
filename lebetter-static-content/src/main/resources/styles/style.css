@@ -849,7 +849,7 @@ ul.prod_cat_grid2 li a {
 }
 
 /* Navigation */
-.slide_pager {
+.rj-paged-loop-pager {
   padding: 2px 0px 0px 0px;
   margin: 0px 0px -32px 0px;
   text-align: center;
@@ -865,20 +865,20 @@ ul.prod_cat_grid2 li a {
 .nav_next {
   background: url(/images/but/next.gif) no-repeat 3px 7px;
 }
-.slide_pager a,
-.slide_pager span {
+.rj-paged-loop-pager a,
+.rj-paged-loop-pager span {
   border-right: 1px solid #e3e3e3;
   padding: 0px 5px 0px 5px;
   text-decoration: none;
 }
-.slide_pager a.l {
+.rj-paged-loop-pager a.l {
   border-right: 0px solid #e3e3e3;
 }
-.slide_pager a:hover {
+.rj-paged-loop-pager a:hover {
   background: #e3e3e3;
   color: #000000;
 }
-.slide_bu_che {
+.rj-paged-loop-current {
   background: #e3e3e3;
   color: #000000;
   padding: 0px 5px 0px 5px;
