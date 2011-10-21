@@ -26,7 +26,7 @@
                                 </t:parameter>
                             </t:if>
                         </t:pageLink>
-                        <t:pageLink t:page="catalog" t:context="productContext">${oneProduct.name}</t:pageLink>
+                        <t:pageLink t:page="catalog" t:context="productContext" class="description">${oneProduct.name}</t:pageLink>
                     </li>
                 </t:mallComponents.control.pagedLoop>
             </ul>
