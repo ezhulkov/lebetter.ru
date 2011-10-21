@@ -41,6 +41,11 @@ input, select, textarea {
   margin: 0px auto;
   width: 980px;
 }
+.syserror{
+    width: 100%;
+    text-align: center;
+    padding-top: 50px;
+}
 .break {
   clear: both;
 }

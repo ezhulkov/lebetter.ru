@@ -5,18 +5,24 @@
     <t:zone id="blankZone"></t:zone>
 
     <t:block id="notfounddefault">
-        <div id="notfound" class="syserror">Такой объект не найден в базе данных</div>
+        <div class="syserror">
+            <h1>404 - страница не найдена</h1>
+            <p>Такой объект не найден в базе данных.</p>
+        </div>
     </t:block>
 
     <t:block id="notgranteddefault">
-        <div id="notgranted" class="syserror">
-            К сожалению, у Вас нет прав для просмотра этого объекта.
-            Обратитесь к администратору <a href="mailto:master@lebetter.ru">master@lebetter.ru</a>
+        <div class="syserror">
+            <h1>К сожалению, у Вас нет прав для просмотра этого объекта</h1>
+            <p>Обратитесь к администратору <a href="mailto:master@lebetter.ru">master@lebetter.ru</a></p>
         </div>
     </t:block>
 
     <t:block id="deleteddefault">
-        <div id="deleted" class="syserror">Объект удален из базы данных</div>
+        <div class="syserror">
+            <h1>404 - страница не найдена</h1>
+            <p>Объект был удален или заблокирован.</p>
+        </div>
     </t:block>
 
 </span>
