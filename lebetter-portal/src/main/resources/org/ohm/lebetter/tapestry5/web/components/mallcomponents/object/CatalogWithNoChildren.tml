@@ -13,8 +13,13 @@
                                                         value="oneProduct">
                     <li>
                         <t:pageLink t:page="catalog" t:context="productContext">
-                            <t:if test="productPhoto.imageReady">
-                                <img src="${imageURL}" alt="${oneProduct.name}" title="${oneProduct.name}"/>
+                            <t:if test="productPhoto">
+                                <t:if test="productPhoto.imageReady">
+                                    <img src="${imageURL}" alt="${oneProduct.name}" title="${oneProduct.name}"/>
+                                    <t:parameter name="else">
+                                        <img src="/images/lb-front/def/nopic4.gif" alt="${oneProduct.name}" title="${oneProduct.name}"/>
+                                    </t:parameter>
+                                </t:if>
                                 <t:parameter name="else">
                                     <img src="/images/lb-front/def/nopic4.gif" alt="${oneProduct.name}" title="${oneProduct.name}"/>
                                 </t:parameter>
