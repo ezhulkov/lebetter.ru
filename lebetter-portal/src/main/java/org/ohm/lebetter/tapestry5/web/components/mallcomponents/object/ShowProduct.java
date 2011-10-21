@@ -44,13 +44,11 @@ public class ShowProduct extends AbstractBaseComponent {
     }
 
     public String getMediumImageUrl() {
-        return getServiceFacade().getDataManager().getDataFullURL(selectedProduct,
-                                                                  DataManager.FileNames.SMALL_PHOTO);
+        return getServiceFacade().getDataManager().getDataFullURL(onePhoto, DataManager.FileNames.SMALL_PHOTO);
     }
 
     public String getBigImageUrl() {
-        return getServiceFacade().getDataManager().getDataFullURL(selectedProduct,
-                                                                  DataManager.FileNames.MEDIUM_PHOTO);
+        return getServiceFacade().getDataManager().getDataFullURL(onePhoto, DataManager.FileNames.MEDIUM_PHOTO);
     }
 
 }

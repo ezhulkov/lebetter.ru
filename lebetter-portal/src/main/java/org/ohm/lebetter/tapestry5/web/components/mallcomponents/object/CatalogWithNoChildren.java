@@ -42,8 +42,7 @@ public class CatalogWithNoChildren extends AbstractBaseComponent {
     }
 
     public String getImageUrl() {
-        return getServiceFacade().getDataManager().getDataFullURL(getProductPhoto(),
-                                                                  FileNames.SMALL_AVATAR_FILE);
+        return getServiceFacade().getDataManager().getDataFullURL(getProductPhoto(), FileNames.SMALL_AVATAR_FILE);
     }
 
 }
