@@ -1221,4 +1221,49 @@
         </addColumn>
     </changeSet>
 
+    <changeSet id="1.0.0-40" author="ezhulkov">
+        <sql>
+            drop rule app_product_add_to_imagestatus on app_product;
+            drop rule app_product_remove_from_imagestatus on app_product;
+        </sql>
+        <sql>
+            create table public.app_product_photo (
+              id int8 not null,
+              objectdeleted bool default false,
+              objectstatus int4 not null default 0,
+              searchstatus int4 default 0,
+              creator_id int8,
+              rootid int8,
+              rootobject bool default false,
+              language_id int8,
+              deletiondate timestamptz,
+              remover_id int8,
+              name varchar(64),
+              imageurl varchar(128),
+              product_id int8,
+              entitycode varchar(16) default 'ProductPhoto',
+              createddate timestamptz default now(),
+              main bool default false,
+              source_url varchar(512),
+              primary key (id),
+              constraint app_prod_photo_p_fk foreign key (product_id) references app_product(id) on delete cascade,
+              constraint app_prod_photo_c_fk foreign key (creator_id) references app_user(id) on delete cascade
+            );
+            create index app_product_photo_creator_id_idx on public.app_product_photo (creator_id);
+            create index app_product_photo_ec_idx on public.app_product_photo (entitycode);
+            create index app_product_photo_idx1 on public.app_product_photo (id, objectdeleted, objectstatus, rootobject);
+            create index app_product_photo_idx2 on public.app_product_photo (source_url);
+            create index app_product_photo_product_id_idx on public.app_product_photo (product_id);
+        </sql>
+        <sql>
+            CREATE RULE app_product_photo_add_to_imagestatus AS ON INSERT TO app_product_photo WHERE NEW.rootobject=true
+            DO ALSO
+            INSERT INTO app_image_status(object_id,object_code,image_status) values(NEW.id,'ProductPhoto',0);
+            CREATE RULE app_product_photo_remove_from_imagestatus AS ON DELETE TO app_product_photo WHERE OLD.rootobject=true
+            DO ALSO
+            DELETE FROM app_image_status where object_id=OLD.rootid and object_code='product';
+            insert into app_image_status(object_id,object_code,image_status) select id,'ProductPhoto',0 from app_product_photo;
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>
