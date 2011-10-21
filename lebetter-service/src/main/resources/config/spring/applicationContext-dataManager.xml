@@ -20,19 +20,4 @@
         </property>
     </bean>
 
-    <util:list id="productPhotoResizeData">
-        <bean class="org.ohm.lebetter.spring.service.impl.imaging.ImageResizeData">
-            <constructor-arg index="0"
-                             value="BIG_PRODUCT_PHOTO_FILE;575x390;false;INSCRIBED"/>
-        </bean>
-        <bean class="org.ohm.lebetter.spring.service.impl.imaging.ImageResizeData">
-            <constructor-arg index="0"
-                             value="MEDIUM_PRODUCT_PHOTO_FILE;400x275;false;INSCRIBED"/>
-        </bean>
-        <bean class="org.ohm.lebetter.spring.service.impl.imaging.ImageResizeData">
-            <constructor-arg index="0"
-                             value="SMALL_PRODUCT_PHOTO_FILE;190x130;false;INSCRIBED"/>
-        </bean>
-    </util:list>
-
 </beans>

@@ -93,12 +93,18 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.ohm.lebetter</groupId>
-            <artifactId>lebetter-model</artifactId>
+            <groupId>org.room13.mallcore</groupId>
+            <artifactId>mallcore-service</artifactId>
         </dependency>
         <dependency>
             <groupId>org.room13.mallcore</groupId>
-            <artifactId>mallcore-service</artifactId>
+            <artifactId>mallcore-filehandler</artifactId>
+            <classifier>binaries</classifier>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.ohm.lebetter</groupId>
+            <artifactId>lebetter-model</artifactId>
         </dependency>
         <dependency>
             <groupId>org.ohm.lebetter</groupId>
