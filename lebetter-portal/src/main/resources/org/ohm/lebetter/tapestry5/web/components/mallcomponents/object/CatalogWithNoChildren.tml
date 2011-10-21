@@ -1,0 +1,43 @@
+﻿<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+    <h1>
+        ${selectedCategory.name}
+        <!--<noindex>--><a id="fcat" class="but_lnk" style="float:right;" href="http://www.adobe.com/jp/events/cs3_web_edition_tour/swfs/perform.swf"><img src="/images/0.gif" alt=" "/>Журнал</a><!--</noindex>-->
+    </h1>
+
+    <div class="prod_cat_box2">
+        <t:if test="products">
+
+            <ul class="prod_cat_grid2">
+                <t:mallComponents.control.pagedLoop source="products"
+                                                    rowsPerPage="16"
+                                                    value="oneProduct">
+                    <li class="banner">
+                        <t:pageLink t:page="catalog" t:context="productContext">
+                            <t:if test="productPhoto">
+                                <t:if test="productPhoto.imageReady">
+                                    <img src="${imageURL}" alt="${oneProduct.name}" title="${oneProduct.name}"/>
+                                    <t:parameter name="else">
+                                        <img src="/images/lb-front/def/nopic4.gif" alt="${oneProduct.name}" title="${oneProduct.name}"/>
+                                    </t:parameter>
+                                </t:if>
+                                <t:parameter name="else">
+                                    <img src="/images/lb-front/def/nopic4.gif" alt="${oneProduct.name}" title="${oneProduct.name}"/>
+                                </t:parameter>
+                            </t:if>
+                        </t:pageLink>
+                        <t:pageLink t:page="catalog" t:context="productContext" class="description">${oneProduct.name}</t:pageLink>
+                    </li>
+                </t:mallComponents.control.pagedLoop>
+            </ul>
+
+        </t:if>
+    </div>
+
+    <t:mallComponents.control.javascript>
+        LB.colorCell("#menu${selectedCategory.rootId}");
+        LB.gridManipulation();
+        LB.bannerPutEffect();
+    </t:mallComponents.control.javascript>
+
+</div>
