@@ -46,7 +46,18 @@
             </t:parameter>
             <t:parameter name="photoCell">
                 <t:pageLink t:page="po/catalog" t:context="oneProduct.rootId">
-                    <img src="/images/lb-front/def/nopic2.gif"/></t:pageLink>
+                    <t:if test="productPhoto">
+                        <t:if test="productPhoto.imageReady">
+                            <img src="${imageURL}" alt="${oneProduct.name}" title="${oneProduct.name}"/>
+                            <t:parameter name="else">
+                                <img src="/images/lb-front/def/nopic4.gif" alt="${oneProduct.name}" title="${oneProduct.name}"/>
+                            </t:parameter>
+                        </t:if>
+                        <t:parameter name="else">
+                            <img src="/images/lb-front/def/nopic4.gif" alt="${oneProduct.name}" title="${oneProduct.name}"/>
+                        </t:parameter>
+                    </t:if>
+                </t:pageLink>
             </t:parameter>
             <t:parameter name="categoryCell">
                 <t:if test="productCategory">
