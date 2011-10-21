@@ -10,10 +10,10 @@
         </t:parameter>
     </t:if>
     <!-- Product Categories Grid -->
-    <t:if test="selectedCategory.children">
+    <t:if test="categories">
         <div class="prod_cat_box">
             <ul class="prod_cat_grid">
-                <t:loop t:formState="NONE" source="selectedCategory.children" value="oneSubCategory">
+                <t:loop t:formState="NONE" source="categories" value="oneSubCategory">
                     <li>
                         <t:pageLink t:page="catalog" t:context="oneSubCategory.rootId">
                             <t:if test="oneSubCategory.imageReady">
