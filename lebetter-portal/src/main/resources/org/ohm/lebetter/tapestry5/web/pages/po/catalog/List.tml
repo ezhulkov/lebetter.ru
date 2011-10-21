@@ -25,7 +25,7 @@
 
         <h1>Каталог</h1>
 
-        <t:mallComponents.object.productFilter category="selectedCategory"/>
+        <t:mallComponents.object.product.productFilter category="selectedCategory"/>
 
         <t:grid pagerPosition="bottom" rowsPerPage="20" id="datagrid" source="products" row="oneProduct"
                 include="name,objectStatus,price,stockStatus" add="photo,category" reorder="photo,name,category,price,stockStatus,objectStatus">

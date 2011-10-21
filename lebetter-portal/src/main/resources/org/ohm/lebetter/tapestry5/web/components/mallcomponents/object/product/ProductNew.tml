@@ -28,7 +28,7 @@
                 <t:label for="articul"/>
                 :
             </div>
-            <input t:id="name" id="articul" class="form_input"/>
+            <input t:id="articul" id="articul" class="form_input"/>
         </div>
 
         <div class="input_box">

@@ -56,11 +56,11 @@
             </t:zone>
 
             <t:block t:id="descBlock">
-                <t:mallcomponents.object.productEdit object="selectedProduct" office="officeLayout"/>
+                <t:mallcomponents.object.product.productEdit object="selectedProduct" office="officeLayout"/>
             </t:block>
 
             <t:block t:id="picsBlock">
-                <!--<t:mallcomponents.object.dealerEdit object="selectedDealer"/>-->
+                <t:mallcomponents.object.product.productPhoto object="selectedProduct" office="officeLayout" ajaxBlock="picsBlock"/>
             </t:block>
 
             <t:block t:id="adminBlock">

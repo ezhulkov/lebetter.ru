@@ -1,4 +1,13 @@
 LB = {
+    submitPhotoDelete: function(block, deleteLink) {
+        var dels = "";
+        jQuery(block + " .ch-msg:checked").each(function() {
+            dels += jQuery(this).attr("name") + "-";
+        });
+        var param = LB.tapestry.encodeURIComponentForTapestry(dels);
+        var link = deleteLink.replace("PARAM", param);
+        LB.tapestry.triggerLink("proxyListAjax", link);
+    },
     initializeMap: function(lat, lng, zoom, title, events) {
         var map;
         var marker;
@@ -236,6 +245,26 @@ LB = {
         submitZoneForm : function(elementId) {
             var element = $(elementId);
             element.fire(Tapestry.FORM_PROCESS_SUBMIT_EVENT);
+        },
+        encodeURIComponentForTapestry : function(uri) {
+            var VALID_T5_CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890-_.:".split("");
+            if (uri == null) {
+                return "$N";
+            }
+            if (uri.length == 0) {
+                return "$B";
+            }
+            var result = "";
+            for (i = 0; i < uri.length; i++) {
+                var c = uri.charAt(i);
+                if (VALID_T5_CHARS.indexOf(c) > -1) {
+                    result += c;
+                }
+                else {
+                    result += "$00" + uri.charCodeAt(i).toString(16);
+                }
+            }
+            return result;
         },
         triggerLink : function(elementId, url) {
             var pElementId = jQuery("a[id^='" + elementId + "']").attr("id");

@@ -21,7 +21,7 @@
 
         <t:mallcomponents.control.grantCheck roles="ROLE_STAFF">
             <h1>Создать товар</h1>
-            <t:mallcomponents.object.productNew/>
+            <t:mallcomponents.object.product.productNew/>
         </t:mallcomponents.control.grantCheck>
 
     </t:mallcomponents.layout.office>

@@ -1,0 +1,111 @@
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="prodphotolist">
+
+    <t:zone id="listZone">
+        <t:delegate to="listBlock"/>
+    </t:zone>
+
+    <t:block t:id="listBlock">
+
+        <t:mallComponents.control.ie9CompatibleActionLink t:id="proxyListAjax" t:zone="listZone"/>
+
+        <t:if test="photos">
+            <t:mallComponents.control.menuLink action="EDIT_PRODUCT" object="product">
+                <img src="/images/but/c-del.png" id="delbtn" alt="${message:delbtn}" class="photo_del_btn"
+                     title="Удалить выбранные" onclick="LB.submitPhotoDelete('#datagrid','${deleteLink}')"/>
+            </t:mallComponents.control.menuLink>
+        </t:if>
+
+        <t:grid id="datagrid"
+                source="photos"
+                row="onePhoto"
+                include="name,main"
+                add="checkbox,photo"
+                reorder="checkbox,photo,name,main">
+
+            <t:parameter name="checkboxHeader">
+                <input type="checkbox" id="ks_sel_all"/>
+            </t:parameter>
+            <t:parameter name="photoHeader">Фото</t:parameter>
+            <t:parameter name="nameHeader">
+                Название
+            </t:parameter>
+            <t:parameter name="mainHeader">
+                Главная
+            </t:parameter>
+            <t:parameter name="checkboxCell">
+                <t:mallComponents.control.menuLink action="EDIT_PRODUCT" object="product">
+                    <input class="ch-msg" type="checkbox" name="${onePhoto.rootid}"/>
+                </t:mallComponents.control.menuLink>
+            </t:parameter>
+            <t:parameter name="photoCell">
+                <t:if test="onePhoto.imageReady">
+                    <img src="${imageUrl}" alt="${onePhoto.name}" title="${onePhoto.name}"/>
+                    <t:parameter name="else">
+                        <img src="/images/lb-front/def/nopic2.gif" alt="${onePhoto.name}" title="${onePhoto.name}"/>
+                    </t:parameter>
+                </t:if>
+            </t:parameter>
+            <t:parameter name="nameCell">
+                <t:form t:id="inlineForm" t:zone="listZone" t:context="${onePhoto.id}">
+                    <span>
+                        <t:if test="onePhoto.name">
+                            <a href="#" onclick="return false;" id="ks_${onePhoto.id}" pid="${onePhoto.id}" class="ks_inline_link" title="Нажмите, чтобы изменить">${onePhoto.name}</a>
+
+                            <div class="ks_inline_edit display_none" pid="${onePhoto.id}">
+                                <input type="text" name="KS-${onePhoto.id}" class="ks_inline_input form_input" value="${onePhoto.name}"/>
+                                <input type="submit" class="form_but" value="Сохранить"/>
+                            </div>
+                        </t:if>
+                        <t:unless test="onePhoto.name">
+                            <a href="#" onclick="return false;" id="ks2_${onePhoto.id}" pid="${onePhoto.id}" class="ks_inline_link" title="Нажмите, чтобы изменить">Нет названия</a>
+
+                            <div class="ks_inline_edit display_none" pid="${onePhoto.id}">
+                                <input type="text" name="KS-${onePhoto.id}" class="ks_inline_input form_input" value="${onePhoto.name}"/>
+                                <input type="submit" class="form_but" value="Сохранить"/>
+                            </div>
+                        </t:unless>
+                    </span>
+                </t:form>
+            </t:parameter>
+            <t:parameter name="mainCell">
+                <t:if test="onePhoto.main">Главная фотография</t:if>
+                <t:unless test="onePhoto.main">
+                    <t:mallComponents.control.ie9CompatibleActionLink t:id="setMainAjax"
+                                                                      t:context="onePhoto.id"
+                                                                      t:zone="listZone"
+                                                                      title="Нажмите, чтобы установить">
+                        Сделать главной
+                    </t:mallComponents.control.ie9CompatibleActionLink>
+                </t:unless>
+            </t:parameter>
+            <t:parameter name="empty">
+                <p class="nomsg">${message:empty.list}</p>
+            </t:parameter>
+        </t:grid>
+
+        <script language="JavaScript" type="text/javascript">
+
+            jQuery("#delbtn").appendTo("#datagrid th.t-last");
+
+            all_che = jQuery("#datagrid .ch-msg");
+            jQuery("#ks_sel_all").live('click', function() {
+                jQuery('#ks_sel_all').is(':checked') ? all_che.attr('checked', 'checked') : all_che.removeAttr('checked');
+            });
+            all_che.live('click', function() {
+                jQuery("#datagrid .ch-msg:checked").length == all_che.length ?
+                jQuery('#ks_sel_all').attr('checked', 'checked') :
+                jQuery('#ks_sel_all').removeAttr('checked');
+            });
+
+            jQuery("a.ks_inline_link").click(function() {
+                var pid = jQuery(this).attr("pid");
+                jQuery("div.ks_inline_edit").css("display", "none");
+                jQuery("a.ks_inline_link").css("display", "inline");
+                jQuery("a[pid='" + pid + "']").css("display", "none");
+                jQuery("div[pid='" + pid + "']").css("display", "block");
+                jQuery("div[pid='" + pid + "']").find("input.ks_inline_input").focus();
+            });
+
+        </script>
+    </t:block>
+</div>

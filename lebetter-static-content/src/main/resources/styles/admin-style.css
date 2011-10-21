@@ -27,6 +27,10 @@
     font-size: 11pt;
 }
 
+#datagrid th.checkbox{
+    width: 20px;
+}
+
 #datagrid th.objectStatus,
 #datagrid th.orderStatus {
     width: 70px;
@@ -54,6 +58,10 @@
 
 #datagrid th.name {
     width: 180px;
+}
+
+#prodphotolist th.name {
+    width: 400px;
 }
 
 #datagrid td {
@@ -744,4 +752,12 @@ ul.leftmenu ul li:hover a {
 }
 .ObjectAvatarEdit_2 {
   padding: 5px 0px 0px 0px;
+}
+
+.photo_del_btn {
+    float:right;
+    padding: 1px;
+    margin-right:10px;
+    background-color: #eee;
+    cursor: pointer;
 }

@@ -1261,8 +1261,20 @@
             INSERT INTO app_image_status(object_id,object_code,image_status) values(NEW.id,'ProductPhoto',0);
             CREATE RULE app_product_photo_remove_from_imagestatus AS ON DELETE TO app_product_photo WHERE OLD.rootobject=true
             DO ALSO
-            DELETE FROM app_image_status where object_id=OLD.rootid and object_code='product';
-            insert into app_image_status(object_id,object_code,image_status) select id,'ProductPhoto',0 from app_product_photo;
+            DELETE FROM app_image_status where object_id=OLD.rootid and object_code='ProductPhoto';
+        </sql>
+    </changeSet>
+
+    <changeSet id="1.0.0-41" author="ezhulkov">
+        <sql>
+            CREATE OR REPLACE RULE app_dealer_owners_remove AS ON DELETE TO app_dealer WHERE old.rootobject = true
+            DO
+            DELETE FROM app_object_owner WHERE app_object_owner.object_id = old.id AND app_object_owner.object_code = 'Dealer';
+        </sql>
+        <sql>
+            CREATE OR REPLACE RULE app_product_owners_remove AS ON DELETE TO app_product WHERE old.rootobject = true
+            DO
+            DELETE FROM app_object_owner WHERE app_object_owner.object_id = old.id AND app_object_owner.object_code = 'Product';
         </sql>
     </changeSet>
 

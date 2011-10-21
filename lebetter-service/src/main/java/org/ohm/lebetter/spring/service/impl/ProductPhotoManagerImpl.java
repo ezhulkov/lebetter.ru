@@ -11,7 +11,6 @@ import org.ohm.lebetter.spring.service.ProductPhotoManager;
 import org.room13.mallcore.model.ImageAware;
 import org.room13.mallcore.model.impl.embedded.AnyObjectPK;
 import org.room13.mallcore.model.impl.entities.ImageStatusEntity;
-import org.room13.mallcore.spring.service.ObjectExistsException;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,27 +33,6 @@ public class ProductPhotoManagerImpl
     public void setProductPhotoDao(ProductPhotoDao productPhotoDao) {
         this.productPhotoDao = productPhotoDao;
         this.genericDao = productPhotoDao;
-    }
-
-    @Override
-    @Transactional
-    public void save(ProductPhotoEntity object, UserEntity caller) throws ObjectExistsException {
-        if (object.getImageStatus() == null) {
-            object.setImageStatus(new ImageStatusEntity());
-        }
-        if (object.getImageStatus().getId() == null) {
-            object.getImageStatus().setId(new AnyObjectPK());
-            object.getImageStatus().getId().setObjectId(object.getRootId());
-            object.getImageStatus().getId().setObjectCode(object.getEntityCode());
-        }
-        super.save(object, caller);
-    }
-
-    @Override
-    @Transactional
-    public void create(ProductPhotoEntity object, ProductPhotoEntity parent, UserEntity caller)
-            throws ObjectExistsException {
-        super.create(object, parent, caller);
     }
 
     @Override
@@ -106,7 +84,10 @@ public class ProductPhotoManagerImpl
     @Transactional
     public void setImageStatus(ProductPhotoEntity obe, ImageAware.ImageStatus imageStatus,
                                UserEntity caller) {
-        super.setImageStatus(obe, imageStatus, caller);
+        AnyObjectPK key = new AnyObjectPK(obe.getRootId(), obe.getEntityCode());
+        ImageStatusEntity status = (ImageStatusEntity) productPhotoDao.getHibernateTemplate().get(ImageStatusEntity.class, key);
+        status.setImageStatus(imageStatus);
+        productPhotoDao.getHibernateTemplate().update(status);
     }
 
     @Override
