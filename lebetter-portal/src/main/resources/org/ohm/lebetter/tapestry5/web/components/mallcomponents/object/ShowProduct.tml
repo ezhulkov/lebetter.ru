@@ -20,11 +20,11 @@
                         <t:loop t:formState="NONE" source="photos" value="onePhoto">
                             <li>
                                 <t:if test="onePhoto.imageReady">
-                                    <a class="thumb" name="leaf1" href="${bigImageURL}" title="${selectedProduct.name}" alt="${selectedProduct.name}">
-                                        <img src="${mediumImageURL}" alt="${selectedProduct.name}" title="${selectedProduct.name}"/>
+                                    <a class="thumb" name="leaf${onePhoto.rootId}" href="${mediumImageURL}" title="${selectedProduct.name}" alt="${selectedProduct.name}">
+                                        <img src="${smallImageURL}" alt="${selectedProduct.name}" title="${selectedProduct.name}"/>
                                     </a>
                                     <t:parameter name="else">
-                                        <a class="thumb" name="leaf1" href="/images/lb-front/def/nopic5.gif" title="${selectedProduct.name}" alt="${selectedProduct.name}">
+                                        <a class="thumb" name="leaf{onePhoto.rootId}" href="/images/lb-front/def/nopic5.gif" title="${selectedProduct.name}" alt="${selectedProduct.name}">
                                             <img src="/images/lb-front/def/nopic6.gif" alt="${selectedProduct.name}" title="${selectedProduct.name}"/>
                                         </a>
                                     </t:parameter>

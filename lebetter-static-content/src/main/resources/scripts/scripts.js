@@ -66,14 +66,6 @@ LB = {
         });
         /* Correct for pictures */
         jQuery(".pictures_box ul li:last-child").css("background", "none");
-        jQuery("li.banner").unbind().
-                bind("mouseenter",
-                     function() {
-                         jQuery(this).find("a.description").animate({color:"#47190A"}, 500);
-                     }).
-                bind("mouseout", function() {
-                         jQuery(this).find("a.description").animate({color:"#686868"}, 500);
-                     });
     },
     gridManipulation: function() {
         jQuery("ul.prod_cat_grid2 .t-zone div li:nth-child(5n)").addClass("row");
@@ -87,6 +79,16 @@ LB = {
                                  'transitionOut'        : 'none'
                                  //'type'				: 'iframe'
                              });
+    },
+    bannerPutEffect: function() {
+        jQuery("li.banner").unbind().
+                bind("mouseenter",
+                     function() {
+                         jQuery(this).find("a.description").animate({color:"#47190A"}, 500);
+                     }).
+                bind("mouseout", function() {
+                         jQuery(this).find("a.description").animate({color:"#686868"}, 500);
+                     });
     },
     gridCatManipulation: function() {
         jQuery("ul.prod_cat_grid li:nth-child(4n)").addClass("r_l");

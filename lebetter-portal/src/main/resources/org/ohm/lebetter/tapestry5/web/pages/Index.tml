@@ -64,6 +64,7 @@
 
     <t:mallComponents.control.javascript>
         LB.initMainPage();
+        LB.bannerPutEffect();
     </t:mallComponents.control.javascript>
 
 </t:mallcomponents.layout.layout>

@@ -12,7 +12,7 @@
                 <t:mallComponents.control.pagedLoop source="products"
                                                     rowsPerPage="16"
                                                     value="oneProduct">
-                    <li>
+                    <li class="banner">
                         <t:pageLink t:page="catalog" t:context="productContext">
                             <t:if test="productPhoto">
                                 <t:if test="productPhoto.imageReady">
@@ -37,6 +37,7 @@
     <t:mallComponents.control.javascript>
         LB.colorCell("#menu${selectedCategory.rootId}");
         LB.gridManipulation();
+        LB.bannerPutEffect();
     </t:mallComponents.control.javascript>
 
 </div>
