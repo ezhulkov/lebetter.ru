@@ -48,13 +48,19 @@
                 <t:pageLink t:page="po/catalog" t:context="oneProduct.rootId">
                     <t:if test="productPhoto">
                         <t:if test="productPhoto.imageReady">
-                            <img src="${imageURL}" alt="${oneProduct.name}" title="${oneProduct.name}"/>
+                            <t:pageLink t:page="po/catalog/list" t:context="productCategory.rootId">
+                                <img src="${imageURL}" alt="${oneProduct.name}" title="${oneProduct.name}"/>
+                            </t:pageLink>
                             <t:parameter name="else">
-                                <img src="/images/lb-front/def/nopic4.gif" alt="${oneProduct.name}" title="${oneProduct.name}"/>
+                                <t:pageLink t:page="po/catalog/list" t:context="productCategory.rootId">
+                                    <img src="/images/lb-front/def/nopic4.gif" alt="${oneProduct.name}" title="${oneProduct.name}"/>
+                                </t:pageLink>
                             </t:parameter>
                         </t:if>
                         <t:parameter name="else">
-                            <img src="/images/lb-front/def/nopic4.gif" alt="${oneProduct.name}" title="${oneProduct.name}"/>
+                            <t:pageLink t:page="po/catalog/list" t:context="productCategory.rootId">
+                                <img src="/images/lb-front/def/nopic4.gif" alt="${oneProduct.name}" title="${oneProduct.name}"/>
+                            </t:pageLink>
                         </t:parameter>
                     </t:if>
                 </t:pageLink>
