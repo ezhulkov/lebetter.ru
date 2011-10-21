@@ -1,6 +1,13 @@
 package org.ohm.lebetter.application.web.filter;
 
+import org.springframework.context.i18n.LocaleContextHolder;
+
+import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.Locale;
 
 /**
  * Created by IntelliJ IDEA.
@@ -16,4 +23,11 @@ public class ApplicationFilter extends org.room13.mallcore.application.web.filte
         addFilter("/redactor");
     }
 
+    @Override
+    protected void doFilterInternal(HttpServletRequest request,
+                                    HttpServletResponse response,
+                                    FilterChain filterChain) throws ServletException, IOException {
+        LocaleContextHolder.setLocale(new Locale("ru"));
+        super.doFilterInternal(request, response, filterChain);
+    }
 }
