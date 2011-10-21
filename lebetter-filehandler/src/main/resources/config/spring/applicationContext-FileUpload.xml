@@ -13,7 +13,7 @@
         <property name="imageUtilLayer" ref="${jms.layer}"/>
     </bean>
 
-    <bean id="productHandler" class="org.ohm.lebetter.spring.service.impl.imaging.AvatarHandler"
+    <bean id="productHandler" class="org.ohm.lebetter.spring.service.impl.imaging.ProductPhotoHandler"
           parent="abstractFileHandler"
           init-method="init">
         <property name="stretchSmallImages" value="false"/>
@@ -63,20 +63,19 @@
     </bean>
 
     <bean id="productPhotoResizeData" class="org.room13.mallcore.spring.service.impl.imaging.ImageResizeDataSet">
-        <property name="storeOriginal" value="true"/>
         <property name="imageResizeData">
             <list>
-                <bean class="org.ohm.lebetter.spring.service.impl.imaging.ImageResizeData">
-                    <constructor-arg index="0" value="XBIG_PRODUCT_PHOTO_FILE;575x390;false;INSCRIBED"/>
+                <bean class="org.room13.mallcore.spring.service.impl.imaging.ImageResizeData">
+                    <constructor-arg index="0" value="BIG_PHOTO;575x390;false;INSCRIBED"/>
                 </bean>
-                <bean class="org.ohm.lebetter.spring.service.impl.imaging.ImageResizeData">
-                    <constructor-arg index="0" value="BIG_PRODUCT_PHOTO_FILE;300x300;false;INSCRIBED"/>
+                <bean class="org.room13.mallcore.spring.service.impl.imaging.ImageResizeData">
+                    <constructor-arg index="0" value="MEDIUM_PHOTO;300x300;false;INSCRIBED"/>
                 </bean>
-                <bean class="org.ohm.lebetter.spring.service.impl.imaging.ImageResizeData">
-                    <constructor-arg index="0" value="MEDIUM_PRODUCT_PHOTO_FILE;96x96;false;INSCRIBED"/>
+                <bean class="org.room13.mallcore.spring.service.impl.imaging.ImageResizeData">
+                    <constructor-arg index="0" value="SMALL_PHOTO;96x96;false;INSCRIBED"/>
                 </bean>
-                <bean class="org.ohm.lebetter.spring.service.impl.imaging.ImageResizeData">
-                    <constructor-arg index="0" value="SMALL_PRODUCT_PHOTO_FILE;60x60;false;INSCRIBED"/>
+                <bean class="org.room13.mallcore.spring.service.impl.imaging.ImageResizeData">
+                    <constructor-arg index="0" value="XSMALL_PHOTO;60x60;false;INSCRIBED"/>
                 </bean>
             </list>
         </property>

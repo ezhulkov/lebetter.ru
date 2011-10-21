@@ -7,9 +7,11 @@ import org.apache.tapestry5.grid.GridDataSource;
 import org.ohm.lebetter.model.impl.entities.CategoryEntity;
 import org.ohm.lebetter.model.impl.entities.OrderEntity;
 import org.ohm.lebetter.model.impl.entities.ProductEntity;
+import org.ohm.lebetter.model.impl.entities.ProductPhotoEntity;
 import org.ohm.lebetter.tapestry5.web.pages.base.AdminBasePage;
 import org.ohm.lebetter.tapestry5.web.util.datasource.GenericEntityGridDS;
 import org.room13.mallcore.model.ObjectBaseEntity.Status;
+import org.room13.mallcore.spring.service.DataManager.FileNames;
 
 /**
  * Created by IntelliJ IDEA.
@@ -60,6 +62,17 @@ public class List extends AdminBasePage {
         OrderEntity order = getServiceFacade().getOrderManager().getCurrentOrder(getAuth().getUser(), true);
         getServiceFacade().getOrderManager().addOrderToProductLink(pid, order, getAuth().getUser());
         return getOfficeLayout().getBasketBlock();
+    }
+
+    public ProductPhotoEntity getProductPhoto() {
+        return getServiceFacade().getProductPhotoManager().getMainPhoto(oneProduct);
+    }
+
+    public String getImageUrl() {
+        ProductPhotoEntity photo = getProductPhoto();
+        return photo == null ?
+               null :
+               getServiceFacade().getDataManager().getDataFullURL(photo, FileNames.SMALL_PHOTO);
     }
 
 }

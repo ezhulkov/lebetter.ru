@@ -12,9 +12,6 @@ import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.corelib.components.Delegate;
 import org.apache.tapestry5.corelib.components.Loop;
 import org.apache.tapestry5.util.StringToEnumCoercion;
-import org.room13.mallcore.tapestry5.web.components.mallcomponents.control.PagedSource;
-import org.room13.mallcore.tapestry5.web.components.mallcomponents.control.Pager;
-import org.room13.mallcore.tapestry5.web.components.mallcomponents.control.PagerPosition;
 
 /**
  * Created by IntelliJ IDEA.

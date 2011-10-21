@@ -9,7 +9,7 @@ import org.ohm.lebetter.model.impl.entities.ProductPhotoEntity;
 import org.ohm.lebetter.model.impl.entities.PropertyEntity;
 import org.ohm.lebetter.model.impl.entities.PropertyValueEntity;
 import org.ohm.lebetter.tapestry5.web.components.base.AbstractBaseComponent;
-import org.room13.mallcore.spring.service.DataManager.FileNames;
+import org.room13.mallcore.spring.service.DataManager;
 
 public class ShowProduct extends AbstractBaseComponent {
 
@@ -43,14 +43,16 @@ public class ShowProduct extends AbstractBaseComponent {
         return getServiceFacade().getProductPhotoManager().getAllByProduct(selectedProduct);
     }
 
+    public String getSmallImageUrl() {
+        return getServiceFacade().getDataManager().getDataFullURL(onePhoto, DataManager.FileNames.SMALL_PHOTO);
+    }
+
     public String getMediumImageUrl() {
-        return getServiceFacade().getDataManager().getDataFullURL(selectedProduct,
-                                                                  FileNames.MEDIUM_AVATAR_FILE);
+        return getServiceFacade().getDataManager().getDataFullURL(onePhoto, DataManager.FileNames.MEDIUM_PHOTO);
     }
 
     public String getBigImageUrl() {
-        return getServiceFacade().getDataManager().getDataFullURL(selectedProduct,
-                                                                  FileNames.BIG_AVATAR_FILE);
+        return getServiceFacade().getDataManager().getDataFullURL(onePhoto, DataManager.FileNames.BIG_PHOTO);
     }
 
 }
