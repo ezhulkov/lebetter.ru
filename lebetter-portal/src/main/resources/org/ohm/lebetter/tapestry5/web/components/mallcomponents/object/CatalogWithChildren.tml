@@ -17,7 +17,7 @@
                     <li>
                         <t:pageLink t:page="catalog" t:context="oneSubCategory.rootId">
                             <t:if test="oneSubCategory.imageReady">
-                                <img src="${catImageURL}" alt="${oneSubCategory.name}" title="${oneSubCategory.name}"/>
+                                <img style="background-image: url('${catImageURL}');" src="/images/0.gif" alt="${oneSubCategory.name}" title="${oneSubCategory.name}"/>
                                 <t:parameter name="else">
                                     <img src="/images/lb-front/def/nopic2.gif" alt="${oneSubCategory.name}" title="${oneSubCategory.name}"/>
                                 </t:parameter>

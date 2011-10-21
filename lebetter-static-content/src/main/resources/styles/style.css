@@ -741,6 +741,10 @@ ul.prod_cat_grid li.r_s.r_l {
 ul.prod_cat_grid li img {
   margin: 0px 9px 0px 0px;
   float: left;
+  height: 60px;
+  width: 60px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
 }
 ul.prod_cat_grid li h3 {
   display: table-cell;
@@ -787,6 +791,8 @@ ul.prod_cat_grid2 li img {
   height: 120px;
   width: 120px;
   margin-bottom: 2px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
 }
 ul.prod_cat_grid2 li a {
   line-height: 14px;
