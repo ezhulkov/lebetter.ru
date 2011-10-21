@@ -5,8 +5,10 @@ import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
 import org.ohm.lebetter.model.impl.entities.CategoryEntity;
 import org.ohm.lebetter.model.impl.entities.ProductEntity;
+import org.ohm.lebetter.model.impl.entities.ProductPhotoEntity;
 import org.ohm.lebetter.tapestry5.web.components.base.AbstractBaseComponent;
 import org.room13.mallcore.model.ObjectBaseEntity.Status;
+import org.room13.mallcore.spring.service.DataManager.FileNames;
 
 import java.util.List;
 
@@ -33,6 +35,15 @@ public class CatalogWithNoChildren extends AbstractBaseComponent {
             cat = oneProduct.getCategories().get(0);
         }
         return new String[]{cat == null ? "" : cat.getAltId(), oneProduct.getAltId()};
+    }
+
+    public ProductPhotoEntity getProductPhoto() {
+        return getServiceFacade().getProductPhotoManager().getMainPhoto(oneProduct);
+    }
+
+    public String getImageUrl() {
+        return getServiceFacade().getDataManager().getDataFullURL(getProductPhoto(),
+                                                                  FileNames.MEDIUM_AVATAR_FILE);
     }
 
 }

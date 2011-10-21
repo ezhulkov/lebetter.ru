@@ -17,20 +17,34 @@
                 </div>
                 <div id="thumbs" class="navigation">
                     <ul class="thumbs noscript">
-                        <li>
-                            <a class="thumb" name="leaf1" href="/images/lb-front/def/nopic5.gif" title="${selectedProduct.name}" alt="${selectedProduct.name}">
-                                <img src="/images/lb-front/def/nopic6.gif" alt="${selectedProduct.name}" title="${selectedProduct.name}"/>
-                            </a>
+                        <t:loop t:formState="NONE" source="photos" value="onePhoto">
+                            <li>
+                                <t:if test="onePhoto.imageReady">
+                                    <a class="thumb" name="leaf1" href="${bigImageURL}" title="${selectedProduct.name}" alt="${selectedProduct.name}">
+                                        <img src="${mediumImageURL}" alt="${selectedProduct.name}" title="${selectedProduct.name}"/>
+                                    </a>
+                                    <t:parameter name="else">
+                                        <a class="thumb" name="leaf1" href="/images/lb-front/def/nopic5.gif" title="${selectedProduct.name}" alt="${selectedProduct.name}">
+                                            <img src="/images/lb-front/def/nopic6.gif" alt="${selectedProduct.name}" title="${selectedProduct.name}"/>
+                                        </a>
+                                    </t:parameter>
+                                </t:if>
 
-                            <div class="caption">
-                                <div class="download">
-                                    <a id="pic1" rel="bigpics_group" href="/images/lb-front/def/nopic5.gif">Увеличить изображение</a>
-                                    <script>
-                                        LB.productFancybox("a#pic1");
-                                    </script>
+                                <div class="caption">
+                                    <div class="download">
+                                        <t:if test="onePhoto.imageReady">
+                                            <a id="pic1" rel="bigpics_group" href="${bigImageURL}">Увеличить изображение</a>
+                                            <t:parameter name="else">
+                                                <a id="pic1" rel="bigpics_group" href="/images/lb-front/def/nopic5.gif">Увеличить изображение</a>
+                                            </t:parameter>
+                                        </t:if>
+                                        <script>
+                                            LB.productFancybox("a#pic1");
+                                        </script>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
+                            </li>
+                        </t:loop>
                     </ul>
                 </div>
 
@@ -54,9 +68,6 @@
                     </t:if>
                 </t:loop>
             </table>
-            <!--<div class="prod_colors">-->
-            <!--<b>Цвет:</b><a class="prod_colors_item" href=""><img style="background: #ff9000;" src="/images/0.gif" alt=""/></a><a class="prod_colors_item" href=""><img style="background: #7cada7;" src="/images/0.gif" alt=""/></a><a class="prod_colors_item" href=""><img style="background: #e9e8ca;" src="/images/0.gif" alt=""/></a><a class="prod_colors_item" href=""><img style="background: #0f1014;" src="/images/0.gif" alt=""/></a>-->
-            <!--</div>-->
             <div class="hr_mid"></div>
             <t:if test="${selectedProduct.description}">
                 <p>

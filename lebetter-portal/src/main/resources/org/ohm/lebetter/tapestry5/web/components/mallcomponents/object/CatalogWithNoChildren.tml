@@ -13,7 +13,12 @@
                                                         value="oneProduct">
                     <li>
                         <t:pageLink t:page="catalog" t:context="productContext">
-                            <img src="/images/lb-front/def/nopic4.gif" alt="${oneProduct.name}" title="${oneProduct.name}"/>
+                            <t:if test="productPhoto.imageReady">
+                                <img src="${imageURL}" alt="${oneProduct.name}" title="${oneProduct.name}"/>
+                                <t:parameter name="else">
+                                    <img src="/images/lb-front/def/nopic4.gif" alt="${oneProduct.name}" title="${oneProduct.name}"/>
+                                </t:parameter>
+                            </t:if>
                         </t:pageLink>
                         <t:pageLink t:page="catalog" t:context="productContext">${oneProduct.name}</t:pageLink>
                     </li>
@@ -22,20 +27,6 @@
         </t:if>
     </div>
     <div class="hr_big"></div>
-
-    <script language="JavaScript" type="text/javascript">
-    /*<![CDATA[*/
-	jQuery("#fcat").fancybox({
-        'width'				: '90%',
-        'height'			: '80%',
-	    'padding'           : 0,
-        'autoScale'     	: false,
-        'transitionIn'		: 'none',
-		'transitionOut'		: 'none'
-        //'type'				: 'iframe'
-	});
-    /*]]>*/
-    </script>
 
     <t:mallComponents.control.javascript>
         LB.colorCell("#menu${selectedCategory.rootId}");

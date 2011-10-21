@@ -78,7 +78,15 @@ LB = {
     gridManipulation: function() {
         jQuery("ul.prod_cat_grid2 .t-zone div li:nth-child(5n)").addClass("row");
         jQuery("div.slide_pager a").last().addClass("l");
-        //jQuery("div.slide_pager a:last-child, div.t-data-grid-pager a:last-child").addClass("l");
+        jQuery("#fcat").fancybox({
+                                 'width'                : '90%',
+                                 'height'            : '80%',
+                                 'padding'           : 0,
+                                 'autoScale'         : false,
+                                 'transitionIn'        : 'none',
+                                 'transitionOut'        : 'none'
+                                 //'type'				: 'iframe'
+                             });
     },
     gridCatManipulation: function() {
         jQuery("ul.prod_cat_grid li:nth-child(4n)").addClass("r_l");
