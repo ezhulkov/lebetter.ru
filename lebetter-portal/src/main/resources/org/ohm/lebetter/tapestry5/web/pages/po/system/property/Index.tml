@@ -14,7 +14,9 @@
                 <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
                 <a href="/po/system/property/list">Свойства</a>
                 <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
-                '${selectedProperty.name}'
+                <t:if test="selectedProperty">
+                    '${selectedProperty.name}'
+                </t:if>
             </t:block>
 
             <t:mallComponents.control.javascript>
