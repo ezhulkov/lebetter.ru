@@ -6,8 +6,8 @@ div.cont {
 	/* The display of cont is enabled using jQuery so that the slideshow cont won't display unless javascript is enabled. */
 	display: none;
 	float: left;
-    height: 303px;
-	width: 303px;
+    height: 305px;
+	width: 305px;
 }
 div.cont a, div.navigation a {
 	text-decoration: none;
@@ -33,7 +33,7 @@ div.nav-controls {
 div.slideshow-container {
 	position: relative;
 	clear: both;
-	height: 298px; /* This should be set to be at least the height of the largest image in the slideshow */
+	height: 300px; /* This should be set to be at least the height of the largest image in the slideshow */
 }
 div.loader {
 	position: absolute;
@@ -56,17 +56,20 @@ div.slideshow span.image-wrapper {
 }
 div.slideshow a.advance-link {
     border: 1px solid #e3e3e3;
-	display: block;
-	width: 298px;
-	height: 298px; /* This should be set to be at least the height of the largest image in the slideshow */
-	line-height: 298px; /* This should be set to be at least the height of the largest image in the slideshow */
+	display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+	width: 300px;
+	height: 300px; /* This should be set to be at least the height of the largest image in the slideshow */
+	line-height: 300px; /* This should be set to be at least the height of the largest image in the slideshow */
 }
 div.slideshow a.advance-link:hover, div.slideshow a.advance-link:active, div.slideshow a.advance-link:visited {
 	text-decoration: none;
 }
 div.slideshow img {
-	height: 298px;
-    width: 298px;
+    vertical-align: middle;
+	/*height: 300px;
+    width: 300px;*/
 }
 div.download {
 	/*float: right;*/
@@ -79,12 +82,17 @@ div.caption-container {
 span.image-caption {
 	display: block;
 	position: absolute;
-	width: 298px;
+	width: 300px;
 	top: 0;
 	left: 0;
 }
 div.caption {
 	padding: 5px 0px 0px 0px;
+    position: relative;
+}
+div.caption a.save {
+  position: absolute;
+  right: 0px;
 }
 div.image-title {
     display: none;
@@ -109,7 +117,7 @@ ul.thumbs {
 ul.thumbs li {
 	float: left;
 	padding: 0;
-	margin: 0px 0px 3px 0;
+	margin: 0px 0px 4px 0;
 	list-style: none;
 
 }
@@ -117,7 +125,6 @@ a.thumb {
 	padding: 0;
 	display: block;
 	border: 1px solid #e3e3e3;
-    display: block;
     line-height: 96px;
     height: 96px;
     width: 96px;

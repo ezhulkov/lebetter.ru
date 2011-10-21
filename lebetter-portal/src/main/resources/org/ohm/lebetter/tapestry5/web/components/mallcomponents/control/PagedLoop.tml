@@ -6,6 +6,9 @@
         <t:loop t:formState="NONE" t:id="loop"><t:body/></t:loop>
     </div>
     <div class='break'></div>
+
+    <div class="hr_big"></div>
+
     <div t:id="pagerBottom"/>
 
     <t:block>

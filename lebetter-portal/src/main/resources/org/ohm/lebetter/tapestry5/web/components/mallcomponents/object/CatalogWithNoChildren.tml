@@ -10,7 +10,7 @@
 
             <ul class="prod_cat_grid2">
                 <t:mallComponents.control.pagedLoop source="products"
-                                                    rowsPerPage="16"
+                                                    rowsPerPage="15"
                                                     value="oneProduct">
                     <li class="banner">
                         <t:pageLink t:page="catalog" t:context="productContext">

@@ -68,7 +68,8 @@ LB = {
         jQuery(".pictures_box ul li:last-child").css("background", "none");
     },
     gridManipulation: function() {
-        jQuery("ul.prod_cat_grid2 .t-zone div li:nth-child(5n)").addClass("row");
+     // alert("!");
+        jQuery("ul.prod_cat_grid2 li.banner:nth-child(5n)").addClass("row");
         jQuery("div.slide_pager a").last().addClass("l");
         jQuery("#fcat").fancybox({
                                  'width'                : '90%',

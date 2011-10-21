@@ -3,13 +3,18 @@
     <t:mallComponents.control.menuLink action="EDIT_PRODUCT" object="selectedObject">
 
         <div>
+
+            <div class="adm_add_box">
+              <t:mallComponents.object.multiPowImageUpload id="products"
+                                                           ticket="ticket"
+                                                           title="literal:Загрузить фотографию"
+                                                           maxFileSize="20971520"
+                                                           multipleFiles="true"/>
+            </div>
+
             <h2>Фотографии товара</h2>
 
-            <t:mallComponents.object.multiPowImageUpload id="products"
-                                                         ticket="ticket"
-                                                         title="literal:Загрузить фотографию"
-                                                         maxFileSize="20971520"
-                                                         multipleFiles="true"/>
+
 
             <t:mallComponents.object.product.productPhotoList product="selectedObject"/>
 

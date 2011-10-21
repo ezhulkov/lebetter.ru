@@ -16,6 +16,11 @@
 .adm_add_box {
     position: relative;
 }
+.adm_add_box .but_lnk2 {
+    position: absolute;
+    top: -6px;
+    right: -1px;
+}
 
 #datagrid {
     width: 100%;
@@ -755,9 +760,10 @@ ul.leftmenu ul li:hover a {
 }
 
 .photo_del_btn {
-    float:right;
     padding: 1px;
     margin-right:10px;
     background-color: #eee;
     cursor: pointer;
+    position: absolute;
+    right: 0;
 }
