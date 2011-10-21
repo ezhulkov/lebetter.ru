@@ -34,6 +34,7 @@
                                     <div class="download">
                                         <t:if test="onePhoto.imageReady">
                                             <a id="pic${onePhoto.rootId}" rel="bigpics_group" href="${bigImageURL}">Увеличить изображение</a>
+                                            <a target="_blank" href="${originalImageURL}">В отличном качестве</a>
                                             <t:parameter name="else">
                                                 <a id="pic1" rel="bigpics_group" href="/images/lb-front/def/nopic5.gif">Увеличить изображение</a>
                                             </t:parameter>
