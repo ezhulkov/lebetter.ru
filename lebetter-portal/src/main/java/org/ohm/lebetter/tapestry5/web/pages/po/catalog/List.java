@@ -72,7 +72,7 @@ public class List extends AdminBasePage {
         ProductPhotoEntity photo = getProductPhoto();
         return photo == null ?
                null :
-               getServiceFacade().getDataManager().getDataFullURL(photo, FileNames.XSMALL_PHOTO);
+               getServiceFacade().getDataManager().getDataFullURL(photo, FileNames.SMALL_PHOTO);
     }
 
 }

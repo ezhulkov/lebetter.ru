@@ -38,15 +38,10 @@
                 </t:mallComponents.control.menuLink>
             </t:parameter>
             <t:parameter name="photoCell">
-                <t:if test="onePhoto">
-                    <t:if test="onePhoto.imageReady">
-                        <img src="${imageURL}" alt="${oneProduct.name}" title="${oneProduct.name}"/>
-                        <t:parameter name="else">
-                            <img src="/images/lb-front/def/nopic4.gif" alt="${oneProduct.name}" title="${oneProduct.name}"/>
-                        </t:parameter>
-                    </t:if>
+                <t:if test="onePhoto.imageReady">
+                    <img src="${imageURL}" alt="${product.name}" title="${product.name}"/>
                     <t:parameter name="else">
-                        <img src="/images/lb-front/def/nopic4.gif" alt="${oneProduct.name}" title="${oneProduct.name}"/>
+                        <img src="/images/lb-front/def/nopic4.gif" alt="${product.name}" title="${product.name}"/>
                     </t:parameter>
                 </t:if>
             </t:parameter>
