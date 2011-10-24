@@ -120,6 +120,11 @@ LB = {
                                 'titleShow'     : false
                             });
     },
+    productValFancybox: function(ob) {
+        jQuery(ob).fancybox({
+                                'titleShow'     : false
+                            });
+    },
     galleryItem: function() {
 
         // We only want these styles applied when javascript is enabled
