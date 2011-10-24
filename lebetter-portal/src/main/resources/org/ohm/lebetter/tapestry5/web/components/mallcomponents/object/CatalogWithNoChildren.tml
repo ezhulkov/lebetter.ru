@@ -28,6 +28,9 @@
                         </t:pageLink>
                         <t:pageLink t:page="catalog" t:context="productContext" class="description">${oneProduct.name}</t:pageLink>
                     </li>
+                    <t:parameter name="empty">
+                        <h3>Раздел в стадии наполнения</h3>
+                    </t:parameter>
                 </t:mallComponents.control.pagedLoop>
             </ul>
 
