@@ -60,4 +60,8 @@ public class ShowProduct extends AbstractBaseComponent {
         return getServiceFacade().getDataManager().getDataFullURL(onePhoto, FileNames.ORIGINAL_FILE) + ".jpg";
     }
 
+    public String getoneValPicURL() {
+        return getServiceFacade().getDataManager().getDataFullURL(oneValue, FileNames.SMALL_AVATAR_FILE);
+    }
+
 }

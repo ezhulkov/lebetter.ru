@@ -33,6 +33,15 @@
         <property name="jpegQuality" value="1.0"/>
     </bean>
 
+    <bean id="valavatarHandler" class="org.room13.mallcore.spring.service.impl.AvatarHandler"
+          parent="abstractFileHandler"
+          init-method="init">
+        <property name="maxFileSize" value="1048576"/>
+        <property name="fileExt" value="jpeg,jpg,png"/>
+        <property name="imageResizeData" ref="valAvatarResizeData"/>
+        <property name="jpegQuality" value="1.0"/>
+    </bean>
+
     <bean id="catbigavatarHandler" class="org.room13.mallcore.spring.service.impl.AvatarHandler"
           parent="abstractFileHandler"
           init-method="init">
@@ -57,6 +66,17 @@
             <list>
                 <bean class="org.room13.mallcore.spring.service.impl.imaging.ImageResizeData">
                     <constructor-arg index="0" value="BIG_AVATAR_FILE;150x150;true;INSCRIBED"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="valAvatarResizeData" class="org.room13.mallcore.spring.service.impl.imaging.ImageResizeDataSet">
+        <property name="storeOriginal" value="true"/>
+        <property name="imageResizeData">
+            <list>
+                <bean class="org.room13.mallcore.spring.service.impl.imaging.ImageResizeData">
+                    <constructor-arg index="0" value="SMALL_AVATAR_FILE;130x40;true;INSCRIBED"/>
                 </bean>
             </list>
         </property>
