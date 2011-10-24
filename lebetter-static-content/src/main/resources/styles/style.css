@@ -256,11 +256,9 @@ ul#topnav li.u:hover a,
 ul#topnav li.u a:hover {
     background: #eeeeee url(/images/bul1.gif) no-repeat 100% 23px;
 }
-ul#topnav li.f a:hover {
-    padding: 12px 37px 13px 38px;
-}
-ul#topnav li.f a {
-    padding: 12px 38px 13px 39px;
+ul#topnav li.lst a {
+    width: 99px;
+    text-align: center;
 }
 ul#topnav li a:hover {
     background: #eeeeee;
