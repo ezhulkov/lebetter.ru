@@ -164,7 +164,7 @@ input, select, textarea {
 .head_lnk {
   display: block;
   float: right;
-  margin: 67px 100px 0px 0px;
+  margin: 67px 30px 0px 0px;
   padding: 0px 0px 0px 16px;
   height: 16px;
   line-height: 16px;
@@ -176,7 +176,7 @@ input, select, textarea {
   display: block;
   float: right;
   background: url(/images/ico/lock.gif) no-repeat 0px 0px;
-  margin: 67px 100px 0px 0px;
+  margin: 67px 30px 0px 0px;
   padding: 0px 0px 0px 16px;
   height: 16px;
   line-height: 16px;
