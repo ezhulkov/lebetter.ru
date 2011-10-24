@@ -207,25 +207,33 @@ input, select, textarea {
 }
 
 /* TopMenu */
+/* default version
 .topmenu {
   background: url(/images/bg1.gif) repeat-x 0px 0px;
   height: 47px;
 }
+*/
+.topmenu {
+  background: #000000;
+  height: 47px;
+}
+
 /*TopMenu : 1st level */
 ul#topnav {
     margin: 0;
     padding: 0;
     float: left;
-    width: 100%;
+    /*width: 875px; *//*width: 100%;*/
     list-style: none;
     font-size: 16px;
-    padding-left: 30px;
+    /*padding-left: 30px;*/
 }
 
 ul#topnav li {
     float: left;
     margin: 0;
     padding: 0;
+    background: url(/images/bg1.gif) repeat-x 0px 0px; /* newoption */
     position: relative; /*--Important--*/
 }
 
@@ -233,7 +241,7 @@ ul#topnav li a {
     float: left;
     color: #ffffff;
     text-decoration: none;
-    padding: 12px 31px 13px 31px;
+    padding: 12px 36px 13px 38px;
     line-height: 22px; /*-- IE9 fix --*/
     background: url(/images/hr1.gif) no-repeat 0px 0px;
     /*text-indent: -9999px;*/
@@ -248,18 +256,23 @@ ul#topnav li.u:hover a,
 ul#topnav li.u a:hover {
     background: #eeeeee url(/images/bul1.gif) no-repeat 100% 23px;
 }
-
+ul#topnav li.f a:hover {
+    padding: 12px 37px 13px 38px;
+}
+ul#topnav li.f a {
+    padding: 12px 38px 13px 39px;
+}
 ul#topnav li a:hover {
     background: #eeeeee;
     border: 1px solid #cccccc;
     color: #171717;
-    padding: 11px 30px 12px 30px;
+    padding: 11px 35px 12px 37px;
 }
 
 ul#topnav li:hover a {
     border: 1px solid #cccccc;
     color: #171717;
-    padding: 11px 30px 12px 30px;
+    padding: 11px 35px 12px 37px;
 }
 
 /*TopMenu : 2st level */
@@ -299,7 +312,7 @@ ul#topnav li .sub ul {
 
 ul#topnav .sub ul li {
     width: 100%; /*--Override parent list item--*/
-    color: #47190a;
+    color: #232323;
     background: url(/images/hr8.gif) no-repeat 0px 100%;
     font-size: 14px;
 
@@ -321,7 +334,7 @@ ul#topnav .sub ul li a {
     display: block;
     background: none;
     text-decoration: none;
-    color: #47190a;
+    color: #232323;
     border: 0px solid;
     font-size: 14px;
     /*white-space: nowrap;*/
@@ -378,7 +391,7 @@ ul#topnav li.u .sub ul li:hover li a,
 ul#topnav .sub ul li:hover li a,
 ul#topnav li.u .sub ul li a:hover li a,
 ul#topnav .sub ul li a:hover li a {
-    color: #47190A;
+    color: #232323;
     background: none; /*--Override background position--*/
 }
 ul#topnav li.u .sub ul li:hover li a:hover,
@@ -436,7 +449,7 @@ ul#topnav .sub ul li a:hover li a:hover {
 
 }
 .pictures_box ul li {
-  background: transparent url(/images/hr2.png) no-repeat 100% 0px;
+  background: transparent url(/images/hr2.png) no-repeat 96% 0px;
   height: 105px;
   width: 280px;
   float: left;
@@ -457,7 +470,8 @@ ul#topnav .sub ul li a:hover li a:hover {
 .pictures_box h3 {
   font-size: 18px;
   line-height: 18px;
-  color: #47190a;
+  font-weight: normal;
+  color: #232323;
   text-decoration: none;
   padding-top: 6px;
   padding-bottom: 6px;
@@ -526,7 +540,7 @@ ul.leftmenu ul li {
 }*/
 ul.leftmenu ul li a {
   font-size: 12px;
-  color: #47190a;
+  color: #232323;
   padding: 3px 9px 5px 10px;
   width: 160px;
   border-bottom: 0px solid #d2d2d2;
@@ -571,17 +585,17 @@ ul.leftmenu ul ul li a:hover {
 .status a {
   padding: 0px 0px 0px 0px;
   font-weight: normal;
-  color: #47190a;
+  color: #232323;
 }
 .status_home img {
   background: url(/images/ico/home.gif) no-repeat 0px 3px;
   height: 15px;
   width: 11px;
   display: inline;
-  border-bottom: 1px solid #47190a;
+  border-bottom: 1px solid #232323;
 }
 .status_home:hover img {
-  border-bottom: 0px solid #47190a;
+  border-bottom: 0px solid #232323;
 }
 .status_hr img {
   background: url(/images/hr3.gif) no-repeat 10px 7px;
@@ -984,7 +998,7 @@ ul {
 
 
 a {
-  color: #47190a;
+  color: #232323;
   outline: none;
 }
 a:hover {
