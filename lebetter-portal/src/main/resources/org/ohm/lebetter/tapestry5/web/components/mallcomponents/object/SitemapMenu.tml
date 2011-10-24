@@ -1,0 +1,5 @@
+<ul xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" class="leftmenu">
+    <li>
+        <t:pageLink t:page="sitemap">Карта сайта</t:pageLink>
+    </li>
+</ul>

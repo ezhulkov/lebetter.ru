@@ -1,8 +1,68 @@
 <t:mallcomponents.layout.layout title="Lebetter.ru - Карта сайта"
-                                bodyId="sitemap"
+                                bodyId="quality"
                                 flash="flashMessage"
                                 xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
-       Карта сайта
+    <t:block t:id="breadCrumpsBlock">
+        <a class="status_home" href="/"><img src="/images/0.gif" alt=""/></a>
+        <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+        Карта сайта
+    </t:block>
+
+    <t:block t:id="leftMenuBlock">
+        <t:mallcomponents.object.sitemapMenu/>
+    </t:block>
+
+    <t:mallcomponents.layout.browse leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
+
+        <table>
+            <tr>
+                <td style="width:300px;">
+                    <h3>О нас</h3>
+                    <ul>
+                        <li>
+                            <t:pageLink t:page="manufacture">Фабрика</t:pageLink>
+                        </li>
+                        <li>
+                            <t:pageLink t:page="about">О представительстве</t:pageLink>
+                        </li>
+                        <li>
+                            <t:pageLink t:page="contacts">Контакты</t:pageLink>
+                        </li>
+                    </ul>
+                    <h3>Где купить</h3>
+                    <ul>
+                        <li>
+                            <t:pageLink t:page="dealer/list">Дилеры</t:pageLink>
+                        </li>
+                        <li>
+                            <t:pageLink t:page="partners">Партнерам</t:pageLink>
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <h3>Каталог</h3>
+                    <ul>
+                        <t:loop t:formState="NONE" source="categories" value="oneCategory">
+                            <li>
+                                <t:pageLink t:page="catalog" t:context="oneCategory.altId">${oneCategory.name}</t:pageLink>
+                                <t:if test="oneCategory.children">
+                                    <ul>
+                                        <t:loop t:formState="NONE" source="oneCategory.children" value="oneSubCategory">
+                                            <li>
+                                                <t:pageLink t:page="catalog" t:context="oneSubCategory.altId">${oneSubCategory.name}</t:pageLink>
+                                            </li>
+                                        </t:loop>
+                                    </ul>
+                                </t:if>
+                            </li>
+                        </t:loop>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+
+
+    </t:mallcomponents.layout.browse>
 
 </t:mallcomponents.layout.layout>
