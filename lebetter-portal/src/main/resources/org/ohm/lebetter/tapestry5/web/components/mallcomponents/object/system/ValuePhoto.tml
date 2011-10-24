@@ -5,7 +5,7 @@
                 avatarManager="serviceFacade.propertyValueManager"
                 object="selectedObject"
                 title="literal:Загрузить фотографию"
-                imageToShow="literal:value.jpg"
+                imageToShow="literal:small_avatar.jpg"
                 handler="${literal:valavatar}"
                 allowedExt="*.jpg;*.jpeg;*.png;"/>
 
