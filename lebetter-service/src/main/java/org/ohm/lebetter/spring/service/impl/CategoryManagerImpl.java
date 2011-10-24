@@ -21,7 +21,6 @@ import org.ohm.lebetter.spring.service.ServiceManager;
 import org.room13.mallcore.annotations.Permission;
 import org.room13.mallcore.annotations.PermissionsCheckType;
 import org.room13.mallcore.model.ImageAware;
-import org.room13.mallcore.model.ImageAware.ImageStatus;
 import org.room13.mallcore.model.ObjectBaseEntity;
 import org.room13.mallcore.model.impl.embedded.AnyObjectPK;
 import org.room13.mallcore.model.impl.entities.ImageStatusEntity;
@@ -281,6 +280,8 @@ public class CategoryManagerImpl
             val.setAdditionalDictInfo(tag.getPropertyValue().getAdditionalDictInfo());
             val.setId(tag.getPropertyValue().getId());
             val.setRootId(tag.getPropertyValue().getRootId());
+            val.setCode(tag.getPropertyValue().getCode());
+            val.setImageStatus(tag.getPropertyValue().getImageStatus());
             if (tag.getPropertyValue().getRelation() != null) {
                 val.getRelation().setObjectId(tag.getPropertyValue().getRelation().getObjectId());
                 val.getRelation().setObjectType(tag.getPropertyValue().getRelation().getObjectType());
@@ -480,11 +481,6 @@ public class CategoryManagerImpl
                         }
                     }
                     if (!exists) {
-                        ImageStatus is = getServiceManager().getPropertyValueManager().getImageStatus(val, null);
-                        ImageStatusEntity ise = new ImageStatusEntity();
-                        ise.setId(new AnyObjectPK(val.getRootId(), val.getEntityCode()));
-                        ise.setImageStatus(is);
-                        val.setImageStatus(ise);
                         distinctProp.getValues().add(val);
                     }
                 }

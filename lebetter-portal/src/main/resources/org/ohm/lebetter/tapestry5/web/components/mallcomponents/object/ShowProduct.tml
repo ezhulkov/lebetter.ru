@@ -61,7 +61,7 @@
                                 <t:mallComponents.control.loopMore source="values" value="oneValue" showCount="30">
                                     &#160;
                                     <t:if test="oneValue.imageReady">
-                                        <b><a class="vallnk${oneProperty.rootId}" href="#valpics${oneProperty.rootId}">${oneValue.name}</a></b>
+                                        <b><a class="vallnk${oneProperty.rootId} lnk_dotted" href="#valpics${oneProperty.rootId}" alt="${oneValue.name} ${oneValue.code}" title="${oneValue.name} ${oneValue.code}">${oneValue.name}</a></b>
                                         <t:parameter name="else">
                                             <b>${oneValue.name}</b>
                                         </t:parameter>
@@ -71,19 +71,22 @@
                                     LB.productValFancybox("a.vallnk${oneProperty.rootId}");
                                 </script>
                                 <div class="display_none">
-                                  <div id="valpics${oneProperty.rootId}">
-                                      <ul class="prod_inf_val">
+                                    <div id="valpics${oneProperty.rootId}">
+                                        <ul class="prod_inf_val">
                                           <t:loop t:formState="NONE" source="values" value="oneValue">
                                               <t:if test="oneValue.imageReady">
                                                   <li>
-                                                      <b>${oneValue.name}</b><br />
-                                                      <t:if test="oneValue.code">${oneValue.code}</t:if>
+                                                      <b>
+                                                          ${oneValue.name}
+                                                          <t:if test="oneValue.code">&#160;(${oneValue.code})</t:if>
+                                                      </b>
+                                                      <br/>
                                                       <img style="background-image: url('${oneValPicURL}');" src="/images/0.gif" alt="${oneValue.name}" title="${oneValue.name}"/>
                                                   </li>
                                               </t:if>
                                           </t:loop>
-                                      </ul>
-                                  </div>
+                                        </ul>
+                                    </div>
                                 </div>
                             </td>
                         </tr>

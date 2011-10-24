@@ -6,35 +6,31 @@
     </h1>
 
     <div class="prod_cat_box2">
-        <t:if test="products">
-
-            <ul class="prod_cat_grid2">
-                <t:mallComponents.control.pagedLoop source="products"
-                                                    rowsPerPage="15"
-                                                    value="oneProduct">
-                    <li class="banner">
-                        <t:pageLink t:page="catalog" t:context="productContext">
-                            <t:if test="productPhoto">
-                                <t:if test="productPhoto.imageReady">
-                                    <img style="background-image: url('${imageURL}');" src="/images/0.gif" alt="${oneProduct.name}" title="${oneProduct.name}"/>
-                                    <t:parameter name="else">
-                                        <img src="/images/lb-front/def/nopic4.gif" alt="${oneProduct.name}" title="${oneProduct.name}"/>
-                                    </t:parameter>
-                                </t:if>
+        <ul class="prod_cat_grid2">
+            <t:mallComponents.control.pagedLoop source="products"
+                                                rowsPerPage="15"
+                                                value="oneProduct">
+                <li class="banner">
+                    <t:pageLink t:page="catalog" t:context="productContext">
+                        <t:if test="productPhoto">
+                            <t:if test="productPhoto.imageReady">
+                                <img style="background-image: url('${imageURL}');" src="/images/0.gif" alt="${oneProduct.name}" title="${oneProduct.name}"/>
                                 <t:parameter name="else">
                                     <img src="/images/lb-front/def/nopic4.gif" alt="${oneProduct.name}" title="${oneProduct.name}"/>
                                 </t:parameter>
                             </t:if>
-                        </t:pageLink>
-                        <t:pageLink t:page="catalog" t:context="productContext" class="description">${oneProduct.name}</t:pageLink>
-                    </li>
-                    <t:parameter name="empty">
-                        <h3>Раздел в стадии наполнения</h3>
-                    </t:parameter>
-                </t:mallComponents.control.pagedLoop>
-            </ul>
-
-        </t:if>
+                            <t:parameter name="else">
+                                <img src="/images/lb-front/def/nopic4.gif" alt="${oneProduct.name}" title="${oneProduct.name}"/>
+                            </t:parameter>
+                        </t:if>
+                    </t:pageLink>
+                    <t:pageLink t:page="catalog" t:context="productContext" class="description">${oneProduct.name}</t:pageLink>
+                </li>
+                <t:parameter name="empty">
+                    <h3>Раздел в стадии наполнения</h3>
+                </t:parameter>
+            </t:mallComponents.control.pagedLoop>
+        </ul>
     </div>
 
     <t:mallComponents.control.javascript>
