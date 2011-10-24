@@ -59,6 +59,9 @@
                     </li>
                 </t:loop>
             </ul>
+            <t:parameter name="empty">
+                <h3>Раздел в стадии наполнения</h3>
+            </t:parameter>
         </t:loop>
 
     </t:mallcomponents.layout.browse>
