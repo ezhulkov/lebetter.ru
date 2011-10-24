@@ -1,8 +1,10 @@
-<t:mallcomponents.layout.layout title="literal:Ошибка сервера"
+<t:mallcomponents.layout.layout title="literal:500 - Ошибка сервера"
                                 bodyId="error"
                                 flash="flashMessage"
                                 xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
-    Ошибка сервера
+    <div class="syserror">
+        <h1>500 - ошибка сервера</h1>
+    </div>
 
 </t:mallcomponents.layout.layout>

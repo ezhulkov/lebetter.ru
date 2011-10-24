@@ -14,9 +14,11 @@
                 <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
                 <a href="/po/system/property/list">Свойства</a>
                 <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
-                <a href="/po/system/property/${selectedValue.property.id}">'${selectedValue.property.name}'</a>
-                <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
-                '${selectedValue.name}'
+                <t:if test="selectedValue">
+                    <a href="/po/system/property/${selectedValue.property.id}">'${selectedValue.property.name}'</a>
+                    <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+                    '${selectedValue.name}'
+                </t:if>
             </t:block>
 
         <t:mallComponents.control.javascript>

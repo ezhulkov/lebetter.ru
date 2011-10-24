@@ -14,7 +14,9 @@
                 <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
                 <a href="/po/system/role/list">Роли</a>
                 <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
-                '${selectedRole.name}'
+                <t:if test="selectedRole">
+                    '${selectedRole.name}'
+                </t:if>
             </t:block>
 
             <t:mallComponents.control.javascript>
