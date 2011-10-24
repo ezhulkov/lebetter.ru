@@ -64,7 +64,7 @@
                 <li>
                     <t:pageLink t:page="partners">Партнерам</t:pageLink>
                 </li>
-                <li>
+                <li class="lst">
                     <t:pageLink t:page="contacts">Контакты</t:pageLink>
                 </li>
             </ul>

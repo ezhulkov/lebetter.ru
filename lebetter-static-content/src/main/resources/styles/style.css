@@ -34,7 +34,7 @@ input, select, textarea {
   width: 100%;
   height: 100%;
 }
-.display_none{
+.display_none {
     display: none;
 }
 .centered {
@@ -256,11 +256,9 @@ ul#topnav li.u:hover a,
 ul#topnav li.u a:hover {
     background: #eeeeee url(/images/bul1.gif) no-repeat 100% 23px;
 }
-ul#topnav li.f a:hover {
-    padding: 12px 37px 13px 38px;
-}
-ul#topnav li.f a {
-    padding: 12px 38px 13px 39px;
+ul#topnav li.lst a {
+    width: 96px;
+    text-align: center;
 }
 ul#topnav li a:hover {
     background: #eeeeee;
@@ -873,6 +871,27 @@ ul.prod_cat_grid2 li a {
 .prod_item_r p {
   padding: 7px 0px 0px 0px;
 }
+.prod_inf_val {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+}
+.prod_inf_val li {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 12px 0px;
+}
+.prod_inf_val li b {
+  color: #000000;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 3px 0px;
+}
+.prod_inf_val li img {
+  height: 40px;
+  width: 130px;
+  border: 1px solid #e3e3e3;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
 
 /* Navigation */
 .rj-paged-loop-pager {
