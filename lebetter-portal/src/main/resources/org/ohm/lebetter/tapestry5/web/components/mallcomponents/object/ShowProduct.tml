@@ -72,7 +72,7 @@
                                         <t:loop t:formState="NONE" source="values" value="oneValue">
                                             <t:if test="oneValue.imageReady">
                                                 <li>
-                                                    !${oneValue.name}
+                                                    ${oneValue.name}
                                                     <t:if test="oneValue.code">${oneValue.code}</t:if>
                                                     -
                                                     <img src="${oneValPicURL}"/>

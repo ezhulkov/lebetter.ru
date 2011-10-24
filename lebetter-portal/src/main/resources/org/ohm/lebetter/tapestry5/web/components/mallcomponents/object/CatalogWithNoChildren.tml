@@ -37,7 +37,6 @@
     <t:mallComponents.control.javascript>
         LB.colorCell("#menu${selectedCategory.rootId}");
         LB.gridManipulation();
-        LB.bannerPutEffect();
     </t:mallComponents.control.javascript>
 
 </div>
