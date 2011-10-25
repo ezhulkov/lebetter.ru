@@ -133,8 +133,8 @@ LB = {
     catalogAsMagazine: function(ob,category) {
 
         var flashvars = {};
-        flashvars.XMLFileName = "get?cid="+category;
-        flashvars.DataFolder = "/pageflipdata/";
+        flashvars.XMLFileName = "/pageflipdata/get?cid="+category;
+        flashvars.DataFolder = "";
         flashvars.StartPage = "1";
         flashvars.StartAutoFlip = "false";
 

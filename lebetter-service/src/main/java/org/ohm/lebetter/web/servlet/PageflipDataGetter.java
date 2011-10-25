@@ -3,11 +3,10 @@ package org.ohm.lebetter.web.servlet;
 import org.apache.commons.io.IOUtils;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
+import org.ohm.lebetter.dto.ProductPhotoURLs;
 import org.ohm.lebetter.model.impl.entities.CategoryEntity;
-import org.ohm.lebetter.model.impl.entities.ProductEntity;
 import org.ohm.lebetter.spring.service.ServiceManager;
 import org.room13.mallcore.log.RMLogger;
-import org.room13.mallcore.model.ObjectBaseEntity.Status;
 import org.room13.mallcore.spring.ApplicationContextProvider;
 import org.springframework.context.ApplicationContext;
 
@@ -36,19 +35,12 @@ public class PageflipDataGetter extends HttpServlet {
 
     private ServiceManager serviceManager;
     private VelocityEngine velocityEngine;
-    private String template;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
         ApplicationContext context = ApplicationContextProvider.getApplicationContext();
         serviceManager = (ServiceManager) context.getBean("serviceManager");
         velocityEngine = (VelocityEngine) context.getBean("velocityEngine");
-        InputStream is = this.getClass().getClassLoader().getResourceAsStream("/config/pageflip/layout.vm");
-        try {
-            template = IOUtils.toString(is);
-        } catch (Exception ex) {
-            log.error("", ex);
-        }
     }
 
     protected void service(HttpServletRequest request, HttpServletResponse response)
@@ -59,18 +51,22 @@ public class PageflipDataGetter extends HttpServlet {
             Long cid = Long.parseLong(request.getParameter("cid"));
             CategoryEntity category = serviceManager.getCategoryManager().get(cid);
 
-            List<Long> ids = serviceManager.getProductManager().getIdsByCategory(category, Status.READY);
-            List<ProductEntity> products = serviceManager.getProductManager().getAll(ids);
+            List<ProductPhotoURLs> products = serviceManager.getProductManager().getByCategoryForFlip(category);
             HashMap<String, Object> params = new HashMap<String, Object>();
             params.put("pages", products);
 
             StringWriter stringWriter = new StringWriter();
+            InputStream is = this.getClass().getClassLoader().getResourceAsStream("/config/pageflip/layout.vm");
+            String template = IOUtils.toString(is);
             velocityEngine.evaluate(new VelocityContext(params), stringWriter, "ERROR", new StringReader(template));
             messageBody = stringWriter.toString();
         } catch (Exception ex) {
+            log.error("", ex);
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             return;
         }
+
+        log.debug(messageBody);
 
         response.setStatus(HttpServletResponse.SC_OK);
         response.getWriter().write(messageBody);

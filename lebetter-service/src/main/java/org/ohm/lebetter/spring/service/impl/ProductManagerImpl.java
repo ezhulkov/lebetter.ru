@@ -6,13 +6,16 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projection;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
-import org.ohm.lebetter.spring.service.Constants;
+import org.ohm.lebetter.dto.ProductPhotoURLs;
 import org.ohm.lebetter.model.SitemapAware;
 import org.ohm.lebetter.model.impl.entities.CategoryEntity;
 import org.ohm.lebetter.model.impl.entities.ProductEntity;
+import org.ohm.lebetter.model.impl.entities.ProductPhotoEntity;
 import org.ohm.lebetter.model.impl.entities.PropertyValueEntity;
 import org.ohm.lebetter.model.impl.entities.UserEntity;
 import org.ohm.lebetter.spring.dao.ProductDao;
+import org.ohm.lebetter.spring.service.Constants;
+import org.ohm.lebetter.spring.service.Constants.FileNames;
 import org.ohm.lebetter.spring.service.ProductManager;
 import org.room13.mallcore.log.RMLogger;
 import org.room13.mallcore.model.CreatorRepAware;
@@ -25,6 +28,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.security.AccessControlException;
+import java.util.LinkedList;
 import java.util.List;
 
 
@@ -60,6 +64,25 @@ public class ProductManagerImpl
         object.setAltId(StringUtil.translit(object.getName()) + "-" + object.getRootId());
         super.save(object, caller);
 
+    }
+
+    @Override
+    public List<ProductPhotoURLs> getByCategoryForFlip(CategoryEntity category) {
+        List<ProductPhotoURLs> result = new LinkedList<ProductPhotoURLs>();
+        List<Long> ids = getIdsByCategory(category, Status.READY);
+        List<ProductEntity> prods = getAll(ids);
+        for (ProductEntity prod : prods) {
+            ProductPhotoURLs urlSet = new ProductPhotoURLs();
+            ProductPhotoEntity photo = getServiceManager().getProductPhotoManager().getMainPhoto(prod);
+            if (photo != null) {
+                urlSet.setMediumURL(getServiceManager().getDataManager().getDataFullURL(photo, FileNames.MEDIUM_PHOTO.toString()));
+                urlSet.setBigURL(getServiceManager().getDataManager().getDataFullURL(photo, FileNames.BIG_PHOTO.toString()));
+                urlSet.setBig1URL(getServiceManager().getDataManager().getDataFullURL(photo, FileNames.BIG_PHOTO1.toString()));
+                urlSet.setBig2URL(getServiceManager().getDataManager().getDataFullURL(photo, FileNames.BIG_PHOTO2.toString()));
+                result.add(urlSet);
+            }
+        }
+        return result;
     }
 
     @Override

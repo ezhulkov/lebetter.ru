@@ -1,5 +1,6 @@
 package org.ohm.lebetter.spring.service;
 
+import org.ohm.lebetter.dto.ProductPhotoURLs;
 import org.ohm.lebetter.model.impl.entities.CategoryEntity;
 import org.ohm.lebetter.model.impl.entities.ProductEntity;
 import org.ohm.lebetter.model.impl.entities.UserEntity;
@@ -16,5 +17,7 @@ public interface ProductManager
                 OwnerAwareManager<ProductEntity, UserEntity> {
 
     public List<Long> getIdsByCategory(CategoryEntity category, Status status);
+
+    public List<ProductPhotoURLs> getByCategoryForFlip(CategoryEntity category);
 
 }
