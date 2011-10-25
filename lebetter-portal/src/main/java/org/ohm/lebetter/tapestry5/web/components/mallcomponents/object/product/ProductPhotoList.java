@@ -7,8 +7,8 @@ import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.ohm.lebetter.model.impl.entities.ProductEntity;
 import org.ohm.lebetter.model.impl.entities.ProductPhotoEntity;
+import org.ohm.lebetter.spring.service.Constants.FileNames;
 import org.ohm.lebetter.tapestry5.web.components.base.AbstractBaseComponent;
-import org.room13.mallcore.spring.service.DataManager.FileNames;
 import org.room13.mallcore.util.StringUtil;
 
 import java.util.HashSet;
@@ -101,7 +101,7 @@ public class ProductPhotoList extends AbstractBaseComponent {
     }
 
     public String getImageUrl() {
-        return getServiceFacade().getDataManager().getDataFullURL(onePhoto, FileNames.SMALL_PHOTO);
+        return getServiceFacade().getDataManager().getDataFullURL(onePhoto, FileNames.SMALL_PHOTO.toString());
     }
 
 }
