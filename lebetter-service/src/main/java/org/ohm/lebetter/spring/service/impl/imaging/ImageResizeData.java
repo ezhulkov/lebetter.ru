@@ -12,12 +12,7 @@ public class ImageResizeData extends org.room13.mallcore.spring.service.impl.ima
     public ImageResizeData(String packed) throws NoSuchFieldException, IllegalAccessException {
         super(null, (Dimension) null, false, ImageUtil.ResizeStrategy.INSCRIBED);
         String[] data = packed.split("\\;");
-
-        Field fileNameField = FileNames.class.getField(data[0]);
-        fileNameField.setAccessible(true);
-        this.fileName = (String) fileNameField.get(null);
-
-
+        this.fileName = FileNames.valueOf(data[0]).getFileName();
         this.rectSize = getFileSize(data[1]);
         this.smartCrop = data[2] == null ? false : Boolean.parseBoolean(data[2]);
         this.resizeStrategy = data[3] == null ?

@@ -40,7 +40,6 @@ public class Constants extends org.room13.mallcore.Constants {
             return fileName;
         }
 
-
         @Override
         public String toString() {
             return fileName != null ? fileName : super.toString();
