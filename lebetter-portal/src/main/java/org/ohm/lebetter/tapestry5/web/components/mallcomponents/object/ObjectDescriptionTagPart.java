@@ -4,7 +4,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.tapestry5.annotations.OnEvent;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
-import org.ohm.lebetter.Constants;
+import org.ohm.lebetter.spring.service.Constants;
 import org.ohm.lebetter.model.impl.entities.CategoryEntity;
 import org.ohm.lebetter.model.impl.entities.ProductEntity;
 import org.ohm.lebetter.model.impl.entities.PropertyEntity;

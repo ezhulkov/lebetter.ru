@@ -1,6 +1,6 @@
 package org.ohm.lebetter.spring.service.impl.imaging;
 
-import org.ohm.lebetter.Constants;
+import org.ohm.lebetter.spring.service.Constants;
 import org.ohm.lebetter.model.impl.entities.ProductEntity;
 import org.ohm.lebetter.model.impl.entities.ProductPhotoEntity;
 import org.ohm.lebetter.model.impl.entities.UserEntity;

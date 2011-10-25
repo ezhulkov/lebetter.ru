@@ -7,9 +7,9 @@ import org.apache.tapestry5.annotations.Property;
 import org.ohm.lebetter.model.impl.entities.CategoryEntity;
 import org.ohm.lebetter.model.impl.entities.ProductEntity;
 import org.ohm.lebetter.model.impl.entities.ProductPhotoEntity;
+import org.ohm.lebetter.spring.service.Constants;
 import org.ohm.lebetter.tapestry5.web.components.base.AbstractBaseComponent;
 import org.room13.mallcore.model.ObjectBaseEntity.Status;
-import org.room13.mallcore.spring.service.DataManager.FileNames;
 
 import java.util.List;
 
@@ -47,7 +47,7 @@ public class CatalogWithNoChildren extends AbstractBaseComponent {
         ProductPhotoEntity photo = getProductPhoto();
         return photo == null ?
                null :
-               getServiceFacade().getDataManager().getDataFullURL(photo, FileNames.SMALL_PHOTO);
+               getServiceFacade().getDataManager().getDataFullURL(photo, Constants.FileNames.SMALL_PHOTO);
     }
 
 }

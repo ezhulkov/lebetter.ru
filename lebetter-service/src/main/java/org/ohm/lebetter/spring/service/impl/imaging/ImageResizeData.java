@@ -1,6 +1,6 @@
 package org.ohm.lebetter.spring.service.impl.imaging;
 
-import org.ohm.lebetter.Constants.FileNames;
+import org.ohm.lebetter.spring.service.Constants.FileNames;
 import org.room13.mallcore.util.ImageUtil;
 
 import java.awt.*;
@@ -8,6 +8,7 @@ import java.lang.reflect.Field;
 
 
 public class ImageResizeData extends org.room13.mallcore.spring.service.impl.imaging.ImageResizeData {
+
     public ImageResizeData(String packed) throws NoSuchFieldException, IllegalAccessException {
         super(null, (Dimension) null, false, ImageUtil.ResizeStrategy.INSCRIBED);
         String[] data = packed.split("\\;");

@@ -4,7 +4,7 @@ import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
-import org.ohm.lebetter.Constants;
+import org.ohm.lebetter.spring.service.Constants;
 import org.ohm.lebetter.model.SitemapAware;
 import org.ohm.lebetter.model.impl.entities.DealerEntity;
 import org.ohm.lebetter.model.impl.entities.UserEntity;

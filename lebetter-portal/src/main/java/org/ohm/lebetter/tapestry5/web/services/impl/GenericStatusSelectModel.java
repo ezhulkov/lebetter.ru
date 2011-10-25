@@ -4,7 +4,7 @@ import org.apache.tapestry5.OptionModel;
 import org.apache.tapestry5.internal.OptionModelImpl;
 import org.apache.tapestry5.ioc.services.ClassPropertyAdapter;
 import org.apache.tapestry5.ioc.services.PropertyAccess;
-import org.ohm.lebetter.Constants.Roles;
+import org.ohm.lebetter.spring.service.Constants.Roles;
 import org.ohm.lebetter.model.impl.entities.UserEntity;
 import org.room13.mallcore.model.ObjectBaseEntity;
 import org.room13.mallcore.model.ObjectBaseEntity.Status;

@@ -8,9 +8,9 @@ import org.ohm.lebetter.model.impl.entities.ProductEntity;
 import org.ohm.lebetter.model.impl.entities.ProductPhotoEntity;
 import org.ohm.lebetter.model.impl.entities.PropertyEntity;
 import org.ohm.lebetter.model.impl.entities.PropertyValueEntity;
+import org.ohm.lebetter.spring.service.Constants.FileNames;
 import org.ohm.lebetter.tapestry5.web.components.base.AbstractBaseComponent;
 import org.room13.mallcore.spring.service.DataManager;
-import org.room13.mallcore.spring.service.DataManager.FileNames;
 
 public class ShowProduct extends AbstractBaseComponent {
 
@@ -45,23 +45,23 @@ public class ShowProduct extends AbstractBaseComponent {
     }
 
     public String getSmallImageUrl() {
-        return getServiceFacade().getDataManager().getDataFullURL(onePhoto, DataManager.FileNames.SMALL_PHOTO);
+        return getServiceFacade().getDataManager().getDataFullURL(onePhoto, FileNames.SMALL_PHOTO.toString());
     }
 
     public String getMediumImageUrl() {
-        return getServiceFacade().getDataManager().getDataFullURL(onePhoto, DataManager.FileNames.MEDIUM_PHOTO);
+        return getServiceFacade().getDataManager().getDataFullURL(onePhoto, FileNames.MEDIUM_PHOTO.toString());
     }
 
     public String getBigImageUrl() {
-        return getServiceFacade().getDataManager().getDataFullURL(onePhoto, DataManager.FileNames.BIG_PHOTO);
+        return getServiceFacade().getDataManager().getDataFullURL(onePhoto, FileNames.BIG_PHOTO.toString());
     }
 
     public String getOriginalImageUrl() {
-        return getServiceFacade().getDataManager().getDataFullURL(onePhoto, FileNames.ORIGINAL_FILE) + ".jpg";
+        return getServiceFacade().getDataManager().getDataFullURL(onePhoto, FileNames.ORIGINAL.toString());
     }
 
     public String getoneValPicURL() {
-        return getServiceFacade().getDataManager().getDataFullURL(oneValue, FileNames.SMALL_AVATAR_FILE);
+        return getServiceFacade().getDataManager().getDataFullURL(oneValue, DataManager.FileNames.SMALL_AVATAR_FILE);
     }
 
 }

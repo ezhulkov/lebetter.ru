@@ -1,6 +1,6 @@
 package org.ohm.lebetter.spring.service.impl;
 
-import org.ohm.lebetter.Constants;
+import org.ohm.lebetter.spring.service.Constants;
 import org.ohm.lebetter.model.impl.entities.UserEntity;
 import org.ohm.lebetter.spring.service.MailManager;
 import org.ohm.lebetter.spring.service.UserLBManager;

@@ -1,4 +1,4 @@
-package org.ohm.lebetter;
+package org.ohm.lebetter.spring.service;
 
 public class Constants extends org.room13.mallcore.Constants {
 
@@ -20,11 +20,31 @@ public class Constants extends org.room13.mallcore.Constants {
         public static final String DEL_PRODUCT = "DEL_PRODUCT";
     }
 
-    public static class FileNames {
-        public static final String XBIG_PRODUCT_PHOTO_FILE = "xphoto_big.jpg";
-        public static final String BIG_PRODUCT_PHOTO_FILE = "photo_big.jpg";
-        public static final String MEDIUM_PRODUCT_PHOTO_FILE = "photo_medium.jpg";
-        public static final String SMALL_PRODUCT_PHOTO_FILE = "photo_small.jpg";
+    public static enum FileNames {
+
+        XSMALL_PHOTO("xsmall_photo.jpg"),
+        SMALL_PHOTO("small_photo.jpg"),
+        MEDIUM_PHOTO("medium_photo.jpg"),
+        BIG_PHOTO("big_photo.jpg"),
+        BIG_PHOTO1("big1_photo.jpg"),
+        BIG_PHOTO2("big2_photo.jpg"),
+        ORIGINAL("original.jpg");
+
+        protected String fileName;
+
+        FileNames(String fileName) {
+            this.fileName = fileName;
+        }
+
+        public String getFileName() {
+            return fileName;
+        }
+
+
+        @Override
+        public String toString() {
+            return fileName != null ? fileName : super.toString();
+        }
     }
 
 }

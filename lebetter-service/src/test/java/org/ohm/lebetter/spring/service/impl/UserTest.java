@@ -1,7 +1,7 @@
 package org.ohm.lebetter.spring.service.impl;
 
-import org.ohm.lebetter.Constants.Actions;
-import org.ohm.lebetter.Constants.Roles;
+import org.ohm.lebetter.spring.service.Constants.Actions;
+import org.ohm.lebetter.spring.service.Constants.Roles;
 import org.ohm.lebetter.model.impl.entities.UserEntity;
 import org.ohm.lebetter.spring.service.BaseTest;
 import org.testng.Assert;
