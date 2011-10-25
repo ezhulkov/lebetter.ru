@@ -21,6 +21,7 @@ public class ApplicationFilter extends org.room13.mallcore.application.web.filte
     public void initFilterBean() throws ServletException {
         super.initFilterBean();
         addFilter("/redactor");
+        addFilter("/pageflip");
     }
 
     @Override

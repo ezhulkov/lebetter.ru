@@ -125,6 +125,33 @@ LB = {
                                 'titleShow'     : false
                             });
     },
+    magazineFancybox: function(ob) {
+        jQuery(ob).fancybox({
+                                'titleShow'     : false
+                            });
+    },
+    catalogAsMagazine: function(ob) {
+
+        var flashvars = {};
+        flashvars.XMLFileName = "pageflipdata.xml";
+        flashvars.DataFolder = "/pageflip/pageflipdata/";
+        flashvars.StartPage = "1";
+        flashvars.StartAutoFlip = "false";
+
+        var params = {};
+        params.scale = "noscale";
+        params.salign = "TL";
+        params.wmode = "transparent";
+        params.allowscriptaccess = "false";
+        params.allowfullscreen = "false";
+        params.menu = "false";
+        params.bgcolor = "#FFFFFF";
+
+        var attributes = {};
+
+        swfobject.embedSWF("/pageflip/pageFlip.swf", ob, "1000", "600",
+                           "10.0.0", false, flashvars, params, attributes);
+    },
     galleryItem: function() {
 
         // We only want these styles applied when javascript is enabled

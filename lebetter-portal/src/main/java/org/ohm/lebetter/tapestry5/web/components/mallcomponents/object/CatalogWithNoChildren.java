@@ -1,6 +1,7 @@
 package org.ohm.lebetter.tapestry5.web.components.mallcomponents.object;
 
 import org.apache.tapestry5.annotations.Cached;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
 import org.ohm.lebetter.model.impl.entities.CategoryEntity;
@@ -12,6 +13,7 @@ import org.room13.mallcore.spring.service.DataManager.FileNames;
 
 import java.util.List;
 
+@Import(library = {"proxy:/scripts/swfobject.js"})
 public class CatalogWithNoChildren extends AbstractBaseComponent {
 
     @Property
