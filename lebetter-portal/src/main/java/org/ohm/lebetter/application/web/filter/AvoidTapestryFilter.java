@@ -31,6 +31,8 @@ public class AvoidTapestryFilter extends AbstractFilter {
         include.add("/rest");
         include.add("/2ra");
         include.add("/extAuth");
+        include.add("/pageflipdata");
+        addFilter("/pageflipdata");
     }
 
     @Override

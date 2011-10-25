@@ -130,11 +130,11 @@ LB = {
                                 'titleShow'     : false
                             });
     },
-    catalogAsMagazine: function(ob) {
+    catalogAsMagazine: function(ob,category) {
 
         var flashvars = {};
-        flashvars.XMLFileName = "pageflipdata.xml";
-        flashvars.DataFolder = "/pageflip/pageflipdata/";
+        flashvars.XMLFileName = "get?cid="+category;
+        flashvars.DataFolder = "/pageflipdata/";
         flashvars.StartPage = "1";
         flashvars.StartAutoFlip = "false";
 

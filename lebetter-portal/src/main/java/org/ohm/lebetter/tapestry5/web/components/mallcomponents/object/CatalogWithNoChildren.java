@@ -47,7 +47,7 @@ public class CatalogWithNoChildren extends AbstractBaseComponent {
         ProductPhotoEntity photo = getProductPhoto();
         return photo == null ?
                null :
-               getServiceFacade().getDataManager().getDataFullURL(photo, Constants.FileNames.SMALL_PHOTO);
+               getServiceFacade().getDataManager().getDataFullURL(photo, Constants.FileNames.SMALL_PHOTO.toString());
     }
 
 }

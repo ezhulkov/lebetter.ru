@@ -66,6 +66,7 @@
         </param-value>
     </context-param>
 
+
     <filter>
         <filter-name>encodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -133,11 +134,7 @@
     </filter-mapping>
     <filter-mapping>
         <filter-name>avoidTapestryFilter</filter-name>
-        <url-pattern>/extAuth/*</url-pattern>
-    </filter-mapping>
-    <filter-mapping>
-        <filter-name>avoidTapestryFilter</filter-name>
-        <url-pattern>/rest/*</url-pattern>
+        <url-pattern>/*</url-pattern>
     </filter-mapping>
     <filter-mapping>
         <filter-name>applicationFilter</filter-name>
@@ -175,15 +172,14 @@
         <listener-class>org.ohm.lebetter.application.web.listener.MallListener</listener-class>
     </listener>
 
-    <!--<servlet>-->
-    <!--<servlet-name>Jersey Web Application</servlet-name>-->
-    <!--<servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>-->
-    <!--<load-on-startup>1</load-on-startup>-->
-    <!--</servlet>-->
-    <!--<servlet-mapping>-->
-    <!--<servlet-name>Jersey Web Application</servlet-name>-->
-    <!--<url-pattern>/rest/*</url-pattern>-->
-    <!--</servlet-mapping>-->
+    <servlet>
+        <servlet-name>pageflipDataGetter</servlet-name>
+        <servlet-class>org.ohm.lebetter.web.servlet.PageflipDataGetter</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>pageflipDataGetter</servlet-name>
+        <url-pattern>/pageflipdata/*</url-pattern>
+    </servlet-mapping>
 
     <!--Server errors, not catched by tapestry filter.-->
     <!--Really, this situation is unlikely to happen.-->
