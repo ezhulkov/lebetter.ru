@@ -64,8 +64,34 @@ LB = {
                                                 speed: 1000
                                             });
         });
+    },
+    lastBanners: function() {
         /* Correct for pictures */
         jQuery(".pictures_box ul li:last-child").css("background", "none");
+    },
+    whosnext : function(a) {
+        if (a >= jQuery(".promo_outer").length - 1) {
+            a = 0;
+        } else {
+            a = a + 1;
+        }
+        return a;
+    },
+    gop : function (io) {
+        jQuery(".promo_outer").fadeOut(300);
+        jQuery(".promo_outer:eq(" + io + ")").fadeIn(800);
+        jQuery(".but_qq").removeClass("promo_but_active");
+        jQuery(".but_qq:eq(" + io + ")").addClass("promo_but_active");
+        i = io;
+        clearInterval(LB.cucl);
+    },
+    timedCount : function() {
+        LB.gop(LB.promo_index);
+        var previ = LB.promo_index;
+        LB.promo_index = LB.whosnext(LB.promo_index);
+        if (previ != LB.promo_index) {
+            LB.cucl = setTimeout("LB.timedCount()", 10000);
+        }
     },
     gridManipulation: function() {
      // alert("!");
