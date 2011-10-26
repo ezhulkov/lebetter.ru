@@ -971,8 +971,57 @@ ul.prod_cat_grid2 li a {
   padding: 0px 5px 0px 5px;
 }
 
-
-
+/* OrderForPrint */
+.ofp_box {
+  padding: 25px 0px 35px 0px;
+  margin: 0px auto;
+  width: 720px;
+}
+.ofp_box_but {
+ height: 34px;
+ padding: 0px 0px 12px 0px;
+ position: relative;
+}
+.to_back {
+  position: absolute;
+  left: 0px;
+}
+.to_print {
+  position: absolute;
+  right: 0px;
+}
+.ofp_box .hr_big {
+  width: 650px;
+}
+.ofp_box_img {
+  padding: 4px 25px 15px 0px;
+}
+.ofp_box_info {
+  padding: 0px 0px 15px 0px;
+}
+.ofp_box_info h3 span {
+  font-weight: normal;
+}
+.ofp_box_info ul {
+  padding: 0px 0px 0px 15px;
+}
+.ofp_box p {
+  line-height: 18px;
+  padding-bottom: 12px !important;
+}
+#printorder {
+  background: #ffffff;
+  border: 1px solid #555555;
+  padding: 35px 30px 45px 40px;
+}
+.ofp_box .final_check {
+  font-weight: bold;
+  font-size: 14px;
+  vertical-align: baseline;
+}
+.ofp_box .signature {
+  color: #e3e3e3 !important;
+}
 
 /* Bottom */
 .botmenu {

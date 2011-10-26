@@ -7,151 +7,129 @@
 
         <t:mallcomponents.control.grantCheck action="EDIT_ORDER" object="selectedOrder">
 
+          <div class="ofp_box">
+
             <t:if test="selectedOrder.dealer">
-                <div id="printorder">
-                    <table>
-                        <tr>
-                            <td>
-                                <!-- Logo -->
-                                <t:if test="selectedOrder.dealer.imageReady">
-                                    <img src="${imageUrl}"/>
-                                    <t:parameter name="else">
-                                        <img src="/images/lb-front/def/nopic.gif"/>
-                                    </t:parameter>
-                                </t:if>
-                            </td>
-                            <td>
-                                <!-- Contacts -->
-                                <table class="dealer_inf">
-                                    <t:if test="${selectedOrder.dealer.name}">
-                                        <tr>
-                                            <td colspan="2"><h3>${selectedOrder.dealer.name}</h3></td>
-                                        </tr>
-                                    </t:if>
-                                    <t:if test="${selectedOrder.dealer.addressLine}">
-                                        <tr>
-                                            <td><b>Адрес:</b></td>
-                                            <td>${selectedOrder.dealer.city}, ${selectedOrder.dealer.addressLine}</td>
-                                        </tr>
-                                    </t:if>
-                                    <t:if test="${selectedOrder.dealer.telephone}">
-                                        <tr>
-                                            <td><b>Телефон:</b></td>
-                                            <td>${selectedOrder.dealer.telephone}</td>
-                                        </tr>
-                                    </t:if>
-                                    <t:if test="${selectedOrder.dealer.site}">
-                                        <tr>
-                                            <td><b>Сайт:</b></td>
-                                            <td>
-                                                ${selectedOrder.dealer.site}
-                                            </td>
-                                        </tr>
-                                    </t:if>
-                                    <t:if test="${selectedOrder.dealer.email}">
-                                        <tr>
-                                            <td><b>Email:</b></td>
-                                            <td>${selectedOrder.dealer.email}</td>
-                                        </tr>
-                                    </t:if>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <div class="hr_big"></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <h1>Детали заказа № ${selectedOrder.orderNumber} от ${datePrintable}</h1>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <h2>Товары:</h2>
-                                <table>
-                                    <t:loop t:formState="NONE" source="products" value="oneProduct">
-                                        <tr>
-                                            <td>
-                                                <table>
-                                                    <tr>
-                                                        <td>
-                                                            <t:if test="productPhoto">
-                                                                <t:if test="productPhoto.imageReady">
-                                                                    <img src="${productImageURL}"/>
-                                                                    <t:parameter name="else">
-                                                                        <img src="/images/lb-front/def/nopic6.gif"/>
-                                                                    </t:parameter>
-                                                                </t:if>
-                                                                <t:parameter name="else">
-                                                                    <img src="/images/lb-front/def/nopic6.gif"/>
-                                                                </t:parameter>
-                                                            </t:if>
-                                                        </td>
-                                                        <td>
-                                                            ${oneProduct.product.name}
-                                                            <t:if test="oneProduct.product.articul">
-                                                                (${oneProduct.product.articul})
-                                                            </t:if>
-                                                            ${oneProduct.product.price} USD<br/>
-                                                            <ul>
-                                                                <t:loop t:formState="NONE" source="properties" value="oneProperty">
-                                                                   <li>${oneProperty.name}:${onePropertyValue}</li>
-                                                                </t:loop>
-                                                            </ul>
-                                                        </td>
-                                                    </tr>
-                                                </table>
 
-                                            </td>
-                                        </tr>
-                                    </t:loop>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <div class="hr_big"></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <h2>Итого:</h2>
-                                Общая стоимость товаров:${orderTotalSum} USD<br/>
-                                <t:if test="selectedOrder.clientDiscount">
-                                    С учетом скидки ${selectedOrder.clientDiscount}%:${orderClientDiscountSum} USD<br/>
-                                </t:if>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <div class="hr_big"></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <table>
-                                    <tr>
-                                        <td colspan="2">Дата: ${datePrintable}</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2">Подписи сторон</td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>Заказчик:</b></td>
-                                        <td><b>Исполнитель:</b></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
+            <div class="ofp_box_but">
 
-                    </table>
+              <a class="but_lnk2 to_back" href="javascript: history.go(-1);">Назад</a>
+              <a class="but_lnk2 to_print" href="javascript: window.print();">Распечатать заказ</a>
 
+            </div>
+
+            <div id="printorder">
+
+             <!-- Info -->
+             <div class="dealer_item">
+               <div class="dealer_item_l">
+                  <!-- Logo -->
+                  <t:if test="selectedOrder.dealer.imageReady">
+                      <img src="${imageUrl}"/>
+                      <t:parameter name="else">
+                          <img src="/images/lb-front/def/nopic.gif"/>
+                      </t:parameter>
+                  </t:if>
+               </div>
+               <div class="dealer_item_r">
+                  <!-- Contacts -->
+                  <table class="dealer_inf">
+                      <t:if test="${selectedOrder.dealer.name}">
+                          <tr>
+                              <td colspan="2"><h3>${selectedOrder.dealer.name}</h3></td>
+                          </tr>
+                      </t:if>
+                      <t:if test="${selectedOrder.dealer.addressLine}">
+                          <tr>
+                              <td><b>Адрес:</b></td>
+                              <td>${selectedOrder.dealer.city}, ${selectedOrder.dealer.addressLine}</td>
+                          </tr>
+                      </t:if>
+                      <t:if test="${selectedOrder.dealer.telephone}">
+                          <tr>
+                              <td><b>Телефон:</b></td>
+                              <td>${selectedOrder.dealer.telephone}</td>
+                          </tr>
+                      </t:if>
+                      <t:if test="${selectedOrder.dealer.site}">
+                          <tr>
+                              <td><b>Сайт:</b></td>
+                              <td>
+                                  ${selectedOrder.dealer.site}
+                              </td>
+                          </tr>
+                      </t:if>
+                      <t:if test="${selectedOrder.dealer.email}">
+                          <tr>
+                              <td><b>Email:</b></td>
+                              <td>${selectedOrder.dealer.email}</td>
+                          </tr>
+                      </t:if>
+                  </table>
+               </div>
+             </div>
+
+             <div class="hr_big"></div>
+
+             <!-- Details -->
+
+             <h1>Детали заказа № ${selectedOrder.orderNumber} от ${datePrintable}</h1>
+
+             <h2>Товары:</h2>
+
+              <t:loop t:formState="NONE" source="products" value="oneProduct">
+
+                  <table>
+                      <tr>
+                          <td class="ofp_box_img">
+                              <t:if test="productPhoto">
+                                  <t:if test="productPhoto.imageReady">
+                                      <img src="${productImageURL}"/>
+                                      <t:parameter name="else">
+                                          <img src="/images/lb-front/def/nopic6.gif"/>
+                                      </t:parameter>
+                                  </t:if>
+                                  <t:parameter name="else">
+                                      <img src="/images/lb-front/def/nopic6.gif"/>
+                                  </t:parameter>
+                              </t:if>
+                          </td>
+                          <td class="ofp_box_info">
+                            <h3>
+                              ${oneProduct.product.name}
+                              <t:if test="oneProduct.product.articul">
+                                  (${oneProduct.product.articul})
+                              </t:if>
+                              <span>${oneProduct.product.price} USD</span>
+                            </h3>
+                            <ul>
+                                <t:loop t:formState="NONE" source="properties" value="oneProperty">
+                                   <li>${oneProperty.name}: ${onePropertyValue}</li>
+                                </t:loop>
+                            </ul>
+                          </td>
+                      </tr>
+                  </table>
+
+              </t:loop>
+
+
+              <div class="hr_big"></div>
+
+              <h2>Итого:</h2>
+
+              <p>Общая стоимость товаров: <span class="final_check">${orderTotalSum} USD</span></p>
+              <t:if test="selectedOrder.clientDiscount">
+                  <p>С учетом скидки ${selectedOrder.clientDiscount}%: <span class="final_check">${orderClientDiscountSum} USD</span></p>
+              </t:if>
+
+              <div class="hr_big"></div>
+
+              <p><b>Дата:</b> ${datePrintable}</p>
+
+              <p><b>Подписи сторон</b></p>
+
+              Заказчик: <span class="signature">______________________________________</span> Исполнитель: <span class="signature">______________________________________</span>
 
                 </div>
                 <t:parameter name="else">
@@ -162,6 +140,13 @@
                     </div>
                 </t:parameter>
             </t:if>
+          </div>
+
+
+
+
+
+
 
         </t:mallcomponents.control.grantCheck>
 
