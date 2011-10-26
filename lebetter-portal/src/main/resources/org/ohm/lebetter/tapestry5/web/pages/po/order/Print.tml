@@ -1,0 +1,83 @@
+<t:mallcomponents.layout.layout title="Lebetter.ru - Личный Кабинет"
+                                bodyId="po"
+                                flash="flashMessage"
+                                xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+    <t:mallcomponents.control.selectedObject>
+
+        <t:mallcomponents.control.grantCheck action="EDIT_ORDER" object="selectedOrder">
+
+            <t:if test="selectedOrder.dealer">
+                <div id="printorder">
+                    <table>
+                        <tr>
+                            <td>
+                                <!-- Logo -->
+                                <t:if test="selectedOrder.dealer.imageReady">
+                                    <img src="${imageUrl}"/>
+                                    <t:parameter name="else">
+                                        <img src="/images/lb-front/def/nopic.gif"/>
+                                    </t:parameter>
+                                </t:if>
+                            </td>
+                            <td>
+                                <!-- Contacts -->
+                                <table class="dealer_inf">
+                                    <t:if test="${selectedOrder.dealer.name}">
+                                        <tr>
+                                            <td colspan="2"><b>${selectedOrder.dealer.name}</b></td>
+                                        </tr>
+                                    </t:if>
+                                    <t:if test="${selectedOrder.dealer.addressLine}">
+                                        <tr>
+                                            <td>Адрес:</td>
+                                            <td>${selectedOrder.dealer.city}, ${selectedOrder.dealer.addressLine}</td>
+                                        </tr>
+                                    </t:if>
+                                    <t:if test="${selectedOrder.dealer.telephone}">
+                                        <tr>
+                                            <td>Телефон:</td>
+                                            <td>${selectedOrder.dealer.telephone}</td>
+                                        </tr>
+                                    </t:if>
+                                    <t:if test="${selectedOrder.dealer.site}">
+                                        <tr>
+                                            <td>Сайт:</td>
+                                            <td>
+                                                ${selectedOrder.dealer.site}
+                                            </td>
+                                        </tr>
+                                    </t:if>
+                                    <t:if test="${selectedOrder.dealer.email}">
+                                        <tr>
+                                            <td>Email:</td>
+                                            <td>${selectedOrder.dealer.email}</td>
+                                        </tr>
+                                    </t:if>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="hr_big"></div>
+                            </td>
+                        </tr>
+
+                    </table>
+
+
+                </div>
+                <t:parameter name="else">
+                    <div class="syserror">
+                        <h1>Не заполнены необходимые поля в заказе</h1>
+
+                        <p>Необходимо в заказе указать дилера, от имени которого будет осуществляться заказ</p>
+                    </div>
+                </t:parameter>
+            </t:if>
+
+        </t:mallcomponents.control.grantCheck>
+
+    </t:mallcomponents.control.selectedObject>
+
+</t:mallcomponents.layout.layout>
