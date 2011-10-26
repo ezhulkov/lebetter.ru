@@ -7,7 +7,7 @@
     <div class="slide">
         <!-- slider -->
         <div class="slider_box">
-            <div class="slider">
+            <div class="slider display_none">
                 <ul>
                     <li class="promo_outer">
                         <img src="http://static.lebetter.ru/Category/300/xbig_avatar.jpg" width="920" height="350" alt=""/>
@@ -16,7 +16,7 @@
                         <img src="http://static.lebetter.ru/Category/301/xbig_avatar.jpg" width="920" height="350" alt=""/>
                     </li>
                     <li class="promo_outer">
-                        <img src="http://static.lebetter.ru/Category/301/xbig_avatar.jpg" width="920" height="350" alt=""/>
+                        <img src="http://static.lebetter.ru/Category/302/xbig_avatar.jpg" width="920" height="350" alt=""/>
                     </li>
                 </ul>
 

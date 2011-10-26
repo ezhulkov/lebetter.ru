@@ -57,11 +57,11 @@ LB = {
         jQuery(".but_qq:eq(0)").click(function() {LB.gop(0, 1);});
         jQuery(".but_qq:eq(1)").click(function() {LB.gop(1, 1);});
         jQuery(".but_qq:eq(2)").click(function() {LB.gop(2, 1);});
-        jQuery(".but_qq:eq(3)").click(function() {LB.gop(3, 1);});
         LB.promo_index=0;
         LB.cucl=0;
         LB.timedCount();
         LB.lastBanners();
+        jQuery("div.slider").removeClass("display_none");
     },
     lastBanners: function() {
         /* Correct for pictures */
@@ -76,8 +76,8 @@ LB = {
         return a;
     },
     gop : function (io) {
-        jQuery(".promo_outer").fadeOut(300);
-        jQuery(".promo_outer:eq(" + io + ")").fadeIn(800);
+        jQuery(".promo_outer").fadeOut(500);
+        jQuery(".promo_outer:eq(" + io + ")").fadeIn(1000);
         jQuery(".but_qq").removeClass("promo_but_active");
         jQuery(".but_qq:eq(" + io + ")").addClass("promo_but_active");
         i = io;
