@@ -1278,4 +1278,10 @@
         </sql>
     </changeSet>
 
+    <changeSet id="1.0.0-42" author="ezhulkov">
+        <addColumn tableName="app_category">
+            <column name="hidemain" type="boolean" defaultValueBoolean="true"/>
+        </addColumn>
+    </changeSet>
+
 </databaseChangeLog>

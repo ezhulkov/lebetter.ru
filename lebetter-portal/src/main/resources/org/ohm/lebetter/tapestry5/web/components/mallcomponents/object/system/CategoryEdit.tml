@@ -61,6 +61,15 @@
 
             <div class="input_box">
                 <div class="input_label">
+                    <t:label for="hidemain" class="ks_propertyedit_6"/>
+                    :
+                </div>
+                <t:checkBox t:id="hidemain" id="hidemain" type="checkbox" class="ks_propertyedit_3"/>
+            </div>
+            <div class="break"></div>
+
+            <div class="input_box">
+                <div class="input_label">
                     <t:label for="tomain" class="ks_propertyedit_6"/>
                     :
                 </div>

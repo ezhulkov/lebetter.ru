@@ -59,9 +59,6 @@ public class CategoryEntity
     private String name = "";
 
     @Column
-    private String tomainname = "";
-
-    @Column
     private String code = "";
 
     @Column
@@ -69,6 +66,12 @@ public class CategoryEntity
 
     @Column
     private boolean tomain = false;
+
+    @Column
+    private String tomainname = "";
+
+    @Column
+    private boolean hidemain = false;
 
     @Column
     private Integer position;
@@ -211,4 +214,11 @@ public class CategoryEntity
         this.imageStatus = imageStatus;
     }
 
+    public boolean isHidemain() {
+        return hidemain;
+    }
+
+    public void setHidemain(boolean hidemain) {
+        this.hidemain = hidemain;
+    }
 }
