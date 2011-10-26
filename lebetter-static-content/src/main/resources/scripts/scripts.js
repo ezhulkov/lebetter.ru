@@ -54,16 +54,14 @@ LB = {
         }
     },
     initMainPage: function() {
-        /* Start carousel */
-        jQuery(function() {
-            jQuery(".slider").jCarouselLite({
-                                                btnNext: ".next",
-                                                btnPrev: ".prev",
-                                                visible: 1,
-                                                auto: 5000,
-                                                speed: 1000
-                                            });
-        });
+        jQuery(".but_qq:eq(0)").click(function() {LB.gop(0, 1);});
+        jQuery(".but_qq:eq(1)").click(function() {LB.gop(1, 1);});
+        jQuery(".but_qq:eq(2)").click(function() {LB.gop(2, 1);});
+        jQuery(".but_qq:eq(3)").click(function() {LB.gop(3, 1);});
+        LB.promo_index=0;
+        LB.cucl=0;
+        LB.timedCount();
+        LB.lastBanners();
     },
     lastBanners: function() {
         /* Correct for pictures */

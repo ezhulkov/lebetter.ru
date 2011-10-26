@@ -7,28 +7,16 @@
     <div class="slide">
         <!-- slider -->
         <div class="slider_box">
-            <!--
-            <button class="prev" title="Предыдущая">
-                <img src="/images/0.gif" alt="Предыдущая" title="Предыдущая"/></button>
-            <button class="next" title="Следующая">
-                <img src="/images/0.gif" alt="Следующая" title="Следующая"/></button>
--->
             <div class="slider">
                 <ul>
                     <li class="promo_outer">
-                        <a class="grouped_elements" rel="group1" href="/catalog/divany"><img src="/images/pic/pic1.jpg" width="920" height="350" alt=""/></a>
+                        <img src="http://static.lebetter.ru/Category/300/xbig_avatar.jpg" width="920" height="350" alt=""/>
                     </li>
                     <li class="promo_outer">
-                        <a class="grouped_elements" rel="group1" href="/catalog/divany"><img src="/images/pic/pic1.jpg" width="920" height="350" alt=""/></a>
+                        <img src="http://static.lebetter.ru/Category/301/xbig_avatar.jpg" width="920" height="350" alt=""/>
                     </li>
                     <li class="promo_outer">
-                        <a class="grouped_elements" rel="group1" href="/catalog/divany"><img src="/images/pic/pic1.jpg" width="920" height="350" alt=""/></a>
-                    </li>
-                    <li class="promo_outer">
-                        <a class="grouped_elements" rel="group1" href="/catalog/divany"><img src="/images/pic/pic1.jpg" width="920" height="350" alt=""/></a>
-                    </li>
-                    <li class="promo_outer">
-                        <a class="grouped_elements" rel="group1" href="/catalog/divany"><img src="/images/pic/pic1.jpg" width="920" height="350" alt=""/></a>
+                        <img src="http://static.lebetter.ru/Category/301/xbig_avatar.jpg" width="920" height="350" alt=""/>
                     </li>
                 </ul>
 
@@ -36,17 +24,11 @@
               <span class="promo_but but_qq"><script type="text/javascript">document.write (0+1)</script></span>
               <span class="promo_but but_qq"><script type="text/javascript">document.write (1+1)</script></span>
               <span class="promo_but but_qq"><script type="text/javascript">document.write (2+1)</script></span>
-              <span class="promo_but but_qq"><script type="text/javascript">document.write (3+1)</script></span>
-              <span class="promo_but but_qq"><script type="text/javascript">document.write (4+1)</script></span>
-              <!--<span class="ks_promo_but but_qq"><script type="text/javascript">/*document.write (5+1)*/</script></span>-->
             </div>
 
             <div class="promo_corners a1"></div>
             <div class="promo_corners a2"></div>
             <div class="promo_corners a3"></div>
-            <div class="promo_corners a4"></div>
-            <div class="promo_corners a5"></div>
-
 
             </div>
         </div>
@@ -80,34 +62,7 @@
     </div>
 
     <t:mallComponents.control.javascript>
-      jQuery(".but_qq:eq(0)").click(function() {
-        LB.gop(0, 1);
-        });
-
-        jQuery(".but_qq:eq(1)").click(function() {
-        LB.gop(1, 1);
-        });
-
-        jQuery(".but_qq:eq(2)").click(function() {
-        LB.gop(2, 1);
-        });
-
-        jQuery(".but_qq:eq(3)").click(function() {
-        LB.gop(3, 1);
-        });
-
-        jQuery(".but_qq:eq(4)").click(function() {
-        LB.gop(4, 1);
-        });
-        /*
-        jQuery(".but_qq:eq(5)").click(function() {
-        LB.gop(5, 1);
-        });
-        */
-        LB.promo_index=0;
-        LB.cucl=0;
-        LB.timedCount();
-        LB.lastBanners();
+        LB.initMainPage();
     </t:mallComponents.control.javascript>
 
 </t:mallcomponents.layout.layout>
