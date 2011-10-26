@@ -52,6 +52,18 @@ public class OrderEdit extends AbstractEditComponent {
     @Property
     private OrderToValueEntity oneOrderValue;
 
+    @Property
+    private OrderToProductEntity oneProduct;
+
+    @Property
+    private OrderEntity oneOrder;
+
+    @Property
+    private PropertyEntity oneProperty;
+
+    @Property
+    private PropertyValueEntity oneValue;
+
     void onPrepare() throws Exception {
         if (dealerModel == null) {
             UserEntity creator =
@@ -111,18 +123,6 @@ public class OrderEdit extends AbstractEditComponent {
             }
         };
     }
-
-    @Property
-    private OrderToProductEntity oneProduct;
-
-    @Property
-    private OrderEntity oneOrder;
-
-    @Property
-    private PropertyEntity oneProperty;
-
-    @Property
-    private PropertyValueEntity oneValue;
 
     @Cached
     public List<OrderToProductEntity> getProducts() {

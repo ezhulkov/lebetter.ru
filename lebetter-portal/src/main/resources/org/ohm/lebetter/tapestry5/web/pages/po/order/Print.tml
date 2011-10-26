@@ -62,6 +62,33 @@
                                 <div class="hr_big"></div>
                             </td>
                         </tr>
+                        <tr>
+                            <td colspan="2">
+                                <b>Товары:</b>
+                                <table>
+
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <b>Итого:</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <table>
+                                    <tr>
+                                        <td><b>Заказчик:</b></td>
+                                        <td><b>Исполнитель:</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
 
                     </table>
 
