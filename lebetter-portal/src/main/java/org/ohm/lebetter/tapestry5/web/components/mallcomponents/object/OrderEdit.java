@@ -178,6 +178,11 @@ public class OrderEdit extends AbstractEditComponent {
                                                                   0 : getSelectedObject().getDealer().getDiscount());
     }
 
+    public float getOrderClientDiscountSum() {
+        return getServiceFacade().getOrderManager().getOrderTotal(getSelectedObject(),
+                                                                  getSelectedObject().getClientDiscount());
+    }
+
     public float getOrderTotalSum() {
         return getServiceFacade().getOrderManager().getOrderTotal(getSelectedObject());
     }

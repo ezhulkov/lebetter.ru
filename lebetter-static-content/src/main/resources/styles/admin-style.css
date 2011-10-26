@@ -767,3 +767,7 @@ ul.leftmenu ul li:hover a {
     position: absolute;
     right: 0;
 }
+
+table.order_details td{
+    padding: 0px 10px 0px 10px;
+}
