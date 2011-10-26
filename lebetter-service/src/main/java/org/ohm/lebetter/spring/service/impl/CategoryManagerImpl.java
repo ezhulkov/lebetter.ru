@@ -220,11 +220,11 @@ public class CategoryManagerImpl
     }
 
     @Override
-    public List<CategoryEntity> getAllReadyCategoriesForUI() {
+    public List<CategoryEntity> getAllReadyCategoriesForUI(boolean showHidden) {
         List<CategoryEntity> result = new LinkedList<CategoryEntity>();
         List<CategoryEntity> roots = getAllReadyCategories(null);
         for (CategoryEntity root : roots) {
-            if (root.isHidemain()) {
+            if (showHidden || root.isShowmain()) {
                 CategoryEntity rootElement = new CategoryEntity();
                 rootElement.setId(root.getId());
                 rootElement.setAltId(root.getAltId());
@@ -234,7 +234,7 @@ public class CategoryManagerImpl
                 List<CategoryEntity> subs = getAllReadyCategories(root);
                 List<CategoryEntity> resSubs = new LinkedList<CategoryEntity>();
                 for (CategoryEntity sub : subs) {
-                    if (sub.isHidemain()) {
+                    if (showHidden || sub.isShowmain()) {
                         CategoryEntity subElement = new CategoryEntity();
                         subElement.setParent(rootElement);
                         subElement.setId(sub.getId());

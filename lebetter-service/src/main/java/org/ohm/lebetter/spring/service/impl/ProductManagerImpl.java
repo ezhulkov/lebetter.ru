@@ -1,6 +1,5 @@
 package org.ohm.lebetter.spring.service.impl;
 
-import org.hibernate.criterion.CriteriaSpecification;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projection;
@@ -94,14 +93,8 @@ public class ProductManagerImpl
         }
 
         if (category != null) {
-            if (category.getParent() == null) {
-                criteria.createAlias("categories", "cat", CriteriaSpecification.INNER_JOIN);
-                criteria.createAlias("cat.parent", "rcat", CriteriaSpecification.INNER_JOIN);
-                criteria.add(Restrictions.eq("rcat.rootId", category.getRootId()));
-            } else {
-                criteria.createAlias("categories", "cat");
-                criteria.add(Restrictions.eq("cat.rootId", category.getRootId()));
-            }
+            criteria.createAlias("categories", "cat");
+            criteria.add(Restrictions.eq("cat.rootId", category.getRootId()));
         }
         criteria.addOrder(Order.asc("name"));
         Projection projection = Projections.property("id");

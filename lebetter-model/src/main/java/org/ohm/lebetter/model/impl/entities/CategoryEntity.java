@@ -214,11 +214,11 @@ public class CategoryEntity
         this.imageStatus = imageStatus;
     }
 
-    public boolean isHidemain() {
+    public boolean isShowmain() {
         return hidemain;
     }
 
-    public void setHidemain(boolean hidemain) {
+    public void setShowmain(boolean hidemain) {
         this.hidemain = hidemain;
     }
 }

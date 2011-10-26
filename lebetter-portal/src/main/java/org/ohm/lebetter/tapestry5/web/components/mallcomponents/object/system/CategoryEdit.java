@@ -41,7 +41,7 @@ public class CategoryEdit extends AbstractEditComponent {
     @Component(id = "tomain", parameters = {"value=selectedObject.tomain"})
     private Checkbox tomainField;
 
-    @Component(id = "hidemain", parameters = {"value=selectedObject.hidemain"})
+    @Component(id = "hidemain", parameters = {"value=selectedObject.showmain"})
     private Checkbox hidemainField;
 
     @Component(id = "code", parameters = {"value=selectedObject.code", "validate=required,maxlength=64"})
