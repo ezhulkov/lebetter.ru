@@ -4,7 +4,7 @@ import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.TextField;
 import org.ohm.lebetter.model.impl.entities.UserEntity;
-import org.ohm.lebetter.tapestry5.web.pages.base.AbstractBasePage;
+import org.ohm.lebetter.tapestry5.web.pages.base.AbstractBrowseBasePage;
 
 import java.io.IOException;
 
@@ -15,7 +15,7 @@ import java.io.IOException;
  * Time: 17:24:04
  * To change this template use File | Settings | File Templates.
  */
-public class PasswordForgot extends AbstractBasePage {
+public class PasswordForgot extends AbstractBrowseBasePage {
 
     @Property
     private String emailStr;
