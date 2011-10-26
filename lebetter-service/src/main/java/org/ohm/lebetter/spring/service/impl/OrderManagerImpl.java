@@ -11,6 +11,7 @@ import org.ohm.lebetter.model.impl.entities.OrderEntity.OrderStatus;
 import org.ohm.lebetter.model.impl.entities.OrderToProductEntity;
 import org.ohm.lebetter.model.impl.entities.OrderToValueEntity;
 import org.ohm.lebetter.model.impl.entities.ProductEntity;
+import org.ohm.lebetter.model.impl.entities.PropertyEntity;
 import org.ohm.lebetter.model.impl.entities.PropertyValueEntity;
 import org.ohm.lebetter.model.impl.entities.UserEntity;
 import org.ohm.lebetter.spring.dao.OrderDao;
@@ -174,6 +175,22 @@ public class OrderManagerImpl
             object.setOrderNumber(SDF.format(object.getPlacedDate()) + "-" + on);
         }
         orderDao.save(object);
+    }
+
+    @Override
+    public OrderToValueEntity getOrderValue(OrderToProductEntity product, PropertyEntity property) {
+        DetachedCriteria criteria = DetachedCriteria.forClass(OrderToValueEntity.class);
+        criteria.createAlias("product", "p", CriteriaSpecification.INNER_JOIN);
+        criteria.createAlias("value", "v", CriteriaSpecification.INNER_JOIN);
+        criteria.createAlias("v.property", "prop", CriteriaSpecification.INNER_JOIN);
+        criteria.add(Restrictions.eq("p.rootId", product.getRootId()));
+        criteria.add(Restrictions.eq("prop.rootId", property.getRootId()));
+        List<OrderToValueEntity> res = orderToValueDao.findRootByCriteria(criteria, -1, -1);
+        if (res.size() > 0) {
+            return res.get(0);
+        } else {
+            return null;
+        }
     }
 
     @Override

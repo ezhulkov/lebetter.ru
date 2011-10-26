@@ -25,24 +25,24 @@
                                 <table class="dealer_inf">
                                     <t:if test="${selectedOrder.dealer.name}">
                                         <tr>
-                                            <td colspan="2"><b>${selectedOrder.dealer.name}</b></td>
+                                            <td colspan="2"><h3>${selectedOrder.dealer.name}</h3></td>
                                         </tr>
                                     </t:if>
                                     <t:if test="${selectedOrder.dealer.addressLine}">
                                         <tr>
-                                            <td>Адрес:</td>
+                                            <td><b>Адрес:</b></td>
                                             <td>${selectedOrder.dealer.city}, ${selectedOrder.dealer.addressLine}</td>
                                         </tr>
                                     </t:if>
                                     <t:if test="${selectedOrder.dealer.telephone}">
                                         <tr>
-                                            <td>Телефон:</td>
+                                            <td><b>Телефон:</b></td>
                                             <td>${selectedOrder.dealer.telephone}</td>
                                         </tr>
                                     </t:if>
                                     <t:if test="${selectedOrder.dealer.site}">
                                         <tr>
-                                            <td>Сайт:</td>
+                                            <td><b>Сайт:</b></td>
                                             <td>
                                                 ${selectedOrder.dealer.site}
                                             </td>
@@ -50,7 +50,7 @@
                                     </t:if>
                                     <t:if test="${selectedOrder.dealer.email}">
                                         <tr>
-                                            <td>Email:</td>
+                                            <td><b>Email:</b></td>
                                             <td>${selectedOrder.dealer.email}</td>
                                         </tr>
                                     </t:if>
@@ -64,20 +64,80 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <b>Товары:</b>
+                                <h1>Детали заказа № ${selectedOrder.orderNumber} от ${datePrintable}</h1>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <h2>Товары:</h2>
                                 <table>
+                                    <t:loop t:formState="NONE" source="products" value="oneProduct">
+                                        <tr>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            <t:if test="productPhoto">
+                                                                <t:if test="productPhoto.imageReady">
+                                                                    <img src="${productImageURL}"/>
+                                                                    <t:parameter name="else">
+                                                                        <img src="/images/lb-front/def/nopic6.gif"/>
+                                                                    </t:parameter>
+                                                                </t:if>
+                                                                <t:parameter name="else">
+                                                                    <img src="/images/lb-front/def/nopic6.gif"/>
+                                                                </t:parameter>
+                                                            </t:if>
+                                                        </td>
+                                                        <td>
+                                                            ${oneProduct.product.name}
+                                                            <t:if test="oneProduct.product.articul">
+                                                                (${oneProduct.product.articul})
+                                                            </t:if>
+                                                            ${oneProduct.product.price} USD<br/>
+                                                            <ul>
+                                                                <t:loop t:formState="NONE" source="properties" value="oneProperty">
+                                                                   <li>${oneProperty.name}:${onePropertyValue}</li>
+                                                                </t:loop>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                </table>
 
+                                            </td>
+                                        </tr>
+                                    </t:loop>
                                 </table>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <b>Итого:</b>
+                                <div class="hr_big"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <h2>Итого:</h2>
+                                Общая стоимость товаров:${orderTotalSum} USD<br/>
+                                <t:if test="selectedOrder.clientDiscount">
+                                    С учетом скидки ${selectedOrder.clientDiscount}%:${orderClientDiscountSum} USD<br/>
+                                </t:if>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="hr_big"></div>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="2">
                                 <table>
+                                    <tr>
+                                        <td colspan="2">Дата: ${datePrintable}</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">Подписи сторон</td>
+                                    </tr>
                                     <tr>
                                         <td><b>Заказчик:</b></td>
                                         <td><b>Исполнитель:</b></td>

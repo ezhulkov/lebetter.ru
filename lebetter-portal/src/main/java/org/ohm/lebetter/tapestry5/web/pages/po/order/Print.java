@@ -9,13 +9,14 @@ import org.ohm.lebetter.model.impl.entities.OrderToValueEntity;
 import org.ohm.lebetter.model.impl.entities.ProductPhotoEntity;
 import org.ohm.lebetter.model.impl.entities.PropertyEntity;
 import org.ohm.lebetter.model.impl.entities.PropertyValueEntity;
-import org.ohm.lebetter.model.impl.entities.TagToValueEntity;
 import org.ohm.lebetter.spring.service.Constants.FileNames;
 import org.ohm.lebetter.tapestry5.web.components.mallcomponents.control.SelectedObject;
 import org.ohm.lebetter.tapestry5.web.pages.base.AbstractBasePage;
 import org.room13.mallcore.spring.service.DataManager;
 
-import java.util.LinkedList;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by IntelliJ IDEA.
@@ -25,6 +26,13 @@ import java.util.LinkedList;
  * To change this template use File | Settings | File Templates.
  */
 public class Print extends AbstractBasePage {
+
+    private static final transient ThreadLocal<DateFormat> DF = new ThreadLocal<DateFormat>() {
+        @Override
+        protected DateFormat initialValue() {
+            return new SimpleDateFormat("dd/MM/yyyy");
+        }
+    };
 
     @Property
     private OrderEntity selectedOrder;
@@ -65,31 +73,22 @@ public class Print extends AbstractBasePage {
     }
 
     public java.util.List<PropertyEntity> getProperties() {
-        java.util.List<PropertyEntity> result = new LinkedList<PropertyEntity>();
-        java.util.List<TagToValueEntity> tags =
-                getServiceFacade().getPropertyManager().getTagsForProductByMultiple(oneProduct.getProduct(),
-                                                                                    true);
-        for (TagToValueEntity tag : tags) {
-            if (!result.contains(tag.getPropertyValue().getProperty())) {
-                result.add(tag.getPropertyValue().getProperty());
+        return getServiceFacade().getCategoryManager().getAllPropertiesForUI(oneProduct.getProduct());
+    }
+
+    public String getOnePropertyValue() {
+        PropertyValueEntity value = null;
+        if (oneProperty.isMultiple()) {
+            OrderToValueEntity link = getServiceFacade().getOrderManager().getOrderValue(oneProduct, oneProperty);
+            if (link != null) {
+                value = link.getValue();
+            }
+        } else {
+            if (oneProperty.getValues().size() > 0) {
+                value = oneProperty.getValues().get(0);
             }
         }
-        return result;
-    }
-
-    public java.util.List<PropertyValueEntity> getValues() {
-        java.util.List<PropertyValueEntity> result = new LinkedList<PropertyValueEntity>();
-        java.util.List<TagToValueEntity> tags =
-                getServiceFacade().getPropertyManager().getTagsForProduct(oneProduct.getProduct(),
-                                                                          oneProperty);
-        for (TagToValueEntity tag : tags) {
-            result.add(tag.getPropertyValue());
-        }
-        return result;
-    }
-
-    public java.util.List<OrderToValueEntity> getOrderValues() {
-        return getServiceFacade().getOrderManager().getOrderValues(selectedOrder);
+        return value == null ? "-" : value.getName();
     }
 
     public float getOrderTotalSum() {
@@ -110,6 +109,10 @@ public class Print extends AbstractBasePage {
         return photo == null ?
                null :
                getServiceFacade().getDataManager().getDataFullURL(photo, FileNames.SMALL_PHOTO.toString());
+    }
+
+    public String getDatePrintable() {
+        return DF.get().format(new Date(System.currentTimeMillis()));
     }
 
 }
