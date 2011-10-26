@@ -7,6 +7,7 @@ import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Select;
 import org.apache.tapestry5.corelib.components.TextArea;
+import org.apache.tapestry5.corelib.components.TextField;
 import org.ohm.lebetter.model.impl.entities.DealerEntity;
 import org.ohm.lebetter.model.impl.entities.OrderEntity;
 import org.ohm.lebetter.model.impl.entities.OrderEntity.OrderStatus;
@@ -41,6 +42,9 @@ public class OrderEdit extends AbstractEditComponent {
 
     @Component(id = "comments", parameters = {"value=selectedObject.comments", "validate=maxlength=512"})
     private TextArea descField;
+
+    @Component(id = "clientDiscount", parameters = {"value=selectedObject.clientDiscount", "validate=maxlength=64"})
+    private TextField clientDiscountField;
 
     @Property
     private ValueEncoder<DealerEntity> dealerModel = null;

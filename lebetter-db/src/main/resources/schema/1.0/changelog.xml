@@ -1284,4 +1284,10 @@
         </addColumn>
     </changeSet>
 
+     <changeSet id="1.0.0-43" author="ezhulkov">
+        <addColumn tableName="app_order">
+            <column name="clientdiscount" type="float4" defaultValue="0"/>
+        </addColumn>
+    </changeSet>
+
 </databaseChangeLog>

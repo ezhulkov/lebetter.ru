@@ -43,6 +43,9 @@ public class OrderEntity extends BaseCreatorAwareEntity {
     private String orderNumber;
 
     @Column
+    private int clientDiscount = 0;
+
+    @Column
     private String comments;
 
     public OrderEntity() {
@@ -103,4 +106,11 @@ public class OrderEntity extends BaseCreatorAwareEntity {
                DF.get().format(getPlacedDate());
     }
 
+    public int getClientDiscount() {
+        return clientDiscount;
+    }
+
+    public void setClientDiscount(int clientDiscount) {
+        this.clientDiscount = clientDiscount;
+    }
 }

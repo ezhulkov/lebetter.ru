@@ -51,6 +51,14 @@
 
         <div class="input_box">
             <div class="input_label">
+                <t:label for="clientDiscount"/>
+                :
+            </div>
+            <input t:id="clientDiscount" class="form_input"/>
+        </div>
+
+        <div class="input_box">
+            <div class="input_label">
                 <t:label for="comments"/>
                 :
             </div>
