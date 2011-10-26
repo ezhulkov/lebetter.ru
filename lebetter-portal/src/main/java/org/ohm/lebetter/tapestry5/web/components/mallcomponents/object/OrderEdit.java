@@ -12,10 +12,12 @@ import org.ohm.lebetter.model.impl.entities.OrderEntity;
 import org.ohm.lebetter.model.impl.entities.OrderEntity.OrderStatus;
 import org.ohm.lebetter.model.impl.entities.OrderToProductEntity;
 import org.ohm.lebetter.model.impl.entities.OrderToValueEntity;
+import org.ohm.lebetter.model.impl.entities.ProductPhotoEntity;
 import org.ohm.lebetter.model.impl.entities.PropertyEntity;
 import org.ohm.lebetter.model.impl.entities.PropertyValueEntity;
 import org.ohm.lebetter.model.impl.entities.TagToValueEntity;
 import org.ohm.lebetter.model.impl.entities.UserEntity;
+import org.ohm.lebetter.spring.service.Constants.FileNames;
 import org.ohm.lebetter.tapestry5.web.components.base.AbstractEditComponent;
 import org.ohm.lebetter.tapestry5.web.components.base.EditObjectCallback;
 import org.ohm.lebetter.tapestry5.web.services.impl.GenericSelectModel;
@@ -174,6 +176,17 @@ public class OrderEdit extends AbstractEditComponent {
 
     public float getOrderTotalSum() {
         return getServiceFacade().getOrderManager().getOrderTotal(getSelectedObject());
+    }
+
+    public ProductPhotoEntity getProductPhoto() {
+        return getServiceFacade().getProductPhotoManager().getMainPhoto(oneProduct.getProduct());
+    }
+
+    public String getImageUrl() {
+        ProductPhotoEntity photo = getProductPhoto();
+        return photo == null ?
+               null :
+               getServiceFacade().getDataManager().getDataFullURL(photo, FileNames.SMALL_PHOTO.toString());
     }
 
 }

@@ -68,7 +68,14 @@
                 <table>
                     <tr>
                         <td class="orderindex_l">
-                            <img src="/images/lb-front/def/nopic6.gif" title="${oneProduct.product.name}" alt="${oneProduct.product.name}"/>
+                            <t:pageLink t:page="po/catalog" t:context="oneProduct.rootId">
+                                <t:if test="productPhoto.imageReady">
+                                    <img src="${imageURL}" alt="${oneProduct.name}" title="${oneProduct.name}"/>
+                                    <t:parameter name="else">
+                                        <img src="/images/lb-front/def/nopic6.gif" title="${oneProduct.product.name}" alt="${oneProduct.product.name}"/>
+                                    </t:parameter>
+                                </t:if>
+                            </t:pageLink>
                         </td>
                         <td class="orderindex_r">
                             <t:pageLink t:page="catalog" target="_blank" t:context="oneProductContext">
@@ -111,10 +118,15 @@
 
         <script language="JavaScript" type="text/javascript">
             var selId;
-            <t:loop t:formState="NONE" source="orderValues" value="oneOrderValue">
-                selId="LB-"+${oneOrderValue.product.id}+"-"+${oneOrderValue.value.property.rootId};
-                jQuery("#" + selId).find("#" + ${oneOrderValue.value.rootId}).attr("selected","selected");
-            </t:loop>
+            <
+            t:loop
+            t:formState = "NONE"
+            source = "orderValues"
+            value = "oneOrderValue" >
+                    selId = "LB-" + ${oneOrderValue.product.id}+"-" +${oneOrderValue.value.property.rootId};
+            jQuery("#" + selId).find("#" + ${oneOrderValue.value.rootId}).attr("selected", "selected");
+            <
+            /t:loop>
         </script>
 
     </t:mallComponents.control.editObject>

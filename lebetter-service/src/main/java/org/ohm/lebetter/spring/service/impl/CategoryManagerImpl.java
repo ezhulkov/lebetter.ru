@@ -224,7 +224,7 @@ public class CategoryManagerImpl
         List<CategoryEntity> result = new LinkedList<CategoryEntity>();
         List<CategoryEntity> roots = getAllReadyCategories(null);
         for (CategoryEntity root : roots) {
-            if (!root.isHidemain()) {
+            if (root.isHidemain()) {
                 CategoryEntity rootElement = new CategoryEntity();
                 rootElement.setId(root.getId());
                 rootElement.setAltId(root.getAltId());
@@ -234,7 +234,7 @@ public class CategoryManagerImpl
                 List<CategoryEntity> subs = getAllReadyCategories(root);
                 List<CategoryEntity> resSubs = new LinkedList<CategoryEntity>();
                 for (CategoryEntity sub : subs) {
-                    if (!sub.isHidemain()) {
+                    if (sub.isHidemain()) {
                         CategoryEntity subElement = new CategoryEntity();
                         subElement.setParent(rootElement);
                         subElement.setId(sub.getId());
