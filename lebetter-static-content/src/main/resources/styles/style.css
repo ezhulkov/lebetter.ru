@@ -454,6 +454,7 @@ ul#topnav .sub ul li a:hover li a:hover {
     text-decoration: none;
     opacity: 0.7;
     filter:progid:DXImageTransform.Microsoft.Alpha(opacity=70);
+    cursor: pointer;
 }
 .slider_box .promo_but_active {
     background: none repeat scroll 0 0 #E3E3E3;
