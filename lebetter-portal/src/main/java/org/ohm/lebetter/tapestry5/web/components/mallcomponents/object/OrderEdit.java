@@ -189,4 +189,8 @@ public class OrderEdit extends AbstractEditComponent {
                getServiceFacade().getDataManager().getDataFullURL(photo, FileNames.SMALL_PHOTO.toString());
     }
 
+    public String getSelectedObjectOrderStatus() {
+        return getBase().getText(getSelectedObject().getOrderStatus().toString());
+    }
+
 }
