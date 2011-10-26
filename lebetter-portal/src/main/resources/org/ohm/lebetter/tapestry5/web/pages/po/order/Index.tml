@@ -26,6 +26,12 @@
                     LB.colorCell("#order_menu");
                 </t:mallComponents.control.javascript>
 
+                <t:unless test="selectedOrderNew">
+                    <div class="adm_add_box">
+                        <t:pageLink t:page="po/order/print" context="selectedOrder.rootId" class="create_link">Распечатать для заказчика</t:pageLink>
+                    </div>
+                </t:unless>
+
                 <h1>
                     <t:if test="selectedOrderNew">Оформление нового заказа</t:if>
                     <t:unless test="selectedOrderNew">Заказ '${selectedOrder.orderNumber}'</t:unless>

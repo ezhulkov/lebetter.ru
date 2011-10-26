@@ -17,7 +17,7 @@ public class Sitemap extends AbstractBrowseBasePage {
 
     @Cached
     public List<CategoryEntity> getCategories() {
-        return getServiceFacade().getCategoryManager().getAllReadyCategoriesForUI();
+        return getServiceFacade().getCategoryManager().getAllReadyCategoriesForUI(false);
     }
 
 }

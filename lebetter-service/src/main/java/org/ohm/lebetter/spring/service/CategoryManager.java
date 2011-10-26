@@ -51,7 +51,7 @@ public interface CategoryManager
 
     public List<CategoryEntity> getAllReadyCategories(CategoryEntity parent);
 
-    public List<CategoryEntity> getAllReadyCategoriesForUI();
+    public List<CategoryEntity> getAllReadyCategoriesForUI(boolean showHidden);
 
     public List<CategoryEntity> getAllReadyLeafCategories();
 

@@ -15,13 +15,27 @@
             selectedObject="selectedObject"
             submitCallback="callback">
 
-        <t:unless test="selectedOrderNew">
-            <h3>Дата оформления: ${selectedObject.placedDatePrintable}</h3>
-        </t:unless>
+        <table class="order_details">
+            <t:unless test="selectedOrderNew">
+                <tr>
+                    <td><h3>Дата оформления:</h3></td>
+                    <td><h3>${selectedObject.placedDatePrintable}</h3></td>
+                </tr>
+            </t:unless>
+            <tr>
+                <td><h3>Общая стоимость товаров:</h3></td>
+                <td><h3>${orderTotalSum} USD</h3></td>
+            </tr>
+            <tr>
+                <td><h3>С учетом скидки:</h3></td>
+                <td><h3>${orderTotalDiscountSum} USD</h3></td>
+            </tr>
+            <tr>
+                <td><h3>Стоимость для заказчика:</h3></td>
+                <td><h3>${orderClientDiscountSum} USD</h3></td>
+            </tr>
+        </table>
 
-        <h3>Общая стоимость товаров: ${orderTotalSum} USD</h3>
-
-        <h3>С учетом скидки: ${orderTotalDiscountSum} USD</h3>
         <br/>
 
         <div class="input_box">
@@ -43,10 +57,18 @@
                 <t:if test="auth.adminRole">
                     <t:select t:id="orderStatus" class="form_select"/>
                     <t:parameter name="else">
-                        <input type="text" value="${selectedObject.orderStatus}" disabled="disabled" class="form_input"/>
+                        <input type="text" value="${selectedObjectOrderStatus}" disabled="disabled" class="form_input"/>
                     </t:parameter>
                 </t:if>
             </div>
+        </div>
+
+        <div class="input_box">
+            <div class="input_label">
+                <t:label for="clientDiscount"/>
+                :
+            </div>
+            <input t:id="clientDiscount" class="form_input"/>
         </div>
 
         <div class="input_box">
@@ -68,10 +90,22 @@
                 <table>
                     <tr>
                         <td class="orderindex_l">
-                            <img src="/images/lb-front/def/nopic6.gif" title="${oneProduct.product.name}" alt="${oneProduct.product.name}"/>
+                            <t:pageLink t:page="po/catalog" t:context="oneProduct.product.rootId">
+                                <t:if test="productPhoto">
+                                    <t:if test="productPhoto.imageReady">
+                                        <img src="${imageURL}" alt="${oneProduct.name}" title="${oneProduct.name}"/>
+                                        <t:parameter name="else">
+                                            <img src="/images/lb-front/def/nopic6.gif" title="${oneProduct.product.name}" alt="${oneProduct.product.name}"/>
+                                        </t:parameter>
+                                    </t:if>
+                                    <t:parameter name="else">
+                                        <img src="/images/lb-front/def/nopic6.gif" title="${oneProduct.product.name}" alt="${oneProduct.product.name}"/>
+                                    </t:parameter>
+                                </t:if>
+                            </t:pageLink>
                         </td>
                         <td class="orderindex_r">
-                            <t:pageLink t:page="catalog" target="_blank" t:context="oneProductContext">
+                            <t:pageLink t:page="po/catalog" t:context="oneProduct.product.rootId">
                                 <h3>${oneProduct.product.name} (${oneProduct.product.articul}), ${oneProduct.product.price} USD</h3>
                                 <t:mallComponents.control.ie9CompatibleActionLink t:zone="editAreaZone"
                                                                                   t:id="delProduct"
@@ -111,9 +145,9 @@
 
         <script language="JavaScript" type="text/javascript">
             var selId;
-            <t:loop t:formState="NONE" source="orderValues" value="oneOrderValue">
-                selId="LB-"+${oneOrderValue.product.id}+"-"+${oneOrderValue.value.property.rootId};
-                jQuery("#" + selId).find("#" + ${oneOrderValue.value.rootId}).attr("selected","selected");
+            <t:loop t:formState = "NONE" source = "orderValues" value = "oneOrderValue" >
+                    selId = "LB-" + ${oneOrderValue.product.id}+"-" +${oneOrderValue.value.property.rootId};
+                    jQuery("#" + selId).find("#" + ${oneOrderValue.value.rootId}).attr("selected", "selected");
             </t:loop>
         </script>
 

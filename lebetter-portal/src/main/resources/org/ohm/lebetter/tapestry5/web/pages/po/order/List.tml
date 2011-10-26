@@ -65,7 +65,7 @@
                     <ul>
                         <t:loop t:formState="NONE" source="products" value="oneProduct">
                             <li>
-                                <t:pageLink t:page="catalog" target="_blank" t:context="oneProductContext">${oneProduct.product.name} (${oneProduct.product.articul}), ${oneProduct.product.price} USD</t:pageLink>
+                                <t:pageLink t:page="po/catalog" t:context="oneProduct.product.rootId">${oneProduct.product.name} (${oneProduct.product.articul}), ${oneProduct.product.price} USD</t:pageLink>
                             </li>
                         </t:loop>
                     </ul>

@@ -39,7 +39,7 @@ public class ProductNew extends AbstractEditComponent {
 
     @Cached
     public List<CategoryEntity> getCategories() {
-        return getServiceFacade().getCategoryManager().getAllReadyCategoriesForUI();
+        return getServiceFacade().getCategoryManager().getAllReadyCategoriesForUI(false);
     }
 
     public EditObjectCallback getCallback() {

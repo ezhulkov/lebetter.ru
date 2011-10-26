@@ -220,30 +220,34 @@ public class CategoryManagerImpl
     }
 
     @Override
-    public List<CategoryEntity> getAllReadyCategoriesForUI() {
+    public List<CategoryEntity> getAllReadyCategoriesForUI(boolean showHidden) {
         List<CategoryEntity> result = new LinkedList<CategoryEntity>();
         List<CategoryEntity> roots = getAllReadyCategories(null);
         for (CategoryEntity root : roots) {
-            CategoryEntity rootElement = new CategoryEntity();
-            rootElement.setId(root.getId());
-            rootElement.setAltId(root.getAltId());
-            rootElement.setRootId(root.getRootId());
-            rootElement.setName(root.getName());
-            rootElement.setCode(root.getCode());
-            List<CategoryEntity> subs = getAllReadyCategories(root);
-            List<CategoryEntity> resSubs = new LinkedList<CategoryEntity>();
-            for (CategoryEntity sub : subs) {
-                CategoryEntity subElement = new CategoryEntity();
-                subElement.setParent(rootElement);
-                subElement.setId(sub.getId());
-                subElement.setAltId(sub.getAltId());
-                subElement.setRootId(sub.getRootId());
-                subElement.setName(sub.getName());
-                subElement.setCode(sub.getCode());
-                resSubs.add(subElement);
+            if (showHidden || root.isShowmain()) {
+                CategoryEntity rootElement = new CategoryEntity();
+                rootElement.setId(root.getId());
+                rootElement.setAltId(root.getAltId());
+                rootElement.setRootId(root.getRootId());
+                rootElement.setName(root.getName());
+                rootElement.setCode(root.getCode());
+                List<CategoryEntity> subs = getAllReadyCategories(root);
+                List<CategoryEntity> resSubs = new LinkedList<CategoryEntity>();
+                for (CategoryEntity sub : subs) {
+                    if (showHidden || sub.isShowmain()) {
+                        CategoryEntity subElement = new CategoryEntity();
+                        subElement.setParent(rootElement);
+                        subElement.setId(sub.getId());
+                        subElement.setAltId(sub.getAltId());
+                        subElement.setRootId(sub.getRootId());
+                        subElement.setName(sub.getName());
+                        subElement.setCode(sub.getCode());
+                        resSubs.add(subElement);
+                    }
+                }
+                rootElement.setChildren(resSubs);
+                result.add(rootElement);
             }
-            rootElement.setChildren(resSubs);
-            result.add(rootElement);
         }
         return result;
     }

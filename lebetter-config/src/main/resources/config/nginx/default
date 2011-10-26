@@ -27,7 +27,7 @@ server {
     listen 80;
     server_name static.lebetter.ru;
 
-    location ~* ^(/favicon.ico|/images|/icon|/scripts|/styles|/redactor|/multipow|/yandex) {
+    location ~* ^(/favicon.ico|/images|/icon|/scripts|/styles|/redactor|/multipow|/pageflip/|/yandex) {
         root                        /usr/share/nginx/www;
         access_log                  /var/log/nginx/static.log;
         add_header                  Cache-Control   "public, max-age=1209600";

@@ -37,6 +37,9 @@ input, select, textarea {
 .display_none {
     display: none;
 }
+.t-error-icon {
+    display: none;
+}
 .centered {
   margin: 0px auto;
   width: 980px;

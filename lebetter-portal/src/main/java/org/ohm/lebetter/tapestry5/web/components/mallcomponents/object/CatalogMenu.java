@@ -25,7 +25,7 @@ public class CatalogMenu extends AbstractBaseComponent {
 
     @Cached
     public List<CategoryEntity> getCategories() {
-        return getServiceFacade().getCategoryManager().getAllReadyCategoriesForUI();
+        return getServiceFacade().getCategoryManager().getAllReadyCategoriesForUI(false);
     }
 
 }

@@ -7,15 +7,18 @@ import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Select;
 import org.apache.tapestry5.corelib.components.TextArea;
+import org.apache.tapestry5.corelib.components.TextField;
 import org.ohm.lebetter.model.impl.entities.DealerEntity;
 import org.ohm.lebetter.model.impl.entities.OrderEntity;
 import org.ohm.lebetter.model.impl.entities.OrderEntity.OrderStatus;
 import org.ohm.lebetter.model.impl.entities.OrderToProductEntity;
 import org.ohm.lebetter.model.impl.entities.OrderToValueEntity;
+import org.ohm.lebetter.model.impl.entities.ProductPhotoEntity;
 import org.ohm.lebetter.model.impl.entities.PropertyEntity;
 import org.ohm.lebetter.model.impl.entities.PropertyValueEntity;
 import org.ohm.lebetter.model.impl.entities.TagToValueEntity;
 import org.ohm.lebetter.model.impl.entities.UserEntity;
+import org.ohm.lebetter.spring.service.Constants.FileNames;
 import org.ohm.lebetter.tapestry5.web.components.base.AbstractEditComponent;
 import org.ohm.lebetter.tapestry5.web.components.base.EditObjectCallback;
 import org.ohm.lebetter.tapestry5.web.services.impl.GenericSelectModel;
@@ -39,6 +42,9 @@ public class OrderEdit extends AbstractEditComponent {
 
     @Component(id = "comments", parameters = {"value=selectedObject.comments", "validate=maxlength=512"})
     private TextArea descField;
+
+    @Component(id = "clientDiscount", parameters = {"value=selectedObject.clientDiscount", "validate=maxlength=64"})
+    private TextField clientDiscountField;
 
     @Property
     private ValueEncoder<DealerEntity> dealerModel = null;
@@ -172,8 +178,28 @@ public class OrderEdit extends AbstractEditComponent {
                                                                   0 : getSelectedObject().getDealer().getDiscount());
     }
 
+    public float getOrderClientDiscountSum() {
+        return getServiceFacade().getOrderManager().getOrderTotal(getSelectedObject(),
+                                                                  getSelectedObject().getClientDiscount());
+    }
+
     public float getOrderTotalSum() {
         return getServiceFacade().getOrderManager().getOrderTotal(getSelectedObject());
+    }
+
+    public ProductPhotoEntity getProductPhoto() {
+        return getServiceFacade().getProductPhotoManager().getMainPhoto(oneProduct.getProduct());
+    }
+
+    public String getImageUrl() {
+        ProductPhotoEntity photo = getProductPhoto();
+        return photo == null ?
+               null :
+               getServiceFacade().getDataManager().getDataFullURL(photo, FileNames.SMALL_PHOTO.toString());
+    }
+
+    public String getSelectedObjectOrderStatus() {
+        return getBase().getText(getSelectedObject().getOrderStatus().toString());
     }
 
 }

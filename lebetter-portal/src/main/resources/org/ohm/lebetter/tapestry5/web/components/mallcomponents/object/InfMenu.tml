@@ -2,11 +2,11 @@
     <li>
         <t:pageLink t:page="about">О нас</t:pageLink>
         <ul>
-            <li id="manuf_menu">
-                <t:pageLink t:page="manufacture">Фабрика</t:pageLink>
-            </li>
             <li id="about_menu">
                 <t:pageLink t:page="about">О представительстве</t:pageLink>
+            </li>
+            <li id="manuf_menu">
+                <t:pageLink t:page="manufacture">Фабрика</t:pageLink>
             </li>
             <li id="contacts_menu">
                 <t:pageLink t:page="contacts">Контакты</t:pageLink>
