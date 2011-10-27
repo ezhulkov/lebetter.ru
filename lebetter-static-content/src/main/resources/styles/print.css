@@ -1,1 +1,23 @@
-﻿
+﻿.ofp_box_but,
+.header,
+.topmenu,
+.bottom {
+  display: none;
+}
+.hr_big,
+table.body,
+.centered {
+  width: 600px !important;
+}
+#printorder {
+    background: none;
+    border: 0px solid #555555;
+    padding-right: 0 !important;
+    padding-bottom: 0 !important;
+    padding-left: 30px !important;
+    padding-top: 0 !important;
+}
+.hr_big {
+  border-bottom: 1px solid #000000;
+  margin-bottom: 10px;
+}
