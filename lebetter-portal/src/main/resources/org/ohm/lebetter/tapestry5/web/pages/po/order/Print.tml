@@ -64,7 +64,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <h1>Детали заказа № ${selectedOrder.orderNumber} от ${datePrintable}</h1>
+                                <h1>Спецификация заказа № ${selectedOrder.orderNumber} от ${datePrintable}</h1>
                             </td>
                         </tr>
                         <tr>
@@ -140,7 +140,7 @@
                                     </tr>
                                     <tr>
                                         <td><b>Заказчик:</b></td>
-                                        <td><b>Исполнитель:</b></td>
+                                        <td><b>Продавец:</b></td>
                                     </tr>
                                     <tr>
                                         <td></td>
