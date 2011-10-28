@@ -15,7 +15,7 @@
             </td>
             <td class="ObjectAvatarEdit_2">
                 <!-- form -->
-                <t:mallComponents.control.menuLink roles="ROLE_STAFF">
+                <t:mallComponents.control.menuLink roles="ROLE_STAFF,ROLE_OWNER" object="selectedObject">
 
                     <t:mallComponents.object.multiPowImageUpload ticket="ticket"
                                                                  multipleFiles="false"

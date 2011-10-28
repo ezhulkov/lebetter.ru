@@ -5,7 +5,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.ohm.lebetter.model.SitemapAware;
 import org.room13.mallcore.model.ImageAware;
-import org.room13.mallcore.model.impl.BaseCreatorRepAwareEntity;
+import org.room13.mallcore.model.impl.BaseOwnerAwareEntity;
 import org.room13.mallcore.model.impl.entities.ImageStatusEntity;
 
 import javax.persistence.CascadeType;
@@ -22,7 +22,7 @@ import javax.persistence.Table;
 @Cache(usage = CacheConcurrencyStrategy.NONE)
 @AccessType("field")
 public class DealerEntity
-        extends BaseCreatorRepAwareEntity
+        extends BaseOwnerAwareEntity
         implements SitemapAware, ImageAware {
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH, optional = false)

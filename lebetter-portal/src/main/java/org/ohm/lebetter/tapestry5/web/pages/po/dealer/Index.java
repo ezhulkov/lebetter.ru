@@ -1,6 +1,7 @@
 package org.ohm.lebetter.tapestry5.web.pages.po.dealer;
 
 import org.apache.tapestry5.Block;
+import org.apache.tapestry5.annotations.Cached;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Property;
@@ -47,6 +48,10 @@ public class Index extends AdminBasePage {
         selectedObject.setIdStr(idStr);
         selectedObject.setObjectManager(getServiceFacade().getDealerManager());
         selectedDealer = (DealerEntity) selectedObject.findSelectedObject();
+
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!");
+        System.out.println(selectedDealer.getOwners());
+
     }
 
     public Long onPassivate() {
@@ -69,8 +74,13 @@ public class Index extends AdminBasePage {
         return adminBlock;
     }
 
+    @Cached
     public DealerEntity getSelectedDealerRenew() {
         return getServiceFacade().getDealerManager().get(selectedDealer.getRootId());
+    }
+
+    public void setSelectedDealerRenew(DealerEntity dealer) {
+        selectedDealer = dealer;
     }
 
 }

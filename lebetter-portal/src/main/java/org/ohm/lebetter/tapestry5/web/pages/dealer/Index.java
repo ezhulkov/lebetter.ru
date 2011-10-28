@@ -30,6 +30,9 @@ public class Index extends AbstractBrowseBasePage {
         selectedObject.setIdStr(idStr);
         selectedObject.setObjectManager(getServiceFacade().getDealerManager());
         selectedDealer = (DealerEntity) selectedObject.findSelectedObject();
+
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! " + selectedDealer.getOwners().size());
+
     }
 
     public Long onPassivate() {

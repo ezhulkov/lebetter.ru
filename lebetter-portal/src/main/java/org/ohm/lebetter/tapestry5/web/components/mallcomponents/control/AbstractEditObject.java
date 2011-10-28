@@ -7,6 +7,7 @@ import org.apache.tapestry5.annotations.Parameter;
 import org.ohm.lebetter.tapestry5.web.components.base.AbstractBaseComponent;
 import org.ohm.lebetter.tapestry5.web.components.base.EditObjectCallback;
 import org.room13.mallcore.model.ObjectBaseEntity;
+import org.room13.mallcore.model.OwnerAware;
 import org.room13.mallcore.spring.service.GenericManager;
 
 /**
