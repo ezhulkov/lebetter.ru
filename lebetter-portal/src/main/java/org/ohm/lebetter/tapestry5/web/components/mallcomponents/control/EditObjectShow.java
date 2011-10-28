@@ -124,7 +124,6 @@ public class EditObjectShow extends AbstractEditObject {
             }
 
             //Set parameters to component to draw form correctly after AJAX submit
-            setSelectedObject(obe);
             getEditObjectShow().setEditLanguage(lang);
             getEditObjectShow().setSelectedObject(obe);
 

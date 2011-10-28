@@ -48,10 +48,6 @@ public class Index extends AdminBasePage {
         selectedObject.setIdStr(idStr);
         selectedObject.setObjectManager(getServiceFacade().getDealerManager());
         selectedDealer = (DealerEntity) selectedObject.findSelectedObject();
-
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!");
-        System.out.println(selectedDealer.getOwners());
-
     }
 
     public Long onPassivate() {
