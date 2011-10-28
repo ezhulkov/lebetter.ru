@@ -4,7 +4,6 @@ import org.apache.tapestry5.Block;
 import org.apache.tapestry5.annotations.Cached;
 import org.apache.tapestry5.annotations.OnEvent;
 import org.apache.tapestry5.annotations.Property;
-import org.ohm.lebetter.model.SitemapAware;
 import org.ohm.lebetter.tapestry5.web.data.FlashMessage;
 import org.room13.mallcore.model.ObjectBaseEntity;
 import org.room13.mallcore.model.impl.entities.LanguageEntity;
@@ -133,13 +132,13 @@ public class EditObjectShow extends AbstractEditObject {
             getRMLogger().errorObjectExists("Error adding object. Exists", obe);
             msg = new FlashMessage(getBase().getText(getObjectExistsLabel()), FlashMessage.Type.FAILURE);
         } catch (DataIntegrityViolationException cve) {
-            getRMLogger().errorObjectExists("Error adding object. Exists", obe);
+            getRMLogger().errorObjectExists("Error saving object 1", obe);
             msg = new FlashMessage(getBase().getText(getObjectExistsLabel()), FlashMessage.Type.FAILURE);
         } catch (AccessControlException acex) {
-            getRMLogger().errorSecurityViolation("Error adding object. Access denied", obe);
+            getRMLogger().errorSecurityViolation("Error saving object 2", obe);
             msg = new FlashMessage(getBase().getText("error.access.denied"), FlashMessage.Type.FAILURE);
         } catch (Exception ex2) {
-            getRMLogger().error("Error adding object.", obe, ex2);
+            getRMLogger().error("Error saving object 3", obe, ex2);
             msg = new FlashMessage(getBase().getText("error.generic"), FlashMessage.Type.FAILURE);
         }
 
@@ -209,9 +208,6 @@ public class EditObjectShow extends AbstractEditObject {
             if (getObjectPage() != null) {
                 if (isObjectPagePermanent()) {
                     getIOC().getResponse().sendRedirect(getObjectPage());
-                } else if (getSelectedObject() instanceof SitemapAware) {
-                    getIOC().getResponse().sendRedirect(getObjectPage() + "/" +
-                                                        ((SitemapAware) getSelectedObject()).getAltId());
                 } else {
                     getIOC().getResponse().sendRedirect(getObjectPage() + "/" +
                                                         getSelectedObject().getRootId());

@@ -34,7 +34,7 @@
                 net.sf.ehcache.configurationResourceName=/config/model/ehcache.xml
                 hibernate.cache.use_second_level_cache=true
                 hibernate.cache.use_query_cache=true
-                hibernate.generate_statistics=true
+                hibernate.generate_statistics=false
                 hibernate.cache.use_structured_entries=true
             </value>
         </property>
