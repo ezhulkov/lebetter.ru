@@ -10,13 +10,13 @@
             <div class="slider display_none">
                 <ul>
                     <li class="promo_outer">
-                        <img src="/images/pic/main/hotel1.jpg" width="920" height="350" alt=""/>
-                    </li>
-                    <li class="promo_outer">
                         <img src="/images/pic/main/kabinet1.jpg" width="920" height="350" alt=""/>
                     </li>
                     <li class="promo_outer">
                         <img src="/images/pic/main/spalnya1.jpg" width="920" height="350" alt=""/>
+                    </li>
+                    <li class="promo_outer">
+                        <img src="/images/pic/main/hotel1.jpg" width="920" height="350" alt=""/>
                     </li>
                 </ul>
 
