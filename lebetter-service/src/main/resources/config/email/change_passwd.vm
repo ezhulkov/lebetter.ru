@@ -1,0 +1,9 @@
+<html>
+<head>
+  <title>Смена пароля на сайте Lebetter.ru</title>
+</head>
+<body>
+Здравствуйте, $!user.firstName<br/>
+Ваш новый пароль для входа на сайт <a href="http://lebetter.ru">Lebetter.ru</a>: $newPassword
+</body>
+</html>

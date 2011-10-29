@@ -60,7 +60,6 @@ LB = {
         LB.promo_index=0;
         LB.cucl=0;
         LB.timedCount();
-        LB.lastBanners();
         jQuery("div.slider").removeClass("display_none");
     },
     lastBanners: function() {

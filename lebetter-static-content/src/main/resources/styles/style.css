@@ -442,6 +442,7 @@ ul#topnav .sub ul li a:hover li a:hover {
   overflow: hidden;
   width: 920px;
   list-style: none;
+  display: none;
 }
 .slider_box .promo_but_place {
     bottom: 15px;
