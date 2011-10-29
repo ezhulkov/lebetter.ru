@@ -6,7 +6,7 @@
                 <t:pageLink t:page="about">О представительстве</t:pageLink>
             </li>
             <li id="manuf_menu">
-                <t:pageLink t:page="manufacture">Фабрика</t:pageLink>
+                <t:pageLink t:page="manufacture">Компания</t:pageLink>
             </li>
             <li id="contacts_menu">
                 <t:pageLink t:page="contacts">Контакты</t:pageLink>

@@ -31,7 +31,7 @@
                     <t:pageLink t:page="about">О представительстве</t:pageLink>
                 </li>
                 <li>
-                    <t:pageLink t:page="manufacture">Фабрика</t:pageLink>
+                    <t:pageLink t:page="manufacture">Компания</t:pageLink>
                 </li>
                 <li>
                     <t:pageLink t:page="catalog">Каталог</t:pageLink>
