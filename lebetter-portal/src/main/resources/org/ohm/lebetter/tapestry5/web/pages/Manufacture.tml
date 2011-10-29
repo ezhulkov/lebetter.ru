@@ -1,4 +1,4 @@
-<t:mallcomponents.layout.layout title="Lebetter.ru - История фабрики"
+<t:mallcomponents.layout.layout title="Lebetter.ru - Комания «GAINWELL INDUSTRIAL LIMITED»"
                                 bodyId="history"
                                 flash="flashMessage"
                                 xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
@@ -20,7 +20,7 @@
 
     <t:mallcomponents.layout.browse leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
 
-        <h1>Компания Gainwell</h1>
+        <h1>Комания «GAINWELL INDUSTRIAL LIMITED»</h1>
 
         <img src="/images/pic/about/gainwell.jpg" class="image" alt=""/>
 
