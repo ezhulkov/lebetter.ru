@@ -60,6 +60,7 @@ LB = {
         LB.promo_index=0;
         LB.cucl=0;
         LB.timedCount();
+        LB.lastBanners();
         jQuery("div.slider").removeClass("display_none");
     },
     lastBanners: function() {
@@ -91,7 +92,6 @@ LB = {
         }
     },
     gridManipulation: function() {
-     // alert("!");
         jQuery("ul.prod_cat_grid2 li.banner:nth-child(5n)").addClass("row");
         jQuery("div.slide_pager a").last().addClass("l");
         jQuery("#fcat").fancybox({
@@ -136,7 +136,6 @@ LB = {
 
         });
 
-        //alert(prodLength + '   ' + prodRows);
     },
     productFancybox: function(ob) {
         jQuery(ob).fancybox({
