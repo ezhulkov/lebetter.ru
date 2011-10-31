@@ -56,7 +56,7 @@
                 <t:if test="selectedProduct.articul">
                     <tr>
                         <td>Артикул:</td>
-                        <td>${selectedProduct.articul}</td>
+                        <td><b>${selectedProduct.articul}</b></td>
                     </tr>
                 </t:if>
                 <t:loop t:formState="NONE" source="properties" value="oneProperty">
@@ -65,11 +65,10 @@
                             <td>${oneProperty.name}:</td>
                             <td>
                                 <t:mallComponents.control.loopMore source="values" value="oneValue" showCount="30">
-                                    &#160;
                                     <t:if test="oneValue.imageReady">
-                                        <b><a class="vallnk${oneProperty.rootId} lnk_dotted" href="#valpics${oneProperty.rootId}" alt="${oneValue.name} ${oneValue.code}" title="${oneValue.name} ${oneValue.code}">${oneValue.name}</a></b>
+                                        <b><a class="vallnk${oneProperty.rootId} lnk_dotted" href="#valpics${oneProperty.rootId}" alt="${oneValue.name} ${oneValue.code}" title="${oneValue.name} ${oneValue.code}">${oneValue.name}</a>&#160;</b>
                                         <t:parameter name="else">
-                                            <b>${oneValue.name}</b>
+                                            <b>${oneValue.name}&#160;</b>
                                         </t:parameter>
                                     </t:if>
                                 </t:mallComponents.control.loopMore>
