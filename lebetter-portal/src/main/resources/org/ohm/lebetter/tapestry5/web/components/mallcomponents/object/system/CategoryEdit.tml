@@ -85,6 +85,18 @@
                 <input t:id="tomainname" id="tomainname" class="form_input"/>
             </div>
 
+            <div class="input_box">
+                <div class="input_label">
+                    <t:label for="description"/>
+                    :
+                </div>
+                <div class="form_textarea">
+                    <t:textarea t:id="description" class="textarea"/>
+                </div>
+            </div>
+            <div class="break"></div>
+            <br/>
+
             <t:unless test="selectedObject.children">
                 <div class="input_box">
                     <div class="input_label">
@@ -145,17 +157,6 @@
                     }
                 </script>
             </t:unless>
-
-            <div class="input_box">
-                <div class="input_label">
-                    <t:label for="description"/>
-                    :
-                </div>
-                <div class="form_textarea">
-                    <t:textarea t:id="description" class="textarea"/>
-                </div>
-            </div>
-            <div class="break"></div>
 
             <script>
                 jQuery("#tomain").unbind().bind("change",function(){

@@ -7,7 +7,7 @@
             objectExistsLabel="error.value.exists"
             objectAddedLabel="value.added"
             newObject="literal:false"
-            listPage="literal:/po/system/property"
+            listPage="/po/system/property/${selectedObject.property.rootId}"
             objectPage="literal:/po/system/value"
             objectManager="serviceFacade.propertyValueManager"
             selectedObject="selectedObject"
