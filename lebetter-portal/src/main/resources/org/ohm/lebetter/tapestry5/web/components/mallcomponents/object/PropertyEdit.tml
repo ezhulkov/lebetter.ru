@@ -39,13 +39,6 @@
                 <input class="form_input" disabled="disabled" value="${selectedObject.type}"/>
             </div>
 
-            <t:if test="selectedPropertyIsDict">
-                <div class="input_label">
-                    Словарь:
-                </div>
-                <input class="form_input" disabled="disabled" value="${selectedObject.dictionary}"/>
-            </t:if>
-
             <div class="break"></div>
 
             <t:if test="selectedPropertyIsListOrDict">
@@ -78,24 +71,6 @@
                 </div>
                 <!-- /Cat values -->
             </t:if>
-        </t:if>
-
-        <t:if test="selectedPropertyIsDict">
-            <div>
-                <h2>Значения свойства</h2>
-                <t:mallComponents.object.propertyValueList property="selectedObject"/>
-            </div>
-        </t:if>
-
-        <t:if test="selectedPropertyIsGroup">
-            <div>
-                <div class="adm_add_box">
-                    <t:pageLink t:page="po/system/property/create" context="selectedObject.rootId" class="create_link2">Создать свойство</t:pageLink>
-                </div>
-                <h2>Свойства группы</h2>
-                <t:mallComponents.object.propertyList parent="selectedObject"/>
-            </div>
-            <!-- /Sub properties -->
         </t:if>
 
     </t:mallComponents.control.menuLink>
