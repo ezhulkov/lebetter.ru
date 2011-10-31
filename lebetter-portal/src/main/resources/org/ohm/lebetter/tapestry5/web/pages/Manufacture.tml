@@ -22,17 +22,17 @@
 
         <h1>Компания «GAINWELL INDUSTRIAL LIMITED»</h1>
 
-        <img src="/images/pic/about/gainwell.jpg" class="image" alt=""/>
+        <img src="/images/pic/about/gainwell.jpg" class="image_l" alt=""/>
 
         <p>
             Мы рады представить вам мебель известного крупнейшего производителя мебели -
             <strong>«GAINWELL INDUSTRIAL LIMITED»</strong>.
-            Промышленное предприятие <strong>GAINWEL INDUSTRIAL LIMITED</strong> располагает четырьмя современными
+            Промышленное предприятие GAINWEL INDUSTRIAL LIMITED располагает четырьмя современными
             заводами по производству мебели разных категорий и одним деревообрабатывающим заводом, оснащенным по последнему слову техники.
         </p>
 
         <p>
-            <strong>Компания «GAINWELL INDUSTRIAL LIMITED»</strong>
+            Компания «GAINWELL INDUSTRIAL LIMITED»
             основанна в 1995 г. и является членом правления «Ассоциации производителей мебели Китая»,
             На данный момент в ней работает около 2000 рабочих и служащих. Производственная площадь составляет 220 тыс. кв. м.,
             современные логистические склады около 80 тыс. куб. м. Годовое производство продукции достигает сотней миллионов юаней.
@@ -42,7 +42,7 @@
         <div class="hr_big"/>
         <br/>
 
-        <img src="/images/pic/about/process.jpg" class="image" style="float:right;" alt=""/>
+        <img src="/images/pic/about/process.jpg" class="image_r" alt=""/>
 
         <p>
             <strong>«GAINWELL INDUSTRIAL LIMITED»</strong> использует новейшие технологии и современное оборудование, обладает мощной технической
@@ -55,21 +55,21 @@
             Одним из основных направлений производства являются линия мебели
             <strong>Lebetter</strong> - мебель для дома и
             линия <strong>GAINWELL</strong> - мебель для гостиниц.
-            Линия <strong>Lebetter</strong> была открыта в 2006г и сразу же завоевала популярность.
-            <strong>Lebetter</strong> разработана ведущими американскими дизайнерами и выпускается для американского рынка с высочайшими
+            Линия Lebetter была открыта в 2006г и сразу же завоевала популярность.
+            Lebetter разработана ведущими американскими дизайнерами и выпускается для американского рынка с высочайшими
             требованиями к качеству и организации всего производственного процесса. Основу стиля выпускаемой мебели можно
             охарактеризовать как «Сountry House» (загородный дом). Основными материалами для мебели служит береза, орех, бук, клен.
             Все материалы проходят жесткий процесс отбора по уровню качества и экологическим требованиям.
         </p>
 
-        <img src="/images/pic/about/art.jpg" class="image" style="float:right;" alt=""/>
+        <img src="/images/pic/about/art.jpg" class="image_r" alt=""/>
 
         <p>
-            <strong>«GAINWELL INDUSTRIAL LIMITED»</strong> является одним из поставщиков мебели и оборудования для всемирно известных предприятий,
+            «GAINWELL INDUSTRIAL LIMITED» является одним из поставщиков мебели и оборудования для всемирно известных предприятий,
             таких как <strong>HILTON, ROOMS TO GO, SANDS, HOMEGOODS</strong> и др.
             Компания выполняет заказы для отелей с мировым именем,
             таких как <strong>SHERATON HOTELS, FOUR SEASONS,MARIOTT,CROWN PLAZA, SHANGRI-LA HOTEL</strong> и множества других.
-            Продукция <strong>GAINWELL</strong> продается в США, Канаде, Англии, Австралии, Японии.
+            Продукция GAINWELL продается в США, Канаде, Англии, Австралии, Японии.
         </p>
 
     </t:mallcomponents.layout.browse>
