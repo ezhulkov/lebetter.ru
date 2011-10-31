@@ -22,7 +22,7 @@
 
         <h1>О представительстве Lebetter</h1>
 
-        <img src="/images/pic/about/gainwell.jpg" class="image" alt=""/>
+        <img src="/images/pic/about/gainwell.jpg" class="image_l" alt=""/>
 
         <p>
             Мы рады представить вам мебель известного крупнейшего производителя мебели -
@@ -42,7 +42,7 @@
         <div class="hr_big"/>
         <br/>
 
-        <img src="/images/pic/about/process.jpg" class="image" style="float:right;" alt=""/>
+        <img src="/images/pic/about/process.jpg" class="image_r" alt=""/>
 
         <p>
             <strong>«GAINWELL INDUSTRIAL LIMITED»</strong> использует новейшие технологии и современное оборудование, обладает мощной технической
@@ -62,7 +62,7 @@
             Все материалы проходят жесткий процесс отбора по уровню качества и экологическим требованиям.
         </p>
 
-        <img src="/images/pic/about/art.jpg" class="image" style="float:right;" alt=""/>
+        <img src="/images/pic/about/art.jpg" class="image_r" alt=""/>
 
         <p>
             <strong>«GAINWELL INDUSTRIAL LIMITED»</strong> является одним из поставщиков мебели и оборудования для всемирно известных предприятий,

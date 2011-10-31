@@ -549,6 +549,14 @@ a.lnk_dotted{
   float: left;
   margin: 4px 21px 12px 0px;
 }
+.image_l {
+  float: left;
+  margin: 4px 21px 12px 0px;
+}
+.image_r {
+  float: right;
+  margin: 4px 0px 12px 21px;
+}
 /* left menu */
 ul.leftmenu {
 
