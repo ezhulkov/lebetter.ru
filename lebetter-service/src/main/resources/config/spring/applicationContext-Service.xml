@@ -53,6 +53,12 @@
           p:productPhotoManager-ref="productPhotoManager"
           p:dealerManager-ref="dealerManager"
           p:i18n-ref="i18n">
+        <property name="newsCategoryManager">
+            <null/>
+        </property>
+        <property name="newsManager">
+            <null/>
+        </property>
         <property name="syncDictProcessors">
             <bean id="dictSyncProcessors" class="org.springframework.beans.factory.config.MapFactoryBean">
                 <property name="sourceMap">
