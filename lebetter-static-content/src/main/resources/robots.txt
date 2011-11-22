@@ -1,7 +1,11 @@
 User-Agent: Yandex
-Disallow:/*
+Disallow:/manufacture/*
+Disallow:/partners/*
+Disallow:/contacts/*
 Clean-param: jsessionid /*
 Host: lebetter.ru
 
 User-Agent: *
-Disallow:/*
+Disallow:/manufacture
+Disallow:/partners
+Disallow:/contacts
