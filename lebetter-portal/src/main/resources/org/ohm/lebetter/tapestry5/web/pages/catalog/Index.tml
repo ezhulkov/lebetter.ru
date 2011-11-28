@@ -14,7 +14,7 @@
         </t:block>
 
         <t:block t:id="leftMenuBlock">
-            <t:mallcomponents.object.catalogMenu selectedCategory="selectedCategoryParent"/>
+            <t:mallcomponents.object.catalog.catalogMenu selectedCategory="selectedCategoryParent"/>
         </t:block>
 
         <t:mallcomponents.layout.browse leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
@@ -25,9 +25,9 @@
 
             <t:unless test="selectedProduct">
                 <t:if test="selectedCategory.children">
-                    <t:mallcomponents.object.catalogWithChildren selectedCategory="selectedCategory"/>
+                    <t:mallcomponents.object.catalog.catalogWithChildren selectedCategory="selectedCategory"/>
                     <t:parameter name="else">
-                        <t:mallcomponents.object.catalogWithNoChildren selectedCategory="selectedCategory"/>
+                        <t:mallcomponents.object.catalog.catalogWithNoChildren selectedCategory="selectedCategory"/>
                     </t:parameter>
                 </t:if>
             </t:unless>

@@ -27,7 +27,7 @@ public class List extends AdminBasePage {
         return getServiceFacade().getDataManager().getDataFullURL(oneCatalog, FileNames.SMALL_PHOTO.toString());
     }
 
-    public String getOneProductObjectStatus() {
+    public String getOneCatalogObjectStatus() {
         return getBase().getText(oneCatalog.getObjectStatus().toString());
     }
 

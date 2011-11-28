@@ -1,0 +1,25 @@
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="catalognew">
+
+    <t:mallComponents.control.editObject
+            roles="ROLE_ADMIN"
+            objectSavedLabel="literal:catalog.saved"
+            objectRemovedLabel="literal:catalog.deleted"
+            objectAddedLabel="literal:catalog.added"
+            objectExistsLabel="literal:catalog.exists"
+            newObject="literal:true"
+            listPage="literal:/po/pcatalog/list"
+            objectPage="literal:/po/pcatalog"
+            objectManager="serviceFacade.catalogManager"
+            selectedObject="selectedObject">
+
+        <div class="input_box">
+            <div class="input_label">
+                <t:label for="name"/>
+                :
+            </div>
+            <input t:id="name" id="name" class="form_input"/>
+        </div>
+
+    </t:mallComponents.control.editObject>
+
+</div>

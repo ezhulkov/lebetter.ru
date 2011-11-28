@@ -1,12 +1,10 @@
 package org.ohm.lebetter.tapestry5.web.pages.po.pcatalog;
 
 import org.apache.tapestry5.Block;
-import org.apache.tapestry5.annotations.Cached;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
-import org.ohm.lebetter.model.impl.entities.CategoryEntity;
-import org.ohm.lebetter.model.impl.entities.ProductEntity;
+import org.ohm.lebetter.model.impl.entities.CatalogEntity;
 import org.ohm.lebetter.tapestry5.web.components.mallcomponents.control.SelectedObject;
 import org.ohm.lebetter.tapestry5.web.pages.base.AdminBasePage;
 
@@ -28,23 +26,19 @@ public class Index extends AdminBasePage {
     private Block picsBlock;
 
     @Property
-    @Inject
-    private Block adminBlock;
-
-    @Property
-    private ProductEntity selectedProduct;
+    private CatalogEntity selectedCatalog;
 
     @InjectComponent
     private SelectedObject selectedObject;
 
     public void onActivate(String idStr) throws Exception {
         selectedObject.setIdStr(idStr);
-        selectedObject.setObjectManager(getServiceFacade().getProductManager());
-        selectedProduct = (ProductEntity) selectedObject.findSelectedObject();
+        selectedObject.setObjectManager(getServiceFacade().getCatalogManager());
+        selectedCatalog = (CatalogEntity) selectedObject.findSelectedObject();
     }
 
     public Long onPassivate() {
-        return selectedProduct == null ? null : selectedProduct.getRootId();
+        return selectedCatalog == null ? null : selectedCatalog.getRootId();
     }
 
     public Block onActionFromPicsTab() {
@@ -53,27 +47,6 @@ public class Index extends AdminBasePage {
 
     public Block onActionFromDescTab() {
         return descBlock;
-    }
-
-    public Block onActionFromAdminTab() {
-        return adminBlock;
-    }
-
-    @Cached
-    public String[] getProductContext() {
-        selectedProduct = getServiceFacade().getProductManager().get(selectedProduct.getId());
-        CategoryEntity cat = getSelectedCategory();
-        return new String[]{cat == null ? "" : cat.getAltId(), selectedProduct.getAltId()};
-    }
-
-    @Cached
-    public CategoryEntity getSelectedCategory() {
-        if (selectedProduct != null &&
-            selectedProduct.getCategories() != null &&
-            selectedProduct.getCategories().size() != 0) {
-            return selectedProduct.getCategories().get(0);
-        }
-        return null;
     }
 
 }

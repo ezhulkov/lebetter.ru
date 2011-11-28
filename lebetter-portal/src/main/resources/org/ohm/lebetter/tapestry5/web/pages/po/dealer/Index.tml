@@ -55,15 +55,15 @@
             </t:zone>
 
             <t:block t:id="descBlock">
-                <t:mallcomponents.object.dealerEdit object="selectedDealer"/>
+                <t:mallcomponents.object.dealer.dealerEdit object="selectedDealer"/>
             </t:block>
 
             <t:block t:id="picsBlock">
-                <t:mallcomponents.object.dealerPhoto object="selectedDealerRenew"/>
+                <t:mallcomponents.object.dealer.dealerPhoto object="selectedDealerRenew"/>
             </t:block>
 
             <t:block t:id="mapBlock">
-                <t:mallcomponents.object.dealerMap object="selectedDealer"/>
+                <t:mallcomponents.object.dealer.dealerMap object="selectedDealer"/>
             </t:block>
 
             <t:block t:id="adminBlock">

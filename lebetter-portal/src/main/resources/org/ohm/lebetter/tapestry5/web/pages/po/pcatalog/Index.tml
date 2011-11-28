@@ -12,28 +12,22 @@
                 <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
                 <a href="/po">Личный кабинет</a>
                 <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
-                <a href="/po/catalog/list">Каталог</a>
+                <a href="/po/pcatalog/list">Брошюры</a>
                 <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
-                <t:if test="selectedProduct">
-                    '${selectedProduct.name}'
+                <t:if test="selectedCatalog">
+                    '${selectedCatalog.name}'
                 </t:if>
             </t:block>
 
             <t:mallComponents.control.javascript>
-                LB.colorCell("#cat_menu");
+                LB.colorCell("#pcat_menu");
             </t:mallComponents.control.javascript>
 
             <div class="adm_add_box">
-                <t:pageLink t:page="catalog" context="productContext" class="create_link">Прямая ссылка</t:pageLink>
+                <t:pageLink t:page="pcatalog" context="selectedCatalog.rootId" class="create_link">Прямая ссылка</t:pageLink>
             </div>
 
-            <h1>Товар '${selectedProduct.name}'</h1>
-            <t:if test="auth.staffRole">
-                <h2>Категория
-                    <t:pageLink t:page="po/system/category" t:context="selectedCategory.rootId">'${selectedCategory.name}'</t:pageLink>
-                </h2>
-            </t:if>
-            <br/>
+            <h1>Брошюра '${selectedCatalog.name}'</h1>
 
             <div class="break"/>
 
@@ -45,11 +39,6 @@
                     <li id="tab_pics">
                         <t:mallComponents.control.ie9CompatibleActionLink t:id="picsTab" t:zone="editZone">Фотографии</t:mallComponents.control.ie9CompatibleActionLink>
                     </li>
-                    <t:if test="auth.adminRole">
-                        <li id="tab_admin">
-                            <t:mallComponents.control.ie9CompatibleActionLink t:id="adminTab" t:zone="editZone" style="color:#d00; font-weight:bold;">Админу</t:mallComponents.control.ie9CompatibleActionLink>
-                        </li>
-                    </t:if>
                 </ul>
             </div>
 
@@ -58,20 +47,11 @@
             </t:zone>
 
             <t:block t:id="descBlock">
-                <t:mallcomponents.object.product.productEdit object="selectedProduct" office="officeLayout"/>
+                <t:mallcomponents.object.catalog.catalogEdit object="selectedCatalog" office="officeLayout"/>
             </t:block>
 
             <t:block t:id="picsBlock">
-                <t:mallcomponents.object.product.productPhoto object="selectedProduct" office="officeLayout" ajaxBlock="picsBlock"/>
-            </t:block>
-
-            <t:block t:id="adminBlock">
-                <h2>Создатели и владельцы</h2>
-
-                <div class="break"/>
-                <t:mallComponents.object.objectOwnerEdit objectManager="serviceFacade.productManager"
-                                                         object="selectedProduct"
-                                                         action="EDIT_PRODUCT"/>
+                <t:mallcomponents.object.catalog.catalogPhoto object="selectedCatalog" office="officeLayout" ajaxBlock="picsBlock"/>
             </t:block>
 
         </t:mallcomponents.control.selectedObject>

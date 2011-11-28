@@ -1,0 +1,26 @@
+<t:mallcomponents.layout.layout title="Lebetter.ru - Брошюры"
+                                bodyId="catalog"
+                                flash="flashMessage"
+                                xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+    <t:mallcomponents.control.selectedObject>
+
+        <t:block t:id="breadCrumpsBlock">
+            <a class="status_home" href="/"><img src="/images/0.gif" alt=""/></a>
+            <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+            <a href="/pcatalog">Брошюры</a>
+            <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+            '${selectedCategory.name}'
+        </t:block>
+
+        <t:block t:id="leftMenuBlock">
+            <!--<t:mallcomponents.object.catalog.catalogMenu selectedCategory="selectedCategoryParent"/>-->
+        </t:block>
+
+        <t:mallcomponents.layout.browse leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
+
+        </t:mallcomponents.layout.browse>
+
+    </t:mallcomponents.control.selectedObject>
+
+</t:mallcomponents.layout.layout>

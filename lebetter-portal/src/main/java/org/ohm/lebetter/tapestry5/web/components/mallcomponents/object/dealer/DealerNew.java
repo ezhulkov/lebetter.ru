@@ -1,7 +1,6 @@
-package org.ohm.lebetter.tapestry5.web.components.mallcomponents.object;
+package org.ohm.lebetter.tapestry5.web.components.mallcomponents.object.dealer;
 
 import org.apache.tapestry5.annotations.Component;
-import org.apache.tapestry5.corelib.components.TextArea;
 import org.apache.tapestry5.corelib.components.TextField;
 import org.ohm.lebetter.model.impl.entities.DealerEntity;
 import org.ohm.lebetter.tapestry5.web.components.base.AbstractEditComponent;

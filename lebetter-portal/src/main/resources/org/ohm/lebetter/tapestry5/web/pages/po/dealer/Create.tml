@@ -21,7 +21,7 @@
 
         <t:mallcomponents.control.grantCheck roles="ROLE_ADMIN">
             <h1>Создать дилера</h1>
-            <t:mallcomponents.object.dealerNew/>
+            <t:mallcomponents.object.dealer.dealerNew/>
         </t:mallcomponents.control.grantCheck>
 
     </t:mallcomponents.layout.office>

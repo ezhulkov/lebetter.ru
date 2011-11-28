@@ -10,7 +10,7 @@
             objectExistsLabel="literal:product.exists"
             newObject="literal:false"
             listPage="literal:/po/catalog/list"
-            objectPage="literal:/po/catalogealer"
+            objectPage="literal:/po/catalog"
             objectManager="serviceFacade.productManager"
             selectedObject="selectedObject">
 

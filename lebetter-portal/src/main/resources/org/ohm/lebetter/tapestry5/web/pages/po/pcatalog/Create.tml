@@ -8,20 +8,20 @@
         <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
         <a href="/po">Личный кабинет</a>
         <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
-        <a href="/po/catalog/list">Каталог</a>
+        <a href="/po/pcatalog/list">Брошюры</a>
         <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
         Создать
     </t:block>
 
     <t:mallComponents.control.javascript>
-        LB.colorCell("#cat_menu");
+        LB.colorCell("#pcat_menu");
     </t:mallComponents.control.javascript>
 
     <t:mallcomponents.layout.office leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
 
-        <t:mallcomponents.control.grantCheck roles="ROLE_STAFF">
-            <h1>Создать товар</h1>
-            <t:mallcomponents.object.product.productNew/>
+        <t:mallcomponents.control.grantCheck roles="ROLE_ADMIN">
+            <h1>Создать брошюру</h1>
+            <t:mallcomponents.object.catalog.catalogNew/>
         </t:mallcomponents.control.grantCheck>
 
     </t:mallcomponents.layout.office>
