@@ -29,14 +29,17 @@ public class CatalogEntity
     @Column
     protected String name;
 
+    @Column
+    protected String dataURL;
+
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH, optional = false)
     @Cache(usage = CacheConcurrencyStrategy.NONE)
     @JoinColumns({
-            @JoinColumn(name = "rootId", referencedColumnName = "object_id",
-                    insertable = false, updatable = false),
-            @JoinColumn(name = "entityCode", referencedColumnName = "object_code",
-                    insertable = false, updatable = false)
-    })
+                         @JoinColumn(name = "rootId", referencedColumnName = "object_id",
+                                     insertable = false, updatable = false),
+                         @JoinColumn(name = "entityCode", referencedColumnName = "object_code",
+                                     insertable = false, updatable = false)
+                 })
     private ImageStatusEntity imageStatus;
 
     public CatalogEntity() {
@@ -81,4 +84,11 @@ public class CatalogEntity
         return ObjectMediaImageAwareImpl.isImageNotSet(imageStatus);
     }
 
+    public String getDataURL() {
+        return dataURL;
+    }
+
+    public void setDataURL(String dataURL) {
+        this.dataURL = dataURL;
+    }
 }

@@ -1323,4 +1323,10 @@
         </sql>
     </changeSet>
 
+    <changeSet id="1.0.0-45" author="ezhulkov">
+        <addColumn tableName="app_catalog">
+            <column name="data_url" type="varchar(128)"/>
+        </addColumn>
+    </changeSet>
+
 </databaseChangeLog>
