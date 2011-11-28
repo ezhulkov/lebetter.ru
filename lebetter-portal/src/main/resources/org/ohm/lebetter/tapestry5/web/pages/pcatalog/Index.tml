@@ -14,7 +14,11 @@
         </t:block>
 
         <t:mallcomponents.layout.pCatBrowse breadCrumpsBlock="breadCrumpsBlock">
-            !!!
+            <div id="pageflipholder" style="width:969px; height:450px; text-align: center; border: 1px solid gray;">
+                <h3>Необходимо установить последнюю версию FlashPlayer</h3>
+                <a href="http://www.adobe.com/go/getflashplayer">&#32;<img border="0" src="/images/get_flash_player.gif" alt="Get Adobe Flash player"/></a>
+            </div>
+            <br/>
         </t:mallcomponents.layout.pCatBrowse>
 
     </t:mallcomponents.control.selectedObject>
