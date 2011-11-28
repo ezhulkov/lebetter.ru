@@ -4,7 +4,7 @@
     <table>
         <tr>
             <td class="dbl_col_left status" style="padding-left:20px;">
-                <a href="#">&lt;&lt; Назад</a>
+                <a href="/pcatalog/list">&lt;&lt; Назад</a>
             </td>
             <td class="dbl_col_right">
                 <!-- Breadcrumps -->
