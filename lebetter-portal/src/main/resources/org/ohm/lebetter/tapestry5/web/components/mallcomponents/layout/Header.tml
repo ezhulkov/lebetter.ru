@@ -38,22 +38,30 @@
                     <t:if test="categories">
                         <div class="sub">
                             <ul class="sub1">
-                            <t:loop t:formState="NONE" source="categories" value="oneCategory">
-
+                                <t:loop t:formState="NONE" source="categories" value="oneCategory">
+                                    <li>
+                                        <t:pageLink t:page="catalog" t:context="oneCategory.altId">${oneCategory.name}</t:pageLink>
+                                        <t:if test="oneCategory.children">
+                                            <ul class="sub2">
+                                                <t:loop t:formState="NONE" source="oneCategory.children" value="oneSubCategory">
+                                                    <li>
+                                                        <t:pageLink t:page="catalog" t:context="oneSubCategory.altId">${oneSubCategory.name}</t:pageLink>
+                                                    </li>
+                                                </t:loop>
+                                            </ul>
+                                        </t:if>
+                                    </li>
+                                </t:loop>
                                 <li>
-                                    <t:pageLink t:page="catalog" t:context="oneCategory.altId">${oneCategory.name}</t:pageLink>
-                                    <t:if test="oneCategory.children">
-                                        <ul class="sub2">
-                                            <t:loop t:formState="NONE" source="oneCategory.children" value="oneSubCategory">
-                                                <li>
-                                                    <t:pageLink t:page="catalog" t:context="oneSubCategory.altId">${oneSubCategory.name}</t:pageLink>
-                                                </li>
-                                            </t:loop>
-                                        </ul>
-                                    </t:if>
+                                    <t:pageLink t:page="pcatalog/list">Печатные брошюры</t:pageLink>
+                                    <ul class="sub2">
+                                        <t:loop t:formState="NONE" source="catalogs" value="oneCatalog">
+                                            <li>
+                                                <t:pageLink t:page="pcatalog" t:context="oneCatalog.rootId">${oneCatalog.name}</t:pageLink>
+                                            </li>
+                                        </t:loop>
+                                    </ul>
                                 </li>
-
-                            </t:loop>
                             </ul>
                         </div>
                     </t:if>

@@ -1,0 +1,16 @@
+<ul xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" class="leftmenu">
+    <li>
+        <t:pageLink t:page="pcatalog/list">Печатные брошюры</t:pageLink>
+        <ul>
+            <t:loop t:formState="NONE" source="catalogs" value="oneCatalog">
+                <ul>
+                    <li>
+                        <t:pageLink t:page="pcatalog" t:context="oneCatalog.rootId">
+                            <t:mallComponents.control.trimmedString length="30" value="${oneCatalog.name}"/>
+                        </t:pageLink>
+                    </li>
+                </ul>
+            </t:loop>
+        </ul>
+    </li>
+</ul>

@@ -10,7 +10,7 @@ import java.util.List;
 
 public class CatalogMenu extends AbstractBaseComponent {
 
-    @Parameter(required = true, allowNull = false)
+    @Parameter(required = false, allowNull = false)
     private CategoryEntity selectedCategory;
 
     @Property

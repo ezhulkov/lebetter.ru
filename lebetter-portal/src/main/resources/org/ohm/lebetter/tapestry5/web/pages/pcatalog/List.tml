@@ -1,4 +1,4 @@
-<t:mallcomponents.layout.layout title="Lebetter.ru - Где купить"
+<t:mallcomponents.layout.layout title="Lebetter.ru - Брошюры"
                                 bodyId="partners"
                                 flash="flashMessage"
                                 xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
@@ -6,63 +6,37 @@
     <t:block t:id="breadCrumpsBlock">
         <a class="status_home" href="/"><img src="/images/0.gif" alt=""/></a>
         <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
-        <a href="/dealer/list">Где купить</a>
-        <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
-        Дилеры
+        Брошюры
     </t:block>
 
     <t:block t:id="leftMenuBlock">
-        <t:mallcomponents.object.dealerMenu/>
+        <t:mallcomponents.object.catalog.pCatalogMenu/>
         <t:mallComponents.control.javascript>
-            LB.colorCell("#dlrs_menu");
+            LB.colorCell("#cat_menu");
         </t:mallComponents.control.javascript>
     </t:block>
 
     <t:mallcomponents.layout.browse leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
 
-        <h1>Дилеры</h1>
-        <t:loop t:formState="NONE" source="cities" value="oneCity">
-            <h2>${oneCity}</h2>
-            <ul class="dealer_list">
-                <t:loop t:formState="NONE" source="dealers" value="oneDealer">
-                    <li>
-                        <h3>
-                            <t:pageLink t:page="dealer" t:context="oneDealer.altId">${oneDealer.name}</t:pageLink>
-                        </h3>
-                        <table class="dealer_inf">
-                            <t:if test="oneDealer.addressLine">
-                                <tr>
-                                    <td>Адрес:</td>
-                                    <td>${oneDealer.city}, ${oneDealer.addressLine}</td>
-                                </tr>
-                            </t:if>
-                            <t:if test="oneDealer.telephone">
-                                <tr>
-                                    <td>Телефон:</td>
-                                    <td>${oneDealer.telephone}</td>
-                                </tr>
-                            </t:if>
-                            <t:if test="oneDealer.site">
-                                <tr>
-                                    <td>Сайт:</td>
-                                    <td><a href="${oneDealer.site}" target="_blank">${oneDealer.site}</a>
-                                    </td>
-                                </tr>
-                            </t:if>
-                            <t:if test="oneDealer.email">
-                                <tr>
-                                    <td>Email:</td>
-                                    <td><a href="mailto:${oneDealer.email}">${oneDealer.email}</a></td>
-                                </tr>
-                            </t:if>
-                        </table>
-                    </li>
-                </t:loop>
-            </ul>
+        <h1>Печатные брошюры</h1>
+        <t:mallComponents.control.pagedLoop source="catalogs"
+                                            rowsPerPage="10"
+                                            value="oneCatalog">
+            <li>
+                <t:pageLink t:page="pcatalog" t:context="oneCatalog.rootId">
+                    <t:if test="oneCatalog.imageReady">
+                        <img style="background-image: url('${imageURL}');" src="/images/0.gif" alt="${oneCatalog.name}" title="${oneCatalog.name}"/>
+                        <t:parameter name="else">
+                            <img src="/images/lb-front/def/nopic7.gif" alt="${oneCatalog.name}" title="${oneCatalog.name}"/>
+                        </t:parameter>
+                    </t:if>
+                </t:pageLink>
+                <t:pageLink t:page="pcatalog" t:context="oneCatalog.rootId">${oneCatalog.name}</t:pageLink>
+            </li>
             <t:parameter name="empty">
                 <h3>Раздел в стадии наполнения</h3>
             </t:parameter>
-        </t:loop>
+        </t:mallComponents.control.pagedLoop>
 
     </t:mallcomponents.layout.browse>
 

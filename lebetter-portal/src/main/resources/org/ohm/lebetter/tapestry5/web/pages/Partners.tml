@@ -12,7 +12,7 @@
     </t:block>
 
     <t:block t:id="leftMenuBlock">
-        <t:mallcomponents.object.dealerMenu/>
+        <t:mallcomponents.object.dealer.dealerMenu/>
         <t:mallComponents.control.javascript>
             LB.colorCell("#part_menu");
         </t:mallComponents.control.javascript>

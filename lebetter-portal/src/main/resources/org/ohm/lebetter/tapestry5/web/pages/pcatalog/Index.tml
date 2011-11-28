@@ -8,18 +8,14 @@
         <t:block t:id="breadCrumpsBlock">
             <a class="status_home" href="/"><img src="/images/0.gif" alt=""/></a>
             <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
-            <a href="/pcatalog">Брошюры</a>
+            <a href="/pcatalog/list">Брошюры</a>
             <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
-            '${selectedCategory.name}'
+            '${selectedCatalog.name}'
         </t:block>
 
-        <t:block t:id="leftMenuBlock">
-            <!--<t:mallcomponents.object.catalog.catalogMenu selectedCategory="selectedCategoryParent"/>-->
-        </t:block>
-
-        <t:mallcomponents.layout.browse leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
-
-        </t:mallcomponents.layout.browse>
+        <t:mallcomponents.layout.pCatBrowse breadCrumpsBlock="breadCrumpsBlock">
+            !!!
+        </t:mallcomponents.layout.pCatBrowse>
 
     </t:mallcomponents.control.selectedObject>
 

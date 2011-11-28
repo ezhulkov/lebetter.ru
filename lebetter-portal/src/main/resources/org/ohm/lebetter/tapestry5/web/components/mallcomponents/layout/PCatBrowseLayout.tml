@@ -1,0 +1,26 @@
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd"
+     id="office" class="office">
+
+    <table>
+        <tr>
+            <td class="dbl_col_left status" style="padding-left:20px;">
+                <a href="#">&lt;&lt; Назад</a>
+            </td>
+            <td class="dbl_col_right">
+                <!-- Breadcrumps -->
+                <div id="bread_crumbs_box" class="status">
+                    <t:delegate to="breadCrumpsBlock"/>
+                </div>
+                <!-- /Breadcrumps -->
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <!-- Main content -->
+                <t:body/>
+                <!-- /Main content -->
+            </td>
+        </tr>
+    </table>
+
+</div>
