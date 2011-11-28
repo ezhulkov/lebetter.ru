@@ -9,6 +9,9 @@
                     <li id="cat_menu">
                         <t:pageLink t:page="po/catalog/list">Каталог</t:pageLink>
                     </li>
+                    <li id="pcat_menu">
+                        <t:pageLink t:page="po/pcatalog/list">Брошюры</t:pageLink>
+                    </li>
                     <t:unless test="auth.managerRole">
                         <li id="order_menu">
                             <t:zone id="basket" class="basket">

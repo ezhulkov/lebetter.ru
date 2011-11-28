@@ -29,7 +29,7 @@ public class CatalogEntity
     @Column
     protected String name;
 
-    @Column
+    @Column(name = "data_url")
     protected String dataURL;
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH, optional = false)

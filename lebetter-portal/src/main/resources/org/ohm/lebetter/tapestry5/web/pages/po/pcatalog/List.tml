@@ -1,0 +1,59 @@
+<t:mallcomponents.layout.layout title="Lebetter.ru - Личный Кабинет"
+                                bodyId="po"
+                                flash="flashMessage"
+                                xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+    <t:block t:id="breadCrumpsBlock">
+        <a class="status_home" href="/"><img src="/images/0.gif" alt=""/></a>
+        <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+        <a href="/po">Личный кабинет</a>
+        <span class="status_hr"><img src="/images/0.gif" alt=""/></span>
+        Брошюры
+    </t:block>
+
+    <t:mallComponents.control.javascript>
+        LB.colorCell("#pcat_menu");
+    </t:mallComponents.control.javascript>
+
+    <t:mallcomponents.layout.office leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
+
+        <t:mallcomponents.control.menuLink roles="ROLE_ADMIN">
+            <div class="adm_add_box">
+                <t:pageLink t:page="po/pcatalog/create" class="create_link">Создать брошюру</t:pageLink>
+            </div>
+        </t:mallcomponents.control.menuLink>
+
+        <h1>Брошюры</h1>
+
+        <t:grid pagerPosition="bottom" rowsPerPage="20" id="datagrid" source="catalogs" row="oneCatalog"
+                include="name,objectStatus" add="photo" reorder="photo,name,objectStatus">
+            <t:parameter name="nameHeader">Название</t:parameter>
+            <t:parameter name="photoHeader"/>
+            <t:parameter name="objectStatusHeader">Статус</t:parameter>
+            <t:parameter name="nameCell">
+                <t:pageLink t:page="po/pcatalog" t:context="oneCatalog.rootId">
+                    <strong>${oneCatalog.name}</strong></t:pageLink>
+            </t:parameter>
+            <t:parameter name="photoCell">
+                <t:pageLink t:page="po/pcatalog" t:context="oneCatalog.rootId">
+                    <t:if test="oneCatalog.imageReady">
+                        <t:pageLink t:page="po/pcatalog" t:context="oneCatalog.rootId">
+                            <img src="${imageURL}" alt="${oneCatalog.name}" title="${oneCatalog.name}"/>
+                        </t:pageLink>
+                        <t:parameter name="else">
+                            <t:pageLink t:page="po/pcatalog" t:context="oneCatalog.rootId">
+                                <img src="/images/lb-front/def/nopic6.gif" alt="${oneCatalog.name}" title="${oneCatalog.name}"/>
+                            </t:pageLink>
+                        </t:parameter>
+                    </t:if>
+                </t:pageLink>
+            </t:parameter>
+            <t:parameter name="objectStatusCell">${oneCatalogObjectStatus}</t:parameter>
+            <t:parameter name="empty">
+                <p class="nomsg">${message:empty.list}</p>
+            </t:parameter>
+        </t:grid>
+
+    </t:mallcomponents.layout.office>
+
+</t:mallcomponents.layout.layout>
