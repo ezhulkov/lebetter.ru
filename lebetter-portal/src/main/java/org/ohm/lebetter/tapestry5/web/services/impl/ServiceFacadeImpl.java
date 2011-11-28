@@ -2,6 +2,7 @@ package org.ohm.lebetter.tapestry5.web.services.impl;
 
 import org.apache.tapestry5.ioc.services.ThreadLocale;
 import org.apache.tapestry5.services.Context;
+import org.ohm.lebetter.spring.service.CatalogManager;
 import org.ohm.lebetter.spring.service.CategoryManager;
 import org.ohm.lebetter.spring.service.DealerManager;
 import org.ohm.lebetter.spring.service.MailManager;
@@ -153,5 +154,10 @@ public class ServiceFacadeImpl implements ServiceFacade {
     @Override
     public DealerManager getDealerManager() {
         return serviceManager.getDealerManager();
+    }
+
+    @Override
+    public CatalogManager getCatalogManager() {
+        return serviceManager.getCatalogManager();
     }
 }

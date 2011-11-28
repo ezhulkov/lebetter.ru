@@ -1284,10 +1284,43 @@
         </addColumn>
     </changeSet>
 
-     <changeSet id="1.0.0-43" author="ezhulkov">
+    <changeSet id="1.0.0-43" author="ezhulkov">
         <addColumn tableName="app_order">
             <column name="clientdiscount" type="float4" defaultValue="0"/>
         </addColumn>
+    </changeSet>
+
+    <changeSet id="1.0.0-44" author="ezhulkov">
+        <sql>
+            create table public.app_catalog (
+              id int8 not null,
+              objectdeleted bool default false,
+              objectstatus int4 not null default 0,
+              searchstatus int4 default 0,
+              creator_id int8,
+              rootid int8,
+              rootobject bool default false,
+              language_id int8,
+              deletiondate timestamptz,
+              remover_id int8,
+              name varchar(64),
+              entitycode varchar(16) default 'Catalog',
+              createddate timestamptz default now(),
+              primary key (id),
+              constraint app_catalog_c_fk foreign key (creator_id) references app_user(id) on delete cascade
+            );
+            create index app_catalog_creator_id_idx on public.app_catalog (creator_id);
+            create index app_catalog_ec_idx on public.app_catalog (entitycode);
+            create index app_catalog_idx1 on public.app_catalog (id, objectdeleted, objectstatus, rootobject);
+        </sql>
+        <sql>
+            CREATE RULE app_catalog_add_to_imagestatus AS ON INSERT TO app_catalog WHERE NEW.rootobject=true
+            DO ALSO
+            INSERT INTO app_image_status(object_id,object_code,image_status) values(NEW.id,'Catalog',0);
+            CREATE RULE app_catalog_remove_from_imagestatus AS ON DELETE TO app_catalog WHERE OLD.rootobject=true
+            DO ALSO
+            DELETE FROM app_image_status where object_id=OLD.rootid and object_code='Catalog';
+        </sql>
     </changeSet>
 
 </databaseChangeLog>

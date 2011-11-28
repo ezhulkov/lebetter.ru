@@ -36,4 +36,6 @@ public interface ServiceManager
 
     public ProductPhotoManager getProductPhotoManager();
 
+    public CatalogManager getCatalogManager();
+
 }

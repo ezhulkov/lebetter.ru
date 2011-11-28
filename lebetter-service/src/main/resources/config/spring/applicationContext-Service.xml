@@ -46,6 +46,7 @@
           p:productManager-ref="productManager"
           p:categoryManager-ref="categoryManager"
           p:orderManager-ref="orderManager"
+          p:catalogManager-ref="catalogManager"
           p:dictPropertyHolder-ref="dictPropertyHolder"
           p:propertyValueManager-ref="propertyValueManager"
           p:propertyManager-ref="propertyManager"
@@ -251,6 +252,10 @@
           class="org.ohm.lebetter.spring.service.impl.ProductPhotoManagerImpl"
           p:productPhotoDao-ref="productPhotoDao"/>
 
+    <bean id="catalogManager" parent="genericManager"
+          class="org.ohm.lebetter.spring.service.impl.CatalogManagerImpl"
+          p:catalogDao-ref="catalogDao"/>
+
     <bean id="dealerManager" parent="genericManager"
           class="org.ohm.lebetter.spring.service.impl.DealerManagerImpl"
           p:ownerDao-ref="ownerDao"
@@ -264,6 +269,7 @@
           p:orderDao-ref="orderDao"/>
 
     <bean name="productPhotoDao" class="org.ohm.lebetter.spring.dao.impl.ProductPhotoDaoHibernate" parent="genericDao"/>
+    <bean name="catalogDao" class="org.ohm.lebetter.spring.dao.impl.CatalogDaoHibernate" parent="genericDao"/>
     <bean name="productDao" class="org.ohm.lebetter.spring.dao.impl.ProductDaoHibernate" parent="genericDao"/>
     <bean name="dealerDao" class="org.ohm.lebetter.spring.dao.impl.DealerDaoHibernate" parent="genericDao"/>
     <bean name="orderDao" class="org.ohm.lebetter.spring.dao.impl.OrderDaoHibernate" parent="genericDao"/>

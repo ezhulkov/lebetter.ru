@@ -1,5 +1,6 @@
 package org.ohm.lebetter.spring.service.impl;
 
+import org.ohm.lebetter.spring.service.CatalogManager;
 import org.ohm.lebetter.spring.service.CategoryManager;
 import org.ohm.lebetter.spring.service.DealerManager;
 import org.ohm.lebetter.spring.service.DictPropertyHolder;
@@ -33,6 +34,17 @@ public class ServiceManagerImpl
     private DealerManager dealerManager;
     private OrderManager orderManager;
     private ProductPhotoManager productPhotoManager;
+    private CatalogManager catalogManager;
+
+    @Override
+    public CatalogManager getCatalogManager() {
+        return catalogManager;
+    }
+
+    @Required
+    public void setCatalogManager(CatalogManager catalogManager) {
+        this.catalogManager = catalogManager;
+    }
 
     @Override
     public CategoryManager getCategoryManager() {
