@@ -27,7 +27,7 @@ server {
     listen 80;
     server_name static.lebetter.ru;
 
-    location ~* (.*\.jpg|.*\.gif|for_set.png) {
+    location ~* (.*\.jpg|.*\.gif) {
         root                        /var/ftp;
         access_log                  /var/log/nginx/static.log;
         add_header                  Cache-Control   "public, max-age=1209600";
