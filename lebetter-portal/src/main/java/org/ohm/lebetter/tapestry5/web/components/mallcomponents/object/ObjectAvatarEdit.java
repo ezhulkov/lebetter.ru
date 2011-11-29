@@ -34,6 +34,11 @@ public class ObjectAvatarEdit extends AbstractBaseComponent {
     private String title;
 
     @Property
+    @Parameter(name = "maxFileSize", required = false, allowNull = false,
+               defaultPrefix = BindingConstants.LITERAL, value = "1048576")
+    private String maxFileSize;
+
+    @Property
     @Parameter(name = "id", required = false, allowNull = false,
                defaultPrefix = BindingConstants.LITERAL,
                value = "oae")

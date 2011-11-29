@@ -22,6 +22,7 @@
                                                                  height="300"
                                                                  title="${title}"
                                                                  id="${id}"
+                                                                 maxFileSize="${maxFileSize}"
                                                                  fileFilters="${fileFilters}"
                                                                  needsLocalization="false"/>
 
