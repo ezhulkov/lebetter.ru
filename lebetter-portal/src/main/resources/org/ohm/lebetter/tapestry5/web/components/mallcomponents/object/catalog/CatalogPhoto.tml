@@ -5,6 +5,7 @@
             avatarManager="serviceFacade.catalogManager"
             object="selectedObject"
             title="literal:Загрузить обложку"
+            maxFileSize="20971520"
             handler="${literal:catalogavatar}"
             allowedExt="*.jpg;*.jpeg;*.png;"/>
 
