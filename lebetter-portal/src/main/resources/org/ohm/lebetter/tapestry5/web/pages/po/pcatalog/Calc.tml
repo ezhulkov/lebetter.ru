@@ -7,9 +7,8 @@
     <br/>
 
     <textarea style="width:970px; height:300px;">
-        <t:loop t:formState="NONE" source="items" value="oneItem">
-            &lt;PageData PageFile="/images/3/${oneItem}.jpg" ThumbnailFile="/images/4/${oneItem}.jpg" ZoomFiles="/images/2/${oneItem}.jpg[200%]/images/1/${oneItem}.jpg[400%]"/&gt;<br/>
-        </t:loop>
+<t:loop t:formState="NONE" source="items" value="oneItem">&lt;PageData PageFile="/images/3/${oneItem}.jpg" ThumbnailFile="/images/4/${oneItem}.jpg" ZoomFiles="/images/2/${oneItem}.jpg[200%]/images/1/${oneItem}.jpg[400%]"/&gt;
+</t:loop>
     </textarea>
 
 </t:mallcomponents.layout.layout>
