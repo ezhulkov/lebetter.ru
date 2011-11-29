@@ -94,12 +94,6 @@
     <bean id="productPhotoResizeData" class="org.room13.mallcore.spring.service.impl.imaging.ImageResizeDataSet">
         <property name="imageResizeData">
             <list>
-                <!--<bean class="org.ohm.lebetter.spring.service.impl.imaging.ImageResizeData">-->
-                    <!--<constructor-arg index="0" value="BIG_PHOTO2;3600x2400;false;INSCRIBED"/>-->
-                <!--</bean>-->
-                <!--<bean class="org.ohm.lebetter.spring.service.impl.imaging.ImageResizeData">-->
-                    <!--<constructor-arg index="0" value="BIG_PHOTO1;1800x1200;false;INSCRIBED"/>-->
-                <!--</bean>-->
                 <bean class="org.ohm.lebetter.spring.service.impl.imaging.ImageResizeData">
                     <constructor-arg index="0" value="BIG_PHOTO;900x600;false;INSCRIBED"/>
                 </bean>
