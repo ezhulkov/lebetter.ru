@@ -57,7 +57,8 @@
     </Settings>
 
     <PageOrder>
-        <PageData PageFile="/images/3/002.jpg" BackgroundColor="0x2a2a2a"/>
+        <PageData PageFile="/images/3/002.jpg" BackgroundColor="0x2a2a2a"
+                  ThumbnailFile="/images/4/002.jpg"/>
         <PageData
                 PageFile="/images/3/003.jpg"
                 ThumbnailFile="/images/4/003.jpg"
@@ -82,6 +83,8 @@
                 PageFile="/images/3/008.jpg"
                 ThumbnailFile="/images/4/008.jpg"
                 ZoomFiles="/images/2/008.jpg[200%]/images/1/008.jpg[400%]"/>
-        <PageData PageFile="/images/3/001.jpg" BackgroundColor="0x2a2a2a"/>
+        <PageData PageFile="/images/3/001.jpg"
+                  ThumbnailFile="/images/4/001.jpg"
+                  BackgroundColor="0x2a2a2a"/>
     </PageOrder>
 </PageflipDataSet>

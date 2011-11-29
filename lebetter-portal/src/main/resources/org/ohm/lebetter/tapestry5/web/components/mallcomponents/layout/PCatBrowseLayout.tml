@@ -6,7 +6,7 @@
             <td class="dbl_col_left status">
                 <a href="/pcatalog/list">&lt;&lt; Назад</a>
             </td>
-            <td class="dbl_col_right">
+            <td>
                 <!-- Breadcrumps -->
                 <div id="bread_crumbs_box" class="status">
                     <t:delegate to="breadCrumpsBlock"/>
