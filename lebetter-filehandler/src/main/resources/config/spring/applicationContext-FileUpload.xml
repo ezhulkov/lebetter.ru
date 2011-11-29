@@ -149,13 +149,13 @@
         <property name="imageResizeData">
             <list>
                 <bean class="org.ohm.lebetter.spring.service.impl.imaging.ImageResizeData">
-                    <constructor-arg index="0" value="BIG_PHOTO;720x230;false;INSCRIBED"/>
+                    <constructor-arg index="0" value="BIG_AVATAR;720x230;false;INSCRIBED"/>
                 </bean>
                 <bean class="org.ohm.lebetter.spring.service.impl.imaging.ImageResizeData">
-                    <constructor-arg index="0" value="MEDIUM_PHOTO;130x105;false;INSCRIBED"/>
+                    <constructor-arg index="0" value="MEDIUM_AVATAR;130x105;false;INSCRIBED"/>
                 </bean>
                 <bean class="org.ohm.lebetter.spring.service.impl.imaging.ImageResizeData">
-                    <constructor-arg index="0" value="SMALL_PHOTO;96x96;false;INSCRIBED"/>
+                    <constructor-arg index="0" value="SMALL_AVATAR;96x96;false;INSCRIBED"/>
                 </bean>
             </list>
         </property>
