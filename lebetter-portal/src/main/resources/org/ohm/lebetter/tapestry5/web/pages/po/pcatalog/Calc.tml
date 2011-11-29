@@ -1,0 +1,14 @@
+<t:mallcomponents.layout.layout title="Lebetter.ru - Личный Кабинет"
+                                bodyId="po"
+                                flash="flashMessage"
+                                xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+    <t:mallcomponents.layout.office leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
+
+        <t:loop t:formState="NONE" source="items" value="oneItem">
+            &gt;PageData PageFile="/images/3/${oneItem}.jpg" ThumbnailFile="/images/4/${oneItem}.jpg" ZoomFiles="/images/2/${oneItem}.jpg[200%]/images/1/${oneItem}.jpg[400%]"/&lt;<br/>
+        </t:loop>
+
+    </t:mallcomponents.layout.office>
+
+</t:mallcomponents.layout.layout>

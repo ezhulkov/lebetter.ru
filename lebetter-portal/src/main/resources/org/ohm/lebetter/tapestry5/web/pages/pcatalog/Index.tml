@@ -14,11 +14,10 @@
         </t:block>
 
         <t:mallcomponents.layout.pCatBrowse breadCrumpsBlock="breadCrumpsBlock">
-            <div id="pageflip" style="margin: 0; text-align: center; vertical-align: middle; width:969px; height:550px; border: 1px solid gray;">
+            <div id="pageflip" style="margin: 0; text-align: center; vertical-align: middle; width:970px; height:550px; border: 1px solid gray;">
                 <h3>Необходимо установить последнюю версию FlashPlayer</h3>
                 <a href="http://www.adobe.com/go/getflashplayer">&#32;<img border="0" src="/images/get_flash_player.gif" alt="Get Adobe Flash player"/></a>
             </div>
-            <br/>
             <br/>
             <br/>
         </t:mallcomponents.layout.pCatBrowse>
@@ -40,7 +39,7 @@
             params.bgcolor = "#FFFFFF";
 
             var attributes = {};
-            swfobject.embedSWF("/pageflip/pageFlip.swf", "pageflip", "969px", "550px", "10.0.0", false, flashvars, params, attributes);
+            swfobject.embedSWF("/pageflip/pageFlip.swf", "pageflip", "970px", "550px", "10.0.0", false, flashvars, params, attributes);
         </t:mallComponents.control.javascript>
 
 

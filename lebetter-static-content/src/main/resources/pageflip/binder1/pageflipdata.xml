@@ -59,30 +59,24 @@
     <PageOrder>
         <PageData PageFile="/images/3/002.jpg" BackgroundColor="0x2a2a2a"
                   ThumbnailFile="/images/4/002.jpg"/>
-        <PageData
-                PageFile="/images/3/003.jpg"
-                ThumbnailFile="/images/4/003.jpg"
-                ZoomFiles="/images/2/003.jpg[200%]/images/1/003.jpg[400%]"/>
-        <PageData
-                PageFile="/images/3/004.jpg"
-                ThumbnailFile="/images/4/004.jpg"
-                ZoomFiles="/images/2/004.jpg[200%]/images/1/004.jpg[400%]"/>
-        <PageData
-                PageFile="/images/3/005.jpg"
-                ThumbnailFile="/images/4/005.jpg"
-                ZoomFiles="/images/2/005.jpg[200%]/images/1/005.jpg[400%]"/>
-        <PageData
-                PageFile="/images/3/006.jpg"
-                ThumbnailFile="/images/4/006.jpg"
-                ZoomFiles="/images/2/006.jpg[200%]/images/1/006.jpg[400%]"/>
-        <PageData
-                PageFile="/images/3/007.jpg"
-                ThumbnailFile="/images/4/007.jpg"
-                ZoomFiles="/images/2/007.jpg[200%]/images/1/007.jpg[400%]"/>
-        <PageData
-                PageFile="/images/3/008.jpg"
-                ThumbnailFile="/images/4/008.jpg"
-                ZoomFiles="/images/2/008.jpg[200%]/images/1/008.jpg[400%]"/>
+        <PageData PageFile="/images/3/003.jpg"
+                  ThumbnailFile="/images/4/003.jpg"
+                  ZoomFiles="/images/2/003.jpg[200%]/images/1/003.jpg[400%]"/>
+        <PageData PageFile="/images/3/004.jpg"
+                  ThumbnailFile="/images/4/004.jpg"
+                  ZoomFiles="/images/2/004.jpg[200%]/images/1/004.jpg[400%]"/>
+        <PageData PageFile="/images/3/005.jpg"
+                  ThumbnailFile="/images/4/005.jpg"
+                  ZoomFiles="/images/2/005.jpg[200%]/images/1/005.jpg[400%]"/>
+        <PageData PageFile="/images/3/006.jpg"
+                  ThumbnailFile="/images/4/006.jpg"
+                  ZoomFiles="/images/2/006.jpg[200%]/images/1/006.jpg[400%]"/>
+        <PageData PageFile="/images/3/007.jpg"
+                  ThumbnailFile="/images/4/007.jpg"
+                  ZoomFiles="/images/2/007.jpg[200%]/images/1/007.jpg[400%]"/>
+        <PageData PageFile="/images/3/008.jpg"
+                  ThumbnailFile="/images/4/008.jpg"
+                  ZoomFiles="/images/2/008.jpg[200%]/images/1/008.jpg[400%]"/>
         <PageData PageFile="/images/3/001.jpg"
                   ThumbnailFile="/images/4/001.jpg"
                   BackgroundColor="0x2a2a2a"/>
