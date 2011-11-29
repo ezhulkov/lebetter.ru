@@ -83,6 +83,7 @@
         <entry key="PropertyValue" value-ref="propertyValueManager"/>
         <entry key="Product" value-ref="productManager"/>
         <entry key="ProductPhoto" value-ref="productPhotoManager"/>
+        <entry key="Catalog" value-ref="catalogManager"/>
     </util:map>
 
     <bean id="userDao" parent="genericDao" class="org.ohm.lebetter.spring.dao.impl.UserLBDaoHibernate"/>

@@ -5,7 +5,7 @@
             avatarManager="serviceFacade.catalogManager"
             object="selectedObject"
             title="literal:Загрузить обложку"
-            handler="${literal:catalogavatarHandler}"
+            handler="${literal:catalogavatar}"
             allowedExt="*.jpg;*.jpeg;*.png;"/>
 
 </div>
