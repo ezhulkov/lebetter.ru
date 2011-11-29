@@ -1,5 +1,6 @@
 package org.ohm.lebetter.tapestry5.web.pages.po.pcatalog;
 
+import org.apache.tapestry5.annotations.Cached;
 import org.apache.tapestry5.annotations.Property;
 import org.ohm.lebetter.tapestry5.web.pages.base.AbstractBasePage;
 
@@ -23,6 +24,7 @@ public class Calc extends AbstractBasePage {
         this.till = till;
     }
 
+    @Cached
     public java.util.List<String> getItems() {
         java.util.List<String> result = new LinkedList<String>();
         for (int i = 1; i < till; i++) {
