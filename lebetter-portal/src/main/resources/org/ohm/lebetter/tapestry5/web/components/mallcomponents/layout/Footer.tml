@@ -13,6 +13,7 @@
       </ul>
       <ul>
         <li><h2><t:pageLink t:page="catalog">Каталог</t:pageLink></h2></li>
+        <li><h2><t:pageLink t:page="pcatalog/list">Печатные брошюры</t:pageLink></h2></li>
       </ul>
       <ul>
         <li><h2><t:pageLink t:page="dealer/list">Где купить</t:pageLink></h2></li>

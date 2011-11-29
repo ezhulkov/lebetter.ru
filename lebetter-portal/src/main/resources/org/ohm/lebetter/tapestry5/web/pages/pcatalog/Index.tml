@@ -14,12 +14,33 @@
         </t:block>
 
         <t:mallcomponents.layout.pCatBrowse breadCrumpsBlock="breadCrumpsBlock">
-            <div id="pageflipholder" style="width:969px; height:450px; text-align: center; border: 1px solid gray;">
+            <div id="pageflip" style="margin: 0; width:969px; height:500px; border: 1px solid gray;">
                 <h3>Необходимо установить последнюю версию FlashPlayer</h3>
                 <a href="http://www.adobe.com/go/getflashplayer">&#32;<img border="0" src="/images/get_flash_player.gif" alt="Get Adobe Flash player"/></a>
             </div>
             <br/>
         </t:mallcomponents.layout.pCatBrowse>
+
+        <t:mallComponents.control.javascript>
+			var flashvars = {};
+            flashvars.XMLFileName = "pageflipdata.xml";
+            flashvars.DataFolder = "${selectedCatalog.dataURL}";
+            flashvars.StartPage = "1";
+            flashvars.StartAutoFlip = "false";
+            var params = {};
+
+            params.scale = "noscale";
+            params.salign = "TL";
+            params.wmode = "transparent";
+            params.allowscriptaccess = "false";
+            params.allowfullscreen = "false";
+            params.menu = "true";
+            params.bgcolor = "#FFFFFF";
+
+            var attributes = {};
+            swfobject.embedSWF("pageFlip.swf", "pageflip", "969px", "500px", "10.0.0", false, flashvars, params, attributes);
+        </t:mallComponents.control.javascript>
+
 
     </t:mallcomponents.control.selectedObject>
 

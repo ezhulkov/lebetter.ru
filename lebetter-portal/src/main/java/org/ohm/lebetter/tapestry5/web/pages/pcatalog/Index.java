@@ -1,5 +1,6 @@
 package org.ohm.lebetter.tapestry5.web.pages.pcatalog;
 
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Property;
 import org.ohm.lebetter.model.impl.entities.CatalogEntity;
@@ -14,6 +15,7 @@ import org.room13.mallcore.spring.service.DataManager;
  * Time: 18:59
  * To change this template use File | Settings | File Templates.
  */
+@Import(library = {"proxy:/scripts/swfobject.js"})
 public class Index extends AbstractBrowseBasePage {
 
     @Property

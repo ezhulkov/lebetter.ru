@@ -1,8 +1,28 @@
 <html>
     <head>
-
+        <script type="text/javascript" src="../scripts/swfobject.js"></script>
     </head>
     <body>
+        <div id="pageflip" style="margin: 0;"></div>
+        <script type="text/javascript">
+			var flashvars = {};
+            flashvars.XMLFileName = "pageflipdata.xml";
+            flashvars.DataFolder = "binder1/";
+            flashvars.StartPage = "1";
+            flashvars.StartAutoFlip = "false";
+            var params = {};
+
+            params.scale = "noscale";
+            params.salign = "TL";
+            params.wmode = "transparent";
+            params.allowscriptaccess = "always";
+            params.allowfullscreen = "true";
+            params.menu = "true";
+            params.bgcolor = "#FFFFFF";
+
+            var attributes = {};
+            swfobject.embedSWF("pageFlip.swf", "pageflip", "100%", "100%", "10.0.0", false, flashvars, params, attributes);
+		</script>
 
     </body>
 </html>

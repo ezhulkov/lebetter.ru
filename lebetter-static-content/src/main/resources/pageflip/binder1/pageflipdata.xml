@@ -1,80 +1,46 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<PageflipDataSet>
+﻿<PageflipDataSet>
     <Settings
 
+            CopyrightMessageDisplay="false"
             CopyrightMessage="CCB76405304AF1761DCA5DCEAFD2E7562CADC7940FD8DC9C20B0F40A884ECC7CB0C427833F7573ECED8A631EA752EB99A550CB949858EC7CB0C6440A88387C80E34FFB313FA8C706154A6FDE9ED2E42B81C7EAE6AC37B485C5924700D923C37EDA61C3EE7EA2C09C7FBC4A80A5C63D30C01E763F72C5834833721EA3E722BEB71E61E5E2BE91C818C8508795FDD9311D319C67946832D65628624A95DBD8101C3251971398398C70F0B65CE46722D5462DBC0CB84FE5CC5DA1B7F9D6A9073C37388E7A0E954AC21D1F50BABFBDA3DB3D8FAA3B8F97F84C85C55E50842A33B11A0B4DFAEE7DA3C706154A6FDE9ED2E42B818C77616A554F48332D30A24E04FFE9FA4D0BC0BBFAA949D88727B630A34/3062/2874"
 
-            PageWidth="450"
+            PageWidth="300"
             PageHeight="400"
-            AutoSize="false"
-
-            ViewAngle="0"
-
-            StartPage="1"
-
-            AlwaysOpened="true"
-            ZeroPage="false"
-            ZeroPageAlwaysVisible="false"
-
-            RightToLeft="false"
-            VerticalMode="false"
-
-            HardCover="false"
-            HardPage="false"
-            EmbossedPages="true"
+            AutoSize="true"
 
             LargeCover="false"
             LargeCoverVerticalOversize="32"
             LargeCoverHorizontalOversize="16"
 
-            DropShadow="true"
-            DropShadowSize="20"
-            DropShadowOffset="10"
-            DropShadowAlpha="30"
-
-            PageLoaderBackColor="0x333333"
-
-            PageScale="true"
-            MinScale="100"
-            MaxScale="200"
-
-            MinStageWidth="700"
-            MinStageHeight="620"
+            MinStageWidth="969"
+            MinStageHeight="450"
 
             TransparentBackground="false"
             BackgroundColor="0x2A2A2A"
+            ButtonColor="0x888888"
 
-            FPSControlEnabled="true"
-            MaxFPS="60"
+            PageScale="true"
+            MinScale="200"
+            MaxScale="400"
+
+            MousePursuitSpeed="3"
+            ZoomFollowSpeed="10"
+
+            StartAutoFlip="false"
+            AutoFlipDefaultInterval="500"
+            AutoFlipLooping="false"
 
             ControlBar="true"
-            ControlBarScale="100"
-            ControlBarFullScreenScale="150"
-
-            xControlBarBackgroundColor="0x555555"
-            xControlBarBackgroundAlpha="50"
-
-            CustomControlBarIcons="false"
-
-            EnableButtonColoring="true"
-            ButtonColor="0x666666"
-            ButtonAlpha="100"
-            ButtonOverColor="0xF0B400"
-            ButtonOverAlpha="100"
-            ButtonPressColor="0x666666"
-            ButtonPressAlpha="50"
-            ButtonDisabledColor="0x666666"
-            ButtonDisabledAlpha="15"
-
-            ButtonToolTip="false"
-
+            ContentPreviewEnabled="false"
+            ThumbnailsEnabled="true"
             ControlBarLoaderEnabled="true"
             ButtonFirstLastEnabled="true"
             ButtonLeftRightEnabled="true"
             ButtonZoomEnabled="true"
             ButtonPrintEnabled="false"
-            ButtonAutoFlipEnabled="false"
+            ButtonAutoFlipEnabled="true"
             ButtonPDFLinkEnabled="false"
+            PDFlink=""
             ButtonLanguageEnabled="false"
             ButtonThumbnailEnabled="true"
             ButtonMuteEnabled="false"
@@ -83,74 +49,39 @@
             ButtonFullScreenEnabled="false"
             ButtonCloseEnabled="false"
 
-            ContentPreviewEnabled="true"
-            ThumbnailsEnabled="true"
-            ThumbnailModeStart="false"
-            ThumbnailWidth="90"
-            ThumbnailHeight="120"
-            ThumbnailDropShadow="true"
-            ThumbnailDropShadowSize="8"
-            ThumbnailDropShadowOffset="2"
-            ThumbnailDropShadowAlpha="30"
+            DefaultTransition="2"
 
-            StartAutoFlip="false"
-            AutoFlipDefaultInterval="2000"
-            AutoFlipLooping="true"
-
-            TransparencyEnabled="true"
-            TransparencyActivePage="false"
-            TransparencyAutoLevel="true"
-            TransparencyMaxLevel="16"
-
-            DragArea="100"
-            AutoFlipArea="100"
-            MousePursuitSpeed="8"
-            ZoomFollowSpeed="10"
-            FlippingDuration="800"
-
-            PageCache="5"
-            UnloadPages="true"
-
-            MouseControl="true"
-            DefaultTransition="1"
-            DefaultTransitionDuration="250"
-            FlippingSpreadActivity="true"
-
-            LayoutOrder="PREVIEW-CONTENT-CONTROLBAR"
-            ControlBarHeight="55"
-            ControlBarOffset="15"
-            ContentPreviewHeight="90"
-            ContentPreviewWidth="130"
-
-            SoundEnabled="false">
+            SoundEnabled="false"
+            StartMute="false">
 
     </Settings>
 
     <PageOrder>
+        <PageData PageFile="/images/3/002.jpg" BackgroundColor="0x2a2a2a"/>
         <PageData
-                PageFile="/images/3/001.jpeg"
-                ThumbnailFile="/images/4/001.jpeg"
-                ZoomFiles="/images/2/001.jpeg[200%]/images/1/001.jpeg[400%]"/>
+                PageFile="/images/3/003.jpg"
+                ThumbnailFile="/images/4/003.jpg"
+                ZoomFiles="/images/2/003.jpg[200%]/images/1/003.jpg[400%]"/>
         <PageData
-                PageFile="/images/3/002.jpeg"
-                ThumbnailFile="/images/4/002.jpeg"
-                ZoomFiles="/images/2/002.jpeg[200%]/images/1/002.jpeg[400%]"/>
+                PageFile="/images/3/004.jpg"
+                ThumbnailFile="/images/4/004.jpg"
+                ZoomFiles="/images/2/004.jpg[200%]/images/1/004.jpg[400%]"/>
         <PageData
-                PageFile="/images/3/003.jpeg"
-                ThumbnailFile="/images/4/003.jpeg"
-                ZoomFiles="/images/2/003.jpeg[200%]/images/1/003.jpeg[400%]"/>
+                PageFile="/images/3/005.jpg"
+                ThumbnailFile="/images/4/005.jpg"
+                ZoomFiles="/images/2/005.jpg[200%]/images/1/005.jpg[400%]"/>
         <PageData
-                PageFile="/images/3/004.jpeg"
-                ThumbnailFile="/images/4/004.jpeg"
-                ZoomFiles="/images/2/004.jpeg[200%]/images/1/004.jpeg[400%]"/>
+                PageFile="/images/3/006.jpg"
+                ThumbnailFile="/images/4/006.jpg"
+                ZoomFiles="/images/2/006.jpg[200%]/images/1/006.jpg[400%]"/>
         <PageData
-                PageFile="/images/3/005.jpeg"
-                ThumbnailFile="/images/4/005.jpeg"
-                ZoomFiles="/images/2/005.jpeg[200%]/images/1/005.jpeg[400%]"/>
+                PageFile="/images/3/007.jpg"
+                ThumbnailFile="/images/4/007.jpg"
+                ZoomFiles="/images/2/007.jpg[200%]/images/1/007.jpg[400%]"/>
         <PageData
-                PageFile="/images/3/006.jpeg"
-                ThumbnailFile="/images/4/006.jpeg"
-                ZoomFiles="/images/2/006.jpeg[200%]/images/1/006.jpeg[400%]"/>
+                PageFile="/images/3/008.jpg"
+                ThumbnailFile="/images/4/008.jpg"
+                ZoomFiles="/images/2/008.jpg[200%]/images/1/008.jpg[400%]"/>
+        <PageData PageFile="/images/3/001.jpg" BackgroundColor="0x2a2a2a"/>
     </PageOrder>
-
 </PageflipDataSet>
