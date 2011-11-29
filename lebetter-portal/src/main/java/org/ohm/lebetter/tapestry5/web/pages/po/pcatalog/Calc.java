@@ -14,7 +14,7 @@ import java.util.LinkedList;
  */
 public class Calc extends AbstractBasePage {
 
-    private int till = 0;
+    private int till = 1;
 
     @Property
     private String oneItem;
@@ -25,7 +25,7 @@ public class Calc extends AbstractBasePage {
 
     public java.util.List<String> getItems() {
         java.util.List<String> result = new LinkedList<String>();
-        for (int i = 0; i < till; i++) {
+        for (int i = 1; i < till; i++) {
             String item = Integer.toString(i);
             if (item.length() == 1) {
                 item = "00" + item;
