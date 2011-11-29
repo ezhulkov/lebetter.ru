@@ -21,6 +21,11 @@
                 <!-- /Main content -->
             </td>
         </tr>
+        <tr>
+            <td colspan="2" style="height:50px;">
+                &#160;
+            </td>
+        </tr>
     </table>
 
 </div>
