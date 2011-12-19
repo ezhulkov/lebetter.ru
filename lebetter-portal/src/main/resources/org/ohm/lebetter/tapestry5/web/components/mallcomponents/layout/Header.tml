@@ -53,7 +53,8 @@
                                     </li>
                                 </t:loop>
                                 <li>
-                                    <t:pageLink t:page="pcatalog/list"><strong>Печатные брошюры</strong></t:pageLink>
+                                    <t:pageLink t:page="pcatalog/list"><strong>Печатные брошюры</strong>
+                                    </t:pageLink>
                                     <ul class="sub2">
                                         <t:loop t:formState="NONE" source="catalogs" value="oneCatalog">
                                             <li>

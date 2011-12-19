@@ -1,96 +1,111 @@
 <div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
 
-  <!-- BottomMenu -->
-  <div class="botmenu">
-    <div class="centered">
-      <div class="botmenu_box">
+    <!-- BottomMenu -->
+    <div class="botmenu">
+        <div class="centered">
+            <div class="botmenu_box">
 
-      <ul>
-        <li><h2><t:pageLink t:page="about">О представительстве</t:pageLink></h2></li>
-      </ul>
-      <ul>
-        <li><h2><t:pageLink t:page="manufacture">Фабрика</t:pageLink></h2></li>
-      </ul>
-      <ul>
-        <li><h2><t:pageLink t:page="catalog">Каталог</t:pageLink></h2></li>
-        <li><h2><t:pageLink t:page="pcatalog/list">Печатные брошюры</t:pageLink></h2></li>
-      </ul>
-      <ul>
-        <li><h2><t:pageLink t:page="dealer/list">Где купить</t:pageLink></h2></li>
-      </ul>
-      <ul>
-        <li><h2><t:pageLink t:page="partners">Партнерам</t:pageLink></h2></li>
-      </ul>
-      <ul>
-        <li><h2><t:pageLink t:page="contacts">Контакты</t:pageLink></h2></li>
-      </ul>
+                <ul>
+                    <li>
+                        <h2>
+                            <t:pageLink t:page="about">О представительстве</t:pageLink>
+                        </h2>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <h2>
+                            <t:pageLink t:page="manufacture">Фабрика</t:pageLink>
+                        </h2>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <h2>
+                            <t:pageLink t:page="catalog">Каталог</t:pageLink>
+                        </h2>
+                    </li>
+                    <li>
+                        <h2>
+                            <t:pageLink t:page="pcatalog/list">Печатные брошюры</t:pageLink>
+                        </h2>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <h2>
+                            <t:pageLink t:page="dealer/list">Где купить</t:pageLink>
+                        </h2>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <h2>
+                            <t:pageLink t:page="partners">Партнерам</t:pageLink>
+                        </h2>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <h2>
+                            <t:pageLink t:page="contacts">Контакты</t:pageLink>
+                        </h2>
+                    </li>
+                </ul>
 
-      <ul>
-        <li><h2><t:pageLink t:page="sitemap">Карта сайта</t:pageLink></h2></li>
-      </ul>
-      <ul>
-        <li>
+                <ul>
+                    <li>
+                        <h2>
+                            <t:pageLink t:page="sitemap">Карта сайта</t:pageLink>
+                        </h2>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
 
-          <t:if test="auth.authenticated">
-              <h2><t:pageLink t:page="po">Личный Кабинет</t:pageLink> </h2>
-              <t:parameter name="else">
-                  <h2><t:pageLink t:page="auth/login">Вход</t:pageLink></h2>
-              </t:parameter>
-          </t:if>
+                        <t:if test="auth.authenticated">
+                            <h2>
+                                <t:pageLink t:page="po">Личный Кабинет</t:pageLink>
+                            </h2>
+                            <t:parameter name="else">
+                                <h2>
+                                    <t:pageLink t:page="auth/login">Вход</t:pageLink>
+                                </h2>
+                            </t:parameter>
+                        </t:if>
 
-        </li>
-      </ul>
+                    </li>
+                </ul>
 
-<!--
-        <ul>
-          <li><h2><a href="">О нас</a></h2></li>
-          <li><a href="">Компания</a></li>
-          <li><a href="">Обращение директора</a></li>
-          <li><a href="">Контакты</a></li>
-          <li><a href="">Вакансии</a></li>
-        </ul>
-
-        <ul>
-          <li><h2><a href="">Каталог продукции</a></h2></li>
-          <li><a href="">Гостиная</a></li>
-          <li><a href="">Спальня</a></li>
-          <li><a href="">Кабинет</a></li>
-          <li><a href="">Прихожая</a></li>
-          <li><a href="">Ванная</a></li>
-          <li><a href="">Предметы мебели и аксессуары</a></li>
-          <li><a href="">Мебель для гостиниц, баров, ресторанов</a></li>
-        </ul>
-
-        <ul>
-          <li><h2><a href="">Качество</a></h2></li>
-          <li><a href="">Наши преимущества</a></li>
-          <li><a href="">Гарантия качества</a></li>
-        </ul>
-
-        <ul>
-          <li><h2><a href="#">История фабрики</a></h2></li>
-        </ul>
-
-        <ul>
-          <li><h2><a href="">Где купить</a></h2></li>
-          <li><a href="">Москва</a></li>
-          <li><a href="">Санкт-Петербург</a></li>
-          <li><a href="">Дилеры</a></li>
-        </ul>
-
-        <ul>
-          <li><h2><a href="#">Для партнеров</a></h2></li>
-        </ul>
--->
-
-      </div>
+            </div>
+        </div>
     </div>
-  </div>
-  <!-- Copyright -->
-  <div class="copy">
-    <div class="centered">
-      © 2011 Lebetter    <a href="mailto:info@lebetter.ru">info@lebetter.ru</a>
+    <!-- Copyright -->
+    <div class="copy">
+        <div class="centered">
+            © 2011 Lebetter <a href="mailto:info@lebetter.ru">info@lebetter.ru</a>
+        </div>
     </div>
-  </div>
+
+    <!--noindex-->
+    <!-- Yandex.Metrika counter -->
+    <div style="display:none;"><script type="text/javascript">
+    (function(w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter9774091 = new Ya.Metrika({id:9774091, enableAll: true});
+            }
+            catch(e) {
+            }
+        });
+    })(window, "yandex_metrika_callbacks");
+    </script>
+    </div>
+    <script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript" defer="defer"></script>
+    <noscript>
+        <div><img src="//mc.yandex.ru/watch/9774091" style="position:absolute; left:-9999px;" alt=""/></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
+    <!--/noindex-->
 
 </div>
