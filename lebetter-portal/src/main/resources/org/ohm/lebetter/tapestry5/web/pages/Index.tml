@@ -59,6 +59,21 @@
 
         </div>
 
+        <!-- pictures -->
+        <div class="pictures_box">
+
+            <ul>
+              <li class="pccatban">
+                <a href="/pcatalog/2800"><img style="background-image: url('/images/pic/front-cat1.jpg');" src="/images/0.gif" alt="Спальня" title="Спальня"/></a><h3><a href="/pcatalog/2800">Lebetter Furniture I</a></h3>
+              </li>
+              <li class="pccatban">
+                <a href="/pcatalog/2822"><img style="background-image: url('/images/pic/front-cat2.jpg');" src="/images/0.gif" alt="Спальня" title="Спальня"/></a><h3><a href="/pcatalog/2822">Lebetter. American Furniture. Subaltern Room Series</a></h3>
+              </li>
+            </ul>
+
+        </div>
+
+
     </div>
 
     <t:mallComponents.control.javascript>

@@ -65,7 +65,8 @@ LB = {
     },
     lastBanners: function() {
         /* Correct for pictures */
-        jQuery(".pictures_box ul li:last-child").css("background", "none");
+        jQuery(".pictures_box ul li:last-child").addClass("pictures_box_lastli");
+        //jQuery(".pictures_box ul li:last-child").css("background", "none");
     },
     whosnext : function(a) {
         if (a >= jQuery(".promo_outer").length - 1) {

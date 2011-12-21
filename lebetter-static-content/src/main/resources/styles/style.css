@@ -494,10 +494,44 @@ ul#topnav .sub ul li a:hover li a:hover {
   line-height: 14px;
   padding: 17px 26px 17px 0px;
 }
+.pictures_box ul li.pictures_box_lastli {
+  background: none !important;
+  padding-right: 0px !important;
+}
 .pictures_box ul li img {
   float: left;
   margin: 0px 15px 0px 0px;
 }
+
+.pictures_box ul li.pccatban {
+  background: transparent url(/images/hr2.png) no-repeat 97.4% 0px;
+  height: 200px !important;
+  width: 434px !important;
+  float: left;
+  /*font-size: 12px;*/
+  color: #686868;
+  line-height: 14px;
+  padding: 17px 26px 17px 0px;
+}
+.pictures_box ul li.pccatban img {
+  height: 200px !important;
+  width: 300px !important;
+  border: 1px solid #dbd7cd;
+}
+/*.pictures_box ul li.pccatban span {
+  display: block;
+  position: absolute;
+  font-size: 18px;
+  margin: 10px 12px;
+  text-shadow: 1px 1px 9px #000000;
+}
+.pictures_box ul li.pccatban span.pccatban_zag_w {
+  color: #FFFFFF;
+}
+.pictures_box ul li.pccatban span.pccatban_zag_b {
+  color: #232323;
+}*/
+
 .pictures_box a {
   color: #686868;
   text-decoration: none;
@@ -868,6 +902,36 @@ ul.prod_cat_grid2 li a {
   letter-spacing: 0px;
   color: #686868;
 }
+
+ul.prod_cat_grid2.pccat {
+ list-style: none;
+ margin: 0px 0px 0px 0px;
+ padding: 0px 0px 0px 0px;
+}
+ul.prod_cat_grid2.pccat li {
+  float: left;
+  height: 175px;
+  width: 130px;
+  text-align: center;
+  padding: 0px 17px 0px 0px;
+}
+ul.prod_cat_grid2.pccat li.row {
+  padding-right: 0px !important;
+}
+ul.prod_cat_grid2.pccat li img {
+  height: 120px;
+  width: 120px;
+  margin-bottom: 2px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+ul.prod_cat_grid2.pccat li a {
+  line-height: 14px;
+  text-decoration: none;
+  letter-spacing: 0px;
+  color: #686868;
+}
+
 /* ProductItem */
 .prod_item_box {
 

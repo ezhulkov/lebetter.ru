@@ -19,24 +19,30 @@
     <t:mallcomponents.layout.browse leftMenuBlock="leftMenuBlock" breadCrumpsBlock="breadCrumpsBlock">
 
         <h1>Печатные брошюры</h1>
-        <t:mallComponents.control.pagedLoop source="catalogs"
-                                            rowsPerPage="10"
-                                            value="oneCatalog">
-            <li>
-                <t:pageLink t:page="pcatalog" t:context="oneCatalog.rootId">
-                    <t:if test="oneCatalog.imageReady">
-                        <img style="background-image: url('${imageURL}');" src="/images/0.gif" alt="${oneCatalog.name}" title="${oneCatalog.name}"/>
-                        <t:parameter name="else">
-                            <img src="/images/lb-front/def/nopic7.gif" alt="${oneCatalog.name}" title="${oneCatalog.name}"/>
-                        </t:parameter>
-                    </t:if>
-                </t:pageLink>
-                <t:pageLink t:page="pcatalog" t:context="oneCatalog.rootId">${oneCatalog.name}</t:pageLink>
-            </li>
-            <t:parameter name="empty">
-                <h3>Раздел в стадии наполнения</h3>
-            </t:parameter>
-        </t:mallComponents.control.pagedLoop>
+        <ul class="prod_cat_grid2 pccat">
+          <t:mallComponents.control.pagedLoop source="catalogs"
+                                              rowsPerPage="10"
+                                              value="oneCatalog">
+              <li class="banner">
+                  <t:pageLink t:page="pcatalog" t:context="oneCatalog.rootId">
+                      <t:if test="oneCatalog.imageReady">
+                          <img style="background-image: url('${imageURL}');" src="/images/0.gif" alt="${oneCatalog.name}" title="${oneCatalog.name}"/>
+                          <t:parameter name="else">
+                              <img src="/images/lb-front/def/nopic7.gif" alt="${oneCatalog.name}" title="${oneCatalog.name}"/>
+                          </t:parameter>
+                      </t:if>
+                  </t:pageLink>
+                  <t:pageLink t:page="pcatalog" t:context="oneCatalog.rootId">${oneCatalog.name}</t:pageLink>
+              </li>
+              <t:parameter name="empty">
+                  <h3>Раздел в стадии наполнения</h3>
+              </t:parameter>
+          </t:mallComponents.control.pagedLoop>
+        </ul>
+
+    <t:mallComponents.control.javascript>
+        LB.gridManipulation();
+    </t:mallComponents.control.javascript>
 
     </t:mallcomponents.layout.browse>
 
