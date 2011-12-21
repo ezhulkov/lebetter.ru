@@ -60,7 +60,7 @@
         </div>
 
         <!-- pictures -->
-        <div class="pictures_box">
+        <div class="pictures_box" style="display: none;">
 
             <ul>
               <li class="pccatban">
