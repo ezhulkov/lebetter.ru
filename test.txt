@@ -1,2 +1,5 @@
 test
+<<<<<<< HEAD
 test
+=======
+>>>>>>> 0715eae4302fe44a782155c15bf56a2f9bfc71a8
